@@ -33,7 +33,7 @@
                                 "Saturday"
                             ],
                             "time": "05:45",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -46,7 +46,7 @@
                                 "Saturday"
                             ],
                             "time": "06:15",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -54,7 +54,7 @@
                                 "Everyday"
                             ],
                             "time": "06:45",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -62,7 +62,7 @@
                                 "Everyday"
                             ],
                             "time": "07:15",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -70,7 +70,7 @@
                                 "Everyday"
                             ],
                             "time": "07:45",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -78,7 +78,7 @@
                                 "Everyday"
                             ],
                             "time": "08:15",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -86,7 +86,7 @@
                                 "Everyday"
                             ],
                             "time": "09:30",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -94,7 +94,7 @@
                                 "Everyday"
                             ],
                             "time": "10:00",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -102,7 +102,7 @@
                                 "Everyday"
                             ],
                             "time": "10:45",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -110,7 +110,7 @@
                                 "Everyday"
                             ],
                             "time": "11:15",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -118,7 +118,7 @@
                                 "Everyday"
                             ],
                             "time": "12:15",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -126,7 +126,7 @@
                                 "Everyday"
                             ],
                             "time": "12:45",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -134,7 +134,7 @@
                                 "Everyday"
                             ],
                             "time": "02:15",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -142,7 +142,7 @@
                                 "Everyday"
                             ],
                             "time": "02:45",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -150,7 +150,7 @@
                                 "Everyday"
                             ],
                             "time": "03:15",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -158,7 +158,7 @@
                                 "Everyday"
                             ],
                             "time": "03:45",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -166,7 +166,7 @@
                                 "Everyday"
                             ],
                             "time": "04:30",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -174,7 +174,7 @@
                                 "Everyday"
                             ],
                             "time": "05:00",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -182,7 +182,7 @@
                                 "Everyday"
                             ],
                             "time": "05:35",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -190,7 +190,7 @@
                                 "Everyday"
                             ],
                             "time": "06:00",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -203,7 +203,7 @@
                                 "Holiday"
                             ],
                             "time": "07:15",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": false
                         },
                         {
@@ -216,7 +216,7 @@
                                 "Holiday"
                             ],
                             "time": "07:45",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": false
                         },
                         {
@@ -225,7 +225,7 @@
                                 "Saturday"
                             ],
                             "time": "07:15",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -234,7 +234,7 @@
                                 "Saturday"
                             ],
                             "time": "07:45",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -247,7 +247,7 @@
                                 "Holiday"
                             ],
                             "time": "08:15",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": false
                         },
                         {
@@ -260,7 +260,7 @@
                                 "Holiday"
                             ],
                             "time": "08:45",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": false
                         },
                         {
@@ -269,7 +269,7 @@
                                 "Saturday"
                             ],
                             "time": "08:15",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -278,7 +278,7 @@
                                 "Saturday"
                             ],
                             "time": "08:45",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -291,7 +291,7 @@
                                 "Holiday"
                             ],
                             "time": "09:15",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": false
                         },
                         {
@@ -304,7 +304,7 @@
                                 "Holiday"
                             ],
                             "time": "09:45",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": false
                         },
                         {
@@ -313,7 +313,7 @@
                                 "Saturday"
                             ],
                             "time": "09:15",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -322,7 +322,7 @@
                                 "Saturday"
                             ],
                             "time": "09:45",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -335,7 +335,7 @@
                                 "Holiday"
                             ],
                             "time": "10:30",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": false
                         },
                         {
@@ -348,7 +348,7 @@
                                 "Holiday"
                             ],
                             "time": "10:55",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": false
                         },
                         {
@@ -357,7 +357,7 @@
                                 "Saturday"
                             ],
                             "time": "10:30",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -366,7 +366,7 @@
                                 "Saturday"
                             ],
                             "time": "10:55",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         },
                         {
@@ -375,7 +375,7 @@
                                 "Saturday"
                             ],
                             "time": "11:30",
-                            "reverse": false,
+                            "direction": "->",
                             "cars": true
                         },
                         {
@@ -384,7 +384,7 @@
                                 "Saturday"
                             ],
                             "time": "11:55",
-                            "reverse": true,
+                            "direction": "<-",
                             "cars": true
                         }
                     ]
