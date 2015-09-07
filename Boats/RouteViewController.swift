@@ -61,14 +61,28 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
                 return
             }
             nameLabel.text = route.name
-            seasonLabel.text = " \(schedule.season.rawValue) "
+            seasonLabel.text = schedule.season.rawValue
+            seasonLabel.backgroundColor = UIColor.grayColor()
             seasonLabel.hidden = false
             dateFormatter.dateFormat = "EEEE, MMMM d"
             dateLabel.text = dateFormatter.stringFromDate(NSDate())
             departuresSegmentedControl.setTitle("From \(route.origin.name)", forSegmentAtIndex: 0)
             departuresSegmentedControl.setTitle("To \(route.origin.name)", forSegmentAtIndex: 1)
-            departuresTableViewControllers[0].departures = schedule.departures(.Everyday, direction: .Destination)
-            departuresTableViewControllers[1].departures = schedule.departures(.Everyday, direction: .Origin)
+            dateFormatter.dateFormat = Day.format
+            var day: Day = .Everyday
+            if let _ = Day(rawValue: dateFormatter.stringFromDate(NSDate())) {
+                day = Day(rawValue: dateFormatter.stringFromDate(NSDate()))!
+            }
+            for holiday in schedule.holidays {
+                if (holiday.date.value == date.value) {
+                    day = .Holiday
+                    seasonLabel.text = day.rawValue
+                    seasonLabel.backgroundColor = UIColor.redColor()
+                    dateLabel.text = holiday.name
+                }
+            }
+            departuresTableViewControllers[0].departures = schedule.departures(day, direction: .Destination)
+            departuresTableViewControllers[1].departures = schedule.departures(day, direction: .Origin)
         }
     }
     

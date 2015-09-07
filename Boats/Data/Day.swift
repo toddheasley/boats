@@ -8,6 +8,7 @@
 import Foundation
 
 enum Day: String {
+    static var format: String = "EEEE"
     case Everyday = "Everyday"
     case Monday = "Monday"
     case Tuesday = "Tuesday"
