@@ -10,6 +10,7 @@ import XCTest
 class RouteTests: XCTestCase {
     let JSON = [
         "name": "Name",
+        "code": "#",
         "destination": [
             "name": "Name",
             "description": "Description",
@@ -30,8 +31,19 @@ class RouteTests: XCTestCase {
         ]
     ]
     
+    func testSchedule() {
+        guard let _ = Route(JSON: JSON) else {
+            XCTFail()
+            return
+        }
+        XCTAssertNotNil(Route(JSON: JSON)!.schedule(Date(JSON: "2016-08-01")!))
+        XCTAssertTrue(Route(JSON: JSON)!.schedule(Date(JSON: "2015-12-31")!) == nil)
+        XCTAssertTrue(Route(JSON: JSON)!.schedule(Date(JSON: "2016-10-15")!) == nil)
+    }
+    
     func testJSONDecoding() {
         XCTAssertEqual(Route(JSON: JSON)?.name, "Name")
+        XCTAssertEqual(Route(JSON: JSON)?.code, "#")
         XCTAssertEqual(Route(JSON: JSON)?.destination.name, "Name")
         XCTAssertEqual(Route(JSON: JSON)?.origin.name, "Name")
         XCTAssertEqual(Route(JSON: JSON)?.schedules.count, 1)
@@ -43,6 +55,7 @@ class RouteTests: XCTestCase {
             return
         }
         XCTAssertEqual((Route(JSON: JSON)!.JSON as! [String: AnyObject])["name"] as? String, "Name")
+        XCTAssertEqual((Route(JSON: JSON)!.JSON as! [String: AnyObject])["code"] as? String, "#")
         XCTAssertNotNil((Route(JSON: JSON)!.JSON as! [String: AnyObject])["destination"] as? [String: AnyObject])
         XCTAssertNotNil((Route(JSON: JSON)!.JSON as! [String: AnyObject])["origin"] as? [String: AnyObject])
         XCTAssertEqual(((Route(JSON: JSON)!.JSON as! [String: AnyObject])["schedules"] as! [AnyObject]).count, 1)

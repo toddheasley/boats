@@ -8,9 +8,18 @@
 import Foundation
 
 struct Date: JSONDecoding, JSONEncoding {
+    static var format: String = "yyyy-MM-dd"
     private(set) var year: Int
     private(set) var month: Int
     private(set) var day: Int
+    
+    var value: Int {
+        return Int([
+            String(format: "%04d", year),
+            String(format: "%02d", month),
+            String(format: "%02d", day)
+        ].joinWithSeparator(""))!
+    }
     
     // MARK: JSONEncoding
     var JSON: AnyObject {

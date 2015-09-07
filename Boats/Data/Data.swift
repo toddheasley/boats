@@ -9,14 +9,16 @@ import Foundation
 
 class Data: JSONEncoding {
     static let sharedData = Data()
-    private(set) var routes: [Route] = []
     private(set) var local: Bool = false
+    private(set) var routes: [Route] = []
     
-    // MARK: JSONEncoding
-    var JSON: AnyObject {
-        return [
-            "routes": routes.map{$0.JSON}
-        ]
+    func route(code: String) -> Route? {
+        for route in routes {
+            if (code == route.code) {
+                return route
+            }
+        }
+        return nil
     }
     
     func refresh(completion: (error: Error) -> Void) {
@@ -71,5 +73,12 @@ class Data: JSONEncoding {
     convenience init(local: Bool) {
         self.init()
         self.local = local
+    }
+    
+    // MARK: JSONEncoding
+    var JSON: AnyObject {
+        return [
+            "routes": routes.map{$0.JSON}
+        ]
     }
 }

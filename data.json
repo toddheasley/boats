@@ -2,6 +2,7 @@
     "routes": [
         {
             "name": "Peaks Island",
+            "code": "PEAKS",
             "destination": {
                 "name": "Peaks Island",
                 "description": "Forest City Landing",
@@ -15,7 +16,7 @@
             "schedules": [
                 {
                     "season": "Fall",
-                    "dates": "2015-09-08,2015-10-12",
+                    "dates": "2015-09-06,2015-10-12",
                     "holidays": [
                         {
                             "name": "Columbus Day",

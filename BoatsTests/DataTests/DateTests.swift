@@ -8,6 +8,10 @@
 import XCTest
 
 class DateTests: XCTestCase {
+    func testValue() {
+        XCTAssertEqual(Date(JSON: "2016-07-04")?.value, 20160704)
+    }
+    
     func testJSONDecoding() {
         XCTAssertEqual(Date(JSON: "2016-07-04")?.year, 2016)
         XCTAssertEqual(Date(JSON: "2016-07-04")?.month, 7)

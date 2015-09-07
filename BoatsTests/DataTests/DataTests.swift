@@ -9,6 +9,26 @@ import XCTest
 @testable import Boats
 
 class DataTests: XCTestCase {
+    func testRoute() {
+        let expectation = expectationWithDescription("")
+        let data = Data(local: true)
+        data.refresh(){ error in
+            if (data.routes.count < 1) {
+                XCTFail()
+                expectation.fulfill()
+                return
+            }
+            XCTAssertNotNil(data.route(data.routes[0].code))
+            XCTAssertNil(data.route("#"))
+            expectation.fulfill()
+        }
+        waitForExpectationsWithTimeout(10.0){ error in
+            if let error = error {
+                XCTFail("\(error)")
+            }
+        }
+    }
+    
     func testRefresh() {
         let expectation = expectationWithDescription("")
         let data = Data(local: false)
