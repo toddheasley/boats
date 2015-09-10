@@ -8,6 +8,10 @@
 import XCTest
 
 class TimeTests: XCTestCase {
+    func testValue() {
+        XCTAssertEqual(Time(JSON: "20:35")?.value, 2035)
+    }
+    
     func testJSONDecoding() {
         XCTAssertEqual(Time(JSON: "19:45")?.hour, 19)
         XCTAssertEqual(Time(JSON: "19:45")?.minute, 45)

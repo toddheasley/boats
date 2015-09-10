@@ -8,7 +8,7 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
-    var data: Data = Data(local: true)
+    var data: Data = Data()
     
     func refresh(sender: AnyObject?) {
         if (sender == nil) {
@@ -24,8 +24,7 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .None
-        tableView.registerClass(MainTableViewCell.self, forCellReuseIdentifier: "MainTableViewCell")
+        tableView.registerClass(MainRouteTableViewCell.self, forCellReuseIdentifier: "MainRouteTableViewCell")
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
         refresh(nil)
@@ -42,12 +41,11 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section > 0) {
-            let cell = tableView.dequeueReusableCellWithIdentifier("MainTableViewCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("MainRouteTableViewCell", forIndexPath: indexPath)
             cell.textLabel?.text = data.routes[indexPath.row].name
             return cell
         }
-        let cell = tableView.dequeueReusableCellWithIdentifier("MainTableViewCell", forIndexPath: indexPath)
-        cell.textLabel?.text = ""
+        let cell = tableView.dequeueReusableCellWithIdentifier("MainRouteTableViewCell", forIndexPath: indexPath)
         return cell
     }
     

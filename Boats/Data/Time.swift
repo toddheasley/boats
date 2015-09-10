@@ -8,15 +8,23 @@
 import Foundation
 
 struct Time: JSONDecoding, JSONEncoding {
+    static var format: String = "HH:mm"
     private(set) var hour: Int
     private(set) var minute: Int
+    
+    var value: Int {
+        return Int([
+            String(format: "%02d", hour),
+            String(format: "%02d", minute)
+        ].joinWithSeparator(""))!
+    }
     
     // MARK: JSONEncoding
     var JSON: AnyObject {
         return [
             String(format: "%02d", hour),
             String(format: "%02d", minute)
-            ].joinWithSeparator(":")
+        ].joinWithSeparator(":")
     }
     
     // MARK JSONDecoding

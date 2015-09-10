@@ -8,7 +8,7 @@
 import XCTest
 
 class RouteTests: XCTestCase {
-    let JSON = [
+    let JSON: [String: AnyObject] = [
         "name": "Name",
         "code": "#",
         "destination": [

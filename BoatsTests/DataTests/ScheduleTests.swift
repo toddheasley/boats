@@ -33,7 +33,7 @@ class ScheduleTests: XCTestCase {
                 "time": "019:45",
                 "direction": Direction.Origin.rawValue,
                 "cars": false
-            ],
+            ]
         ]
     ]
     

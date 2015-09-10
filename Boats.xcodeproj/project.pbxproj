@@ -47,15 +47,13 @@
 		5C277CA41B979A5000D18D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C277CA31B979A5000D18D14 /* Assets.xcassets */; };
 		5C277CB21B979A5000D18D14 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C277CB11B979A5000D18D14 /* DataTests.swift */; };
 		5C59F0001B993AE80081CE15 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C59EFFF1B993AE80081CE15 /* data.json */; settings = {ASSET_TAGS = (); }; };
-		5C8914121B979AB300948F66 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5C8914111B979AB300948F66 /* README.md */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5D81B9CA8E400AF4CDE /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5D71B9CA8E400AF4CDE /* RouteViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5DC1B9CB88300AF4CDE /* DeparturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5E11B9CBD4900AF4CDE /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */; settings = {ASSET_TAGS = (); }; };
-		5CDDC5E41B9CBDA400AF4CDE /* RouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDDC5E21B9CBDA400AF4CDE /* RouteView.xib */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5E91B9CBFB400AF4CDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDDC5E71B9CBFB400AF4CDE /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5EB1B9D38E300AF4CDE /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		5CDDC5ED1B9D3AD400AF4CDE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5EC1B9D3AD400AF4CDE /* MainTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		5CDDC5ED1B9D3AD400AF4CDE /* MainRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5EC1B9D3AD400AF4CDE /* MainRouteTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,10 +102,9 @@
 		5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeparturesTableViewController.swift; sourceTree = "<group>"; };
 		5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureTableViewCell.swift; sourceTree = "<group>"; };
 		5CDDC5E01B9CBD4900AF4CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Launch.xib; sourceTree = "<group>"; };
-		5CDDC5E31B9CBDA400AF4CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RouteView.xib; sourceTree = "<group>"; };
 		5CDDC5E81B9CBFB400AF4CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
-		5CDDC5EC1B9D3AD400AF4CDE /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		5CDDC5EC1B9D3AD400AF4CDE /* MainRouteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,11 +142,10 @@
 			children = (
 				5C5459131B9A7F74005FCDA1 /* Data */,
 				5CDDC5D71B9CA8E400AF4CDE /* RouteViewController.swift */,
-				5CDDC5E21B9CBDA400AF4CDE /* RouteView.xib */,
 				5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */,
 				5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */,
 				5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */,
-				5CDDC5EC1B9D3AD400AF4CDE /* MainTableViewCell.swift */,
+				5CDDC5EC1B9D3AD400AF4CDE /* MainRouteTableViewCell.swift */,
 				5CDDC5E71B9CBFB400AF4CDE /* Main.storyboard */,
 				5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */,
 				5C277CA31B979A5000D18D14 /* Assets.xcassets */,
@@ -290,7 +286,6 @@
 				5CDDC5E91B9CBFB400AF4CDE /* Main.storyboard in Resources */,
 				5C59F0001B993AE80081CE15 /* data.json in Resources */,
 				5CDDC5E11B9CBD4900AF4CDE /* Launch.xib in Resources */,
-				5CDDC5E41B9CBDA400AF4CDE /* RouteView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +321,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C1D07B21B9A82E4008BEB97 /* Error.swift in Sources */,
-				5C8914121B979AB300948F66 /* README.md in Sources */,
 				5C1D07931B9A809D008BEB97 /* Route.swift in Sources */,
 				5C1D07A31B9A8205008BEB97 /* Holiday.swift in Sources */,
 				5CDDC5DC1B9CB88300AF4CDE /* DeparturesTableViewController.swift in Sources */,
@@ -335,7 +329,7 @@
 				5C1D079D1B9A8146008BEB97 /* Location.swift in Sources */,
 				5C1D07C91B9B9958008BEB97 /* Direction.swift in Sources */,
 				5C1D07A91B9A826F008BEB97 /* Time.swift in Sources */,
-				5CDDC5ED1B9D3AD400AF4CDE /* MainTableViewCell.swift in Sources */,
+				5CDDC5ED1B9D3AD400AF4CDE /* MainRouteTableViewCell.swift in Sources */,
 				5C1D07AF1B9A82C8008BEB97 /* Day.swift in Sources */,
 				5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */,
 				5CDDC5EB1B9D38E300AF4CDE /* MainTableViewController.swift in Sources */,
@@ -396,14 +390,6 @@
 				5CDDC5E01B9CBD4900AF4CDE /* Base */,
 			);
 			name = Launch.xib;
-			sourceTree = "<group>";
-		};
-		5CDDC5E21B9CBDA400AF4CDE /* RouteView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5CDDC5E31B9CBDA400AF4CDE /* Base */,
-			);
-			name = RouteView.xib;
 			sourceTree = "<group>";
 		};
 		5CDDC5E71B9CBFB400AF4CDE /* Main.storyboard */ = {

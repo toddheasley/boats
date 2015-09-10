@@ -10,8 +10,8 @@ import XCTest
 
 class DataTests: XCTestCase {
     func testRoute() {
-        let expectation = expectationWithDescription("")
-        let data = Data(local: true)
+        let expectation: XCTestExpectation = expectationWithDescription("")
+        let data: Data = Data(local: true)
         data.refresh(){ error in
             if (data.routes.count < 1) {
                 XCTFail()
@@ -30,8 +30,8 @@ class DataTests: XCTestCase {
     }
     
     func testRefresh() {
-        let expectation = expectationWithDescription("")
-        let data = Data(local: false)
+        let expectation: XCTestExpectation = expectationWithDescription("")
+        let data: Data = Data(local: false)
         data.refresh(){ error in
             guard let _ = data.JSON as? [String: [AnyObject]] else {
                 XCTFail()
@@ -41,8 +41,8 @@ class DataTests: XCTestCase {
             XCTAssertTrue(data.routes.count > 0)
             expectation.fulfill()
         }
-        let localExpectation = expectationWithDescription("Local")
-        let localData = Data(local: true)
+        let localExpectation: XCTestExpectation = expectationWithDescription("Local")
+        let localData: Data = Data(local: true)
         localData.refresh(){ error in
             guard let _ = localData.JSON as? [String: [AnyObject]] else {
                 XCTFail()
@@ -60,8 +60,8 @@ class DataTests: XCTestCase {
     }
     
     func testJSONEncoding() {
-        let expectation = expectationWithDescription("")
-        let data = Data(local: true)
+        let expectation: XCTestExpectation = expectationWithDescription("")
+        let data: Data = Data(local: true)
         data.refresh(){ error in
             guard let _ = data.JSON as? [String: [AnyObject]] else {
                 XCTFail()
