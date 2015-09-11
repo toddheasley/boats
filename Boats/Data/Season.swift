@@ -12,4 +12,5 @@ enum Season: String {
     case Summer = "Summer"
     case Fall = "Fall"
     case Winter = "Winter"
+    case All = ""
 }

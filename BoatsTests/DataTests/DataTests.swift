@@ -9,26 +9,6 @@ import XCTest
 @testable import Boats
 
 class DataTests: XCTestCase {
-    func testRoute() {
-        let expectation: XCTestExpectation = expectationWithDescription("")
-        let data: Data = Data(local: true)
-        data.refresh(){ error in
-            if (data.routes.count < 1) {
-                XCTFail()
-                expectation.fulfill()
-                return
-            }
-            XCTAssertNotNil(data.route(data.routes[0].code))
-            XCTAssertNil(data.route("#"))
-            expectation.fulfill()
-        }
-        waitForExpectationsWithTimeout(10.0){ error in
-            if let error = error {
-                XCTFail("\(error)")
-            }
-        }
-    }
-    
     func testRefresh() {
         let expectation: XCTestExpectation = expectationWithDescription("")
         let data: Data = Data(local: false)
@@ -38,7 +18,7 @@ class DataTests: XCTestCase {
                 expectation.fulfill()
                 return
             }
-            XCTAssertTrue(data.routes.count > 0)
+            XCTAssertTrue(data.providers.count > 0)
             expectation.fulfill()
         }
         let localExpectation: XCTestExpectation = expectationWithDescription("Local")
@@ -49,7 +29,7 @@ class DataTests: XCTestCase {
                 localExpectation.fulfill()
                 return
             }
-            XCTAssertTrue(localData.routes.count > 0)
+            XCTAssertTrue(localData.providers.count > 0)
             localExpectation.fulfill()
         }
         waitForExpectationsWithTimeout(10.0){ error in
@@ -68,7 +48,7 @@ class DataTests: XCTestCase {
                 expectation.fulfill()
                 return
             }
-            XCTAssertTrue((data.JSON as! [String: [AnyObject]])["routes"]?.count > 0)
+            XCTAssertTrue((data.JSON as! [String: [AnyObject]])["providers"]?.count > 0)
             expectation.fulfill()
         }
         waitForExpectationsWithTimeout(10.0){ error in

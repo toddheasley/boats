@@ -13,6 +13,7 @@ class DepartureTableViewCell: UITableViewCell {
     private var separatorLabel: UILabel!
     private var minuteLabels: [UILabel] = []
     private var periodLabel: UILabel!
+    private var carLabel: UILabel!
     
     var departure: Departure? {
         didSet {
@@ -48,25 +49,25 @@ class DepartureTableViewCell: UITableViewCell {
         
         for view in contentView.subviews {
             if let view = view as? UILabel {
-                view.textColor = (status == .Current) ? UIColor.whiteColor() : UILabel().textColor
+                view.textColor = (status == .Current) ? UIColor.whiteColor() : UIColor.darkGrayColor()
             }
         }
         contentView.backgroundColor = (status == .Current) ? tintColor : UIColor.clearColor()
-        contentView.alpha = (status == .Past) ? 0.1 : 0.85
+        contentView.alpha = (status == .Past) ? 0.1 : 1.0
         hourLabels[0].alpha = (status == .Past || hourLabels[0].text != "0") ? 1.0 : 0.1
         
-        //separatorInset = UIEdgeInsetsZero
-        //layoutMargins = (status == .Current) ? UIEdgeInsetsZero : UIEdgeInsetsMake(0.0, 17.0, 0.0, 0.0)
+        separatorInset = UIEdgeInsetsZero
+        layoutMargins = (status == .Current) ? UIEdgeInsetsZero : UIEdgeInsetsMake(0.0, hourLabels[0].frame.origin.x, 0.0, 0.0)
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .None
-        //preservesSuperviewLayoutMargins = false
+        preservesSuperviewLayoutMargins = false
         
         hourLabels.append(UILabel())
-        hourLabels[0].frame = CGRectMake(16.0, 0.0, 28.0, contentView.bounds.size.height)
+        hourLabels[0].frame = CGRectMake(15.0, 0.0, 28.0, contentView.bounds.size.height)
         hourLabels[0].autoresizingMask = [.FlexibleHeight]
         hourLabels[0].font = UIFont.systemFontOfSize(43.0)
         hourLabels[0].textAlignment = .Center

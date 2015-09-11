@@ -8,14 +8,14 @@
 import Foundation
 
 class Data: JSONEncoding {
-    static let sharedData = Data()
+    static let sharedData = Data(local: true)
     private(set) var local: Bool = false
-    private(set) var routes: [Route] = []
+    private(set) var providers: [Provider] = []
     
-    func route(code: String) -> Route? {
-        for route in routes {
-            if (code == route.code) {
-                return route
+    func provider(code: String) -> Provider? {
+        for provider in providers {
+            if (code == provider.code) {
+                return provider
             }
         }
         return nil
@@ -50,19 +50,19 @@ class Data: JSONEncoding {
                 return
             }
             do {
-                guard let JSON = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as? [String: AnyObject], let _ = JSON["routes"] as? [AnyObject] else {
+                guard let JSON = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as? [String: AnyObject], let _ = JSON["providers"] as? [AnyObject] else {
                     completion(error: .JSONDecoding)
                     return
                 }
-                var routes: [Route] = []
-                for routeJSON in (JSON["routes"] as! [AnyObject]) {
-                    guard let route = Route(JSON: routeJSON) else {
+                var providers: [Provider] = []
+                for providerJSON in (JSON["providers"] as! [AnyObject]) {
+                    guard let provider = Provider(JSON: providerJSON) else {
                         completion(error: .JSONDecoding)
                         return
                     }
-                    routes.append(route)
+                    providers.append(provider)
                 }
-                self.routes = routes
+                self.providers = providers
                 completion(error: .None)
             } catch  {
                 completion(error: .JSONDecoding)
@@ -78,7 +78,7 @@ class Data: JSONEncoding {
     // MARK: JSONEncoding
     var JSON: AnyObject {
         return [
-            "routes": routes.map{$0.JSON}
+            "providers": providers.map{$0.JSON}
         ]
     }
 }

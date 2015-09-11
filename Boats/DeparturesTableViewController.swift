@@ -50,15 +50,15 @@ class DeparturesTableViewController: UITableViewController {
             return
         }
         let rect = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: departure.index, inSection: 0))
-        tableView.setContentOffset(CGPointMake(0.0, rect.origin.y), animated: animated)
+        tableView.setContentOffset(CGPointMake(0.0, rect.origin.y - tableView.contentInset.top), animated: animated)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.registerClass(DepartureTableViewCell.self, forCellReuseIdentifier: "DepartureTableViewCell")
-        //tableView.separatorInset = UIEdgeInsetsZero
-        //tableView.layoutMargins = UIEdgeInsetsZero
+        tableView.separatorInset = UIEdgeInsetsZero
+        tableView.layoutMargins = UIEdgeInsetsZero
     }
     
     override func viewWillAppear(animated: Bool) {

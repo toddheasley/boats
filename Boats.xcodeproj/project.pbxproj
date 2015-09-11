@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C1788B01BA3112700E6E268 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1788AF1BA3112700E6E268 /* Provider.swift */; settings = {ASSET_TAGS = (); }; };
+		5C1788B11BA3112700E6E268 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1788AF1BA3112700E6E268 /* Provider.swift */; settings = {ASSET_TAGS = (); }; };
+		5C1788B31BA315F000E6E268 /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1788B21BA315F000E6E268 /* ProviderTests.swift */; settings = {ASSET_TAGS = (); }; };
 		5C1D07911B9A804A008BEB97 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07901B9A804A008BEB97 /* JSON.swift */; settings = {ASSET_TAGS = (); }; };
 		5C1D07931B9A809D008BEB97 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07921B9A809D008BEB97 /* Route.swift */; settings = {ASSET_TAGS = (); }; };
 		5C1D07941B9A809D008BEB97 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07921B9A809D008BEB97 /* Route.swift */; settings = {ASSET_TAGS = (); }; };
@@ -51,9 +54,7 @@
 		5CDDC5DC1B9CB88300AF4CDE /* DeparturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5E11B9CBD4900AF4CDE /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */; settings = {ASSET_TAGS = (); }; };
-		5CDDC5E91B9CBFB400AF4CDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDDC5E71B9CBFB400AF4CDE /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5EB1B9D38E300AF4CDE /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		5CDDC5ED1B9D3AD400AF4CDE /* MainRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5EC1B9D3AD400AF4CDE /* MainRouteTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C1788AF1BA3112700E6E268 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Provider.swift; path = Data/Provider.swift; sourceTree = "<group>"; };
+		5C1788B21BA315F000E6E268 /* ProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProviderTests.swift; path = DataTests/ProviderTests.swift; sourceTree = "<group>"; };
+		5C1788B61BA3614B00E6E268 /* Boats.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = Boats.sketch; sourceTree = "<group>"; };
 		5C1D07901B9A804A008BEB97 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Data/JSON.swift; sourceTree = "<group>"; };
 		5C1D07921B9A809D008BEB97 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Data/Route.swift; sourceTree = "<group>"; };
 		5C1D07961B9A8102008BEB97 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = Data/Schedule.swift; sourceTree = "<group>"; };
@@ -102,9 +106,7 @@
 		5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeparturesTableViewController.swift; sourceTree = "<group>"; };
 		5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureTableViewCell.swift; sourceTree = "<group>"; };
 		5CDDC5E01B9CBD4900AF4CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Launch.xib; sourceTree = "<group>"; };
-		5CDDC5E81B9CBFB400AF4CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
-		5CDDC5EC1B9D3AD400AF4CDE /* MainRouteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				5C277CB01B979A5000D18D14 /* BoatsTests */,
 				5C8914131B979C7B00948F66 /* Boats.app */,
 				5C267DD21B97B64E000ABD4F /* BoatsTests.xctest */,
+				5C1788B61BA3614B00E6E268 /* Boats.sketch */,
 				5C8914111B979AB300948F66 /* README.md */,
 				5C59EFFF1B993AE80081CE15 /* data.json */,
 			);
@@ -145,8 +148,6 @@
 				5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */,
 				5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */,
 				5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */,
-				5CDDC5EC1B9D3AD400AF4CDE /* MainRouteTableViewCell.swift */,
-				5CDDC5E71B9CBFB400AF4CDE /* Main.storyboard */,
 				5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */,
 				5C277CA31B979A5000D18D14 /* Assets.xcassets */,
 				5C277C9C1B979A5000D18D14 /* AppDelegate.swift */,
@@ -168,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				5C267DD61B97DB92000ABD4F /* Data.swift */,
+				5C1788AF1BA3112700E6E268 /* Provider.swift */,
 				5C1D07921B9A809D008BEB97 /* Route.swift */,
 				5C1D07961B9A8102008BEB97 /* Schedule.swift */,
 				5C1D07991B9A8123008BEB97 /* Departure.swift */,
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				5C277CB11B979A5000D18D14 /* DataTests.swift */,
+				5C1788B21BA315F000E6E268 /* ProviderTests.swift */,
 				5C1D07B41B9A8700008BEB97 /* RouteTests.swift */,
 				5C1D07B61B9A8728008BEB97 /* ScheduleTests.swift */,
 				5C1D07B81B9A874C008BEB97 /* DepartureTests.swift */,
@@ -283,7 +286,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C277CA41B979A5000D18D14 /* Assets.xcassets in Resources */,
-				5CDDC5E91B9CBFB400AF4CDE /* Main.storyboard in Resources */,
 				5C59F0001B993AE80081CE15 /* data.json in Resources */,
 				5CDDC5E11B9CBD4900AF4CDE /* Launch.xib in Resources */,
 			);
@@ -324,12 +326,12 @@
 				5C1D07931B9A809D008BEB97 /* Route.swift in Sources */,
 				5C1D07A31B9A8205008BEB97 /* Holiday.swift in Sources */,
 				5CDDC5DC1B9CB88300AF4CDE /* DeparturesTableViewController.swift in Sources */,
+				5C1788B01BA3112700E6E268 /* Provider.swift in Sources */,
 				5C1D07911B9A804A008BEB97 /* JSON.swift in Sources */,
 				5C267DD71B97DB92000ABD4F /* Data.swift in Sources */,
 				5C1D079D1B9A8146008BEB97 /* Location.swift in Sources */,
 				5C1D07C91B9B9958008BEB97 /* Direction.swift in Sources */,
 				5C1D07A91B9A826F008BEB97 /* Time.swift in Sources */,
-				5CDDC5ED1B9D3AD400AF4CDE /* MainRouteTableViewCell.swift in Sources */,
 				5C1D07AF1B9A82C8008BEB97 /* Day.swift in Sources */,
 				5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */,
 				5CDDC5EB1B9D38E300AF4CDE /* MainTableViewController.swift in Sources */,
@@ -359,7 +361,9 @@
 				5C1D07A11B9A81D0008BEB97 /* Coordinate.swift in Sources */,
 				5C1D07C11B9A87B8008BEB97 /* DateTests.swift in Sources */,
 				5C1D07BF1B9A879C008BEB97 /* HolidayTests.swift in Sources */,
+				5C1788B31BA315F000E6E268 /* ProviderTests.swift in Sources */,
 				5C267DD81B97DB92000ABD4F /* Data.swift in Sources */,
+				5C1788B11BA3112700E6E268 /* Provider.swift in Sources */,
 				5C1D07981B9A8102008BEB97 /* Schedule.swift in Sources */,
 				5C1D07B51B9A8700008BEB97 /* RouteTests.swift in Sources */,
 				5C1D07951B9A80DE008BEB97 /* JSON.swift in Sources */,
@@ -390,14 +394,6 @@
 				5CDDC5E01B9CBD4900AF4CDE /* Base */,
 			);
 			name = Launch.xib;
-			sourceTree = "<group>";
-		};
-		5CDDC5E71B9CBFB400AF4CDE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5CDDC5E81B9CBFB400AF4CDE /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
