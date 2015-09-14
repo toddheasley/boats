@@ -8,7 +8,7 @@
 import UIKit
 
 class DepartureTableViewCell: UITableViewCell {
-    static var height: CGFloat = 67.0
+    static var height: CGFloat = 68.0
     private var hourLabels: [UILabel] = []
     private var separatorLabel: UILabel!
     private var minuteLabels: [UILabel] = []
@@ -39,12 +39,16 @@ class DepartureTableViewCell: UITableViewCell {
             minuteLabels[0].text = "\(minute.characters.first!)"
             minuteLabels[1].text = "\(minute.characters.last!)"
             periodLabel.text = (departure.time.hour > 11) ? "PM" : "AM"
+            
+            carLabel.hidden = !departure.cars
         } else {
             hourLabels[0].text = "0"
             hourLabels[1].text = "0"
             minuteLabels[0].text = "0"
             minuteLabels[1].text = "0"
             periodLabel.text = "AM"
+            
+            carLabel.hidden = true
         }
         
         for view in contentView.subviews {
@@ -106,6 +110,13 @@ class DepartureTableViewCell: UITableViewCell {
         periodLabel.font = UIFont.systemFontOfSize(12.0)
         periodLabel.textAlignment = .Center
         contentView.addSubview(periodLabel)
+        
+        carLabel = UILabel(frame: CGRectMake(contentView.bounds.size.width - 123.0, 0.0, 100.0, contentView.bounds.size.height))
+        carLabel.autoresizingMask = [.FlexibleLeftMargin, .FlexibleHeight]
+        carLabel.font = textLabel?.font
+        carLabel.textAlignment = .Right
+        carLabel.text = "Car Ferry"
+        contentView.addSubview(carLabel)
     }
 
     required init?(coder decoder: NSCoder) {

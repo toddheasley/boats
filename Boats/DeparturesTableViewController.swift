@@ -49,8 +49,11 @@ class DeparturesTableViewController: UITableViewController {
         guard let departure = currentDeparture else {
             return
         }
-        let rect = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: departure.index, inSection: 0))
-        tableView.setContentOffset(CGPointMake(0.0, rect.origin.y - tableView.contentInset.top), animated: animated)
+        
+        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: departure.index, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: animated)
+        
+        //let rect = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: departure.index, inSection: 0))
+        //tableView.setContentOffset(CGPointMake(0.0, rect.origin.y - tableView.contentInset.top), animated: animated)
     }
     
     override func viewDidLoad() {

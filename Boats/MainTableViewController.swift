@@ -8,32 +8,37 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
-    var data: Data = Data(local: true)
+    var data: Data = Data()
     
     func refresh(sender: AnyObject?) {
-        if (sender == nil) {
-            refreshControl?.beginRefreshing()
-        }
+        refreshControl?.beginRefreshing()
         data.refresh{ error in
             dispatch_async(dispatch_get_main_queue()){
                 self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
+                if let presentedViewController = self.presentedViewController as? RouteViewController {
+                    presentedViewController.viewWillAppear(true)
+                }
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "RouteTableViewCell")
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        tableView.contentInset = UIEdgeInsetsMake(UIApplication.sharedApplication().statusBarFrame.size.height, 0.0, 0.0, 0.0)
+        tableView.scrollIndicatorInsets = tableView.contentInset
+        tableView.tableHeaderView = MainTableHeaderView(frame: CGRectMake(0.0, 0.0, view.bounds.size.width, 102.0))
+        tableView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.975)
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
-        refresh(nil)
+        refresh(self)
     }
     
     required init() {
-        super.init(style: UITableViewStyle.Grouped)
+        super.init(style: .Grouped)
     }
     
     override init(style: UITableViewStyle) {
@@ -46,39 +51,31 @@ class MainTableViewController: UITableViewController {
     
     // MARK: UITableViewDataSource
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return data.providers.count + 1
+        return data.providers.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (section == 0) ? 1 : data.providers[section - 1].routes.count
+        return data.providers[section].routes.count
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (section == 0) ? nil : data.providers[section - 1].name
+        return data.providers[section].name
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (indexPath.section > 0) {
-            let cell = tableView.dequeueReusableCellWithIdentifier("RouteTableViewCell", forIndexPath: indexPath)
-            cell.textLabel?.text = data.providers[indexPath.section - 1].routes[indexPath.row].name
-            return cell
-        }
-        let cell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell", forIndexPath: indexPath)
-        cell.selectionStyle = .None
-        cell.backgroundColor = UIColor.clearColor()
+        let cell = tableView.dequeueReusableCellWithIdentifier("RouteTableViewCell", forIndexPath: indexPath)
+        cell.textLabel?.text = data.providers[indexPath.section].routes[indexPath.row].name
         return cell
     }
     
     // MARK: UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.section > 0) {
-            presentViewController(RouteViewController(route: data.providers[indexPath.section - 1].routes[indexPath.row]), animated: true){
-                tableView.deselectRowAtIndexPath(indexPath, animated: false)
-            }
+        presentViewController(RouteViewController(route: data.providers[indexPath.section].routes[indexPath.row]), animated: true){
+            tableView.deselectRowAtIndexPath(indexPath, animated: false)
         }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return (indexPath.section == 0) ? 221.0 : UITableViewCell().intrinsicContentSize().height
+        return UITableViewCell().intrinsicContentSize().height
     }
 }

@@ -50,6 +50,7 @@
 		5C277CA41B979A5000D18D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C277CA31B979A5000D18D14 /* Assets.xcassets */; };
 		5C277CB21B979A5000D18D14 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C277CB11B979A5000D18D14 /* DataTests.swift */; };
 		5C59F0001B993AE80081CE15 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C59EFFF1B993AE80081CE15 /* data.json */; settings = {ASSET_TAGS = (); }; };
+		5CB60DA31BA7539700AD8099 /* MainTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB60DA21BA7539700AD8099 /* MainTableHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5D81B9CA8E400AF4CDE /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5D71B9CA8E400AF4CDE /* RouteViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5DC1B9CB88300AF4CDE /* DeparturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -102,6 +103,7 @@
 		5C59EFFF1B993AE80081CE15 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		5C8914111B979AB300948F66 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5C8914131B979C7B00948F66 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CB60DA21BA7539700AD8099 /* MainTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableHeaderView.swift; sourceTree = "<group>"; };
 		5CDDC5D71B9CA8E400AF4CDE /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeparturesTableViewController.swift; sourceTree = "<group>"; };
 		5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureTableViewCell.swift; sourceTree = "<group>"; };
@@ -148,9 +150,10 @@
 				5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */,
 				5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */,
 				5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */,
-				5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */,
-				5C277CA31B979A5000D18D14 /* Assets.xcassets */,
+				5CB60DA21BA7539700AD8099 /* MainTableHeaderView.swift */,
 				5C277C9C1B979A5000D18D14 /* AppDelegate.swift */,
+				5C277CA31B979A5000D18D14 /* Assets.xcassets */,
+				5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */,
 				5C277CA81B979A5000D18D14 /* Info.plist */,
 			);
 			path = Boats;
@@ -334,6 +337,7 @@
 				5C1D07A91B9A826F008BEB97 /* Time.swift in Sources */,
 				5C1D07AF1B9A82C8008BEB97 /* Day.swift in Sources */,
 				5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */,
+				5CB60DA31BA7539700AD8099 /* MainTableHeaderView.swift in Sources */,
 				5CDDC5EB1B9D38E300AF4CDE /* MainTableViewController.swift in Sources */,
 				5C1D07A61B9A8255008BEB97 /* Date.swift in Sources */,
 				5C1D07971B9A8102008BEB97 /* Schedule.swift in Sources */,
