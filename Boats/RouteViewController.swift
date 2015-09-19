@@ -9,6 +9,7 @@ import UIKit
 
 class RouteViewController: UIViewController, UIScrollViewDelegate {
     private var route: Route?
+    private var timer: NSTimer?
     private var departuresTableViewControllers: [DeparturesTableViewController]!
     private var departuresView: UIScrollView!
     private var departuresSegmentedControl: UISegmentedControl!
@@ -69,6 +70,16 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
         default:
             direction = .Destination
         }
+    }
+    
+    func applicationWillEnterForeground() {
+        timer?.invalidate()
+        timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(30.0), target: self, selector: "refresh:", userInfo: nil, repeats: true)
+        refresh(self)
+    }
+    
+    func applicationDidEnterBackground() {
+        timer?.invalidate()
     }
     
     override func viewDidLoad() {
@@ -135,12 +146,21 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
         departuresSegmentedControl.selectedSegmentIndex = 0
         departuresSegmentedControl.addTarget(self, action: "changeDirection:", forControlEvents: .ValueChanged)
         detailView.contentView.addSubview(departuresSegmentedControl)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterForeground", name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterBackground", name: UIApplicationDidEnterBackgroundNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        refresh(self)
+        applicationWillEnterForeground()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        applicationDidEnterBackground()
     }
     
     override func viewDidLayoutSubviews() {
@@ -153,8 +173,11 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
     
     convenience init(route: Route) {
         self.init()
-        
         self.route = route
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     // MARK: UIScrollViewDelegate

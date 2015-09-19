@@ -8,7 +8,9 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
-    var data: Data = Data()
+    var data: Data {
+        return Data.sharedData
+    }
     
     func refresh(sender: AnyObject?) {
         refreshControl?.beginRefreshing()

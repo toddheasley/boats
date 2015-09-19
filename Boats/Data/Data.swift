@@ -8,7 +8,7 @@
 import Foundation
 
 class Data: JSONEncoding {
-    static let sharedData = Data(local: true)
+    static let sharedData = Data()
     private(set) var local: Bool = false
     private(set) var providers: [Provider] = []
     
