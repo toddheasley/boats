@@ -1,0 +1,20 @@
+Boats
+====
+Casco Bay Ferry Schedules
+----
+
+Boats is an iOS app for finding the next ferry to and from the islands of Casco Bay.
+
+----
+
+Includes schedules for the following:
+
+[Casco Bay Lines](http://www.cascobaylines.com)
+
+* Peaks island
+* Chebeague Island
+* Long Island
+
+[Chebeague Transportation](http://www.chebeaguetrans.com)
+
+* Chebeague Island
