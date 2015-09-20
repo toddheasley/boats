@@ -1,7 +1,7 @@
 Boats
-====
-Casco Bay Ferry Schedules
 ----
+
+__Casco Bay Ferry Schedules__
 
 Boats is an iOS app for finding the next ferry to and from the islands of Casco Bay.
 
