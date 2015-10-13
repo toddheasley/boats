@@ -20,12 +20,28 @@
                     },
                     "schedules": [
                         {
-                            "season": "Fall",
-                            "dates": "2015-09-08,2015-10-12",
+                            "season": "Winter",
+                            "dates": "2015-10-12,2016-04-15",
                             "holidays": [
                                 {
-                                    "name": "Columbus Day",
-                                    "date": "2015-10-12"
+                                    "name": "Veterans Day",
+                                    "date": "2015-11-11"
+                                },
+                                {
+                                    "name": "Thanksgiving",
+                                    "date": "2015-11-26"
+                                },
+                                {
+                                    "name": "Christmas",
+                                    "date": "2015-12-25"
+                                },
+                                {
+                                    "name": "New Year's Day",
+                                    "date": "2016-01-01"
+                                },
+                                {
+                                    "name": "Presidents' Day",
+                                    "date": "2016-02-15"
                                 }
                             ],
                             "departures": [
@@ -205,6 +221,7 @@
                                         "Tuesday",
                                         "Wednesday",
                                         "Thursday",
+                                        "Saturday",
                                         "Sunday",
                                         "Holiday"
                                     ],
@@ -218,6 +235,7 @@
                                         "Tuesday",
                                         "Wednesday",
                                         "Thursday",
+                                        "Saturday",
                                         "Sunday",
                                         "Holiday"
                                     ],
@@ -227,8 +245,7 @@
                                 },
                                 {
                                     "days": [
-                                        "Friday",
-                                        "Saturday"
+                                        "Friday"
                                     ],
                                     "time": "19:15",
                                     "direction": "->",
@@ -236,8 +253,7 @@
                                 },
                                 {
                                     "days": [
-                                        "Friday",
-                                        "Saturday"
+                                        "Friday"
                                     ],
                                     "time": "19:45",
                                     "direction": "<-",
@@ -249,6 +265,7 @@
                                         "Tuesday",
                                         "Wednesday",
                                         "Thursday",
+                                        "Saturday",
                                         "Sunday",
                                         "Holiday"
                                     ],
@@ -262,6 +279,7 @@
                                         "Tuesday",
                                         "Wednesday",
                                         "Thursday",
+                                        "Saturday",
                                         "Sunday",
                                         "Holiday"
                                     ],
@@ -271,8 +289,7 @@
                                 },
                                 {
                                     "days": [
-                                        "Friday",
-                                        "Saturday"
+                                        "Friday"
                                     ],
                                     "time": "20:15",
                                     "direction": "->",
@@ -280,8 +297,7 @@
                                 },
                                 {
                                     "days": [
-                                        "Friday",
-                                        "Saturday"
+                                        "Friday"
                                     ],
                                     "time": "20:45",
                                     "direction": "<-",
@@ -293,6 +309,7 @@
                                         "Tuesday",
                                         "Wednesday",
                                         "Thursday",
+                                        "Saturday",
                                         "Sunday",
                                         "Holiday"
                                     ],
@@ -306,6 +323,7 @@
                                         "Tuesday",
                                         "Wednesday",
                                         "Thursday",
+                                        "Saturday",
                                         "Sunday",
                                         "Holiday"
                                     ],
@@ -315,8 +333,7 @@
                                 },
                                 {
                                     "days": [
-                                        "Friday",
-                                        "Saturday"
+                                        "Friday"
                                     ],
                                     "time": "21:15",
                                     "direction": "->",
@@ -324,8 +341,7 @@
                                 },
                                 {
                                     "days": [
-                                        "Friday",
-                                        "Saturday"
+                                        "Friday"
                                     ],
                                     "time": "21:45",
                                     "direction": "<-",
@@ -337,8 +353,7 @@
                                         "Tuesday",
                                         "Wednesday",
                                         "Thursday",
-                                        "Sunday",
-                                        "Holiday"
+                                        "Saturday"
                                     ],
                                     "time": "22:30",
                                     "direction": "->",
@@ -350,8 +365,7 @@
                                         "Tuesday",
                                         "Wednesday",
                                         "Thursday",
-                                        "Sunday",
-                                        "Holiday"
+                                        "Saturday"
                                     ],
                                     "time": "22:55",
                                     "direction": "<-",
@@ -359,8 +373,7 @@
                                 },
                                 {
                                     "days": [
-                                        "Friday",
-                                        "Saturday"
+                                        "Friday"
                                     ],
                                     "time": "22:30",
                                     "direction": "->",
@@ -368,8 +381,7 @@
                                 },
                                 {
                                     "days": [
-                                        "Friday",
-                                        "Saturday"
+                                        "Friday"
                                     ],
                                     "time": "22:55",
                                     "direction": "<-",
@@ -377,8 +389,7 @@
                                 },
                                 {
                                     "days": [
-                                        "Friday",
-                                        "Saturday"
+                                        "Friday"
                                     ],
                                     "time": "23:30",
                                     "direction": "->",
@@ -386,12 +397,27 @@
                                 },
                                 {
                                     "days": [
-                                        "Friday",
-                                        "Saturday"
+                                        "Friday"
                                     ],
                                     "time": "23:55",
                                     "direction": "<-",
                                     "cars": true
+                                },
+                                {
+                                    "days": [
+                                        "Saturday"
+                                    ],
+                                    "time": "23:30",
+                                    "direction": "->",
+                                    "cars": false
+                                },
+                                {
+                                    "days": [
+                                        "Saturday"
+                                    ],
+                                    "time": "23:55",
+                                    "direction": "<-",
+                                    "cars": false
                                 }
                             ]
                         }
@@ -412,12 +438,28 @@
                     },
                     "schedules": [
                         {
-                            "season": "Fall",
-                            "dates": "2015-09-8,2015-10-12",
+                            "season": "Winter",
+                            "dates": "2015-10-12,2016-04-15",
                             "holidays": [
                                 {
-                                    "name": "Columbus Day",
-                                    "date": "2015-10-12"
+                                    "name": "Veterans Day",
+                                    "date": "2015-11-11"
+                                },
+                                {
+                                    "name": "Thanksgiving",
+                                    "date": "2015-11-26"
+                                },
+                                {
+                                    "name": "Christmas",
+                                    "date": "2015-12-25"
+                                },
+                                {
+                                    "name": "New Year's Day",
+                                    "date": "2016-01-01"
+                                },
+                                {
+                                    "name": "Presidents' Day",
+                                    "date": "2016-02-15"
                                 }
                             ],
                             "departures": [
@@ -475,7 +517,7 @@
                                     "days": [
                                         "Everyday"
                                     ],
-                                    "time": "11:35",
+                                    "time": "11:20",
                                     "direction": "<-",
                                     "cars": false
                                 },
@@ -507,404 +549,7 @@
                                     "days": [
                                         "Everyday"
                                     ],
-                                    "time": "18:45",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Friday"
-                                    ],
-                                    "time": "21:30",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Friday"
-                                    ],
-                                    "time": "22:35",
-                                    "direction": "<-",
-                                    "cars": false
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "Long Island",
-                    "code": "CBL_LONG",
-                    "destination": {
-                        "name": "Long Island",
-                        "description": "Mariners Landing",
-                        "coordinate": "43.691250,-70.164651"
-                    },
-                    "origin": {
-                        "name": "Portland",
-                        "description": "Casco Bay Lines Ferry Terminal",
-                        "coordinate": "43.6570177,-70.248711"
-                    },
-                    "schedules": [
-                        {
-                            "season": "Fall",
-                            "dates": "2015-09-8,2015-09-26",
-                            "holidays": [],
-                            "departures": [
-                                {
-                                    "days": [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Friday"
-                                    ],
-                                    "time": "05:05",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Friday"
-                                    ],
-                                    "time": "06:45",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Saturday",
-                                        "Sunday"
-                                    ],
-                                    "time": "06:30",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Friday"
-                                    ],
-                                    "time": "07:45",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Saturday",
-                                        "Sunday"
-                                    ],
-                                    "time": "08:25",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Friday"
-                                    ],
-                                    "time": "08:40",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "10:00",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "11:00",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "12:00",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "14:45",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "16:15",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "16:45",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "17:45",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "19:15",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "19:25",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "20:00",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "21:00",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Friday"
-                                    ],
-                                    "time": "21:30",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "21:40",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Friday"
-                                    ],
-                                    "time": "23:15",
-                                    "direction": "<-",
-                                    "cars": false
-                                }
-                            ]
-                        },
-                        {
-                            "season": "Fall",
-                            "dates": "2015-09-27,2015-10-12",
-                            "holidays": [
-                                {
-                                    "name": "Columbus Day",
-                                    "date": "2015-10-12"
-                                }
-                            ],
-                            "departures": [
-                                {
-                                    "days": [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Friday"
-                                    ],
-                                    "time": "05:05",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Friday"
-                                    ],
-                                    "time": "06:45",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Saturday",
-                                        "Sunday"
-                                    ],
-                                    "time": "06:30",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Friday"
-                                    ],
-                                    "time": "07:45",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Saturday",
-                                        "Sunday"
-                                    ],
-                                    "time": "08:25",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Friday"
-                                    ],
-                                    "time": "08:40",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "10:00",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "11:00",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "12:00",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "14:45",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "16:15",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "16:45",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "17:45",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "19:25",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Monday",
-                                        "Tuesday",
-                                        "Wednesday",
-                                        "Thursday",
-                                        "Saturday",
-                                        "Sunday",
-                                        "Holiday"
-                                    ],
-                                    "time": "20:30",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Everyday"
-                                    ],
-                                    "time": "21:15",
-                                    "direction": "<-",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Friday"
-                                    ],
-                                    "time": "21:30",
-                                    "direction": "->",
-                                    "cars": false
-                                },
-                                {
-                                    "days": [
-                                        "Friday"
-                                    ],
-                                    "time": "23:15",
+                                    "time": "18:35",
                                     "direction": "<-",
                                     "cars": false
                                 }
