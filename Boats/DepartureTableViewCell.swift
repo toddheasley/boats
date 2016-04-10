@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BoatsData
 
 class DepartureTableViewCell: UITableViewCell {
     static var height: CGFloat = 68.0

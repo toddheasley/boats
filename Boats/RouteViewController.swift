@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BoatsData
 
 class RouteViewController: UIViewController, UIScrollViewDelegate {
     private var route: Route?
@@ -33,8 +34,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
         if let route = route {
             nameLabel.text = route.name
             let dateFormatter: NSDateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = Date.format
-            guard let date = Date(JSON: dateFormatter.stringFromDate(NSDate())), let schedule = route.schedule(date) else {
+            guard let date = Date(), let schedule = route.schedule(date) else {
                 return
             }
             dateFormatter.dateFormat = "EE, MMM d"
@@ -42,13 +42,12 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
             departuresSegmentedControl.setTitle("From \(route.origin.name)", forSegmentAtIndex: 0)
             departuresSegmentedControl.setTitle("To \(route.origin.name)", forSegmentAtIndex: 1)
             departuresSegmentedControl.hidden = false
-            dateFormatter.dateFormat = Day.format
             var day: Day = .Everyday
-            if let _ = Day(rawValue: dateFormatter.stringFromDate(NSDate())) {
-                day = Day(rawValue: dateFormatter.stringFromDate(NSDate()))!
+            if let _ = Day() {
+                day = Day()!
             }
             for holiday in schedule.holidays {
-                if (holiday.date.value == date.value) {
+                if (holiday.date == date) {
                     day = .Holiday
                     dateFormatter.dateFormat = "EE, MMM d"
                     dateLabel.text = "\(Day.Holiday.rawValue) Schedule: \(dateFormatter.stringFromDate(NSDate())) (\(holiday.name))"
@@ -74,7 +73,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
     
     func applicationWillEnterForeground() {
         timer?.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(30.0), target: self, selector: "refresh:", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(30.0), target: self, selector: #selector(RouteViewController.refresh(_:)), userInfo: nil, repeats: true)
         refresh(self)
     }
     
@@ -137,18 +136,18 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
         dismissButton.sizeToFit()
         dismissButton.frame = CGRectMake(view.bounds.size.width - 61.0, 20.0, 61.0, 41.0)
         dismissButton.autoresizingMask = [.FlexibleLeftMargin]
-        dismissButton.addTarget(self, action: "dismiss:", forControlEvents: .TouchUpInside)
+        dismissButton.addTarget(self, action: #selector(RouteViewController.dismiss(_:)), forControlEvents: .TouchUpInside)
         detailView.contentView.addSubview(dismissButton)
         
         departuresSegmentedControl = UISegmentedControl(items: ["", ""])
         departuresSegmentedControl.frame = CGRectMake(10.0, detailView.bounds.size.height - departuresSegmentedControl.frame.size.height - 11.0, detailView.bounds.size.width - 20.0, departuresSegmentedControl.frame.size.height)
         departuresSegmentedControl.autoresizingMask = [.FlexibleWidth]
         departuresSegmentedControl.selectedSegmentIndex = 0
-        departuresSegmentedControl.addTarget(self, action: "changeDirection:", forControlEvents: .ValueChanged)
+        departuresSegmentedControl.addTarget(self, action: #selector(RouteViewController.changeDirection(_:)), forControlEvents: .ValueChanged)
         detailView.contentView.addSubview(departuresSegmentedControl)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterForeground", name: UIApplicationWillEnterForegroundNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterBackground", name: UIApplicationDidEnterBackgroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RouteViewController.applicationWillEnterForeground), name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RouteViewController.applicationDidEnterBackground), name: UIApplicationDidEnterBackgroundNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {

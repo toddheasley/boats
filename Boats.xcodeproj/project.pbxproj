@@ -7,55 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C1788B01BA3112700E6E268 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1788AF1BA3112700E6E268 /* Provider.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1788B11BA3112700E6E268 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1788AF1BA3112700E6E268 /* Provider.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1788B31BA315F000E6E268 /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1788B21BA315F000E6E268 /* ProviderTests.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07911B9A804A008BEB97 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07901B9A804A008BEB97 /* JSON.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07931B9A809D008BEB97 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07921B9A809D008BEB97 /* Route.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07941B9A809D008BEB97 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07921B9A809D008BEB97 /* Route.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07951B9A80DE008BEB97 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07901B9A804A008BEB97 /* JSON.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07971B9A8102008BEB97 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07961B9A8102008BEB97 /* Schedule.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07981B9A8102008BEB97 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07961B9A8102008BEB97 /* Schedule.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D079A1B9A8123008BEB97 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07991B9A8123008BEB97 /* Departure.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D079B1B9A8123008BEB97 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07991B9A8123008BEB97 /* Departure.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D079D1B9A8146008BEB97 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D079C1B9A8146008BEB97 /* Location.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D079E1B9A8146008BEB97 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D079C1B9A8146008BEB97 /* Location.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07A01B9A81D0008BEB97 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D079F1B9A81D0008BEB97 /* Coordinate.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07A11B9A81D0008BEB97 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D079F1B9A81D0008BEB97 /* Coordinate.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07A31B9A8205008BEB97 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07A21B9A8205008BEB97 /* Holiday.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07A41B9A8205008BEB97 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07A21B9A8205008BEB97 /* Holiday.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07A61B9A8255008BEB97 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07A51B9A8255008BEB97 /* Date.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07A71B9A8255008BEB97 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07A51B9A8255008BEB97 /* Date.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07A91B9A826F008BEB97 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07A81B9A826F008BEB97 /* Time.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07AA1B9A826F008BEB97 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07A81B9A826F008BEB97 /* Time.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07AC1B9A82B4008BEB97 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07AB1B9A82B4008BEB97 /* Season.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07AD1B9A82B4008BEB97 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07AB1B9A82B4008BEB97 /* Season.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07AF1B9A82C8008BEB97 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07AE1B9A82C8008BEB97 /* Day.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07B01B9A82C8008BEB97 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07AE1B9A82C8008BEB97 /* Day.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07B21B9A82E4008BEB97 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07B11B9A82E4008BEB97 /* Error.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07B31B9A82E4008BEB97 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07B11B9A82E4008BEB97 /* Error.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07B51B9A8700008BEB97 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07B41B9A8700008BEB97 /* RouteTests.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07B71B9A8728008BEB97 /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07B61B9A8728008BEB97 /* ScheduleTests.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07B91B9A874D008BEB97 /* DepartureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07B81B9A874C008BEB97 /* DepartureTests.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07BB1B9A8767008BEB97 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07BA1B9A8767008BEB97 /* LocationTests.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07BD1B9A8782008BEB97 /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07BC1B9A8782008BEB97 /* CoordinateTests.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07BF1B9A879C008BEB97 /* HolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07BE1B9A879C008BEB97 /* HolidayTests.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07C11B9A87B8008BEB97 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07C01B9A87B8008BEB97 /* DateTests.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07C31B9A87D3008BEB97 /* TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07C21B9A87D3008BEB97 /* TimeTests.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07C91B9B9958008BEB97 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07C81B9B9957008BEB97 /* Direction.swift */; settings = {ASSET_TAGS = (); }; };
-		5C1D07CA1B9B9958008BEB97 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D07C81B9B9957008BEB97 /* Direction.swift */; settings = {ASSET_TAGS = (); }; };
-		5C267DD71B97DB92000ABD4F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C267DD61B97DB92000ABD4F /* Data.swift */; settings = {ASSET_TAGS = (); }; };
-		5C267DD81B97DB92000ABD4F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C267DD61B97DB92000ABD4F /* Data.swift */; settings = {ASSET_TAGS = (); }; };
+		5C0BA0521CB9948300F5BAD7 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0511CB9948300F5BAD7 /* NSDate.swift */; };
+		5C0BA0531CB9948A00F5BAD7 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0511CB9948300F5BAD7 /* NSDate.swift */; };
+		5C0BA0551CB9A08500F5BAD7 /* TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0541CB9A08500F5BAD7 /* TimeTests.swift */; };
+		5C0BA0571CB9A37B00F5BAD7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0561CB9A37B00F5BAD7 /* DateTests.swift */; };
+		5C0BA0591CB9AA2500F5BAD7 /* DayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0581CB9AA2500F5BAD7 /* DayTests.swift */; };
+		5C0BA05D1CB9AB5300F5BAD7 /* DepartureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA05C1CB9AB5300F5BAD7 /* DepartureTests.swift */; };
+		5C0BA0601CB9AF1D00F5BAD7 /* DepartureTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA05E1CB9AC5500F5BAD7 /* DepartureTests.json */; };
+		5C0BA0621CB9B49000F5BAD7 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0611CB9B49000F5BAD7 /* XCTestCase.swift */; };
+		5C0BA0641CB9BB7100F5BAD7 /* HolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0631CB9BB7100F5BAD7 /* HolidayTests.swift */; };
+		5C0BA0661CB9BBB100F5BAD7 /* HolidayTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA0651CB9BBB100F5BAD7 /* HolidayTests.json */; };
+		5C0BA0681CB9BD7700F5BAD7 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0671CB9BD7700F5BAD7 /* LocationTests.swift */; };
+		5C0BA06A1CB9BDB800F5BAD7 /* LocationTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA0691CB9BDB800F5BAD7 /* LocationTests.json */; };
+		5C0BA06C1CB9BF3400F5BAD7 /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA06B1CB9BF3400F5BAD7 /* ProviderTests.swift */; };
+		5C0BA06E1CB9BF6000F5BAD7 /* ProviderTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA06D1CB9BF6000F5BAD7 /* ProviderTests.json */; };
+		5C0BA0701CB9C02200F5BAD7 /* RouteTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA06F1CB9C02200F5BAD7 /* RouteTests.json */; };
+		5C0BA0721CB9C02D00F5BAD7 /* ScheduleTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA0711CB9C02D00F5BAD7 /* ScheduleTests.json */; };
+		5C0BA0741CB9C27D00F5BAD7 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0731CB9C27D00F5BAD7 /* RouteTests.swift */; };
+		5C0BA0761CB9C2A200F5BAD7 /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0751CB9C2A200F5BAD7 /* ScheduleTests.swift */; };
+		5C0BA0781CB9CE7800F5BAD7 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0771CB9CE7800F5BAD7 /* DataTests.swift */; };
+		5C0BA07A1CB9CF3600F5BAD7 /* DataTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA0791CB9CF3600F5BAD7 /* DataTests.json */; };
+		5C10BD101CB94338009CFBA6 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD011CB94338009CFBA6 /* Coordinate.swift */; };
+		5C10BD111CB94338009CFBA6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD021CB94338009CFBA6 /* Data.swift */; };
+		5C10BD121CB94338009CFBA6 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD031CB94338009CFBA6 /* Date.swift */; };
+		5C10BD131CB94338009CFBA6 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD041CB94338009CFBA6 /* Day.swift */; };
+		5C10BD141CB94338009CFBA6 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD051CB94338009CFBA6 /* Departure.swift */; };
+		5C10BD151CB94338009CFBA6 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD061CB94338009CFBA6 /* Direction.swift */; };
+		5C10BD171CB94338009CFBA6 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD081CB94338009CFBA6 /* Holiday.swift */; };
+		5C10BD181CB94338009CFBA6 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD091CB94338009CFBA6 /* JSON.swift */; };
+		5C10BD191CB94338009CFBA6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0A1CB94338009CFBA6 /* Location.swift */; };
+		5C10BD1A1CB94338009CFBA6 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0B1CB94338009CFBA6 /* Provider.swift */; };
+		5C10BD1B1CB94338009CFBA6 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0C1CB94338009CFBA6 /* Route.swift */; };
+		5C10BD1C1CB94338009CFBA6 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0D1CB94338009CFBA6 /* Schedule.swift */; };
+		5C10BD1D1CB94338009CFBA6 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0E1CB94338009CFBA6 /* Season.swift */; };
+		5C10BD1E1CB94338009CFBA6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0F1CB94338009CFBA6 /* Time.swift */; };
+		5C10BD1F1CB959CE009CFBA6 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD011CB94338009CFBA6 /* Coordinate.swift */; };
+		5C10BD201CB959D7009CFBA6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD021CB94338009CFBA6 /* Data.swift */; };
+		5C10BD211CB959D7009CFBA6 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD031CB94338009CFBA6 /* Date.swift */; };
+		5C10BD221CB959D7009CFBA6 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD041CB94338009CFBA6 /* Day.swift */; };
+		5C10BD231CB959D7009CFBA6 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD051CB94338009CFBA6 /* Departure.swift */; };
+		5C10BD241CB959D7009CFBA6 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD061CB94338009CFBA6 /* Direction.swift */; };
+		5C10BD251CB959D7009CFBA6 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD081CB94338009CFBA6 /* Holiday.swift */; };
+		5C10BD261CB959D7009CFBA6 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD091CB94338009CFBA6 /* JSON.swift */; };
+		5C10BD271CB959D7009CFBA6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0A1CB94338009CFBA6 /* Location.swift */; };
+		5C10BD281CB959D7009CFBA6 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0B1CB94338009CFBA6 /* Provider.swift */; };
+		5C10BD291CB959D7009CFBA6 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0C1CB94338009CFBA6 /* Route.swift */; };
+		5C10BD2A1CB959D7009CFBA6 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0D1CB94338009CFBA6 /* Schedule.swift */; };
+		5C10BD2B1CB959D7009CFBA6 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0E1CB94338009CFBA6 /* Season.swift */; };
+		5C10BD2C1CB959D7009CFBA6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0F1CB94338009CFBA6 /* Time.swift */; };
+		5C10BD2F1CB95A20009CFBA6 /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD2E1CB95A20009CFBA6 /* CoordinateTests.swift */; };
 		5C277C9D1B979A5000D18D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C277C9C1B979A5000D18D14 /* AppDelegate.swift */; };
 		5C277CA41B979A5000D18D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C277CA31B979A5000D18D14 /* Assets.xcassets */; };
-		5C277CB21B979A5000D18D14 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C277CB11B979A5000D18D14 /* DataTests.swift */; };
-		5C59F0001B993AE80081CE15 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C59EFFF1B993AE80081CE15 /* data.json */; settings = {ASSET_TAGS = (); }; };
-		5CB60DA31BA7539700AD8099 /* MainTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB60DA21BA7539700AD8099 /* MainTableHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
-		5CDDC5D81B9CA8E400AF4CDE /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5D71B9CA8E400AF4CDE /* RouteViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		5CDDC5DC1B9CB88300AF4CDE /* DeparturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		5CDDC5E11B9CBD4900AF4CDE /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */; settings = {ASSET_TAGS = (); }; };
-		5CDDC5EB1B9D38E300AF4CDE /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		5CB60DA31BA7539700AD8099 /* MainTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB60DA21BA7539700AD8099 /* MainTableHeaderView.swift */; };
+		5CDDC5D81B9CA8E400AF4CDE /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5D71B9CA8E400AF4CDE /* RouteViewController.swift */; };
+		5CDDC5DC1B9CB88300AF4CDE /* DeparturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */; };
+		5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */; };
+		5CDDC5E11B9CBD4900AF4CDE /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */; };
+		5CDDC5EB1B9D38E300AF4CDE /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */; };
+		5CDEDAA61CB9303200F9FE9B /* BoatsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEDA911CB9303100F9FE9B /* BoatsData.framework */; };
+		5CDEDAA71CB9303200F9FE9B /* BoatsData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEDA911CB9303100F9FE9B /* BoatsData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,41 +76,70 @@
 			remoteGlobalIDString = 5C277C981B979A5000D18D14;
 			remoteInfo = Boats;
 		};
+		5CDEDAA41CB9303200F9FE9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C277C911B979A5000D18D14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CDEDA901CB9303100F9FE9B;
+			remoteInfo = BoatsData;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5CDEDAAD1CB9303200F9FE9B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5CDEDAA71CB9303200F9FE9B /* BoatsData.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		5C1788AF1BA3112700E6E268 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Provider.swift; path = Data/Provider.swift; sourceTree = "<group>"; };
-		5C1788B21BA315F000E6E268 /* ProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProviderTests.swift; path = DataTests/ProviderTests.swift; sourceTree = "<group>"; };
+		5C0BA0511CB9948300F5BAD7 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
+		5C0BA0541CB9A08500F5BAD7 /* TimeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeTests.swift; path = BoatsData/TimeTests.swift; sourceTree = "<group>"; };
+		5C0BA0561CB9A37B00F5BAD7 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = BoatsData/DateTests.swift; sourceTree = "<group>"; };
+		5C0BA0581CB9AA2500F5BAD7 /* DayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayTests.swift; path = BoatsData/DayTests.swift; sourceTree = "<group>"; };
+		5C0BA05C1CB9AB5300F5BAD7 /* DepartureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DepartureTests.swift; path = BoatsData/DepartureTests.swift; sourceTree = "<group>"; };
+		5C0BA05E1CB9AC5500F5BAD7 /* DepartureTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DepartureTests.json; path = BoatsData/DepartureTests.json; sourceTree = "<group>"; };
+		5C0BA0611CB9B49000F5BAD7 /* XCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		5C0BA0631CB9BB7100F5BAD7 /* HolidayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HolidayTests.swift; path = BoatsData/HolidayTests.swift; sourceTree = "<group>"; };
+		5C0BA0651CB9BBB100F5BAD7 /* HolidayTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = HolidayTests.json; path = BoatsData/HolidayTests.json; sourceTree = "<group>"; };
+		5C0BA0671CB9BD7700F5BAD7 /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTests.swift; path = BoatsData/LocationTests.swift; sourceTree = "<group>"; };
+		5C0BA0691CB9BDB800F5BAD7 /* LocationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LocationTests.json; path = BoatsData/LocationTests.json; sourceTree = "<group>"; };
+		5C0BA06B1CB9BF3400F5BAD7 /* ProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProviderTests.swift; path = BoatsData/ProviderTests.swift; sourceTree = "<group>"; };
+		5C0BA06D1CB9BF6000F5BAD7 /* ProviderTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ProviderTests.json; path = BoatsData/ProviderTests.json; sourceTree = "<group>"; };
+		5C0BA06F1CB9C02200F5BAD7 /* RouteTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RouteTests.json; path = BoatsData/RouteTests.json; sourceTree = "<group>"; };
+		5C0BA0711CB9C02D00F5BAD7 /* ScheduleTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ScheduleTests.json; path = BoatsData/ScheduleTests.json; sourceTree = "<group>"; };
+		5C0BA0731CB9C27D00F5BAD7 /* RouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteTests.swift; path = BoatsData/RouteTests.swift; sourceTree = "<group>"; };
+		5C0BA0751CB9C2A200F5BAD7 /* ScheduleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleTests.swift; path = BoatsData/ScheduleTests.swift; sourceTree = "<group>"; };
+		5C0BA0771CB9CE7800F5BAD7 /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataTests.swift; path = BoatsData/DataTests.swift; sourceTree = "<group>"; };
+		5C0BA0791CB9CF3600F5BAD7 /* DataTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DataTests.json; path = BoatsData/DataTests.json; sourceTree = "<group>"; };
+		5C10BD011CB94338009CFBA6 /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		5C10BD021CB94338009CFBA6 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		5C10BD031CB94338009CFBA6 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		5C10BD041CB94338009CFBA6 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		5C10BD051CB94338009CFBA6 /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
+		5C10BD061CB94338009CFBA6 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		5C10BD081CB94338009CFBA6 /* Holiday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
+		5C10BD091CB94338009CFBA6 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		5C10BD0A1CB94338009CFBA6 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5C10BD0B1CB94338009CFBA6 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		5C10BD0C1CB94338009CFBA6 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		5C10BD0D1CB94338009CFBA6 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		5C10BD0E1CB94338009CFBA6 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		5C10BD0F1CB94338009CFBA6 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		5C10BD2E1CB95A20009CFBA6 /* CoordinateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinateTests.swift; path = BoatsData/CoordinateTests.swift; sourceTree = "<group>"; };
 		5C1788B61BA3614B00E6E268 /* Boats.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = Boats.sketch; sourceTree = "<group>"; };
-		5C1D07901B9A804A008BEB97 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Data/JSON.swift; sourceTree = "<group>"; };
-		5C1D07921B9A809D008BEB97 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Data/Route.swift; sourceTree = "<group>"; };
-		5C1D07961B9A8102008BEB97 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Schedule.swift; path = Data/Schedule.swift; sourceTree = "<group>"; };
-		5C1D07991B9A8123008BEB97 /* Departure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Departure.swift; path = Data/Departure.swift; sourceTree = "<group>"; };
-		5C1D079C1B9A8146008BEB97 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Data/Location.swift; sourceTree = "<group>"; };
-		5C1D079F1B9A81D0008BEB97 /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coordinate.swift; path = Data/Coordinate.swift; sourceTree = "<group>"; };
-		5C1D07A21B9A8205008BEB97 /* Holiday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Holiday.swift; path = Data/Holiday.swift; sourceTree = "<group>"; };
-		5C1D07A51B9A8255008BEB97 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Data/Date.swift; sourceTree = "<group>"; };
-		5C1D07A81B9A826F008BEB97 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Time.swift; path = Data/Time.swift; sourceTree = "<group>"; };
-		5C1D07AB1B9A82B4008BEB97 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Season.swift; path = Data/Season.swift; sourceTree = "<group>"; };
-		5C1D07AE1B9A82C8008BEB97 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Day.swift; path = Data/Day.swift; sourceTree = "<group>"; };
-		5C1D07B11B9A82E4008BEB97 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Data/Error.swift; sourceTree = "<group>"; };
-		5C1D07B41B9A8700008BEB97 /* RouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteTests.swift; path = DataTests/RouteTests.swift; sourceTree = "<group>"; };
-		5C1D07B61B9A8728008BEB97 /* ScheduleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleTests.swift; path = DataTests/ScheduleTests.swift; sourceTree = "<group>"; };
-		5C1D07B81B9A874C008BEB97 /* DepartureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DepartureTests.swift; path = DataTests/DepartureTests.swift; sourceTree = "<group>"; };
-		5C1D07BA1B9A8767008BEB97 /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTests.swift; path = DataTests/LocationTests.swift; sourceTree = "<group>"; };
-		5C1D07BC1B9A8782008BEB97 /* CoordinateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinateTests.swift; path = DataTests/CoordinateTests.swift; sourceTree = "<group>"; };
-		5C1D07BE1B9A879C008BEB97 /* HolidayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HolidayTests.swift; path = DataTests/HolidayTests.swift; sourceTree = "<group>"; };
-		5C1D07C01B9A87B8008BEB97 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = DataTests/DateTests.swift; sourceTree = "<group>"; };
-		5C1D07C21B9A87D3008BEB97 /* TimeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeTests.swift; path = DataTests/TimeTests.swift; sourceTree = "<group>"; };
-		5C1D07C81B9B9957008BEB97 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Direction.swift; path = Data/Direction.swift; sourceTree = "<group>"; };
 		5C267DD21B97B64E000ABD4F /* BoatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C267DD61B97DB92000ABD4F /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Data.swift; path = Data/Data.swift; sourceTree = "<group>"; };
 		5C277C9C1B979A5000D18D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C277CA31B979A5000D18D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C277CA81B979A5000D18D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C277CB11B979A5000D18D14 /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataTests.swift; path = DataTests/DataTests.swift; sourceTree = "<group>"; };
 		5C277CB31B979A5000D18D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C59EFFF1B993AE80081CE15 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		5C8914111B979AB300948F66 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5C8914131B979C7B00948F66 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB60DA21BA7539700AD8099 /* MainTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableHeaderView.swift; sourceTree = "<group>"; };
@@ -109,6 +148,8 @@
 		5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureTableViewCell.swift; sourceTree = "<group>"; };
 		5CDDC5E01B9CBD4900AF4CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Launch.xib; sourceTree = "<group>"; };
 		5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		5CDEDA911CB9303100F9FE9B /* BoatsData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CDEDA951CB9303200F9FE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CDEDAA61CB9303200F9FE9B /* BoatsData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,26 +168,58 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5CDEDA8D1CB9303100F9FE9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C10BD2D1CB959F0009CFBA6 /* BoatsData */ = {
+			isa = PBXGroup;
+			children = (
+				5C10BD2E1CB95A20009CFBA6 /* CoordinateTests.swift */,
+				5C0BA0771CB9CE7800F5BAD7 /* DataTests.swift */,
+				5C0BA0791CB9CF3600F5BAD7 /* DataTests.json */,
+				5C0BA0561CB9A37B00F5BAD7 /* DateTests.swift */,
+				5C0BA0581CB9AA2500F5BAD7 /* DayTests.swift */,
+				5C0BA05C1CB9AB5300F5BAD7 /* DepartureTests.swift */,
+				5C0BA05E1CB9AC5500F5BAD7 /* DepartureTests.json */,
+				5C0BA0631CB9BB7100F5BAD7 /* HolidayTests.swift */,
+				5C0BA0651CB9BBB100F5BAD7 /* HolidayTests.json */,
+				5C0BA0671CB9BD7700F5BAD7 /* LocationTests.swift */,
+				5C0BA0691CB9BDB800F5BAD7 /* LocationTests.json */,
+				5C0BA06B1CB9BF3400F5BAD7 /* ProviderTests.swift */,
+				5C0BA06D1CB9BF6000F5BAD7 /* ProviderTests.json */,
+				5C0BA0731CB9C27D00F5BAD7 /* RouteTests.swift */,
+				5C0BA06F1CB9C02200F5BAD7 /* RouteTests.json */,
+				5C0BA0751CB9C2A200F5BAD7 /* ScheduleTests.swift */,
+				5C0BA0711CB9C02D00F5BAD7 /* ScheduleTests.json */,
+				5C0BA0541CB9A08500F5BAD7 /* TimeTests.swift */,
+			);
+			name = BoatsData;
+			sourceTree = "<group>";
+		};
 		5C277C901B979A5000D18D14 = {
 			isa = PBXGroup;
 			children = (
 				5C277C9B1B979A5000D18D14 /* Boats */,
+				5CDEDA921CB9303200F9FE9B /* BoatsData */,
 				5C277CB01B979A5000D18D14 /* BoatsTests */,
 				5C8914131B979C7B00948F66 /* Boats.app */,
+				5CDEDA911CB9303100F9FE9B /* BoatsData.framework */,
 				5C267DD21B97B64E000ABD4F /* BoatsTests.xctest */,
 				5C1788B61BA3614B00E6E268 /* Boats.sketch */,
 				5C8914111B979AB300948F66 /* README.md */,
-				5C59EFFF1B993AE80081CE15 /* data.json */,
 			);
 			sourceTree = "<group>";
 		};
 		5C277C9B1B979A5000D18D14 /* Boats */ = {
 			isa = PBXGroup;
 			children = (
-				5C5459131B9A7F74005FCDA1 /* Data */,
 				5CDDC5D71B9CA8E400AF4CDE /* RouteViewController.swift */,
 				5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */,
 				5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */,
@@ -162,52 +236,47 @@
 		5C277CB01B979A5000D18D14 /* BoatsTests */ = {
 			isa = PBXGroup;
 			children = (
-				5C5459141B9A7F87005FCDA1 /* DataTests */,
+				5C10BD2D1CB959F0009CFBA6 /* BoatsData */,
+				5C0BA0611CB9B49000F5BAD7 /* XCTestCase.swift */,
 				5C277CB31B979A5000D18D14 /* Info.plist */,
 			);
 			path = BoatsTests;
 			sourceTree = "<group>";
 		};
-		5C5459131B9A7F74005FCDA1 /* Data */ = {
+		5CDEDA921CB9303200F9FE9B /* BoatsData */ = {
 			isa = PBXGroup;
 			children = (
-				5C267DD61B97DB92000ABD4F /* Data.swift */,
-				5C1788AF1BA3112700E6E268 /* Provider.swift */,
-				5C1D07921B9A809D008BEB97 /* Route.swift */,
-				5C1D07961B9A8102008BEB97 /* Schedule.swift */,
-				5C1D07991B9A8123008BEB97 /* Departure.swift */,
-				5C1D079C1B9A8146008BEB97 /* Location.swift */,
-				5C1D079F1B9A81D0008BEB97 /* Coordinate.swift */,
-				5C1D07A21B9A8205008BEB97 /* Holiday.swift */,
-				5C1D07A51B9A8255008BEB97 /* Date.swift */,
-				5C1D07A81B9A826F008BEB97 /* Time.swift */,
-				5C1D07AB1B9A82B4008BEB97 /* Season.swift */,
-				5C1D07AE1B9A82C8008BEB97 /* Day.swift */,
-				5C1D07C81B9B9957008BEB97 /* Direction.swift */,
-				5C1D07B11B9A82E4008BEB97 /* Error.swift */,
-				5C1D07901B9A804A008BEB97 /* JSON.swift */,
+				5C10BD011CB94338009CFBA6 /* Coordinate.swift */,
+				5C10BD021CB94338009CFBA6 /* Data.swift */,
+				5C10BD031CB94338009CFBA6 /* Date.swift */,
+				5C10BD041CB94338009CFBA6 /* Day.swift */,
+				5C10BD051CB94338009CFBA6 /* Departure.swift */,
+				5C10BD061CB94338009CFBA6 /* Direction.swift */,
+				5C10BD081CB94338009CFBA6 /* Holiday.swift */,
+				5C10BD091CB94338009CFBA6 /* JSON.swift */,
+				5C10BD0A1CB94338009CFBA6 /* Location.swift */,
+				5C0BA0511CB9948300F5BAD7 /* NSDate.swift */,
+				5C10BD0B1CB94338009CFBA6 /* Provider.swift */,
+				5C10BD0C1CB94338009CFBA6 /* Route.swift */,
+				5C10BD0D1CB94338009CFBA6 /* Schedule.swift */,
+				5C10BD0E1CB94338009CFBA6 /* Season.swift */,
+				5C10BD0F1CB94338009CFBA6 /* Time.swift */,
+				5CDEDA951CB9303200F9FE9B /* Info.plist */,
 			);
-			name = Data;
-			sourceTree = "<group>";
-		};
-		5C5459141B9A7F87005FCDA1 /* DataTests */ = {
-			isa = PBXGroup;
-			children = (
-				5C277CB11B979A5000D18D14 /* DataTests.swift */,
-				5C1788B21BA315F000E6E268 /* ProviderTests.swift */,
-				5C1D07B41B9A8700008BEB97 /* RouteTests.swift */,
-				5C1D07B61B9A8728008BEB97 /* ScheduleTests.swift */,
-				5C1D07B81B9A874C008BEB97 /* DepartureTests.swift */,
-				5C1D07BA1B9A8767008BEB97 /* LocationTests.swift */,
-				5C1D07BC1B9A8782008BEB97 /* CoordinateTests.swift */,
-				5C1D07BE1B9A879C008BEB97 /* HolidayTests.swift */,
-				5C1D07C01B9A87B8008BEB97 /* DateTests.swift */,
-				5C1D07C21B9A87D3008BEB97 /* TimeTests.swift */,
-			);
-			name = DataTests;
-			sourceTree = "<group>";
+			path = BoatsData;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5CDEDA8E1CB9303100F9FE9B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		5C277C981B979A5000D18D14 /* Boats */ = {
@@ -218,10 +287,12 @@
 				5C277C961B979A5000D18D14 /* Frameworks */,
 				5C277C971B979A5000D18D14 /* Resources */,
 				5C59EFFC1B99332B0081CE15 /* Set Build Number */,
+				5CDEDAAD1CB9303200F9FE9B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5CDEDAA51CB9303200F9FE9B /* PBXTargetDependency */,
 			);
 			name = Boats;
 			productName = Boats;
@@ -246,12 +317,31 @@
 			productReference = 5C267DD21B97B64E000ABD4F /* BoatsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5CDEDA901CB9303100F9FE9B /* BoatsData */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CDEDAAC1CB9303200F9FE9B /* Build configuration list for PBXNativeTarget "BoatsData" */;
+			buildPhases = (
+				5CDEDA8C1CB9303100F9FE9B /* Sources */,
+				5CDEDA8D1CB9303100F9FE9B /* Frameworks */,
+				5CDEDA8E1CB9303100F9FE9B /* Headers */,
+				5CDEDA8F1CB9303100F9FE9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsData;
+			productName = BoatsData;
+			productReference = 5CDEDA911CB9303100F9FE9B /* BoatsData.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		5C277C911B979A5000D18D14 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Todd Heasley";
 				TargetAttributes = {
@@ -266,6 +356,9 @@
 					5C277CAC1B979A5000D18D14 = {
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = 5C277C981B979A5000D18D14;
+					};
+					5CDEDA901CB9303100F9FE9B = {
+						CreatedOnToolsVersion = 7.3;
 					};
 				};
 			};
@@ -282,6 +375,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				5CDEDA901CB9303100F9FE9B /* BoatsData */,
 				5C277C981B979A5000D18D14 /* Boats */,
 				5C277CAC1B979A5000D18D14 /* BoatsTests */,
 			);
@@ -294,12 +388,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C277CA41B979A5000D18D14 /* Assets.xcassets in Resources */,
-				5C59F0001B993AE80081CE15 /* data.json in Resources */,
 				5CDDC5E11B9CBD4900AF4CDE /* Launch.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5C277CAB1B979A5000D18D14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C0BA06E1CB9BF6000F5BAD7 /* ProviderTests.json in Resources */,
+				5C0BA0661CB9BBB100F5BAD7 /* HolidayTests.json in Resources */,
+				5C0BA0721CB9C02D00F5BAD7 /* ScheduleTests.json in Resources */,
+				5C0BA0601CB9AF1D00F5BAD7 /* DepartureTests.json in Resources */,
+				5C0BA07A1CB9CF3600F5BAD7 /* DataTests.json in Resources */,
+				5C0BA06A1CB9BDB800F5BAD7 /* LocationTests.json in Resources */,
+				5C0BA0701CB9C02200F5BAD7 /* RouteTests.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CDEDA8F1CB9303100F9FE9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -330,27 +437,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C1D07B21B9A82E4008BEB97 /* Error.swift in Sources */,
-				5C1D07931B9A809D008BEB97 /* Route.swift in Sources */,
-				5C1D07A31B9A8205008BEB97 /* Holiday.swift in Sources */,
 				5CDDC5DC1B9CB88300AF4CDE /* DeparturesTableViewController.swift in Sources */,
-				5C1788B01BA3112700E6E268 /* Provider.swift in Sources */,
-				5C1D07911B9A804A008BEB97 /* JSON.swift in Sources */,
-				5C267DD71B97DB92000ABD4F /* Data.swift in Sources */,
-				5C1D079D1B9A8146008BEB97 /* Location.swift in Sources */,
-				5C1D07C91B9B9958008BEB97 /* Direction.swift in Sources */,
-				5C1D07A91B9A826F008BEB97 /* Time.swift in Sources */,
-				5C1D07AF1B9A82C8008BEB97 /* Day.swift in Sources */,
 				5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */,
 				5CB60DA31BA7539700AD8099 /* MainTableHeaderView.swift in Sources */,
 				5CDDC5EB1B9D38E300AF4CDE /* MainTableViewController.swift in Sources */,
-				5C1D07A61B9A8255008BEB97 /* Date.swift in Sources */,
-				5C1D07971B9A8102008BEB97 /* Schedule.swift in Sources */,
-				5C1D079A1B9A8123008BEB97 /* Departure.swift in Sources */,
 				5CDDC5D81B9CA8E400AF4CDE /* RouteViewController.swift in Sources */,
 				5C277C9D1B979A5000D18D14 /* AppDelegate.swift in Sources */,
-				5C1D07AC1B9A82B4008BEB97 /* Season.swift in Sources */,
-				5C1D07A01B9A81D0008BEB97 /* Coordinate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,31 +450,55 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C1D079B1B9A8123008BEB97 /* Departure.swift in Sources */,
-				5C1D07A71B9A8255008BEB97 /* Date.swift in Sources */,
-				5C1D07AA1B9A826F008BEB97 /* Time.swift in Sources */,
-				5C277CB21B979A5000D18D14 /* DataTests.swift in Sources */,
-				5C1D07AD1B9A82B4008BEB97 /* Season.swift in Sources */,
-				5C1D07941B9A809D008BEB97 /* Route.swift in Sources */,
-				5C1D07B01B9A82C8008BEB97 /* Day.swift in Sources */,
-				5C1D07B91B9A874D008BEB97 /* DepartureTests.swift in Sources */,
-				5C1D07A41B9A8205008BEB97 /* Holiday.swift in Sources */,
-				5C1D07A11B9A81D0008BEB97 /* Coordinate.swift in Sources */,
-				5C1D07C11B9A87B8008BEB97 /* DateTests.swift in Sources */,
-				5C1D07BF1B9A879C008BEB97 /* HolidayTests.swift in Sources */,
-				5C1788B31BA315F000E6E268 /* ProviderTests.swift in Sources */,
-				5C267DD81B97DB92000ABD4F /* Data.swift in Sources */,
-				5C1788B11BA3112700E6E268 /* Provider.swift in Sources */,
-				5C1D07981B9A8102008BEB97 /* Schedule.swift in Sources */,
-				5C1D07B51B9A8700008BEB97 /* RouteTests.swift in Sources */,
-				5C1D07951B9A80DE008BEB97 /* JSON.swift in Sources */,
-				5C1D07C31B9A87D3008BEB97 /* TimeTests.swift in Sources */,
-				5C1D07B31B9A82E4008BEB97 /* Error.swift in Sources */,
-				5C1D07CA1B9B9958008BEB97 /* Direction.swift in Sources */,
-				5C1D07B71B9A8728008BEB97 /* ScheduleTests.swift in Sources */,
-				5C1D07BB1B9A8767008BEB97 /* LocationTests.swift in Sources */,
-				5C1D079E1B9A8146008BEB97 /* Location.swift in Sources */,
-				5C1D07BD1B9A8782008BEB97 /* CoordinateTests.swift in Sources */,
+				5C10BD251CB959D7009CFBA6 /* Holiday.swift in Sources */,
+				5C10BD1F1CB959CE009CFBA6 /* Coordinate.swift in Sources */,
+				5C0BA0621CB9B49000F5BAD7 /* XCTestCase.swift in Sources */,
+				5C0BA0591CB9AA2500F5BAD7 /* DayTests.swift in Sources */,
+				5C10BD281CB959D7009CFBA6 /* Provider.swift in Sources */,
+				5C10BD211CB959D7009CFBA6 /* Date.swift in Sources */,
+				5C10BD271CB959D7009CFBA6 /* Location.swift in Sources */,
+				5C0BA0551CB9A08500F5BAD7 /* TimeTests.swift in Sources */,
+				5C10BD2B1CB959D7009CFBA6 /* Season.swift in Sources */,
+				5C0BA0531CB9948A00F5BAD7 /* NSDate.swift in Sources */,
+				5C10BD2F1CB95A20009CFBA6 /* CoordinateTests.swift in Sources */,
+				5C10BD2A1CB959D7009CFBA6 /* Schedule.swift in Sources */,
+				5C0BA0761CB9C2A200F5BAD7 /* ScheduleTests.swift in Sources */,
+				5C0BA06C1CB9BF3400F5BAD7 /* ProviderTests.swift in Sources */,
+				5C0BA0681CB9BD7700F5BAD7 /* LocationTests.swift in Sources */,
+				5C0BA0641CB9BB7100F5BAD7 /* HolidayTests.swift in Sources */,
+				5C10BD2C1CB959D7009CFBA6 /* Time.swift in Sources */,
+				5C10BD261CB959D7009CFBA6 /* JSON.swift in Sources */,
+				5C10BD291CB959D7009CFBA6 /* Route.swift in Sources */,
+				5C0BA0571CB9A37B00F5BAD7 /* DateTests.swift in Sources */,
+				5C10BD241CB959D7009CFBA6 /* Direction.swift in Sources */,
+				5C10BD231CB959D7009CFBA6 /* Departure.swift in Sources */,
+				5C0BA0741CB9C27D00F5BAD7 /* RouteTests.swift in Sources */,
+				5C0BA05D1CB9AB5300F5BAD7 /* DepartureTests.swift in Sources */,
+				5C10BD201CB959D7009CFBA6 /* Data.swift in Sources */,
+				5C0BA0781CB9CE7800F5BAD7 /* DataTests.swift in Sources */,
+				5C10BD221CB959D7009CFBA6 /* Day.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CDEDA8C1CB9303100F9FE9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C10BD101CB94338009CFBA6 /* Coordinate.swift in Sources */,
+				5C10BD121CB94338009CFBA6 /* Date.swift in Sources */,
+				5C10BD191CB94338009CFBA6 /* Location.swift in Sources */,
+				5C10BD171CB94338009CFBA6 /* Holiday.swift in Sources */,
+				5C0BA0521CB9948300F5BAD7 /* NSDate.swift in Sources */,
+				5C10BD181CB94338009CFBA6 /* JSON.swift in Sources */,
+				5C10BD131CB94338009CFBA6 /* Day.swift in Sources */,
+				5C10BD111CB94338009CFBA6 /* Data.swift in Sources */,
+				5C10BD1A1CB94338009CFBA6 /* Provider.swift in Sources */,
+				5C10BD141CB94338009CFBA6 /* Departure.swift in Sources */,
+				5C10BD1B1CB94338009CFBA6 /* Route.swift in Sources */,
+				5C10BD1C1CB94338009CFBA6 /* Schedule.swift in Sources */,
+				5C10BD1E1CB94338009CFBA6 /* Time.swift in Sources */,
+				5C10BD1D1CB94338009CFBA6 /* Season.swift in Sources */,
+				5C10BD151CB94338009CFBA6 /* Direction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +509,11 @@
 			isa = PBXTargetDependency;
 			target = 5C277C981B979A5000D18D14 /* Boats */;
 			targetProxy = 5C277CAE1B979A5000D18D14 /* PBXContainerItemProxy */;
+		};
+		5CDEDAA51CB9303200F9FE9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CDEDA901CB9303100F9FE9B /* BoatsData */;
+			targetProxy = 5CDEDAA41CB9303200F9FE9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -444,7 +565,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -483,7 +604,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -496,6 +617,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Boats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats;
@@ -509,6 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Boats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats;
@@ -520,7 +643,6 @@
 		5C277CC51B979A5000D18D14 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BoatsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsTests;
@@ -532,12 +654,58 @@
 		5C277CC61B979A5000D18D14 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = BoatsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boats.app/Boats";
+			};
+			name = Release;
+		};
+		5CDEDAA81CB9303200F9FE9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BoatsData/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsData;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5CDEDAA91CB9303200F9FE9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BoatsData/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsData;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -567,6 +735,15 @@
 			buildConfigurations = (
 				5C277CC51B979A5000D18D14 /* Debug */,
 				5C277CC61B979A5000D18D14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CDEDAAC1CB9303200F9FE9B /* Build configuration list for PBXNativeTarget "BoatsData" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CDEDAA81CB9303200F9FE9B /* Debug */,
+				5CDEDAA91CB9303200F9FE9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

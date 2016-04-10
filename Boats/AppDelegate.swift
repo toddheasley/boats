@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BoatsData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,13 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        Data.sharedData.refresh{ error in
-            switch error {
-            case .None:
-                completionHandler(.NewData)
-            default:
-                completionHandler(.Failed)
-            }
+        Data.sharedData.reloadData { completed in
+            completionHandler(completed ? .NewData : .Failed)
         }
     }
 }

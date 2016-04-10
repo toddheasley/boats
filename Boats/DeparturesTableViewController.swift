@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BoatsData
 
 enum DepartureStatus: Int {
     case Past = -1
@@ -24,9 +25,9 @@ class DeparturesTableViewController: UITableViewController {
     }
     
     var currentDeparture: (departure: Departure, index: Int)? {
-        if let dateFormatter = dateFormatter, let time = Time(JSON: dateFormatter.stringFromDate(NSDate())) {
+        if let time = Time(date: NSDate()) {
             for (index, departure) in departures.enumerate() {
-                if (time.value > departure.time.value) {
+                if (time > departure.time) {
                     continue
                 }
                 return (departure: departure, index: index)
@@ -36,10 +37,10 @@ class DeparturesTableViewController: UITableViewController {
     }
     
     func status(departure: Departure) -> DepartureStatus {
-        guard let time = Time(JSON: dateFormatter!.stringFromDate(NSDate())) where time.value <= departure.time.value else {
+        guard let time = Time() where time <= departure.time else {
             return .Past
         }
-        if let currentDeparture = currentDeparture where departure.time.value == currentDeparture.departure.time.value {
+        if let currentDeparture = currentDeparture where departure.time == currentDeparture.departure.time {
             return .Current
         }
         return .Future
@@ -70,7 +71,7 @@ class DeparturesTableViewController: UITableViewController {
         super.init(style: style)
         
         dateFormatter = NSDateFormatter()
-        dateFormatter?.dateFormat = Time.format
+        //dateFormatter?.dateFormat = Time.format
     }
 
     required init?(coder decoder: NSCoder) {
