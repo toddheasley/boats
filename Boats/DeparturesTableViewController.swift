@@ -15,7 +15,7 @@ enum DepartureStatus: Int {
 }
 
 class DeparturesTableViewController: UITableViewController {
-    private var dateFormatter: NSDateFormatter?
+    private var dateFormatter: NSDateFormatter = NSDateFormatter()
     
     var departures: [Departure] = [] {
         didSet {
@@ -69,9 +69,6 @@ class DeparturesTableViewController: UITableViewController {
     
     override init(style: UITableViewStyle = UITableViewStyle.Plain) {
         super.init(style: style)
-        
-        dateFormatter = NSDateFormatter()
-        //dateFormatter?.dateFormat = Time.format
     }
 
     required init?(coder decoder: NSCoder) {

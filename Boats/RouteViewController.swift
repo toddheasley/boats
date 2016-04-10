@@ -17,6 +17,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
     private var detailView: UIVisualEffectView!
     private var dismissButton: UIButton!
     private var nameLabel: UILabel!
+    private var emptyLabel: UILabel!
     private var seasonLabel: UILabel!
     private var dateLabel: UILabel!
     
@@ -29,14 +30,17 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
     
     func refresh(sender: AnyObject?) {
         nameLabel.text = ""
+        emptyLabel.text = ""
         dateLabel.text = ""
         departuresSegmentedControl.hidden = true
         if let route = route {
             nameLabel.text = route.name
-            let dateFormatter: NSDateFormatter = NSDateFormatter()
             guard let date = Date(), let schedule = route.schedule(date) else {
+                emptyLabel.text = "No schedule available"
+                departuresView.hidden = true
                 return
             }
+            let dateFormatter: NSDateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "EE, MMM d"
             dateLabel.text = "\(schedule.season.rawValue) Schedule: \(dateFormatter.stringFromDate(NSDate()))"
             departuresSegmentedControl.setTitle("From \(route.origin.name)", forSegmentAtIndex: 0)
@@ -55,6 +59,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
             }
             departuresTableViewControllers[0].departures = schedule.departures(day, direction: .Destination)
             departuresTableViewControllers[1].departures = schedule.departures(day, direction: .Origin)
+            departuresView.hidden = false
         }
     }
     
@@ -83,6 +88,13 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.whiteColor()
+        
+        emptyLabel = UILabel(frame: CGRect(x: 0.0, y: 100.0, width: view.bounds.width, height: view.bounds.height - 100.0))
+        emptyLabel.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        emptyLabel.textColor = UIColor.grayColor()
+        emptyLabel.textAlignment = .Center
+        view.addSubview(emptyLabel)
         
         departuresView = UIScrollView(frame: view.bounds)
         departuresView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
@@ -152,13 +164,11 @@ class RouteViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         applicationWillEnterForeground()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
         applicationDidEnterBackground()
     }
     

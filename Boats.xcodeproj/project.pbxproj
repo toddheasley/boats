@@ -284,10 +284,10 @@
 			buildConfigurationList = 5C277CC11B979A5000D18D14 /* Build configuration list for PBXNativeTarget "Boats" */;
 			buildPhases = (
 				5C277C951B979A5000D18D14 /* Sources */,
+				5CDEDAAD1CB9303200F9FE9B /* Embed Frameworks */,
 				5C277C961B979A5000D18D14 /* Frameworks */,
 				5C277C971B979A5000D18D14 /* Resources */,
 				5C59EFFC1B99332B0081CE15 /* Set Build Number */,
-				5CDEDAAD1CB9303200F9FE9B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -347,6 +347,7 @@
 				TargetAttributes = {
 					5C277C981B979A5000D18D14 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = TT6BWCS29A;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -375,8 +376,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5CDEDA901CB9303100F9FE9B /* BoatsData */,
 				5C277C981B979A5000D18D14 /* Boats */,
+				5CDEDA901CB9303100F9FE9B /* BoatsData */,
 				5C277CAC1B979A5000D18D14 /* BoatsTests */,
 			);
 		};
@@ -617,11 +618,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Boats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -630,12 +633,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Boats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

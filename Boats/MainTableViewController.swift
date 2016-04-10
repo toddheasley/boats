@@ -48,6 +48,9 @@ class MainTableViewController: UITableViewController {
     
     // MARK: UITableViewDataSource
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        guard let refreshControl = refreshControl where !refreshControl.refreshing else {
+            return 0
+        }
         return Data.sharedData.providers.count
     }
     
