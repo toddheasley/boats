@@ -1,0 +1,22 @@
+{
+    "name": "Casco Bay Lines",
+    "code": "CBL",
+    "www": "http://www.cascobaylines.com",
+    "routes": [
+        {
+            "name": "Peaks Island",
+            "code": "CBL_PEAKS",
+            "destination": {
+               "name": "Peaks Island",
+               "description": "Forest City Landing",
+               "coordinate": "43.655538,-70.199288"
+            },
+            "origin": {
+               "name": "Portland",
+               "description": "Casco Bay Lines Ferry Terminal",
+               "coordinate": "43.6570177,-70.248711"
+            },
+            "schedules": []
+        }
+    ]
+}

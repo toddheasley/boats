@@ -6,21 +6,16 @@
 //
 
 import UIKit
+import BoatsData
 
 class MainTableViewController: UITableViewController {
-    var data: Data {
-        return Data.sharedData
-    }
-    
     func refresh(sender: AnyObject?) {
         refreshControl?.beginRefreshing()
-        data.refresh{ error in
-            dispatch_async(dispatch_get_main_queue()){
-                self.refreshControl?.endRefreshing()
-                self.tableView.reloadData()
-                if let presentedViewController = self.presentedViewController as? RouteViewController {
-                    presentedViewController.viewWillAppear(true)
-                }
+        Data.sharedData.reloadData { completed in
+            self.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
+            if let presentedViewController = self.presentedViewController as? RouteViewController {
+                presentedViewController.viewWillAppear(true)
             }
         }
     }
@@ -35,7 +30,7 @@ class MainTableViewController: UITableViewController {
         tableView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.975)
         
         refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: "refresh:", forControlEvents: .ValueChanged)
+        refreshControl?.addTarget(self, action: #selector(MainTableViewController.refresh(_:)), forControlEvents: .ValueChanged)
         refresh(self)
     }
     
@@ -53,26 +48,29 @@ class MainTableViewController: UITableViewController {
     
     // MARK: UITableViewDataSource
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return data.providers.count
+        guard let refreshControl = refreshControl where !refreshControl.refreshing else {
+            return 0
+        }
+        return Data.sharedData.providers.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.providers[section].routes.count
+        return Data.sharedData.providers[section].routes.count
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return data.providers[section].name
+        return Data.sharedData.providers[section].name
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RouteTableViewCell", forIndexPath: indexPath)
-        cell.textLabel?.text = data.providers[indexPath.section].routes[indexPath.row].name
+        cell.textLabel?.text = Data.sharedData.providers[indexPath.section].routes[indexPath.row].name
         return cell
     }
     
     // MARK: UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        presentViewController(RouteViewController(route: data.providers[indexPath.section].routes[indexPath.row]), animated: true){
+        presentViewController(RouteViewController(route: Data.sharedData.providers[indexPath.section].routes[indexPath.row]), animated: true){
             tableView.deselectRowAtIndexPath(indexPath, animated: false)
         }
     }
