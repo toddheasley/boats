@@ -9,7 +9,7 @@ import XCTest
 
 class LocationTests: XCTestCase {
     func testJSONEncoding() {
-        guard let JSONMock = JSONMock, location = Location(JSON: JSONMock), JSON = location.JSON as? [String: AnyObject] else {
+        guard let mockJSON = mockJSON, location = Location(JSON: mockJSON), JSON = location.JSON as? [String: AnyObject] else {
             XCTFail()
             return
         }
@@ -19,7 +19,7 @@ class LocationTests: XCTestCase {
     }
     
     func testJSONDecoding() {
-        guard let JSONMock = JSONMock, location = Location(JSON: JSONMock) else {
+        guard let mockJSON = mockJSON, location = Location(JSON: mockJSON) else {
             XCTFail()
             return
         }

@@ -33,7 +33,7 @@ extension Date: JSONEncoding, JSONDecoding {
         guard let year = Int(components[0]), month = Int(components[1]), day = Int(components[2]) else {
             return nil
         }
-        self.year = max(2016, year)
+        self.year = max(1970, year)
         self.month = max(1, month)
         self.month = min(12, self.month)
         self.day = max(1, day)

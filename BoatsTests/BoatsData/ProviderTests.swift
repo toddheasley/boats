@@ -9,7 +9,7 @@ import XCTest
 
 class ProviderTests: XCTestCase {
     func testRoute() {
-        guard let JSONMock = JSONMock, provider = Provider(JSON: JSONMock) else {
+        guard let mockJSON = mockJSON, provider = Provider(JSON: mockJSON) else {
             XCTFail()
             return
         }
@@ -18,7 +18,7 @@ class ProviderTests: XCTestCase {
     }
     
     func testJSONEncoding() {
-        guard let JSONMock = JSONMock, provider = Provider(JSON: JSONMock), JSON = provider.JSON as? [String: AnyObject] else {
+        guard let mockJSON = mockJSON, provider = Provider(JSON: mockJSON), JSON = provider.JSON as? [String: AnyObject] else {
             XCTFail()
             return
         }
@@ -29,7 +29,7 @@ class ProviderTests: XCTestCase {
     }
     
     func testJSONDecoding() {
-        guard let JSONMock = JSONMock, provider = Provider(JSON: JSONMock) else {
+        guard let mockJSON = mockJSON, provider = Provider(JSON: mockJSON) else {
             XCTFail()
             return
         }

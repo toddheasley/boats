@@ -8,7 +8,7 @@
 import XCTest
 
 extension XCTestCase {
-    var JSONMock: AnyObject? {
+    var mockJSON: AnyObject? {
         guard let resourceName = NSStringFromClass(self.dynamicType).componentsSeparatedByString(".").last, path = NSBundle(forClass: self.dynamicType).pathForResource(resourceName, ofType: ".json"), data = NSData(contentsOfFile: path)else {
             return nil
         }

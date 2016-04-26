@@ -16,7 +16,6 @@ class DateTests: XCTestCase {
         XCTAssertEqual(Date(JSON: "2016-07-04")?.year, 2016)
         XCTAssertEqual(Date(JSON: "2016-07-04")?.month, 7)
         XCTAssertEqual(Date(JSON: "2016-07-04")?.day, 4)
-        XCTAssertEqual(Date(JSON: "2013-00-00")?.year, 2016)
         XCTAssertEqual(Date(JSON: "2013-00-00")?.month, 1)
         XCTAssertEqual(Date(JSON: "2013-00-00")?.day, 1)
         XCTAssertEqual(Date(JSON: "3000-13-32")?.year, 3000)
@@ -30,7 +29,13 @@ class DateTests: XCTestCase {
     }
     
     func testNSDateDecoding() {
-        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatter.dateFromString("1970-01-01") else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(Date(date: date), Date(year: 1970, month: 1, day: 1))
     }
     
     func testComparable() {

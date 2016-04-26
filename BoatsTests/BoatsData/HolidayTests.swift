@@ -9,7 +9,7 @@ import XCTest
 
 class HolidayTests: XCTestCase {
     func testJSONEncoding() {
-        guard let JSONMock = JSONMock, holiday = Holiday(JSON: JSONMock), JSON = holiday.JSON as? [String: AnyObject] else {
+        guard let mockJSON = mockJSON, holiday = Holiday(JSON: mockJSON), JSON = holiday.JSON as? [String: AnyObject] else {
             XCTFail()
             return
         }
@@ -18,7 +18,7 @@ class HolidayTests: XCTestCase {
     }
     
     func testJSONDecoding() {
-        guard let JSONMock = JSONMock, holiday = Holiday(JSON: JSONMock) else {
+        guard let mockJSON = mockJSON, holiday = Holiday(JSON: mockJSON) else {
             XCTFail()
             return
         }

@@ -9,7 +9,7 @@ import XCTest
 
 class DataTests: XCTestCase {
     func testProvider() {
-        guard let JSONMock = JSONMock, data = Data(JSON: JSONMock) else {
+        guard let mockJSON = mockJSON, data = Data(JSON: mockJSON) else {
             XCTFail()
             return
         }
@@ -41,7 +41,7 @@ class DataTests: XCTestCase {
     }
     
     func testJSONEncoding() {
-        guard let JSONMock = JSONMock, data = Data(JSON: JSONMock), JSON = data.JSON as? [String: AnyObject] else {
+        guard let mockJSON = mockJSON, data = Data(JSON: mockJSON), JSON = data.JSON as? [String: AnyObject] else {
             XCTFail()
             return
         }
@@ -49,7 +49,7 @@ class DataTests: XCTestCase {
     }
     
     func testJSONDecoding() {
-        guard let JSONMock = JSONMock, data = Data(JSON: JSONMock) else {
+        guard let mockJSON = mockJSON, data = Data(JSON: mockJSON) else {
             XCTFail()
             return
         }

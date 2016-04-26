@@ -9,7 +9,7 @@ import XCTest
 
 class ScheduleTests: XCTestCase {
     func testDepartures() {
-        guard let JSONMock = JSONMock, schedule = Schedule(JSON: JSONMock) else {
+        guard let mockJSON = mockJSON, schedule = Schedule(JSON: mockJSON) else {
             XCTFail()
             return
         }
@@ -20,7 +20,7 @@ class ScheduleTests: XCTestCase {
     }
     
     func testJSONEncoding() {
-        guard let JSONMock = JSONMock, schedule = Schedule(JSON: JSONMock), JSON = schedule.JSON as? [String: AnyObject] else {
+        guard let mockJSON = mockJSON, schedule = Schedule(JSON: mockJSON), JSON = schedule.JSON as? [String: AnyObject] else {
             XCTFail()
             return
         }
@@ -31,7 +31,7 @@ class ScheduleTests: XCTestCase {
     }
     
     func testJSONDecoding() {
-        guard let JSONMock = JSONMock, schedule = Schedule(JSON: JSONMock) else {
+        guard let mockJSON = mockJSON, schedule = Schedule(JSON: mockJSON) else {
             XCTFail()
             return
         }

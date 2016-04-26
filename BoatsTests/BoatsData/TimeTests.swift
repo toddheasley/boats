@@ -22,7 +22,13 @@ class TimeTests: XCTestCase {
     }
     
     func testNSDateDecoding() {
-        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        guard let date = dateFormatter.dateFromString("12:00") else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(Time(date: date), Time(hour: 12, minute: 0))
     }
     
     func testComparable() {

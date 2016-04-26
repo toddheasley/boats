@@ -9,7 +9,7 @@ import XCTest
 
 class DepartureTests: XCTestCase {
     func testJSONEncoding() {
-        guard let JSONMock = JSONMock, departure = Departure(JSON: JSONMock), JSON = departure.JSON as? [String: AnyObject] else {
+        guard let mockJSON = mockJSON, departure = Departure(JSON: mockJSON), JSON = departure.JSON as? [String: AnyObject] else {
             XCTFail()
             return
         }
@@ -21,7 +21,7 @@ class DepartureTests: XCTestCase {
     }
     
     func testJSONDecoding() {
-        guard let JSONMock = JSONMock, departure = Departure(JSON: JSONMock) else {
+        guard let mockJSON = mockJSON, departure = Departure(JSON: mockJSON) else {
             XCTFail()
             return
         }
