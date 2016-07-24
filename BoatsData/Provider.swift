@@ -29,12 +29,12 @@ extension Provider: JSONEncoding, JSONDecoding {
             "name": name,
             "code": code,
             "www": www,
-            "routes": routes.map{$0.JSON}
+            "routes": routes.map { $0.JSON }
         ]
     }
     
     init?(JSON: AnyObject) {
-        guard let JSON = JSON as? [String: AnyObject], name = JSON["name"] as? String, code = JSON["code"] as? String, www = JSON["www"] as? String, _ = JSON["routes"] as? [AnyObject] else {
+        guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let code = JSON["code"] as? String, let www = JSON["www"] as? String, let _ = JSON["routes"] as? [AnyObject] else {
             return nil
         }
         self.name = name

@@ -11,7 +11,6 @@ Includes schedules for the following:
 
 * Peaks island
 * Chebeague Island
-* Long Island
 
 [Chebeague Transportation](http://www.chebeaguetrans.com)
 

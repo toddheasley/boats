@@ -1,0 +1,105 @@
+//
+//  MainViewController.swift
+//  Boats
+//
+//  (c) 2016 @toddheasley
+//
+
+import UIKit
+import BoatsData
+
+class MainViewController: ViewController, UITableViewDataSource, UITableViewDelegate {
+    var tableView: UITableView!
+    
+    override func dataDidRefresh(completed: Bool) {
+        super.dataDidRefresh(completed: completed)
+        tableView.refreshControl?.endRefreshing()
+        if (completed) {
+            tableView.reloadData()
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        tableView.register(MainViewCell.self, forCellReuseIdentifier: "MainViewCell")
+        tableView.register(RouteViewCell.self, forCellReuseIdentifier: "RouteViewCell")
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .none
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.dataSource = self
+        tableView.delegate = self
+        view.addSubview(tableView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewDidLayoutSubviews()
+        if (tableView.numberOfRows(inSection: 0) < 2) {
+            refreshData()
+        }
+    }
+    
+    // MARK: UITableViewDataSource
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1 + data.providers.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        default:
+            return data.providers[section - 1].routes.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MainViewCell") as! MainViewCell
+            cell.data = data
+            return cell
+        default:
+            let provider = data.providers[indexPath.section - 1]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RouteViewCell") as! RouteViewCell
+            cell.provider = provider
+            cell.route = provider.routes[indexPath.row]
+            return cell
+        }
+    }
+    
+    // MARK: UITableViewDelegate
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height: CGFloat = tableView.suggestedContentInset.top * 2.0
+        switch indexPath.section {
+        case 0:
+            return 45.0 + height
+        default:
+            return ((view.suggestedSizeClass.vertical == .regular) ?  82.0 : 61.5) + height
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            return
+        default:
+            var rect = tableView.rectForRow(at: indexPath)
+            rect.origin.y -= tableView.contentOffset.y
+            guard let cell = tableView.cellForRow(at: indexPath) as? RouteViewCell, let routeViewController =
+                RouteViewController(provider: cell.provider, route: cell.route, rect: rect) else {
+                return
+            }
+            navigationController?.pushViewController(routeViewController, animated: true)
+        }
+    }
+}

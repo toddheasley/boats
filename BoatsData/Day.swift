@@ -8,21 +8,25 @@
 import Foundation
 
 public enum Day: String {
-    case Everyday = "Everyday"
-    case Monday = "Monday"
-    case Tuesday = "Tuesday"
-    case Wednesday = "Wednesday"
-    case Thursday = "Thursday"
-    case Friday = "Friday"
-    case Saturday = "Saturday"
-    case Sunday = "Sunday"
-    case Holiday = "Holiday"
+    case everyday = "Everyday"
+    case monday = "Monday"
+    case tuesday = "Tuesday"
+    case wednesday = "Wednesday"
+    case thursday = "Thursday"
+    case friday = "Friday"
+    case saturday = "Saturday"
+    case sunday = "Sunday"
+    case holiday = "Holiday"
+    
+    public static var days: [Day] {
+        return [.everyday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday, .holiday]
+    }
 }
 
-extension Day: NSDateDecoding {
-    public init?(date: NSDate = NSDate()) {
-        let dateFormatter: NSDateFormatter = NSDateFormatter()
+extension Day: DateDecoding {
+    public init(date: Foundation.Date = Foundation.Date()) {
+        let dateFormatter: DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
-        self.init(rawValue: dateFormatter.stringFromDate(date))
+        self.init(rawValue: dateFormatter.string(from: date))!
     }
 }

@@ -17,18 +17,18 @@ extension Time: JSONEncoding, JSONDecoding {
         return [
             String(format: "%02d", hour),
             String(format: "%02d", minute)
-        ].joinWithSeparator(":")
+        ].joined(separator: ":")
     }
     
     init?(JSON: AnyObject) {
         guard let JSON = JSON as? String else {
             return nil
         }
-        let components = JSON.characters.split{$0 == ":"}.map{String($0)}
+        let components = JSON.characters.split { $0 == ":" }.map { String($0) }
         if (components.count != 2) {
             return nil
         }
-        guard let hour = Int(components[0]), minute = Int(components[1]) else {
+        guard let hour = Int(components[0]), let minute = Int(components[1]) else {
             return nil
         }
         self.hour = min(23, max(0, hour))
@@ -36,11 +36,10 @@ extension Time: JSONEncoding, JSONDecoding {
     }
 }
 
-extension Time: NSDateDecoding {
-    public init?(date: NSDate = NSDate()) {
-        let dateFormatter: NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        self.init(JSON: dateFormatter.stringFromDate(date))
+extension Time: DateDecoding {
+    public init(date: Foundation.Date = Foundation.Date()) {
+        Date.formatter.dateFormat = "HH:mm"
+        self.init(JSON: Date.formatter.string(from: date))!
     }
 }
 
@@ -49,7 +48,7 @@ extension Time: Comparable {
         return Int([
             String(format: "%02d", hour),
             String(format: "%02d", minute)
-        ].joinWithSeparator(""))!
+        ].joined(separator: ""))!
     }
 }
 

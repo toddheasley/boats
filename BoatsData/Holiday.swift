@@ -21,7 +21,7 @@ extension Holiday: JSONEncoding, JSONDecoding {
     }
     
     init?(JSON: AnyObject) {
-        guard let JSON = JSON as? [String: AnyObject], name = JSON["name"] as? String, _ = JSON["date"] as? String, date = Date(JSON: JSON["date"]!) else {
+        guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let _ = JSON["date"] as? String, let date = Date(JSON: JSON["date"]!) else {
             return nil
         }
         self.name = name

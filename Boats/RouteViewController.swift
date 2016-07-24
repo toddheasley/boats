@@ -2,195 +2,240 @@
 //  RouteViewController.swift
 //  Boats
 //
-//  (c) 2015 @toddheasley
+//  (c) 2016 @toddheasley
 //
 
 import UIKit
 import BoatsData
 
-class RouteViewController: UIViewController, UIScrollViewDelegate {
-    private var route: Route?
-    private var timer: NSTimer?
-    private var departuresTableViewControllers: [DeparturesTableViewController]!
-    private var departuresView: UIScrollView!
-    private var departuresSegmentedControl: UISegmentedControl!
-    private var detailView: UIVisualEffectView!
-    private var dismissButton: UIButton!
-    private var nameLabel: UILabel!
-    private var emptyLabel: UILabel!
-    private var seasonLabel: UILabel!
-    private var dateLabel: UILabel!
+class RouteViewController: ViewController, ProviderViewDelegate, RouteViewDelegate {
+    private let highlightView: UIView = UIView()
+    private let providerView: ProviderView = ProviderView()
+    private let routeLabel: UILabel = UILabel()
+    private let scheduleLabel: ScheduleLabel = ScheduleLabel()
+    private let contentView: UIView = UIView()
+    private let contentLabel: UILabel = UILabel()
+    private let todayView: TodayView = TodayView()
+    private let scheduleView: ScheduleView = ScheduleView()
     
-    private var direction: Direction = .Destination {
-        didSet {
-            departuresSegmentedControl.selectedSegmentIndex = (direction == .Destination) ? 0 : 1
-            departuresView.setContentOffset(CGPointMake((direction == .Destination) ? 0.0 : departuresView.bounds.size.width, 0.0), animated: view.window != nil)
-        }
-    }
+    private var rect: CGRect?
+    private(set) var provider: Provider!
+    private(set) var route: Route!
     
-    func refresh(sender: AnyObject?) {
-        nameLabel.text = ""
-        emptyLabel.text = ""
-        dateLabel.text = ""
-        departuresSegmentedControl.hidden = true
-        if let route = route {
-            nameLabel.text = route.name
-            guard let date = Date(), let schedule = route.schedule(date) else {
-                emptyLabel.text = "No schedule available"
-                departuresView.hidden = true
+    override func dataDidRefresh(completed: Bool) {
+        super.dataDidRefresh(completed: completed)
+        if (completed) {
+            guard let provider = data.provider(code: self.provider.code), let route = provider.route(code: self.route.code) else {
+                let _ = navigationController?.popViewController(animated: true)
                 return
             }
-            let dateFormatter: NSDateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "EE, MMM d"
-            dateLabel.text = "\(schedule.season.rawValue) Schedule: \(dateFormatter.stringFromDate(NSDate()))"
-            departuresSegmentedControl.setTitle("From \(route.origin.name)", forSegmentAtIndex: 0)
-            departuresSegmentedControl.setTitle("To \(route.origin.name)", forSegmentAtIndex: 1)
-            departuresSegmentedControl.hidden = false
-            var day: Day = .Everyday
-            if let _ = Day() {
-                day = Day()!
+            self.provider = provider
+            self.route = route
+            
+            providerView.provider = self.provider
+            routeLabel.text = self.route.name
+            if let schedule = route.schedule() {
+                scheduleLabel.schedule = schedule
+                contentLabel.isHidden = true
+                todayView.isHidden = false
+                scheduleView.isHidden = false
+            } else {
+                scheduleLabel.schedule = nil
+                contentLabel.isHidden = true
+                todayView.isHidden = true
+                scheduleView.isHidden = true
             }
-            for holiday in schedule.holidays {
-                if (holiday.date == date) {
-                    day = .Holiday
-                    dateFormatter.dateFormat = "EE, MMM d"
-                    dateLabel.text = "\(Day.Holiday.rawValue) Schedule: \(dateFormatter.stringFromDate(NSDate())) (\(holiday.name))"
-                }
-            }
-            departuresTableViewControllers[0].departures = schedule.departures(day, direction: .Destination)
-            departuresTableViewControllers[1].departures = schedule.departures(day, direction: .Origin)
-            departuresView.hidden = false
+            todayView.route = self.route
+            scheduleView.route = self.route
         }
-    }
-    
-    func dismiss(sender: AnyObject?) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func changeDirection(sender: AnyObject?) {
-        switch departuresSegmentedControl.selectedSegmentIndex {
-        case 1:
-            direction = .Origin
-        default:
-            direction = .Destination
-        }
-    }
-    
-    func applicationWillEnterForeground() {
-        timer?.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(30.0), target: self, selector: #selector(RouteViewController.refresh(_:)), userInfo: nil, repeats: true)
-        refresh(self)
-    }
-    
-    func applicationDidEnterBackground() {
-        timer?.invalidate()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
-        
-        emptyLabel = UILabel(frame: CGRect(x: 0.0, y: 100.0, width: view.bounds.width, height: view.bounds.height - 100.0))
-        emptyLabel.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        emptyLabel.textColor = UIColor.grayColor()
-        emptyLabel.textAlignment = .Center
-        view.addSubview(emptyLabel)
-        
-        departuresView = UIScrollView(frame: view.bounds)
-        departuresView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        departuresView.showsHorizontalScrollIndicator = false
-        departuresView.showsVerticalScrollIndicator = false
-        departuresView.bounces = false
-        departuresView.pagingEnabled = true
-        departuresView.delegate = self
-        view.addSubview(departuresView)
-        
-        departuresTableViewControllers = [
-            DeparturesTableViewController(),
-            DeparturesTableViewController()
-        ]
-        departuresTableViewControllers[0].tableView.contentInset = UIEdgeInsetsMake(123.0, 0.0, 0.0, 0.0)
-        departuresTableViewControllers[1].tableView.contentInset = departuresTableViewControllers[0].tableView.contentInset
-        departuresTableViewControllers[0].tableView.scrollIndicatorInsets = departuresTableViewControllers[0].tableView.contentInset
-        departuresTableViewControllers[1].tableView.scrollIndicatorInsets = departuresTableViewControllers[0].tableView.contentInset
-        departuresView.addSubview(departuresTableViewControllers[0].view)
-        departuresView.addSubview(departuresTableViewControllers[1].view)
-        
-        detailView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight))
-        detailView.frame = CGRectMake(0.0, 0.0, view.bounds.size.width, 123.0)
-        detailView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        view.addSubview(detailView)
-        
-        let layer = CALayer()
-        layer.frame = CGRectMake(0.0, detailView.bounds.size.height - 0.5, detailView.bounds.size.width, 0.5)
-        layer.backgroundColor = UIColor.lightGrayColor().CGColor
-        detailView.layer.addSublayer(layer)
-        
-        nameLabel = UILabel(frame: CGRectMake(65.0, 31.0, detailView.bounds.size.width - 130.0, 19.0))
-        nameLabel.autoresizingMask = [.FlexibleWidth]
-        nameLabel.font = UIFont.boldSystemFontOfSize(15.0)
-        nameLabel.numberOfLines = 1
-        nameLabel.textAlignment = .Center
-        detailView.contentView.addSubview(nameLabel)
-        
-        dateLabel = UILabel(frame: CGRectMake(10.0, 53.0, view.bounds.size.width - 20.0, 19.0))
-        dateLabel.autoresizingMask = [.FlexibleWidth]
-        dateLabel.font = UIFont.systemFontOfSize(13.0)
-        dateLabel.numberOfLines = 1
-        dateLabel.textAlignment = .Center
-        dateLabel.alpha = 0.8
-        detailView.contentView.addSubview(dateLabel)
-        
-        dismissButton = UIButton()
-        dismissButton.titleLabel?.font = UIFont.boldSystemFontOfSize(15.0)
-        dismissButton.setTitleColor(dismissButton.tintColor, forState: .Normal)
-        dismissButton.setTitle("Done", forState: .Normal)
-        dismissButton.sizeToFit()
-        dismissButton.frame = CGRectMake(view.bounds.size.width - 61.0, 20.0, 61.0, 41.0)
-        dismissButton.autoresizingMask = [.FlexibleLeftMargin]
-        dismissButton.addTarget(self, action: #selector(RouteViewController.dismiss(_:)), forControlEvents: .TouchUpInside)
-        detailView.contentView.addSubview(dismissButton)
-        
-        departuresSegmentedControl = UISegmentedControl(items: ["", ""])
-        departuresSegmentedControl.frame = CGRectMake(10.0, detailView.bounds.size.height - departuresSegmentedControl.frame.size.height - 11.0, detailView.bounds.size.width - 20.0, departuresSegmentedControl.frame.size.height)
-        departuresSegmentedControl.autoresizingMask = [.FlexibleWidth]
-        departuresSegmentedControl.selectedSegmentIndex = 0
-        departuresSegmentedControl.addTarget(self, action: #selector(RouteViewController.changeDirection(_:)), forControlEvents: .ValueChanged)
-        detailView.contentView.addSubview(departuresSegmentedControl)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RouteViewController.applicationWillEnterForeground), name: UIApplicationWillEnterForegroundNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RouteViewController.applicationDidEnterBackground), name: UIApplicationDidEnterBackgroundNotification, object: nil)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        applicationWillEnterForeground()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        applicationDidEnterBackground()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        dataDidRefresh(completed: true)
         
-        departuresView.contentSize = CGSizeMake(departuresView.bounds.size.width * 2.0, departuresView.bounds.size.height)
-        departuresTableViewControllers[0].view.frame = departuresView.bounds
-        departuresTableViewControllers[1].view.frame = CGRectMake(departuresView.bounds.size.width, 0.0, departuresView.bounds.size.width, departuresView.bounds.size.height)
+        providerView.frame.size.width = view.suggestedFrame.size.width
+        providerView.frame.size.height = providerView.intrinsicContentSize().height
+        providerView.frame.origin.x = view.suggestedFrame.origin.x
+        providerView.frame.origin.y = view.suggestedContentInset.bottom + view.statusBarHeight
+        
+        routeLabel.frame.origin.x = providerView.frame.origin.x
+        routeLabel.frame.origin.y = providerView.frame.origin.y + providerView.frame.size.height
+        routeLabel.sizeToFit()
+        
+        scheduleLabel.frame.origin.x = routeLabel.frame.origin.x + routeLabel.frame.size.width + 5.0
+        scheduleLabel.frame.origin.y = routeLabel.frame.origin.y
+        scheduleLabel.frame.size.width = providerView.frame.size.width - (scheduleLabel.frame.origin.x - routeLabel.frame.origin.x)
+        
+        contentView.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height
+        contentView.frame.size.height = view.bounds.size.height - contentView.frame.origin.y
+        contentLabel.frame.size.width = contentView.bounds.size.width
+        contentLabel.frame.size.height = contentView.frame.size.height - contentView.frame.origin.y
+        
+        routeLabel.textColor = .foreground
+        contentLabel.textColor = UIColor.foreground.disabled
     }
     
-    convenience init(route: Route) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.clipsToBounds = true
+        
+        highlightView.frame = view.bounds
+        highlightView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        highlightView.backgroundColor = .highlight
+        view.addSubview(highlightView)
+        
+        routeLabel.font = .large
+        routeLabel.text = " "
+        routeLabel.sizeToFit()
+        view.addSubview(routeLabel)
+        
+        scheduleLabel.font = routeLabel.font
+        scheduleLabel.text = " "
+        scheduleLabel.sizeToFit()
+        view.addSubview(scheduleLabel)
+        
+        contentView.frame = view.bounds
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(contentView)
+        
+        contentLabel.font = .xlarge
+        contentLabel.textAlignment = .center
+        contentLabel.text = "No Active Schedule"
+        contentView.addSubview(contentLabel)
+        
+        todayView.delegate = self
+        todayView.expand(animated: false)
+        todayView.isHidden = true
+        contentView.addSubview(todayView)
+        
+        scheduleView.delegate = self
+        scheduleView.collapse(animated: false)
+        scheduleView.isHidden = true
+        contentView.addSubview(scheduleView)
+        
+        providerView.delegate = self
+        view.addSubview(providerView)
+        
+        dataDidRefresh(completed: true)
+    }
+    
+    convenience init?(provider: Provider?, route: Route?, rect: CGRect? = nil) {
         self.init()
+        guard let provider = provider, let route = route else {
+            return nil
+        }
+        self.rect = rect
+        self.provider = provider
         self.route = route
     }
     
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+    override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return RouteViewControllerAnimator(operation: operation, rect: rect)
     }
     
-    // MARK: UIScrollViewDelegate
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        direction = (departuresView.contentOffset.x > 0.0) ? .Origin : .Destination
+    // MARK: ProviderViewDelegate
+    func providerViewDidPop(view: ProviderView) {
+        let _ = navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: RouteViewDelegate
+    func routeViewCanExpand(view: RouteView, animated: Bool) -> Bool {
+        switch view {
+        case todayView:
+            scheduleView.collapse(animated: animated)
+        case scheduleView:
+            todayView.collapse(animated: animated)
+        default:
+            break
+        }
+        return true
+    }
+    
+    func routeViewFrame(view: RouteView, expanded: Bool) -> CGRect {
+        view.autoresizingMask = expanded ? [.flexibleWidth, .flexibleHeight] : [.flexibleWidth, .flexibleTopMargin]
+        
+        var frame = contentView.bounds
+        frame.size.height = expanded ? contentView.bounds.size.height - 44.0 : 44.0
+        frame.origin.y = expanded ? 0.0 : contentView.bounds.size.height - 44.0
+        return frame
+    }
+    
+    func routeViewDidExpand(view: RouteView) {
+        contentView.sendSubview(toBack: view)
+    }
+}
+
+class RouteViewControllerAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    private let animationDuration: TimeInterval = 0.25
+    private let scale: CGFloat = 0.8
+    private let borderWidth: CGFloat = 0.5
+    private var rect: CGRect?
+    private(set) var operation: UINavigationControllerOperation = .none
+    
+    required init?(operation: UINavigationControllerOperation? = nil, rect: CGRect? = nil) {
+        super.init()
+        guard let operation = operation , operation == .push || operation == .pop else {
+            return nil
+        }
+        self.operation = operation
+        self.rect = rect
+    }
+    
+    // MARK: UIViewControllerAnimatedTransitioning
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return animationDuration
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextFromViewControllerKey) as? ViewController, let toViewController = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? ViewController else {
+            transitionContext.completeTransition(false)
+            return
+        }
+        let view = transitionContext.containerView()
+        var frame = CGRect(x: 0.0, y: view.bounds.size.height, width: view.bounds.size.width, height: 0.0)
+        if let rect = rect {
+            frame = rect
+        }
+        var animations:(Void) -> Void = { }
+        switch self.operation {
+        case .push:
+            view.backgroundColor = fromViewController.view.backgroundColor
+            view.addSubview(fromViewController.view)
+            view.addSubview(toViewController.view)
+            toViewController.view.layer.borderWidth = self.borderWidth
+            toViewController.view.layer.borderColor = UIColor.foreground.disabled.cgColor
+            toViewController.view.frame = frame
+            animations = {
+                toViewController.view.frame = view.bounds
+                fromViewController.view.layer.transform = CATransform3DMakeScale(self.scale, self.scale, 1.0)
+                fromViewController.view.layer.opacity = 0.25
+            }
+        case .pop:
+            view.backgroundColor = toViewController.view.backgroundColor
+            view.addSubview(toViewController.view)
+            view.addSubview(fromViewController.view)
+            toViewController.view.layer.transform = CATransform3DMakeScale(self.scale, self.scale, 1.0)
+            toViewController.view.layer.opacity = 0.25
+            fromViewController.view.layer.borderWidth = self.borderWidth
+            fromViewController.view.layer.borderColor = UIColor.foreground.disabled.cgColor
+            fromViewController.view.frame = view.bounds
+            animations = {
+                fromViewController.view.frame = frame
+                toViewController.view.layer.transform = CATransform3DIdentity
+                toViewController.view.layer.opacity = 1.0
+            }
+        case .none:
+            transitionContext.completeTransition(false)
+            return
+        }
+        UIView.animate(withDuration: animationDuration, animations: animations, completion: { finished in
+            fromViewController.view.layer.borderWidth = 0.0
+            fromViewController.view.layer.opacity = 1.0
+            toViewController.view.layer.borderWidth = 0.0
+            toViewController.view.layer.opacity = 1.0
+            transitionContext.completeTransition(finished)
+        })
     }
 }

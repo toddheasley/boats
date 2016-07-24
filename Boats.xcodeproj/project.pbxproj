@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C0BA0521CB9948300F5BAD7 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0511CB9948300F5BAD7 /* NSDate.swift */; };
-		5C0BA0531CB9948A00F5BAD7 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0511CB9948300F5BAD7 /* NSDate.swift */; };
+		5C06069F1D2A930B00853BFD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06069E1D2A930B00853BFD /* MainViewController.swift */; };
 		5C0BA0551CB9A08500F5BAD7 /* TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0541CB9A08500F5BAD7 /* TimeTests.swift */; };
 		5C0BA0571CB9A37B00F5BAD7 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0561CB9A37B00F5BAD7 /* DateTests.swift */; };
 		5C0BA0591CB9AA2500F5BAD7 /* DayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0581CB9AA2500F5BAD7 /* DayTests.swift */; };
@@ -19,7 +18,6 @@
 		5C0BA0661CB9BBB100F5BAD7 /* HolidayTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA0651CB9BBB100F5BAD7 /* HolidayTests.json */; };
 		5C0BA0681CB9BD7700F5BAD7 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0671CB9BD7700F5BAD7 /* LocationTests.swift */; };
 		5C0BA06A1CB9BDB800F5BAD7 /* LocationTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA0691CB9BDB800F5BAD7 /* LocationTests.json */; };
-		5C0BA06C1CB9BF3400F5BAD7 /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA06B1CB9BF3400F5BAD7 /* ProviderTests.swift */; };
 		5C0BA06E1CB9BF6000F5BAD7 /* ProviderTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA06D1CB9BF6000F5BAD7 /* ProviderTests.json */; };
 		5C0BA0701CB9C02200F5BAD7 /* RouteTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA06F1CB9C02200F5BAD7 /* RouteTests.json */; };
 		5C0BA0721CB9C02D00F5BAD7 /* ScheduleTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA0711CB9C02D00F5BAD7 /* ScheduleTests.json */; };
@@ -27,6 +25,8 @@
 		5C0BA0761CB9C2A200F5BAD7 /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0751CB9C2A200F5BAD7 /* ScheduleTests.swift */; };
 		5C0BA0781CB9CE7800F5BAD7 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0BA0771CB9CE7800F5BAD7 /* DataTests.swift */; };
 		5C0BA07A1CB9CF3600F5BAD7 /* DataTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C0BA0791CB9CF3600F5BAD7 /* DataTests.json */; };
+		5C0ED8B31D3677B1005B7E97 /* DayControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0ED8B21D3677B1005B7E97 /* DayControl.swift */; };
+		5C0F753C1D3591EA00C467CB /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0F753B1D3591EA00C467CB /* ProviderTests.swift */; };
 		5C10BD101CB94338009CFBA6 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD011CB94338009CFBA6 /* Coordinate.swift */; };
 		5C10BD111CB94338009CFBA6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD021CB94338009CFBA6 /* Data.swift */; };
 		5C10BD121CB94338009CFBA6 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD031CB94338009CFBA6 /* Date.swift */; };
@@ -56,16 +56,36 @@
 		5C10BD2B1CB959D7009CFBA6 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0E1CB94338009CFBA6 /* Season.swift */; };
 		5C10BD2C1CB959D7009CFBA6 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD0F1CB94338009CFBA6 /* Time.swift */; };
 		5C10BD2F1CB95A20009CFBA6 /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD2E1CB95A20009CFBA6 /* CoordinateTests.swift */; };
+		5C23963A1D387BB0004F58DA /* ProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2396391D387BB0004F58DA /* ProviderView.swift */; };
 		5C277C9D1B979A5000D18D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C277C9C1B979A5000D18D14 /* AppDelegate.swift */; };
 		5C277CA41B979A5000D18D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C277CA31B979A5000D18D14 /* Assets.xcassets */; };
-		5CB60DA31BA7539700AD8099 /* MainTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB60DA21BA7539700AD8099 /* MainTableHeaderView.swift */; };
-		5CDDC5D81B9CA8E400AF4CDE /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5D71B9CA8E400AF4CDE /* RouteViewController.swift */; };
-		5CDDC5DC1B9CB88300AF4CDE /* DeparturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */; };
-		5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */; };
+		5C37304C1D30971D009A7063 /* PopControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37304B1D30971D009A7063 /* PopControl.swift */; };
+		5C4C5F1B1D319D1C0046BADC /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C5F1A1D319D1C0046BADC /* StatusView.swift */; };
+		5C6322C11D26BB09005295D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6322C01D26BB09005295D2 /* ViewController.swift */; };
+		5C650D811D345D88004B25B8 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C650D801D345D88004B25B8 /* TodayView.swift */; };
+		5C650D831D345DB6004B25B8 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C650D821D345DB6004B25B8 /* ScheduleView.swift */; };
+		5C679F451D2BF2F40087F477 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0606931D2A8D1800853BFD /* RouteViewController.swift */; };
+		5C78E2F61D2DB2FA006BED0E /* CarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C78E2F51D2DB2FA006BED0E /* CarsView.swift */; };
+		5C78E2F91D2DC79B006BED0E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C78E2F81D2DC79B006BED0E /* UIImage.swift */; };
+		5C7E69571D2ABBE000D7D03B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5DF4E61D283D1900BFEDF8 /* UIColor.swift */; };
+		5C7E695A1D2AC13700D7D03B /* RouteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E69591D2AC13700D7D03B /* RouteViewCell.swift */; };
+		5C7E695D1D2AC3AD00D7D03B /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E695C1D2AC3AD00D7D03B /* MainViewCell.swift */; };
+		5CB5175A1D3BE3B100D3837B /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB517591D3BE3B100D3837B /* SegmentedControl.swift */; };
+		5CCB6ED51D2CAE6300F3D607 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCB6ED41D2CAE6300F3D607 /* NavigationController.swift */; };
+		5CCF76B31D3BB5F60061A3EA /* ScheduleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCF76B21D3BB5F60061A3EA /* ScheduleLabel.swift */; };
+		5CCF76B51D3BC4B80061A3EA /* RouteControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCF76B41D3BC4B80061A3EA /* RouteControl.swift */; };
+		5CD072561D199FF200E957DE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD072551D199FF200E957DE /* DateFormatter.swift */; };
+		5CD072591D19AC5900E957DE /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD072581D19AC5900E957DE /* TimeView.swift */; };
+		5CD60C5B1D3641E400D8F2B5 /* DirectionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD60C5A1D3641E400D8F2B5 /* DirectionControl.swift */; };
+		5CDA37C91D33F7C5002BE476 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA37C81D33F7C5002BE476 /* UIFont.swift */; };
+		5CDA37CB1D340F17002BE476 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA37CA1D340F17002BE476 /* RouteView.swift */; };
 		5CDDC5E11B9CBD4900AF4CDE /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */; };
-		5CDDC5EB1B9D38E300AF4CDE /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */; };
 		5CDEDAA61CB9303200F9FE9B /* BoatsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEDA911CB9303100F9FE9B /* BoatsData.framework */; };
 		5CDEDAA71CB9303200F9FE9B /* BoatsData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEDA911CB9303100F9FE9B /* BoatsData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CEB8FF11D3BF0D6006A921B /* TodayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB8FF01D3BF0D6006A921B /* TodayLabel.swift */; };
+		5CEB8FF31D3C1CFF006A921B /* DeparturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB8FF21D3C1CFF006A921B /* DeparturesView.swift */; };
+		5CECC0B61D31C5FE00F1EBAA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CECC0B51D31C5FE00F1EBAA /* UIView.swift */; };
+		5CEE0B241D2D9BF900956205 /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF6A9DC1D1A3E8F000C8A9A /* DepartureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,25 +120,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5C0BA0511CB9948300F5BAD7 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
-		5C0BA0541CB9A08500F5BAD7 /* TimeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeTests.swift; path = BoatsData/TimeTests.swift; sourceTree = "<group>"; };
-		5C0BA0561CB9A37B00F5BAD7 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTests.swift; path = BoatsData/DateTests.swift; sourceTree = "<group>"; };
-		5C0BA0581CB9AA2500F5BAD7 /* DayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayTests.swift; path = BoatsData/DayTests.swift; sourceTree = "<group>"; };
-		5C0BA05C1CB9AB5300F5BAD7 /* DepartureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DepartureTests.swift; path = BoatsData/DepartureTests.swift; sourceTree = "<group>"; };
-		5C0BA05E1CB9AC5500F5BAD7 /* DepartureTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DepartureTests.json; path = BoatsData/DepartureTests.json; sourceTree = "<group>"; };
+		5C0606931D2A8D1800853BFD /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
+		5C06069E1D2A930B00853BFD /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5C0BA0541CB9A08500F5BAD7 /* TimeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTests.swift; sourceTree = "<group>"; };
+		5C0BA0561CB9A37B00F5BAD7 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
+		5C0BA0581CB9AA2500F5BAD7 /* DayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTests.swift; sourceTree = "<group>"; };
+		5C0BA05C1CB9AB5300F5BAD7 /* DepartureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureTests.swift; sourceTree = "<group>"; };
+		5C0BA05E1CB9AC5500F5BAD7 /* DepartureTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DepartureTests.json; sourceTree = "<group>"; };
 		5C0BA0611CB9B49000F5BAD7 /* XCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
-		5C0BA0631CB9BB7100F5BAD7 /* HolidayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HolidayTests.swift; path = BoatsData/HolidayTests.swift; sourceTree = "<group>"; };
-		5C0BA0651CB9BBB100F5BAD7 /* HolidayTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = HolidayTests.json; path = BoatsData/HolidayTests.json; sourceTree = "<group>"; };
-		5C0BA0671CB9BD7700F5BAD7 /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTests.swift; path = BoatsData/LocationTests.swift; sourceTree = "<group>"; };
-		5C0BA0691CB9BDB800F5BAD7 /* LocationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LocationTests.json; path = BoatsData/LocationTests.json; sourceTree = "<group>"; };
-		5C0BA06B1CB9BF3400F5BAD7 /* ProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProviderTests.swift; path = BoatsData/ProviderTests.swift; sourceTree = "<group>"; };
-		5C0BA06D1CB9BF6000F5BAD7 /* ProviderTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ProviderTests.json; path = BoatsData/ProviderTests.json; sourceTree = "<group>"; };
-		5C0BA06F1CB9C02200F5BAD7 /* RouteTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RouteTests.json; path = BoatsData/RouteTests.json; sourceTree = "<group>"; };
-		5C0BA0711CB9C02D00F5BAD7 /* ScheduleTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ScheduleTests.json; path = BoatsData/ScheduleTests.json; sourceTree = "<group>"; };
-		5C0BA0731CB9C27D00F5BAD7 /* RouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteTests.swift; path = BoatsData/RouteTests.swift; sourceTree = "<group>"; };
-		5C0BA0751CB9C2A200F5BAD7 /* ScheduleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleTests.swift; path = BoatsData/ScheduleTests.swift; sourceTree = "<group>"; };
-		5C0BA0771CB9CE7800F5BAD7 /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataTests.swift; path = BoatsData/DataTests.swift; sourceTree = "<group>"; };
-		5C0BA0791CB9CF3600F5BAD7 /* DataTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DataTests.json; path = BoatsData/DataTests.json; sourceTree = "<group>"; };
+		5C0BA0631CB9BB7100F5BAD7 /* HolidayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayTests.swift; sourceTree = "<group>"; };
+		5C0BA0651CB9BBB100F5BAD7 /* HolidayTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HolidayTests.json; sourceTree = "<group>"; };
+		5C0BA0671CB9BD7700F5BAD7 /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
+		5C0BA0691CB9BDB800F5BAD7 /* LocationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationTests.json; sourceTree = "<group>"; };
+		5C0BA06D1CB9BF6000F5BAD7 /* ProviderTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProviderTests.json; sourceTree = "<group>"; };
+		5C0BA06F1CB9C02200F5BAD7 /* RouteTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RouteTests.json; sourceTree = "<group>"; };
+		5C0BA0711CB9C02D00F5BAD7 /* ScheduleTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ScheduleTests.json; sourceTree = "<group>"; };
+		5C0BA0731CB9C27D00F5BAD7 /* RouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
+		5C0BA0751CB9C2A200F5BAD7 /* ScheduleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTests.swift; sourceTree = "<group>"; };
+		5C0BA0771CB9CE7800F5BAD7 /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
+		5C0BA0791CB9CF3600F5BAD7 /* DataTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DataTests.json; sourceTree = "<group>"; };
+		5C0ED8B21D3677B1005B7E97 /* DayControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayControl.swift; sourceTree = "<group>"; };
+		5C0F753B1D3591EA00C467CB /* ProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderTests.swift; sourceTree = "<group>"; };
 		5C10BD011CB94338009CFBA6 /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		5C10BD021CB94338009CFBA6 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		5C10BD031CB94338009CFBA6 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -133,23 +155,40 @@
 		5C10BD0D1CB94338009CFBA6 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		5C10BD0E1CB94338009CFBA6 /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		5C10BD0F1CB94338009CFBA6 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		5C10BD2E1CB95A20009CFBA6 /* CoordinateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinateTests.swift; path = BoatsData/CoordinateTests.swift; sourceTree = "<group>"; };
-		5C1788B61BA3614B00E6E268 /* Boats.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = Boats.sketch; sourceTree = "<group>"; };
+		5C10BD2E1CB95A20009CFBA6 /* CoordinateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateTests.swift; sourceTree = "<group>"; };
+		5C2396391D387BB0004F58DA /* ProviderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderView.swift; sourceTree = "<group>"; };
 		5C267DD21B97B64E000ABD4F /* BoatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C277C9C1B979A5000D18D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C277CA31B979A5000D18D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C277CA81B979A5000D18D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C277CB31B979A5000D18D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C8914111B979AB300948F66 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5C37304B1D30971D009A7063 /* PopControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopControl.swift; sourceTree = "<group>"; };
+		5C4C5F1A1D319D1C0046BADC /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		5C5DF4E61D283D1900BFEDF8 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		5C6322C01D26BB09005295D2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C650D801D345D88004B25B8 /* TodayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		5C650D821D345DB6004B25B8 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		5C78E2F51D2DB2FA006BED0E /* CarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsView.swift; sourceTree = "<group>"; };
+		5C78E2F81D2DC79B006BED0E /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		5C7E69591D2AC13700D7D03B /* RouteViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewCell.swift; sourceTree = "<group>"; };
+		5C7E695C1D2AC3AD00D7D03B /* MainViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		5C8914131B979C7B00948F66 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CB60DA21BA7539700AD8099 /* MainTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableHeaderView.swift; sourceTree = "<group>"; };
-		5CDDC5D71B9CA8E400AF4CDE /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
-		5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeparturesTableViewController.swift; sourceTree = "<group>"; };
-		5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureTableViewCell.swift; sourceTree = "<group>"; };
+		5CB517591D3BE3B100D3837B /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		5CCB6ED41D2CAE6300F3D607 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		5CCF76B21D3BB5F60061A3EA /* ScheduleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleLabel.swift; sourceTree = "<group>"; };
+		5CCF76B41D3BC4B80061A3EA /* RouteControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteControl.swift; sourceTree = "<group>"; };
+		5CD072551D199FF200E957DE /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		5CD072581D19AC5900E957DE /* TimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
+		5CD60C5A1D3641E400D8F2B5 /* DirectionControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionControl.swift; sourceTree = "<group>"; };
+		5CDA37C81D33F7C5002BE476 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		5CDA37CA1D340F17002BE476 /* RouteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 		5CDDC5E01B9CBD4900AF4CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Launch.xib; sourceTree = "<group>"; };
-		5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		5CDEDA911CB9303100F9FE9B /* BoatsData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDEDA951CB9303200F9FE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CEB8FF01D3BF0D6006A921B /* TodayLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayLabel.swift; sourceTree = "<group>"; };
+		5CEB8FF21D3C1CFF006A921B /* DeparturesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeparturesView.swift; sourceTree = "<group>"; };
+		5CECC0B51D31C5FE00F1EBAA /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		5CF6A9DC1D1A3E8F000C8A9A /* DepartureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +217,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C10BD2D1CB959F0009CFBA6 /* BoatsData */ = {
+		5C277C901B979A5000D18D14 = {
+			isa = PBXGroup;
+			children = (
+				5C277C9B1B979A5000D18D14 /* Boats */,
+				5CDEDA921CB9303200F9FE9B /* BoatsData */,
+				5C277CB01B979A5000D18D14 /* BoatsTests */,
+				5C8914131B979C7B00948F66 /* Boats.app */,
+				5CDEDA911CB9303100F9FE9B /* BoatsData.framework */,
+				5C267DD21B97B64E000ABD4F /* BoatsTests.xctest */,
+			);
+			sourceTree = "<group>";
+		};
+		5C277C9B1B979A5000D18D14 /* Boats */ = {
+			isa = PBXGroup;
+			children = (
+				5C277C9C1B979A5000D18D14 /* AppDelegate.swift */,
+				5C78E2F51D2DB2FA006BED0E /* CarsView.swift */,
+				5CD072551D199FF200E957DE /* DateFormatter.swift */,
+				5C0ED8B21D3677B1005B7E97 /* DayControl.swift */,
+				5CF6A9DC1D1A3E8F000C8A9A /* DepartureView.swift */,
+				5CEB8FF21D3C1CFF006A921B /* DeparturesView.swift */,
+				5CD60C5A1D3641E400D8F2B5 /* DirectionControl.swift */,
+				5C7E695C1D2AC3AD00D7D03B /* MainViewCell.swift */,
+				5C06069E1D2A930B00853BFD /* MainViewController.swift */,
+				5CCB6ED41D2CAE6300F3D607 /* NavigationController.swift */,
+				5C37304B1D30971D009A7063 /* PopControl.swift */,
+				5C2396391D387BB0004F58DA /* ProviderView.swift */,
+				5CCF76B41D3BC4B80061A3EA /* RouteControl.swift */,
+				5C7E69591D2AC13700D7D03B /* RouteViewCell.swift */,
+				5C0606931D2A8D1800853BFD /* RouteViewController.swift */,
+				5CDA37CA1D340F17002BE476 /* RouteView.swift */,
+				5CCF76B21D3BB5F60061A3EA /* ScheduleLabel.swift */,
+				5C650D821D345DB6004B25B8 /* ScheduleView.swift */,
+				5CB517591D3BE3B100D3837B /* SegmentedControl.swift */,
+				5C4C5F1A1D319D1C0046BADC /* StatusView.swift */,
+				5CD072581D19AC5900E957DE /* TimeView.swift */,
+				5CEB8FF01D3BF0D6006A921B /* TodayLabel.swift */,
+				5C650D801D345D88004B25B8 /* TodayView.swift */,
+				5C5DF4E61D283D1900BFEDF8 /* UIColor.swift */,
+				5C78E2F81D2DC79B006BED0E /* UIImage.swift */,
+				5CDA37C81D33F7C5002BE476 /* UIFont.swift */,
+				5CECC0B51D31C5FE00F1EBAA /* UIView.swift */,
+				5C6322C01D26BB09005295D2 /* ViewController.swift */,
+				5C277CA31B979A5000D18D14 /* Assets.xcassets */,
+				5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */,
+				5C277CA81B979A5000D18D14 /* Info.plist */,
+			);
+			path = Boats;
+			sourceTree = "<group>";
+		};
+		5C277CB01B979A5000D18D14 /* BoatsTests */ = {
 			isa = PBXGroup;
 			children = (
 				5C10BD2E1CB95A20009CFBA6 /* CoordinateTests.swift */,
@@ -192,51 +281,13 @@
 				5C0BA0651CB9BBB100F5BAD7 /* HolidayTests.json */,
 				5C0BA0671CB9BD7700F5BAD7 /* LocationTests.swift */,
 				5C0BA0691CB9BDB800F5BAD7 /* LocationTests.json */,
-				5C0BA06B1CB9BF3400F5BAD7 /* ProviderTests.swift */,
+				5C0F753B1D3591EA00C467CB /* ProviderTests.swift */,
 				5C0BA06D1CB9BF6000F5BAD7 /* ProviderTests.json */,
 				5C0BA0731CB9C27D00F5BAD7 /* RouteTests.swift */,
 				5C0BA06F1CB9C02200F5BAD7 /* RouteTests.json */,
 				5C0BA0751CB9C2A200F5BAD7 /* ScheduleTests.swift */,
 				5C0BA0711CB9C02D00F5BAD7 /* ScheduleTests.json */,
 				5C0BA0541CB9A08500F5BAD7 /* TimeTests.swift */,
-			);
-			name = BoatsData;
-			sourceTree = "<group>";
-		};
-		5C277C901B979A5000D18D14 = {
-			isa = PBXGroup;
-			children = (
-				5C277C9B1B979A5000D18D14 /* Boats */,
-				5CDEDA921CB9303200F9FE9B /* BoatsData */,
-				5C277CB01B979A5000D18D14 /* BoatsTests */,
-				5C8914131B979C7B00948F66 /* Boats.app */,
-				5CDEDA911CB9303100F9FE9B /* BoatsData.framework */,
-				5C267DD21B97B64E000ABD4F /* BoatsTests.xctest */,
-				5C1788B61BA3614B00E6E268 /* Boats.sketch */,
-				5C8914111B979AB300948F66 /* README.md */,
-			);
-			sourceTree = "<group>";
-		};
-		5C277C9B1B979A5000D18D14 /* Boats */ = {
-			isa = PBXGroup;
-			children = (
-				5CDDC5D71B9CA8E400AF4CDE /* RouteViewController.swift */,
-				5CDDC5DB1B9CB88300AF4CDE /* DeparturesTableViewController.swift */,
-				5CDDC5DD1B9CB99200AF4CDE /* DepartureTableViewCell.swift */,
-				5CDDC5EA1B9D38E300AF4CDE /* MainTableViewController.swift */,
-				5CB60DA21BA7539700AD8099 /* MainTableHeaderView.swift */,
-				5C277C9C1B979A5000D18D14 /* AppDelegate.swift */,
-				5C277CA31B979A5000D18D14 /* Assets.xcassets */,
-				5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */,
-				5C277CA81B979A5000D18D14 /* Info.plist */,
-			);
-			path = Boats;
-			sourceTree = "<group>";
-		};
-		5C277CB01B979A5000D18D14 /* BoatsTests */ = {
-			isa = PBXGroup;
-			children = (
-				5C10BD2D1CB959F0009CFBA6 /* BoatsData */,
 				5C0BA0611CB9B49000F5BAD7 /* XCTestCase.swift */,
 				5C277CB31B979A5000D18D14 /* Info.plist */,
 			);
@@ -255,7 +306,6 @@
 				5C10BD081CB94338009CFBA6 /* Holiday.swift */,
 				5C10BD091CB94338009CFBA6 /* JSON.swift */,
 				5C10BD0A1CB94338009CFBA6 /* Location.swift */,
-				5C0BA0511CB9948300F5BAD7 /* NSDate.swift */,
 				5C10BD0B1CB94338009CFBA6 /* Provider.swift */,
 				5C10BD0C1CB94338009CFBA6 /* Route.swift */,
 				5C10BD0D1CB94338009CFBA6 /* Schedule.swift */,
@@ -342,12 +392,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Todd Heasley";
 				TargetAttributes = {
 					5C277C981B979A5000D18D14 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = TT6BWCS29A;
+						DevelopmentTeamName = "Todd Heasley";
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -356,10 +409,16 @@
 					};
 					5C277CAC1B979A5000D18D14 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 						TestTargetID = 5C277C981B979A5000D18D14;
 					};
 					5CDEDA901CB9303100F9FE9B = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = TT6BWCS29A;
+						DevelopmentTeamName = "Todd Heasley";
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -438,12 +497,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CDDC5DC1B9CB88300AF4CDE /* DeparturesTableViewController.swift in Sources */,
-				5CDDC5DE1B9CB99200AF4CDE /* DepartureTableViewCell.swift in Sources */,
-				5CB60DA31BA7539700AD8099 /* MainTableHeaderView.swift in Sources */,
-				5CDDC5EB1B9D38E300AF4CDE /* MainTableViewController.swift in Sources */,
-				5CDDC5D81B9CA8E400AF4CDE /* RouteViewController.swift in Sources */,
+				5CD072561D199FF200E957DE /* DateFormatter.swift in Sources */,
+				5CD60C5B1D3641E400D8F2B5 /* DirectionControl.swift in Sources */,
+				5CCF76B51D3BC4B80061A3EA /* RouteControl.swift in Sources */,
+				5C0ED8B31D3677B1005B7E97 /* DayControl.swift in Sources */,
+				5CDA37CB1D340F17002BE476 /* RouteView.swift in Sources */,
+				5CEE0B241D2D9BF900956205 /* DepartureView.swift in Sources */,
+				5CEB8FF11D3BF0D6006A921B /* TodayLabel.swift in Sources */,
+				5C7E695D1D2AC3AD00D7D03B /* MainViewCell.swift in Sources */,
+				5C7E695A1D2AC13700D7D03B /* RouteViewCell.swift in Sources */,
+				5C7E69571D2ABBE000D7D03B /* UIColor.swift in Sources */,
+				5C37304C1D30971D009A7063 /* PopControl.swift in Sources */,
 				5C277C9D1B979A5000D18D14 /* AppDelegate.swift in Sources */,
+				5CDA37C91D33F7C5002BE476 /* UIFont.swift in Sources */,
+				5CCF76B31D3BB5F60061A3EA /* ScheduleLabel.swift in Sources */,
+				5C679F451D2BF2F40087F477 /* RouteViewController.swift in Sources */,
+				5CD072591D19AC5900E957DE /* TimeView.swift in Sources */,
+				5CCB6ED51D2CAE6300F3D607 /* NavigationController.swift in Sources */,
+				5CEB8FF31D3C1CFF006A921B /* DeparturesView.swift in Sources */,
+				5C4C5F1B1D319D1C0046BADC /* StatusView.swift in Sources */,
+				5C06069F1D2A930B00853BFD /* MainViewController.swift in Sources */,
+				5CECC0B61D31C5FE00F1EBAA /* UIView.swift in Sources */,
+				5C6322C11D26BB09005295D2 /* ViewController.swift in Sources */,
+				5C23963A1D387BB0004F58DA /* ProviderView.swift in Sources */,
+				5C650D831D345DB6004B25B8 /* ScheduleView.swift in Sources */,
+				5CB5175A1D3BE3B100D3837B /* SegmentedControl.swift in Sources */,
+				5C78E2F61D2DB2FA006BED0E /* CarsView.swift in Sources */,
+				5C650D811D345D88004B25B8 /* TodayView.swift in Sources */,
+				5C78E2F91D2DC79B006BED0E /* UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,15 +537,14 @@
 				5C0BA0621CB9B49000F5BAD7 /* XCTestCase.swift in Sources */,
 				5C0BA0591CB9AA2500F5BAD7 /* DayTests.swift in Sources */,
 				5C10BD281CB959D7009CFBA6 /* Provider.swift in Sources */,
+				5C0F753C1D3591EA00C467CB /* ProviderTests.swift in Sources */,
 				5C10BD211CB959D7009CFBA6 /* Date.swift in Sources */,
 				5C10BD271CB959D7009CFBA6 /* Location.swift in Sources */,
 				5C0BA0551CB9A08500F5BAD7 /* TimeTests.swift in Sources */,
 				5C10BD2B1CB959D7009CFBA6 /* Season.swift in Sources */,
-				5C0BA0531CB9948A00F5BAD7 /* NSDate.swift in Sources */,
 				5C10BD2F1CB95A20009CFBA6 /* CoordinateTests.swift in Sources */,
 				5C10BD2A1CB959D7009CFBA6 /* Schedule.swift in Sources */,
 				5C0BA0761CB9C2A200F5BAD7 /* ScheduleTests.swift in Sources */,
-				5C0BA06C1CB9BF3400F5BAD7 /* ProviderTests.swift in Sources */,
 				5C0BA0681CB9BD7700F5BAD7 /* LocationTests.swift in Sources */,
 				5C0BA0641CB9BB7100F5BAD7 /* HolidayTests.swift in Sources */,
 				5C10BD2C1CB959D7009CFBA6 /* Time.swift in Sources */,
@@ -489,7 +569,6 @@
 				5C10BD121CB94338009CFBA6 /* Date.swift in Sources */,
 				5C10BD191CB94338009CFBA6 /* Location.swift in Sources */,
 				5C10BD171CB94338009CFBA6 /* Holiday.swift in Sources */,
-				5C0BA0521CB9948300F5BAD7 /* NSDate.swift in Sources */,
 				5C10BD181CB94338009CFBA6 /* JSON.swift in Sources */,
 				5C10BD131CB94338009CFBA6 /* Day.swift in Sources */,
 				5C10BD111CB94338009CFBA6 /* Data.swift in Sources */,
@@ -566,7 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -605,7 +684,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -616,15 +695,16 @@
 		5C277CC21B979A5000D18D14 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Boats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -632,15 +712,17 @@
 		5C277CC31B979A5000D18D14 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Boats/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -652,6 +734,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boats.app/Boats";
 			};
 			name = Debug;
@@ -663,6 +746,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boats.app/Boats";
 			};
 			name = Release;
@@ -672,7 +757,8 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -680,12 +766,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BoatsData/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -696,7 +784,8 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -704,11 +793,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BoatsData/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

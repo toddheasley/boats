@@ -23,7 +23,7 @@ extension Location: JSONEncoding, JSONDecoding {
     }
     
     init?(JSON: AnyObject) {
-        guard let JSON = JSON as? [String: AnyObject], name = JSON["name"] as? String, description = JSON["description"] as? String, _ = JSON["coordinate"] as? String, coordinate = Coordinate(JSON: JSON["coordinate"]!) else {
+        guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let description = JSON["description"] as? String, let _ = JSON["coordinate"] as? String, let coordinate = Coordinate(JSON: JSON["coordinate"]!) else {
             return nil
         }
         self.name = name
