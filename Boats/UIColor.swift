@@ -20,49 +20,12 @@ extension UIColor {
         return (light > 0.25 && light < 0.75) ? 0.75 : light
     }
     
-    static func alpha(status: Status = .future) -> CGFloat {
-        return (status == .past) ? 0.4 : 1.0
-    }
-    
-    static func background(status: Status) -> UIColor {
-        switch status {
-        case .next:
-            return (light > 0.5) ? blue() : background(status: .future)
-        case .last:
-            return (light > 0.5) ? red() : background(status: .future)
-        default:
-            return UIColor(white: light, alpha: 1.0)
-        }
-    }
-    
-    static func foreground(season: Season) -> UIColor {
-        switch season {
-        case .spring:
-            return UIColor.green()
-        case .summer:
-            return UIColor.purple()
-        case .fall:
-            return UIColor.brown()
-        default:
-            return UIColor.foreground
-        }
-    }
-    
-    static func foreground(status: Status) -> UIColor {
-        switch status {
-        case .last:
-             return (light < 0.5) ? red() : foreground(status: .future)
-        default:
-            return UIColor(white: (light < 0.5) ? 0.9 : 0.1, alpha: alpha(status: status))
-        }
-    }
-    
     static var background: UIColor {
-        return background(status: .future)
+        return UIColor(white: light, alpha: 1.0)
     }
     
     static var foreground: UIColor {
-        return foreground(status: .future)
+        return UIColor(white: (light < 0.5) ? 0.9 : 0.1, alpha: 1.0)
     }
     
     static var highlight: UIColor {
@@ -78,6 +41,6 @@ extension UIColor {
     }
     
     var disabled: UIColor {
-        return withAlphaComponent(0.075)
+        return withAlphaComponent(0.05)
     }
 }

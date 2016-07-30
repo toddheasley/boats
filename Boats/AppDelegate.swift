@@ -11,7 +11,7 @@ import BoatsData
 typealias Data = BoatsData.Data
 typealias Date = BoatsData.Date
 
-let TimeDidChangeNotification: NSNotification.Name = NSNotification.Name("TimeDidChangeNotification")
+let TimeChangeNotification: NSNotification.Name = NSNotification.Name("TimeChangeNotification")
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func applicationTimeDidChange() {
-        NotificationCenter.default.post(name: TimeDidChangeNotification, object: nil)
+        NotificationCenter.default.post(name: TimeChangeNotification, object: nil)
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

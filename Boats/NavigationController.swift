@@ -21,6 +21,6 @@ class NavigationController: UINavigationController {
     }
     
     convenience init() {
-        self.init(rootViewController: MainViewController())
+        self.init(rootViewController: ViewController())
     }
 }

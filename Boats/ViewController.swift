@@ -29,12 +29,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(viewDidLayoutSubviews), name: TimeDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(viewDidLayoutSubviews), name: TimeChangeNotification, object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: TimeDidChangeNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: TimeChangeNotification, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
