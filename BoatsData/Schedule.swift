@@ -47,7 +47,7 @@ extension Schedule: JSONEncoding, JSONDecoding {
             return nil
         }
         let components = dates.characters.split { $0 == "," }.map { String($0) }
-        if (components.count != 2) {
+        if components.count != 2 {
             return nil
         }
         guard let start = Date(JSON: components[0]), let end = Date(JSON: components[1]) else {

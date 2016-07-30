@@ -35,7 +35,7 @@ extension Departure: JSONEncoding, JSONDecoding {
             }
             days.append(day)
         }
-        if (direction == .both) {
+        if direction == .both {
             return nil
         }
         self.days = days

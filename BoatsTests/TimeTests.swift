@@ -21,7 +21,7 @@ class TimeTests: XCTestCase {
         XCTAssertTrue(Date(JSON: "12:34:56") == nil)
     }
     
-    func testNSDateDecoding() {
+    func testDateDecoding() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         guard let date = dateFormatter.date(from: "12:00") else {

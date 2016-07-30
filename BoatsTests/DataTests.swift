@@ -24,7 +24,7 @@ class DataTests: XCTestCase {
         var data = Data()
         data.reloadData { completed in
             expectation.fulfill()
-            if (!completed) {
+            if !completed {
                 XCTFail()
                 return
             }

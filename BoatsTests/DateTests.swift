@@ -28,7 +28,13 @@ class DateTests: XCTestCase {
         XCTAssertTrue(Date(JSON: "1234-5") == nil)
     }
     
-    func testNSDateDecoding() {
+    func testDateEncoding() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        XCTAssertEqual(dateFormatter.string(from: Date().date), dateFormatter.string(from: Foundation.Date()))
+    }
+    
+    func testDateDecoding() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         guard let date = dateFormatter.date(from: "1970-01-01") else {

@@ -22,7 +22,7 @@ extension Coordinate: JSONEncoding, JSONDecoding {
             return nil
         }
         let components = JSON.characters.split { $0 == "," }.map { String($0) }
-        if (components.count != 2) {
+        if components.count != 2 {
             return nil
         }
         guard let latitude = Double(components[0]), let longitude = Double(components[1]), !latitude.isNaN && !longitude.isNaN else {

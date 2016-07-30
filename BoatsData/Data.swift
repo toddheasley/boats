@@ -18,7 +18,7 @@ public final class Data {
     
     public func provider(code: String) -> Provider? {
         for provider in providers {
-            if (code == provider.code) {
+            if code == provider.code {
                 return provider
             }
         }
@@ -82,7 +82,7 @@ extension Data: JSONEncoding, JSONDecoding {
     
     convenience init?(JSON: AnyObject) {
         self.init()
-        if (!refresh(JSON: JSON)) {
+        if !refresh(JSON: JSON) {
             return nil
         }
     }

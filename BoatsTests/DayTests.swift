@@ -8,7 +8,7 @@
 import XCTest
 
 class DayTests: XCTestCase {
-    func testNSDateDecoding() {
+    func testDateDecoding() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         guard let date = dateFormatter.date(from: "Thursday") else {

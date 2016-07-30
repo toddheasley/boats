@@ -16,7 +16,7 @@ public struct Route {
     
     public func schedule(date: Date = Date()) -> Schedule? {
         for schedule in schedules {
-            if (schedule.contains(date: date)) {
+            if schedule.contains(date: date) {
                 return schedule
             }
         }

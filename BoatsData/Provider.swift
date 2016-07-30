@@ -15,7 +15,7 @@ public struct Provider {
     
     public func route(code: String) -> Route? {
         for route in routes {
-            if (code == route.code) {
+            if code == route.code {
                 return route
             }
         }

@@ -7,6 +7,12 @@
 
 import Foundation
 
+protocol DateEncoding {
+    var date: Foundation.Date {
+        get
+    }
+}
+
 protocol DateDecoding {
     init(date: Foundation.Date)
 }
@@ -32,7 +38,7 @@ extension Date: JSONEncoding, JSONDecoding {
             return nil
         }
         let components = JSON.characters.split { $0 == "-" }.map { String($0) }
-        if (components.count != 3) {
+        if components.count != 3 {
             return nil
         }
         guard let year = Int(components[0]), let month = Int(components[1]), let day = Int(components[2]) else {
@@ -53,7 +59,12 @@ extension Date: JSONEncoding, JSONDecoding {
     }
 }
 
-extension Date: DateDecoding {
+extension Date: DateEncoding, DateDecoding {
+    public var date: Foundation.Date {
+        Date.formatter.dateFormat = "yyyy-MM-dd"
+        return Date.formatter.date(from: JSON as! String)!
+    }
+    
     public init(date: Foundation.Date = Foundation.Date()) {
         Date.formatter.dateFormat = "yyyy-MM-dd"
         self.init(JSON: Date.formatter.string(from: date))!

@@ -25,7 +25,7 @@ extension Time: JSONEncoding, JSONDecoding {
             return nil
         }
         let components = JSON.characters.split { $0 == ":" }.map { String($0) }
-        if (components.count != 2) {
+        if components.count != 2 {
             return nil
         }
         guard let hour = Int(components[0]), let minute = Int(components[1]) else {
