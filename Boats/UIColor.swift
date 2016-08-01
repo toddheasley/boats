@@ -25,7 +25,7 @@ extension UIColor {
     }
     
     static var foreground: UIColor {
-        return UIColor(white: (light < 0.5) ? 0.9 : 0.1, alpha: 1.0)
+        return foreground(status: .future)
     }
     
     static var highlight: UIColor {
@@ -42,5 +42,9 @@ extension UIColor {
     
     var disabled: UIColor {
         return withAlphaComponent(0.05)
+    }
+    
+    static func foreground(status: Status) -> UIColor {
+        return UIColor(white: (light < 0.5) ? 0.9 : 0.1, alpha: 1.0)
     }
 }
