@@ -8,8 +8,10 @@
 import UIKit
 import BoatsData
 
-class RouteViewController: ViewController {
+class RouteViewController: ViewController, UIScrollViewDelegate {
     private let highlightView: UIView = UIView()
+    private let scrollView: UIScrollView = UIScrollView()
+    var scrollViewBorder: CALayer = CALayer()
     private let routeLabel: UILabel = UILabel()
     private let providerLabel: UILabel = UILabel()
     private var rect: CGRect?
@@ -42,9 +44,19 @@ class RouteViewController: ViewController {
         
         routeLabel.frame.size.width = view.layoutRect.size.width
         routeLabel.frame.origin.x = view.layoutRect.origin.x
-        
         routeLabel.frame.origin.y = view.layoutRect.origin.y + 2.0 + (view.frame.origin.y < view.statusBarHeight ? view.statusBarHeight : 0.0)
         routeLabel.textColor = .foreground(status: .future)
+        
+        scrollView.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height
+        scrollView.frame.size.height = view.bounds.size.height - (scrollView.frame.origin.y + 0.0)
+        scrollView.contentSize.width = scrollView.bounds.size.width * 2.0
+        scrollView.contentSize.height = scrollView.bounds.size.height
+        scrollView.backgroundColor = .background
+        scrollViewDidEndDecelerating(scrollView)
+        
+        scrollViewBorder.frame = CGRect(x: -0.5, y: 0.0, width: scrollView.bounds.size.width + 1.0, height: scrollView.bounds.size.height)
+        scrollViewBorder.isHidden = scrollViewBorder.frame.size.height < (rect?.size.height ?? 0.0)
+        scrollViewBorder.borderColor = UIColor.foreground.disabled.cgColor
     }
     
     override func viewDidLoad() {
@@ -54,6 +66,18 @@ class RouteViewController: ViewController {
         highlightView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         highlightView.backgroundColor = .highlight
         view.addSubview(highlightView)
+        
+        scrollView.isPagingEnabled = true
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.bounces = false
+        scrollView.frame.size.width = view.bounds.size.width
+        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        scrollView.delegate = self
+        view.addSubview(scrollView)
+        
+        scrollViewBorder.borderWidth = 0.5
+        scrollView.layer.addSublayer(scrollViewBorder)
         
         routeLabel.font = .large
         routeLabel.text = " "
@@ -89,6 +113,11 @@ class RouteViewController: ViewController {
     override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return RouteViewControllerAnimator(operation: operation, rect: rect)
     }
+    
+    // MARK: UIScrollViewDelegate
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+    }
 }
 
 class RouteViewControllerAnimator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -117,7 +146,7 @@ class RouteViewControllerAnimator: NSObject, UIViewControllerAnimatedTransitioni
             transitionContext.completeTransition(false)
             return
         }
-        let view = transitionContext.containerView()
+        let view = transitionContext.containerView
         let fromRect = rect ?? CGRect(x: 0.0, y: view.bounds.size.height, width: view.bounds.size.width, height: 0.0)
         let toRect = CGRect(x: 0.0, y: view.statusBarHeight, width: view.bounds.size.width, height: view.bounds.size.height - view.statusBarHeight)
         var animations:(Void) -> Void = { }

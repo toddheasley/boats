@@ -59,6 +59,10 @@ class RouteViewCell: UITableViewCell {
         }
     }
     
+    override var intrinsicContentSize: CGSize {
+        return contentView.frame.size
+    }
+    
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         backgroundColor = highlighted ? .highlight : .none
@@ -69,16 +73,12 @@ class RouteViewCell: UITableViewCell {
         backgroundColor = selected ? .highlight : .none
     }
     
-    override func intrinsicContentSize() -> CGSize {
-        return contentView.frame.size
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         contentView.frame = layoutRect
-        if contentView.bounds.size.width > departureView.intrinsicContentSize().width * 2.0 {
-            departureView.frame.size = departureView.intrinsicContentSize()
+        if contentView.bounds.size.width > departureView.intrinsicContentSize.width * 2.0 {
+            departureView.frame.size = departureView.intrinsicContentSize
             departureView.frame.origin.x = contentView.bounds.size.width - departureView.frame.size.width
             departureView.frame.origin.y = 0.0
             
@@ -91,7 +91,7 @@ class RouteViewCell: UITableViewCell {
             routeLabel.frame.size.width = contentView.frame.size.width
             
             departureView.frame.size.width = contentView.bounds.size.width
-            departureView.frame.size.height = departureView.intrinsicContentSize().height + 5.0
+            departureView.frame.size.height = departureView.intrinsicContentSize.height + 5.0
             
             departureView.frame.origin.x = 0.0
             departureView.frame.origin.y = originLabel.frame.origin.y + originLabel.frame.size.height

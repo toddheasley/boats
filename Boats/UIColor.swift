@@ -33,7 +33,7 @@ extension UIColor {
     }
     
     static var none: UIColor {
-        return .clear()
+        return .clear
     }
     
     static var statusBar: UIStatusBarStyle {

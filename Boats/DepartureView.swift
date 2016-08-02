@@ -28,14 +28,14 @@ class DepartureView: UIView, StatusView {
         }
     }
     
-    override func intrinsicContentSize() -> CGSize {
-        return CGSize(width: 242.0, height: timeView.intrinsicContentSize().height)
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 242.0, height: timeView.intrinsicContentSize.height)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        departureView.isHidden = bounds.size.width < departureView.intrinsicContentSize().width || bounds.size.height < departureView.intrinsicContentSize().height
+        departureView.isHidden = bounds.size.width < departureView.intrinsicContentSize.width || bounds.size.height < departureView.intrinsicContentSize.height
         statusLabel.textColor = .foreground(status: status)
     }
     
@@ -43,17 +43,17 @@ class DepartureView: UIView, StatusView {
         super.init(frame: frame)
         
         departureView.frame.size.width = bounds.size.width
-        departureView.frame.size.height = intrinsicContentSize().height
+        departureView.frame.size.height = intrinsicContentSize.height
         departureView.frame.origin.y = (bounds.size.height - departureView.frame.size.height) / 2.0
         departureView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
         addSubview(departureView)
         
-        timeView.frame.size = timeView.intrinsicContentSize()
+        timeView.frame.size = timeView.intrinsicContentSize
         timeView.frame.origin.x =  departureView.frame.size.width - timeView.frame.size.width
         timeView.autoresizingMask = [.flexibleLeftMargin]
         departureView.addSubview(timeView)
         
-        carsView.frame.size = carsView.intrinsicContentSize()
+        carsView.frame.size = carsView.intrinsicContentSize
         carsView.frame.origin.y =  departureView.frame.size.height - carsView.frame.size.height - 4.0
         carsView.autoresizingMask = [.flexibleTopMargin]
         departureView.addSubview(carsView)

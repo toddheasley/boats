@@ -39,7 +39,7 @@ class TimeView: UIView, StatusView {
         return !TimeView.timeFormatter.string(from: Foundation.Date()).contains(" ")
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override var intrinsicContentSize: CGSize {
         return timeView.frame.size
     }
     

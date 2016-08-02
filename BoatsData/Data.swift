@@ -55,7 +55,7 @@ public final class Data {
 
 extension Data: JSONEncoding, JSONDecoding {
     private func refresh(JSON: AnyObject) -> Bool {
-        guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let description = JSON["description"] as? String, let providers = JSON["providers"] as? [AnyObject], let zone = JSON["zone"] as? String, let timeZone = TimeZone(name: zone) else {
+        guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let description = JSON["description"] as? String, let providers = JSON["providers"] as? [AnyObject], let zone = JSON["zone"] as? String, let timeZone = TimeZone(identifier: zone) else {
             return false
         }
         Date.formatter.timeZone = timeZone
@@ -76,7 +76,7 @@ extension Data: JSONEncoding, JSONDecoding {
             "name": name,
             "description": description,
             "providers": providers.map { $0.JSON },
-            "zone": Date.formatter.timeZone.name
+            "zone": Date.formatter.timeZone.identifier
         ]
     }
     

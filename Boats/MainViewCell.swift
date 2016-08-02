@@ -24,15 +24,15 @@ class MainViewCell: UITableViewCell {
         }
     }
     
-    override func intrinsicContentSize() -> CGSize {
-        return CGSize(width: super.intrinsicContentSize().width, height: descriptionLabel.frame.origin.y + descriptionLabel.frame.size.height)
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: super.intrinsicContentSize.width, height: descriptionLabel.frame.origin.y + descriptionLabel.frame.size.height)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         contentView.frame = layoutRect
-        contentView.frame.size.height = intrinsicContentSize().height
+        contentView.frame.size.height = intrinsicContentSize.height
         
         nameLabel.frame.size.width = contentView.bounds.size.width
         nameLabel.textColor = .foreground(status: .future)

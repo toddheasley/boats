@@ -21,7 +21,7 @@ class CarsView: UIImageView, StatusView {
         image = UIImage(named: "Cars")?.color(cars ? color : color.disabled)
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override var intrinsicContentSize: CGSize {
         return CGSize(width: 27.0, height: 18.0)
     }
     

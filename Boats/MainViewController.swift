@@ -84,10 +84,10 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         routeViewCell.frame = tableView.bounds
         routeViewCell.layoutSubviews()
-        let height: CGFloat = routeViewCell.intrinsicContentSize().height + tableView.layoutEdgeInsets.top + tableView.layoutEdgeInsets.bottom
+        let height: CGFloat = routeViewCell.intrinsicContentSize.height + tableView.layoutEdgeInsets.top + tableView.layoutEdgeInsets.bottom
         switch indexPath.section {
         case 0:
-            let minimum: CGFloat = mainViewCell.intrinsicContentSize().height + (tableView.layoutEdgeInsets.top + tableView.layoutEdgeInsets.bottom * 3.0)
+            let minimum: CGFloat = mainViewCell.intrinsicContentSize.height + (tableView.layoutEdgeInsets.top + tableView.layoutEdgeInsets.bottom * 3.0)
             let available: CGFloat = tableView.bounds.size.height - (tableView.contentInset.top + tableView.contentInset.bottom)
             var count: CGFloat = 0.0
             for provider in data.providers {

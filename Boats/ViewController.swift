@@ -11,20 +11,20 @@ import BoatsData
 class ViewController: UIViewController, UINavigationControllerDelegate {
     var data: Data = Data()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIColor.statusBar
+    }
+    
     func refreshData() {
-        UIApplication.shared().isNetworkActivityIndicatorVisible = true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         data.reloadData() { [weak self] completed in
-            UIApplication.shared().isNetworkActivityIndicatorVisible = false
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self?.dataDidRefresh(completed: completed)
         }
     }
     
     func dataDidRefresh(completed: Bool) {
         
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIColor.statusBar
     }
     
     override func viewWillAppear(_ animated: Bool) {

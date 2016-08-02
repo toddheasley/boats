@@ -22,6 +22,6 @@ extension UIView {
     }
     
     var statusBarHeight: CGFloat {
-        return UIApplication.shared().statusBarFrame.size.height
+        return UIApplication.shared.statusBarFrame.size.height
     }
 }
