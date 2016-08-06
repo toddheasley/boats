@@ -8,7 +8,7 @@
 import UIKit
 import BoatsData
 
-class MainViewController: ViewController, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: ViewController, UITableViewDataSource, UITableViewDelegate, RouteViewDelegate {
     private let mainViewCell: MainViewCell = MainViewCell()
     private let routeViewCell: RouteViewCell = RouteViewCell()
     var tableView: UITableView!
@@ -45,7 +45,7 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewDidLayoutSubviews()
-        if tableView.numberOfRows(inSection: 0) < 2 {
+        if tableView.numberOfSections < 2 {
             refreshData()
         }
     }
@@ -104,13 +104,21 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
         case 0:
             return
         default:
-            var rect = tableView.rectForRow(at: indexPath)
-            rect.origin.y -= tableView.contentOffset.y
             guard let cell = tableView.cellForRow(at: indexPath) as? RouteViewCell, let routeViewController =
-                RouteViewController(provider: cell.provider, route: cell.route, rect: rect) else {
-                    return
+                RouteViewController(provider: cell.provider, route: cell.route) else {
+                return
             }
             navigationController?.pushViewController(routeViewController, animated: true)
         }
+    }
+    
+    // MARK: RouteViewDelegate
+    func routeViewRect(controller: RouteViewController) -> CGRect? {
+        guard let path = tableView.indexPathForSelectedRow else {
+            return nil
+        }
+        var rect = tableView.rectForRow(at: path)
+        rect.origin.y -= tableView.contentOffset.y
+        return rect
     }
 }

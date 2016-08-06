@@ -14,7 +14,6 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
     var scrollViewBorder: CALayer = CALayer()
     private let routeLabel: UILabel = UILabel()
     private let providerLabel: UILabel = UILabel()
-    private var rect: CGRect?
     private(set) var provider: Provider!
     private(set) var route: Route!
     
@@ -55,7 +54,7 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         scrollViewDidEndDecelerating(scrollView)
         
         scrollViewBorder.frame = CGRect(x: -0.5, y: 0.0, width: scrollView.bounds.size.width + 1.0, height: scrollView.bounds.size.height)
-        scrollViewBorder.isHidden = scrollViewBorder.frame.size.height < (rect?.size.height ?? 0.0)
+        scrollViewBorder.isHidden = scrollViewBorder.frame.size.height < 200.0
         scrollViewBorder.borderColor = UIColor.foreground.disabled.cgColor
     }
     
@@ -74,7 +73,7 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         scrollView.frame.size.width = view.bounds.size.width
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         scrollView.delegate = self
-        view.addSubview(scrollView)
+        //view.addSubview(scrollView)
         
         scrollViewBorder.borderWidth = 0.5
         scrollView.layer.addSublayer(scrollViewBorder)
@@ -96,12 +95,11 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         view.addSubview(popControl)
     }
     
-    required init?(provider: Provider?, route: Route?, rect: CGRect? = nil) {
+    required init?(provider: Provider?, route: Route?) {
         super.init(nibName: nil, bundle: nil)
         guard let provider = provider, let route = route else {
             return nil
         }
-        self.rect = rect
         self.provider = provider
         self.route = route
     }
@@ -111,7 +109,7 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
     }
     
     override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return RouteViewControllerAnimator(operation: operation, rect: rect)
+        return RouteViewAnimator(operation: operation)
     }
     
     // MARK: UIScrollViewDelegate
@@ -120,20 +118,22 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
     }
 }
 
-class RouteViewControllerAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    private let animationDuration: TimeInterval = 0.2
+protocol RouteViewDelegate {
+    func routeViewRect(controller: RouteViewController) -> CGRect?
+}
+
+class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    private let animationDuration: TimeInterval = 0.3
     private let scale: CGFloat = 0.8
     private let borderWidth: CGFloat = 0.5
-    private var rect: CGRect?
     private(set) var operation: UINavigationControllerOperation = .none
     
-    required init?(operation: UINavigationControllerOperation? = nil, rect: CGRect? = nil) {
+    required init?(operation: UINavigationControllerOperation? = nil) {
         super.init()
         guard let operation = operation , operation == .push || operation == .pop else {
             return nil
         }
         self.operation = operation
-        self.rect = rect
     }
     
     // MARK: UIViewControllerAnimatedTransitioning
@@ -147,19 +147,22 @@ class RouteViewControllerAnimator: NSObject, UIViewControllerAnimatedTransitioni
             return
         }
         let view = transitionContext.containerView
-        let fromRect = rect ?? CGRect(x: 0.0, y: view.bounds.size.height, width: view.bounds.size.width, height: 0.0)
-        let toRect = CGRect(x: 0.0, y: view.statusBarHeight, width: view.bounds.size.width, height: view.bounds.size.height - view.statusBarHeight)
+        let pushRect = CGRect(x: 0.0, y: view.statusBarHeight, width: view.bounds.size.width, height: view.bounds.size.height - view.statusBarHeight)
+        var popRect = CGRect(x: 0.0, y: view.bounds.size.height, width: view.bounds.size.width, height: 0.0)
         var animations:(Void) -> Void = { }
         switch self.operation {
         case .push:
+            if let controller = toViewController as? RouteViewController, let delegate = fromViewController as? RouteViewDelegate, let rect = delegate.routeViewRect(controller: controller) {
+                popRect = rect
+            }
             view.backgroundColor = fromViewController.view.backgroundColor
             view.addSubview(fromViewController.view)
             view.addSubview(toViewController.view)
             toViewController.view.layer.borderWidth = self.borderWidth
             toViewController.view.layer.borderColor = UIColor.foreground.disabled.cgColor
-            toViewController.view.frame = fromRect
+            toViewController.view.frame = popRect
             animations = {
-                toViewController.view.frame = toRect
+                toViewController.view.frame = pushRect
                 fromViewController.view.layer.transform = CATransform3DMakeScale(self.scale, self.scale, 1.0)
                 fromViewController.view.layer.opacity = 0.25
             }
@@ -167,13 +170,17 @@ class RouteViewControllerAnimator: NSObject, UIViewControllerAnimatedTransitioni
             view.backgroundColor = toViewController.view.backgroundColor
             view.addSubview(toViewController.view)
             view.addSubview(fromViewController.view)
+            toViewController.view.frame = view.bounds
             toViewController.view.layer.transform = CATransform3DMakeScale(self.scale, self.scale, 1.0)
             toViewController.view.layer.opacity = 0.25
             fromViewController.view.layer.borderWidth = self.borderWidth
             fromViewController.view.layer.borderColor = UIColor.foreground.disabled.cgColor
-            fromViewController.view.frame = toRect
+            if let controller = fromViewController as? RouteViewController, let delegate = toViewController as? RouteViewDelegate, let rect = delegate.routeViewRect(controller: controller) {
+                popRect = rect
+            }
+            fromViewController.view.frame = pushRect
             animations = {
-                fromViewController.view.frame = fromRect
+                fromViewController.view.frame = popRect
                 toViewController.view.layer.transform = CATransform3DIdentity
                 toViewController.view.layer.opacity = 1.0
             }
@@ -182,8 +189,10 @@ class RouteViewControllerAnimator: NSObject, UIViewControllerAnimatedTransitioni
             return
         }
         UIView.animate(withDuration: animationDuration, animations: animations, completion: { finished in
+            fromViewController.view.layer.transform = CATransform3DIdentity
             fromViewController.view.layer.borderWidth = 0.0
             fromViewController.view.layer.opacity = 1.0
+            toViewController.view.layer.transform = CATransform3DIdentity
             toViewController.view.frame = view.bounds
             toViewController.view.layer.borderWidth = 0.0
             toViewController.view.layer.opacity = 1.0
