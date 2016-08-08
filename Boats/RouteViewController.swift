@@ -9,13 +9,28 @@ import UIKit
 import BoatsData
 
 class RouteViewController: ViewController, UIScrollViewDelegate {
+    private static let dateFormatter: DateFormatter = DateFormatter(dateFormat: "MMM d, yyyy")
     private let highlightView: UIView = UIView()
     private let scrollView: UIScrollView = UIScrollView()
-    var scrollViewBorder: CALayer = CALayer()
+    private let scrollViewBorder: CALayer = CALayer()
+    private let scheduleViews: (destination: ScheduleView, origin: ScheduleView) = (ScheduleView(direction: .destination), ScheduleView(direction: .origin))
     private let routeLabel: UILabel = UILabel()
+    private let seasonLabel: UILabel = UILabel()
+    private let directionControl: DirectionControl = DirectionControl()
     private let providerLabel: UILabel = UILabel()
+    private let popControl: PopControl = PopControl()
     private(set) var provider: Provider!
     private(set) var route: Route!
+    
+    var controlsHidden: Bool = false {
+        didSet {
+            viewDidLayoutSubviews()
+        }
+    }
+    
+    func changeDirection(sender: AnyObject?) {
+        scrollView.setContentOffset(CGPoint(x: (scrollView.bounds.size.width * CGFloat(directionControl.selectedSegmentIndex)), y: 0.0), animated: true)
+    }
     
     func pop(sender: AnyObject?) {
         let _ = navigationController?.popViewController(animated: true)
@@ -32,6 +47,16 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
             self.route = route
             
             routeLabel.text = self.route.name
+            directionControl.origin = route.origin
+            if let schedule = route.schedule() {
+                seasonLabel.text = schedule.season == .all ? "Year-Round" : "\(schedule.season.rawValue): \(RouteViewController.dateFormatter.string(start: schedule.dates.start, end: schedule.dates.end))"
+                scheduleViews.destination.schedule = schedule
+                scheduleViews.origin.schedule = schedule
+            } else {
+                seasonLabel.text = "Schedule Unavailable"
+                scheduleViews.destination.schedule = nil
+                scheduleViews.origin.schedule = nil
+            }
             providerLabel.text = "Operated by \(self.provider.name)"
         }
     }
@@ -40,22 +65,49 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         super.viewDidLayoutSubviews()
         
         dataDidRefresh(completed: true)
+        let scheduleHidden: Bool = route.schedule() == nil
         
         routeLabel.frame.size.width = view.layoutRect.size.width
         routeLabel.frame.origin.x = view.layoutRect.origin.x
         routeLabel.frame.origin.y = view.layoutRect.origin.y + 2.0 + (view.frame.origin.y < view.statusBarHeight ? view.statusBarHeight : 0.0)
-        routeLabel.textColor = .foreground(status: .future)
+        routeLabel.textColor = .foreground
         
-        scrollView.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height
-        scrollView.frame.size.height = view.bounds.size.height - (scrollView.frame.origin.y + 0.0)
+        seasonLabel.frame.size.width = routeLabel.frame.size.width
+        seasonLabel.frame.origin.x = routeLabel.frame.origin.x
+        seasonLabel.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height + 1.0
+        seasonLabel.textColor = routeLabel.textColor
+        seasonLabel.isHidden = controlsHidden
+        
+        directionControl.frame.size.width = routeLabel.frame.size.width
+        directionControl.frame.origin.x = routeLabel.frame.origin.x
+        directionControl.frame.origin.y = seasonLabel.frame.origin.y + seasonLabel.frame.size.height + view.layoutEdgeInsets.top
+        directionControl.isHidden = controlsHidden || scheduleHidden
+        
+        popControl.frame.size.width = popControl.intrinsicContentSize.width + (view.layoutEdgeInsets.left * 2.0)
+        popControl.frame.size.height = providerLabel.frame.size.height + (view.layoutEdgeInsets.bottom * 2.0)
+        popControl.frame.origin.y = view.bounds.size.height - popControl.frame.size.height
+        popControl.isHidden = controlsHidden
+        
+        providerLabel.frame.size.width = view.layoutRect.size.width
+        providerLabel.frame.origin.x = controlsHidden ? view.layoutRect.origin.x : view.layoutRect.origin.x + popControl.intrinsicContentSize.width + 4.5
+        providerLabel.frame.origin.y = view.bounds.size.height - (providerLabel.frame.size.height + view.layoutEdgeInsets.bottom)
+        providerLabel.textColor = .foreground
+        
+        scrollView.frame.origin.y = directionControl.frame.origin.y + directionControl.frame.size.height + (view.layoutEdgeInsets.bottom / 1.5)
+        scrollView.frame.size.height = view.bounds.size.height - (scrollView.frame.origin.y + popControl.frame.size.height)
         scrollView.contentSize.width = scrollView.bounds.size.width * 2.0
         scrollView.contentSize.height = scrollView.bounds.size.height
         scrollView.backgroundColor = .background
+        scrollView.isHidden = controlsHidden || scheduleHidden
+        scrollView.delegate = self
         scrollViewDidEndDecelerating(scrollView)
         
         scrollViewBorder.frame = CGRect(x: -0.5, y: 0.0, width: scrollView.bounds.size.width + 1.0, height: scrollView.bounds.size.height)
-        scrollViewBorder.isHidden = scrollViewBorder.frame.size.height < 200.0
         scrollViewBorder.borderColor = UIColor.foreground.disabled.cgColor
+        
+        scheduleViews.destination.frame.size = scrollView.bounds.size
+        scheduleViews.origin.frame.size = scrollView.bounds.size
+        scheduleViews.origin.frame.origin.x = scrollView.bounds.size.width
     }
     
     override func viewDidLoad() {
@@ -73,25 +125,36 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         scrollView.frame.size.width = view.bounds.size.width
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         scrollView.delegate = self
-        //view.addSubview(scrollView)
+        view.addSubview(scrollView)
         
         scrollViewBorder.borderWidth = 0.5
         scrollView.layer.addSublayer(scrollViewBorder)
+        
+        scrollView.addSubview(scheduleViews.destination)
+        scrollView.addSubview(scheduleViews.origin)
         
         routeLabel.font = .large
         routeLabel.text = " "
         routeLabel.sizeToFit()
         view.addSubview(routeLabel)
         
+        seasonLabel.font = .medium
+        seasonLabel.text = " "
+        seasonLabel.sizeToFit()
+        view.addSubview(seasonLabel)
+        
+        directionControl.frame.size.height = directionControl.intrinsicContentSize.height
+        directionControl.addTarget(self, action: #selector(changeDirection(sender:)), for: .valueChanged)
+        view.addSubview(directionControl)
+        
+        providerLabel.autoresizingMask = [.flexibleTopMargin]
         providerLabel.font = .regular
         providerLabel.text = " "
         providerLabel.sizeToFit()
-        //view.addSubview(providerLabel)
+        view.addSubview(providerLabel)
         
-        let popControl = UIControl()
+        popControl.autoresizingMask = [.flexibleTopMargin]
         popControl.addTarget(self, action: #selector(pop(sender:)), for: .touchUpInside)
-        popControl.frame = view.bounds
-        popControl.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(popControl)
     }
     
@@ -114,7 +177,8 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
     
     // MARK: UIScrollViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+        directionControl.selectedSegmentIndex = (scrollView.bounds.size.width > 0) ? min(Int(ceil(scrollView.contentOffset.x / scrollView.bounds.size.width)), 1) : 0
+        scrollView.setContentOffset(CGPoint(x: (scrollView.bounds.size.width * CGFloat(directionControl.selectedSegmentIndex)), y: 0.0), animated: true)
     }
 }
 
@@ -123,7 +187,7 @@ protocol RouteViewDelegate {
 }
 
 class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    private let animationDuration: TimeInterval = 0.3
+    private let animationDuration: TimeInterval = 0.2
     private let scale: CGFloat = 0.8
     private let borderWidth: CGFloat = 0.5
     private(set) var operation: UINavigationControllerOperation = .none
@@ -153,6 +217,7 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         switch self.operation {
         case .push:
             if let controller = toViewController as? RouteViewController, let delegate = fromViewController as? RouteViewDelegate, let rect = delegate.routeViewRect(controller: controller) {
+                controller.controlsHidden = true
                 popRect = rect
             }
             view.backgroundColor = fromViewController.view.backgroundColor
@@ -176,6 +241,7 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             fromViewController.view.layer.borderWidth = self.borderWidth
             fromViewController.view.layer.borderColor = UIColor.foreground.disabled.cgColor
             if let controller = fromViewController as? RouteViewController, let delegate = toViewController as? RouteViewDelegate, let rect = delegate.routeViewRect(controller: controller) {
+                controller.controlsHidden = true
                 popRect = rect
             }
             fromViewController.view.frame = pushRect
@@ -196,6 +262,9 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toViewController.view.frame = view.bounds
             toViewController.view.layer.borderWidth = 0.0
             toViewController.view.layer.opacity = 1.0
+            if let controller = toViewController as? RouteViewController {
+                controller.controlsHidden = false
+            }
             transitionContext.completeTransition(finished)
         })
     }

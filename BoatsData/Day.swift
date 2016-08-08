@@ -19,7 +19,7 @@ public enum Day: String {
     case holiday = "Holiday"
     
     public static var days: [Day] {
-        return [.everyday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday, .holiday]
+        return [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday, .holiday]
     }
 }
 

@@ -14,6 +14,10 @@ class CarsView: UIImageView, StatusView {
         }
     }
     
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 27.0, height: 18.0)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -21,17 +25,10 @@ class CarsView: UIImageView, StatusView {
         image = UIImage(named: "Cars")?.color(cars ? color : color.disabled)
     }
     
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: 27.0, height: 18.0)
-    }
-    
-    override init(frame: CGRect) {
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
+        
         contentMode = .scaleAspectFit
-    }
-    
-    convenience init() {
-        self.init(frame: CGRect())
     }
     
     required init?(coder decoder: NSCoder) {

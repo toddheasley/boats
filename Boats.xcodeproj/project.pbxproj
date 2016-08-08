@@ -62,6 +62,8 @@
 		5C6B13451D4CF34200403514 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B13441D4CF34200403514 /* UIFont.swift */; };
 		5C6B13471D4CFB6200403514 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B13461D4CFB6200403514 /* UIImage.swift */; };
 		5C6B13491D4CFB9500403514 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B13481D4CFB9500403514 /* UIView.swift */; };
+		5C99D8311D5755380007DC75 /* DirectionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99D8301D5755380007DC75 /* DirectionControl.swift */; };
+		5C99D8331D5760C60007DC75 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99D8321D5760C60007DC75 /* DateFormatter.swift */; };
 		5CC425BA1D4D143B00729580 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC425B91D4D143B00729580 /* MainViewController.swift */; };
 		5CC425BC1D4D1A6000729580 /* RouteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC425BB1D4D1A6000729580 /* RouteViewCell.swift */; };
 		5CC425BE1D4D1ABC00729580 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC425BD1D4D1ABC00729580 /* MainViewCell.swift */; };
@@ -70,6 +72,9 @@
 		5CC425C41D4D574500729580 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC425C31D4D574500729580 /* StatusView.swift */; };
 		5CC425C61D4E426200729580 /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC425C51D4E426200729580 /* DepartureView.swift */; };
 		5CC425C81D4E428200729580 /* CarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC425C71D4E428200729580 /* CarsView.swift */; };
+		5CC73F4B1D5768B100D93840 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC73F4A1D5768B100D93840 /* ScheduleView.swift */; };
+		5CC73F4D1D57DE3100D93840 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC73F4C1D57DE3100D93840 /* DayView.swift */; };
+		5CD317471D56A677005BB6D5 /* PopControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD317461D56A677005BB6D5 /* PopControl.swift */; };
 		5CDDC5E11B9CBD4900AF4CDE /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */; };
 		5CDEDAA61CB9303200F9FE9B /* BoatsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEDA911CB9303100F9FE9B /* BoatsData.framework */; };
 		5CDEDAA71CB9303200F9FE9B /* BoatsData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEDA911CB9303100F9FE9B /* BoatsData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -152,6 +157,8 @@
 		5C6B13461D4CFB6200403514 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5C6B13481D4CFB9500403514 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5C8914131B979C7B00948F66 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C99D8301D5755380007DC75 /* DirectionControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionControl.swift; sourceTree = "<group>"; };
+		5C99D8321D5760C60007DC75 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		5CC425B91D4D143B00729580 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5CC425BB1D4D1A6000729580 /* RouteViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewCell.swift; sourceTree = "<group>"; };
 		5CC425BD1D4D1ABC00729580 /* MainViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
@@ -160,6 +167,9 @@
 		5CC425C31D4D574500729580 /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		5CC425C51D4E426200729580 /* DepartureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureView.swift; sourceTree = "<group>"; };
 		5CC425C71D4E428200729580 /* CarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsView.swift; sourceTree = "<group>"; };
+		5CC73F4A1D5768B100D93840 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		5CC73F4C1D57DE3100D93840 /* DayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		5CD317461D56A677005BB6D5 /* PopControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopControl.swift; sourceTree = "<group>"; };
 		5CDDC5E01B9CBD4900AF4CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Launch.xib; sourceTree = "<group>"; };
 		5CDEDA911CB9303100F9FE9B /* BoatsData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDEDA951CB9303200F9FE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -208,12 +218,17 @@
 			children = (
 				5C277C9C1B979A5000D18D14 /* AppDelegate.swift */,
 				5CC425C71D4E428200729580 /* CarsView.swift */,
+				5C99D8321D5760C60007DC75 /* DateFormatter.swift */,
+				5CC73F4C1D57DE3100D93840 /* DayView.swift */,
 				5CC425C51D4E426200729580 /* DepartureView.swift */,
+				5C99D8301D5755380007DC75 /* DirectionControl.swift */,
 				5CC425B91D4D143B00729580 /* MainViewController.swift */,
 				5CC425BD1D4D1ABC00729580 /* MainViewCell.swift */,
 				5C6B133C1D4CE96100403514 /* NavigationController.swift */,
+				5CD317461D56A677005BB6D5 /* PopControl.swift */,
 				5CC425BF1D4D1B6F00729580 /* RouteViewController.swift */,
 				5CC425BB1D4D1A6000729580 /* RouteViewCell.swift */,
+				5CC73F4A1D5768B100D93840 /* ScheduleView.swift */,
 				5CC425C31D4D574500729580 /* StatusView.swift */,
 				5CC425C11D4D572600729580 /* TimeView.swift */,
 				5C6B13401D4CEAA500403514 /* UIColor.swift */,
@@ -458,6 +473,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C99D8331D5760C60007DC75 /* DateFormatter.swift in Sources */,
+				5CC73F4D1D57DE3100D93840 /* DayView.swift in Sources */,
 				5C6B133F1D4CE99800403514 /* ViewController.swift in Sources */,
 				5CC425C41D4D574500729580 /* StatusView.swift in Sources */,
 				5CC425BC1D4D1A6000729580 /* RouteViewCell.swift in Sources */,
@@ -469,10 +486,13 @@
 				5C6B13471D4CFB6200403514 /* UIImage.swift in Sources */,
 				5C6B13451D4CF34200403514 /* UIFont.swift in Sources */,
 				5CC425C81D4E428200729580 /* CarsView.swift in Sources */,
+				5CD317471D56A677005BB6D5 /* PopControl.swift in Sources */,
 				5C6B133D1D4CE96100403514 /* NavigationController.swift in Sources */,
+				5C99D8311D5755380007DC75 /* DirectionControl.swift in Sources */,
 				5CC425BA1D4D143B00729580 /* MainViewController.swift in Sources */,
 				5CC425C21D4D572600729580 /* TimeView.swift in Sources */,
 				5CC425C61D4E426200729580 /* DepartureView.swift in Sources */,
+				5CC73F4B1D5768B100D93840 /* ScheduleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

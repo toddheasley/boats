@@ -29,7 +29,7 @@ class DataTests: XCTestCase {
                 return
             }
             XCTAssertEqual(data.name, "Ferry Schedules")
-            XCTAssertEqual(data.description, "Casco Bay Islands")
+            XCTAssertEqual(data.description, "Islands of Casco Bay")
             XCTAssertEqual(data.providers.count, 2)
             data = Data()
             XCTAssertEqual(data.providers.count, 2)

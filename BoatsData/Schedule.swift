@@ -14,7 +14,7 @@ public struct Schedule {
     public private(set) var departures: [Departure]
     
     public var days: [Day] {
-        return Day.days.filter { contains(day: $0) }
+        return Day.days.filter { contains(day: $0) || ($0 != .holiday && contains(day: .everyday)) }
     }
     
     public func departures(day: Day, direction: Direction = .both) -> [Departure] {

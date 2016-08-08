@@ -11,6 +11,7 @@ import BoatsData
 class MainViewController: ViewController, UITableViewDataSource, UITableViewDelegate, RouteViewDelegate {
     private let mainViewCell: MainViewCell = MainViewCell()
     private let routeViewCell: RouteViewCell = RouteViewCell()
+    private var selectedIndexPath: IndexPath?
     var tableView: UITableView!
     
     override func dataDidRefresh(completed: Bool) {
@@ -104,6 +105,7 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
         case 0:
             return
         default:
+            selectedIndexPath = indexPath
             guard let cell = tableView.cellForRow(at: indexPath) as? RouteViewCell, let routeViewController =
                 RouteViewController(provider: cell.provider, route: cell.route) else {
                 return
@@ -114,10 +116,10 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     
     // MARK: RouteViewDelegate
     func routeViewRect(controller: RouteViewController) -> CGRect? {
-        guard let path = tableView.indexPathForSelectedRow else {
+        guard let selectedIndexPath = selectedIndexPath else {
             return nil
         }
-        var rect = tableView.rectForRow(at: path)
+        var rect = tableView.rectForRow(at: selectedIndexPath)
         rect.origin.y -= tableView.contentOffset.y
         return rect
     }

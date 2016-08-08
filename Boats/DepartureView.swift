@@ -105,6 +105,10 @@ class DepartureCell: UICollectionViewCell, StatusView {
         }
     }
     
+    override var intrinsicContentSize: CGSize {
+        return departureView.intrinsicContentSize
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -119,9 +123,9 @@ class DepartureCell: UICollectionViewCell, StatusView {
         case .table:
             contentView.layer.cornerRadius = 0.0
             
-            //departureView.frame.size.width = suggestedFrame.size.width - 6.0
+            departureView.frame.size.width = layoutRect.size.width
             departureView.frame.size.height = contentView.bounds.size.height
-            //departureView.frame.origin.x = suggestedFrame.origin.x + 4.0
+            departureView.frame.origin.x = layoutRect.origin.x
             departureView.frame.origin.y = 0.0
         }
     }

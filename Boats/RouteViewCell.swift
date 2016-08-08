@@ -84,7 +84,7 @@ class RouteViewCell: UITableViewCell {
             
             routeLabel.frame.size.width = departureView.frame.origin.x - layoutEdgeInsets.right
             
-            providerLabel.frame.origin.y = (departureView.frame.origin.y + departureView.frame.size.height) - (providerLabel.frame.size.height + 2.0)
+            providerLabel.frame.origin.y = (departureView.frame.origin.y + departureView.frame.size.height) - providerLabel.frame.size.height
             
             contentView.frame.size.height = departureView.frame.size.height
         } else {
