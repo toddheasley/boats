@@ -74,23 +74,27 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     
     // MARK: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 0.0, height: dayView.intrinsicContentSize.height + layoutEdgeInsets.top)
+        return CGSize(width: 0.0, height: dayView.intrinsicContentSize.height + layoutInterItemSpacing.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch style {
         case .collection:
-            return departureCell.intrinsicContentSize
+            let numberOfColumns: Int = bounds.size.width < 568.0 ? 1 : (bounds.size.width < 1024.0 ? 2 : 3)
+            let width: CGFloat = floor((bounds.size.width - (layoutEdgeInsets.left * CGFloat(numberOfColumns + 1))) / CGFloat(numberOfColumns))
+            return CGSize(width: max(width , departureCell.intrinsicContentSize.width), height: departureCell.intrinsicContentSize.height + layoutInterItemSpacing.height)
         case .table:
-            return CGSize(width: collectionView.bounds.size.width, height: departureCell.intrinsicContentSize.height)
+            return CGSize(width: collectionView.bounds.size.width, height: departureCell.intrinsicContentSize.height + layoutInterItemSpacing.height)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return layoutEdgeInsets.top
+        return layoutInterItemSpacing.height
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return layoutEdgeInsets
+        var edgeInsets = layoutEdgeInsets
+        edgeInsets.top = layoutInterItemSpacing.height
+        return edgeInsets
     }
 }

@@ -21,6 +21,6 @@ extension UIFont {
     }
     
     static var large: UIFont {
-        return .boldSystemFont(ofSize:17.0)
+        return .boldSystemFont(ofSize:18.0)
     }
 }

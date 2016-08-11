@@ -8,7 +8,7 @@
 import Foundation
 
 enum Status {
-    case past, next, future, last
+    case past, next, soon, last
 }
 
 protocol StatusView {

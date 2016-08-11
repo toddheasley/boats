@@ -101,7 +101,7 @@ class RouteViewCell: UITableViewCell {
             contentView.frame.size.height = providerLabel.frame.origin.y + providerLabel.frame.size.height
         }
         routeLabel.frame.origin.y = 2.0
-        routeLabel.textColor = .foreground(status: .future)
+        routeLabel.textColor = .foreground(status: .next)
         
         originLabel.frame.size.width = routeLabel.frame.size.width
         originLabel.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height + 1.0
@@ -129,7 +129,7 @@ class RouteViewCell: UITableViewCell {
         originLabel.sizeToFit()
         contentView.addSubview(originLabel)
         
-        departureView.statusText = "Next"
+        departureView.status = .next
         contentView.addSubview(departureView)
         
         providerLabel.font = .regular

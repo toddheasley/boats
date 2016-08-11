@@ -7,6 +7,7 @@
 
 import UIKit
 import BoatsData
+import SafariServices
 
 class RouteViewController: ViewController, UIScrollViewDelegate {
     private static let dateFormatter: DateFormatter = DateFormatter(dateFormat: "MMM d, yyyy")
@@ -17,7 +18,7 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
     private let routeLabel: UILabel = UILabel()
     private let seasonLabel: UILabel = UILabel()
     private let directionControl: DirectionControl = DirectionControl()
-    private let providerLabel: UILabel = UILabel()
+    private let providerControl: ProviderControl = ProviderControl()
     private let popControl: PopControl = PopControl()
     private(set) var provider: Provider!
     private(set) var route: Route!
@@ -32,13 +33,17 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         scrollView.setContentOffset(CGPoint(x: (scrollView.bounds.size.width * CGFloat(directionControl.selectedSegmentIndex)), y: 0.0), animated: true)
     }
     
+    func openProviderURL(sender: AnyObject?) {
+        present(SFSafariViewController(url: URL(string: provider.www)!), animated: true, completion: nil)
+    }
+    
     func pop(sender: AnyObject?) {
         let _ = navigationController?.popViewController(animated: true)
     }
     
     override func dataDidRefresh(completed: Bool) {
         super.dataDidRefresh(completed: completed)
-        if (completed) {
+        if completed {
             guard let provider = data.provider(code: self.provider.code), let route = provider.route(code: self.route.code) else {
                 let _ = navigationController?.popViewController(animated: true)
                 return
@@ -57,7 +62,7 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
                 scheduleViews.destination.schedule = nil
                 scheduleViews.origin.schedule = nil
             }
-            providerLabel.text = "Operated by \(self.provider.name)"
+            providerControl.text = "Operated by \(self.provider.name)"
         }
     }
     
@@ -83,18 +88,8 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         directionControl.frame.origin.y = seasonLabel.frame.origin.y + seasonLabel.frame.size.height + view.layoutEdgeInsets.top
         directionControl.isHidden = controlsHidden || scheduleHidden
         
-        popControl.frame.size.width = popControl.intrinsicContentSize.width + (view.layoutEdgeInsets.left * 2.0)
-        popControl.frame.size.height = providerLabel.frame.size.height + (view.layoutEdgeInsets.bottom * 2.0)
-        popControl.frame.origin.y = view.bounds.size.height - popControl.frame.size.height
-        popControl.isHidden = controlsHidden
-        
-        providerLabel.frame.size.width = view.layoutRect.size.width
-        providerLabel.frame.origin.x = controlsHidden ? view.layoutRect.origin.x : view.layoutRect.origin.x + popControl.intrinsicContentSize.width + 4.5
-        providerLabel.frame.origin.y = view.bounds.size.height - (providerLabel.frame.size.height + view.layoutEdgeInsets.bottom)
-        providerLabel.textColor = .foreground
-        
-        scrollView.frame.origin.y = directionControl.frame.origin.y + directionControl.frame.size.height + (view.layoutEdgeInsets.bottom / 1.5)
-        scrollView.frame.size.height = view.bounds.size.height - (scrollView.frame.origin.y + popControl.frame.size.height)
+        scrollView.frame.origin.y = directionControl.frame.origin.y + directionControl.frame.size.height + view.layoutInterItemSpacing.height
+        scrollView.frame.size.height = view.bounds.size.height - (scrollView.frame.origin.y + providerControl.frame.size.height + view.layoutInterItemSpacing.height + view.layoutEdgeInsets.bottom)
         scrollView.contentSize.width = scrollView.bounds.size.width * 2.0
         scrollView.contentSize.height = scrollView.bounds.size.height
         scrollView.backgroundColor = .background
@@ -108,6 +103,16 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         scheduleViews.destination.frame.size = scrollView.bounds.size
         scheduleViews.origin.frame.size = scrollView.bounds.size
         scheduleViews.origin.frame.origin.x = scrollView.bounds.size.width
+        
+        popControl.frame.size.width = popControl.intrinsicContentSize.width + view.layoutEdgeInsets.left + view.layoutEdgeInsets.right
+        popControl.frame.size.height = popControl.intrinsicContentSize.height + (view.layoutInterItemSpacing.height * 2.0)
+        popControl.frame.origin.x = view.bounds.size.width - popControl.frame.size.width
+        popControl.frame.origin.y = scrollView.frame.origin.y + scrollView.frame.size.height
+        popControl.isHidden = controlsHidden
+        
+        providerControl.frame.size.width = view.layoutRect.size.width - popControl.frame.size.width
+            providerControl.frame.origin.x = view.layoutRect.origin.x
+        providerControl.frame.origin.y = view.bounds.size.height - (providerControl.frame.size.height + view.layoutEdgeInsets.bottom)
     }
     
     override func viewDidLoad() {
@@ -138,7 +143,7 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         routeLabel.sizeToFit()
         view.addSubview(routeLabel)
         
-        seasonLabel.font = .medium
+        seasonLabel.font = .regular
         seasonLabel.text = " "
         seasonLabel.sizeToFit()
         view.addSubview(seasonLabel)
@@ -147,13 +152,10 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         directionControl.addTarget(self, action: #selector(changeDirection(sender:)), for: .valueChanged)
         view.addSubview(directionControl)
         
-        providerLabel.autoresizingMask = [.flexibleTopMargin]
-        providerLabel.font = .regular
-        providerLabel.text = " "
-        providerLabel.sizeToFit()
-        view.addSubview(providerLabel)
+        providerControl.frame.size.height = providerControl.intrinsicContentSize.height
+        providerControl.addTarget(self, action: #selector(openProviderURL(sender:)), for: .touchUpInside)
+        view.addSubview(providerControl)
         
-        popControl.autoresizingMask = [.flexibleTopMargin]
         popControl.addTarget(self, action: #selector(pop(sender:)), for: .touchUpInside)
         view.addSubview(popControl)
     }

@@ -56,6 +56,7 @@
 		5C10BD2F1CB95A20009CFBA6 /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C10BD2E1CB95A20009CFBA6 /* CoordinateTests.swift */; };
 		5C277C9D1B979A5000D18D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C277C9C1B979A5000D18D14 /* AppDelegate.swift */; };
 		5C277CA41B979A5000D18D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C277CA31B979A5000D18D14 /* Assets.xcassets */; };
+		5C2EAEDD1D5C19EC00F81E56 /* ProviderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2EAEDC1D5C19EC00F81E56 /* ProviderControl.swift */; };
 		5C6B133D1D4CE96100403514 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B133C1D4CE96100403514 /* NavigationController.swift */; };
 		5C6B133F1D4CE99800403514 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B133E1D4CE99800403514 /* ViewController.swift */; };
 		5C6B13411D4CEAA500403514 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B13401D4CEAA500403514 /* UIColor.swift */; };
@@ -150,6 +151,7 @@
 		5C277CA31B979A5000D18D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C277CA81B979A5000D18D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C277CB31B979A5000D18D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C2EAEDC1D5C19EC00F81E56 /* ProviderControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderControl.swift; sourceTree = "<group>"; };
 		5C6B133C1D4CE96100403514 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		5C6B133E1D4CE99800403514 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C6B13401D4CEAA500403514 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				5CC425BD1D4D1ABC00729580 /* MainViewCell.swift */,
 				5C6B133C1D4CE96100403514 /* NavigationController.swift */,
 				5CD317461D56A677005BB6D5 /* PopControl.swift */,
+				5C2EAEDC1D5C19EC00F81E56 /* ProviderControl.swift */,
 				5CC425BF1D4D1B6F00729580 /* RouteViewController.swift */,
 				5CC425BB1D4D1A6000729580 /* RouteViewCell.swift */,
 				5CC73F4A1D5768B100D93840 /* ScheduleView.swift */,
@@ -475,6 +478,7 @@
 			files = (
 				5C99D8331D5760C60007DC75 /* DateFormatter.swift in Sources */,
 				5CC73F4D1D57DE3100D93840 /* DayView.swift in Sources */,
+				5C2EAEDD1D5C19EC00F81E56 /* ProviderControl.swift in Sources */,
 				5C6B133F1D4CE99800403514 /* ViewController.swift in Sources */,
 				5CC425C41D4D574500729580 /* StatusView.swift in Sources */,
 				5CC425BC1D4D1A6000729580 /* RouteViewCell.swift in Sources */,

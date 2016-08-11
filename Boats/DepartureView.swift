@@ -22,14 +22,8 @@ class DepartureView: UIView, StatusView {
         }
     }
     
-    var statusText: String? {
-        didSet {
-            statusLabel.text = statusText?.uppercased() ?? ""
-        }
-    }
-    
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 242.0, height: timeView.intrinsicContentSize.height)
+        return CGSize(width: 252.0, height: timeView.intrinsicContentSize.height)
     }
     
     override func layoutSubviews() {
@@ -74,10 +68,18 @@ class DepartureView: UIView, StatusView {
     }
     
     // MARK: StatusView
-    var status: Status = .future {
+    var status: Status = .past {
         didSet {
             timeView.status = status
             carsView.status = status
+            switch status {
+            case .next:
+                statusLabel.text = "Next".uppercased()
+            case .last:
+                statusLabel.text = "Last".uppercased()
+            default:
+                statusLabel.text = ""
+            }
             layoutSubviews()
         }
     }
@@ -128,6 +130,8 @@ class DepartureCell: UICollectionViewCell, StatusView {
             departureView.frame.origin.x = layoutRect.origin.x
             departureView.frame.origin.y = 0.0
         }
+        
+        //contentView.backgroundColor = UIColor.red.withAlphaComponent(0.1)
     }
     
     override init(frame: CGRect) {
@@ -145,14 +149,6 @@ class DepartureCell: UICollectionViewCell, StatusView {
     var status: Status {
         set {
             departureView.status = newValue
-            switch status {
-            case .next:
-                departureView.statusText = "Next"
-            case .last:
-                departureView.statusText = "Last"
-            default:
-                departureView.statusText = nil
-            }
         }
         get {
             return departureView.status

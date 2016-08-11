@@ -25,7 +25,7 @@ extension UIColor {
     }
     
     static var foreground: UIColor {
-        return foreground(status: .future)
+        return foreground(status: .soon)
     }
     
     static var highlight: UIColor {

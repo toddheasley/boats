@@ -52,7 +52,7 @@ class PopView: UIImageView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 14.0, height: 22.0)
+        return CGSize(width: 22.0, height: 14.0)
     }
     
     override init(frame: CGRect = .zero) {

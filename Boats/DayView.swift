@@ -14,6 +14,7 @@ class DayView: UICollectionReusableView {
     var day: Day? {
         didSet {
             label.text = day?.rawValue ?? ""
+            layoutSubviews()
         }
     }
     

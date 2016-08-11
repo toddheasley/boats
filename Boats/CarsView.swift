@@ -36,7 +36,7 @@ class CarsView: UIImageView, StatusView {
     }
     
     // MARK: StatusView
-    var status: Status = .future {
+    var status: Status = .past {
         didSet {
             layoutSubviews()
         }

@@ -27,6 +27,7 @@ class DirectionControl: UISegmentedControl {
                 setTitle("", forSegmentAt: 0)
                 setTitle("", forSegmentAt: 1)
             }
+            layoutSubviews()
         }
     }
     
