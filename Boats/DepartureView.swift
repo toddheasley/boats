@@ -30,7 +30,7 @@ class DepartureView: UIView, StatusView {
         super.layoutSubviews()
         
         departureView.isHidden = bounds.size.width < departureView.intrinsicContentSize.width || bounds.size.height < departureView.intrinsicContentSize.height
-        statusLabel.textColor = .foreground(status: status)
+        statusLabel.textColor = departure != nil ? .foreground(status: status) : UIColor.foreground(status: status).disabled
     }
     
     override init(frame: CGRect) {
@@ -130,8 +130,6 @@ class DepartureCell: UICollectionViewCell, StatusView {
             departureView.frame.origin.x = layoutRect.origin.x
             departureView.frame.origin.y = 0.0
         }
-        
-        //contentView.backgroundColor = UIColor.red.withAlphaComponent(0.1)
     }
     
     override init(frame: CGRect) {

@@ -9,31 +9,74 @@ import UIKit
 import BoatsData
 
 class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    private var canScroll: Bool = true
     private let dayView: DayView = DayView()
     private let departureCell: DepartureCell = DepartureCell()
+    private var time: Time = Time()
+    private var day: Day = .everyday
     private var days: [(day: Day, departures: [Departure])] = []
+    private var departures: (next: Departure?, last: Departure?) = (nil, nil)
     private(set) var direction: Direction = .destination
+    
+    private var style: DepartureCellStyle {
+        return (bounds.size.width < 568.0) ? .table : .collection
+    }
     
     var schedule: Schedule? {
         didSet {
-            guard let schedule = schedule else {
-                days = []
-                return
+            time = Time()
+            day = schedule?.day ?? .everyday
+            days = []
+            if let schedule = schedule {
+                days = schedule.days.map { day in
+                    (day, schedule.departures(day: day, direction: direction))
+                }
             }
-            days = schedule.days.map { day in
-                (day, schedule.departures(day: day, direction: direction))
-            }
+            departures.last = schedule?.departures(direction: direction).last
+            departures.next = schedule?.departure(direction: direction)
             reloadData()
+            scroll(animated: true)
         }
     }
     
-    var style: DepartureCellStyle {
-        return (bounds.size.width < 568.0) ? .table : .collection
+    private func status(day: Day, departure: Departure) -> Status {
+        if day != self.day || departure.time <= time {
+            return .past
+        } else if let last = departures.last, last.time == departure.time {
+            return .last
+        } else if let next = departures.next, next.time == departure.time {
+            return .next
+        }
+        return .soon
+    }
+    
+    private func indexPath(day: Day, departure: Departure?) -> IndexPath? {
+        if day != .everyday, let departure = departure {
+            for (section, object) in days.enumerated() {
+                if (object.day != day) {
+                    continue
+                }
+                for (item, object) in object.departures.enumerated() {
+                    if object.time != departure.time {
+                        continue
+                    }
+                    return IndexPath(item: item, section: section)
+                }
+            }
+        }
+        return nil
+    }
+    
+    private func scroll(animated: Bool) {
+        guard let indexPath = indexPath(day: day, departure: departures.next), canScroll else {
+            canScroll = true
+            return
+        }
+        scrollToItem(at: indexPath, at: .centeredVertically, animated: animated)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
     }
     
     convenience init(direction: Direction) {
@@ -68,7 +111,7 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
         let cell = dequeueReusableCell(withReuseIdentifier: "DepartureCell", for: indexPath) as! DepartureCell
         cell.style = style
         cell.departure = days[indexPath.section].departures[indexPath.row]
-        cell.status = .past
+        cell.status = status(day: days[indexPath.section].day, departure: days[indexPath.section].departures[indexPath.row])
         return cell
     }
     
@@ -93,8 +136,13 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        var edgeInsets = layoutEdgeInsets
+        var edgeInsets = style == .collection ? layoutEdgeInsets : .zero
         edgeInsets.top = layoutInterItemSpacing.height
         return edgeInsets
+    }
+    
+    // MARK: UIScrollviewDelegate
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        canScroll = false
     }
 }

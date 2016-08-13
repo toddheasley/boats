@@ -14,27 +14,6 @@ class RouteViewCell: UITableViewCell {
     let departureView: DepartureView = DepartureView()
     let providerLabel: UILabel = UILabel()
     
-    private var departure: Departure? {
-        guard let schedule = route?.schedule() else {
-            return nil
-        }
-        let date = Date()
-        var day = Day()
-        for holiday in schedule.holidays {
-            if holiday.date == date {
-                day = .holiday
-                break
-            }
-        }
-        let time = Time()
-        for departure in schedule.departures(day: day, direction: .destination) {
-            if time < departure.time {
-                return departure
-            }
-        }
-        return nil
-    }
-    
     var provider: Provider? {
         didSet {
             if let provider = provider {
@@ -48,7 +27,7 @@ class RouteViewCell: UITableViewCell {
     
     var route: Route? {
         didSet {
-            departureView.departure = departure
+            departureView.departure = route?.schedule()?.departure()
             routeLabel.text = (route?.name ?? "")
             if let route = route {
                 originLabel.text = "From \(route.origin.name)"
@@ -101,7 +80,7 @@ class RouteViewCell: UITableViewCell {
             contentView.frame.size.height = providerLabel.frame.origin.y + providerLabel.frame.size.height
         }
         routeLabel.frame.origin.y = 2.0
-        routeLabel.textColor = .foreground(status: .next)
+        routeLabel.textColor = .foreground
         
         originLabel.frame.size.width = routeLabel.frame.size.width
         originLabel.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height + 1.0

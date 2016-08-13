@@ -67,7 +67,7 @@ class TimeView: UIView, StatusView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let font: UIFont = UIFont.large.withSize(64.0)
+        let font: UIFont = .time
         var frame: CGRect = CGRect(x: 21.0, y: 0.0, width: 42.0, height: 56.0)
         
         timeView.frame.size.width = (frame.size.width * 5.0) + frame.origin.x

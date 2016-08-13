@@ -153,6 +153,7 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         view.addSubview(directionControl)
         
         providerControl.frame.size.height = providerControl.intrinsicContentSize.height
+        providerControl.autoresizingMask = [.flexibleTopMargin]
         providerControl.addTarget(self, action: #selector(openProviderURL(sender:)), for: .touchUpInside)
         view.addSubview(providerControl)
         
@@ -191,7 +192,6 @@ protocol RouteViewDelegate {
 class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     private let animationDuration: TimeInterval = 0.2
     private let scale: CGFloat = 0.8
-    private let borderWidth: CGFloat = 0.5
     private(set) var operation: UINavigationControllerOperation = .none
     
     required init?(operation: UINavigationControllerOperation? = nil) {
@@ -225,8 +225,6 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             view.backgroundColor = fromViewController.view.backgroundColor
             view.addSubview(fromViewController.view)
             view.addSubview(toViewController.view)
-            toViewController.view.layer.borderWidth = self.borderWidth
-            toViewController.view.layer.borderColor = UIColor.foreground.disabled.cgColor
             toViewController.view.frame = popRect
             animations = {
                 toViewController.view.frame = pushRect
@@ -240,8 +238,6 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toViewController.view.frame = view.bounds
             toViewController.view.layer.transform = CATransform3DMakeScale(self.scale, self.scale, 1.0)
             toViewController.view.layer.opacity = 0.25
-            fromViewController.view.layer.borderWidth = self.borderWidth
-            fromViewController.view.layer.borderColor = UIColor.foreground.disabled.cgColor
             if let controller = fromViewController as? RouteViewController, let delegate = toViewController as? RouteViewDelegate, let rect = delegate.routeViewRect(controller: controller) {
                 controller.controlsHidden = true
                 popRect = rect
@@ -258,11 +254,9 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
         UIView.animate(withDuration: animationDuration, animations: animations, completion: { finished in
             fromViewController.view.layer.transform = CATransform3DIdentity
-            fromViewController.view.layer.borderWidth = 0.0
             fromViewController.view.layer.opacity = 1.0
             toViewController.view.layer.transform = CATransform3DIdentity
             toViewController.view.frame = view.bounds
-            toViewController.view.layer.borderWidth = 0.0
             toViewController.view.layer.opacity = 1.0
             if let controller = toViewController as? RouteViewController {
                 controller.controlsHidden = false

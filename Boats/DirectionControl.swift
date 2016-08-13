@@ -37,7 +37,7 @@ class DirectionControl: UISegmentedControl {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        tintColor = .foreground
+        tintColor = UIColor.foreground.withAlphaComponent(0.95)
     }
     
     override init(frame: CGRect = .zero) {

@@ -9,18 +9,22 @@ import UIKit
 
 extension UIFont {
     static var small: UIFont {
-        return .boldSystemFont(ofSize: 9.0)
+        return .systemFont(ofSize: 9.0, weight: UIFontWeightHeavy)
     }
     
     static var regular: UIFont {
-        return .systemFont(ofSize: 12.0)
+        return .systemFont(ofSize: 12.0, weight: UIFontWeightRegular)
     }
     
     static var medium: UIFont {
-        return .boldSystemFont(ofSize: 12.0)
+        return .systemFont(ofSize: 12.0, weight: UIFontWeightBold)
     }
     
     static var large: UIFont {
-        return .boldSystemFont(ofSize:18.0)
+        return .systemFont(ofSize: 18.0, weight: UIFontWeightHeavy)
+    }
+    
+    static var time: UIFont {
+        return .systemFont(ofSize: 64.0, weight: UIFontWeightHeavy)
     }
 }

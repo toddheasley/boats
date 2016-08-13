@@ -35,7 +35,7 @@ class MainViewCell: UITableViewCell {
         contentView.frame.size.height = intrinsicContentSize.height
         
         nameLabel.frame.size.width = contentView.bounds.size.width
-        nameLabel.textColor = .foreground(status: .past)
+        nameLabel.textColor = .foreground
         
         descriptionLabel.frame.size.width = contentView.bounds.size.width
         descriptionLabel.textColor = nameLabel.textColor

@@ -17,10 +17,30 @@ public struct Schedule {
         return Day.days.filter { contains(day: $0) || ($0 != .holiday && contains(day: .everyday)) }
     }
     
-    public func departures(day: Day, direction: Direction = .both) -> [Departure] {
-        return departures.filter {
-            return ($0.days.contains(day) || $0.days.contains(.everyday)) && ($0.direction == direction || direction == .both)
+    public var day: Day {
+        let date: Date = Date()
+        for holiday in holidays {
+            if holiday.date == date {
+                return .holiday
+            }
         }
+        return Day()
+    }
+    
+    public func departures(day: Day? = nil, direction: Direction = .both) -> [Departure] {
+        return departures.filter {
+            return ($0.days.contains(day ?? self.day) || $0.days.contains(.everyday)) && ($0.direction == direction || direction == .both)
+        }
+    }
+    
+    public func departure(direction: Direction = .destination) -> Departure? {
+        let time: Time = Time()
+        for departure in departures(direction: direction) {
+            if departure.time > time {
+                return departure
+            }
+        }
+        return nil
     }
     
     public func contains(day: Day) -> Bool {
