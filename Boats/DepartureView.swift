@@ -130,6 +130,7 @@ class DepartureCell: UICollectionViewCell, StatusView {
             departureView.frame.origin.x = layoutRect.origin.x
             departureView.frame.origin.y = 0.0
         }
+        contentView.backgroundColor = (UIColor.mode == .day && status == .next) ? .highlight : .clear
     }
     
     override init(frame: CGRect) {
@@ -147,6 +148,7 @@ class DepartureCell: UICollectionViewCell, StatusView {
     var status: Status {
         set {
             departureView.status = newValue
+            layoutSubviews()
         }
         get {
             return departureView.status

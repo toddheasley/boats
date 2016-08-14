@@ -98,7 +98,7 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         scrollViewDidEndDecelerating(scrollView)
         
         scrollViewBorder.frame = CGRect(x: -0.5, y: 0.0, width: scrollView.bounds.size.width + 1.0, height: scrollView.bounds.size.height)
-        scrollViewBorder.borderColor = UIColor.foreground.disabled.cgColor
+        scrollViewBorder.borderColor = UIColor.foreground(status: .past).cgColor
         
         scheduleViews.destination.frame.size = scrollView.bounds.size
         scheduleViews.origin.frame.size = scrollView.bounds.size

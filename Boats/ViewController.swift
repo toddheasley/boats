@@ -23,7 +23,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-    func dataDidRefresh(completed: Bool) {
+    func dataDidRefresh(completed: Bool = true) {
         
     }
     

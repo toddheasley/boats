@@ -21,8 +21,7 @@ class CarsView: UIImageView, StatusView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let color: UIColor = .foreground(status: status)
-        image = UIImage(named: "Cars")?.color(cars ? color : color.disabled)
+        image = UIImage(named: "Cars")?.color(cars ? .foreground(status: status) : UIColor.foreground(status: status).disabled)
     }
     
     override init(frame: CGRect = .zero) {

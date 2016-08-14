@@ -75,10 +75,6 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
         scrollToItem(at: indexPath, at: .centeredVertically, animated: animated)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
     convenience init(direction: Direction) {
         self.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         self.direction = direction

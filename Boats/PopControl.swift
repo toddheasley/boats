@@ -12,7 +12,7 @@ class PopControl: UIControl {
     
     override var isHighlighted: Bool {
         didSet {
-            popView.alpha = isHighlighted ? 0.1 : 1.0
+            popView.alpha = isHighlighted ? 0.5 : 1.0
         }
     }
     

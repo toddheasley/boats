@@ -21,7 +21,7 @@ class ProviderControl: UIControl {
     
     override var isHighlighted: Bool {
         didSet {
-            label.alpha = isHighlighted ? 0.1 : 1.0
+            label.alpha = isHighlighted ? 0.5 : 1.0
         }
     }
     
