@@ -21,10 +21,19 @@ extension UIColor {
         return (mode == .night) ? .lightContent : .default
     }
     
+    static var control: UIColor {
+        switch mode {
+        case .day:
+            return UIColor(displayP3Red: 0.0, green: 0.48, blue: 1.0, alpha: 1.0)
+        case .night:
+            return .lightGray
+        }
+    }
+    
     static var background: UIColor {
         switch mode {
         case .day:
-            return UIColor.white
+            return .white
         case .night:
             return UIColor(white: 0.15, alpha: 1.0)
         }
@@ -46,23 +55,19 @@ extension UIColor {
         switch mode {
         case .day:
             switch status {
-            case .last:
-                return UIColor(displayP3Red: 0.9, green: 0.23, blue: 0.19, alpha: 0.85)
             case .past:
-                return UIColor(white: 0.15, alpha: 0.2)
-            case .soon, .next:
-                return UIColor(white: 0.15, alpha: 1.0)
+                return UIColor.darkText.withAlphaComponent(0.4)
+            case .soon, .next, .last:
+                return .darkText
             }
         case .night:
             switch status {
-            case .last:
-                return UIColor(displayP3Red: 1.0, green: 0.23, blue: 0.19, alpha: 0.9)
-            case .next:
-                return UIColor.white
             case .past:
-                return UIColor(white: 0.8, alpha: 0.5)
-            case .soon:
-                return UIColor(white: 0.8, alpha: 1.0)
+                return UIColor.lightText.withAlphaComponent(0.35)
+            case .soon, .last:
+                return .lightText
+            case .next:
+                return .white
             }
         }
     }

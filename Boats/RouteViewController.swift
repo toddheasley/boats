@@ -12,8 +12,8 @@ import SafariServices
 class RouteViewController: ViewController, UIScrollViewDelegate {
     private static let dateFormatter: DateFormatter = DateFormatter(dateFormat: "MMM d, yyyy")
     private let highlightView: UIView = UIView()
+    private let contentView: UIView = UIView()
     private let scrollView: UIScrollView = UIScrollView()
-    private let scrollViewBorder: CALayer = CALayer()
     private let scheduleViews: (destination: ScheduleView, origin: ScheduleView) = (ScheduleView(direction: .destination), ScheduleView(direction: .origin))
     private let routeLabel: UILabel = UILabel()
     private let seasonLabel: UILabel = UILabel()
@@ -97,8 +97,10 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         scrollViewDidEndDecelerating(scrollView)
         
-        scrollViewBorder.frame = CGRect(x: -0.5, y: 0.0, width: scrollView.bounds.size.width + 1.0, height: scrollView.bounds.size.height)
-        scrollViewBorder.borderColor = UIColor.foreground(status: .past).cgColor
+        contentView.frame.size.height = scrollView.frame.size.height + 1.0
+        contentView.frame.origin.y = scrollView.frame.origin.y - 0.5
+        contentView.layer.borderColor = UIColor.foreground.disabled.cgColor
+        contentView.isHidden = controlsHidden || scheduleHidden
         
         scheduleViews.destination.frame.size = scrollView.bounds.size
         scheduleViews.origin.frame.size = scrollView.bounds.size
@@ -123,6 +125,11 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         highlightView.backgroundColor = .highlight
         view.addSubview(highlightView)
         
+        contentView.frame.size.width = view.bounds.size.width
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        contentView.layer.borderWidth = 0.5
+        view.addSubview(contentView)
+        
         scrollView.isPagingEnabled = true
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
@@ -131,9 +138,6 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         scrollView.delegate = self
         view.addSubview(scrollView)
-        
-        scrollViewBorder.borderWidth = 0.5
-        scrollView.layer.addSublayer(scrollViewBorder)
         
         scrollView.addSubview(scheduleViews.destination)
         scrollView.addSubview(scheduleViews.origin)

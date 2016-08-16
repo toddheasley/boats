@@ -48,7 +48,7 @@ class PopView: UIImageView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        image = UIImage(named: "Pop")?.color(.foreground)
+        image = UIImage(named: "Pop")?.color(.control)
     }
     
     override var intrinsicContentSize: CGSize {
