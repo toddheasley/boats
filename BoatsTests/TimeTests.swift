@@ -33,8 +33,8 @@ class TimeTests: XCTestCase {
     
     func testComparable() {
         XCTAssertTrue(Time(JSON: "20:35") == Time(JSON: "20:35"))
-        XCTAssertTrue(Time(JSON: "11:21") < Time(JSON: "11:22"))
-        XCTAssertTrue(Time(JSON: "17:00") >= Time(JSON: "11:22"))
-        XCTAssertTrue(Time(JSON: "17:00") >= Time(JSON: "17:00"))
+        XCTAssertTrue(Time(JSON: "11:21")! < Time(JSON: "11:22")!)
+        XCTAssertTrue(Time(JSON: "17:00")! >= Time(JSON: "11:22")!)
+        XCTAssertTrue(Time(JSON: "17:00")! >= Time(JSON: "17:00")!)
     }
 }

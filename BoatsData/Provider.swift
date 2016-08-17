@@ -8,10 +8,10 @@
 import Foundation
 
 public struct Provider {
-    public private(set) var name: String
-    public private(set) var code: String
-    public private(set) var www: String
-    public private(set) var routes: [Route]
+    public internal(set) var name: String
+    public internal(set) var code: String
+    public internal(set) var www: String
+    public internal(set) var routes: [Route]
     
     public func route(code: String) -> Route? {
         for route in routes {
@@ -24,7 +24,7 @@ public struct Provider {
 }
 
 extension Provider: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             "name": name,
             "code": code,
@@ -33,7 +33,7 @@ extension Provider: JSONEncoding, JSONDecoding {
         ]
     }
     
-    init?(JSON: AnyObject) {
+    init?(JSON: Any) {
         guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let code = JSON["code"] as? String, let www = JSON["www"] as? String, let _ = JSON["routes"] as? [AnyObject] else {
             return nil
         }

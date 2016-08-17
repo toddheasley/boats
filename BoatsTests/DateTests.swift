@@ -46,7 +46,7 @@ class DateTests: XCTestCase {
     
     func testComparable() {
         XCTAssertTrue(Date(JSON: "2016-07-25") == Date(JSON: "2016-07-25"))
-        XCTAssertTrue(Date(JSON: "2017-01-01") < Date(JSON: "2017-01-02"))
-        XCTAssertTrue(Date(JSON: "2016-07-25") >= Date(JSON: "2016-07-25"))
+        XCTAssertTrue(Date(JSON: "2017-01-01")! < Date(JSON: "2017-01-02")!)
+        XCTAssertTrue(Date(JSON: "2016-07-25")! >= Date(JSON: "2016-07-25")!)
     }
 }

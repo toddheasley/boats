@@ -8,16 +8,16 @@
 import Foundation
 
 public struct Coordinate {
-    public private(set) var latitude: Double
-    public private(set) var longitude: Double
+    public internal(set) var latitude: Double
+    public internal(set) var longitude: Double
 }
 
 extension Coordinate: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return "\(latitude),\(longitude)"
     }
     
-    init?(JSON: AnyObject) {
+    init?(JSON: Any) {
         guard let JSON = JSON as? String else {
             return nil
         }

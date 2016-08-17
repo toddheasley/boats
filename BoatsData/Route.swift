@@ -8,11 +8,11 @@
 import Foundation
 
 public struct Route {
-    public private(set) var name: String
-    public private(set) var code: String
-    public private(set) var destination: Location
-    public private(set) var origin: Location
-    public private(set) var schedules: [Schedule]
+    public internal(set) var name: String
+    public internal(set) var code: String
+    public internal(set) var destination: Location
+    public internal(set) var origin: Location
+    public internal(set) var schedules: [Schedule]
     
     public func schedule(date: Date = Date()) -> Schedule? {
         for schedule in schedules {
@@ -25,7 +25,7 @@ public struct Route {
 }
 
 extension Route: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             "name": name,
             "code": code,
@@ -35,13 +35,13 @@ extension Route: JSONEncoding, JSONDecoding {
         ]
     }
     
-    init?(JSON: AnyObject) {
+    init?(JSON: Any) {
         guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let code = JSON["code"] as? String, let _ = JSON["destination"], let destination = Location(JSON: JSON["destination"]!), let _ = JSON["origin"], let origin = Location(JSON: JSON["origin"]!), let _ = JSON["schedules"] as? [AnyObject] else {
             return nil
         }
         var schedules: [Schedule] = []
         for scheduleJSON in (JSON["schedules"] as! [AnyObject]) {
-            guard let scheduleJSON = scheduleJSON as? [String: AnyObject], let schedule = Schedule(JSON: scheduleJSON) else {
+            guard let scheduleJSON = scheduleJSON as? [String: AnyObject], let schedule = Schedule(JSON: scheduleJSON as AnyObject) else {
                 return nil
             }
             schedules.append(schedule)

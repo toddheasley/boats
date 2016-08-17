@@ -212,7 +212,7 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextFromViewControllerKey) as? ViewController, let toViewController = transitionContext.viewController(forKey: UITransitionContextToViewControllerKey) as? ViewController else {
+        guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? ViewController, let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? ViewController else {
             transitionContext.completeTransition(false)
             return
         }

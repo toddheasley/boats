@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.post(name: TimeChangeNotification, object: nil)
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = NavigationController()
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         timer?.invalidate()
     }
     
-    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         Data().reloadData() { completed in
             completionHandler(completed ? .newData : .failed)
         }

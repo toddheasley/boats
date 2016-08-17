@@ -8,19 +8,19 @@
 import Foundation
 
 public struct Time {
-    public private(set) var hour: Int
-    public private(set) var minute: Int
+    public internal(set) var hour: Int
+    public internal(set) var minute: Int
 }
 
 extension Time: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             String(format: "%02d", hour),
             String(format: "%02d", minute)
         ].joined(separator: ":")
     }
     
-    init?(JSON: AnyObject) {
+    init?(JSON: Any) {
         guard let JSON = JSON as? String else {
             return nil
         }
@@ -39,23 +39,23 @@ extension Time: JSONEncoding, JSONDecoding {
 extension Time: DateDecoding {
     public init(date: Foundation.Date = Foundation.Date()) {
         Date.formatter.dateFormat = "HH:mm"
-        self.init(JSON: Date.formatter.string(from: date))!
+        self.init(JSON: Date.formatter.string(from: date) as AnyObject)!
     }
 }
 
 extension Time: Comparable {
-    var value: Int {
+    private var value: Int {
         return Int([
             String(format: "%02d", hour),
             String(format: "%02d", minute)
         ].joined(separator: ""))!
     }
-}
-
-public func ==(x: Time, y: Time) -> Bool {
-    return x.value == y.value
-}
-
-public func <(x: Time, y: Time) -> Bool {
-    return x.value < y.value
+    
+    public static func ==(x: Time, y: Time) -> Bool {
+        return x.value == y.value
+    }
+    
+    public static func <(x: Time, y: Time) -> Bool {
+        return x.value < y.value
+    }
 }

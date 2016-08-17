@@ -19,13 +19,13 @@ protocol DateDecoding {
 
 public struct Date {
     static let formatter: DateFormatter = DateFormatter()
-    public private(set) var year: Int
-    public private(set) var month: Int
-    public private(set) var day: Int
+    public internal(set) var year: Int
+    public internal(set) var month: Int
+    public internal(set) var day: Int
 }
 
 extension Date: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             String(format: "%04d", year),
             String(format: "%02d", month),
@@ -33,7 +33,7 @@ extension Date: JSONEncoding, JSONDecoding {
             ].joined(separator: "-")
     }
     
-    init?(JSON: AnyObject) {
+    init?(JSON: Any) {
         guard let JSON = JSON as? String else {
             return nil
         }
@@ -67,24 +67,24 @@ extension Date: DateEncoding, DateDecoding {
     
     public init(date: Foundation.Date = Foundation.Date()) {
         Date.formatter.dateFormat = "yyyy-MM-dd"
-        self.init(JSON: Date.formatter.string(from: date))!
+        self.init(JSON: Date.formatter.string(from: date) as AnyObject)!
     }
 }
 
 extension Date: Comparable {
-    var value: Int {
+    private var value: Int {
         return Int([
             String(format: "%04d", year),
             String(format: "%02d", month),
             String(format: "%02d", day)
         ].joined(separator: ""))!
     }
-}
-
-public func ==(x: Date, y: Date) -> Bool {
-    return x.value == y.value
-}
-
-public func <(x: Date, y: Date) -> Bool {
-    return x.value < y.value
+    
+    public static func ==(x: Date, y: Date) -> Bool {
+        return x.value == y.value
+    }
+    
+    public static func <(x: Date, y: Date) -> Bool {
+        return x.value < y.value
+    }
 }

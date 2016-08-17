@@ -8,14 +8,14 @@
 import Foundation
 
 public struct Departure {
-    public private(set) var days: [Day]
-    public private(set) var time: Time
-    public private(set) var direction: Direction
-    public private(set) var cars: Bool = false
+    public internal(set) var days: [Day]
+    public internal(set) var time: Time
+    public internal(set) var direction: Direction
+    public internal(set) var cars: Bool = false
 }
 
 extension Departure: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             "days": days.map { $0.rawValue },
             "time": time.JSON,
@@ -24,7 +24,7 @@ extension Departure: JSONEncoding, JSONDecoding {
         ]
     }
     
-    init?(JSON: AnyObject) {
+    init?(JSON: Any) {
         guard let JSON = JSON as? [String: AnyObject], let _ = JSON["days"] as? [String], let _ = JSON["days"] as? [String], let _ = JSON["time"] as? String, let time = Time(JSON: JSON["time"]!), let _ = JSON["direction"] as? String, let direction = Direction(rawValue: JSON["direction"] as! String), let cars = JSON["cars"] as? Bool else {
             return nil
         }

@@ -12,9 +12,9 @@ public let DataReloadCompletion: String = "DataReloadCompletion"
 
 public final class Data {
     private let URL: Foundation.URL = Foundation.URL(string: "https://toddheasley.github.io/boats/data.json")!
-    public private(set) var name: String = ""
-    public private(set) var description: String = ""
-    public private(set) var providers: [Provider] = []
+    public internal(set) var name: String = ""
+    public internal(set) var description: String = ""
+    public internal(set) var providers: [Provider] = []
     
     public func provider(code: String) -> Provider? {
         for provider in providers {
@@ -27,7 +27,7 @@ public final class Data {
     
     public func reloadData(completion: ((Bool) -> Void)? = nil) {
         URLSession.shared.dataTask(with: URL) { data, response, error in
-            guard let data = data, let JSON = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()), self.refresh(JSON: JSON) else {
+            guard let data = data, let JSON = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()), self.refresh(JSON: JSON as AnyObject) else {
                 DispatchQueue.main.async {
                     completion?(false)
                 }
@@ -48,13 +48,13 @@ public final class Data {
     
     public init() {
         if let data = UserDefaults.standard.data, let JSON = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) {
-            let _ = refresh(JSON: JSON)
+            let _ = refresh(JSON: JSON as AnyObject)
         }
     }
 }
 
 extension Data: JSONEncoding, JSONDecoding {
-    private func refresh(JSON: AnyObject) -> Bool {
+    func refresh(JSON: Any) -> Bool {
         guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let description = JSON["description"] as? String, let providers = JSON["providers"] as? [AnyObject], let zone = JSON["zone"] as? String, let timeZone = TimeZone(identifier: zone) else {
             return false
         }
@@ -71,7 +71,7 @@ extension Data: JSONEncoding, JSONDecoding {
         return true
     }
     
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             "name": name,
             "description": description,
@@ -80,7 +80,7 @@ extension Data: JSONEncoding, JSONDecoding {
         ]
     }
     
-    convenience init?(JSON: AnyObject) {
+    convenience init?(JSON: Any) {
         self.init()
         if !refresh(JSON: JSON) {
             return nil

@@ -42,10 +42,10 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     private func status(day: Day, departure: Departure) -> Status {
         if day != self.day || departure.time <= time {
             return .past
-        } else if let last = departures.last, last.time == departure.time {
-            return .last
         } else if let next = departures.next, next.time == departure.time {
             return .next
+        } else if let last = departures.last, last.time == departure.time {
+            return .last
         }
         return .soon
     }
@@ -56,8 +56,9 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
                 if (object.day != day) {
                     continue
                 }
-                for (item, object) in object.departures.enumerated() {
-                    if object.time != departure.time {
+                let departures: [Departure] = object.departures
+                for (item, object) in departures.enumerated() {
+                    if object.time != departure.time && object.time != departures.last?.time {
                         continue
                     }
                     return IndexPath(item: item, section: section)

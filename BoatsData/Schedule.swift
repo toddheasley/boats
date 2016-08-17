@@ -8,10 +8,10 @@
 import Foundation
 
 public struct Schedule {
-    public private(set) var season: Season
-    public private(set) var dates: (start: Date, end: Date)
-    public private(set) var holidays: [Holiday]
-    public private(set) var departures: [Departure]
+    public internal(set) var season: Season
+    public internal(set) var dates: (start: Date, end: Date)
+    public internal(set) var holidays: [Holiday]
+    public internal(set) var departures: [Departure]
     
     public var days: [Day] {
         return Day.days.filter { contains(day: $0) || ($0 != .holiday && contains(day: .everyday)) }
@@ -48,12 +48,12 @@ public struct Schedule {
     }
     
     public func contains(date: Date) -> Bool {
-        return date.value >= dates.start.value && date.value <= dates.end.value
+        return date >= dates.start && date <= dates.end
     }
 }
 
 extension Schedule: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             "season": season.rawValue,
             "dates": "\(dates.start.JSON),\(dates.end.JSON)",
@@ -62,7 +62,7 @@ extension Schedule: JSONEncoding, JSONDecoding {
         ]
     }
     
-    init?(JSON: AnyObject) {
+    init?(JSON: Any) {
         guard let JSON = JSON as? [String: AnyObject], let _ = JSON["season"] as? String, let season = Season(rawValue: JSON["season"] as! String), let dates = JSON["dates"] as? String, let _ = JSON["holidays"] as? [AnyObject], let _ = JSON["departures"] as? [AnyObject] else {
             return nil
         }
@@ -70,19 +70,19 @@ extension Schedule: JSONEncoding, JSONDecoding {
         if components.count != 2 {
             return nil
         }
-        guard let start = Date(JSON: components[0]), let end = Date(JSON: components[1]) else {
+        guard let start = Date(JSON: components[0] as AnyObject), let end = Date(JSON: components[1] as AnyObject) else {
             return nil
         }
         var holidays: [Holiday] = []
         for holidayJSON in (JSON["holidays"] as! [AnyObject]) {
-            guard let holidayJSON = holidayJSON as? [String: String], let holiday = Holiday(JSON: holidayJSON) else {
+            guard let holidayJSON = holidayJSON as? [String: String], let holiday = Holiday(JSON: holidayJSON as AnyObject) else {
                 return nil
             }
             holidays.append(holiday)
         }
         var departures: [Departure] = []
         for departureJSON in (JSON["departures"] as! [AnyObject]) {
-            guard let departureJSON = departureJSON as? [String: AnyObject], let departure = Departure(JSON: departureJSON) else {
+            guard let departureJSON = departureJSON as? [String: AnyObject], let departure = Departure(JSON: departureJSON as AnyObject) else {
                 return nil
             }
             departures.append(departure)
