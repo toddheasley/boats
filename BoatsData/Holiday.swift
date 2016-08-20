@@ -8,8 +8,8 @@
 import Foundation
 
 public struct Holiday {
-    public internal(set) var name: String
-    public internal(set) var date: Date
+    public fileprivate(set) var name: String
+    public fileprivate(set) var date: Date
 }
 
 extension Holiday: JSONEncoding, JSONDecoding {

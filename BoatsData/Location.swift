@@ -8,9 +8,9 @@
 import Foundation
 
 public struct Location {
-    public internal(set) var name: String
-    public internal(set) var description: String
-    public internal(set) var coordinate: Coordinate
+    public fileprivate(set) var name: String
+    public fileprivate(set) var description: String
+    public fileprivate(set) var coordinate: Coordinate
 }
 
 extension Location: JSONEncoding, JSONDecoding {

@@ -8,8 +8,8 @@
 import Foundation
 
 public struct Time {
-    public internal(set) var hour: Int
-    public internal(set) var minute: Int
+    public fileprivate(set) var hour: Int
+    public fileprivate(set) var minute: Int
 }
 
 extension Time: JSONEncoding, JSONDecoding {

@@ -12,9 +12,9 @@ public let DataReloadCompletion: String = "DataReloadCompletion"
 
 public final class Data {
     private let URL: Foundation.URL = Foundation.URL(string: "https://toddheasley.github.io/boats/data.json")!
-    public internal(set) var name: String = ""
-    public internal(set) var description: String = ""
-    public internal(set) var providers: [Provider] = []
+    public fileprivate(set) var name: String = ""
+    public fileprivate(set) var description: String = ""
+    public fileprivate(set) var providers: [Provider] = []
     
     public func provider(code: String) -> Provider? {
         for provider in providers {

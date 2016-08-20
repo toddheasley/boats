@@ -8,10 +8,10 @@
 import Foundation
 
 public struct Provider {
-    public internal(set) var name: String
-    public internal(set) var code: String
-    public internal(set) var www: String
-    public internal(set) var routes: [Route]
+    public fileprivate(set) var name: String
+    public fileprivate(set) var code: String
+    public fileprivate(set) var www: String
+    public fileprivate(set) var routes: [Route]
     
     public func route(code: String) -> Route? {
         for route in routes {

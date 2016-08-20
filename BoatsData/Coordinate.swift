@@ -8,8 +8,8 @@
 import Foundation
 
 public struct Coordinate {
-    public internal(set) var latitude: Double
-    public internal(set) var longitude: Double
+    public fileprivate(set) var latitude: Double
+    public fileprivate(set) var longitude: Double
 }
 
 extension Coordinate: JSONEncoding, JSONDecoding {

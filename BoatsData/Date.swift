@@ -19,9 +19,9 @@ protocol DateDecoding {
 
 public struct Date {
     static let formatter: DateFormatter = DateFormatter()
-    public internal(set) var year: Int
-    public internal(set) var month: Int
-    public internal(set) var day: Int
+    public fileprivate(set) var year: Int
+    public fileprivate(set) var month: Int
+    public fileprivate(set) var day: Int
 }
 
 extension Date: JSONEncoding, JSONDecoding {

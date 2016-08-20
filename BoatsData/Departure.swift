@@ -8,10 +8,10 @@
 import Foundation
 
 public struct Departure {
-    public internal(set) var days: [Day]
-    public internal(set) var time: Time
-    public internal(set) var direction: Direction
-    public internal(set) var cars: Bool = false
+    public fileprivate(set) var days: [Day]
+    public fileprivate(set) var time: Time
+    public fileprivate(set) var direction: Direction
+    public fileprivate(set) var cars: Bool = false
 }
 
 extension Departure: JSONEncoding, JSONDecoding {

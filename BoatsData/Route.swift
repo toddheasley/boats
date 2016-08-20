@@ -8,11 +8,11 @@
 import Foundation
 
 public struct Route {
-    public internal(set) var name: String
-    public internal(set) var code: String
-    public internal(set) var destination: Location
-    public internal(set) var origin: Location
-    public internal(set) var schedules: [Schedule]
+    public fileprivate(set) var name: String
+    public fileprivate(set) var code: String
+    public fileprivate(set) var destination: Location
+    public fileprivate(set) var origin: Location
+    public fileprivate(set) var schedules: [Schedule]
     
     public func schedule(date: Date = Date()) -> Schedule? {
         for schedule in schedules {

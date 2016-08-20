@@ -8,10 +8,10 @@
 import Foundation
 
 public struct Schedule {
-    public internal(set) var season: Season
-    public internal(set) var dates: (start: Date, end: Date)
-    public internal(set) var holidays: [Holiday]
-    public internal(set) var departures: [Departure]
+    public fileprivate(set) var season: Season
+    public fileprivate(set) var dates: (start: Date, end: Date)
+    public fileprivate(set) var holidays: [Holiday]
+    public fileprivate(set) var departures: [Departure]
     
     public var days: [Day] {
         return Day.days.filter { contains(day: $0) || ($0 != .holiday && contains(day: .everyday)) }
