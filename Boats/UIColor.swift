@@ -10,7 +10,7 @@ import BoatsData
 
 extension UIColor {
     var highlight: UIColor {
-        return withAlphaComponent(0.05)
+        return withAlphaComponent(0.04)
     }
     
     static func control(mode: Mode = Mode()) ->UIColor {
@@ -34,7 +34,7 @@ extension UIColor {
         case .night:
             switch status {
             case .past:
-                return UIColor.white.withAlphaComponent(0.25)
+                return UIColor.white.withAlphaComponent(0.3)
             case .soon, .last:
                 return UIColor.white.withAlphaComponent(0.75)
             case .next:

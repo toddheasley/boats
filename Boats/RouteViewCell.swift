@@ -70,13 +70,12 @@ class RouteViewCell: UITableViewCell, ModeView {
             departureView.frame.origin.x = 0.0
             departureView.frame.origin.y = originLabel.frame.origin.y + originLabel.frame.size.height
             
-            providerLabel.frame.origin.y = departureView.frame.origin.y + departureView.frame.size.height + 1.0
+            providerLabel.frame.origin.y = departureView.frame.origin.y + departureView.frame.size.height
             contentView.frame.size.height = providerLabel.frame.origin.y + providerLabel.frame.size.height
         }
-        routeLabel.frame.origin.y = 2.0
         
         originLabel.frame.size.width = routeLabel.frame.size.width
-        originLabel.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height + 1.0
+        originLabel.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height
         
         providerLabel.frame.size.width = routeLabel.frame.size.width
         contentView.frame.origin.y = (frame.size.height - contentView.frame.size.height) / 2.0

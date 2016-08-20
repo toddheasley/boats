@@ -82,11 +82,11 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         
         routeLabel.frame.size.width = view.layoutRect.size.width
         routeLabel.frame.origin.x = view.layoutRect.origin.x
-        routeLabel.frame.origin.y = view.layoutRect.origin.y + 2.0 + (view.frame.origin.y < UIApplication.shared.statusBarFrame.size.height ? UIApplication.shared.statusBarFrame.size.height : 0.0)
+        routeLabel.frame.origin.y = view.layoutRect.origin.y + (view.frame.origin.y < UIApplication.shared.statusBarFrame.size.height ? UIApplication.shared.statusBarFrame.size.height : 0.0)
         
         seasonLabel.frame.size.width = routeLabel.frame.size.width
         seasonLabel.frame.origin.x = routeLabel.frame.origin.x
-        seasonLabel.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height + 1.0
+        seasonLabel.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height
         seasonLabel.isHidden = controlsHidden
         
         directionControl.frame.size.width = routeLabel.frame.size.width
@@ -103,8 +103,10 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         scrollViewDidEndDecelerating(scrollView)
         
         scheduleViews.destination.frame.size = scrollView.bounds.size
+        scheduleViews.destination.reloadData()
         scheduleViews.origin.frame.size = scrollView.bounds.size
         scheduleViews.origin.frame.origin.x = scrollView.bounds.size.width
+        scheduleViews.origin.reloadData()
         
         popControl.frame.size.width = popControl.intrinsicContentSize.width + view.layoutEdgeInsets.left + view.layoutEdgeInsets.right
         popControl.frame.size.height = popControl.intrinsicContentSize.height + (view.layoutInterItemSpacing.height * 2.0)

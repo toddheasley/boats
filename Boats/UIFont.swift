@@ -13,11 +13,11 @@ extension UIFont {
     }
     
     static var regular: UIFont {
-        return .systemFont(ofSize: 12.0, weight: UIFontWeightRegular)
+        return .systemFont(ofSize: 13.0, weight: UIFontWeightRegular)
     }
     
     static var medium: UIFont {
-        return .systemFont(ofSize: 12.0, weight: UIFontWeightBold)
+        return .systemFont(ofSize: 13.0, weight: UIFontWeightBold)
     }
     
     static var large: UIFont {
