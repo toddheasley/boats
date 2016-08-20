@@ -8,7 +8,7 @@
 import UIKit
 import BoatsData
 
-class DirectionControl: UISegmentedControl {
+class DirectionControl: UISegmentedControl, ModeView {
     var direction: Direction {
         set {
             selectedSegmentIndex = (newValue == .origin) ? 1 : 0
@@ -27,21 +27,17 @@ class DirectionControl: UISegmentedControl {
                 setTitle("", forSegmentAt: 0)
                 setTitle("", forSegmentAt: 1)
             }
-            layoutSubviews()
         }
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: super.intrinsicContentSize.width, height: 21.0)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        tintColor = .control
+        return CGSize(width: super.intrinsicContentSize.width, height: 25.0)
     }
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
+        
+        tintColor = .control(mode: mode)
         setTitleTextAttributes([
             NSFontAttributeName: UIFont.small
             ], for: .normal)
@@ -52,5 +48,12 @@ class DirectionControl: UISegmentedControl {
     
     required init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: ModeView
+    var mode: Mode = Mode() {
+        didSet {
+            tintColor = .control(mode: mode)
+        }
     }
 }

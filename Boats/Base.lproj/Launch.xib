@@ -13,11 +13,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="H4d-ng-Rav">
-                    <frame key="frameInset" minY="49.84%" height="28"/>
+                    <frame key="frameInset" minY="49.77%" height="28"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="0.15223524305555555" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.099663628472222224" alpha="1" colorSpace="calibratedWhite"/>
             <accessibility key="accessibilityConfiguration">
                 <accessibilityTraits key="traits" notEnabled="YES"/>
             </accessibility>

@@ -24,8 +24,4 @@ extension UIView {
     var layoutRect: CGRect {
         return CGRect(x: layoutEdgeInsets.left, y: layoutEdgeInsets.top, width: bounds.size.width - (layoutEdgeInsets.left + layoutEdgeInsets.right), height: bounds.size.height - (layoutEdgeInsets.top + layoutEdgeInsets.bottom))
     }
-    
-    var statusBarHeight: CGFloat {
-        return UIApplication.shared.statusBarFrame.size.height
-    }
 }

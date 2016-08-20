@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIImage {
-    func color(_ color: UIColor) -> UIImage {
+    func tint(color: UIColor) -> UIImage {
         let bounds = CGRect(origin: CGPoint(), size: size)
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, scale)
         let context = UIGraphicsGetCurrentContext()

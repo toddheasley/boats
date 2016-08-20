@@ -8,33 +8,30 @@
 import UIKit
 import BoatsData
 
-class RouteViewCell: UITableViewCell {
-    let routeLabel: UILabel =  UILabel()
+class RouteViewCell: UITableViewCell, ModeView {
+    let routeLabel: RouteLabel = RouteLabel()
     let originLabel: UILabel = UILabel()
     let departureView: DepartureView = DepartureView()
-    let providerLabel: UILabel = UILabel()
+    let providerLabel: ProviderLabel = ProviderLabel()
     
     var provider: Provider? {
-        didSet {
-            if let provider = provider {
-                providerLabel.text = "Operated by \(provider.name)"
-            } else {
-                providerLabel.text = ""
-            }
-            layoutSubviews()
+        set {
+            providerLabel.provider = newValue
+        }
+        get {
+            return providerLabel.provider
         }
     }
     
     var route: Route? {
         didSet {
-            departureView.departure = route?.schedule()?.departure()
-            routeLabel.text = (route?.name ?? "")
+            routeLabel.route = route
             if let route = route {
                 originLabel.text = "From \(route.origin.name)"
             } else {
                 originLabel.text = ""
             }
-            layoutSubviews()
+            departureView.departure = route?.schedule()?.departure()
         }
     }
     
@@ -44,12 +41,12 @@ class RouteViewCell: UITableViewCell {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-        backgroundColor = highlighted ? .highlight : .none
+        backgroundColor = highlighted ? UIColor.foreground(mode: mode).highlight : .clear
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        backgroundColor = selected ? .highlight : .none
+        backgroundColor = selected ? UIColor.foreground(mode: mode).highlight : .clear
     }
     
     override func layoutSubviews() {
@@ -64,60 +61,61 @@ class RouteViewCell: UITableViewCell {
             routeLabel.frame.size.width = departureView.frame.origin.x - layoutEdgeInsets.right
             
             providerLabel.frame.origin.y = (departureView.frame.origin.y + departureView.frame.size.height) - providerLabel.frame.size.height
-            
             contentView.frame.size.height = departureView.frame.size.height
         } else {
             routeLabel.frame.size.width = contentView.frame.size.width
             
             departureView.frame.size.width = contentView.bounds.size.width
             departureView.frame.size.height = departureView.intrinsicContentSize.height + 5.0
-            
             departureView.frame.origin.x = 0.0
             departureView.frame.origin.y = originLabel.frame.origin.y + originLabel.frame.size.height
             
             providerLabel.frame.origin.y = departureView.frame.origin.y + departureView.frame.size.height + 1.0
-            
             contentView.frame.size.height = providerLabel.frame.origin.y + providerLabel.frame.size.height
         }
         routeLabel.frame.origin.y = 2.0
-        routeLabel.textColor = .foreground
         
         originLabel.frame.size.width = routeLabel.frame.size.width
         originLabel.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height + 1.0
-        originLabel.textColor = routeLabel.textColor
         
         providerLabel.frame.size.width = routeLabel.frame.size.width
-        providerLabel.textColor = routeLabel.textColor
-        
         contentView.frame.origin.y = (frame.size.height - contentView.frame.size.height) / 2.0
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = .none
+        backgroundColor = .clear
         selectionStyle = .none
         
-        routeLabel.font = .large
-        routeLabel.text = " "
-        routeLabel.sizeToFit()
+        routeLabel.mode = mode
         contentView.addSubview(routeLabel)
         
         originLabel.font = .medium
+        originLabel.textColor = .foreground(mode: mode)
         originLabel.text = " "
         originLabel.sizeToFit()
         contentView.addSubview(originLabel)
         
+        departureView.mode = mode
         departureView.status = .next
         contentView.addSubview(departureView)
         
-        providerLabel.font = .regular
-        providerLabel.text = " "
-        providerLabel.sizeToFit()
+        providerLabel.mode = mode
         contentView.addSubview(providerLabel)
     }
     
     required init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: ModeView
+    var mode: Mode = Mode() {
+        didSet {
+            routeLabel.mode = mode
+            originLabel.textColor = .foreground(mode: mode)
+            departureView.mode = mode
+            providerLabel.mode = mode
+        }
     }
 }

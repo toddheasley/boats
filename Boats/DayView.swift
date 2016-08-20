@@ -8,13 +8,12 @@
 import UIKit
 import BoatsData
 
-class DayView: UICollectionReusableView {
+class DayView: UICollectionReusableView, ModeView {
     private let label: UILabel = UILabel()
     
     var day: Day? {
         didSet {
             label.text = day?.rawValue ?? ""
-            layoutSubviews()
         }
     }
     
@@ -28,13 +27,13 @@ class DayView: UICollectionReusableView {
         label.frame.size.width = layoutRect.size.width
         label.frame.origin.x = layoutRect.origin.x
         label.frame.origin.y = bounds.size.height - label.frame.size.height
-        label.textColor = .foreground
     }
     
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
         label.font = .medium
+        label.textColor = .foreground(mode: mode)
         label.text = " "
         label.sizeToFit()
         addSubview(label)
@@ -42,5 +41,12 @@ class DayView: UICollectionReusableView {
     
     required init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: ModeView
+    var mode: Mode = Mode() {
+        didSet {
+            label.textColor = .foreground(mode: mode)
+        }
     }
 }

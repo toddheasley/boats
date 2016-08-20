@@ -11,33 +11,49 @@ import BoatsData
 typealias Data = BoatsData.Data
 typealias Date = BoatsData.Date
 
-let TimeChangeNotification: NSNotification.Name = NSNotification.Name("TimeChangeNotification")
+let TimeChangeNotification: Notification.Name = Notification.Name("TimeChangeNotification")
+let ModeChangeNotification: Notification.Name = Notification.Name("ModeChangeNotification")
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     private let timeInterval: TimeInterval = 15.0
     private var timer: Timer?
     var window: UIWindow?
+    var mode: Mode = Mode()
     
     func applicationTimeDidChange() {
         NotificationCenter.default.post(name: TimeChangeNotification, object: nil)
     }
     
+    func applicationScreenBrightnessDidChange() {
+        guard mode != Mode() else {
+            return
+        }
+        mode = Mode()
+        NotificationCenter.default.post(name: ModeChangeNotification, object: nil)
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        applicationWillEnterForeground(application)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = NavigationController()
         window?.makeKeyAndVisible()
-        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
+        
         return true
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationScreenBrightnessDidChange), name: Notification.Name.UIScreenBrightnessDidChange, object: nil)
+        applicationScreenBrightnessDidChange()
+        timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
         timer?.fire()
     }
     
-    func applicationWillResignActive(_ application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIScreenBrightnessDidChange, object: nil)
         timer?.invalidate()
     }
     

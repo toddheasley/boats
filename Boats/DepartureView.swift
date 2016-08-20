@@ -8,7 +8,11 @@
 import UIKit
 import BoatsData
 
-class DepartureView: UIView, StatusView {
+enum DepartureCellStyle {
+    case collection, table
+}
+
+class DepartureView: UIView, ModeView, StatusView {
     private let departureView: UIView = UIView()
     private let statusLabel: UILabel = UILabel()
     private let timeView: TimeView = TimeView()
@@ -29,8 +33,8 @@ class DepartureView: UIView, StatusView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        departureView.isHidden = bounds.size.width < departureView.intrinsicContentSize.width || bounds.size.height < departureView.intrinsicContentSize.height
-        statusLabel.textColor = departure != nil ? .foreground(status: status) : UIColor.foreground(status: status).disabled
+        let color: UIColor = .foreground(mode: mode, status: status)
+        statusLabel.textColor = departure != nil ? color : color.highlight
     }
     
     override init(frame: CGRect) {
@@ -67,8 +71,17 @@ class DepartureView: UIView, StatusView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: ModeView
+    var mode: Mode = Mode() {
+        didSet {
+            timeView.mode = mode
+            carsView.mode = mode
+            layoutSubviews()
+        }
+    }
+    
     // MARK: StatusView
-    var status: Status = .past {
+    var status: Status = Status() {
         didSet {
             timeView.status = status
             carsView.status = status
@@ -85,11 +98,7 @@ class DepartureView: UIView, StatusView {
     }
 }
 
-enum DepartureCellStyle {
-    case collection, table
-}
-
-class DepartureCell: UICollectionViewCell, StatusView {
+class DepartureCell: UICollectionViewCell, ModeView, StatusView {
     private let departureView: DepartureView = DepartureView()
     
     var style: DepartureCellStyle = .collection {
@@ -130,7 +139,7 @@ class DepartureCell: UICollectionViewCell, StatusView {
             departureView.frame.origin.x = layoutRect.origin.x
             departureView.frame.origin.y = 0.0
         }
-        contentView.backgroundColor = (UIColor.mode == .day && status == .next) ? UIColor.control.disabled : .clear
+        contentView.backgroundColor = (mode == .day && status == .next) ? UIColor.groupTableViewBackground : .clear
     }
     
     override init(frame: CGRect) {
@@ -142,6 +151,17 @@ class DepartureCell: UICollectionViewCell, StatusView {
     
     required init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: ModeView
+    var mode: Mode {
+        set {
+            departureView.mode = newValue
+            layoutSubviews()
+        }
+        get {
+            return departureView.mode
+        }
     }
     
     // MARK: StatusView

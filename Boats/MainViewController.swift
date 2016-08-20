@@ -14,12 +14,15 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     private var selectedIndexPath: IndexPath?
     var tableView: UITableView!
     
-    override func dataDidRefresh(completed: Bool) {
-        super.dataDidRefresh(completed: completed)
+    override func dataDidRefresh() {
+        super.dataDidRefresh()
         tableView.refreshControl?.endRefreshing()
-        if completed {
-            tableView.reloadData()
-        }
+        tableView.reloadData()
+    }
+    
+    override func modeDidChange() {
+        super.modeDidChange()
+        tableView.reloadData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -35,7 +38,7 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
         tableView.register(MainViewCell.self, forCellReuseIdentifier: "MainViewCell")
         tableView.register(RouteViewCell.self, forCellReuseIdentifier: "RouteViewCell")
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .none
+        tableView.backgroundColor = .clear
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.dataSource = self
@@ -45,6 +48,7 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         viewDidLayoutSubviews()
         if tableView.numberOfSections < 2 {
             refreshData()
@@ -69,12 +73,13 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainViewCell") as! MainViewCell
-            cell.nameText = data.name
-            cell.descriptionText = data.description
+            cell.mode = mode
+            cell.data = data
             return cell
         default:
             let provider = data.providers[indexPath.section - 1]
             let cell = tableView.dequeueReusableCell(withIdentifier: "RouteViewCell") as! RouteViewCell
+            cell.mode = mode
             cell.provider = provider
             cell.route = provider.routes[indexPath.row]
             return cell

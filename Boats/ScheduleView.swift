@@ -8,7 +8,7 @@
 import UIKit
 import BoatsData
 
-class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ModeView {
     private var canScroll: Bool = true
     private let dayView: DayView = DayView()
     private let departureCell: DepartureCell = DepartureCell()
@@ -51,18 +51,18 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     }
     
     private func indexPath(day: Day, departure: Departure?) -> IndexPath? {
-        if day != .everyday, let departure = departure {
+        if day != .everyday {
             for (section, object) in days.enumerated() {
-                if (object.day != day) {
+                guard object.day == day else {
                     continue
                 }
                 let departures: [Departure] = object.departures
                 for (item, object) in departures.enumerated() {
-                    if object.time != departure.time && object.time != departures.last?.time {
-                        continue
+                    if object.time == departure?.time || object.time == departures.last?.time {
+                        return IndexPath(item: item, section: section)
                     }
-                    return IndexPath(item: item, section: section)
                 }
+                return IndexPath(item: 0, section: section)
             }
         }
         return nil
@@ -82,7 +82,7 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
         
         (self.collectionViewLayout as! UICollectionViewFlowLayout).sectionHeadersPinToVisibleBounds = true
         
-        backgroundColor = .none
+        backgroundColor = .clear
         register(DayView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "DayView")
         register(DepartureCell.self, forCellWithReuseIdentifier: "DepartureCell")
         dataSource = self
@@ -100,12 +100,14 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "DayView", for: indexPath) as! DayView
+        view.mode = mode
         view.day = days[indexPath.section].day
         return view
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: "DepartureCell", for: indexPath) as! DepartureCell
+        cell.mode = mode
         cell.style = style
         cell.departure = days[indexPath.section].departures[indexPath.row]
         cell.status = status(day: days[indexPath.section].day, departure: days[indexPath.section].departures[indexPath.row])
@@ -141,5 +143,12 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     // MARK: UIScrollviewDelegate
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         canScroll = false
+    }
+    
+    // MARK: ModeView
+    var mode: Mode = Mode() {
+        didSet {
+            reloadData()
+        }
     }
 }

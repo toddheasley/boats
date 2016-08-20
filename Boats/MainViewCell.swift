@@ -8,19 +8,14 @@
 import UIKit
 import BoatsData
 
-class MainViewCell: UITableViewCell {
+class MainViewCell: UITableViewCell, ModeView {
     let nameLabel: UILabel = UILabel()
     let descriptionLabel: UILabel = UILabel()
     
-    var nameText: String? {
+    var data: Data? {
         didSet {
-            nameLabel.text = nameText ?? ""
-        }
-    }
-    
-    var descriptionText: String? {
-        didSet {
-            descriptionLabel.text = descriptionText ?? ""
+            nameLabel.text = data?.name ?? ""
+            descriptionLabel.text = data?.description ?? ""
         }
     }
     
@@ -33,26 +28,24 @@ class MainViewCell: UITableViewCell {
         
         contentView.frame = layoutRect
         contentView.frame.size.height = intrinsicContentSize.height
-        
         nameLabel.frame.size.width = contentView.bounds.size.width
-        nameLabel.textColor = .foreground
-        
         descriptionLabel.frame.size.width = contentView.bounds.size.width
-        descriptionLabel.textColor = nameLabel.textColor
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = .none
+        backgroundColor = .background(mode: mode)
         selectionStyle = .none
         
         nameLabel.font = .medium
+        nameLabel.textColor = .foreground(mode: mode)
         nameLabel.text = " "
         nameLabel.sizeToFit()
         contentView.addSubview(nameLabel)
         
         descriptionLabel.font = .regular
+        descriptionLabel.textColor = nameLabel.textColor
         descriptionLabel.text = " "
         descriptionLabel.sizeToFit()
         descriptionLabel.frame.origin.y = nameLabel.frame.size.height + 3.0
@@ -61,5 +54,14 @@ class MainViewCell: UITableViewCell {
     
     required init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: ModeView
+    var mode: Mode = Mode() {
+        didSet {
+            backgroundColor = .background(mode: mode)
+            nameLabel.textColor = .foreground(mode: mode)
+            descriptionLabel.textColor = nameLabel.textColor
+        }
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 import BoatsData
 
-class TimeView: UIView, StatusView {
+class TimeView: UIView, ModeView, StatusView {
     private static let timeFormatter: DateFormatter = DateFormatter()
     private let timeView: UIView = UIView()
     private let hourLabels: (UILabel, UILabel) = (UILabel(), UILabel())
@@ -45,16 +45,15 @@ class TimeView: UIView, StatusView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        timeView.isHidden = bounds.size.width < timeView.frame.size.width || bounds.size.height < timeView.frame.size.height
         
-        let color: UIColor = .foreground(status: status)
-        hourLabels.0.textColor = (hourLabels.0.text != "0") ? color : color.disabled
+        let color: UIColor = .foreground(mode: mode, status: status)
+        hourLabels.0.textColor = (hourLabels.0.text != "0") ? color : color.highlight
         if let time = time {
             hourLabels.1.textColor = color
             minuteLabels.0.textColor = color
             minuteLabels.1.textColor = color
             separatorLabel.textColor = color
-            periodLabel.textColor = (time.hour < 12) ? color.disabled : color
+            periodLabel.textColor = (time.hour < 12) ? color.highlight : color
         } else {
             hourLabels.1.textColor = hourLabels.0.textColor
             minuteLabels.0.textColor = hourLabels.0.textColor
@@ -126,8 +125,15 @@ class TimeView: UIView, StatusView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: ModeView
+    var mode: Mode = Mode() {
+        didSet {
+            layoutSubviews()
+        }
+    }
+    
     // MARK: StatusView
-    var status: Status = .past {
+    var status: Status = Status() {
         didSet {
             layoutSubviews()
         }
