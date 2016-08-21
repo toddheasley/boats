@@ -12,9 +12,17 @@ public let DataReloadCompletion: String = "DataReloadCompletion"
 
 public final class Data {
     private let URL: Foundation.URL = Foundation.URL(string: "https://toddheasley.github.io/boats/data.json")!
+    public static var group: String?
     public fileprivate(set) var name: String = ""
     public fileprivate(set) var description: String = ""
     public fileprivate(set) var providers: [Provider] = []
+    
+    private var defaults: UserDefaults {
+        if let group = Data.group, let defaults = UserDefaults(suiteName: group) {
+            return defaults
+        }
+        return UserDefaults.standard
+    }
     
     public func provider(code: String) -> Provider? {
         for provider in providers {
@@ -36,7 +44,7 @@ public final class Data {
                 ])
                 return
             }
-            UserDefaults.standard.data = data
+            self.defaults.data = data
             DispatchQueue.main.async{
                 completion?(true)
             }
@@ -47,7 +55,7 @@ public final class Data {
     }
     
     public init() {
-        if let data = UserDefaults.standard.data, let JSON = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) {
+        if let data = defaults.data, let JSON = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) {
             let _ = refresh(JSON: JSON as AnyObject)
         }
     }
