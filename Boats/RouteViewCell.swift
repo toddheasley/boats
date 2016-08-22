@@ -8,24 +8,41 @@
 import UIKit
 import BoatsData
 
+class RouteViewCell: UITableViewCell {
+    @IBOutlet var routeLabel: UILabel!
+    @IBOutlet var originLabel: UILabel!
+    @IBOutlet var providerLabel: UILabel!
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        //backgroundColor = highlighted ? UIColor.foreground(mode: mode).highlight : .clear
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        //backgroundColor = selected ? UIColor.foreground(mode: mode).highlight : .clear
+    }
+}
+
+/*
 class RouteViewCell: UITableViewCell, ModeView {
-    let routeLabel: RouteLabel = RouteLabel()
+    //let routeLabel: RouteLabel = RouteLabel()
     let originLabel: UILabel = UILabel()
     let departureView: DepartureView = DepartureView()
-    let providerLabel: ProviderLabel = ProviderLabel()
+    //let providerLabel: ProviderLabel = ProviderLabel()
     
     var provider: Provider? {
         set {
-            providerLabel.provider = newValue
+            
         }
         get {
-            return providerLabel.provider
+            return nil
         }
     }
     
     var route: Route? {
         didSet {
-            routeLabel.route = route
+            //routeLabel.route = route
             if let route = route {
                 originLabel.text = "From \(route.origin.name)"
             } else {
@@ -58,26 +75,26 @@ class RouteViewCell: UITableViewCell, ModeView {
             departureView.frame.origin.x = contentView.bounds.size.width - departureView.frame.size.width
             departureView.frame.origin.y = 0.0
             
-            routeLabel.frame.size.width = departureView.frame.origin.x - layoutEdgeInsets.right
+            //routeLabel.frame.size.width = departureView.frame.origin.x - layoutEdgeInsets.right
             
-            providerLabel.frame.origin.y = (departureView.frame.origin.y + departureView.frame.size.height) - providerLabel.frame.size.height
+            //providerLabel.frame.origin.y = (departureView.frame.origin.y + departureView.frame.size.height) - providerLabel.frame.size.height
             contentView.frame.size.height = departureView.frame.size.height
         } else {
-            routeLabel.frame.size.width = contentView.frame.size.width
+            //routeLabel.frame.size.width = contentView.frame.size.width
             
             departureView.frame.size.width = contentView.bounds.size.width
             departureView.frame.size.height = departureView.intrinsicContentSize.height + 5.0
             departureView.frame.origin.x = 0.0
             departureView.frame.origin.y = originLabel.frame.origin.y + originLabel.frame.size.height
             
-            providerLabel.frame.origin.y = departureView.frame.origin.y + departureView.frame.size.height
-            contentView.frame.size.height = providerLabel.frame.origin.y + providerLabel.frame.size.height
+            //providerLabel.frame.origin.y = departureView.frame.origin.y + departureView.frame.size.height
+            //contentView.frame.size.height = providerLabel.frame.origin.y + providerLabel.frame.size.height
         }
         
-        originLabel.frame.size.width = routeLabel.frame.size.width
-        originLabel.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height
+        //originLabel.frame.size.width = routeLabel.frame.size.width
+        //originLabel.frame.origin.y = routeLabel.frame.origin.y + routeLabel.frame.size.height
         
-        providerLabel.frame.size.width = routeLabel.frame.size.width
+        //providerLabel.frame.size.width = routeLabel.frame.size.width
         contentView.frame.origin.y = (frame.size.height - contentView.frame.size.height) / 2.0
     }
     
@@ -87,8 +104,8 @@ class RouteViewCell: UITableViewCell, ModeView {
         backgroundColor = .clear
         selectionStyle = .none
         
-        routeLabel.mode = mode
-        contentView.addSubview(routeLabel)
+        //routeLabel.mode = mode
+        //contentView.addSubview(routeLabel)
         
         originLabel.font = .medium
         originLabel.textColor = .foreground(mode: mode)
@@ -100,8 +117,8 @@ class RouteViewCell: UITableViewCell, ModeView {
         departureView.status = .next
         contentView.addSubview(departureView)
         
-        providerLabel.mode = mode
-        contentView.addSubview(providerLabel)
+        //providerLabel.mode = mode
+        //contentView.addSubview(providerLabel)
     }
     
     required init?(coder decoder: NSCoder) {
@@ -111,10 +128,11 @@ class RouteViewCell: UITableViewCell, ModeView {
     // MARK: ModeView
     var mode: Mode = Mode() {
         didSet {
-            routeLabel.mode = mode
+            //routeLabel.mode = mode
             originLabel.textColor = .foreground(mode: mode)
             departureView.mode = mode
-            providerLabel.mode = mode
+            //providerLabel.mode = mode
         }
     }
 }
+*/

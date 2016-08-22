@@ -8,7 +8,7 @@
 import UIKit
 import BoatsData
 
-class ViewController: UIViewController, UINavigationControllerDelegate {
+class ViewController: UIViewController {
     var data: Data = Data()
     
     var mode: Mode {
@@ -51,10 +51,5 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         
         NotificationCenter.default.removeObserver(self, name: ModeChangeNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: TimeChangeNotification, object: nil)
-    }
-    
-    // MARK: UINavigationControllerDelegate
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil
     }
 }

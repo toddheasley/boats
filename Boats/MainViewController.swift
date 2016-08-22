@@ -9,10 +9,9 @@ import UIKit
 import BoatsData
 
 class MainViewController: ViewController, UITableViewDataSource, UITableViewDelegate, RouteViewDelegate {
-    private let mainViewCell: MainViewCell = MainViewCell()
-    private let routeViewCell: RouteViewCell = RouteViewCell()
     private var selectedIndexPath: IndexPath?
-    var tableView: UITableView!
+    
+    @IBOutlet var tableView: UITableView!
     
     override func dataDidRefresh() {
         super.dataDidRefresh()
@@ -32,18 +31,8 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView = UITableView(frame: view.bounds, style: .plain)
-        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        tableView.register(MainViewCell.self, forCellReuseIdentifier: "MainViewCell")
-        tableView.register(RouteViewCell.self, forCellReuseIdentifier: "RouteViewCell")
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        tableView.dataSource = self
-        tableView.delegate = self
-        view.addSubview(tableView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,24 +62,31 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainViewCell") as! MainViewCell
-            cell.mode = mode
-            cell.data = data
+            cell.backgroundColor = view.backgroundColor
+            //cell.nameLabel.textColor = .purple
+            cell.nameLabel.text = "\(data.name)"
+            //cell.descriptionLabel.textColor = .purple
+            cell.descriptionLabel.text = "\(data.description)"
             return cell
         default:
             let provider = data.providers[indexPath.section - 1]
+            let route = provider.routes[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "RouteViewCell") as! RouteViewCell
-            cell.mode = mode
-            cell.provider = provider
-            cell.route = provider.routes[indexPath.row]
+            cell.routeLabel.textColor = .purple
+            cell.routeLabel.text = "\(route.name)"
+            cell.originLabel.textColor = .purple
+            cell.originLabel.text = "From \(route.origin.name)"
+            cell.providerLabel.textColor = .purple
+            cell.providerLabel.text = "Operated by \(provider.name)"
             return cell
         }
     }
     
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        routeViewCell.frame = tableView.bounds
-        routeViewCell.layoutSubviews()
-        let height: CGFloat = routeViewCell.intrinsicContentSize.height + tableView.layoutEdgeInsets.top + tableView.layoutEdgeInsets.bottom
+        return 93.0
+        
+        /*
         switch indexPath.section {
         case 0:
             let minimum: CGFloat = mainViewCell.intrinsicContentSize.height + (tableView.layoutEdgeInsets.top + tableView.layoutEdgeInsets.bottom * 3.0)
@@ -103,20 +99,19 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
         default:
             return height
         }
+        */
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
+        selectedIndexPath = indexPath
+        guard indexPath.section > 0, let routeViewController = self.storyboard?.instantiateViewController(withIdentifier: "Route") as? RouteViewController else {
             return
-        default:
-            selectedIndexPath = indexPath
-            guard let cell = tableView.cellForRow(at: indexPath) as? RouteViewCell, let routeViewController =
-                RouteViewController(provider: cell.provider, route: cell.route) else {
-                return
-            }
-            navigationController?.pushViewController(routeViewController, animated: true)
         }
+        let provider = data.providers[indexPath.section - 1]
+        routeViewController.provider = provider
+        routeViewController.route = provider.routes[indexPath.row]
+        navigationController?.delegate = routeViewController
+        navigationController?.pushViewController(routeViewController, animated: true)
     }
     
     // MARK: RouteViewDelegate

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5CADC9A91D68AADB0018718E"
-               BuildableName = "BoatsTimeData.framework"
+               BuildableName = "BoatsData.framework"
                BlueprintName = "BoatsTimeData"
                ReferencedContainer = "container:Boats.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5CADC9A91D68AADB0018718E"
-            BuildableName = "BoatsTimeData.framework"
+            BuildableName = "BoatsData.framework"
             BlueprintName = "BoatsTimeData"
             ReferencedContainer = "container:Boats.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5CADC9A91D68AADB0018718E"
-            BuildableName = "BoatsTimeData.framework"
+            BuildableName = "BoatsData.framework"
             BlueprintName = "BoatsTimeData"
             ReferencedContainer = "container:Boats.xcodeproj">
          </BuildableReference>

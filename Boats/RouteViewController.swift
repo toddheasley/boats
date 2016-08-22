@@ -9,6 +9,7 @@ import UIKit
 import BoatsData
 import SafariServices
 
+/*
 class RouteViewController: ViewController, UIScrollViewDelegate {
     private let highlightView: UIView = UIView()
     private let scrollView: UIScrollView = UIScrollView()
@@ -156,27 +157,101 @@ class RouteViewController: ViewController, UIScrollViewDelegate {
         view.addSubview(popControl)
     }
     
-    required init?(provider: Provider?, route: Route?) {
-        super.init(nibName: nil, bundle: nil)
-        guard let provider = provider, let route = route else {
-            return nil
+    // MARK: UIScrollViewDelegate
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        directionControl.selectedSegmentIndex = (scrollView.bounds.size.width > 0) ? min(Int(ceil(scrollView.contentOffset.x / scrollView.bounds.size.width)), 1) : 0
+        scrollView.setContentOffset(CGPoint(x: (scrollView.bounds.size.width * CGFloat(directionControl.selectedSegmentIndex)), y: 0.0), animated: true)
+    }
+}
+*/
+
+class RouteViewController: ViewController, UINavigationControllerDelegate, UIScrollViewDelegate {
+    private static let dateFormatter: DateFormatter = DateFormatter()
+    
+    var provider: Provider!
+    var route: Route!
+    
+    @IBOutlet var routeLabel: UILabel!
+    @IBOutlet var seasonLabel: UILabel!
+    @IBOutlet var directionControl: UISegmentedControl!
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var providerButton: UIButton!
+    @IBOutlet var popButton: UIButton!
+    
+    @IBAction func changeDirection(_ sender: AnyObject?) {
+        print("changeDirection")
+    }
+    
+    @IBAction func openProviderURL(_ sender: AnyObject?) {
+        present(SFSafariViewController(url: URL(string: provider.www)!), animated: true, completion: nil)
+    }
+    
+    @IBAction func pop(_ sender: AnyObject?) {
+        let _ = navigationController?.popViewController(animated: true)
+    }
+    
+    override func dataDidRefresh() {
+        super.dataDidRefresh()
+        
+        guard let provider = data.provider(code: self.provider.code), let route = provider.route(code: self.route.code) else {
+            let _ = navigationController?.popViewController(animated: true)
+            return
         }
         self.provider = provider
         self.route = route
+        
+        routeLabel.text = "\(route.name)"
+        if let schedule = route.schedule() {
+            RouteViewController.dateFormatter.dateFormat = "MMM d, yyyy"
+            switch schedule.season {
+            case .all:
+                seasonLabel.text = "Year-Round"
+            default:
+                seasonLabel.text = "\(schedule.season.rawValue): \(RouteViewController.dateFormatter.string(from: schedule.dates.start.date)) - \(RouteViewController.dateFormatter.string(from: schedule.dates.end.date))"
+            }
+        } else {
+            seasonLabel.text = "Schedule Unavailable"
+        }
+        directionControl.setTitle("From \(route.origin.name)".uppercased(), forSegmentAt: 0)
+        directionControl.setTitle("To \(route.origin.name)".uppercased(), forSegmentAt: 1)
+        providerButton.setTitle("Operated by \(provider.name)", for: .normal)
     }
     
-    required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func modeDidChange() {
+        super.modeDidChange()
+        
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+        routeLabel.textColor = .gray
+        scrollView.backgroundColor = .white
+        providerButton.setTitleColor(.black, for: .normal)
+        popButton.setImage(UIImage(named: "Pop")?.tint(color: .blue), for: .normal)
+        popButton.setImage(UIImage(named: "Pop")?.tint(color: UIColor.blue.withAlphaComponent(0.25)), for: .highlighted)
+        
     }
     
-    override func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        dataDidRefresh()
+        modeDidChange()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        directionControl.setTitleTextAttributes([
+            NSFontAttributeName: UIFont.systemFont(ofSize: 9.0, weight: UIFontWeightHeavy)
+            ], for: .normal)
+    }
+    
+    // MARK: UINavigationControllerDelegate
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return RouteViewAnimator(operation: operation)
     }
     
     // MARK: UIScrollViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        directionControl.selectedSegmentIndex = (scrollView.bounds.size.width > 0) ? min(Int(ceil(scrollView.contentOffset.x / scrollView.bounds.size.width)), 1) : 0
-        scrollView.setContentOffset(CGPoint(x: (scrollView.bounds.size.width * CGFloat(directionControl.selectedSegmentIndex)), y: 0.0), animated: true)
+        
     }
 }
 
@@ -214,7 +289,6 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         switch self.operation {
         case .push:
             if let controller = toViewController as? RouteViewController, let delegate = fromViewController as? RouteViewDelegate, let rect = delegate.routeViewRect(controller: controller) {
-                controller.controlsHidden = true
                 popRect = rect
             }
             view.backgroundColor = fromViewController.view.backgroundColor
@@ -235,7 +309,6 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toViewController.view.layer.transform = CATransform3DMakeScale(self.scale, self.scale, 1.0)
             toViewController.view.layer.opacity = 0.25
             if let controller = fromViewController as? RouteViewController, let delegate = toViewController as? RouteViewDelegate, let rect = delegate.routeViewRect(controller: controller) {
-                controller.controlsHidden = true
                 popRect = rect
             }
             fromViewController.view.frame = pushRect
@@ -254,9 +327,6 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toViewController.view.layer.transform = CATransform3DIdentity
             toViewController.view.frame = view.bounds
             toViewController.view.layer.opacity = 1.0
-            if let controller = toViewController as? RouteViewController {
-                controller.controlsHidden = false
-            }
             transitionContext.completeTransition(finished)
         })
     }

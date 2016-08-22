@@ -8,7 +8,7 @@
 import UIKit
 import BoatsData
 
-class TimeView: UIView, ModeView, StatusView {
+class TimeView: UIView {
     private static let timeFormatter: DateFormatter = DateFormatter()
     private let timeView: UIView = UIView()
     private let hourLabels: (UILabel, UILabel) = (UILabel(), UILabel())
@@ -39,34 +39,8 @@ class TimeView: UIView, ModeView, StatusView {
         return !TimeView.timeFormatter.string(from: Foundation.Date()).contains(" ")
     }
     
-    override var intrinsicContentSize: CGSize {
-        return timeView.frame.size
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let color: UIColor = .foreground(mode: mode, status: status)
-        hourLabels.0.textColor = (hourLabels.0.text != "0") ? color : color.highlight
-        if let time = time {
-            hourLabels.1.textColor = color
-            minuteLabels.0.textColor = color
-            minuteLabels.1.textColor = color
-            separatorLabel.textColor = color
-            periodLabel.textColor = (time.hour < 12) ? color.highlight : color
-        } else {
-            hourLabels.1.textColor = hourLabels.0.textColor
-            minuteLabels.0.textColor = hourLabels.0.textColor
-            minuteLabels.1.textColor = hourLabels.0.textColor
-            separatorLabel.textColor = hourLabels.0.textColor
-            periodLabel.textColor = hourLabels.0.textColor
-        }
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        let font: UIFont = .time
+    private func setUp() {
+        let font: UIFont = .systemFont(ofSize: 64.0, weight: UIFontWeightHeavy)
         var frame: CGRect = CGRect(x: 21.0, y: 0.0, width: 42.0, height: 56.0)
         
         timeView.frame.size.width = (frame.size.width * 5.0) + frame.origin.x
@@ -117,25 +91,39 @@ class TimeView: UIView, ModeView, StatusView {
         periodLabel.textAlignment = .center
         periodLabel.text = "."
         timeView.addSubview(periodLabel)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
-        layoutSubviews()
+        let color: UIColor = UIColor.darkText
+        hourLabels.0.textColor = (hourLabels.0.text != "0") ? color : color.highlight
+        if let time = time {
+            hourLabels.1.textColor = color
+            minuteLabels.0.textColor = color
+            minuteLabels.1.textColor = color
+            separatorLabel.textColor = color
+            periodLabel.textColor = (time.hour < 12) ? color.withAlphaComponent(0.1) : color
+        } else {
+            hourLabels.1.textColor = hourLabels.0.textColor
+            minuteLabels.0.textColor = hourLabels.0.textColor
+            minuteLabels.1.textColor = hourLabels.0.textColor
+            separatorLabel.textColor = hourLabels.0.textColor
+            periodLabel.textColor = hourLabels.0.textColor
+        }
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return timeView.frame.size
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUp()
     }
     
     required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: ModeView
-    var mode: Mode = Mode() {
-        didSet {
-            layoutSubviews()
-        }
-    }
-    
-    // MARK: StatusView
-    var status: Status = Status() {
-        didSet {
-            layoutSubviews()
-        }
+        super.init(coder: decoder)
+        setUp()
     }
 }

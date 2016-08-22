@@ -74,8 +74,8 @@ class DepartureView: UIView, ModeView, StatusView {
     // MARK: ModeView
     var mode: Mode = Mode() {
         didSet {
-            timeView.mode = mode
-            carsView.mode = mode
+            //timeView.mode = mode
+            //carsView.mode = mode
             layoutSubviews()
         }
     }
@@ -83,8 +83,8 @@ class DepartureView: UIView, ModeView, StatusView {
     // MARK: StatusView
     var status: Status = Status() {
         didSet {
-            timeView.status = status
-            carsView.status = status
+            //timeView.status = status
+            //carsView.status = status
             switch status {
             case .next:
                 statusLabel.text = "Next".uppercased()

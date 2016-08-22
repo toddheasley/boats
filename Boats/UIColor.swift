@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import BoatsData
 
 extension UIColor {
     var highlight: UIColor {
