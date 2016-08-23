@@ -14,6 +14,14 @@ typealias Date = BoatsData.Date
 let TimeChangeNotification: Notification.Name = Notification.Name("TimeChangeNotification")
 let ModeChangeNotification: Notification.Name = Notification.Name("ModeChangeNotification")
 
+enum Mode {
+    case day, night
+    
+    init() {
+        self = UIScreen.main.brightness > 0.35 ? .day : .night
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     private let timeInterval: TimeInterval = 15.0

@@ -10,7 +10,7 @@ import BoatsData
 
 class TimeView: UIView {
     private static let timeFormatter: DateFormatter = DateFormatter()
-    private let timeView: UIView = UIView()
+    private let view: UIView = UIView()
     private let hourLabels: (UILabel, UILabel) = (UILabel(), UILabel())
     private let minuteLabels: (UILabel, UILabel) = (UILabel(), UILabel())
     private let separatorLabel: UILabel = UILabel()
@@ -39,82 +39,103 @@ class TimeView: UIView {
         return !TimeView.timeFormatter.string(from: Foundation.Date()).contains(" ")
     }
     
+    var color: UIColor = UILabel().textColor {
+        didSet {
+            hourLabels.0.textColor = color
+            hourLabels.1.textColor = color
+            minuteLabels.0.textColor = color
+            minuteLabels.1.textColor = color
+            separatorLabel.textColor = color
+            periodLabel.textColor = color
+        }
+    }
+    
+    override var alpha: CGFloat {
+        set {
+            separatorLabel.alpha = newValue
+            layoutSubviews()
+        }
+        get {
+            return separatorLabel.alpha
+        }
+    }
+    
     private func setUp() {
         let font: UIFont = .systemFont(ofSize: 64.0, weight: UIFontWeightHeavy)
         var frame: CGRect = CGRect(x: 21.0, y: 0.0, width: 42.0, height: 56.0)
         
-        timeView.frame.size.width = (frame.size.width * 5.0) + frame.origin.x
-        timeView.frame.size.height = frame.size.height
-        timeView.frame.origin.x = (bounds.size.width - timeView.frame.size.width) / 2.0
-        timeView.frame.origin.y = (bounds.size.height - timeView.frame.size.height) / 2.0
-        timeView.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleLeftMargin]
-        timeView.clipsToBounds = true
-        addSubview(timeView)
+        view.frame.size.width = (frame.size.width * 5.0) + frame.origin.x
+        view.frame.size.height = frame.size.height
+        view.frame.origin.x = (bounds.size.width - view.frame.size.width) / 2.0
+        view.frame.origin.y = (bounds.size.height - view.frame.size.height) / 2.0
+        view.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleLeftMargin]
+        view.clipsToBounds = true
+        addSubview(view)
         
         hourLabels.0.frame = frame
         hourLabels.0.font = font
         hourLabels.0.textAlignment = .center
         hourLabels.0.text = "0"
-        timeView.addSubview(hourLabels.0)
+        view.addSubview(hourLabels.0)
         frame.origin.x += frame.size.width
         
         hourLabels.1.frame = frame
         hourLabels.1.font = font
         hourLabels.1.textAlignment = .center
         hourLabels.1.text = "0"
-        timeView.addSubview(hourLabels.1)
+        view.addSubview(hourLabels.1)
         frame.origin.x += frame.size.width
         
         separatorLabel.frame = CGRect(x: frame.origin.x, y: frame.origin.y - (frame.size.height * 0.025), width: frame.size.width / 2.0, height: frame.size.height)
         separatorLabel.font = font
         separatorLabel.textAlignment = .center
         separatorLabel.text = ":"
-        timeView.addSubview(separatorLabel)
+        view.addSubview(separatorLabel)
         frame.origin.x += separatorLabel.frame.size.width
         
         minuteLabels.0.frame = frame
         minuteLabels.0.font = font
         minuteLabels.0.textAlignment = .center
         minuteLabels.0.text = "0"
-        timeView.addSubview(minuteLabels.0)
+        view.addSubview(minuteLabels.0)
         frame.origin.x += frame.size.width
         
         minuteLabels.1.frame = frame
         minuteLabels.1.font = font
         minuteLabels.1.textAlignment = .center
         minuteLabels.1.text = "0"
-        timeView.addSubview(minuteLabels.1)
+        view.addSubview(minuteLabels.1)
         frame.origin.x += frame.size.width
         
         periodLabel.frame = CGRect(x: frame.origin.x, y: separatorLabel.frame.origin.y, width: frame.size.width / 2.0, height: frame.size.height)
         periodLabel.font = font
         periodLabel.textAlignment = .center
         periodLabel.text = "."
-        timeView.addSubview(periodLabel)
+        view.addSubview(periodLabel)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let color: UIColor = UIColor.darkText
-        hourLabels.0.textColor = (hourLabels.0.text != "0") ? color : color.highlight
         if let time = time {
-            hourLabels.1.textColor = color
-            minuteLabels.0.textColor = color
-            minuteLabels.1.textColor = color
-            separatorLabel.textColor = color
-            periodLabel.textColor = (time.hour < 12) ? color.withAlphaComponent(0.1) : color
+            periodLabel.alpha = (alpha != 0.1 && time.hour < 12) ? 0.05 : alpha
+            hourLabels.0.alpha = (hourLabels.0.text != "0") ? alpha : 0.05
+            hourLabels.1.alpha = alpha
+            minuteLabels.0.alpha = alpha
+            minuteLabels.1.alpha = alpha
+            separatorLabel.alpha = alpha
         } else {
-            hourLabels.1.textColor = hourLabels.0.textColor
-            minuteLabels.0.textColor = hourLabels.0.textColor
-            minuteLabels.1.textColor = hourLabels.0.textColor
-            separatorLabel.textColor = hourLabels.0.textColor
-            periodLabel.textColor = hourLabels.0.textColor
+            periodLabel.alpha = 0.05
+            hourLabels.0.alpha = periodLabel.alpha
+            hourLabels.1.alpha = periodLabel.alpha
+            minuteLabels.0.alpha = periodLabel.alpha
+            minuteLabels.1.alpha = periodLabel.alpha
+            separatorLabel.alpha = periodLabel.alpha
         }
     }
     
     override var intrinsicContentSize: CGSize {
-        return timeView.frame.size
+        return view.frame.size
     }
     
     override init(frame: CGRect) {

@@ -21,6 +21,7 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     
     override func modeDidChange() {
         super.modeDidChange()
+        tableView.separatorColor = UIColor.foreground(mode: mode).withAlphaComponent(0.2)
         tableView.reloadData()
     }
     
@@ -63,20 +64,23 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainViewCell") as! MainViewCell
             cell.backgroundColor = view.backgroundColor
-            //cell.nameLabel.textColor = .purple
+            cell.nameLabel.textColor = .foreground(mode: mode)
             cell.nameLabel.text = "\(data.name)"
-            //cell.descriptionLabel.textColor = .purple
+            cell.descriptionLabel.textColor = cell.nameLabel.textColor
             cell.descriptionLabel.text = "\(data.description)"
             return cell
         default:
             let provider = data.providers[indexPath.section - 1]
             let route = provider.routes[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "RouteViewCell") as! RouteViewCell
-            cell.routeLabel.textColor = .purple
+            cell.routeLabel.textColor = .foreground(mode: mode)
             cell.routeLabel.text = "\(route.name)"
-            cell.originLabel.textColor = .purple
+            cell.originLabel.textColor = cell.routeLabel.textColor
             cell.originLabel.text = "From \(route.origin.name)"
-            cell.providerLabel.textColor = .purple
+            cell.departureView.color = cell.routeLabel.textColor
+            cell.departureView.departure = route.schedule()?.departure()
+            cell.departureView.status = .next
+            cell.providerLabel.textColor = cell.routeLabel.textColor
             cell.providerLabel.text = "Operated by \(provider.name)"
             return cell
         }
@@ -84,29 +88,28 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 93.0
-        
-        /*
+        let rowHeight: CGFloat = self.traitCollection.verticalSizeClass == .compact ? 92.0 : 150.0
         switch indexPath.section {
         case 0:
-            let minimum: CGFloat = mainViewCell.intrinsicContentSize.height + (tableView.layoutEdgeInsets.top + tableView.layoutEdgeInsets.bottom * 3.0)
-            let available: CGFloat = tableView.bounds.size.height - (tableView.contentInset.top + tableView.contentInset.bottom)
-            var count: CGFloat = 0.0
+            let minimumRowHeight: CGFloat = self.traitCollection.verticalSizeClass == .compact ? 50.0 : 66.0
+            let availableContentHeight: CGFloat = tableView.bounds.size.height - (tableView.contentInset.top + tableView.contentInset.bottom)
+            var rowCount: CGFloat = 0.0
             for provider in data.providers {
-                count += CGFloat(provider.routes.count)
+                rowCount += CGFloat(provider.routes.count)
             }
-            return max(available - (min(floor((available - minimum) / height), count) * height), minimum)
+            return max(availableContentHeight - (min(floor((availableContentHeight - minimumRowHeight) / rowHeight), rowCount) * rowHeight), minimumRowHeight)
         default:
-            return height
+            return rowHeight
         }
-        */
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndexPath = indexPath
+        tableView.deselectRow(at: indexPath, animated: true)
         guard indexPath.section > 0, let routeViewController = self.storyboard?.instantiateViewController(withIdentifier: "Route") as? RouteViewController else {
+            selectedIndexPath = nil
             return
         }
+        selectedIndexPath = indexPath
         let provider = data.providers[indexPath.section - 1]
         routeViewController.provider = provider
         routeViewController.route = provider.routes[indexPath.row]

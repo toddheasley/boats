@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MYN-w1-CzX" id="YWf-Cr-cYx">
-                                            <frame key="frameInset" width="375" height="63"/>
+                                            <frame key="frameInset" width="375" height="63.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nr6-ik-iVM">
@@ -83,12 +83,14 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kaL-8m-q88" id="2L3-pJ-B5H">
-                                            <frame key="frameInset" width="375" height="149"/>
+                                            <frame key="frameInset" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jR-nu-94x" customClass="DepartureView" customModule="Boats" customModuleProvider="target"/>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRr-6c-8fH">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="uzt-gr-VhO"/>
+                                                        <constraint firstAttribute="width" constant="268" id="wOe-5Y-MFf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
                                                     <nil key="textColor"/>
@@ -110,30 +112,58 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jR-nu-94x">
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="56" id="flf-iC-cNj"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="8jR-nu-94x" secondAttribute="trailing" constant="8" id="0hO-iC-i7P"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DbU-Fh-Vl8" secondAttribute="bottom" id="8cl-O5-xZk"/>
+                                                <constraint firstItem="DbU-Fh-Vl8" firstAttribute="top" secondItem="8jR-nu-94x" secondAttribute="bottom" constant="4" id="CMC-wm-ayR"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="DbU-Fh-Vl8" secondAttribute="trailing" constant="8" id="FcK-i5-pJP"/>
                                                 <constraint firstItem="f3f-7v-UCX" firstAttribute="leading" secondItem="2L3-pJ-B5H" secondAttribute="leadingMargin" constant="8" id="Itt-Xh-2g1"/>
                                                 <constraint firstItem="f3f-7v-UCX" firstAttribute="top" secondItem="vRr-6c-8fH" secondAttribute="bottom" constant="4" id="JKO-Qx-7y3"/>
                                                 <constraint firstItem="8jR-nu-94x" firstAttribute="leading" secondItem="2L3-pJ-B5H" secondAttribute="leadingMargin" constant="8" id="Ja2-Wt-B1F"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="f3f-7v-UCX" secondAttribute="trailing" constant="8" id="LfO-mh-eJt"/>
+                                                <constraint firstItem="8jR-nu-94x" firstAttribute="top" secondItem="2L3-pJ-B5H" secondAttribute="topMargin" id="Mk2-Qz-tFZ"/>
                                                 <constraint firstItem="vRr-6c-8fH" firstAttribute="leading" secondItem="2L3-pJ-B5H" secondAttribute="leadingMargin" constant="8" id="PpI-Pg-EHz"/>
                                                 <constraint firstItem="vRr-6c-8fH" firstAttribute="top" secondItem="2L3-pJ-B5H" secondAttribute="topMargin" constant="6" id="TQK-j8-p1G"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="DbU-Fh-Vl8" secondAttribute="bottom" constant="6" id="d4L-07-4cw"/>
-                                                <constraint firstItem="8jR-nu-94x" firstAttribute="top" secondItem="f3f-7v-UCX" secondAttribute="bottom" constant="4" id="ekS-O2-WdA"/>
+                                                <constraint firstItem="8jR-nu-94x" firstAttribute="top" secondItem="2L3-pJ-B5H" secondAttribute="topMargin" constant="6" id="ggR-jY-1s3"/>
+                                                <constraint firstItem="f3f-7v-UCX" firstAttribute="trailing" secondItem="vRr-6c-8fH" secondAttribute="trailing" id="kyC-QQ-Ja2"/>
+                                                <constraint firstItem="vRr-6c-8fH" firstAttribute="top" secondItem="2L3-pJ-B5H" secondAttribute="topMargin" id="ojT-cz-m8K"/>
                                                 <constraint firstItem="DbU-Fh-Vl8" firstAttribute="leading" secondItem="2L3-pJ-B5H" secondAttribute="leadingMargin" constant="8" id="qcq-EO-CKO"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vRr-6c-8fH" secondAttribute="trailing" constant="8" id="uuK-RB-8xk"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Ja2-Wt-B1F"/>
+                                                    <exclude reference="Mk2-Qz-tFZ"/>
+                                                    <exclude reference="ggR-jY-1s3"/>
+                                                    <exclude reference="8cl-O5-xZk"/>
+                                                    <exclude reference="d4L-07-4cw"/>
+                                                    <exclude reference="TQK-j8-p1G"/>
+                                                    <exclude reference="ojT-cz-m8K"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="Mk2-Qz-tFZ"/>
+                                                    <include reference="8cl-O5-xZk"/>
+                                                    <include reference="ojT-cz-m8K"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular">
+                                                <mask key="constraints">
+                                                    <include reference="ggR-jY-1s3"/>
+                                                    <include reference="d4L-07-4cw"/>
+                                                    <include reference="TQK-j8-p1G"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="Ja2-Wt-B1F"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="departureView" destination="8jR-nu-94x" id="PLH-Cb-sP0"/>
                                             <outlet property="originLabel" destination="f3f-7v-UCX" id="rkg-5m-GIe"/>
                                             <outlet property="providerLabel" destination="DbU-Fh-Vl8" id="ouC-Hk-shE"/>
                                             <outlet property="routeLabel" destination="vRr-6c-8fH" id="mcI-dj-S7f"/>
@@ -178,6 +208,11 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Roc-hp-hju">
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6A-aI-m7T">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.5" id="vcY-Mu-xYd"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N7S-ML-IRM">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="54" id="UQj-OD-jly"/>
@@ -209,6 +244,9 @@
                                     <constraint firstAttribute="trailing" secondItem="N7S-ML-IRM" secondAttribute="trailing" id="m2E-bL-tqx"/>
                                     <constraint firstItem="N7S-ML-IRM" firstAttribute="top" secondItem="Roc-hp-hju" secondAttribute="top" id="msI-Bz-BP5"/>
                                     <constraint firstItem="N7S-ML-IRM" firstAttribute="leading" secondItem="7Nx-Tn-cNz" secondAttribute="trailing" id="nD8-Wv-lOm"/>
+                                    <constraint firstItem="x6A-aI-m7T" firstAttribute="leading" secondItem="Roc-hp-hju" secondAttribute="leading" id="nPe-qM-srA"/>
+                                    <constraint firstItem="x6A-aI-m7T" firstAttribute="top" secondItem="Roc-hp-hju" secondAttribute="top" id="pvK-83-rE9"/>
+                                    <constraint firstAttribute="trailing" secondItem="x6A-aI-m7T" secondAttribute="trailing" id="zfc-Rb-TwE"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -229,6 +267,11 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8X-Ku-j2b">
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONA-4u-fnR">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.5" id="0Pn-ok-ji7"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBA-x3-d1N">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="oMO-gE-33a"/>
@@ -284,11 +327,14 @@
                                     <constraint firstItem="Uu8-cQ-y9E" firstAttribute="leading" secondItem="K8X-Ku-j2b" secondAttribute="leading" constant="16" id="VVd-n6-VE3"/>
                                     <constraint firstAttribute="trailing" secondItem="BBA-x3-d1N" secondAttribute="trailing" constant="16" id="Xfe-GC-PD0"/>
                                     <constraint firstAttribute="bottom" secondItem="Uu8-cQ-y9E" secondAttribute="bottom" constant="14" id="ahb-4M-Sa0"/>
+                                    <constraint firstAttribute="trailing" secondItem="ONA-4u-fnR" secondAttribute="trailing" id="bUc-MY-FA1"/>
                                     <constraint firstAttribute="trailing" secondItem="rIk-uL-cWv" secondAttribute="trailing" constant="16" id="c8O-XX-xdM"/>
                                     <constraint firstAttribute="bottom" secondItem="Uu8-cQ-y9E" secondAttribute="bottom" constant="8" id="iQm-cp-BZu"/>
                                     <constraint firstItem="BBA-x3-d1N" firstAttribute="leading" secondItem="K8X-Ku-j2b" secondAttribute="leading" constant="16" id="q86-Q8-laN"/>
+                                    <constraint firstItem="ONA-4u-fnR" firstAttribute="leading" secondItem="K8X-Ku-j2b" secondAttribute="leading" id="r6I-bR-qCD"/>
                                     <constraint firstAttribute="height" constant="121" id="u8o-u9-tp9"/>
                                     <constraint firstAttribute="height" constant="93" id="vBS-ir-DzI"/>
+                                    <constraint firstAttribute="bottom" secondItem="ONA-4u-fnR" secondAttribute="bottom" id="xyG-sL-nzX"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -336,12 +382,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomSeparator" destination="x6A-aI-m7T" id="epj-d3-NZk"/>
                         <outlet property="directionControl" destination="Uu8-cQ-y9E" id="TDl-y7-BIp"/>
                         <outlet property="popButton" destination="N7S-ML-IRM" id="DMW-Gm-fSN"/>
                         <outlet property="providerButton" destination="7Nx-Tn-cNz" id="7ao-Yw-sDh"/>
                         <outlet property="routeLabel" destination="BBA-x3-d1N" id="7Hv-q9-9zg"/>
                         <outlet property="scrollView" destination="tJL-pX-zdm" id="u5U-Lj-uPC"/>
                         <outlet property="seasonLabel" destination="rIk-uL-cWv" id="v4O-9O-0Wq"/>
+                        <outlet property="topSeparator" destination="ONA-4u-fnR" id="ND3-NF-QV3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x88-qh-crY" userLabel="First Responder" sceneMemberID="firstResponder"/>
