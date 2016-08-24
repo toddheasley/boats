@@ -9,7 +9,12 @@ import UIKit
 
 extension UIColor {
     static func highlight(mode: Mode = Mode()) -> UIColor {
-        return UIColor.foreground(mode: mode).withAlphaComponent(0.1)
+        switch mode {
+        case .day:
+            return UIColor.tint(mode: mode).withAlphaComponent(0.15)
+        case .night:
+            return UIColor.foreground(mode: mode).withAlphaComponent(0.15)
+        }
     }
     
     static func tint(mode: Mode = Mode()) -> UIColor {
@@ -17,7 +22,7 @@ extension UIColor {
         case .day:
             return UIColor(displayP3Red: 0.0, green: 0.5, blue: 1.0, alpha: 1.0)
         case .night:
-            return .white
+            return .foreground(mode: mode)
         }
     }
     
@@ -26,7 +31,7 @@ extension UIColor {
         case .day:
             return .darkText
         case .night:
-            return .lightText
+            return UIColor(white: 0.85, alpha: 1.0)
         }
     }
     

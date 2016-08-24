@@ -14,11 +14,11 @@ enum DepartureStatus {
     var alpha: CGFloat {
         switch self {
         case .past:
-            return 0.4
+            return 0.3
         case .next:
             return 1.0
         default:
-            return 0.8
+            return 0.6
         }
     }
 }

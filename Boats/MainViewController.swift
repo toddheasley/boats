@@ -88,7 +88,7 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let rowHeight: CGFloat = self.traitCollection.verticalSizeClass == .compact ? 92.0 : 150.0
+        let rowHeight: CGFloat = (tableView.bounds.size.width > 480.0 ? 76.0 : 122.0) + (traitCollection.verticalSizeClass == .compact ? 16.0 : 28.0)
         switch indexPath.section {
         case 0:
             let minimumRowHeight: CGFloat = self.traitCollection.verticalSizeClass == .compact ? 50.0 : 66.0

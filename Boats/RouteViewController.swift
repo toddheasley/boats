@@ -11,6 +11,7 @@ import SafariServices
 
 class RouteViewController: ViewController, UINavigationControllerDelegate, UIScrollViewDelegate {
     private static let dateFormatter: DateFormatter = DateFormatter()
+    private let scheduleViews: (destination: ScheduleView, origin: ScheduleView) = (ScheduleView(direction: .destination), ScheduleView(direction: .origin))
     
     var provider: Provider!
     var route: Route!
@@ -25,7 +26,7 @@ class RouteViewController: ViewController, UINavigationControllerDelegate, UIScr
     @IBOutlet var popButton: UIButton!
     
     @IBAction func changeDirection(_ sender: AnyObject?) {
-        
+        scrollView.setContentOffset(CGPoint(x: (scrollView.bounds.size.width * CGFloat(directionControl.selectedSegmentIndex)), y: 0.0), animated: true)
     }
     
     @IBAction func openProviderURL(_ sender: AnyObject?) {
@@ -55,8 +56,12 @@ class RouteViewController: ViewController, UINavigationControllerDelegate, UIScr
             default:
                 seasonLabel.text = "\(schedule.season.rawValue): \(RouteViewController.dateFormatter.string(from: schedule.dates.start.date)) - \(RouteViewController.dateFormatter.string(from: schedule.dates.end.date))"
             }
+            scheduleViews.destination.schedule = schedule
+            scheduleViews.origin.schedule = schedule
         } else {
             seasonLabel.text = "Schedule Unavailable"
+            scheduleViews.destination.schedule = nil
+            scheduleViews.origin.schedule = nil
         }
         directionControl.setTitle("From \(route.origin.name)".uppercased(), forSegmentAt: 0)
         directionControl.setTitle("To \(route.origin.name)".uppercased(), forSegmentAt: 1)
@@ -71,10 +76,24 @@ class RouteViewController: ViewController, UINavigationControllerDelegate, UIScr
         directionControl.tintColor = .tint(mode: mode)
         topSeparator.backgroundColor = routeLabel.textColor.withAlphaComponent(0.2)
         scrollView.backgroundColor = .background(mode: mode)
+        scheduleViews.destination.color = routeLabel.textColor
+        scheduleViews.origin.color = routeLabel.textColor
         bottomSeparator.backgroundColor = topSeparator.backgroundColor
         providerButton.setTitleColor(routeLabel.textColor, for: .normal)
         popButton.setImage(UIImage(named: "Pop")?.tint(color: directionControl.tintColor), for: .normal)
         popButton.setImage(UIImage(named: "Pop")?.tint(color: directionControl.tintColor.withAlphaComponent(0.4)), for: .highlighted)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        scrollView.contentSize.width = scrollView.bounds.size.width * 2.0
+        scrollView.contentSize.height = scrollView.bounds.size.height
+        scrollViewDidEndDecelerating(scrollView)
+        
+        scheduleViews.destination.frame.size = scrollView.bounds.size
+        scheduleViews.origin.frame.size = scrollView.bounds.size
+        scheduleViews.origin.frame.origin.x = scrollView.bounds.size.width
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +108,10 @@ class RouteViewController: ViewController, UINavigationControllerDelegate, UIScr
         
         directionControl.setTitleTextAttributes([
             NSFontAttributeName: UIFont.systemFont(ofSize: 9.0, weight: UIFontWeightHeavy)
-            ], for: .normal)
+        ], for: .normal)
+        
+        scrollView.addSubview(scheduleViews.destination)
+        scrollView.addSubview(scheduleViews.origin)
     }
     
     // MARK: UINavigationControllerDelegate
@@ -99,7 +121,8 @@ class RouteViewController: ViewController, UINavigationControllerDelegate, UIScr
     
     // MARK: UIScrollViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+        directionControl.selectedSegmentIndex = (scrollView.bounds.size.width > 0) ? min(Int(ceil(scrollView.contentOffset.x / scrollView.bounds.size.width)), 1) : 0
+        scrollView.setContentOffset(CGPoint(x: (scrollView.bounds.size.width * CGFloat(directionControl.selectedSegmentIndex)), y: 0.0), animated: true)
     }
 }
 

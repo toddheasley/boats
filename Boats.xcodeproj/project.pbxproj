@@ -65,6 +65,8 @@
 		5C2E2A691D689625002B80C0 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E2A681D689625002B80C0 /* ComplicationController.swift */; };
 		5C2E2A6B1D689625002B80C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E2A6A1D689625002B80C0 /* Assets.xcassets */; };
 		5C2E2A6F1D689625002B80C0 /* BoatsTime.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C2E2A4F1D689625002B80C0 /* BoatsTime.app */; };
+		5C3AE0DD1D6CDC1200BD0197 /* DepartureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3AE0DC1D6CDC1200BD0197 /* DepartureViewCell.swift */; };
+		5C3AE0DF1D6CF1B900BD0197 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3AE0DE1D6CF1B900BD0197 /* ScheduleView.swift */; };
 		5C6B133F1D4CE99800403514 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B133E1D4CE99800403514 /* ViewController.swift */; };
 		5C6B13411D4CEAA500403514 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B13401D4CEAA500403514 /* UIColor.swift */; };
 		5C6B13471D4CFB6200403514 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B13461D4CFB6200403514 /* UIImage.swift */; };
@@ -91,6 +93,7 @@
 		5CC425C01D4D1B6F00729580 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC425BF1D4D1B6F00729580 /* RouteViewController.swift */; };
 		5CC425C21D4D572600729580 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC425C11D4D572600729580 /* TimeView.swift */; };
 		5CC425C61D4E426200729580 /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC425C51D4E426200729580 /* DepartureView.swift */; };
+		5CCC3A371D6D14FE009D5A1D /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC3A361D6D14FE009D5A1D /* DayView.swift */; };
 		5CDDC5E11B9CBD4900AF4CDE /* Launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CDDC5DF1B9CBD4900AF4CDE /* Launch.xib */; };
 		5CDEDAA61CB9303200F9FE9B /* BoatsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEDA911CB9303100F9FE9B /* BoatsData.framework */; };
 		5CDEDAA71CB9303200F9FE9B /* BoatsData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEDA911CB9303100F9FE9B /* BoatsData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -232,6 +235,8 @@
 		5C2E2A681D689625002B80C0 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		5C2E2A6A1D689625002B80C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C2E2A6C1D689625002B80C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C3AE0DC1D6CDC1200BD0197 /* DepartureViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureViewCell.swift; sourceTree = "<group>"; };
+		5C3AE0DE1D6CF1B900BD0197 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		5C6B133E1D4CE99800403514 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C6B13401D4CEAA500403514 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5C6B13461D4CFB6200403514 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -247,6 +252,7 @@
 		5CC425BF1D4D1B6F00729580 /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		5CC425C11D4D572600729580 /* TimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		5CC425C51D4E426200729580 /* DepartureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureView.swift; sourceTree = "<group>"; };
+		5CCC3A361D6D14FE009D5A1D /* DayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		5CDDC5E01B9CBD4900AF4CDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Launch.xib; sourceTree = "<group>"; };
 		5CDEDA911CB9303100F9FE9B /* BoatsData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDEDA951CB9303200F9FE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -322,11 +328,14 @@
 			children = (
 				5CADC9A31D68A3C20018718E /* Boats.entitlements */,
 				5C277C9C1B979A5000D18D14 /* AppDelegate.swift */,
+				5CCC3A361D6D14FE009D5A1D /* DayView.swift */,
 				5CC425C51D4E426200729580 /* DepartureView.swift */,
+				5C3AE0DC1D6CDC1200BD0197 /* DepartureViewCell.swift */,
 				5CC425BD1D4D1ABC00729580 /* MainViewCell.swift */,
 				5CC425B91D4D143B00729580 /* MainViewController.swift */,
 				5CC425BB1D4D1A6000729580 /* RouteViewCell.swift */,
 				5CC425BF1D4D1B6F00729580 /* RouteViewController.swift */,
+				5C3AE0DE1D6CF1B900BD0197 /* ScheduleView.swift */,
 				5CC425C11D4D572600729580 /* TimeView.swift */,
 				5C6B13401D4CEAA500403514 /* UIColor.swift */,
 				5C6B13461D4CFB6200403514 /* UIImage.swift */,
@@ -732,13 +741,16 @@
 			files = (
 				5C6B133F1D4CE99800403514 /* ViewController.swift in Sources */,
 				5CC425BC1D4D1A6000729580 /* RouteViewCell.swift in Sources */,
+				5CCC3A371D6D14FE009D5A1D /* DayView.swift in Sources */,
 				5CC425C01D4D1B6F00729580 /* RouteViewController.swift in Sources */,
 				5C6B13411D4CEAA500403514 /* UIColor.swift in Sources */,
 				5C277C9D1B979A5000D18D14 /* AppDelegate.swift in Sources */,
+				5C3AE0DF1D6CF1B900BD0197 /* ScheduleView.swift in Sources */,
 				5CC425BE1D4D1ABC00729580 /* MainViewCell.swift in Sources */,
 				5C6B13471D4CFB6200403514 /* UIImage.swift in Sources */,
 				5CC425BA1D4D143B00729580 /* MainViewController.swift in Sources */,
 				5CC425C21D4D572600729580 /* TimeView.swift in Sources */,
+				5C3AE0DD1D6CDC1200BD0197 /* DepartureViewCell.swift in Sources */,
 				5CC425C61D4E426200729580 /* DepartureView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
