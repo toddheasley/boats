@@ -34,6 +34,7 @@ public final class Data {
     }
     
     public func reloadData(completion: ((Bool) -> Void)? = nil) {
+        print("reloadData")
         URLSession.shared.dataTask(with: URL) { data, response, error in
             guard let data = data, let JSON = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()), self.refresh(JSON: JSON as AnyObject) else {
                 DispatchQueue.main.async {

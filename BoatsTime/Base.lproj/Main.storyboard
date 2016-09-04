@@ -92,6 +92,9 @@
                                                 </label>
                                             </items>
                                         </group>
+                                        <label width="1" height="8" alignment="left" verticalAlignment="center" id="nXY-ko-THS">
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
                                     </items>
                                 </group>
                                 <label width="1" height="15" alignment="left" verticalAlignment="bottom" text="Provider" id="7Ic-QW-5ba">

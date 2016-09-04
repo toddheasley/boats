@@ -25,7 +25,11 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         NotificationCenter.default.addObserver(self, selector: #selector(dataDidRefresh), name: TimeChangeNotification, object: nil)
-        refreshData()
+        
+        dataDidRefresh()
+        if data.providers.count < 1 {
+            refreshData()
+        }
     }
     
     override func didDeactivate() {

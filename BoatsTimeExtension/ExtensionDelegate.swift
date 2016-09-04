@@ -22,7 +22,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     }
     
     func applicationDidFinishLaunching() {
-        Data.group = "group.com.toddheasley.ios.boats"
+        
     }
 
     func applicationDidBecomeActive() {
@@ -36,6 +36,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
+        for backgroundTask in backgroundTasks {
+            backgroundTask.setTaskCompleted()
+        }
+        
+        /*
         for task in backgroundTasks {
             switch task {
             case let backgroundTask as WKApplicationRefreshBackgroundTask:
@@ -50,5 +55,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 task.setTaskCompleted()
             }
         }
+        */
     }
 }
