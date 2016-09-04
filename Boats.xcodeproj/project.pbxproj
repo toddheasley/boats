@@ -234,7 +234,6 @@
 		5C2E2A541D689625002B80C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C2E2A561D689625002B80C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C2E2A5B1D689625002B80C0 /* BoatsTimeExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BoatsTimeExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C2E2A611D689625002B80C0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		5C2E2A621D689625002B80C0 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 		5C2E2A641D689625002B80C0 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		5C2E2A661D689625002B80C0 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
@@ -399,7 +398,6 @@
 				5C204E641D7B20260006CB34 /* RouteInterfaceController.swift */,
 				5CE68DE81D7B090200E4FCEA /* RouteRowController.swift */,
 				5C2E2A6A1D689625002B80C0 /* Assets.xcassets */,
-				5C2E2A611D689625002B80C0 /* PushNotificationPayload.apns */,
 				5C2E2A6C1D689625002B80C0 /* Info.plist */,
 			);
 			path = BoatsTimeExtension;

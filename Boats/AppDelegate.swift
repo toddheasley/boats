@@ -24,7 +24,7 @@ enum Mode {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private let timeInterval: TimeInterval = 15.0
+    private let timeInterval: TimeInterval = 10.0
     private var timer: Timer?
     var window: UIWindow?
     var mode: Mode = Mode()
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        Data().reloadData() { completed in
+        Data().reloadData { completed in
             completionHandler(completed ? .newData : .failed)
         }
     }

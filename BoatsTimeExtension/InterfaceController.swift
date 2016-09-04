@@ -13,7 +13,7 @@ class InterfaceController: WKInterfaceController {
     var data: Data = Data()
     
     func refreshData() {
-        data.reloadData() { [weak self] completed in
+        data.reloadData { [weak self] completed in
             self?.dataDidRefresh()
         }
     }

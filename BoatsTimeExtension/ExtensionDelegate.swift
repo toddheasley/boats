@@ -14,18 +14,25 @@ typealias Date = BoatsData.Date
 let TimeChangeNotification: Notification.Name = Notification.Name("TimeChangeNotification")
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
-    private let timeInterval: TimeInterval = 15.0
+    private let refreshInterval: TimeInterval = 12.0 * 60.0 * 60.0
+    private let timeInterval: TimeInterval = 5.0
     private var timer: Timer?
     
     func applicationTimeDidChange() {
         NotificationCenter.default.post(name: TimeChangeNotification, object: nil)
     }
     
-    func applicationDidFinishLaunching() {
-        
+    func scheduleBackgroundRefresh() {
+        WKExtension.shared().scheduleBackgroundRefresh(withPreferredDate: Foundation.Date(timeIntervalSinceNow: refreshInterval), userInfo: nil) { error in
+            guard let _ = error else {
+                return
+            }
+            Data().reloadData()
+        }
     }
 
     func applicationDidBecomeActive() {
+        scheduleBackgroundRefresh()
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
         timer?.fire()
@@ -36,25 +43,16 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
-        for backgroundTask in backgroundTasks {
-            backgroundTask.setTaskCompleted()
-        }
-        
-        /*
         for task in backgroundTasks {
             switch task {
-            case let backgroundTask as WKApplicationRefreshBackgroundTask:
-                backgroundTask.setTaskCompleted()
-            case let snapshotTask as WKSnapshotRefreshBackgroundTask:
-                snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Foundation.Date.distantFuture, userInfo: nil)
-            case let connectivityTask as WKWatchConnectivityRefreshBackgroundTask:
-                connectivityTask.setTaskCompleted()
-            case let urlSessionTask as WKURLSessionRefreshBackgroundTask:
-                urlSessionTask.setTaskCompleted()
+            case is WKApplicationRefreshBackgroundTask:
+                Data().reloadData { _ in
+                    self.scheduleBackgroundRefresh()
+                    task.setTaskCompleted()
+                }
             default:
                 task.setTaskCompleted()
             }
         }
-        */
     }
 }

@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     func refreshData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        data.reloadData() { [weak self] completed in
+        data.reloadData { [weak self] completed in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self?.dataDidRefresh()
         }
