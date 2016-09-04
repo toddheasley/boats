@@ -16,14 +16,14 @@ class RouteViewController: ViewController, UINavigationControllerDelegate, UIScr
     var provider: Provider!
     var route: Route!
     
-    @IBOutlet var routeLabel: UILabel!
-    @IBOutlet var seasonLabel: UILabel!
-    @IBOutlet var directionControl: UISegmentedControl!
-    @IBOutlet var topSeparator: UIView!
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var bottomSeparator: UIView!
-    @IBOutlet var providerButton: UIButton!
-    @IBOutlet var popButton: UIButton!
+    @IBOutlet weak var routeLabel: UILabel!
+    @IBOutlet weak var seasonLabel: UILabel!
+    @IBOutlet weak var directionControl: UISegmentedControl!
+    @IBOutlet weak var topSeparator: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bottomSeparator: UIView!
+    @IBOutlet weak var providerButton: UIButton!
+    @IBOutlet weak var popButton: UIButton!
     
     @IBAction func changeDirection(_ sender: AnyObject?) {
         scrollView.setContentOffset(CGPoint(x: (scrollView.bounds.size.width * CGFloat(directionControl.selectedSegmentIndex)), y: 0.0), animated: true)

@@ -7,17 +7,29 @@
 
 import WatchKit
 import Foundation
+import BoatsData
 
 class InterfaceController: WKInterfaceController {
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
+    var data: Data = Data()
+    
+    func refreshData() {
+        data.reloadData() { [weak self] completed in
+            self?.dataDidRefresh()
+        }
+    }
+    
+    func dataDidRefresh() {
+        
     }
     
     override func willActivate() {
         super.willActivate()
+        NotificationCenter.default.addObserver(self, selector: #selector(dataDidRefresh), name: TimeChangeNotification, object: nil)
+        refreshData()
     }
     
     override func didDeactivate() {
         super.didDeactivate()
+        NotificationCenter.default.removeObserver(self, name: TimeChangeNotification, object: nil)
     }
 }

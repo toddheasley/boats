@@ -8,8 +8,8 @@
 import UIKit
 
 class MainViewCell: UITableViewCell {
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)

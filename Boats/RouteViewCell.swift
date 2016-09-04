@@ -9,10 +9,10 @@ import UIKit
 import BoatsData
 
 class RouteViewCell: UITableViewCell {
-    @IBOutlet var routeLabel: UILabel!
-    @IBOutlet var originLabel: UILabel!
-    @IBOutlet var departureView: DepartureView!
-    @IBOutlet var providerLabel: UILabel!
+    @IBOutlet weak var routeLabel: UILabel!
+    @IBOutlet weak var originLabel: UILabel!
+    @IBOutlet weak var departureView: DepartureView!
+    @IBOutlet weak var providerLabel: UILabel!
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)

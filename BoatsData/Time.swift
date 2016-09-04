@@ -59,3 +59,13 @@ extension Time: Comparable {
         return x.value < y.value
     }
 }
+
+extension Time {
+    private static let formatter: DateFormatter = DateFormatter()
+    
+    public static var is24Hour: Bool {
+        Time.formatter.dateStyle = .none
+        Time.formatter.timeStyle = .short
+        return !Time.formatter.string(from: Foundation.Date()).contains(" ")
+    }
+}

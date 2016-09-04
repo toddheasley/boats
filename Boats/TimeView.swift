@@ -9,7 +9,6 @@ import UIKit
 import BoatsData
 
 class TimeView: UIView {
-    private static let timeFormatter: DateFormatter = DateFormatter()
     private let view: UIView = UIView()
     private let hourLabels: (UILabel, UILabel) = (UILabel(), UILabel())
     private let minuteLabels: (UILabel, UILabel) = (UILabel(), UILabel())
@@ -18,11 +17,10 @@ class TimeView: UIView {
     
     var time: Time? {
         didSet {
-            periodLabel.isHidden = is24HourTime
             var hour: String = "00"
             var minute: String = "00"
             if let time = time {
-                hour = String(format: "%02d", (!is24HourTime && (time.hour < 1 || time.hour > 12)) ? abs(time.hour - 12) : time.hour)
+                hour = String(format: "%02d", (!Time.is24Hour && (time.hour < 1 || time.hour > 12)) ? abs(time.hour - 12) : time.hour)
                 minute = String(format: "%02d", time.minute)
             }
             hourLabels.0.text = "\(hour.characters.first!)"
@@ -31,12 +29,6 @@ class TimeView: UIView {
             minuteLabels.1.text = "\(minute.characters.last!)"
             layoutSubviews()
         }
-    }
-    
-    var is24HourTime: Bool {
-        TimeView.timeFormatter.dateStyle = .none
-        TimeView.timeFormatter.timeStyle = .short
-        return !TimeView.timeFormatter.string(from: Foundation.Date()).contains(" ")
     }
     
     var color: UIColor = UILabel().textColor {
@@ -118,7 +110,7 @@ class TimeView: UIView {
         super.layoutSubviews()
         
         if let time = time {
-            periodLabel.alpha = (alpha != 0.1 && time.hour < 12) ? 0.05 : alpha
+            periodLabel.alpha = (Time.is24Hour || time.hour < 12) ? 0.05 : alpha
             hourLabels.0.alpha = (hourLabels.0.text != "0") ? alpha : 0.05
             hourLabels.1.alpha = alpha
             minuteLabels.0.alpha = alpha

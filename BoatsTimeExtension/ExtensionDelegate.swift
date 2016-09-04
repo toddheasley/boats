@@ -11,17 +11,28 @@ import BoatsData
 typealias Data = BoatsData.Data
 typealias Date = BoatsData.Date
 
+let TimeChangeNotification: Notification.Name = Notification.Name("TimeChangeNotification")
+
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
+    private let timeInterval: TimeInterval = 15.0
+    private var timer: Timer?
+    
+    func applicationTimeDidChange() {
+        NotificationCenter.default.post(name: TimeChangeNotification, object: nil)
+    }
+    
     func applicationDidFinishLaunching() {
         Data.group = "group.com.toddheasley.ios.boats"
     }
 
     func applicationDidBecomeActive() {
-        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
+        timer?.fire()
     }
 
     func applicationWillResignActive() {
-        
+        timer?.invalidate()
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {

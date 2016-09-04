@@ -11,7 +11,7 @@ import BoatsData
 class MainViewController: ViewController, UITableViewDataSource, UITableViewDelegate, RouteViewDelegate {
     private var selectedIndexPath: IndexPath?
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func dataDidRefresh() {
         super.dataDidRefresh()
