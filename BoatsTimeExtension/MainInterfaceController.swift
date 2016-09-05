@@ -39,6 +39,11 @@ class MainInterfaceController: InterfaceController {
         pushController(withName: "Route", context: rows[rowIndex].route)
     }
     
+    override func handleUserActivity(_ userInfo: [AnyHashable : Any]?) {
+        super.handleUserActivity(userInfo)
+        
+    }
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         setTitle("Boats")
