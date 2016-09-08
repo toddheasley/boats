@@ -27,9 +27,9 @@ public struct Schedule {
         return Day()
     }
     
-    public func departures(day: Day? = nil, direction: Direction = .both) -> [Departure] {
+    public func departures(day: Day? = nil, time: Time? = nil, direction: Direction = .both) -> [Departure] {
         return departures.filter {
-            return ($0.days.contains(day ?? self.day) || $0.days.contains(.everyday)) && ($0.direction == direction || direction == .both)
+            return ($0.days.contains(day ?? self.day) || $0.days.contains(.everyday)) && ($0.direction == direction || direction == .both) && (time == nil || $0.time > time!)
         }
     }
     

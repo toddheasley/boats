@@ -8,19 +8,13 @@
 import UIKit
 import BoatsData
 
-class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ModeView {
+class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     private var canScroll: Bool = true
-    private let dayView: DayView = DayView()
-    private let departureCell: DepartureCell = DepartureCell()
     private var time: Time = Time()
     private var day: Day = .everyday
     private var days: [(day: Day, departures: [Departure])] = []
     private var departures: (next: Departure?, last: Departure?) = (nil, nil)
     private(set) var direction: Direction = .destination
-    
-    private var style: DepartureCellStyle {
-        return (bounds.size.width < 568.0) ? .table : .collection
-    }
     
     var schedule: Schedule? {
         didSet {
@@ -39,7 +33,20 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
         }
     }
     
-    private func status(day: Day, departure: Departure) -> Status {
+    var color: UIColor = UILabel().textColor {
+        didSet {
+            reloadData()
+        }
+    }
+    
+    override var frame: CGRect {
+        didSet {
+            reloadData()
+            scroll(animated: true)
+        }
+    }
+    
+    private func status(day: Day, departure: Departure) -> DepartureStatus {
         if day != self.day || departure.time <= time {
             return .past
         } else if let next = departures.next, next.time == departure.time {
@@ -70,21 +77,20 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     
     private func scroll(animated: Bool) {
         guard let indexPath = indexPath(day: day, departure: departures.next), canScroll else {
-            canScroll = true
             return
         }
         scrollToItem(at: indexPath, at: .centeredVertically, animated: animated)
     }
     
-    convenience init(direction: Direction) {
+    convenience init(direction: Direction = .destination) {
         self.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        self.direction = direction
-        
         (self.collectionViewLayout as! UICollectionViewFlowLayout).sectionHeadersPinToVisibleBounds = true
+        
+        self.direction = direction
         
         backgroundColor = .clear
         register(DayView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "DayView")
-        register(DepartureCell.self, forCellWithReuseIdentifier: "DepartureCell")
+        register(DepartureViewCell.self, forCellWithReuseIdentifier: "DepartureViewCell")
         dataSource = self
         delegate = self
     }
@@ -100,15 +106,14 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "DayView", for: indexPath) as! DayView
-        view.mode = mode
+        view.color = color
         view.day = days[indexPath.section].day
         return view
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: "DepartureCell", for: indexPath) as! DepartureCell
-        cell.mode = mode
-        cell.style = style
+        let cell = dequeueReusableCell(withReuseIdentifier: "DepartureViewCell", for: indexPath) as! DepartureViewCell
+        cell.color = color
         cell.departure = days[indexPath.section].departures[indexPath.row]
         cell.status = status(day: days[indexPath.section].day, departure: days[indexPath.section].departures[indexPath.row])
         return cell
@@ -116,39 +121,25 @@ class ScheduleView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     
     // MARK: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 0.0, height: dayView.intrinsicContentSize.height + layoutInterItemSpacing.height)
+        return CGSize(width: collectionView.bounds.size.width, height: traitCollection.verticalSizeClass == .compact ? 26.0 : 34.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch style {
-        case .collection:
-            let numberOfColumns: Int = bounds.size.width < 568.0 ? 1 : (bounds.size.width < 1024.0 ? 2 : 3)
-            let width: CGFloat = floor((bounds.size.width - (layoutEdgeInsets.left * CGFloat(numberOfColumns + 1))) / CGFloat(numberOfColumns))
-            return CGSize(width: max(width , departureCell.intrinsicContentSize.width), height: departureCell.intrinsicContentSize.height + layoutInterItemSpacing.height)
-        case .table:
-            return CGSize(width: collectionView.bounds.size.width, height: departureCell.intrinsicContentSize.height + layoutInterItemSpacing.height)
-        }
+        let numberOfColumns: Int = bounds.size.width < 568.0 ? 1 : (bounds.size.width < 1024.0 ? 2 : 3)
+        let width: CGFloat = floor((bounds.size.width - (32.0 * CGFloat(numberOfColumns))) / CGFloat(numberOfColumns))
+        return CGSize(width: width, height: 56.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return layoutInterItemSpacing.height
+        return 22.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        var edgeInsets = style == .collection ? layoutEdgeInsets : .zero
-        edgeInsets.top = layoutInterItemSpacing.height
-        return edgeInsets
+        return UIEdgeInsets(top: 0.0, left: 16.0, bottom: traitCollection.verticalSizeClass == .compact ? 4.0 : 8.0, right: 16.0)
     }
     
     // MARK: UIScrollviewDelegate
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         canScroll = false
-    }
-    
-    // MARK: ModeView
-    var mode: Mode = Mode() {
-        didSet {
-            reloadData()
-        }
     }
 }

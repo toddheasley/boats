@@ -8,8 +8,10 @@
 import UIKit
 import BoatsData
 
-class ViewController: UIViewController, UINavigationControllerDelegate {
-    var data: Data = Data()
+class ViewController: UIViewController {
+    var data: Data {
+        return Data.shared
+    }
     
     var mode: Mode {
         return (UIApplication.shared.delegate as? AppDelegate)?.mode ?? Mode()
@@ -21,7 +23,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     func refreshData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        data.reloadData() { [weak self] completed in
+        Data.refresh { [weak self] completed in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self?.dataDidRefresh()
         }
@@ -51,10 +53,5 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
         
         NotificationCenter.default.removeObserver(self, name: ModeChangeNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: TimeChangeNotification, object: nil)
-    }
-    
-    // MARK: UINavigationControllerDelegate
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil
     }
 }

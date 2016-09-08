@@ -8,83 +8,36 @@
 import UIKit
 import BoatsData
 
-enum DepartureCellStyle {
-    case collection, table
+enum DepartureStatus {
+    case past, next, soon, last
+    
+    var alpha: CGFloat {
+        switch self {
+        case .past:
+            return 0.3
+        case .next:
+            return 1.0
+        default:
+            return 0.6
+        }
+    }
 }
 
-class DepartureView: UIView, ModeView, StatusView {
-    private let departureView: UIView = UIView()
+class DepartureView: UIView {
+    private let view: UIView = UIView()
     private let statusLabel: UILabel = UILabel()
+    private let carsView: UIImageView = UIImageView()
     private let timeView: TimeView = TimeView()
-    private let carsView: CarsView = CarsView()
     
     var departure: Departure? {
         didSet {
             timeView.time = departure?.time
-            carsView.cars = departure?.cars ?? false
             layoutSubviews()
         }
     }
     
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: 252.0, height: timeView.intrinsicContentSize.height)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let color: UIColor = .foreground(mode: mode, status: status)
-        statusLabel.textColor = departure != nil ? color : color.highlight
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        departureView.frame.size.width = bounds.size.width
-        departureView.frame.size.height = intrinsicContentSize.height
-        departureView.frame.origin.y = (bounds.size.height - departureView.frame.size.height) / 2.0
-        departureView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin, .flexibleWidth]
-        addSubview(departureView)
-        
-        timeView.frame.size = timeView.intrinsicContentSize
-        timeView.frame.origin.x =  departureView.frame.size.width - timeView.frame.size.width
-        timeView.autoresizingMask = [.flexibleLeftMargin]
-        departureView.addSubview(timeView)
-        
-        carsView.frame.size = carsView.intrinsicContentSize
-        carsView.frame.origin.y =  departureView.frame.size.height - carsView.frame.size.height - 4.0
-        carsView.autoresizingMask = [.flexibleTopMargin]
-        departureView.addSubview(carsView)
-        
-        statusLabel.font = .small
-        statusLabel.text = " "
-        statusLabel.sizeToFit()
-        statusLabel.frame.size.width = 35.0
-        statusLabel.frame.origin.x = 1.0
-        statusLabel.frame.origin.y = 3.0
-        departureView.addSubview(statusLabel)
-        
-        layoutSubviews()
-    }
-    
-    required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: ModeView
-    var mode: Mode = Mode() {
+    var status: DepartureStatus = .soon {
         didSet {
-            timeView.mode = mode
-            carsView.mode = mode
-            layoutSubviews()
-        }
-    }
-    
-    // MARK: StatusView
-    var status: Status = Status() {
-        didSet {
-            timeView.status = status
-            carsView.status = status
             switch status {
             case .next:
                 statusLabel.text = "Next".uppercased()
@@ -96,82 +49,77 @@ class DepartureView: UIView, ModeView, StatusView {
             layoutSubviews()
         }
     }
-}
-
-class DepartureCell: UICollectionViewCell, ModeView, StatusView {
-    private let departureView: DepartureView = DepartureView()
     
-    var style: DepartureCellStyle = .collection {
-        didSet {
-            layoutSubviews()
-        }
-    }
-    
-    var departure: Departure? {
+    var color: UIColor {
         set {
-            departureView.departure = newValue
+            statusLabel.textColor = newValue
+            carsView.image = UIImage(named: "Cars")?.tint(color: newValue)
+            timeView.color = newValue
         }
         get {
-            return departureView.departure
+            return statusLabel.textColor
         }
     }
     
-    override var intrinsicContentSize: CGSize {
-        return departureView.intrinsicContentSize
+    private func setUp() {
+        timeView.frame.size = timeView.intrinsicContentSize
+        timeView.frame.origin.x = view.bounds.size.width - timeView.frame.size.width
+        timeView.autoresizingMask = [.flexibleLeftMargin]
+        view.addSubview(timeView)
+        
+        statusLabel.font = .systemFont(ofSize: 9.0, weight: UIFontWeightHeavy)
+        statusLabel.text = ""
+        statusLabel.frame.size = CGSize(width: 35.0, height: 11.0)
+        statusLabel.frame.origin.y = 4.0
+        view.addSubview(statusLabel)
+        
+        carsView.contentMode = .scaleAspectFit
+        carsView.frame.size = CGSize(width: 27.0, height: 27.0)
+        carsView.frame.origin.y = view.bounds.size.height - carsView.frame.size.height
+        carsView.autoresizingMask = [.flexibleTopMargin]
+        view.addSubview(carsView)
+        
+        view.frame.size = intrinsicContentSize
+        view.frame.origin.y = bounds.size.height - view.frame.size.height
+        view.autoresizingMask = [.flexibleTopMargin]
+        addSubview(view)
+        
+        color = statusLabel.textColor
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        switch style {
-        case .collection:
-            contentView.layer.cornerRadius = 6.0
-            
-            departureView.frame.size.width = contentView.frame.size.width - 8.0
-            departureView.frame.size.height = contentView.frame.size.height - 8.0
-            departureView.frame.origin.x = 4.0
-            departureView.frame.origin.y = 4.0
-        case .table:
-            contentView.layer.cornerRadius = 0.0
-            
-            departureView.frame.size.width = layoutRect.size.width
-            departureView.frame.size.height = contentView.bounds.size.height
-            departureView.frame.origin.x = layoutRect.origin.x
-            departureView.frame.origin.y = 0.0
+        if bounds.size.width > 480.0 {
+            view.frame.size.width = intrinsicContentSize.width
+            view.frame.origin.x = bounds.size.width - view.frame.size.width
+        } else {
+            view.frame.size.width = bounds.size.width
+            view.frame.origin.x = 0.0
         }
-        contentView.backgroundColor = (mode == .day && status == .next) ? UIColor.groupTableViewBackground : .clear
+        
+        if let departure = departure {
+            statusLabel.alpha = status.alpha
+            carsView.alpha = departure.cars ? status.alpha : 0.05
+            timeView.alpha = status.alpha
+        } else {
+            statusLabel.alpha = 0.05
+            carsView.alpha = statusLabel.alpha
+            timeView.alpha = statusLabel.alpha
+        }
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 252.0, height: timeView.intrinsicContentSize.height)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        contentView.clipsToBounds = true
-        contentView.addSubview(departureView)
+        setUp()
     }
     
     required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: ModeView
-    var mode: Mode {
-        set {
-            departureView.mode = newValue
-            layoutSubviews()
-        }
-        get {
-            return departureView.mode
-        }
-    }
-    
-    // MARK: StatusView
-    var status: Status {
-        set {
-            departureView.status = newValue
-            layoutSubviews()
-        }
-        get {
-            return departureView.status
-        }
+        super.init(coder: decoder)
+        setUp()
     }
 }

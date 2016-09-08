@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "watch",
+      "filename" : "ModularLarge-11@2x.png",
+      "screen-width" : "<=145",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "watch",
+      "filename" : "ModularLarge-12@2x.png",
+      "screen-width" : ">145",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
+  }
+}

@@ -18,30 +18,6 @@ class DataTests: XCTestCase {
         XCTAssertNil(data.provider(code: "#"))
     }
     
-    func testReloadData() {
-        let expectation: XCTestExpectation = self.expectation(description: "")
-        UserDefaults.standard.data = nil
-        var data = Data()
-        data.reloadData { completed in
-            expectation.fulfill()
-            if !completed {
-                XCTFail()
-                return
-            }
-            XCTAssertEqual(data.name, "Ferry Schedules")
-            XCTAssertEqual(data.description, "Islands of Casco Bay")
-            XCTAssertEqual(data.providers.count, 2)
-            data = Data()
-            XCTAssertEqual(data.providers.count, 2)
-            UserDefaults.standard.data = nil
-        }
-        waitForExpectations(timeout: 10.0){ error in
-            if let error = error {
-                XCTFail("\(error)")
-            }
-        }
-    }
-    
     func testJSONEncoding() {
         guard let mockJSON = mockJSON, let data = Data(JSON: mockJSON), let JSON = data.JSON as? [String: AnyObject] else {
             XCTFail()

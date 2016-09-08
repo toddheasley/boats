@@ -14,9 +14,17 @@ typealias Date = BoatsData.Date
 let TimeChangeNotification: Notification.Name = Notification.Name("TimeChangeNotification")
 let ModeChangeNotification: Notification.Name = Notification.Name("ModeChangeNotification")
 
+enum Mode {
+    case day, night
+    
+    init() {
+        self = UIScreen.main.brightness > 0.35 ? .day : .night
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private let timeInterval: TimeInterval = 15.0
+    private let timeInterval: TimeInterval = 10.0
     private var timer: Timer?
     var window: UIWindow?
     var mode: Mode = Mode()
@@ -36,11 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         applicationWillEnterForeground(application)
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = NavigationController()
-        window?.makeKeyAndVisible()
-        
         return true
     }
     
@@ -58,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        Data().reloadData() { completed in
+        Data.refresh { completed in
             completionHandler(completed ? .newData : .failed)
         }
     }

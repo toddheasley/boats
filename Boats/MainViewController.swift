@@ -9,10 +9,9 @@ import UIKit
 import BoatsData
 
 class MainViewController: ViewController, UITableViewDataSource, UITableViewDelegate, RouteViewDelegate {
-    private let mainViewCell: MainViewCell = MainViewCell()
-    private let routeViewCell: RouteViewCell = RouteViewCell()
     private var selectedIndexPath: IndexPath?
-    var tableView: UITableView!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func dataDidRefresh() {
         super.dataDidRefresh()
@@ -22,6 +21,7 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     
     override func modeDidChange() {
         super.modeDidChange()
+        tableView.separatorColor = UIColor.foreground(mode: mode).withAlphaComponent(0.2)
         tableView.reloadData()
     }
     
@@ -32,24 +32,12 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView = UITableView(frame: view.bounds, style: .plain)
-        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        tableView.register(MainViewCell.self, forCellReuseIdentifier: "MainViewCell")
-        tableView.register(RouteViewCell.self, forCellReuseIdentifier: "RouteViewCell")
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        tableView.dataSource = self
-        tableView.delegate = self
-        view.addSubview(tableView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        viewDidLayoutSubviews()
         if tableView.numberOfSections < 2 {
             refreshData()
         }
@@ -73,50 +61,58 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainViewCell") as! MainViewCell
-            cell.mode = mode
-            cell.data = data
+            cell.backgroundColor = view.backgroundColor
+            cell.nameLabel.textColor = .foreground(mode: mode)
+            cell.nameLabel.text = "\(data.name)"
+            cell.descriptionLabel.textColor = cell.nameLabel.textColor
+            cell.descriptionLabel.text = "\(data.description)"
             return cell
         default:
             let provider = data.providers[indexPath.section - 1]
+            let route = provider.routes[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "RouteViewCell") as! RouteViewCell
-            cell.mode = mode
-            cell.provider = provider
-            cell.route = provider.routes[indexPath.row]
+            cell.routeLabel.textColor = .foreground(mode: mode)
+            cell.routeLabel.text = "\(route.name)"
+            cell.originLabel.textColor = cell.routeLabel.textColor
+            cell.originLabel.text = "From \(route.origin.name)"
+            cell.departureView.color = cell.routeLabel.textColor
+            cell.departureView.departure = route.schedule()?.departure()
+            cell.departureView.status = .next
+            cell.providerLabel.textColor = cell.routeLabel.textColor
+            cell.providerLabel.text = "Operated by \(provider.name)"
             return cell
         }
     }
     
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        routeViewCell.frame = tableView.bounds
-        routeViewCell.layoutSubviews()
-        let height: CGFloat = routeViewCell.intrinsicContentSize.height + tableView.layoutEdgeInsets.top + tableView.layoutEdgeInsets.bottom
+        let rowHeight: CGFloat = (tableView.bounds.size.width > 480.0 ? 76.0 : 122.0) + (traitCollection.verticalSizeClass == .compact ? 16.0 : 28.0)
         switch indexPath.section {
         case 0:
-            let minimum: CGFloat = mainViewCell.intrinsicContentSize.height + (tableView.layoutEdgeInsets.top + tableView.layoutEdgeInsets.bottom * 3.0)
-            let available: CGFloat = tableView.bounds.size.height - (tableView.contentInset.top + tableView.contentInset.bottom)
-            var count: CGFloat = 0.0
+            let minimumRowHeight: CGFloat = self.traitCollection.verticalSizeClass == .compact ? 50.0 : 66.0
+            let availableContentHeight: CGFloat = tableView.bounds.size.height - (tableView.contentInset.top + tableView.contentInset.bottom)
+            var rowCount: CGFloat = 0.0
             for provider in data.providers {
-                count += CGFloat(provider.routes.count)
+                rowCount += CGFloat(provider.routes.count)
             }
-            return max(available - (min(floor((available - minimum) / height), count) * height), minimum)
+            return max(availableContentHeight - (min(floor((availableContentHeight - minimumRowHeight) / rowHeight), rowCount) * rowHeight), minimumRowHeight)
         default:
-            return height
+            return rowHeight
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard indexPath.section > 0, let routeViewController = self.storyboard?.instantiateViewController(withIdentifier: "Route") as? RouteViewController else {
+            selectedIndexPath = nil
             return
-        default:
-            selectedIndexPath = indexPath
-            guard let cell = tableView.cellForRow(at: indexPath) as? RouteViewCell, let routeViewController =
-                RouteViewController(provider: cell.provider, route: cell.route) else {
-                return
-            }
-            navigationController?.pushViewController(routeViewController, animated: true)
         }
+        selectedIndexPath = indexPath
+        let provider = data.providers[indexPath.section - 1]
+        routeViewController.provider = provider
+        routeViewController.route = provider.routes[indexPath.row]
+        navigationController?.delegate = routeViewController
+        navigationController?.pushViewController(routeViewController, animated: true)
     }
     
     // MARK: RouteViewDelegate
