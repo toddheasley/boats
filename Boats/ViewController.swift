@@ -9,7 +9,9 @@ import UIKit
 import BoatsData
 
 class ViewController: UIViewController {
-    var data: Data = Data()
+    var data: Data {
+        return Data.shared
+    }
     
     var mode: Mode {
         return (UIApplication.shared.delegate as? AppDelegate)?.mode ?? Mode()
@@ -21,7 +23,7 @@ class ViewController: UIViewController {
     
     func refreshData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        data.reloadData { [weak self] completed in
+        Data.refresh { [weak self] completed in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self?.dataDidRefresh()
         }

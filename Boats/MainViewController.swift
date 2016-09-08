@@ -38,8 +38,6 @@ class MainViewController: ViewController, UITableViewDataSource, UITableViewDele
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        viewDidLayoutSubviews()
         if tableView.numberOfSections < 2 {
             refreshData()
         }

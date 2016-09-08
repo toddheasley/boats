@@ -48,7 +48,7 @@ extension Time: Comparable {
         return Int([
             String(format: "%02d", hour),
             String(format: "%02d", minute)
-        ].joined(separator: ""))!
+        ].joined())!
     }
     
     public static func ==(x: Time, y: Time) -> Bool {
@@ -67,5 +67,32 @@ extension Time {
         Time.formatter.dateStyle = .none
         Time.formatter.timeStyle = .short
         return !Time.formatter.string(from: Foundation.Date()).contains(" ")
+    }
+    
+    public var components: [String] {
+        let hours: String = String(format: "%02d", (!Time.is24Hour && (hour < 1 || hour > 12)) ? abs(hour - 12) : hour)
+        let minutes: String = String(format: "%02d", minute)
+        let separator: String = ":"
+        let period: String = (!Time.is24Hour && (hour > 11 )) ? "." : ""
+        return [
+            "\(hours.characters.first!)",
+            "\(hours.characters.last!)",
+            separator,
+            "\(minutes.characters.first!)",
+            "\(minutes.characters.last!)",
+            period
+        ]
+    }
+    
+    public var string: String {
+        return (components.joined() as NSString).replacingOccurrences(of: "0", with: "", options: .caseInsensitive, range: NSMakeRange(0, 1))
+    }
+    
+    public static func components(_ time: Time? = nil) -> [String] {
+        return time?.components ?? ["0", "0", ":", "0", "0", "."]
+    }
+    
+    public static func string(_ time: Time? = nil) -> String {
+        return time?.string ?? "--:--"
     }
 }

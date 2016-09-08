@@ -17,16 +17,11 @@ class TimeView: UIView {
     
     var time: Time? {
         didSet {
-            var hour: String = "00"
-            var minute: String = "00"
-            if let time = time {
-                hour = String(format: "%02d", (!Time.is24Hour && (time.hour < 1 || time.hour > 12)) ? abs(time.hour - 12) : time.hour)
-                minute = String(format: "%02d", time.minute)
-            }
-            hourLabels.0.text = "\(hour.characters.first!)"
-            hourLabels.1.text = "\(hour.characters.last!)"
-            minuteLabels.0.text = "\(minute.characters.first!)"
-            minuteLabels.1.text = "\(minute.characters.last!)"
+            let components = Time.components(time)
+            hourLabels.0.text = "\(components[0])"
+            hourLabels.1.text = "\(components[1])"
+            minuteLabels.0.text = "\(components[3])"
+            minuteLabels.1.text = "\(components[4])"
             layoutSubviews()
         }
     }
@@ -54,6 +49,7 @@ class TimeView: UIView {
     
     private func setUp() {
         let font: UIFont = .systemFont(ofSize: 64.0, weight: UIFontWeightHeavy)
+        let components = Time.components()
         var frame: CGRect = CGRect(x: 21.0, y: 0.0, width: 42.0, height: 56.0)
         
         view.frame.size.width = (frame.size.width * 5.0) + frame.origin.x
@@ -67,42 +63,42 @@ class TimeView: UIView {
         hourLabels.0.frame = frame
         hourLabels.0.font = font
         hourLabels.0.textAlignment = .center
-        hourLabels.0.text = "0"
+        hourLabels.0.text = "\(components[0])"
         view.addSubview(hourLabels.0)
         frame.origin.x += frame.size.width
         
         hourLabels.1.frame = frame
         hourLabels.1.font = font
         hourLabels.1.textAlignment = .center
-        hourLabels.1.text = "0"
+        hourLabels.1.text = "\(components[1])"
         view.addSubview(hourLabels.1)
         frame.origin.x += frame.size.width
         
         separatorLabel.frame = CGRect(x: frame.origin.x, y: frame.origin.y - (frame.size.height * 0.025), width: frame.size.width / 2.0, height: frame.size.height)
         separatorLabel.font = font
         separatorLabel.textAlignment = .center
-        separatorLabel.text = ":"
+        separatorLabel.text = "\(components[2])"
         view.addSubview(separatorLabel)
         frame.origin.x += separatorLabel.frame.size.width
         
         minuteLabels.0.frame = frame
         minuteLabels.0.font = font
         minuteLabels.0.textAlignment = .center
-        minuteLabels.0.text = "0"
+        minuteLabels.0.text = "\(components[3])"
         view.addSubview(minuteLabels.0)
         frame.origin.x += frame.size.width
         
         minuteLabels.1.frame = frame
         minuteLabels.1.font = font
         minuteLabels.1.textAlignment = .center
-        minuteLabels.1.text = "0"
+        minuteLabels.1.text = "\(components[4])"
         view.addSubview(minuteLabels.1)
         frame.origin.x += frame.size.width
         
         periodLabel.frame = CGRect(x: frame.origin.x, y: separatorLabel.frame.origin.y, width: frame.size.width / 2.0, height: frame.size.height)
         periodLabel.font = font
         periodLabel.textAlignment = .center
-        periodLabel.text = "."
+        periodLabel.text = "\(components[5])"
         view.addSubview(periodLabel)
     }
     

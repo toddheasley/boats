@@ -10,14 +10,9 @@ import Foundation
 import BoatsData
 
 class RouteInterfaceController: InterfaceController {
-    var provider: Provider!
-    var route: Route!
-    
-    var direction: Direction = .destination {
+    var context: Context! {
         didSet {
-            let title: String = (direction == .destination) ? "From" : "To"
-            directionButton.setTitle("\(title) \(route.origin.name)".uppercased())
-            refreshDeparture()
+            UserDefaults.standard.context = context
         }
     }
     
@@ -34,32 +29,34 @@ class RouteInterfaceController: InterfaceController {
     @IBOutlet weak var periodLabel: WKInterfaceLabel!
     
     @IBAction func changeDirection() {
-        direction = (direction == .origin) ? .destination : .origin
+        context.direction = (context.direction == .origin) ? .destination : .origin
+        refreshDeparture()
     }
     
     private func refreshDeparture() {
         let alpha: CGFloat = 0.15
-        if let departure = route.schedule()?.departure(direction: direction) {
-            var hour = String(format: "%02d", (!Time.is24Hour && (departure.time.hour < 1 || departure.time.hour > 12)) ? abs(departure.time.hour - 12) : departure.time.hour)
-            var minute = String(format: "%02d", departure.time.minute)
-            hour1Label.setText("\(hour.characters.first!)")
-            hour2Label.setText("\(hour.characters.last!)")
-            minute1Label.setText("\(minute.characters.first!)")
-            minute2Label.setText("\(minute.characters.last!)")
+        let components = Time.components()
+        separatorLabel.setText("\(components[2])")
+        periodLabel.setText("\(components[5])")
+        if let departure = context.route.schedule()?.departure(direction: context.direction) {
+            hour1Label.setText("\(departure.time.components[0])")
+            hour2Label.setText("\(departure.time.components[1])")
+            minute1Label.setText("\(departure.time.components[3])")
+            minute2Label.setText("\(departure.time.components[4])")
             
             statusLabel.setAlpha(1.0)
             carsImage.setAlpha(departure.cars ? 1.0 : alpha)
-            hour1Label.setAlpha(hour.characters.first! != "0" ? 1.0 : alpha)
+            hour1Label.setAlpha(departure.time.components[0] != components[0] ? 1.0 : alpha)
             hour2Label.setAlpha(1.0)
             separatorLabel.setAlpha(1.0)
             minute1Label.setAlpha(1.0)
             minute2Label.setAlpha(1.0)
-            periodLabel.setAlpha((Time.is24Hour || departure.time.hour < 12) ? alpha : 1.0)
+            periodLabel.setAlpha(departure.time.components[5].isEmpty ? alpha : 1.0)
         } else {
-            hour1Label.setText("0")
-            hour2Label.setText("0")
-            minute1Label.setText("0")
-            minute2Label.setText("0")
+            hour1Label.setText("\(components[0])")
+            hour2Label.setText("\(components[1])")
+            minute1Label.setText("\(components[3])")
+            minute2Label.setText("\(components[4])")
             
             statusLabel.setAlpha(alpha)
             carsImage.setAlpha(alpha)
@@ -70,37 +67,32 @@ class RouteInterfaceController: InterfaceController {
             minute2Label.setAlpha(alpha)
             periodLabel.setAlpha(alpha)
         }
+        let title: String = (context.direction == .destination) ? "From" : "To"
+        directionButton.setTitle("\(title) \(context.route.origin.name)".uppercased())
     }
     
     override func dataDidRefresh() {
         super.dataDidRefresh()
         
-        guard let provider = data.provider(code: self.provider.code), let route = provider.route(code: self.route.code) else {
+        guard let provider = data.provider(code: context.provider.code), let route = provider.route(code: context.route.code) else {
             popToRootController()
             return
         }
-        self.provider = provider
-        self.route = route
+        context.provider = provider
+        context.route = route
         
-        routeLabel.setText("\(self.route.name)")
-        providerLabel.setText("\(self.provider.name)")
+        routeLabel.setText("\(context.route.name)")
+        providerLabel.setText("\(context.provider.name)")
         refreshDeparture()
     }
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        guard let route = context as? Route else {
+        guard let context = context as? Context else {
             popToRootController()
             return
         }
-        self.route = route
-        for provider in data.providers {
-            if let _ = provider.route(code: route.code) {
-                self.provider = provider
-                break
-            }
-        }
-        direction = Direction(rawValue: direction.rawValue)!
+        self.context = context
         dataDidRefresh()
     }
 }

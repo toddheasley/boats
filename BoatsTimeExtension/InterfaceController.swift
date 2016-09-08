@@ -10,10 +10,12 @@ import Foundation
 import BoatsData
 
 class InterfaceController: WKInterfaceController {
-    var data: Data = Data()
+    var data: Data {
+        return Data.shared
+    }
     
     func refreshData() {
-        data.reloadData { [weak self] completed in
+        Data.refresh { [weak self] completed in
             self?.dataDidRefresh()
         }
     }

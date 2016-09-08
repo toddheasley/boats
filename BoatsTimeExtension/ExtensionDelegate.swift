@@ -27,7 +27,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             guard let _ = error else {
                 return
             }
-            Data().reloadData()
+            Data.refresh()
         }
     }
 
@@ -40,13 +40,16 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationWillResignActive() {
         timer?.invalidate()
+        for complication in CLKComplicationServer.sharedInstance().activeComplications! {
+            CLKComplicationServer.sharedInstance().reloadTimeline(for: complication)
+        }
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
         for task in backgroundTasks {
             switch task {
             case is WKApplicationRefreshBackgroundTask:
-                Data().reloadData { _ in
+                Data.refresh { _ in
                     self.scheduleBackgroundRefresh()
                     task.setTaskCompleted()
                 }

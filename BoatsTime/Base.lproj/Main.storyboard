@@ -87,6 +87,9 @@
                                                 <imageView width="26" height="18" alignment="left" verticalAlignment="center" image="Cars" contentMode="scaleAspectFit" id="2Zd-WR-3qM"/>
                                                 <button width="1" widthAdjustment="-26" height="21" alignment="right" verticalAlignment="center" title="FROM ORIGIN" id="R6W-Oh-Lc1">
                                                     <fontDescription key="font" type="boldSystem" pointSize="10"/>
+                                                    <connections>
+                                                        <action selector="changeDirection" destination="jIc-L0-9Ag" id="hoP-Zy-NDN"/>
+                                                    </connections>
                                                 </button>
                                             </items>
                                             <edgeInsets key="margins" left="0.0" right="0.0" top="2" bottom="0.0"/>

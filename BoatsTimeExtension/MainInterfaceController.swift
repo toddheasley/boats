@@ -10,7 +10,7 @@ import Foundation
 import BoatsData
 
 class MainInterfaceController: InterfaceController {
-    private var rows: [(route: Route, provider: Provider)] = []
+    private var rows: [Context] = []
     
     @IBOutlet weak var table: WKInterfaceTable!
     
@@ -20,7 +20,7 @@ class MainInterfaceController: InterfaceController {
         rows = []
         for provider in data.providers {
             rows.append(contentsOf: provider.routes.map { route in
-                (route, provider)
+                Context(provider: provider, route: route)
             })
         }
         table.setNumberOfRows(rows.count, withRowType: "RouteRow")
@@ -36,16 +36,21 @@ class MainInterfaceController: InterfaceController {
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         super.table(table, didSelectRowAt: rowIndex)
-        pushController(withName: "Route", context: rows[rowIndex].route)
+        pushController(withName: "Route", context: rows[rowIndex])
     }
     
     override func handleUserActivity(_ userInfo: [AnyHashable : Any]?) {
         super.handleUserActivity(userInfo)
-        
+        if let context = UserDefaults.standard.context {
+            pushController(withName: "Route", context: context)
+        }
     }
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         setTitle("Boats")
+        if let context = UserDefaults.standard.context {
+            pushController(withName: "Route", context: context)
+        }
     }
 }

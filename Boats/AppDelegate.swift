@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        Data().reloadData { completed in
+        Data.refresh { completed in
             completionHandler(completed ? .newData : .failed)
         }
     }
