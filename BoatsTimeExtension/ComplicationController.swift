@@ -101,6 +101,24 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
                 components.minute = departure.time.minute
             }
         }
+        timelineEntries.append(CLKComplicationTimelineEntry(date: Calendar.current.date(byAdding: components, to: date)!, complicationTemplate: template(complication: complication, context: (Time.string(), destination, false))!))
         handler(timelineEntries)
+    }
+    
+    func getNextRequestedUpdateDate(handler: @escaping (Foundation.Date?) -> Void) {
+        let date = Calendar.current.startOfDay(for: Foundation.Date())
+        var components = DateComponents()
+        components.day = 1
+        handler(Calendar.current.date(byAdding: components, to: date))
+    }
+    
+    func requestedUpdateDidBegin() {
+        for complication in CLKComplicationServer.sharedInstance().activeComplications! {
+            CLKComplicationServer.sharedInstance().reloadTimeline(for: complication)
+        }
+    }
+    
+    func requestedUpdateBudgetExhausted() {
+        
     }
 }

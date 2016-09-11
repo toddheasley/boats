@@ -51,6 +51,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             case is WKApplicationRefreshBackgroundTask:
                 Data.refresh { _ in
                     self.scheduleBackgroundRefresh()
+                    for complication in CLKComplicationServer.sharedInstance().activeComplications! {
+                        CLKComplicationServer.sharedInstance().reloadTimeline(for: complication)
+                    }
                     task.setTaskCompleted()
                 }
             default:
