@@ -109,6 +109,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         let date = Calendar.current.startOfDay(for: Foundation.Date())
         var components = DateComponents()
         components.day = 1
+        components.minute = 1
         handler(Calendar.current.date(byAdding: components, to: date))
     }
     
@@ -116,9 +117,5 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         for complication in CLKComplicationServer.sharedInstance().activeComplications! {
             CLKComplicationServer.sharedInstance().reloadTimeline(for: complication)
         }
-    }
-    
-    func requestedUpdateBudgetExhausted() {
-        
     }
 }
