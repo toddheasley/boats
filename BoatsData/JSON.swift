@@ -8,11 +8,11 @@
 import Foundation
 
 protocol JSONEncoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         get
     }
 }
 
 protocol JSONDecoding {
-    init?(JSON: AnyObject)
+    init?(JSON: Any)
 }

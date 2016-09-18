@@ -8,9 +8,9 @@
 import Foundation
 
 public enum Season: String {
-    case Spring = "Spring"
-    case Summer = "Summer"
-    case Fall = "Fall"
-    case Winter = "Winter"
-    case All = ""
+    case spring = "Spring"
+    case summer = "Summer"
+    case fall = "Fall"
+    case winter = "Winter"
+    case all = ""
 }

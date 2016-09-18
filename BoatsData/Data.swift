@@ -7,79 +7,100 @@
 
 import Foundation
 
-public final class Data {
-    private let URL: NSURL = NSURL(string: "https://toddheasley.github.io/boats/data.json")!
-    public static let sharedData: Data = Data()
-    public private(set) var providers: [Provider] = []
+public let DataReloadNotification: String = "DataReloadNotification"
+
+public struct Data {
+    public fileprivate(set) var name: String = ""
+    public fileprivate(set) var description: String = ""
+    public fileprivate(set) var providers: [Provider] = []
     
-    public func provider(code: String) -> Provider? {
+    public var routes: [Route] {
+        return providers.flatMap { $0.routes }
+    }
+    
+    public func provider(route: Route) -> Provider? {
         for provider in providers {
-            if (code == provider.code) {
+            if let _ = provider.route(code: route.code) {
                 return provider
             }
         }
         return nil
     }
     
-    public func reloadData(completion: ((Bool) -> Void)?) {
-        NSURLSession.sharedSession().dataTaskWithURL(URL) { data, response, error in
-            guard let data = data, JSON = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) where self.refresh(JSON) else {
-                dispatch_async(dispatch_get_main_queue()) {
-                    completion?(false)
-                }
-                return
+    public func provider(code: String) -> Provider? {
+        for provider in providers {
+            if code == provider.code {
+                return provider
             }
-            NSUserDefaults.standardUserDefaults().data = data
-            dispatch_async(dispatch_get_main_queue()){
-                completion?(true)
-            }
-        }.resume()
-    }
-    
-    public init() {
-        if let data = NSUserDefaults.standardUserDefaults().data, JSON = try? NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) {
-            refresh(JSON)
         }
+        return nil
     }
 }
 
 extension Data: JSONEncoding, JSONDecoding {
-    private func refresh(JSON: AnyObject) -> Bool {
-        guard let JSON = JSON as? [String: AnyObject], providers = JSON["providers"] as? [AnyObject] else {
-            return false
-        }
-        self.providers = []
-        for providerJSON in providers {
-            guard let provider = Provider(JSON: providerJSON) else {
-                return false
-            }
-            self.providers.append(provider)
-        }
-        return true
-    }
-    
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
-            "providers": providers.map{$0.JSON}
+            "name": name,
+            "description": description,
+            "providers": providers.map { $0.JSON },
+            "zone": Date.formatter.timeZone.identifier
         ]
     }
     
-    convenience init?(JSON: AnyObject) {
-        self.init()
-        if (!refresh(JSON)) {
+    init?(JSON: Any) {
+        guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let description = JSON["description"] as? String, let providers = JSON["providers"] as? [AnyObject], let zone = JSON["zone"] as? String, let timeZone = TimeZone(identifier: zone) else {
             return nil
+        }
+        Date.formatter.timeZone = timeZone
+        self.name = name
+        self.description = description
+        self.providers = []
+        for providerJSON in providers {
+            guard let provider = Provider(JSON: providerJSON) else {
+                return nil
+            }
+            self.providers.append(provider)
         }
     }
 }
 
-extension NSUserDefaults {
-    var data: NSData? {
+extension Data {
+    private static let URL: Foundation.URL = Foundation.URL(string: "https://toddheasley.github.io/boats/data.json")!
+    private(set) public static var shared: Data = Data(fromDefaults: true)
+    
+    public static func refresh(completion: ((Bool) -> Void)? = nil) {
+        URLSession.shared.dataTask(with: Data.URL) { data, response, error in
+            guard let data = data, let JSON = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()), let sharedData = Data(JSON: JSON) else {
+                DispatchQueue.main.async {
+                    completion?(false)
+                }
+                return
+            }
+            UserDefaults.standard.data = data
+            Data.shared = sharedData
+            DispatchQueue.main.async{
+                completion?(true)
+            }
+            NotificationCenter.default.post(name: Notification.Name(rawValue: DataReloadNotification), object: Data.shared)
+        }.resume()
+    }
+    
+    init(fromDefaults: Bool) {
+        if fromDefaults, let data = UserDefaults.standard.data, let JSON = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()), let defaultsData = Data(JSON: JSON) {
+            self = defaultsData
+        }
+    }
+}
+
+
+extension UserDefaults {
+    var data: Foundation.Data? {
         set {
-            setObject(newValue, forKey: "data")
+            set(newValue, forKey: "data")
             synchronize()
         }
         get {
-            return objectForKey("data") as? NSData
+            return object(forKey: "data") as? Foundation.Data
         }
     }
 }

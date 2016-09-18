@@ -8,15 +8,15 @@
 import Foundation
 
 public struct Route {
-    public private(set) var name: String
-    public private(set) var code: String
-    public private(set) var destination: Location
-    public private(set) var origin: Location
-    public private(set) var schedules: [Schedule]
+    public fileprivate(set) var name: String
+    public fileprivate(set) var code: String
+    public fileprivate(set) var destination: Location
+    public fileprivate(set) var origin: Location
+    public fileprivate(set) var schedules: [Schedule]
     
-    public func schedule(date: Date) -> Schedule? {
+    public func schedule(date: Date = Date()) -> Schedule? {
         for schedule in schedules {
-            if (date.value >= schedule.dates.start.value && date.value <= schedule.dates.end.value) {
+            if schedule.contains(date: date) {
                 return schedule
             }
         }
@@ -25,23 +25,23 @@ public struct Route {
 }
 
 extension Route: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             "name": name,
             "code": code,
             "destination": destination.JSON,
             "origin": origin.JSON,
-            "schedules": schedules.map{$0.JSON}
+            "schedules": schedules.map { $0.JSON }
         ]
     }
     
-    init?(JSON: AnyObject) {
-        guard let JSON = JSON as? [String: AnyObject], name = JSON["name"] as? String, code = JSON["code"] as? String, _ = JSON["destination"], destination = Location(JSON: JSON["destination"]!), _ = JSON["origin"], origin = Location(JSON: JSON["origin"]!), _ = JSON["schedules"] as? [AnyObject] else {
+    init?(JSON: Any) {
+        guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let code = JSON["code"] as? String, let _ = JSON["destination"], let destination = Location(JSON: JSON["destination"]!), let _ = JSON["origin"], let origin = Location(JSON: JSON["origin"]!), let _ = JSON["schedules"] as? [AnyObject] else {
             return nil
         }
         var schedules: [Schedule] = []
         for scheduleJSON in (JSON["schedules"] as! [AnyObject]) {
-            guard let scheduleJSON = scheduleJSON as? [String: AnyObject], schedule = Schedule(JSON: scheduleJSON) else {
+            guard let scheduleJSON = scheduleJSON as? [String: AnyObject], let schedule = Schedule(JSON: scheduleJSON as AnyObject) else {
                 return nil
             }
             schedules.append(schedule)

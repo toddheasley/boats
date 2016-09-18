@@ -8,49 +8,81 @@
 import Foundation
 
 public struct Schedule {
-    public private(set) var season: Season
-    public private(set) var dates: (start: Date, end: Date)
-    public private(set) var holidays: [Holiday]
-    public private(set) var departures: [Departure]
+    public fileprivate(set) var season: Season
+    public fileprivate(set) var dates: (start: Date, end: Date)
+    public fileprivate(set) var holidays: [Holiday]
+    public fileprivate(set) var departures: [Departure]
     
-    public func departures(day: Day, direction: Direction = .Both) -> [Departure] {
-        return departures.filter{
-            return ($0.days.contains(day) || $0.days.contains(.Everyday)) && ($0.direction == direction || direction == .Both)
+    public var days: [Day] {
+        return Day.days.filter { contains(day: $0) || ($0 != .holiday && contains(day: .everyday)) }
+    }
+    
+    public var day: Day {
+        let date: Date = Date()
+        for holiday in holidays {
+            if holiday.date == date {
+                return .holiday
+            }
         }
+        return Day()
+    }
+    
+    public func departures(day: Day? = nil, time: Time? = nil, direction: Direction = .both) -> [Departure] {
+        return departures.filter {
+            return ($0.days.contains(day ?? self.day) || $0.days.contains(.everyday)) && ($0.direction == direction || direction == .both) && (time == nil || $0.time > time!)
+        }
+    }
+    
+    public func departure(direction: Direction = .destination) -> Departure? {
+        let time: Time = Time()
+        for departure in departures(direction: direction) {
+            if departure.time > time {
+                return departure
+            }
+        }
+        return nil
+    }
+    
+    public func contains(day: Day) -> Bool {
+        return !departures.filter { $0.days.contains(day) }.isEmpty
+    }
+    
+    public func contains(date: Date) -> Bool {
+        return date >= dates.start && date <= dates.end
     }
 }
 
 extension Schedule: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             "season": season.rawValue,
             "dates": "\(dates.start.JSON),\(dates.end.JSON)",
-            "holidays": holidays.map{$0.JSON},
-            "departures": departures.map{$0.JSON}
+            "holidays": holidays.map { $0.JSON },
+            "departures": departures.map { $0.JSON }
         ]
     }
     
-    init?(JSON: AnyObject) {
-        guard let JSON = JSON as? [String: AnyObject], _ = JSON["season"] as? String, season = Season(rawValue: JSON["season"] as! String), dates = JSON["dates"] as? String, _ = JSON["holidays"] as? [AnyObject], _ = JSON["departures"] as? [AnyObject] else {
+    init?(JSON: Any) {
+        guard let JSON = JSON as? [String: AnyObject], let _ = JSON["season"] as? String, let season = Season(rawValue: JSON["season"] as! String), let dates = JSON["dates"] as? String, let _ = JSON["holidays"] as? [AnyObject], let _ = JSON["departures"] as? [AnyObject] else {
             return nil
         }
-        let components = dates.characters.split{$0 == ","}.map{String($0)}
-        if (components.count != 2) {
+        let components = dates.characters.split { $0 == "," }.map { String($0) }
+        if components.count != 2 {
             return nil
         }
-        guard let start = Date(JSON: components[0]), end = Date(JSON: components[1]) else {
+        guard let start = Date(JSON: components[0] as AnyObject), let end = Date(JSON: components[1] as AnyObject) else {
             return nil
         }
         var holidays: [Holiday] = []
         for holidayJSON in (JSON["holidays"] as! [AnyObject]) {
-            guard let holidayJSON = holidayJSON as? [String: String], holiday = Holiday(JSON: holidayJSON) else {
+            guard let holidayJSON = holidayJSON as? [String: String], let holiday = Holiday(JSON: holidayJSON as AnyObject) else {
                 return nil
             }
             holidays.append(holiday)
         }
         var departures: [Departure] = []
         for departureJSON in (JSON["departures"] as! [AnyObject]) {
-            guard let departureJSON = departureJSON as? [String: AnyObject], departure = Departure(JSON: departureJSON) else {
+            guard let departureJSON = departureJSON as? [String: AnyObject], let departure = Departure(JSON: departureJSON as AnyObject) else {
                 return nil
             }
             departures.append(departure)

@@ -8,7 +8,7 @@
 import Foundation
 
 public enum Direction: String {
-    case Both = "<->"
-    case Destination = "->"
-    case Origin = "<-"
+    case both = "<->"
+    case destination = "->"
+    case origin = "<-"
 }

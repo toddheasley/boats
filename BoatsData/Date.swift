@@ -7,30 +7,41 @@
 
 import Foundation
 
+protocol DateEncoding {
+    var date: Foundation.Date {
+        get
+    }
+}
+
+protocol DateDecoding {
+    init(date: Foundation.Date)
+}
+
 public struct Date {
-    public private(set) var year: Int
-    public private(set) var month: Int
-    public private(set) var day: Int
+    static let formatter: DateFormatter = DateFormatter()
+    public fileprivate(set) var year: Int
+    public fileprivate(set) var month: Int
+    public fileprivate(set) var day: Int
 }
 
 extension Date: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             String(format: "%04d", year),
             String(format: "%02d", month),
             String(format: "%02d", day)
-            ].joinWithSeparator("-")
+            ].joined(separator: "-")
     }
     
-    init?(JSON: AnyObject) {
+    init?(JSON: Any) {
         guard let JSON = JSON as? String else {
             return nil
         }
-        let components = JSON.characters.split{$0 == "-"}.map{String($0)}
-        if (components.count != 3) {
+        let components = JSON.characters.split { $0 == "-" }.map { String($0) }
+        if components.count != 3 {
             return nil
         }
-        guard let year = Int(components[0]), month = Int(components[1]), day = Int(components[2]) else {
+        guard let year = Int(components[0]), let month = Int(components[1]), let day = Int(components[2]) else {
             return nil
         }
         self.year = max(1970, year)
@@ -48,28 +59,32 @@ extension Date: JSONEncoding, JSONDecoding {
     }
 }
 
-extension Date: NSDateDecoding {
-    public init?(date: NSDate = NSDate()) {
-        let dateFormatter: NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        self.init(JSON: dateFormatter.stringFromDate(date))
+extension Date: DateEncoding, DateDecoding {
+    public var date: Foundation.Date {
+        Date.formatter.dateFormat = "yyyy-MM-dd"
+        return Date.formatter.date(from: JSON as! String)!
+    }
+    
+    public init(date: Foundation.Date = Foundation.Date()) {
+        Date.formatter.dateFormat = "yyyy-MM-dd"
+        self.init(JSON: Date.formatter.string(from: date) as AnyObject)!
     }
 }
 
 extension Date: Comparable {
-    var value: Int {
+    private var value: Int {
         return Int([
             String(format: "%04d", year),
             String(format: "%02d", month),
             String(format: "%02d", day)
-        ].joinWithSeparator(""))!
+        ].joined(separator: ""))!
     }
-}
-
-public func ==(x: Date, y: Date) -> Bool {
-    return x.value == y.value
-}
-
-public func <(x: Date, y: Date) -> Bool {
-    return x.value < y.value
+    
+    public static func ==(x: Date, y: Date) -> Bool {
+        return x.value == y.value
+    }
+    
+    public static func <(x: Date, y: Date) -> Bool {
+        return x.value < y.value
+    }
 }

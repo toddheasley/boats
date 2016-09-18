@@ -8,13 +8,13 @@
 import Foundation
 
 public struct Location {
-    public private(set) var name: String
-    public private(set) var description: String
-    public private(set) var coordinate: Coordinate
+    public fileprivate(set) var name: String
+    public fileprivate(set) var description: String
+    public fileprivate(set) var coordinate: Coordinate
 }
 
 extension Location: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             "name": name,
             "description": description,
@@ -22,8 +22,8 @@ extension Location: JSONEncoding, JSONDecoding {
         ]
     }
     
-    init?(JSON: AnyObject) {
-        guard let JSON = JSON as? [String: AnyObject], name = JSON["name"] as? String, description = JSON["description"] as? String, _ = JSON["coordinate"] as? String, coordinate = Coordinate(JSON: JSON["coordinate"]!) else {
+    init?(JSON: Any) {
+        guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let description = JSON["description"] as? String, let _ = JSON["coordinate"] as? String, let coordinate = Coordinate(JSON: JSON["coordinate"]!) else {
             return nil
         }
         self.name = name

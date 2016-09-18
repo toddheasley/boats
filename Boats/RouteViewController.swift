@@ -2,195 +2,212 @@
 //  RouteViewController.swift
 //  Boats
 //
-//  (c) 2015 @toddheasley
+//  (c) 2016 @toddheasley
 //
 
 import UIKit
 import BoatsData
+import SafariServices
 
-class RouteViewController: UIViewController, UIScrollViewDelegate {
-    private var route: Route?
-    private var timer: NSTimer?
-    private var departuresTableViewControllers: [DeparturesTableViewController]!
-    private var departuresView: UIScrollView!
-    private var departuresSegmentedControl: UISegmentedControl!
-    private var detailView: UIVisualEffectView!
-    private var dismissButton: UIButton!
-    private var nameLabel: UILabel!
-    private var emptyLabel: UILabel!
-    private var seasonLabel: UILabel!
-    private var dateLabel: UILabel!
+class RouteViewController: ViewController, UINavigationControllerDelegate, UIScrollViewDelegate {
+    private static let dateFormatter: DateFormatter = DateFormatter()
+    private let scheduleViews: (destination: ScheduleView, origin: ScheduleView) = (ScheduleView(direction: .destination), ScheduleView(direction: .origin))
     
-    private var direction: Direction = .Destination {
-        didSet {
-            departuresSegmentedControl.selectedSegmentIndex = (direction == .Destination) ? 0 : 1
-            departuresView.setContentOffset(CGPointMake((direction == .Destination) ? 0.0 : departuresView.bounds.size.width, 0.0), animated: view.window != nil)
+    var provider: Provider!
+    var route: Route!
+    
+    @IBOutlet weak var routeLabel: UILabel!
+    @IBOutlet weak var seasonLabel: UILabel!
+    @IBOutlet weak var directionControl: UISegmentedControl!
+    @IBOutlet weak var topSeparator: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bottomSeparator: UIView!
+    @IBOutlet weak var providerButton: UIButton!
+    @IBOutlet weak var popButton: UIButton!
+    
+    @IBAction func changeDirection(_ sender: AnyObject?) {
+        scrollView.setContentOffset(CGPoint(x: (scrollView.bounds.size.width * CGFloat(directionControl.selectedSegmentIndex)), y: 0.0), animated: true)
+    }
+    
+    @IBAction func openProviderURL(_ sender: AnyObject?) {
+        present(SFSafariViewController(url: URL(string: provider.www)!), animated: true, completion: nil)
+    }
+    
+    @IBAction func pop(_ sender: AnyObject?) {
+        let _ = navigationController?.popViewController(animated: true)
+    }
+    
+    override func dataDidRefresh() {
+        super.dataDidRefresh()
+        
+        guard let provider = data.provider(code: self.provider.code), let route = provider.route(code: self.route.code) else {
+            let _ = navigationController?.popViewController(animated: true)
+            return
         }
-    }
-    
-    func refresh(sender: AnyObject?) {
-        nameLabel.text = ""
-        emptyLabel.text = ""
-        dateLabel.text = ""
-        departuresSegmentedControl.hidden = true
-        if let route = route {
-            nameLabel.text = route.name
-            guard let date = Date(), let schedule = route.schedule(date) else {
-                emptyLabel.text = "No schedule available"
-                departuresView.hidden = true
-                return
+        self.provider = provider
+        self.route = route
+        
+        routeLabel.text = "\(route.name)"
+        if let schedule = route.schedule() {
+            RouteViewController.dateFormatter.dateFormat = "MMM d, yyyy"
+            switch schedule.season {
+            case .all:
+                seasonLabel.text = "Year-Round"
+            default:
+                seasonLabel.text = "\(schedule.season.rawValue): \(RouteViewController.dateFormatter.string(from: schedule.dates.start.date)) - \(RouteViewController.dateFormatter.string(from: schedule.dates.end.date))"
             }
-            let dateFormatter: NSDateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "EE, MMM d"
-            dateLabel.text = "\(schedule.season.rawValue) Schedule: \(dateFormatter.stringFromDate(NSDate()))"
-            departuresSegmentedControl.setTitle("From \(route.origin.name)", forSegmentAtIndex: 0)
-            departuresSegmentedControl.setTitle("To \(route.origin.name)", forSegmentAtIndex: 1)
-            departuresSegmentedControl.hidden = false
-            var day: Day = .Everyday
-            if let _ = Day() {
-                day = Day()!
-            }
-            for holiday in schedule.holidays {
-                if (holiday.date == date) {
-                    day = .Holiday
-                    dateFormatter.dateFormat = "EE, MMM d"
-                    dateLabel.text = "\(Day.Holiday.rawValue) Schedule: \(dateFormatter.stringFromDate(NSDate())) (\(holiday.name))"
-                }
-            }
-            departuresTableViewControllers[0].departures = schedule.departures(day, direction: .Destination)
-            departuresTableViewControllers[1].departures = schedule.departures(day, direction: .Origin)
-            departuresView.hidden = false
+            scheduleViews.destination.schedule = schedule
+            scheduleViews.origin.schedule = schedule
+        } else {
+            seasonLabel.text = "Schedule Unavailable"
+            scheduleViews.destination.schedule = nil
+            scheduleViews.origin.schedule = nil
         }
+        directionControl.setTitle("From \(route.origin.name)".uppercased(), forSegmentAt: 0)
+        directionControl.setTitle("To \(route.origin.name)".uppercased(), forSegmentAt: 1)
+        providerButton.setTitle("Operated by \(provider.name)", for: .normal)
     }
     
-    func dismiss(sender: AnyObject?) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func changeDirection(sender: AnyObject?) {
-        switch departuresSegmentedControl.selectedSegmentIndex {
-        case 1:
-            direction = .Origin
-        default:
-            direction = .Destination
-        }
-    }
-    
-    func applicationWillEnterForeground() {
-        timer?.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(30.0), target: self, selector: #selector(RouteViewController.refresh(_:)), userInfo: nil, repeats: true)
-        refresh(self)
-    }
-    
-    func applicationDidEnterBackground() {
-        timer?.invalidate()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+    override func modeDidChange() {
+        super.modeDidChange()
         
-        emptyLabel = UILabel(frame: CGRect(x: 0.0, y: 100.0, width: view.bounds.width, height: view.bounds.height - 100.0))
-        emptyLabel.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        emptyLabel.textColor = UIColor.grayColor()
-        emptyLabel.textAlignment = .Center
-        view.addSubview(emptyLabel)
-        
-        departuresView = UIScrollView(frame: view.bounds)
-        departuresView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        departuresView.showsHorizontalScrollIndicator = false
-        departuresView.showsVerticalScrollIndicator = false
-        departuresView.bounces = false
-        departuresView.pagingEnabled = true
-        departuresView.delegate = self
-        view.addSubview(departuresView)
-        
-        departuresTableViewControllers = [
-            DeparturesTableViewController(),
-            DeparturesTableViewController()
-        ]
-        departuresTableViewControllers[0].tableView.contentInset = UIEdgeInsetsMake(123.0, 0.0, 0.0, 0.0)
-        departuresTableViewControllers[1].tableView.contentInset = departuresTableViewControllers[0].tableView.contentInset
-        departuresTableViewControllers[0].tableView.scrollIndicatorInsets = departuresTableViewControllers[0].tableView.contentInset
-        departuresTableViewControllers[1].tableView.scrollIndicatorInsets = departuresTableViewControllers[0].tableView.contentInset
-        departuresView.addSubview(departuresTableViewControllers[0].view)
-        departuresView.addSubview(departuresTableViewControllers[1].view)
-        
-        detailView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight))
-        detailView.frame = CGRectMake(0.0, 0.0, view.bounds.size.width, 123.0)
-        detailView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        view.addSubview(detailView)
-        
-        let layer = CALayer()
-        layer.frame = CGRectMake(0.0, detailView.bounds.size.height - 0.5, detailView.bounds.size.width, 0.5)
-        layer.backgroundColor = UIColor.lightGrayColor().CGColor
-        detailView.layer.addSublayer(layer)
-        
-        nameLabel = UILabel(frame: CGRectMake(65.0, 31.0, detailView.bounds.size.width - 130.0, 19.0))
-        nameLabel.autoresizingMask = [.FlexibleWidth]
-        nameLabel.font = UIFont.boldSystemFontOfSize(15.0)
-        nameLabel.numberOfLines = 1
-        nameLabel.textAlignment = .Center
-        detailView.contentView.addSubview(nameLabel)
-        
-        dateLabel = UILabel(frame: CGRectMake(10.0, 53.0, view.bounds.size.width - 20.0, 19.0))
-        dateLabel.autoresizingMask = [.FlexibleWidth]
-        dateLabel.font = UIFont.systemFontOfSize(13.0)
-        dateLabel.numberOfLines = 1
-        dateLabel.textAlignment = .Center
-        dateLabel.alpha = 0.8
-        detailView.contentView.addSubview(dateLabel)
-        
-        dismissButton = UIButton()
-        dismissButton.titleLabel?.font = UIFont.boldSystemFontOfSize(15.0)
-        dismissButton.setTitleColor(dismissButton.tintColor, forState: .Normal)
-        dismissButton.setTitle("Done", forState: .Normal)
-        dismissButton.sizeToFit()
-        dismissButton.frame = CGRectMake(view.bounds.size.width - 61.0, 20.0, 61.0, 41.0)
-        dismissButton.autoresizingMask = [.FlexibleLeftMargin]
-        dismissButton.addTarget(self, action: #selector(RouteViewController.dismiss(_:)), forControlEvents: .TouchUpInside)
-        detailView.contentView.addSubview(dismissButton)
-        
-        departuresSegmentedControl = UISegmentedControl(items: ["", ""])
-        departuresSegmentedControl.frame = CGRectMake(10.0, detailView.bounds.size.height - departuresSegmentedControl.frame.size.height - 11.0, detailView.bounds.size.width - 20.0, departuresSegmentedControl.frame.size.height)
-        departuresSegmentedControl.autoresizingMask = [.FlexibleWidth]
-        departuresSegmentedControl.selectedSegmentIndex = 0
-        departuresSegmentedControl.addTarget(self, action: #selector(RouteViewController.changeDirection(_:)), forControlEvents: .ValueChanged)
-        detailView.contentView.addSubview(departuresSegmentedControl)
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RouteViewController.applicationWillEnterForeground), name: UIApplicationWillEnterForegroundNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RouteViewController.applicationDidEnterBackground), name: UIApplicationDidEnterBackgroundNotification, object: nil)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        applicationWillEnterForeground()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        applicationDidEnterBackground()
+        routeLabel.textColor = .foreground(mode: mode)
+        seasonLabel.textColor = routeLabel.textColor
+        directionControl.tintColor = .tint(mode: mode)
+        topSeparator.backgroundColor = routeLabel.textColor.withAlphaComponent(0.2)
+        scrollView.backgroundColor = .background(mode: mode)
+        scheduleViews.destination.color = routeLabel.textColor
+        scheduleViews.origin.color = routeLabel.textColor
+        bottomSeparator.backgroundColor = topSeparator.backgroundColor
+        providerButton.setTitleColor(routeLabel.textColor, for: .normal)
+        popButton.setImage(UIImage(named: "Pop")?.tint(color: directionControl.tintColor), for: .normal)
+        popButton.setImage(UIImage(named: "Pop")?.tint(color: directionControl.tintColor.withAlphaComponent(0.4)), for: .highlighted)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        departuresView.contentSize = CGSizeMake(departuresView.bounds.size.width * 2.0, departuresView.bounds.size.height)
-        departuresTableViewControllers[0].view.frame = departuresView.bounds
-        departuresTableViewControllers[1].view.frame = CGRectMake(departuresView.bounds.size.width, 0.0, departuresView.bounds.size.width, departuresView.bounds.size.height)
+        scrollView.contentSize.width = scrollView.bounds.size.width * 2.0
+        scrollView.contentSize.height = scrollView.bounds.size.height
+        scrollViewDidEndDecelerating(scrollView)
+        
+        scheduleViews.destination.frame.size = scrollView.bounds.size
+        scheduleViews.origin.frame.size = scrollView.bounds.size
+        scheduleViews.origin.frame.origin.x = scrollView.bounds.size.width
     }
     
-    convenience init(route: Route) {
-        self.init()
-        self.route = route
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        dataDidRefresh()
+        modeDidChange()
     }
     
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        directionControl.setTitleTextAttributes([
+            NSFontAttributeName: UIFont.systemFont(ofSize: 9.0, weight: UIFontWeightHeavy)
+        ], for: .normal)
+        
+        scrollView.addSubview(scheduleViews.destination)
+        scrollView.addSubview(scheduleViews.origin)
+    }
+    
+    // MARK: UINavigationControllerDelegate
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return RouteViewAnimator(operation: operation)
     }
     
     // MARK: UIScrollViewDelegate
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        direction = (departuresView.contentOffset.x > 0.0) ? .Origin : .Destination
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        directionControl.selectedSegmentIndex = (scrollView.bounds.size.width > 0) ? min(Int(ceil(scrollView.contentOffset.x / scrollView.bounds.size.width)), 1) : 0
+        scrollView.setContentOffset(CGPoint(x: (scrollView.bounds.size.width * CGFloat(directionControl.selectedSegmentIndex)), y: 0.0), animated: true)
+    }
+}
+
+protocol RouteViewDelegate {
+    func routeViewRect(controller: RouteViewController) -> CGRect?
+}
+
+class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    private let duration: TimeInterval = 1.0
+    private(set) var operation: UINavigationControllerOperation = .none
+    
+    required init?(operation: UINavigationControllerOperation? = nil) {
+        super.init()
+        guard let operation = operation , operation == .push || operation == .pop else {
+            return nil
+        }
+        self.operation = operation
+    }
+    
+    // MARK: UIViewControllerAnimatedTransitioning
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        switch operation {
+        case .push, .pop:
+            return duration
+        case .none:
+            return 0.0
+        }
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? ViewController, let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? ViewController else {
+            transitionContext.completeTransition(false)
+            return
+        }
+        let view = UIView(frame: transitionContext.containerView.bounds)
+        view.frame.origin.y = view.frame.size.height
+        view.backgroundColor = .highlight()
+        
+        switch self.operation {
+        case .push:
+            if let controller = toViewController as? RouteViewController, let delegate = fromViewController as? RouteViewDelegate, let rect = delegate.routeViewRect(controller: controller) {
+                view.frame = rect
+            }
+            transitionContext.containerView.backgroundColor = fromViewController.view.backgroundColor
+            transitionContext.containerView.addSubview(fromViewController.view)
+            transitionContext.containerView.addSubview(view)
+            toViewController.view.layer.transform = CATransform3DMakeScale(1.0, 0.6, 1.0)
+            toViewController.view.alpha = 0.0
+            transitionContext.containerView.addSubview(toViewController.view)
+            UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveEaseIn, animations: {
+                fromViewController.view.layer.transform = CATransform3DMakeScale(0.8, 0.8, 1.0)
+                view.backgroundColor = toViewController.view.backgroundColor
+                view.frame = transitionContext.containerView.bounds
+                toViewController.view.layer.transform = CATransform3DIdentity
+                toViewController.view.alpha = 1.0
+            }, completion: { _ in
+                view.removeFromSuperview()
+                fromViewController.view.layer.transform = CATransform3DIdentity
+                transitionContext.completeTransition(true)
+            })
+        case .pop:
+            transitionContext.containerView.backgroundColor = toViewController.view.backgroundColor
+            transitionContext.containerView.addSubview(toViewController.view)
+            toViewController.view.frame = transitionContext.containerView.bounds
+            toViewController.view.layoutIfNeeded()
+            toViewController.view.layer.transform = CATransform3DMakeScale(0.8, 0.8, 1.0)
+            var frame = view.frame
+            if let controller = fromViewController as? RouteViewController, let delegate = toViewController as? RouteViewDelegate, let rect = delegate.routeViewRect(controller: controller) {
+                frame = rect
+            }
+            view.frame = transitionContext.containerView.bounds
+            transitionContext.containerView.addSubview(view)
+            transitionContext.containerView.addSubview(fromViewController.view)
+            UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
+                toViewController.view.layer.transform = CATransform3DIdentity
+                fromViewController.view.layer.transform = CATransform3DMakeScale(1.0, 0.6, 1.0)
+                fromViewController.view.alpha = 0.0
+                view.frame = frame
+            }, completion: { finished in
+                
+                view.removeFromSuperview()
+                transitionContext.completeTransition(true)
+            })
+        case .none:
+            transitionContext.completeTransition(false)
+        }
     }
 }

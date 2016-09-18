@@ -8,14 +8,14 @@
 import Foundation
 
 public struct Provider {
-    public private(set) var name: String
-    public private(set) var code: String
-    public private(set) var www: String
-    public private(set) var routes: [Route]
+    public fileprivate(set) var name: String
+    public fileprivate(set) var code: String
+    public fileprivate(set) var www: String
+    public fileprivate(set) var routes: [Route]
     
     public func route(code: String) -> Route? {
         for route in routes {
-            if (code == route.code) {
+            if code == route.code {
                 return route
             }
         }
@@ -24,17 +24,17 @@ public struct Provider {
 }
 
 extension Provider: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             "name": name,
             "code": code,
             "www": www,
-            "routes": routes.map{$0.JSON}
+            "routes": routes.map { $0.JSON }
         ]
     }
     
-    init?(JSON: AnyObject) {
-        guard let JSON = JSON as? [String: AnyObject], name = JSON["name"] as? String, code = JSON["code"] as? String, www = JSON["www"] as? String, _ = JSON["routes"] as? [AnyObject] else {
+    init?(JSON: Any) {
+        guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let code = JSON["code"] as? String, let www = JSON["www"] as? String, let _ = JSON["routes"] as? [AnyObject] else {
             return nil
         }
         self.name = name

@@ -8,20 +8,20 @@
 import Foundation
 
 public struct Holiday {
-    public private(set) var name: String
-    public private(set) var date: Date
+    public fileprivate(set) var name: String
+    public fileprivate(set) var date: Date
 }
 
 extension Holiday: JSONEncoding, JSONDecoding {
-    var JSON: AnyObject {
+    var JSON: Any {
         return [
             "name": name,
             "date": date.JSON
         ]
     }
     
-    init?(JSON: AnyObject) {
-        guard let JSON = JSON as? [String: AnyObject], name = JSON["name"] as? String, _ = JSON["date"] as? String, date = Date(JSON: JSON["date"]!) else {
+    init?(JSON: Any) {
+        guard let JSON = JSON as? [String: AnyObject], let name = JSON["name"] as? String, let _ = JSON["date"] as? String, let date = Date(JSON: JSON["date"]!) else {
             return nil
         }
         self.name = name
