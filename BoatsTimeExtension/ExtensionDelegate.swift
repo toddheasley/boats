@@ -14,7 +14,7 @@ typealias Date = BoatsData.Date
 let TimeChangeNotification: Notification.Name = Notification.Name("TimeChangeNotification")
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
-    private let refreshInterval: TimeInterval = 12.0 * 60.0 * 60.0
+    private let refreshInterval: TimeInterval = 4.0 * 60.0 * 60.0
     private let timeInterval: TimeInterval = 5.0
     private var timer: Timer?
     
