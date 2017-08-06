@@ -1,6 +1,2 @@
 .DS_Store
-build/
-DerivedData
 xcuserdata
-*.xccheckout
-*.xcuserstate
