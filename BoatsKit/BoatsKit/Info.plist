@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>BoatsKit</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -18,8 +20,6 @@
 	<string>3.0</string>
 	<key>CFBundleVersion</key>
 	<string>0</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2017 @toddheasley. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
 </dict>

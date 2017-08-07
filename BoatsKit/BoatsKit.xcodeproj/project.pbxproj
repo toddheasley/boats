@@ -7,27 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C27DEF91F37C8410010B7D8 /* BoatsKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C27DEF81F37C8410010B7D8 /* BoatsKitTests.swift */; };
-		5C27DEFB1F37C8410010B7D8 /* BoatsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C27DEED1F37C8410010B7D8 /* BoatsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C33E98D1F37FE9F00D6EF27 /* BoatsKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C33E98C1F37FE9F00D6EF27 /* BoatsKitTests.swift */; };
+		5C33E98F1F37FEA000D6EF27 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CAF9C8A1F37D07500F8A02B /* BoatsKit.framework */; };
+		5CAF9C8D1F37DD7F00F8A02B /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
+		5CDFBF4F1F37FB7A008523C1 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
+		5CDFBF501F37FB7A008523C1 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
+		5CEB152D1F37F85100347A43 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5C27DEF51F37C8410010B7D8 /* PBXContainerItemProxy */ = {
+		5C33E9901F37FEA000D6EF27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5C27DEE11F37C8410010B7D8 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5C27DEE91F37C8410010B7D8;
-			remoteInfo = BoatsKit;
+			remoteInfo = BoatsKitMac;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C27DEEA1F37C8410010B7D8 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BoatsKit.framework; path = /Users/toddheasley/Documents/Boats/boats/BoatsKit/build/Debug/BoatsKit.framework; sourceTree = "<absolute>"; };
-		5C27DEED1F37C8410010B7D8 /* BoatsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoatsKit.h; sourceTree = "<group>"; };
 		5C27DEEE1F37C8410010B7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C27DEF31F37C8410010B7D8 /* BoatsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BoatsKitTests.xctest; path = /Users/toddheasley/Documents/Boats/boats/BoatsKit/build/Debug/BoatsKitTests.xctest; sourceTree = "<absolute>"; };
-		5C27DEF81F37C8410010B7D8 /* BoatsKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsKitTests.swift; sourceTree = "<group>"; };
-		5C27DEFA1F37C8410010B7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C33E98A1F37FE9F00D6EF27 /* BoatsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C33E98C1F37FE9F00D6EF27 /* BoatsKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsKitTests.swift; sourceTree = "<group>"; };
+		5C33E98E1F37FEA000D6EF27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C4E8EF31F37F9140039EA25 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9A66F61F37F78000A32A3B /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CAF9C8A1F37D07500F8A02B /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsKit.swift; sourceTree = "<group>"; };
+		5CDFBF471F37FB20008523C1 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +45,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C27DEF01F37C8410010B7D8 /* Frameworks */ = {
+		5C33E9871F37FE9F00D6EF27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C33E98F1F37FEA000D6EF27 /* BoatsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C4E8EEF1F37F9140039EA25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C9A66F21F37F78000A32A3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CDFBF431F37FB20008523C1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -52,24 +81,29 @@
 			isa = PBXGroup;
 			children = (
 				5C27DEEC1F37C8410010B7D8 /* BoatsKit */,
-				5C27DEF71F37C8410010B7D8 /* BoatsKitTests */,
+				5C33E98B1F37FE9F00D6EF27 /* BoatsKitTests */,
+				5CAF9C8A1F37D07500F8A02B /* BoatsKit.framework */,
+				5C9A66F61F37F78000A32A3B /* BoatsKit.framework */,
+				5C4E8EF31F37F9140039EA25 /* BoatsKit.framework */,
+				5CDFBF471F37FB20008523C1 /* BoatsKit.framework */,
+				5C33E98A1F37FE9F00D6EF27 /* BoatsKitTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
 		5C27DEEC1F37C8410010B7D8 /* BoatsKit */ = {
 			isa = PBXGroup;
 			children = (
-				5C27DEED1F37C8410010B7D8 /* BoatsKit.h */,
+				5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */,
 				5C27DEEE1F37C8410010B7D8 /* Info.plist */,
 			);
 			path = BoatsKit;
 			sourceTree = "<group>";
 		};
-		5C27DEF71F37C8410010B7D8 /* BoatsKitTests */ = {
+		5C33E98B1F37FE9F00D6EF27 /* BoatsKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				5C27DEF81F37C8410010B7D8 /* BoatsKitTests.swift */,
-				5C27DEFA1F37C8410010B7D8 /* Info.plist */,
+				5C33E98C1F37FE9F00D6EF27 /* BoatsKitTests.swift */,
+				5C33E98E1F37FEA000D6EF27 /* Info.plist */,
 			);
 			path = BoatsKitTests;
 			sourceTree = "<group>";
@@ -81,16 +115,36 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C27DEFB1F37C8410010B7D8 /* BoatsKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C4E8EF01F37F9140039EA25 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C9A66F31F37F78000A32A3B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CDFBF441F37FB20008523C1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5C27DEE91F37C8410010B7D8 /* BoatsKit */ = {
+		5C27DEE91F37C8410010B7D8 /* BoatsKitMac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C27DEFE1F37C8410010B7D8 /* Build configuration list for PBXNativeTarget "BoatsKit" */;
+			buildConfigurationList = 5C27DEFE1F37C8410010B7D8 /* Build configuration list for PBXNativeTarget "BoatsKitMac" */;
 			buildPhases = (
 				5C27DEE51F37C8410010B7D8 /* Sources */,
 				5C27DEE61F37C8410010B7D8 /* Frameworks */,
@@ -102,28 +156,85 @@
 			);
 			dependencies = (
 			);
-			name = BoatsKit;
+			name = BoatsKitMac;
 			productName = BoatsKit;
-			productReference = 5C27DEEA1F37C8410010B7D8 /* BoatsKit.framework */;
+			productReference = 5CAF9C8A1F37D07500F8A02B /* BoatsKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5C27DEF21F37C8410010B7D8 /* BoatsKitTests */ = {
+		5C33E9891F37FE9F00D6EF27 /* BoatsKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C27DF011F37C8410010B7D8 /* Build configuration list for PBXNativeTarget "BoatsKitTests" */;
+			buildConfigurationList = 5C33E9921F37FEA000D6EF27 /* Build configuration list for PBXNativeTarget "BoatsKitTests" */;
 			buildPhases = (
-				5C27DEEF1F37C8410010B7D8 /* Sources */,
-				5C27DEF01F37C8410010B7D8 /* Frameworks */,
-				5C27DEF11F37C8410010B7D8 /* Resources */,
+				5C33E9861F37FE9F00D6EF27 /* Sources */,
+				5C33E9871F37FE9F00D6EF27 /* Frameworks */,
+				5C33E9881F37FE9F00D6EF27 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5C27DEF61F37C8410010B7D8 /* PBXTargetDependency */,
+				5C33E9911F37FEA000D6EF27 /* PBXTargetDependency */,
 			);
 			name = BoatsKitTests;
 			productName = BoatsKitTests;
-			productReference = 5C27DEF31F37C8410010B7D8 /* BoatsKitTests.xctest */;
+			productReference = 5C33E98A1F37FE9F00D6EF27 /* BoatsKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5C4E8EF21F37F9140039EA25 /* BoatsKitWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C4E8EFA1F37F9140039EA25 /* Build configuration list for PBXNativeTarget "BoatsKitWatch" */;
+			buildPhases = (
+				5C4E8EEE1F37F9140039EA25 /* Sources */,
+				5C4E8EEF1F37F9140039EA25 /* Frameworks */,
+				5C4E8EF01F37F9140039EA25 /* Headers */,
+				5C4E8EF11F37F9140039EA25 /* Resources */,
+				5C27DF041F37CB780010B7D8 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsKitWatch;
+			productName = BoatsKitWatch;
+			productReference = 5C4E8EF31F37F9140039EA25 /* BoatsKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5C9A66F51F37F78000A32A3B /* BoatsKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C9A66FD1F37F78000A32A3B /* Build configuration list for PBXNativeTarget "BoatsKit" */;
+			buildPhases = (
+				5C9A66F11F37F78000A32A3B /* Sources */,
+				5C9A66F21F37F78000A32A3B /* Frameworks */,
+				5C9A66F31F37F78000A32A3B /* Headers */,
+				5C9A66F41F37F78000A32A3B /* Resources */,
+				5C27DF041F37CB780010B7D8 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsKit;
+			productName = BoatsKit;
+			productReference = 5C9A66F61F37F78000A32A3B /* BoatsKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5CDFBF461F37FB20008523C1 /* BoatsKitTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CDFBF4E1F37FB20008523C1 /* Build configuration list for PBXNativeTarget "BoatsKitTV" */;
+			buildPhases = (
+				5CDFBF421F37FB20008523C1 /* Sources */,
+				5CDFBF431F37FB20008523C1 /* Frameworks */,
+				5CDFBF441F37FB20008523C1 /* Headers */,
+				5CDFBF451F37FB20008523C1 /* Resources */,
+				5C27DF041F37CB780010B7D8 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsKitTV;
+			productName = BoatsKitTV;
+			productReference = 5CDFBF471F37FB20008523C1 /* BoatsKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -137,10 +248,22 @@
 				TargetAttributes = {
 					5C27DEE91F37C8410010B7D8 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
-					5C27DEF21F37C8410010B7D8 = {
+					5C33E9891F37FE9F00D6EF27 = {
 						CreatedOnToolsVersion = 9.0;
+					};
+					5C4E8EF21F37F9140039EA25 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					5C9A66F51F37F78000A32A3B = {
+						CreatedOnToolsVersion = 9.0;
+					};
+					5CDFBF461F37FB20008523C1 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -156,8 +279,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C27DEE91F37C8410010B7D8 /* BoatsKit */,
-				5C27DEF21F37C8410010B7D8 /* BoatsKitTests */,
+				5C9A66F51F37F78000A32A3B /* BoatsKit */,
+				5C4E8EF21F37F9140039EA25 /* BoatsKitWatch */,
+				5CDFBF461F37FB20008523C1 /* BoatsKitTV */,
+				5C27DEE91F37C8410010B7D8 /* BoatsKitMac */,
+				5C33E9891F37FE9F00D6EF27 /* BoatsKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -170,7 +296,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C27DEF11F37C8410010B7D8 /* Resources */ = {
+		5C33E9881F37FE9F00D6EF27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C4E8EF11F37F9140039EA25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C9A66F41F37F78000A32A3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CDFBF451F37FB20008523C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -201,24 +348,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CAF9C8D1F37DD7F00F8A02B /* BoatsKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C27DEEF1F37C8410010B7D8 /* Sources */ = {
+		5C33E9861F37FE9F00D6EF27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C27DEF91F37C8410010B7D8 /* BoatsKitTests.swift in Sources */,
+				5C33E98D1F37FE9F00D6EF27 /* BoatsKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C4E8EEE1F37F9140039EA25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CDFBF4F1F37FB7A008523C1 /* BoatsKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C9A66F11F37F78000A32A3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CEB152D1F37F85100347A43 /* BoatsKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CDFBF421F37FB20008523C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CDFBF501F37FB7A008523C1 /* BoatsKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5C27DEF61F37C8410010B7D8 /* PBXTargetDependency */ = {
+		5C33E9911F37FEA000D6EF27 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5C27DEE91F37C8410010B7D8 /* BoatsKit */;
-			targetProxy = 5C27DEF51F37C8410010B7D8 /* PBXContainerItemProxy */;
+			target = 5C27DEE91F37C8410010B7D8 /* BoatsKitMac */;
+			targetProxy = 5C33E9901F37FEA000D6EF27 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -272,6 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -326,6 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -338,11 +512,12 @@
 		5C27DEFF1F37C8410010B7D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -351,9 +526,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = BoatsKit;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -361,11 +537,12 @@
 		5C27DF001F37C8410010B7D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -374,36 +551,185 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = BoatsKit;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
-		5C27DF021F37C8410010B7D8 /* Debug */ = {
+		5C33E9931F37FEA000D6EF27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsKitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		5C27DF031F37C8410010B7D8 /* Release */ = {
+		5C33E9941F37FEA000D6EF27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsKitTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		5C4E8EF81F37F9140039EA25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
+				PRODUCT_NAME = BoatsKit;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		5C4E8EF91F37F9140039EA25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
+				PRODUCT_NAME = BoatsKit;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		5C9A66FB1F37F78000A32A3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BoatsKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5C9A66FC1F37F78000A32A3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BoatsKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5CDFBF4C1F37FB20008523C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
+				PRODUCT_NAME = BoatsKit;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		5CDFBF4D1F37FB20008523C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
+				PRODUCT_NAME = BoatsKit;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.0;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -419,7 +745,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C27DEFE1F37C8410010B7D8 /* Build configuration list for PBXNativeTarget "BoatsKit" */ = {
+		5C27DEFE1F37C8410010B7D8 /* Build configuration list for PBXNativeTarget "BoatsKitMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C27DEFF1F37C8410010B7D8 /* Debug */,
@@ -428,11 +754,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C27DF011F37C8410010B7D8 /* Build configuration list for PBXNativeTarget "BoatsKitTests" */ = {
+		5C33E9921F37FEA000D6EF27 /* Build configuration list for PBXNativeTarget "BoatsKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C27DF021F37C8410010B7D8 /* Debug */,
-				5C27DF031F37C8410010B7D8 /* Release */,
+				5C33E9931F37FEA000D6EF27 /* Debug */,
+				5C33E9941F37FEA000D6EF27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C4E8EFA1F37F9140039EA25 /* Build configuration list for PBXNativeTarget "BoatsKitWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C4E8EF81F37F9140039EA25 /* Debug */,
+				5C4E8EF91F37F9140039EA25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C9A66FD1F37F78000A32A3B /* Build configuration list for PBXNativeTarget "BoatsKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C9A66FB1F37F78000A32A3B /* Debug */,
+				5C9A66FC1F37F78000A32A3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CDFBF4E1F37FB20008523C1 /* Build configuration list for PBXNativeTarget "BoatsKitTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CDFBF4C1F37FB20008523C1 /* Debug */,
+				5CDFBF4D1F37FB20008523C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
