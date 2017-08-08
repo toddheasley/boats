@@ -1,0 +1,8 @@
+{
+    "name": "Ferry Schedules",
+    "description": "Islands of Casco Bay",
+    "providers": [],
+    "timeZone": {
+        "identifier": "America/New_York"
+    }
+}

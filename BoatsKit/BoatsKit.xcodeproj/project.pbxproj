@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C33E98D1F37FE9F00D6EF27 /* BoatsKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C33E98C1F37FE9F00D6EF27 /* BoatsKitTests.swift */; };
+		5C30B6771F390E6B002A36FB /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30B6761F390E6B002A36FB /* Provider.swift */; };
+		5C30B6781F390E6B002A36FB /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30B6761F390E6B002A36FB /* Provider.swift */; };
+		5C30B6791F390E6B002A36FB /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30B6761F390E6B002A36FB /* Provider.swift */; };
+		5C30B67A1F390E6B002A36FB /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30B6761F390E6B002A36FB /* Provider.swift */; };
+		5C30B67C1F394154002A36FB /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30B67B1F394154002A36FB /* XCTestCase.swift */; };
+		5C30B67E1F3945C3002A36FB /* BoatsTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C30B67D1F3945C3002A36FB /* BoatsTests.json */; };
 		5C33E98F1F37FEA000D6EF27 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CAF9C8A1F37D07500F8A02B /* BoatsKit.framework */; };
+		5C8E49361F39045F00848AEB /* Boats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E49351F39045F00848AEB /* Boats.swift */; };
+		5C8E49381F39046C00848AEB /* BoatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E49371F39046C00848AEB /* BoatsTests.swift */; };
+		5C8E49391F39046F00848AEB /* Boats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E49351F39045F00848AEB /* Boats.swift */; };
+		5C8E493A1F39047000848AEB /* Boats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E49351F39045F00848AEB /* Boats.swift */; };
+		5C8E493B1F39047000848AEB /* Boats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E49351F39045F00848AEB /* Boats.swift */; };
 		5CAF9C8D1F37DD7F00F8A02B /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
 		5CDFBF4F1F37FB7A008523C1 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
 		5CDFBF501F37FB7A008523C1 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
@@ -27,10 +37,14 @@
 
 /* Begin PBXFileReference section */
 		5C27DEEE1F37C8410010B7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C30B6761F390E6B002A36FB /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		5C30B67B1F394154002A36FB /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		5C30B67D1F3945C3002A36FB /* BoatsTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BoatsTests.json; sourceTree = "<group>"; };
 		5C33E98A1F37FE9F00D6EF27 /* BoatsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C33E98C1F37FE9F00D6EF27 /* BoatsKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsKitTests.swift; sourceTree = "<group>"; };
 		5C33E98E1F37FEA000D6EF27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C4E8EF31F37F9140039EA25 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C8E49351F39045F00848AEB /* Boats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boats.swift; sourceTree = "<group>"; };
+		5C8E49371F39046C00848AEB /* BoatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsTests.swift; sourceTree = "<group>"; };
 		5C9A66F61F37F78000A32A3B /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAF9C8A1F37D07500F8A02B /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsKit.swift; sourceTree = "<group>"; };
@@ -94,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */,
+				5C8E49351F39045F00848AEB /* Boats.swift */,
+				5C30B6761F390E6B002A36FB /* Provider.swift */,
 				5C27DEEE1F37C8410010B7D8 /* Info.plist */,
 			);
 			path = BoatsKit;
@@ -102,7 +118,9 @@
 		5C33E98B1F37FE9F00D6EF27 /* BoatsKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				5C33E98C1F37FE9F00D6EF27 /* BoatsKitTests.swift */,
+				5C8E49371F39046C00848AEB /* BoatsTests.swift */,
+				5C30B67D1F3945C3002A36FB /* BoatsTests.json */,
+				5C30B67B1F394154002A36FB /* XCTestCase.swift */,
 				5C33E98E1F37FEA000D6EF27 /* Info.plist */,
 			);
 			path = BoatsKitTests;
@@ -300,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C30B67E1F3945C3002A36FB /* BoatsTests.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +368,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CAF9C8D1F37DD7F00F8A02B /* BoatsKit.swift in Sources */,
+				5C8E493B1F39047000848AEB /* Boats.swift in Sources */,
+				5C30B67A1F390E6B002A36FB /* Provider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +377,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C33E98D1F37FE9F00D6EF27 /* BoatsKitTests.swift in Sources */,
+				5C30B67C1F394154002A36FB /* XCTestCase.swift in Sources */,
+				5C8E49381F39046C00848AEB /* BoatsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +387,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CDFBF4F1F37FB7A008523C1 /* BoatsKit.swift in Sources */,
+				5C8E49391F39046F00848AEB /* Boats.swift in Sources */,
+				5C30B6781F390E6B002A36FB /* Provider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +397,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CEB152D1F37F85100347A43 /* BoatsKit.swift in Sources */,
+				5C8E49361F39045F00848AEB /* Boats.swift in Sources */,
+				5C30B6771F390E6B002A36FB /* Provider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +407,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CDFBF501F37FB7A008523C1 /* BoatsKit.swift in Sources */,
+				5C8E493A1F39047000848AEB /* Boats.swift in Sources */,
+				5C30B6791F390E6B002A36FB /* Provider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
