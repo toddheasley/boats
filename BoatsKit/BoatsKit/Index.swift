@@ -5,28 +5,15 @@
 
 import Foundation
 
-public struct Boats: Codable {
+public struct Index: Codable {
     public var name: String = ""
     public var description: String = ""
-    public var providers: [Provider] = []
     public var timeZone: TimeZone = .current
+    public var providers: [Provider] = []
 }
 
-extension Boats {
-    public var data: Data {
-        return try! JSONEncoder().encode(self)
-    }
-    
-    public init?(data: Data) {
-        guard let boats = try? JSONDecoder().decode(Boats.self, from: data) else {
-            return nil
-        }
-        self = boats
-    }
-}
-
-extension Boats {
-    public static func read(from url: URL, completion: @escaping (Boats?, Error?) -> Void) {
+extension Index {
+    public static func read(from url: URL, completion: @escaping (Index?, Error?) -> Void) {
         switch url.scheme ?? "" {
         case "http", "https":
             URLSession.shared.dataTask(with: url) { data, response, error in
@@ -36,7 +23,7 @@ extension Boats {
                         return
                     }
                     do {
-                        completion(try JSONDecoder().decode(Boats.self, from: data), nil)
+                        completion(try JSONDecoder().decode(Index.self, from: data), nil)
                     } catch let error {
                         completion(nil, error)
                     }
@@ -45,7 +32,7 @@ extension Boats {
         case "file":
             do {
                 let data: Data = try Data(contentsOf: url)
-                completion(try JSONDecoder().decode(Boats.self, from: data), nil)
+                completion(try JSONDecoder().decode(Index.self, from: data), nil)
             } catch let error {
                 completion(nil, error)
             }
@@ -60,7 +47,7 @@ extension Boats {
             return
         }
         do {
-            try data.write(to: url, options: Data.WritingOptions.atomic)
+            try JSONEncoder().encode(self).write(to: url, options: Data.WritingOptions.atomic)
         } catch let error {
             completion(error)
         }
