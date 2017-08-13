@@ -5,8 +5,9 @@
 
 import Foundation
 
-public struct Index: Codable {
+public struct Index: Resource, Codable {
     public var name: String = ""
+    public var uri: URI = "index"
     public var description: String = ""
     public var localization: Localization = Localization()
     public var providers: [Provider] = []

@@ -8,7 +8,7 @@ import XCTest
 extension XCTestCase {
     var data: Data? {
         guard let url: URL = url else {
-                return nil
+            return nil
         }
         return try? Data(contentsOf: url)
     }
