@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:BoatsWeb/BoatsWeb.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:BoatsKit/BoatsKit.xcodeproj">
    </FileRef>
    <FileRef
