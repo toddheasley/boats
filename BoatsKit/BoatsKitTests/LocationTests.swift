@@ -8,8 +8,8 @@ import XCTest
 
 class LocationTests: XCTestCase {
     func testCodable() {
-        guard let data: Data = try? JSONEncoder().encode(try? JSONDecoder().decode(Location.self, from: data ?? Data())),
-            let location: Location = try? JSONDecoder().decode(Location.self, from: data) else {
+        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Location.self, from: data ?? Data())),
+            let location: Location = try? JSON.decoder.decode(Location.self, from: data) else {
             XCTFail()
             return
         }

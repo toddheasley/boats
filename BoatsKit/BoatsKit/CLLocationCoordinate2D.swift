@@ -6,6 +6,12 @@
 import Foundation
 import CoreLocation
 
+extension CLLocationCoordinate2D {
+    public init() {
+        self.init(latitude: 0.0, longitude: 0.0)
+    }
+}
+
 extension CLLocationCoordinate2D: Codable {
     private enum Key: CodingKey {
         case latitude
@@ -21,9 +27,5 @@ extension CLLocationCoordinate2D: Codable {
     public init(from decoder: Decoder) throws {
         let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
         self.init(latitude: CLLocationDegrees(try container.decode(String.self, forKey: .latitude)) ?? 0.0, longitude: CLLocationDegrees(try container.decode(String.self, forKey: .longitude)) ?? 0.0)
-    }
-    
-    public init() {
-        self.init(latitude: 0.0, longitude: 0.0)
     }
 }

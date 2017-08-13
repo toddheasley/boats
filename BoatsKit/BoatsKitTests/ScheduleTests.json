@@ -1,0 +1,16 @@
+{
+    "season": {
+        "season": "summer",
+        "dateInterval": {
+            "start": "2017-07-01T04:00:00Z",
+            "duration": 2592000.0
+        }
+    },
+    "holidays": [
+        {
+            "name": "Independence Day",
+            "date": "2017-07-04T04:00:00Z"
+        }
+    ],
+    "departures": []
+}
