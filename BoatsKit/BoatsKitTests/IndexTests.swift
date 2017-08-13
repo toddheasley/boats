@@ -14,6 +14,7 @@ class IndexTests: XCTestCase {
             return
         }
         XCTAssertEqual(index.name, "Ferry Schedules")
+        XCTAssertEqual(index.uri, "index")
         XCTAssertEqual(index.description, "Islands of Casco Bay")
         XCTAssertEqual(index.localization.timeZone, TimeZone(identifier: "America/New_York"))
         XCTAssertEqual(index.providers.count, 0)

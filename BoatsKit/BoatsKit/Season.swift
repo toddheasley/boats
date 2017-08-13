@@ -20,6 +20,10 @@ public enum Season {
             return nil
         }
     }
+    
+    public func contains(date: Date) -> Bool {
+        return dateInterval?.contains(date) ?? true
+    }
 }
 
 extension Season: Codable {

@@ -12,5 +12,39 @@
             "date": "2017-07-04T04:00:00Z"
         }
     ],
-    "departures": []
+    "departures": [
+        {
+            "direction": "destination",
+            "time": "14:30:00Z",
+            "days": [
+                {
+                    "day": "friday"
+                },
+                {
+                    "day": "saturday"
+                }
+            ],
+            "services": []
+        },
+        {
+            "direction": "destination",
+            "time": "18:30:00Z",
+            "days": [
+                {
+                    "day": "holiday"
+                },
+            ],
+            "services": []
+        },
+        {
+            "direction": "origin",
+            "time": "10:00:00Z",
+            "days": [
+                {
+                    "day": "monday"
+                },
+            ],
+            "services": []
+        }
+    ]
 }

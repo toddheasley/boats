@@ -14,6 +14,15 @@ class DayTests: XCTestCase {
             XCTAssertNil(day.date)
         }
     }
+    
+    func testLocalization() {
+        let localization: Localization = Localization(timeZone: TimeZone(identifier: "America/Los_Angeles")!)
+        let date: Date = Date()
+        XCTAssertEqual(Day(localization: localization, date: date), DateFormatter(localization: localization).day(from: date))
+        XCTAssertEqual(Day(localization: localization, date: date, holidays: [
+            Holiday(name: "", date: date)
+        ]), Day.holiday)
+    }
 }
 
 extension DayTests {

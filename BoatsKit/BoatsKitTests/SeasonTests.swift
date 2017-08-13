@@ -15,6 +15,14 @@ class SeasonTests: XCTestCase {
         XCTAssertEqual(Season.winter(dateInterval).dateInterval, dateInterval)
         XCTAssertNil(Season.evergreen.dateInterval)
     }
+    
+    func testContainsDate() {
+        let dateInterval: DateInterval = DateInterval(start: Date(timeIntervalSinceNow: -30.0), duration: 60.0)
+        XCTAssertFalse(Season.summer(dateInterval).contains(date: Date(timeIntervalSinceNow: -60.0)))
+        XCTAssertFalse(Season.summer(dateInterval).contains(date: Date(timeIntervalSinceNow: 60.0)))
+        XCTAssertTrue(Season.summer(dateInterval).contains(date: Date()))
+        XCTAssertTrue(Season.evergreen.contains(date: Date()))
+    }
 }
 
 extension SeasonTests {

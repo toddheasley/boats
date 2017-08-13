@@ -14,6 +14,7 @@ class ProviderTests: XCTestCase {
             return
         }
         XCTAssertEqual(provider.name, "Casco Bay Lines")
+        XCTAssertEqual(provider.uri, "cbl")
         XCTAssertEqual(provider.routes.count, 0)
         XCTAssertEqual(provider.url, URL(string: "https://www.cascobaylines.com"))
     }

@@ -26,6 +26,16 @@ public enum Day {
             return nil
         }
     }
+    
+    public init(localization: Localization, date: Date = Date(), holidays: [Holiday] = []) {
+        for holiday in holidays {
+            if holiday.date == date {
+                self = .holiday
+                return
+            }
+        }
+        self = DateFormatter(localization: localization).day(from: date)
+    }
 }
 
 extension Day: Codable {

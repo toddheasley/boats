@@ -14,6 +14,7 @@ class RouteTests: XCTestCase {
             return
         }
         XCTAssertEqual(route.name, "Peaks Island")
+        XCTAssertEqual(route.uri, "peaks")
         XCTAssertEqual(route.destination.name, "Peaks Island")
         XCTAssertEqual(route.origin.name, "Portland")
         XCTAssertEqual(route.services.count, 2)

@@ -19,15 +19,20 @@ extension DateFormatter {
 
 extension DateFormatter {
     public var localization: Localization {
-        var localization: Localization = Localization(timeZone: timeZone)
-        localization.locale = locale
-        return localization
+        set {
+            timeZone = newValue.timeZone
+            locale = newValue.locale
+        }
+        get {
+            var localization: Localization = Localization(timeZone: timeZone)
+            localization.locale = locale
+            return localization
+        }
     }
     
     public convenience init(localization: Localization) {
         self.init()
-        self.timeZone = localization.timeZone
-        self.locale = localization.locale
+        self.localization = localization
     }
 }
 
