@@ -14,7 +14,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5CC120F31F40EFE0004CFE2C"
+               BlueprintIdentifier = "5CFB25FF1F42A1590066C80C"
                BuildableName = "BoatsWebTests.xctest"
                BlueprintName = "BoatsWebTests"
                ReferencedContainer = "container:BoatsWeb.xcodeproj">
@@ -33,7 +33,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5CC120F31F40EFE0004CFE2C"
+               BlueprintIdentifier = "5CFB25FF1F42A1590066C80C"
                BuildableName = "BoatsWebTests.xctest"
                BlueprintName = "BoatsWebTests"
                ReferencedContainer = "container:BoatsWeb.xcodeproj">
@@ -57,7 +57,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5CC120F31F40EFE0004CFE2C"
+            BlueprintIdentifier = "5CFB25FF1F42A1590066C80C"
             BuildableName = "BoatsWebTests.xctest"
             BlueprintName = "BoatsWebTests"
             ReferencedContainer = "container:BoatsWeb.xcodeproj">
@@ -75,7 +75,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5CC120F31F40EFE0004CFE2C"
+            BlueprintIdentifier = "5CFB25FF1F42A1590066C80C"
             BuildableName = "BoatsWebTests.xctest"
             BlueprintName = "BoatsWebTests"
             ReferencedContainer = "container:BoatsWeb.xcodeproj">

@@ -5,17 +5,29 @@
 
 import Foundation
 
+public protocol URIResource {
+    var uri: URI {
+        get
+    }
+}
+
 public struct URI: ExpressibleByStringLiteral, CustomStringConvertible {
     private var value: String = ""
+    public private(set) var type: String = ""
     
     public var description: String {
         return value
     }
     
-    public init(stringLiteral value: String) {
+    public init(stringLiteral value: String, type: String) {
         self.value = String(value.characters.filter { character in
             "\(character)".rangeOfCharacter(from: .urlPathAllowed) != nil
-        }).replacingOccurrences(of: "/", with: "").lowercased()
+        }).components(separatedBy: ".")[0].replacingOccurrences(of: "/", with: "").lowercased()
+        self.type = type
+    }
+    
+    public init(stringLiteral value: String) {
+        self.init(stringLiteral: value, type: "")
     }
 }
 

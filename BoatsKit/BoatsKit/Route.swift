@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Route: Resource, Codable {
+public struct Route: URIResource, Codable {
     public var name: String = ""
     public var uri: URI = ""
     public var destination: Location = Location()

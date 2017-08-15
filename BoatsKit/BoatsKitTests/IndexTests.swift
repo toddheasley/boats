@@ -22,8 +22,20 @@ class IndexTests: XCTestCase {
 }
 
 extension IndexTests {
-    func testRead() {
-        guard let url: URL = url else {
+    func testDataCoding() {
+        guard let index: Index = try? Index(data: data ?? Data()),
+            let _: Data = try? index.data() else {
+            XCTFail()
+            return
+        }
+    }
+}
+
+extension IndexTests {
+    func testURLReading() {
+        let url: URL = URL(fileURLWithPath: "\(NSTemporaryDirectory())")
+        guard let data: Data = data,
+            let _ = try? data.write(to: url.appendingPathComponent("index.json")) else {
             XCTFail()
             return
         }
@@ -42,13 +54,13 @@ extension IndexTests {
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     
-    func testWrite() {
+    func testURLWriting() {
         guard let index: Index = try? JSON.decoder.decode(Index.self, from: data ?? Data())  else {
             XCTFail()
             return
         }
         let expect: XCTestExpectation = expectation(description: "")
-        index.write(to: URL(fileURLWithPath: "\(NSTemporaryDirectory())/IndexTests.json")) { error in
+        index.write(to: URL(fileURLWithPath: "\(NSTemporaryDirectory())")) { error in
             XCTAssertNil(error)
             expect.fulfill()
         }

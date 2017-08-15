@@ -8,7 +8,7 @@ import XCTest
 
 class URITests: XCTestCase {
     func testExpressibleByStringLiteral() {
-        XCTAssertEqual(URI(stringLiteral: "\n/ Peaks-Island##?\r\t"), "peaks-island")
+        XCTAssertEqual(URI(stringLiteral: "\n/ Peaks/-Island.temp##?\r\t"), "peaks-island")
     }
 }
 

@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Provider: Resource {
+public struct Provider: URIResource {
     public var name: String = ""
     public var uri: URI = ""
     public var routes: [Route] = []

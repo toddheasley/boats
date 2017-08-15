@@ -5,16 +5,29 @@
 
 import Foundation
 
-public struct Index: Resource, Codable {
+public struct Index: URIResource, Codable {
     public var name: String = ""
-    public var uri: URI = "index"
     public var description: String = ""
     public var localization: Localization = Localization()
     public var providers: [Provider] = []
+    
+    public var uri: URI {
+        return "index"
+    }
 }
 
-extension Index {
+extension Index: DataCoding {
+    public func data() throws -> Data {
+        return try JSON.encoder.encode(self)
+    }
+    public init(data: Data) throws {
+        self = try JSON.decoder.decode(Index.self, from: data)
+    }
+}
+
+extension Index: URLReading, URLWriting {
     public static func read(from url: URL, completion: @escaping (Index?, Error?) -> Void) {
+        let url: URL = URL(base: url, uri: Index().uri, type: "json")
         switch url.scheme ?? "" {
         case "https":
             URLSession.shared.dataTask(with: url) { data, response, error in
@@ -24,7 +37,7 @@ extension Index {
                         return
                     }
                     do {
-                        completion(try JSON.decoder.decode(Index.self, from: data), nil)
+                        completion(try Index(data: data), nil)
                     } catch let error {
                         completion(nil, error)
                     }
@@ -33,7 +46,7 @@ extension Index {
         case "file":
             do {
                 let data: Data = try Data(contentsOf: url)
-                completion(try JSON.decoder.decode(Index.self, from: data), nil)
+                completion(try Index(data: data), nil)
             } catch let error {
                 completion(nil, error)
             }
@@ -42,14 +55,12 @@ extension Index {
         }
     }
     
-    public func write(to url: URL, prettyPrinted: Bool = false, completion: (Error?) -> Void) {
-        if prettyPrinted {
-            JSON.encoder.outputFormatting = .prettyPrinted
-        }
+    public func write(to url: URL, completion: (Error?) -> Void) {
+        let url: URL = URL(base: url, uri: Index().uri, type: "json")
         switch url.scheme ?? "" {
         case "file":
             do {
-                try JSON.encoder.encode(self).write(to: url, options: Data.WritingOptions.atomic)
+                try data().write(to: url, options: Data.WritingOptions.atomic)
                 completion(nil)
             } catch let error {
                 completion(error)
