@@ -15,6 +15,10 @@ public struct URI: ExpressibleByStringLiteral, CustomStringConvertible {
     private var value: String = ""
     public private(set) var type: String = ""
     
+    public var path: String {
+        return "\(value)\(!type.isEmpty ? ".\(type)" : "")"
+    }
+    
     public var description: String {
         return value
     }

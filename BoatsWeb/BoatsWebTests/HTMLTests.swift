@@ -11,11 +11,5 @@ class HTMLTests: XCTestCase {
 }
 
 extension HTMLTests {
-    func testDataEncoding() {
-        guard let _ = try? HTML(stringLiteral: "").data() else {
-            XCTFail()
-            return
-        }
-    }
+    
 }
-

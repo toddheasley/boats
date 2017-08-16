@@ -7,10 +7,21 @@ import Foundation
 import BoatsKit
 
 public struct Site {
-    private var index: Index!
+    public private(set) var index: Index!
     
     public init(index: Index) {
         self.index = index
+    }
+}
+
+extension Site {
+    public static var appIdentifier: String? {
+        set {
+            HTML.appIdentifier = newValue
+        }
+        get {
+            return HTML.appIdentifier
+        }
     }
 }
 
