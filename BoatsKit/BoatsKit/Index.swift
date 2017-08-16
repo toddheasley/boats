@@ -14,6 +14,15 @@ public struct Index: URIResource, Codable {
     public var uri: URI {
         return "index"
     }
+    
+    public func provider(uri: URI) -> Provider? {
+        for provider in providers {
+            if provider.uri == uri {
+                return provider
+            }
+        }
+        return nil
+    }
 }
 
 extension Index: DataCoding {

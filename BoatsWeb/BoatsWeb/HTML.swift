@@ -8,8 +8,8 @@ import BoatsKit
 
 struct HTML: ExpressibleByArrayLiteral, ExpressibleByStringLiteral, CustomStringConvertible {
     typealias ArrayLiteralElement = HTML
-    private var elements: [HTML] = []
-        private var value: String?
+    private var value: String?
+    var elements: [HTML] = []
     
     var description: String {
         if elements.isEmpty,
@@ -31,8 +31,6 @@ struct HTML: ExpressibleByArrayLiteral, ExpressibleByStringLiteral, CustomString
 }
 
 extension HTML {
-    static var appIdentifier: String?
-    
     static func document(html: HTML) -> HTML {
         var document: HTML = ""
         document.elements.append(line("<!DOCTYPE html>"))
@@ -46,8 +44,8 @@ extension HTML {
         var html: HTML = ""
         html.elements.append(HTML.title(string: title))
         html.elements.append(HTML.meta(name: "viewport", content: "initial-scale=1.0"))
-        html.elements.append(HTML.meta(name: "apple-mobile-web-app-title", content: "Boats"))
-        if let appIdentifier = appIdentifier, !appIdentifier.isEmpty {
+        html.elements.append(HTML.meta(name: "apple-mobile-web-app-title", content: "\(Site.name)"))
+        if let appIdentifier = Site.appIdentifier, !appIdentifier.isEmpty {
             html.elements.append(HTML.meta(name: "apple-itunes-app", content: "app-id=\(appIdentifier)"))
         }
         html.elements.append(HTML.link(rel: "apple-touch-icon", href: "\(BookmarkIcon().uri.path)"))
@@ -113,11 +111,7 @@ extension HTML {
     }
     
     static func nav(href: String) -> HTML {
-        guard let data: Data = try? MenuIcon().data(),
-            let html: HTML = svg(data: data) else {
-            return ""
-        }
-        return HTML(stringLiteral: "<nav>\(a(href: href, html: html))</nav>")
+        return HTML(stringLiteral: "<nav>\(a(href: href, html: svg(SVG.menu)))</nav>")
     }
     
     static func title(string: String) -> HTML {
@@ -140,11 +134,14 @@ extension HTML {
         return HTML(stringLiteral: "<a href=\"\(href)\">\(html)</a>")
     }
     
-    static func svg(data: Data) -> HTML? {
-        guard let string: String = String(data: data, encoding: .utf8) else {
-            return nil
+    static func svg(_ svg: SVG) -> HTML {
+        guard let data: Data = try? svg.data(),
+            let string: String = String(data: data, encoding: .utf8) else {
+            return HTML(stringLiteral: "\(svg.rawValue)")
         }
-        return HTML(stringLiteral: string.replacingOccurrences(of: " xmlns=\"http://www.w3.org/2000/svg\"", with: "").replacingOccurrences(of: "\n", with: ""))
+        return HTML(stringLiteral: string.components(separatedBy: "\n").map { string in
+            string.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " xmlns=\"http://www.w3.org/2000/svg\"", with: "")
+        }.joined())
     }
     
     static func tab(_ html: HTML) -> HTML {

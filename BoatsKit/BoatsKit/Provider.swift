@@ -10,6 +10,15 @@ public struct Provider: URIResource {
     public var uri: URI = ""
     public var routes: [Route] = []
     public var url: URL?
+    
+    public func route(uri: URI) -> Route? {
+        for route in routes {
+            if route.uri == uri {
+                return route
+            }
+        }
+        return nil
+    }
 }
 
 extension Provider: Codable {

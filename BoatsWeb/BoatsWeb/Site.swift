@@ -7,42 +7,24 @@ import Foundation
 import BoatsKit
 
 public struct Site {
-    public private(set) var index: Index!
+    public static var name: String = "Boats"
+    public static var appIdentifier: String?
+    public private(set) var index: Index
     
     public init(index: Index) {
         self.index = index
     }
 }
 
-extension Site {
-    public static var appIdentifier: String? {
-        set {
-            HTML.appIdentifier = newValue
-        }
-        get {
-            return HTML.appIdentifier
-        }
-    }
-}
-
 extension Site: URLWriting {
     public func write(to url: URL, completion: (Error?) -> Void) {
-        completion(nil)
-        
-        /*
-        let url: URL = URL(base: url, uri: Index().uri, type: "json")
-        switch url.scheme ?? "" {
-        case "file":
-            do {
-                try JSON.encoder.encode(self).write(to: url, options: Data.WritingOptions.atomic)
-                completion(nil)
-            } catch let error {
-                completion(error)
+        IndexView(index: index).document.write(to: url, completion: completion)
+        for provider in index.providers {
+            for route in provider.routes {
+                RouteView(index: index, provider: provider, route: route).document.write(to: url, completion: completion)
             }
-        default:
-            completion(NSError(domain: NSURLErrorDomain, code: NSURLErrorUnsupportedURL, userInfo: nil))
         }
-        */
-        
+        Stylesheet().write(to: url, completion: completion)
+        BookmarkIcon().write(to: url, completion: completion)
     }
 }

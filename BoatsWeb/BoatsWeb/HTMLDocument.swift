@@ -13,11 +13,12 @@ protocol HTMLView {
 }
 
 struct HTMLDocument: URIResource {
-    private(set) var uri: URI = ""
-    var html: HTML = ""
+    private(set) var uri: URI
+    var html: HTML
     
-    init(uri: URI) {
+    init(uri: URI, html: HTML = "") {
         self.uri = URI(stringLiteral: "\(uri)", type: "html")
+        self.html = html
     }
 }
 
