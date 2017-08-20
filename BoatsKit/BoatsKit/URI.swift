@@ -33,6 +33,11 @@ public struct URI: ExpressibleByStringLiteral, CustomStringConvertible {
     public init(stringLiteral value: String) {
         self.init(stringLiteral: value, type: "")
     }
+    
+    public init(path: String) {
+        let components: [String] = path.components(separatedBy: ".")
+        self.init(stringLiteral: components[0], type: components.count > 1 ? components.last! : "")
+    }
 }
 
 extension URI: Codable {
@@ -47,8 +52,12 @@ extension URI: Codable {
     }
 }
 
-extension URI: Equatable {
+extension URI: Hashable {
+    public var hashValue: Int {
+        return path.hashValue
+    }
+    
     public static func ==(x: URI, y: URI) -> Bool {
-        return x.value == y.value
+        return x.hashValue == y.hashValue
     }
 }

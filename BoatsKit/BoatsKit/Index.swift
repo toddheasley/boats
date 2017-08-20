@@ -29,6 +29,7 @@ extension Index: DataCoding {
     public func data() throws -> Data {
         return try JSON.encoder.encode(self)
     }
+    
     public init(data: Data) throws {
         self = try JSON.decoder.decode(Index.self, from: data)
     }
@@ -64,7 +65,7 @@ extension Index: URLReading, URLWriting {
         }
     }
     
-    public func write(to url: URL, completion: (Error?) -> Void) {
+    public func write(to url: URL, completion: @escaping (Error?) -> Void) {
         let url: URL = URL(base: url, uri: Index().uri, type: "json")
         switch url.scheme ?? "" {
         case "file":

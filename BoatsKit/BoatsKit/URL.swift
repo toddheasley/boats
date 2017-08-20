@@ -6,11 +6,11 @@
 import Foundation
 
 public protocol URLReading {
-    static func read(from url: URL, completion: @escaping (Index?, Error?) -> Void)
+    static func read(from url: URL, completion: @escaping (Self?, Error?) -> Void)
 }
 
 public protocol URLWriting {
-    func write(to url: URL, completion: (Error?) -> Void)
+    func write(to url: URL, completion: @escaping (Error?) -> Void)
 }
 
 extension URL {

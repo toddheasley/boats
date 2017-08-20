@@ -34,9 +34,11 @@ extension HTML {
     static func document(html: HTML) -> HTML {
         var document: HTML = ""
         document.elements.append(line("<!DOCTYPE html>"))
+        document.elements.append(line(HTML(stringLiteral: "<html manifest=\"\(Manifest().uri.path)\">")))
         for element in html.elements {
-            document.elements.append(line(element))
+            document.elements.append(line(tab(element)))
         }
+        document.elements.append("</html>")
         return document
     }
     

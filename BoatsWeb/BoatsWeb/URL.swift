@@ -7,7 +7,7 @@ import Foundation
 import BoatsKit
 
 extension URLWriting where Self: URIResource, Self: DataEncoding {
-    public func write(to url: URL, completion: (Error?) -> Void) {
+    public func write(to url: URL, completion: @escaping (Error?) -> Void) {
         let url: URL = URL(base: url, uri: uri, type: uri.type)
         switch url.scheme ?? "" {
         case "file":

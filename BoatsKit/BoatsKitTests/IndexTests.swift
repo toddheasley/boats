@@ -39,17 +39,11 @@ extension IndexTests {
             XCTFail()
             return
         }
-        let expect1: XCTestExpectation = expectation(description: "")
+        let expect: XCTestExpectation = expectation(description: "")
         Index.read(from: url) { index, error in
-            XCTAssertNotNil(index)
             XCTAssertNil(error)
-            expect1.fulfill()
-        }
-        let expect2: XCTestExpectation = expectation(description: "")
-        Index.read(from: url) { index, error in
             XCTAssertNotNil(index)
-            XCTAssertNil(error)
-            expect2.fulfill()
+            expect.fulfill()
         }
         waitForExpectations(timeout: 1.0, handler: nil)
     }
