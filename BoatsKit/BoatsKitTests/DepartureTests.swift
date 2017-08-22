@@ -8,7 +8,7 @@ import XCTest
 
 class DepartureTests: XCTestCase {
     func testCodable() {
-        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Departure.self, from: data ?? Data())),
+        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Departure.self, from: data(for: .mock, type: "json") ?? Data())),
             let departure: Departure = try? JSON.decoder.decode(Departure.self, from: data) else {
             XCTFail()
             return

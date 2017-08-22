@@ -8,7 +8,7 @@ import XCTest
 
 class IndexTests: XCTestCase {
     func testCodable() {
-        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Index.self, from: data ?? Data())),
+        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Index.self, from: data(for: .mock, type: "json") ?? Data())),
             let index: Index = try? JSON.decoder.decode(Index.self, from: data) else {
             XCTFail()
             return
@@ -23,7 +23,7 @@ class IndexTests: XCTestCase {
 
 extension IndexTests {
     func testDataCoding() {
-        guard let index: Index = try? Index(data: data ?? Data()),
+        guard let index: Index = try? Index(data: data(for: .mock, type: "json") ?? Data()),
             let _: Data = try? index.data() else {
             XCTFail()
             return
@@ -33,9 +33,8 @@ extension IndexTests {
 
 extension IndexTests {
     func testURLReading() {
-        let url: URL = URL(fileURLWithPath: "\(NSTemporaryDirectory())")
-        guard let data: Data = data,
-            let _ = try? data.write(to: url.appendingPathComponent("index.json")) else {
+        guard let url: URL = url(for: .temp, resource: "index", type: "json"),
+            let data: Data = data(for: .mock, type: "json"), let _ = try? data.write(to: url) else {
             XCTFail()
             return
         }
@@ -49,12 +48,13 @@ extension IndexTests {
     }
     
     func testURLWriting() {
-        guard let index: Index = try? JSON.decoder.decode(Index.self, from: data ?? Data())  else {
+        guard let index: Index = try? JSON.decoder.decode(Index.self, from: data(for: .mock, type: "json") ?? Data()),
+            let url: URL = url(for: .temp, type: "json") else {
             XCTFail()
             return
         }
         let expect: XCTestExpectation = expectation(description: "")
-        index.write(to: URL(fileURLWithPath: "\(NSTemporaryDirectory())")) { error in
+        index.write(to: url) { error in
             XCTAssertNil(error)
             expect.fulfill()
         }

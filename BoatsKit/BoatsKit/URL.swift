@@ -9,6 +9,10 @@ public protocol URLReading {
     static func read(from url: URL, completion: @escaping (Self?, Error?) -> Void)
 }
 
+public protocol URLDeleting {
+    func delete(from url: URL, completion: @escaping (Error?) -> Void)
+}
+
 public protocol URLWriting {
     func write(to url: URL, completion: @escaping (Error?) -> Void)
 }

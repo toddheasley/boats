@@ -16,30 +16,43 @@ public struct Site {
     }
 }
 
-extension Site: URLWriting {
+extension Site: URLWriting, URLDeleting {
     public func write(to url: URL, completion: @escaping (Error?) -> Void) {
-        remove(from: url) { error in
+        let handler: (Error?) -> Void = { error in
             if let error = error {
                 completion(error)
                 return
             }
-            let manifest: Manifest = Manifest()
-            IndexView(index: self.index).document.write(to: url, completion: completion)
+        }
+        
+        delete(from: url) { error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            var manifest: Manifest = Manifest()
+            let document: HTMLDocument = IndexView(index: self.index).document
+            document.write(to: url, completion: handler)
+            manifest.uris.insert(document.uri)
             for provider in self.index.providers {
                 for route in provider.routes {
-                    RouteView(index: self.index, provider: provider, route: route).document.write(to: url, completion: completion)
+                    let document: HTMLDocument = RouteView(index: self.index, provider: provider, route: route).document
+                    document.write(to: url, completion: handler)
+                    manifest.uris.insert(document.uri)
                 }
             }
-            Stylesheet().write(to: url, completion: completion)
-            BookmarkIcon().write(to: url, completion: completion)
+            Stylesheet().write(to: url, completion: handler)
+            manifest.uris.insert(Stylesheet().uri)
+            BookmarkIcon().write(to: url, completion: handler)
+            manifest.uris.insert(BookmarkIcon().uri)
             manifest.write(to: url, completion: completion)
         }
     }
     
-    public func remove(from url: URL, completion: @escaping (Error?) -> Void) {
-        Manifest.read(from: url) { manifest, error in
+    public func delete(from url: URL, completion: @escaping (Error?) -> Void) {
+        Manifest.read(from: url) { manifest, _ in
             guard let manifest = manifest else {
-                completion(error)
+                completion(nil)
                 return
             }
             for uri in manifest.uris + [manifest.uri] {

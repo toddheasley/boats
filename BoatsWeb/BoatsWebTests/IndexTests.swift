@@ -4,7 +4,6 @@
 //
 
 import XCTest
-import CoreLocation
 @testable import BoatsWeb
 
 class IndexTests: XCTestCase {

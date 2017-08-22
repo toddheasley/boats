@@ -27,7 +27,7 @@ class SeasonTests: XCTestCase {
 
 extension SeasonTests {
     func testCodable() {
-        guard let data1: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Season.self, from: data ?? Data())),
+        guard let data1: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Season.self, from: data(for: .mock, type: "json") ?? Data())),
             let season1: Season = try? JSON.decoder.decode(Season.self, from: data1) else {
             XCTFail()
             return

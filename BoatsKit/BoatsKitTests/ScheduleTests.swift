@@ -8,7 +8,7 @@ import XCTest
 
 class ScheduleTests: XCTestCase {
     func testDecodable() {
-        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Schedule.self, from: data ?? Data())),
+        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Schedule.self, from: data(for: .mock, type: "json") ?? Data())),
             let schedule: Schedule = try? JSON.decoder.decode(Schedule.self, from: data) else {
             XCTFail()
             return
@@ -19,7 +19,7 @@ class ScheduleTests: XCTestCase {
     }
     
     func testDays() {
-        guard let schedule: Schedule = try? JSON.decoder.decode(Schedule.self, from: data ?? Data()) else {
+        guard let schedule: Schedule = try? JSON.decoder.decode(Schedule.self, from: data(for: .mock, type: "json") ?? Data()) else {
             XCTFail()
             return
         }
@@ -27,7 +27,7 @@ class ScheduleTests: XCTestCase {
     }
     
     func testContainsDay() {
-        guard let schedule: Schedule = try? JSON.decoder.decode(Schedule.self, from: data ?? Data()) else {
+        guard let schedule: Schedule = try? JSON.decoder.decode(Schedule.self, from: data(for: .mock, type: "json") ?? Data()) else {
             XCTFail()
             return
         }
@@ -36,7 +36,7 @@ class ScheduleTests: XCTestCase {
     }
     
     func testDepartures() {
-        guard let schedule: Schedule = try? JSON.decoder.decode(Schedule.self, from: data ?? Data()) else {
+        guard let schedule: Schedule = try? JSON.decoder.decode(Schedule.self, from: data(for: .mock, type: "json") ?? Data()) else {
             XCTFail()
             return
         }
@@ -47,7 +47,7 @@ class ScheduleTests: XCTestCase {
     }
     
     func testNext() {
-        guard let schedule: Schedule = try? JSON.decoder.decode(Schedule.self, from: data ?? Data()) else {
+        guard let schedule: Schedule = try? JSON.decoder.decode(Schedule.self, from: data(for: .mock, type: "json") ?? Data()) else {
             XCTFail()
             return
         }

@@ -9,12 +9,18 @@ import BoatsKit
 extension Index {
     public func write(to url: URL, web: Bool, completion: @escaping (Error?) -> Void) {
         write(to: url) { error in
-            guard web, error == nil else {
+            if let error = error {
                 completion(error)
                 return
             }
-            Site(index: self).write(to: url) { error in
-                completion(error)
+            if web {
+                Site(index: self).write(to: url) { error in
+                    completion(error)
+                }
+            } else {
+                Site(index: self).delete(from: url) { error in
+                    completion(error)
+                }
             }
         }
     }

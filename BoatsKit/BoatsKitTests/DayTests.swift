@@ -27,7 +27,7 @@ class DayTests: XCTestCase {
 
 extension DayTests {
     func testCodable() {
-        guard let data1: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Day.self, from: data ?? Data())),
+        guard let data1: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Day.self, from: data(for: .mock, type: "json") ?? Data())),
             let day1: Day = try? JSON.decoder.decode(Day.self, from: data1) else {
             XCTFail()
             return

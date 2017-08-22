@@ -12,27 +12,24 @@ class ManifestTests: XCTestCase {
 
 extension ManifestTests {
     func testDataCoding() {
-        guard let url: URL = Bundle(for: type(of: self)).url(forResource: String(describing: type(of: self)), withExtension: "appcache"),
-            let data: Data = try? Data(contentsOf: url),
+        guard let data: Data = data(for: .mock, type: "appcache"),
             let manifest: Manifest = try? Manifest(data: data),
             let _: Data = try? manifest.data() else {
                 XCTFail()
                 return
         }
-        
     }
 }
 
 extension ManifestTests {
     func testURLReading() {
-        guard let url: URL = Bundle(for: type(of: self)).url(forResource: String(describing: type(of: self)), withExtension: "appcache"),
-            let data: Data = try? Data(contentsOf: url),
-            let _  = try? data.write(to: URL(fileURLWithPath: "\(NSTemporaryDirectory())").appendingPathComponent("manifest.appcache")) else {
-            XCTFail()
-            return
+        guard let url: URL = url(for: .temp, resource: "manifest", type: "appcache"),
+            let data: Data = data(for: .mock, type: "appcache"), let _ = try? data.write(to: url) else {
+                XCTFail()
+                return
         }
         let expect: XCTestExpectation = expectation(description: "")
-        Manifest.read(from: URL(fileURLWithPath: "\(NSTemporaryDirectory())")) { manifest, error in
+        Manifest.read(from: url) { manifest, error in
             XCTAssertNil(error)
             XCTAssertEqual(manifest?.uris.count, 3)
             expect.fulfill()

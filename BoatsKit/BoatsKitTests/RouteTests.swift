@@ -8,7 +8,7 @@ import XCTest
 
 class RouteTests: XCTestCase {
     func testDecodable() {
-        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Route.self, from: data ?? Data())),
+        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Route.self, from: data(for: .mock, type: "json") ?? Data())),
             let route: Route = try? JSON.decoder.decode(Route.self, from: data) else {
             XCTFail()
             return
@@ -22,7 +22,7 @@ class RouteTests: XCTestCase {
     }
     
     func testSchedule() {
-        guard let route: Route = try? JSON.decoder.decode(Route.self, from: data ?? Data()) else {
+        guard let route: Route = try? JSON.decoder.decode(Route.self, from: data(for: .mock, type: "json") ?? Data()) else {
             XCTFail()
             return
         }

@@ -33,6 +33,8 @@
 		5C7A1C451F43E28100AE9F7A /* HTMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1C441F43E28100AE9F7A /* HTMLTests.swift */; };
 		5C9F2B241F49C6610047F09D /* ManifestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F2B231F49C6610047F09D /* ManifestTests.swift */; };
 		5C9F2B261F49CA8E0047F09D /* ManifestTests.appcache in Resources */ = {isa = PBXBuildFile; fileRef = 5C9F2B251F49CA8E0047F09D /* ManifestTests.appcache */; };
+		5CC755C91F4A357F00C8FCC5 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC755C81F4A357F00C8FCC5 /* XCTestCase.swift */; };
+		5CC755CB1F4A62A300C8FCC5 /* SiteTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CC755CA1F4A62A300C8FCC5 /* SiteTests.json */; };
 		5CE767C51F44DD52003A76EE /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE767C41F44DD52003A76EE /* Manifest.swift */; };
 		5CE767C61F44DD52003A76EE /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE767C41F44DD52003A76EE /* Manifest.swift */; };
 		5CEFFFE31F4359C700918DFA /* HTMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEFFFE21F4359C700918DFA /* HTMLDocument.swift */; };
@@ -80,6 +82,8 @@
 		5C9F2B231F49C6610047F09D /* ManifestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestTests.swift; sourceTree = "<group>"; };
 		5C9F2B251F49CA8E0047F09D /* ManifestTests.appcache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ManifestTests.appcache; sourceTree = "<group>"; };
 		5CC120F61F40EFE0004CFE2C /* IndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexTests.swift; sourceTree = "<group>"; };
+		5CC755C81F4A357F00C8FCC5 /* XCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		5CC755CA1F4A62A300C8FCC5 /* SiteTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SiteTests.json; sourceTree = "<group>"; };
 		5CE767C41F44DD52003A76EE /* Manifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
 		5CEFFFE21F4359C700918DFA /* HTMLDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLDocument.swift; sourceTree = "<group>"; };
 		5CEFFFE51F435A5D00918DFA /* HTMLDocumentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLDocumentTests.swift; sourceTree = "<group>"; };
@@ -177,8 +181,10 @@
 				5C9F2B231F49C6610047F09D /* ManifestTests.swift */,
 				5C9F2B251F49CA8E0047F09D /* ManifestTests.appcache */,
 				5CFB26101F42A4E50066C80C /* SiteTests.swift */,
+				5CC755CA1F4A62A300C8FCC5 /* SiteTests.json */,
 				5CFB26151F42A7D60066C80C /* StylesheetTests.swift */,
 				5C53E1841F445F8600B2C89F /* SVGTests.swift */,
+				5CC755C81F4A357F00C8FCC5 /* XCTestCase.swift */,
 				5CFB26041F42A1590066C80C /* Info.plist */,
 			);
 			path = BoatsWebTests;
@@ -328,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC755CB1F4A62A300C8FCC5 /* SiteTests.json in Resources */,
 				5C9F2B261F49CA8E0047F09D /* ManifestTests.appcache in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +408,7 @@
 				5CFB260B1F42A17F0066C80C /* BookmarkIconTests.swift in Sources */,
 				5C53E1851F445F8600B2C89F /* SVGTests.swift in Sources */,
 				5CFB260C1F42A1840066C80C /* IndexTests.swift in Sources */,
+				5CC755C91F4A357F00C8FCC5 /* XCTestCase.swift in Sources */,
 				5CEFFFE61F435A5D00918DFA /* HTMLDocumentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

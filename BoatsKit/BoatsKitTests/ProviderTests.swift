@@ -8,7 +8,7 @@ import XCTest
 
 class ProviderTests: XCTestCase {
     func testCodable() {
-        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Provider.self, from: data ?? Data())),
+        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Provider.self, from: data(for: .mock, type: "json") ?? Data())),
             let provider: Provider = try? JSON.decoder.decode(Provider.self, from: data) else {
             XCTFail()
             return
