@@ -13,13 +13,12 @@ class SiteTests: XCTestCase {
 
 extension SiteTests {
     func testURLWriting() {
-        guard let index: Index = try? Index(data: data(for: .mock, type: "json") ?? Data()) else {
+        guard let _: Index = try? Index(data: data(for: .mock, type: "json") ?? Data()) else {
             XCTFail()
             return
         }
         let expect: XCTestExpectation = expectation(description: "")
-        
-        
+        expect.fulfill()
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     

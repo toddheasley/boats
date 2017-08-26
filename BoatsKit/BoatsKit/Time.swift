@@ -18,10 +18,6 @@ public struct Time {
 }
 
 extension Time {
-    public var date: Date {
-        return Date(timeIntervalSince1970: timeInterval)
-    }
-    
     public init(from date: Date = Date()) {
         var calendar: Calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!

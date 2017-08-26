@@ -31,15 +31,15 @@ struct HTML: ExpressibleByArrayLiteral, ExpressibleByStringLiteral, CustomString
 }
 
 extension HTML {
-    static func document(html: HTML) -> HTML {
-        var document: HTML = ""
-        document.elements.append(line("<!DOCTYPE html>"))
-        document.elements.append(line(HTML(stringLiteral: "<html manifest=\"\(Manifest().uri.path)\">")))
-        for element in html.elements {
-            document.elements.append(line(tab(element)))
+    private static let dateFormatter: DateFormatter = DateFormatter()
+    
+    static var localization: Localization {
+        set {
+            dateFormatter.localization = newValue
         }
-        document.elements.append("</html>")
-        return document
+        get {
+            return dateFormatter.localization
+        }
     }
     
     static func head(title: String) -> HTML {
@@ -52,7 +52,38 @@ extension HTML {
         }
         html.elements.append(HTML.link(rel: "apple-touch-icon", href: "\(BookmarkIcon().uri.path)"))
         html.elements.append(HTML.link(rel: "stylesheet", href: "\(Stylesheet().uri.path)"))
+        html.elements.append(HTML.script(src: "\(Script().uri.path)"))
         return head(html: html)
+    }
+    
+    static func nav(href: String) -> HTML {
+        return nav(html: a(href: href, html: svg(SVG.menu)))
+    }
+    
+    static func header(h1: String, h2: String) -> HTML {
+        var html: HTML = ""
+        html.elements.append(HTML.h(level: 1, html: HTML(stringLiteral: h1)))
+        html.elements.append(HTML.h(level: 2, html: HTML(stringLiteral: h2)))
+        return header(html: html)
+    }
+    
+    static func time(_ time: Time) -> HTML {
+        return HTML.time(html: HTML(stringLiteral: dateFormatter.components(from: time).map { component in
+            "<span>\(component)</span>"
+        }.joined()))
+    }
+}
+
+extension HTML {
+    static func document(html: HTML) -> HTML {
+        var document: HTML = ""
+        document.elements.append(line("<!DOCTYPE html>"))
+        document.elements.append(line(HTML(stringLiteral: "<html manifest=\"\(Manifest().uri.path)\">")))
+        for element in html.elements {
+            document.elements.append(line(tab(element)))
+        }
+        document.elements.append("</html>")
+        return document
     }
     
     static func head(html: HTML) -> HTML {
@@ -75,11 +106,14 @@ extension HTML {
         return body
     }
     
-    static func header(h1: String, h2: String) -> HTML {
-        var html: HTML = ""
-        html.elements.append(HTML.h(level: 1, html: HTML(stringLiteral: h1)))
-        html.elements.append(HTML.h(level: 2, html: HTML(stringLiteral: h2)))
-        return header(html: html)
+    static func nav(html: HTML) -> HTML {
+        var nav: HTML = ""
+        nav.elements.append(line("<nav>"))
+        for element in html.elements {
+            nav.elements.append(line(tab(element)))
+        }
+        nav.elements.append("</nav>")
+        return nav
     }
     
     static func header(html: HTML) -> HTML {
@@ -112,10 +146,6 @@ extension HTML {
         return footer
     }
     
-    static func nav(href: String) -> HTML {
-        return HTML(stringLiteral: "<nav>\(a(href: href, html: svg(SVG.menu)))</nav>")
-    }
-    
     static func title(string: String) -> HTML {
         return HTML(stringLiteral: "<title>\(title)</title>")
     }
@@ -128,8 +158,24 @@ extension HTML {
         return HTML(stringLiteral: "<link rel=\"\(rel)\" href=\"\(href)\">")
     }
     
+    static func script(src: String) -> HTML {
+        return HTML(stringLiteral: "<script src=\"\(src)\" defer)></script>")
+    }
+    
     static func h(level: Int, html: HTML) -> HTML {
         return HTML(stringLiteral: "<h\(min(max(level, 1), 6))>\(html)</h\(min(max(level, 1), 6))>")
+    }
+    
+    static func table(cols: [HTML]) -> HTML {
+        return HTML(stringLiteral: "")
+    }
+    
+    static func p(html: HTML) -> HTML {
+        return HTML(stringLiteral: "<p>\(html)</p>")
+    }
+    
+    static func time(html: HTML) -> HTML {
+        return HTML(stringLiteral: "<time>\(html)</time>")
     }
     
     static func a(href: String, html: HTML) -> HTML {
@@ -144,6 +190,10 @@ extension HTML {
         return HTML(stringLiteral: string.components(separatedBy: "\n").map { string in
             string.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " xmlns=\"http://www.w3.org/2000/svg\"", with: "")
         }.joined())
+    }
+    
+    static func comment(string: String) -> HTML {
+        return HTML(stringLiteral: "<!-- \(string.replacingOccurrences(of: "\n", with: " ").trimmingCharacters(in: .whitespacesAndNewlines)) -->")
     }
     
     static func tab(_ html: HTML) -> HTML {

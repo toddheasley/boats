@@ -30,7 +30,6 @@ class TimeTests: XCTestCase {
 extension TimeTests {
     func testDate() {
         XCTAssertEqual(Time(from: Date(timeIntervalSince1970: 1498881600.0)).timeInterval, 14400.0)
-        XCTAssertEqual(Time(timeInterval: 6666.0).date, Date(timeIntervalSince1970: 6666.0))
     }
 }
 

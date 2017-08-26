@@ -6,18 +6,6 @@
 import Foundation
 
 extension DateFormatter {
-    public func string(from date: Date, format: Date.Format) -> String {
-        dateFormat = format.rawValue
-        return string(from: date)
-    }
-    
-    public func date(from string: String, format: Date.Format) -> Date? {
-        dateFormat = format.rawValue
-        return date(from: string)
-    }
-}
-
-extension DateFormatter {
     public var localization: Localization {
         set {
             timeZone = newValue.timeZone
@@ -37,9 +25,69 @@ extension DateFormatter {
 }
 
 extension DateFormatter {
+    public var is24HourTime: Bool {
+        let style: (date: Style, time: Style, format: String) = (dateStyle, timeStyle, dateFormat)
+        dateStyle = .none
+        timeStyle = .short
+        dateFormat = ""
+        let is24HouTime: Bool = !string(from: Date()).contains(" ")
+        dateStyle = style.date
+        timeStyle = style.time
+        dateFormat = style.format
+        return is24HouTime
+    }
+    
+    public func string(from time: Time = Time()) -> String {
+        let format: String = dateFormat
+        let date: Date = Date(timeIntervalSince1970: time.timeInterval + timeZone.daylightSavingTimeOffset())
+        var string: String = ""
+        if is24HourTime {
+            dateFormat = "HH:mm"
+            string = self.string(from: date)
+        } else {
+            dateFormat = "h:mm"
+            string = self.string(from: date)
+            dateFormat = "a"
+            if self.string(from: date) == pmSymbol {
+                string += "."
+            }
+        }
+        dateFormat = format
+        return string
+    }
+    
+    public func components(from time: Time = Time()) -> [String] {
+        let format: String = dateFormat
+        let date: Date = Date(timeIntervalSince1970: time.timeInterval + timeZone.daylightSavingTimeOffset())
+        var components: [String] = []
+        if is24HourTime {
+            dateFormat = "HH:mm "
+            components.append(contentsOf: self.string(from: date).characters.map { character in
+                "\(character)"
+            })
+        } else {
+            dateFormat = "hh"
+            components.append(contentsOf: self.string(from: date).replacingOccurrences(of: "0", with: " ").characters.map { character in
+                "\(character)"
+            })
+            components.append(":")
+            dateFormat = "mm"
+            components.append(contentsOf: self.string(from: date).characters.map { character in
+                "\(character)"
+            })
+            dateFormat = "a"
+            components.append(self.string(from: date) == pmSymbol ? "." : " ")
+        }
+        dateFormat = format
+        return components
+    }
+    
     public func day(from date: Date = Date()) -> Day {
+        let format: String = dateFormat
         dateFormat = "e"
-        switch Int(string(from: date))! {
+        let string: String = self.string(from: date)
+        dateFormat = format
+        switch Int(string)! {
         case 1:
             return .sunday
         case 2:
