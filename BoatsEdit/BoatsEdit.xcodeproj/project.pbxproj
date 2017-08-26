@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C85127A1F51C133006343AF /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; };
+		5C85127B1F51C133006343AF /* BoatsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5C85127E1F51C144006343AF /* BoatsWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85127D1F51C144006343AF /* BoatsWeb.framework */; };
+		5C85127F1F51C144006343AF /* BoatsWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85127D1F51C144006343AF /* BoatsWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */; };
+		5CFBB8181F51C00600BFA5CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8171F51C00600BFA5CF /* ViewController.swift */; };
+		5CFBB81A1F51C00600BFA5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB8191F51C00600BFA5CF /* Assets.xcassets */; };
+		5CFBB81D1F51C00600BFA5CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB81B1F51C00600BFA5CF /* Main.storyboard */; };
+		5CFBB8291F51C00600BFA5CF /* BoatsEditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8281F51C00600BFA5CF /* BoatsEditTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5CFBB8251F51C00600BFA5CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CFBB80A1F51C00500BFA5CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CFBB8111F51C00600BFA5CF;
+			remoteInfo = BoatsEdit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5C85127C1F51C133006343AF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5C85127B1F51C133006343AF /* BoatsKit.framework in Embed Frameworks */,
+				5C85127F1F51C144006343AF /* BoatsWeb.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5C8512791F51C133006343AF /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C85127D1F51C144006343AF /* BoatsWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C8512801F51C203006343AF /* BoatsEditTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsEditTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C8512811F51C21F006343AF /* Boats Edit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boats Edit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5CFBB8171F51C00600BFA5CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5CFBB8191F51C00600BFA5CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5CFBB81C1F51C00600BFA5CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5CFBB81E1F51C00600BFA5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CFBB81F1F51C00600BFA5CF /* BoatsEdit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsEdit.entitlements; sourceTree = "<group>"; };
+		5CFBB8281F51C00600BFA5CF /* BoatsEditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsEditTests.swift; sourceTree = "<group>"; };
+		5CFBB82A1F51C00600BFA5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CFBB80F1F51C00600BFA5CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C85127A1F51C133006343AF /* BoatsKit.framework in Frameworks */,
+				5C85127E1F51C144006343AF /* BoatsWeb.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CFBB8211F51C00600BFA5CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5CFBB8091F51C00500BFA5CF = {
+			isa = PBXGroup;
+			children = (
+				5CFBB8141F51C00600BFA5CF /* BoatsEdit */,
+				5CFBB8271F51C00600BFA5CF /* BoatsEditTests */,
+				5C8512791F51C133006343AF /* BoatsKit.framework */,
+				5C85127D1F51C144006343AF /* BoatsWeb.framework */,
+				5C8512811F51C21F006343AF /* Boats Edit.app */,
+				5C8512801F51C203006343AF /* BoatsEditTests.xctest */,
+			);
+			sourceTree = "<group>";
+		};
+		5CFBB8141F51C00600BFA5CF /* BoatsEdit */ = {
+			isa = PBXGroup;
+			children = (
+				5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */,
+				5CFBB8171F51C00600BFA5CF /* ViewController.swift */,
+				5CFBB8191F51C00600BFA5CF /* Assets.xcassets */,
+				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
+				5CFBB81F1F51C00600BFA5CF /* BoatsEdit.entitlements */,
+				5CFBB81E1F51C00600BFA5CF /* Info.plist */,
+			);
+			path = BoatsEdit;
+			sourceTree = "<group>";
+		};
+		5CFBB8271F51C00600BFA5CF /* BoatsEditTests */ = {
+			isa = PBXGroup;
+			children = (
+				5CFBB8281F51C00600BFA5CF /* BoatsEditTests.swift */,
+				5CFBB82A1F51C00600BFA5CF /* Info.plist */,
+			);
+			path = BoatsEditTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5CFBB8111F51C00600BFA5CF /* BoatsEdit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CFBB82D1F51C00600BFA5CF /* Build configuration list for PBXNativeTarget "BoatsEdit" */;
+			buildPhases = (
+				5CFBB80E1F51C00600BFA5CF /* Sources */,
+				5CFBB80F1F51C00600BFA5CF /* Frameworks */,
+				5CFBB8101F51C00600BFA5CF /* Resources */,
+				5C8512781F51C101006343AF /* Set Build Number */,
+				5C85127C1F51C133006343AF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsEdit;
+			productName = BoatsEdit;
+			productReference = 5C8512811F51C21F006343AF /* Boats Edit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5CFBB8231F51C00600BFA5CF /* BoatsEditTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CFBB8301F51C00600BFA5CF /* Build configuration list for PBXNativeTarget "BoatsEditTests" */;
+			buildPhases = (
+				5CFBB8201F51C00600BFA5CF /* Sources */,
+				5CFBB8211F51C00600BFA5CF /* Frameworks */,
+				5CFBB8221F51C00600BFA5CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CFBB8261F51C00600BFA5CF /* PBXTargetDependency */,
+			);
+			name = BoatsEditTests;
+			productName = BoatsEditTests;
+			productReference = 5C8512801F51C203006343AF /* BoatsEditTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CFBB80A1F51C00500BFA5CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "@toddheasley";
+				TargetAttributes = {
+					5CFBB8111F51C00600BFA5CF = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					5CFBB8231F51C00600BFA5CF = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5CFBB8111F51C00600BFA5CF;
+					};
+				};
+			};
+			buildConfigurationList = 5CFBB80D1F51C00500BFA5CF /* Build configuration list for PBXProject "BoatsEdit" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5CFBB8091F51C00500BFA5CF;
+			productRefGroup = 5CFBB8091F51C00500BFA5CF;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CFBB8111F51C00600BFA5CF /* BoatsEdit */,
+				5CFBB8231F51C00600BFA5CF /* BoatsEditTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CFBB8101F51C00600BFA5CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CFBB81A1F51C00600BFA5CF /* Assets.xcassets in Resources */,
+				5CFBB81D1F51C00600BFA5CF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CFBB8221F51C00600BFA5CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C8512781F51C101006343AF /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CFBB80E1F51C00600BFA5CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CFBB8181F51C00600BFA5CF /* ViewController.swift in Sources */,
+				5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CFBB8201F51C00600BFA5CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CFBB8291F51C00600BFA5CF /* BoatsEditTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5CFBB8261F51C00600BFA5CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CFBB8111F51C00600BFA5CF /* BoatsEdit */;
+			targetProxy = 5CFBB8251F51C00600BFA5CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5CFBB81B1F51C00600BFA5CF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CFBB81C1F51C00600BFA5CF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5CFBB82B1F51C00600BFA5CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5CFBB82C1F51C00600BFA5CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		5CFBB82E1F51C00600BFA5CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BoatsEdit/BoatsEdit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				INFOPLIST_FILE = BoatsEdit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit;
+				PRODUCT_NAME = "Boats Edit";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		5CFBB82F1F51C00600BFA5CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BoatsEdit/BoatsEdit.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				INFOPLIST_FILE = BoatsEdit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit;
+				PRODUCT_NAME = "Boats Edit";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		5CFBB8311F51C00600BFA5CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				INFOPLIST_FILE = BoatsEditTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boats Edit.app/Contents/MacOS/Boats Edit";
+			};
+			name = Debug;
+		};
+		5CFBB8321F51C00600BFA5CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				INFOPLIST_FILE = BoatsEditTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boats Edit.app/Contents/MacOS/Boats Edit";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CFBB80D1F51C00500BFA5CF /* Build configuration list for PBXProject "BoatsEdit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CFBB82B1F51C00600BFA5CF /* Debug */,
+				5CFBB82C1F51C00600BFA5CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CFBB82D1F51C00600BFA5CF /* Build configuration list for PBXNativeTarget "BoatsEdit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CFBB82E1F51C00600BFA5CF /* Debug */,
+				5CFBB82F1F51C00600BFA5CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CFBB8301F51C00600BFA5CF /* Build configuration list for PBXNativeTarget "BoatsEditTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CFBB8311F51C00600BFA5CF /* Debug */,
+				5CFBB8321F51C00600BFA5CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CFBB80A1F51C00500BFA5CF /* Project object */;
+}

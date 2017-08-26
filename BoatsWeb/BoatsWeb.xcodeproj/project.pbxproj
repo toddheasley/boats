@@ -137,13 +137,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C28EE3C1F505D310093080D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5C53E1861F44609B00B2C89F /* SVG */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +155,6 @@
 				5CF3571E1F40EE1200348203 /* BoatsWeb.framework */,
 				5CF3571F1F40EE1200348203 /* BoatsWeb.framework */,
 				5CFB26001F42A1590066C80C /* BoatsWebTests.xctest */,
-				5C28EE3C1F505D310093080D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
