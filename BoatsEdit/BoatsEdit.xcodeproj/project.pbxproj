@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C33B03A1F530D5D0025B1BA /* IndexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */; };
+		5C4C2D0C1F5309F300B6FBE3 /* IndexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */; };
 		5C85127A1F51C133006343AF /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; };
 		5C85127B1F51C133006343AF /* BoatsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C85127E1F51C144006343AF /* BoatsWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85127D1F51C144006343AF /* BoatsWeb.framework */; };
@@ -15,7 +17,7 @@
 		5CFBB8181F51C00600BFA5CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8171F51C00600BFA5CF /* ViewController.swift */; };
 		5CFBB81A1F51C00600BFA5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB8191F51C00600BFA5CF /* Assets.xcassets */; };
 		5CFBB81D1F51C00600BFA5CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB81B1F51C00600BFA5CF /* Main.storyboard */; };
-		5CFBB8291F51C00600BFA5CF /* BoatsEditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8281F51C00600BFA5CF /* BoatsEditTests.swift */; };
+		5CFBB8291F51C00600BFA5CF /* IndexManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8281F51C00600BFA5CF /* IndexManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManager.swift; sourceTree = "<group>"; };
 		5C8512791F51C133006343AF /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C85127D1F51C144006343AF /* BoatsWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8512801F51C203006343AF /* BoatsEditTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsEditTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +57,7 @@
 		5CFBB81C1F51C00600BFA5CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CFBB81E1F51C00600BFA5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CFBB81F1F51C00600BFA5CF /* BoatsEdit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsEdit.entitlements; sourceTree = "<group>"; };
-		5CFBB8281F51C00600BFA5CF /* BoatsEditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsEditTests.swift; sourceTree = "<group>"; };
+		5CFBB8281F51C00600BFA5CF /* IndexManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManagerTests.swift; sourceTree = "<group>"; };
 		5CFBB82A1F51C00600BFA5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +98,7 @@
 			children = (
 				5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */,
 				5CFBB8171F51C00600BFA5CF /* ViewController.swift */,
+				5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */,
 				5CFBB8191F51C00600BFA5CF /* Assets.xcassets */,
 				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
 				5CFBB81F1F51C00600BFA5CF /* BoatsEdit.entitlements */,
@@ -106,7 +110,7 @@
 		5CFBB8271F51C00600BFA5CF /* BoatsEditTests */ = {
 			isa = PBXGroup;
 			children = (
-				5CFBB8281F51C00600BFA5CF /* BoatsEditTests.swift */,
+				5CFBB8281F51C00600BFA5CF /* IndexManagerTests.swift */,
 				5CFBB82A1F51C00600BFA5CF /* Info.plist */,
 			);
 			path = BoatsEditTests;
@@ -169,7 +173,6 @@
 					5CFBB8231F51C00600BFA5CF = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 5CFBB8111F51C00600BFA5CF;
 					};
 				};
 			};
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CFBB8181F51C00600BFA5CF /* ViewController.swift in Sources */,
+				5C4C2D0C1F5309F300B6FBE3 /* IndexManager.swift in Sources */,
 				5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,7 +246,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CFBB8291F51C00600BFA5CF /* BoatsEditTests.swift in Sources */,
+				5C33B03A1F530D5D0025B1BA /* IndexManager.swift in Sources */,
+				5CFBB8291F51C00600BFA5CF /* IndexManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +415,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
@@ -419,7 +423,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boats Edit.app/Contents/MacOS/Boats Edit";
 			};
 			name = Debug;
 		};
@@ -427,7 +430,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
@@ -436,7 +438,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Boats Edit.app/Contents/MacOS/Boats Edit";
 			};
 			name = Release;
 		};

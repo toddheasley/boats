@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5CFBB8111F51C00600BFA5CF"
-               BuildableName = "BoatsEdit.app"
+               BuildableName = "Boats Edit.app"
                BlueprintName = "BoatsEdit"
                ReferencedContainer = "container:BoatsEdit.xcodeproj">
             </BuildableReference>
@@ -44,7 +44,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5CFBB8111F51C00600BFA5CF"
-            BuildableName = "BoatsEdit.app"
+            BuildableName = "Boats Edit.app"
             BlueprintName = "BoatsEdit"
             ReferencedContainer = "container:BoatsEdit.xcodeproj">
          </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5CFBB8111F51C00600BFA5CF"
-            BuildableName = "BoatsEdit.app"
+            BuildableName = "Boats Edit.app"
             BlueprintName = "BoatsEdit"
             ReferencedContainer = "container:BoatsEdit.xcodeproj">
          </BuildableReference>
@@ -87,7 +87,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5CFBB8111F51C00600BFA5CF"
-            BuildableName = "BoatsEdit.app"
+            BuildableName = "Boats Edit.app"
             BlueprintName = "BoatsEdit"
             ReferencedContainer = "container:BoatsEdit.xcodeproj">
          </BuildableReference>
