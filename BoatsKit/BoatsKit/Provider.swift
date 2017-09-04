@@ -5,9 +5,9 @@
 
 import Foundation
 
-public struct Provider: URIResource {
-    public var name: String = ""
+public struct Provider {
     public var uri: URI = ""
+    public var name: String = ""
     public var routes: [Route] = []
     public var url: URL?
     

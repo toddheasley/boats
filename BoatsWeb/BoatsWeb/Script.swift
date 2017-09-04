@@ -6,14 +6,8 @@
 import Foundation
 import BoatsKit
 
-public class Script {
-    
-}
-
-extension Script: URIResource {
-    public var uri: URI {
-        return URI(stringLiteral: "script", type: "js")
-    }
+class Script {
+    let uri: URI = "script"
 }
 
 extension Script: DataEncoding {
@@ -24,8 +18,3 @@ extension Script: DataEncoding {
         return try Data(contentsOf: url)
     }
 }
-
-extension Script: URLWriting {
-    
-}
-

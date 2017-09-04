@@ -6,14 +6,8 @@
 import Foundation
 import BoatsKit
 
-public class BookmarkIcon {
-    
-}
-
-extension BookmarkIcon: URIResource {
-    public var uri: URI {
-        return URI(stringLiteral: "favicon", type: "png")
-    }
+class BookmarkIcon {
+    let uri: URI = "favicon"
 }
 
 extension BookmarkIcon: DataEncoding {
@@ -23,8 +17,4 @@ extension BookmarkIcon: DataEncoding {
         }
         return try Data(contentsOf: url)
     }
-}
-
-extension BookmarkIcon: URLWriting {
-    
 }

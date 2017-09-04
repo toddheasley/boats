@@ -61,14 +61,11 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        IndexManager.open { _ in
-            
-        }
     }
     
     // MARK: NSOpenSavePanelDelegate
     func panel(_ sender: Any, shouldEnable url: URL) -> Bool {
-        return IndexManager.canOpen(from: url) // || url.hasDirectoryPath
+        return false //IndexManager.canOpen(from: url) || url.hasDirectoryPath
     }
     
     func panel(_ sender: Any, validate url: URL) throws {

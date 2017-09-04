@@ -5,12 +5,6 @@
 
 import Foundation
 
-public protocol URIResource {
-    var uri: URI {
-        get
-    }
-}
-
 public struct URI: ExpressibleByStringLiteral, CustomStringConvertible {
     private var value: String = ""
     

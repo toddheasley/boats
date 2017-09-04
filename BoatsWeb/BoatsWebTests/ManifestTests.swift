@@ -10,6 +10,7 @@ class ManifestTests: XCTestCase {
     
 }
 
+/*
 extension ManifestTests {
     func testDataCoding() {
         guard let data: Data = data(for: .mock, type: "appcache"),
@@ -52,3 +53,4 @@ extension ManifestTests {
         waitForExpectations(timeout: 1.0, handler: nil)
     }
 }
+*/

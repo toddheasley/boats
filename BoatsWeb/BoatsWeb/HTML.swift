@@ -30,6 +30,7 @@ struct HTML: ExpressibleByArrayLiteral, ExpressibleByStringLiteral, CustomString
     }
 }
 
+/*
 extension HTML {
     private static let dateFormatter: DateFormatter = DateFormatter()
     
@@ -204,3 +205,4 @@ extension HTML {
         return HTML(stringLiteral: "\(html)\n")
     }
 }
+*/

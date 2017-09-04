@@ -30,6 +30,7 @@ struct IndexManager {
         }
     }
     
+    /*
     static func canOpen(from url: URL) -> Bool {
         let uri: URI = URI(stringLiteral: "\(Index().uri)", type: "json")
         if url.lastPathComponent == uri.path {
@@ -92,4 +93,5 @@ struct IndexManager {
         url = nil
         index = nil
     }
+    */
 }

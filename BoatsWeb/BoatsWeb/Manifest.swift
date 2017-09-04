@@ -7,15 +7,11 @@ import Foundation
 import BoatsKit
 
 struct Manifest {
+    let uri: URI = "manifest"
     var uris: Set<URI> = []
 }
 
-extension Manifest: URIResource {
-    var uri: URI {
-        return URI(stringLiteral: "manifest", type: "appcache")
-    }
-}
-
+/*
 extension Manifest: DataCoding {
     func data() throws -> Data {
         guard let data: Data = "CACHE MANIFEST\n\(uris.map { uri in uri.path }.joined(separator: "\n"))\n".data(using: .utf8) else {
@@ -52,3 +48,4 @@ extension Manifest: URLReading, URLWriting {
         }
     }
 }
+*/

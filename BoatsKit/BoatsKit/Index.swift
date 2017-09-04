@@ -5,15 +5,12 @@
 
 import Foundation
 
-public struct Index: URIResource, Codable {
+public struct Index: Codable {
+    public let uri: URI = "index"
     public var name: String = ""
     public var description: String = ""
     public var localization: Localization = Localization()
     public var providers: [Provider] = []
-    
-    public var uri: URI {
-        return URI(stringLiteral: "index")
-    }
     
     public func provider(uri: URI) -> Provider? {
         for provider in providers {
