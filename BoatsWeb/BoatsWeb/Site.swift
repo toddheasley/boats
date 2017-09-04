@@ -17,16 +17,24 @@ public struct Site {
 }
 
 extension Site: URLWriting, URLDeleting {
+    public func write(to url: URL) throws {
+        
+    }
+    
+    public func delete(from url: URL) throws {
+        
+    }
+    
     public func write(to url: URL, completion: @escaping (Error?) -> Void) {
         let handler: (Error?) -> Void = { error in
-            if let error = error {
+            if let error: Error = error {
                 completion(error)
                 return
             }
         }
         
         delete(from: url) { error in
-            if let error = error {
+            if let error: Error = error {
                 completion(error)
                 return
             }
@@ -51,7 +59,7 @@ extension Site: URLWriting, URLDeleting {
     
     public func delete(from url: URL, completion: @escaping (Error?) -> Void) {
         Manifest.read(from: url) { manifest, _ in
-            guard let manifest = manifest else {
+            guard let manifest: Manifest = manifest else {
                 completion(nil)
                 return
             }

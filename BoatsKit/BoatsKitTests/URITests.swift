@@ -10,12 +10,6 @@ class URITests: XCTestCase {
     func testExpressibleByStringLiteral() {
         XCTAssertEqual(URI(stringLiteral: "\n/ Peaks/-Island.temp##?\r\t"), "peaks-island")
     }
-    
-    func testPath() {
-        XCTAssertEqual(URI(path: "peaks-island.html").path, "peaks-island.html")
-        XCTAssertEqual(URI(path: "peaks-island.index.jpg").path, "peaks-island.jpg")
-        XCTAssertEqual(URI(path: "peaks-island").path, "peaks-island")
-    }
 }
 
 extension URITests {

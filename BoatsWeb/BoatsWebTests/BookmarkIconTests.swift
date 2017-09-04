@@ -12,7 +12,7 @@ class BookmarkIconTests: XCTestCase {
 
 extension BookmarkIconTests {
     func testDataEncoding() {
-        guard let _ = try? BookmarkIcon().data() else {
+        guard let _: Data = try? BookmarkIcon().data() else {
             XCTFail()
             return
         }

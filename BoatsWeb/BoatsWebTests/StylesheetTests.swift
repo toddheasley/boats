@@ -12,7 +12,7 @@ class StylesheetTests: XCTestCase {
 
 extension StylesheetTests {
     func testDataEncoding() {
-        guard let _ = try? Stylesheet().data() else {
+        guard let _: Data = try? Stylesheet().data() else {
             XCTFail()
             return
         }

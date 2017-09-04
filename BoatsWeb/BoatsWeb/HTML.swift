@@ -47,7 +47,7 @@ extension HTML {
         html.elements.append(HTML.title(string: title))
         html.elements.append(HTML.meta(name: "viewport", content: "initial-scale=1.0"))
         html.elements.append(HTML.meta(name: "apple-mobile-web-app-title", content: "\(Site.name)"))
-        if let appIdentifier = Site.appIdentifier, !appIdentifier.isEmpty {
+        if let appIdentifier: String = Site.appIdentifier, !appIdentifier.isEmpty {
             html.elements.append(HTML.meta(name: "apple-itunes-app", content: "app-id=\(appIdentifier)"))
         }
         html.elements.append(HTML.link(rel: "apple-touch-icon", href: "\(BookmarkIcon().uri.path)"))

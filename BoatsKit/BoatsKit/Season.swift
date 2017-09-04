@@ -46,7 +46,7 @@ extension Season: Codable {
         case .evergreen:
             try container.encode("", forKey: .season)
         }
-        if let dateInterval = dateInterval {
+        if let dateInterval: DateInterval = dateInterval {
             try container.encode(dateInterval, forKey: .dateInterval)
         }
     }

@@ -52,7 +52,7 @@ extension Time: Codable {
     
     public init(from decoder: Decoder) throws {
         let container: SingleValueDecodingContainer = try decoder.singleValueContainer()
-        guard let timeInterval = Time.timeInterval(from: try container.decode(String.self)) else {
+        guard let timeInterval: TimeInterval = Time.timeInterval(from: try container.decode(String.self)) else {
             throw DecodingError.dataCorruptedError(in: container, debugDescription: "")
         }
         self.timeInterval = timeInterval

@@ -13,7 +13,7 @@ class HTMLDocumentTests: XCTestCase {
 
 extension HTMLDocumentTests {
     func testDataEncoding() {
-        guard let _ = try? HTMLDocument(uri: "").data() else {
+        guard let _: Data = try? HTMLDocument(uri: "").data() else {
             XCTFail()
             return
         }

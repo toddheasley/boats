@@ -12,7 +12,7 @@ class ScriptTests: XCTestCase {
 
 extension ScriptTests {
     func testDataEncoding() {
-        guard let _ = try? Script().data() else {
+        guard let _: Data = try? Script().data() else {
             XCTFail()
             return
         }

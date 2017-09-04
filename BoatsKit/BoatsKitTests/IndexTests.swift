@@ -31,12 +31,18 @@ extension IndexTests {
     }
 }
 
+/*
 extension IndexTests {
     func testURLReading() {
         guard let url: URL = url(for: .temp, resource: "index", type: "json"),
             let data: Data = data(for: .mock, type: "json"), let _ = try? data.write(to: url) else {
             XCTFail()
             return
+        }
+        do {
+            let _: Index = try Index.read(from: url)
+        } catch {
+            XCTFail()
         }
         let expect: XCTestExpectation = expectation(description: "")
         Index.read(from: url) { index, error in
@@ -53,11 +59,10 @@ extension IndexTests {
             XCTFail()
             return
         }
-        let expect: XCTestExpectation = expectation(description: "")
-        index.write(to: url) { error in
-            XCTAssertNil(error)
-            expect.fulfill()
+        do {
+            try index.write(to: url)
+        } catch {
+            XCTFail()
         }
-        waitForExpectations(timeout: 1.0, handler: nil)
     }
-}
+}*/

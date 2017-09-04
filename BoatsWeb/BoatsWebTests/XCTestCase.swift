@@ -16,7 +16,6 @@ extension XCTestCase {
         case .mock:
             return Bundle(for: Swift.type(of: self)).url(forResource: resource ?? String(describing: Swift.type(of: self)), withExtension: type)
         case .temp:
-            print(NSTemporaryDirectory())
             return URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(resource ?? String(describing: Swift.type(of: self))).\(type)")
         }
     }
