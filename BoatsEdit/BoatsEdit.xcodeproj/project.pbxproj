@@ -46,7 +46,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5C07DB481F5F8B7F004C8ACB /* Boats Edit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Boats Edit.entitlements"; sourceTree = "<group>"; };
 		5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManager.swift; sourceTree = "<group>"; };
 		5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		5C8512791F51C133006343AF /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +56,6 @@
 		5CFBB8191F51C00600BFA5CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CFBB81C1F51C00600BFA5CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CFBB81E1F51C00600BFA5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CFBB81F1F51C00600BFA5CF /* BoatsEdit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsEdit.entitlements; sourceTree = "<group>"; };
 		5CFBB8281F51C00600BFA5CF /* IndexManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManagerTests.swift; sourceTree = "<group>"; };
 		5CFBB82A1F51C00600BFA5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,13 +95,11 @@
 		5CFBB8141F51C00600BFA5CF /* BoatsEdit */ = {
 			isa = PBXGroup;
 			children = (
-				5C07DB481F5F8B7F004C8ACB /* Boats Edit.entitlements */,
 				5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */,
 				5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */,
 				5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */,
 				5CFBB8191F51C00600BFA5CF /* Assets.xcassets */,
 				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
-				5CFBB81F1F51C00600BFA5CF /* BoatsEdit.entitlements */,
 				5CFBB81E1F51C00600BFA5CF /* Info.plist */,
 			);
 			path = BoatsEdit;
@@ -171,6 +167,11 @@
 					5CFBB8111F51C00600BFA5CF = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					5CFBB8231F51C00600BFA5CF = {
 						CreatedOnToolsVersion = 9.0;
@@ -386,7 +387,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "BoatsEdit/Boats Edit.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
@@ -402,7 +402,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "BoatsEdit/Boats Edit.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
