@@ -8,7 +8,19 @@ import XCTest
 
 class URITests: XCTestCase {
     func testExpressibleByStringLiteral() {
+        XCTAssertEqual(URI(stringLiteral: "\n/ Peaks/-Island.temp##.JSON"), "peaks-island")
+        XCTAssertEqual(URI(stringLiteral: "\n/ Peaks/-Island.temp##?.JSON").type, "json")
         XCTAssertEqual(URI(stringLiteral: "\n/ Peaks/-Island.temp##?\r\t"), "peaks-island")
+        XCTAssertNil(URI(stringLiteral: "\n/ Peaks/-Island.##?\r\t").type)
+    }
+    
+    func testResource() {
+        XCTAssertEqual(URI(resource: "\n/ Peaks/-Island.temp##?\r\t", type: "json"), "peaks-island")
+        XCTAssertEqual(URI(resource: "\n/ Peaks/-Island.temp##?\r\t", type: "json").resource, "peaks-island.json")
+        XCTAssertEqual(URI(resource: "\n/ Peaks/-Island.temp##?\r\t", type: "json").type, "json")
+        XCTAssertEqual(URI(resource: "\n/ Peaks/-Island.temp##?\r\t"), "peaks-island")
+        XCTAssertEqual(URI(resource: "\n/ Peaks/-Island.temp##?\r\t").resource, "peaks-island")
+        XCTAssertNil(URI(resource: "\n/ Peaks/-Island.temp##?\r\t").type)
     }
 }
 

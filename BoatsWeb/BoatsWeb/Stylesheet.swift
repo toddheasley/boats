@@ -7,7 +7,7 @@ import Foundation
 import BoatsKit
 
 class Stylesheet {
-    public let uri: URI = "stylesheet"
+    
 }
 
 extension Stylesheet: DataEncoding {
@@ -16,5 +16,11 @@ extension Stylesheet: DataEncoding {
             throw NSError(domain: NSURLErrorDomain, code: NSFileNoSuchFileError, userInfo: nil)
         }
         return try Data(contentsOf: url)
+    }
+}
+
+extension Stylesheet: DataResource, DataWriting, DataDeleting {
+    public var uri: URI {
+        return URI(resource: "stylesheet", type: "css")
     }
 }

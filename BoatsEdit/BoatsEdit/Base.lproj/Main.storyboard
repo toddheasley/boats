@@ -52,30 +52,30 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="Make New..." tag="1" keyEquivalent="n" id="Was-JA-tGl">
+                                        <menuItem title="Make New..." keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
                                                 <action selector="make:" target="Ady-hI-5gd" id="nxy-OZ-FHM"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Open Existing…" tag="2" keyEquivalent="o" id="IAo-SY-fd9">
+                                        <menuItem title="Open Existing…" keyEquivalent="o" id="IAo-SY-fd9">
                                             <connections>
                                                 <action selector="open:" target="Ady-hI-5gd" id="z2r-Rf-XRi"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VY3-Rs-hNG"/>
-                                        <menuItem title="Close" tag="3" keyEquivalent="w" id="jAL-0K-MzO">
+                                        <menuItem title="Close" tag="1" keyEquivalent="w" id="jAL-0K-MzO">
                                             <connections>
                                                 <action selector="close:" target="Ady-hI-5gd" id="lyV-NY-dlx"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                                        <menuItem title="Show in Finder" tag="4" id="qIS-W8-SiK">
+                                        <menuItem title="Show in Finder" tag="1" id="qIS-W8-SiK">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="preview:" target="Ady-hI-5gd" id="VMb-wg-cby"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Preview" tag="5" keyEquivalent="P" id="j4q-Nd-AF8">
+                                        <menuItem title="Preview" tag="1" keyEquivalent="P" id="j4q-Nd-AF8">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                             <connections>
                                                 <action selector="preview:" target="Ady-hI-5gd" id="cnK-ri-hBC"/>
@@ -355,10 +355,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="321"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Index View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="Boats_Edit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="IndexViewController" customModule="Boats_Edit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>

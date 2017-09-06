@@ -31,16 +31,15 @@ extension IndexTests {
     }
 }
 
-/*
 extension IndexTests {
-    func testURLReading() {
+    func testDataReading() {
         guard let url: URL = url(for: .temp, resource: "index", type: "json"),
             let data: Data = data(for: .mock, type: "json"), let _ = try? data.write(to: url) else {
             XCTFail()
             return
         }
         do {
-            let _: Index = try Index.read(from: url)
+            let _: Index = try Index(url: url)
         } catch {
             XCTFail()
         }
@@ -53,7 +52,7 @@ extension IndexTests {
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     
-    func testURLWriting() {
+    func testDataWriting() {
         guard let index: Index = try? JSON.decoder.decode(Index.self, from: data(for: .mock, type: "json") ?? Data()),
             let url: URL = url(for: .temp, type: "json") else {
             XCTFail()
@@ -65,4 +64,4 @@ extension IndexTests {
             XCTFail()
         }
     }
-}*/
+}

@@ -30,68 +30,38 @@ struct IndexManager {
         }
     }
     
-    /*
     static func canOpen(from url: URL) -> Bool {
-        let uri: URI = URI(stringLiteral: "\(Index().uri)", type: "json")
-        if url.lastPathComponent == uri.path {
+        if url.lastPathComponent == Index().uri.resource {
             return true
         } else if url.hasDirectoryPath {
-            return FileManager.default.fileExists(atPath: url.appendingPathComponent(uri.path).path)
+            return FileManager.default.fileExists(atPath: url.appending(uri: Index().uri).path)
         }
         return false
     }
     
-    static func open(from url: URL? = nil, completion: ((Error?) -> Void)? = nil) {
-        guard let url: URL = url else {
-            if let url: URL = self.url {
-                self.open(from: url, completion: completion)
-            } else {
-                completion?(nil)
-            }
+    static func open(from url: URL? = url) throws {
+        guard let url: URL = url?.directory else {
+            self.url = nil
             return
         }
-        close()
         self.url = url
-        Index.read(from: url) { index, error in
-            guard let index: Index = index else {
-                self.url = nil
-                completion?(error ?? NSError(domain: NSCocoaErrorDomain, code: NSFileReadUnknownError, userInfo: nil))
-                return
-            }
-            self.index = index
-            completion?(nil)
+        self.index = try Index(url: url)
+    }
+    
+    static func make(at url: URL) throws {
+        do {
+            try open(from: url)
+        } catch {
+            self.url = url.directory
+            try Index().write(to: url)
         }
     }
     
-    static func make(at url: URL, completion: ((Error?) -> Void)? = nil) {
-        close()
-        self.open(from: url) { error in
-            guard let _: Error = error else {
-                completion?(nil)
-                return
-            }
-            self.url = url
-            Index().write(to: url) { error in
-                
-                completion?(self.index == nil ? error : nil)
-            }
-        }
-    }
-    
-    static func save(completion: ((Error?) -> Void)? = nil) {
+    static func save() throws {
         guard let url: URL = url,
             let index: Index = index else {
-                completion?(NSError(domain: NSCocoaErrorDomain, code: NSFileWriteUnknownError, userInfo: nil))
-                return
+            throw NSError(domain: NSURLErrorDomain, code: NSURLErrorFileDoesNotExist, userInfo: nil)
         }
-        index.write(to: url, web: web) { error in
-            completion?(error)
-        }
+        try index.write(to: url)
     }
-    
-    static func close() {
-        url = nil
-        index = nil
-    }
-    */
 }

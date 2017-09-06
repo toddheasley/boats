@@ -7,7 +7,7 @@ import Foundation
 import BoatsKit
 
 class BookmarkIcon {
-    let uri: URI = "favicon"
+    
 }
 
 extension BookmarkIcon: DataEncoding {
@@ -16,5 +16,11 @@ extension BookmarkIcon: DataEncoding {
             throw NSError(domain: NSURLErrorDomain, code: NSFileNoSuchFileError, userInfo: nil)
         }
         return try Data(contentsOf: url)
+    }
+}
+
+extension BookmarkIcon: DataResource, DataWriting, DataDeleting {
+    public var uri: URI {
+        return URI(resource: "favicon", type: "png")
     }
 }

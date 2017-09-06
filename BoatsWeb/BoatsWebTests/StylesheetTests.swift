@@ -12,9 +12,6 @@ class StylesheetTests: XCTestCase {
 
 extension StylesheetTests {
     func testDataEncoding() {
-        guard let _: Data = try? Stylesheet().data() else {
-            XCTFail()
-            return
-        }
+        XCTAssertNotNil(try? Stylesheet().data())
     }
 }

@@ -6,8 +6,8 @@
 import Foundation
 
 public struct Provider {
-    public var uri: URI = ""
     public var name: String = ""
+    public var uri: URI = ""
     public var routes: [Route] = []
     public var url: URL?
     

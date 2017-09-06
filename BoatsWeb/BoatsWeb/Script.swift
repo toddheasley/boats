@@ -7,7 +7,7 @@ import Foundation
 import BoatsKit
 
 class Script {
-    let uri: URI = "script"
+    
 }
 
 extension Script: DataEncoding {
@@ -16,5 +16,11 @@ extension Script: DataEncoding {
             throw NSError(domain: NSURLErrorDomain, code: NSFileNoSuchFileError, userInfo: nil)
         }
         return try Data(contentsOf: url)
+    }
+}
+
+extension Script: DataResource, DataWriting, DataDeleting {
+    public var uri: URI {
+        return URI(resource: "script", type: "js")
     }
 }

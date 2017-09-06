@@ -43,6 +43,11 @@
 		5C382FE81F42B7B700349B0D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382FE61F42B7B700349B0D /* Data.swift */; };
 		5C382FE91F42B7B700349B0D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382FE61F42B7B700349B0D /* Data.swift */; };
 		5C382FEA1F42B7B700349B0D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382FE61F42B7B700349B0D /* Data.swift */; };
+		5C6BDCE51F5EDE8100B3DF34 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE41F5EDE8100B3DF34 /* URL.swift */; };
+		5C6BDCE61F5EDE8100B3DF34 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE41F5EDE8100B3DF34 /* URL.swift */; };
+		5C6BDCE71F5EDE8100B3DF34 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE41F5EDE8100B3DF34 /* URL.swift */; };
+		5C6BDCE81F5EDE8100B3DF34 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE41F5EDE8100B3DF34 /* URL.swift */; };
+		5C6BDCEA1F5EE1F400B3DF34 /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE91F5EE1F400B3DF34 /* URLTests.swift */; };
 		5C7E15A11F3FDF2000C5F8C5 /* RouteTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AEB341F3FC12600BE9C6F /* RouteTests.json */; };
 		5C7E15A21F3FEC3700C5F8C5 /* ScheduleTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AEB351F3FC13100BE9C6F /* ScheduleTests.json */; };
 		5C7E15A41F3FFD7300C5F8C5 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */; };
@@ -143,6 +148,8 @@
 		5C33E98E1F37FEA000D6EF27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C382FE61F42B7B700349B0D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		5C4E8EF31F37F9140039EA25 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C6BDCE41F5EDE8100B3DF34 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		5C6BDCE91F5EE1F400B3DF34 /* URLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
 		5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		5C7E15A81F3FFDB300C5F8C5 /* LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTests.swift; sourceTree = "<group>"; };
 		5C7E15AA1F3FFDF000C5F8C5 /* LocalizationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocalizationTests.json; sourceTree = "<group>"; };
@@ -247,6 +254,7 @@
 				5CD0F1491F3E959A008E3CDE /* Service.swift */,
 				5C14C73F1F3E427C008294ED /* Time.swift */,
 				5C02BEA71F5DB42400029EDB /* URI.swift */,
+				5C6BDCE41F5EDE8100B3DF34 /* URL.swift */,
 				5C27DEEE1F37C8410010B7D8 /* Info.plist */,
 			);
 			path = BoatsKit;
@@ -280,6 +288,7 @@
 				5C1AEB301F3F5A9200BE9C6F /* SeasonTests.json */,
 				5C14C7461F3E42CC008294ED /* TimeTests.swift */,
 				5C02BEA91F5DB44600029EDB /* URITests.swift */,
+				5C6BDCE91F5EE1F400B3DF34 /* URLTests.swift */,
 				5C30B67B1F394154002A36FB /* XCTestCase.swift */,
 				5C33E98E1F37FEA000D6EF27 /* Info.plist */,
 			);
@@ -543,6 +552,7 @@
 				5CB675511F3F327D00B7FCE1 /* Holiday.swift in Sources */,
 				5C14C7431F3E427C008294ED /* Time.swift in Sources */,
 				5CA8C55F1F3A6B440017B385 /* Route.swift in Sources */,
+				5C6BDCE81F5EDE8100B3DF34 /* URL.swift in Sources */,
 				5CC6BD5D1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */,
 				5C7E15A71F3FFD7300C5F8C5 /* Localization.swift in Sources */,
 				5CB6755A1F3F4A1F00B7FCE1 /* JSON.swift in Sources */,
@@ -567,6 +577,7 @@
 				5CA8C5631F3A6BD50017B385 /* RouteTests.swift in Sources */,
 				5C30B67C1F394154002A36FB /* XCTestCase.swift in Sources */,
 				5CB764591F3A8E05008B05FA /* ScheduleTests.swift in Sources */,
+				5C6BDCEA1F5EE1F400B3DF34 /* URLTests.swift in Sources */,
 				5CD7F8B11F3D3B350025DA14 /* LocationTests.swift in Sources */,
 				5CD0F14E1F3E959B008E3CDE /* Service.swift in Sources */,
 				5C1AEB331F3F92CA00BE9C6F /* DateFormatterTests.swift in Sources */,
@@ -591,6 +602,7 @@
 				5CB6754F1F3F327D00B7FCE1 /* Holiday.swift in Sources */,
 				5C14C7411F3E427C008294ED /* Time.swift in Sources */,
 				5CA8C55D1F3A6B440017B385 /* Route.swift in Sources */,
+				5C6BDCE61F5EDE8100B3DF34 /* URL.swift in Sources */,
 				5CC6BD5E1F3CF86E00CC0322 /* CLLocationCoordinate2D.swift in Sources */,
 				5C7E15A51F3FFD7300C5F8C5 /* Localization.swift in Sources */,
 				5CB675581F3F4A1F00B7FCE1 /* JSON.swift in Sources */,
@@ -616,6 +628,7 @@
 				5CB6754E1F3F327D00B7FCE1 /* Holiday.swift in Sources */,
 				5C14C7401F3E427C008294ED /* Time.swift in Sources */,
 				5CA8C55C1F3A6B440017B385 /* Route.swift in Sources */,
+				5C6BDCE51F5EDE8100B3DF34 /* URL.swift in Sources */,
 				5CC6BD5B1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */,
 				5C7E15A41F3FFD7300C5F8C5 /* Localization.swift in Sources */,
 				5CB675571F3F4A1F00B7FCE1 /* JSON.swift in Sources */,
@@ -641,6 +654,7 @@
 				5CB675501F3F327D00B7FCE1 /* Holiday.swift in Sources */,
 				5C14C7421F3E427C008294ED /* Time.swift in Sources */,
 				5CA8C55E1F3A6B440017B385 /* Route.swift in Sources */,
+				5C6BDCE71F5EDE8100B3DF34 /* URL.swift in Sources */,
 				5CC6BD5C1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */,
 				5C7E15A61F3FFD7300C5F8C5 /* Localization.swift in Sources */,
 				5CB675591F3F4A1F00B7FCE1 /* JSON.swift in Sources */,

@@ -7,45 +7,58 @@ import Foundation
 import BoatsKit
 
 struct Manifest {
-    let uri: URI = "manifest"
     var uris: Set<URI> = []
+    
+    public init() {
+        
+    }
 }
 
-/*
 extension Manifest: DataCoding {
     func data() throws -> Data {
-        guard let data: Data = "CACHE MANIFEST\n\(uris.map { uri in uri.path }.joined(separator: "\n"))\n".data(using: .utf8) else {
-            throw NSError(domain: NSCocoaErrorDomain, code: 0, userInfo: nil)
+        let components: [String] = ["CACHE MANIFEST"] + uris.map { uri in
+            uri.resource
+        }
+        guard let data: Data = components.joined(separator: "\n").data(using: .utf8) else {
+            throw NSError(domain: NSCocoaErrorDomain, code: NSFileWriteUnknownError, userInfo: nil)
         }
         return data
     }
     
     init(data: Data) throws {
-        guard let paths: [String] = String(data: data, encoding: .utf8)?.components(separatedBy: "\n"), paths.first == "CACHE MANIFEST" else {
+        guard let components: [String] = String(data: data, encoding: .utf8)?.components(separatedBy: "\n"), components.first == "CACHE MANIFEST" else {
             throw NSError(domain: NSCocoaErrorDomain, code: NSFileReadCorruptFileError, userInfo: nil)
         }
-        self.uris = Set(paths.filter { path in
-            path != "CACHE MANIFEST" && !path.isEmpty
-        }.map { path in
-            URI(path: path)
+        self.uris = Set(components.filter { component in
+            component != "CACHE MANIFEST" && !component.isEmpty
+        }.map { component in
+            URI(stringLiteral: component)
         })
     }
 }
 
-extension Manifest: URLReading, URLWriting {
-    static func read(from url: URL, completion: @escaping (Manifest?, Error?) -> Void) {
-        let url: URL = URL(base: url, uri: Manifest().uri, type: Manifest().uri.type)
-        switch url.scheme ?? "" {
-        case "file":
-            do {
-                let data: Data = try Data(contentsOf: url)
-                completion(try Manifest(data: data), nil)
-            } catch let error {
-                completion(nil, error)
+extension Manifest: DataResource, DataReading, DataWriting {
+    public var uri: URI {
+        return URI(resource: "manifest", type: "appcache")
+    }
+    
+    public static func read(from url: URL, completion: @escaping (Manifest?, Error?) -> Void) {
+        URLSession.shared.dataTask(with: url.appending(uri: Manifest().uri)) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data: Data = data else {
+                    completion(nil, error ?? NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: nil))
+                    return
+                }
+                do {
+                    completion(try Manifest(data: data), nil)
+                } catch let error {
+                    completion(nil, error)
+                }
             }
-        default:
-            completion(nil, NSError(domain: NSURLErrorDomain, code: NSURLErrorUnsupportedURL, userInfo: nil))
-        }
+            }.resume()
+    }
+    
+    public init(url: URL) throws {
+        try self.init(data: try Data(contentsOf: url.appending(uri: Manifest().uri)))
     }
 }
-*/

@@ -11,12 +11,12 @@ extension XCTestCase {
         case temp
     }
     
-    func url(for location: DataLocation, resource: String? = nil, type: String) -> URL? {
+    func url(for location: DataLocation, resource name: String? = nil, type: String) -> URL? {
         switch location {
         case .mock:
-            return Bundle(for: Swift.type(of: self)).url(forResource: resource ?? String(describing: Swift.type(of: self)), withExtension: type)
+            return Bundle(for: Swift.type(of: self)).url(forResource: name ?? String(describing: Swift.type(of: self)), withExtension: type)
         case .temp:
-            return URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(resource ?? String(describing: Swift.type(of: self))).\(type)")
+            return URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(name ?? String(describing: Swift.type(of: self))).\(type)")
         }
     }
     

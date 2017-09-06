@@ -8,6 +8,8 @@ import BoatsKit
 
 enum SVG: String {
     case menu = "Menu"
+    
+    static let all: [SVG] = [.menu]
 }
 
 extension SVG: DataEncoding {
@@ -20,5 +22,11 @@ extension SVG: DataEncoding {
             throw NSError(domain: NSURLErrorDomain, code: NSFileNoSuchFileError, userInfo: nil)
         }
         return try Data(contentsOf: url)
+    }
+}
+
+extension SVG: DataResource, DataWriting, DataDeleting {
+    public var uri: URI {
+        return URI(resource: "\(rawValue.lowercased())", type: "svg")
     }
 }

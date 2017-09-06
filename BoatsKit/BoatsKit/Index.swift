@@ -6,7 +6,6 @@
 import Foundation
 
 public struct Index: Codable {
-    public let uri: URI = "index"
     public var name: String = ""
     public var description: String = ""
     public var localization: Localization = Localization()
@@ -28,4 +27,30 @@ public struct Index: Codable {
 
 extension Index: DataCoding {
     
+}
+
+extension Index: DataResource, DataReading, DataWriting {
+    public var uri: URI {
+        return URI(resource: "index", type: "json")
+    }
+    
+    public static func read(from url: URL, completion: @escaping (Index?, Error?) -> Void) {
+        URLSession.shared.dataTask(with: url.appending(uri: Index().uri)) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data: Data = data else {
+                    completion(nil, error ?? NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: nil))
+                    return
+                }
+                do {
+                    completion(try Index(data: data), nil)
+                } catch let error {
+                    completion(nil, error)
+                }
+            }
+        }.resume()
+    }
+    
+    public init(url: URL) throws {
+        try self.init(data: try Data(contentsOf: url.appending(uri: Index().uri)))
+    }
 }
