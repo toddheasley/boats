@@ -7,6 +7,7 @@ import Foundation
 import BoatsKit
 
 public struct Site {
+    public static let uri: URI = URI(resource: "index", type: "html")
     public private(set) var index: Index
     
     public init(index: Index) {
@@ -46,7 +47,8 @@ extension Site: DataWriting, DataDeleting {
             return
         }
         for uri in manifest.uris {
-            try FileManager.default.removeItem(at: url.appending(uri: uri))
+            try? FileManager.default.removeItem(at: url.appending(uri: uri))
         }
+        try FileManager.default.removeItem(at: url.appending(uri: manifest.uri))
     }
 }

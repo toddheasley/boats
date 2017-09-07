@@ -30,11 +30,7 @@ extension ManifestTests {
             XCTFail()
             return
         }
-        do {
-            let _: Manifest = try Manifest(url: url)
-        } catch {
-            XCTFail()
-        }
+        XCTAssertNoThrow(try Manifest(url: url))
         let expect: XCTestExpectation = expectation(description: "")
         Manifest.read(from: url) { manifest, error in
             XCTAssertNil(error)
@@ -50,10 +46,6 @@ extension ManifestTests {
             XCTFail()
             return
         }
-        do {
-            try manifest.write(to: url)
-        } catch {
-            XCTFail()
-        }
+        XCTAssertNoThrow(try manifest.write(to: url))
     }
 }

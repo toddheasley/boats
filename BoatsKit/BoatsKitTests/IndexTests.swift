@@ -38,11 +38,7 @@ extension IndexTests {
             XCTFail()
             return
         }
-        do {
-            let _: Index = try Index(url: url)
-        } catch {
-            XCTFail()
-        }
+        XCTAssertNoThrow(try Index(url: url))
         let expect: XCTestExpectation = expectation(description: "")
         Index.read(from: url) { index, error in
             XCTAssertNil(error)
@@ -58,10 +54,6 @@ extension IndexTests {
             XCTFail()
             return
         }
-        do {
-            try index.write(to: url)
-        } catch {
-            XCTFail()
-        }
+        XCTAssertNoThrow(try index.write(to: url))
     }
 }

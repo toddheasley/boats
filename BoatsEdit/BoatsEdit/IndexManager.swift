@@ -8,35 +8,45 @@ import BoatsKit
 import BoatsWeb
 
 struct IndexManager {
+    private static var indexURL: URL?
     private(set) static var index: Index?
     
     static var url: URL? {
         set {
-            UserDefaults.standard.set(newValue, forKey: "url")
+            indexURL = newValue
+            UserDefaults.standard.set(indexURL, forKey: "url")
             index = nil
         }
         get {
-            return UserDefaults.standard.url(forKey: "url")
+            guard let url: URL = indexURL else {
+                indexURL = UserDefaults.standard.url(forKey: "url")
+                return indexURL
+            }
+            return url
         }
     }
     
     static var web: Bool {
         set {
-            UserDefaults.standard.set(newValue, forKey: "web")
+            guard let url: URL = url,
+                let index: Index = index else {
+                return
+            }
             
+            print("SET: \(newValue)")
+            
+            try? index.write(to: url, web: newValue)
         }
         get {
-            return UserDefaults.standard.bool(forKey: "web")
+            guard let url: URL = url else {
+                return false
+            }
+            return FileManager.default.fileExists(atPath: url.appending(uri: Site.uri).path)
         }
     }
     
     static func canOpen(from url: URL) -> Bool {
-        if url.lastPathComponent == Index().uri.resource {
-            return true
-        } else if url.hasDirectoryPath {
-            return FileManager.default.fileExists(atPath: url.appending(uri: Index().uri).path)
-        }
-        return false
+        return url.lastPathComponent == Index().uri.resource && FileManager.default.fileExists(atPath: url.path)
     }
     
     static func open(from url: URL? = url) throws {
@@ -52,8 +62,8 @@ struct IndexManager {
         do {
             try open(from: url)
         } catch {
-            self.url = url.directory
-            try Index().write(to: url)
+            try Index().write(to: url, web: web)
+            try open(from: url)
         }
     }
     
@@ -62,6 +72,6 @@ struct IndexManager {
             let index: Index = index else {
             throw NSError(domain: NSURLErrorDomain, code: NSURLErrorFileDoesNotExist, userInfo: nil)
         }
-        try index.write(to: url)
+        try index.write(to: url, web: web)
     }
 }
