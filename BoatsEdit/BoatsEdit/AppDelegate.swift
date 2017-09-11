@@ -9,7 +9,7 @@ import BoatsWeb
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
-    private var window: NSWindow!
+    private var window: NSWindow?
     private var hasPanel: Bool = false
     
     @IBAction func make(_ sender: AnyObject?) {
@@ -40,15 +40,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
     
     @IBAction func close(_ sender: AnyObject?) {
         IndexManager.url = nil
-        window.setIsVisible(false)
+        window?.setIsVisible(false)
     }
     
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         switch menuItem.tag {
         case 1:
-            return !window.isVisible && !hasPanel
+            return !(window?.isVisible ?? false) && !hasPanel
         case 2:
-            return window.isVisible
+            return window?.isVisible ?? false
         default:
             return true
         }
@@ -57,13 +57,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
     // MARK: NSApplicationDelegate
     func applicationWillFinishLaunching(_ notification: Notification) {
         window = NSApplication.shared.keyWindow
-        window.setIsVisible(false)
+        window?.setIsVisible(false)
     }
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         try? IndexManager.open()
-        window.setIsVisible(IndexManager.index != nil)
-        if !window.isVisible {
+        window?.setIsVisible(IndexManager.index != nil)
+        if !(window?.isVisible ?? false) {
             open(self)
         }
     }
@@ -88,7 +88,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
             try IndexManager.open(from: url)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.window.setIsVisible(IndexManager.index != nil)
+            self.window?.setIsVisible(IndexManager.index != nil)
         }
     }
 }

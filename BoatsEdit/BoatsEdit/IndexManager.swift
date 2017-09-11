@@ -32,9 +32,6 @@ struct IndexManager {
                 let index: Index = index else {
                 return
             }
-            
-            print("SET: \(newValue)")
-            
             try? index.write(to: url, web: newValue)
         }
         get {

@@ -36,4 +36,8 @@ public struct Schedule: Codable {
         }
         return nil
     }
+    
+    public init() {
+        
+    }
 }

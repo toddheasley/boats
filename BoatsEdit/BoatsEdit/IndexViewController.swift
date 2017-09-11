@@ -41,5 +41,10 @@ class IndexViewController: NSViewController, NSOpenSavePanelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let input = HolidayInput()
+        input.frame.origin.x = 44.0
+        input.frame.origin.y = 176.0
+        input.frame.size.width = 0.0
+        view.addSubview(input)
     }
 }

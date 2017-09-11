@@ -21,4 +21,8 @@ public struct Route: Codable {
         }
         return nil
     }
+    
+    public init() {
+        
+    }
 }

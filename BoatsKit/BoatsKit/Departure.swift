@@ -15,4 +15,8 @@ public struct Departure: Codable {
     public var time: Time = Time()
     public var days: [Day] = []
     public var services: [Service] = []
+    
+    public init() {
+        
+    }
 }

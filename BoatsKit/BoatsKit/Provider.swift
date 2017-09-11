@@ -19,6 +19,10 @@ public struct Provider {
         }
         return nil
     }
+    
+    public init() {
+        
+    }
 }
 
 extension Provider: Codable {
