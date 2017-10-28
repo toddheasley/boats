@@ -20,7 +20,7 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    func dataDidRefresh() {
+    @objc func dataDidRefresh() {
         
     }
     

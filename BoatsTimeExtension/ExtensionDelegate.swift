@@ -18,7 +18,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     private let timeInterval: TimeInterval = 5.0
     private var timer: Timer?
     
-    func applicationTimeDidChange() {
+    @objc func applicationTimeDidChange() {
         NotificationCenter.default.post(name: TimeChangeNotification, object: nil)
     }
     

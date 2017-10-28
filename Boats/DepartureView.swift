@@ -67,7 +67,7 @@ class DepartureView: UIView {
         timeView.autoresizingMask = [.flexibleLeftMargin]
         view.addSubview(timeView)
         
-        statusLabel.font = .systemFont(ofSize: 9.0, weight: UIFontWeightHeavy)
+        statusLabel.font = .systemFont(ofSize: 9.0, weight: .heavy)
         statusLabel.text = ""
         statusLabel.frame.size = CGSize(width: 35.0, height: 11.0)
         statusLabel.frame.origin.y = 4.0
