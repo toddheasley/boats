@@ -107,7 +107,7 @@ class RouteViewController: ViewController, UINavigationControllerDelegate, UIScr
         super.viewDidLoad()
         
         directionControl.setTitleTextAttributes([
-            NSFontAttributeName: UIFont.systemFont(ofSize: 9.0, weight: UIFontWeightHeavy)
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 9.0, weight: .heavy)
         ], for: .normal)
         
         scrollView.addSubview(scheduleViews.destination)

@@ -48,7 +48,7 @@ class TimeView: UIView {
     }
     
     private func setUp() {
-        let font: UIFont = .systemFont(ofSize: 64.0, weight: UIFontWeightHeavy)
+        let font: UIFont = .systemFont(ofSize: 64.0, weight: .heavy)
         let components = Time.components()
         var frame: CGRect = CGRect(x: 21.0, y: 0.0, width: 42.0, height: 56.0)
         

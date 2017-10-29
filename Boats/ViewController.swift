@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         return (mode == .night) ? .lightContent : .default
     }
     
-    func refreshData() {
+    @objc func refreshData() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Data.refresh { [weak self] completed in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -29,11 +29,11 @@ class ViewController: UIViewController {
         }
     }
     
-    func dataDidRefresh() {
+    @objc func dataDidRefresh() {
         
     }
     
-    func modeDidChange() {
+    @objc func modeDidChange() {
         setNeedsStatusBarAppearanceUpdate()
         view.backgroundColor = .background(mode: mode)
     }

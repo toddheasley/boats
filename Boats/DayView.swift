@@ -27,7 +27,7 @@ class DayView: UICollectionReusableView {
     }
     
     private func setUp() {
-        label.font = .systemFont(ofSize: 14.0, weight: UIFontWeightBold)
+        label.font = .systemFont(ofSize: 14.0, weight: .bold)
         label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         label.frame.size.height = bounds.size.height
         addSubview(label)

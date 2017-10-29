@@ -29,11 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var mode: Mode = Mode()
     
-    func applicationTimeDidChange() {
+    @objc func applicationTimeDidChange() {
         NotificationCenter.default.post(name: TimeChangeNotification, object: nil)
     }
     
-    func applicationScreenBrightnessDidChange() {
+    @objc func applicationScreenBrightnessDidChange() {
         guard mode != Mode() else {
             return
         }
