@@ -18,8 +18,8 @@ public struct URI: ExpressibleByStringLiteral, CustomStringConvertible {
     }
     
     public init(stringLiteral name: String) {
-        let components: [String] = String(name.characters.filter { character in
-            "\(character)".rangeOfCharacter(from: .urlPathAllowed) != nil
+        let components: [String] = String(name.filter { element in
+            "\(element)".rangeOfCharacter(from: .urlPathAllowed) != nil
         }).components(separatedBy: ".")
         self.name = components[0].replacingOccurrences(of: "/", with: "").lowercased()
         self.type = components.count > 1 && !components.last!.isEmpty ? components.last!.lowercased() : nil

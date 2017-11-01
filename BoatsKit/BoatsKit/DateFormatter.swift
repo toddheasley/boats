@@ -62,18 +62,18 @@ extension DateFormatter {
         var components: [String] = []
         if is24HourTime {
             dateFormat = "HH:mm "
-            components.append(contentsOf: self.string(from: date).characters.map { character in
-                "\(character)"
+            components.append(contentsOf: self.string(from: date).map { element in
+                "\(element)"
             })
         } else {
             dateFormat = "hh"
-            components.append(contentsOf: self.string(from: date).replacingOccurrences(of: "0", with: " ").characters.map { character in
-                "\(character)"
+            components.append(contentsOf: self.string(from: date).replacingOccurrences(of: "0", with: " ").map { element in
+                "\(element)"
             })
             components.append(":")
             dateFormat = "mm"
-            components.append(contentsOf: self.string(from: date).characters.map { character in
-                "\(character)"
+            components.append(contentsOf: self.string(from: date).map { element in
+                "\(element)"
             })
             dateFormat = "a"
             components.append(self.string(from: date) == pmSymbol ? "." : " ")

@@ -35,7 +35,7 @@ extension Time: Codable {
     
     private static func timeInterval(from value: String) -> TimeInterval? {
         let components: [String] = value.replacingOccurrences(of: "Z", with: "").components(separatedBy: ":")
-        guard value.characters.count == 9, value.hasSuffix("Z"),
+        guard value.count == 9, value.hasSuffix("Z"),
             components.count == 3,
             let hour: Int = Int(components[0]),
             let minute: Int = Int(components[1]),

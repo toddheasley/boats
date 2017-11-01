@@ -428,6 +428,7 @@
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsEdit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit;
 				PRODUCT_NAME = "Boats Edit";
 				SWIFT_VERSION = 4.0;
@@ -443,6 +444,7 @@
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsEdit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit;
 				PRODUCT_NAME = "Boats Edit";
 				SWIFT_VERSION = 4.0;
