@@ -24,7 +24,7 @@ extension Time: JSONEncoding, JSONDecoding {
         guard let JSON = JSON as? String else {
             return nil
         }
-        let components = JSON.characters.split { $0 == ":" }.map { String($0) }
+        let components = JSON.split { $0 == ":" }.map { String($0) }
         if components.count != 2 {
             return nil
         }
@@ -75,11 +75,11 @@ extension Time {
         let separator: String = ":"
         let period: String = (!Time.is24Hour && (hour > 11 )) ? "." : ""
         return [
-            "\(hours.characters.first!)",
-            "\(hours.characters.last!)",
+            "\(hours.first!)",
+            "\(hours.last!)",
             separator,
-            "\(minutes.characters.first!)",
-            "\(minutes.characters.last!)",
+            "\(minutes.first!)",
+            "\(minutes.last!)",
             period
         ]
     }

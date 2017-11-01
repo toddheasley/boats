@@ -37,7 +37,7 @@ extension Date: JSONEncoding, JSONDecoding {
         guard let JSON = JSON as? String else {
             return nil
         }
-        let components = JSON.characters.split { $0 == "-" }.map { String($0) }
+        let components = JSON.split { $0 == "-" }.map { String($0) }
         if components.count != 3 {
             return nil
         }

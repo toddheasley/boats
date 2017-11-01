@@ -66,7 +66,7 @@ extension Schedule: JSONEncoding, JSONDecoding {
         guard let JSON = JSON as? [String: AnyObject], let _ = JSON["season"] as? String, let season = Season(rawValue: JSON["season"] as! String), let dates = JSON["dates"] as? String, let _ = JSON["holidays"] as? [AnyObject], let _ = JSON["departures"] as? [AnyObject] else {
             return nil
         }
-        let components = dates.characters.split { $0 == "," }.map { String($0) }
+        let components = dates.split { $0 == "," }.map { String($0) }
         if components.count != 2 {
             return nil
         }
