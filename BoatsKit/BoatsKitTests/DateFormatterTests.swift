@@ -1,6 +1,5 @@
 //
-//  BoatsKit
-//  © 2017 @toddheasley
+// © 2017 @toddheasley
 //
 
 import XCTest
@@ -24,15 +23,12 @@ extension DateFormatterTests {
 
 extension DateFormatterTests {
     func testTime() {
+        let time: Time = Time(timeInterval: 58800.0)
         let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(identifier: "America/New_York")
-        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        XCTAssertEqual(dateFormatter.string(from: Time(timeInterval: 69600.0 + dateFormatter.timeZone.daylightSavingTimeOffset())), (dateFormatter.is24HourTime ? "16:20" : "4:20."))
-        XCTAssertEqual(dateFormatter.string(from: Time(timeInterval: 26400.0 + dateFormatter.timeZone.daylightSavingTimeOffset())), (dateFormatter.is24HourTime ? "04:20" : "4:20"))
+        XCTAssertEqual(dateFormatter.string(from: time), (dateFormatter.is24HourTime ? "16:20" : "4:20."))
         XCTAssertEqual(dateFormatter.dateFormat, "MM/dd/yyyy")
-        XCTAssertEqual(dateFormatter.components(from: Time(timeInterval: 69600.0 + dateFormatter.timeZone.daylightSavingTimeOffset())), (dateFormatter.is24HourTime ? ["1", "6", ":", "2", "0", " "] : [" ", "4", ":", "2", "0", "."]))
-        XCTAssertEqual(dateFormatter.components(from: Time(timeInterval: 26400.0 + dateFormatter.timeZone.daylightSavingTimeOffset())), (dateFormatter.is24HourTime ? ["0", "4", ":", "2", "0", " "] : [" ", "4", ":", "2", "0", " "]))
+        XCTAssertEqual(dateFormatter.components(from: time), (dateFormatter.is24HourTime ? ["1", "6", ":", "2", "0", " "] : [" ", "4", ":", "2", "0", "."]))
         XCTAssertEqual(dateFormatter.dateFormat, "MM/dd/yyyy")
     }
     

@@ -1,6 +1,5 @@
 //
-//  BoatsKit
-//  © 2017 @toddheasley
+// © 2017 @toddheasley
 //
 
 import Foundation
@@ -17,6 +16,29 @@ public enum Day {
     case special(Date)
     
     public static let all: [Day] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday, .holiday]
+    
+    public var rawValue: String {
+        switch self {
+        case .monday:
+            return "monday"
+        case .tuesday:
+            return "tuesday"
+        case .wednesday:
+            return "wednesday"
+        case .thursday:
+            return "thursday"
+        case .friday:
+            return "friday"
+        case .saturday:
+            return "saturday"
+        case .sunday:
+            return "sunday"
+        case .holiday:
+            return "holiday"
+        case .special:
+            return "special"
+        }
+    }
     
     public var date: Date? {
         switch self {
@@ -46,7 +68,7 @@ extension Day: Codable {
     
     public func encode(to encoder: Encoder) throws {
         var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
-        try container.encode(value, forKey: .day)
+        try container.encode(rawValue, forKey: .day)
         if let date: Date = date {
             try container.encode(date, forKey: .date)
         }
@@ -54,12 +76,12 @@ extension Day: Codable {
     
     public init(from decoder: Decoder) throws {
         let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
-        let value: String = try container.decode(String.self, forKey: .day)
+        let rawValue: String = try container.decode(String.self, forKey: .day)
         if let date: Date = try? container.decode(Date.self, forKey: .date) {
             self = .special(date)
         } else {
             for day in Day.all {
-                if day.value == value {
+                if day.rawValue == rawValue {
                     self = day
                     return
                 }
@@ -70,30 +92,7 @@ extension Day: Codable {
 }
 
 extension Day: Equatable {
-    private var value: String {
-        switch self {
-        case .monday:
-            return "monday"
-        case .tuesday:
-            return "tuesday"
-        case .wednesday:
-            return "wednesday"
-        case .thursday:
-            return "thursday"
-        case .friday:
-            return "friday"
-        case .saturday:
-            return "saturday"
-        case .sunday:
-            return "sunday"
-        case .holiday:
-            return "holiday"
-        default:
-            return "special"
-        }
-    }
-    
     public static func ==(x: Day, y: Day) -> Bool {
-        return x.value == y.value
+        return x.rawValue == y.rawValue
     }
 }

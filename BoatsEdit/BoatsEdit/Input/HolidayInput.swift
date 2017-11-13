@@ -1,6 +1,5 @@
 //
-//  BoatsEdit
-//  © 2017 @toddheasley
+// © 2017 @toddheasley
 //
 
 import Cocoa
@@ -17,9 +16,18 @@ class HolidayInput: Input, NSTextFieldDelegate {
         }
         get {
             var holiday: Holiday = Holiday()
-            holiday.date = datePicker.dateValue
+            holiday.date = datePicker.dateValue.day(timeZone: timeZone).start
             holiday.name = textField.stringValue
             return holiday
+        }
+    }
+    
+    var timeZone: TimeZone? {
+        set {
+            datePicker.timeZone = newValue
+        }
+        get {
+            return datePicker.timeZone
         }
     }
     

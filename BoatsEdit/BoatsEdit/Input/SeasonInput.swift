@@ -1,6 +1,5 @@
 //
-//  BoatsEdit
-//  © 2017 @toddheasley
+// © 2017 @toddheasley
 //
 
 import Cocoa
@@ -31,7 +30,7 @@ class SeasonInput: Input {
             layout()
         }
         get {
-            let dateInterval: DateInterval = DateInterval(start: datePicker.start.dateValue, end: datePicker.end.dateValue)
+            let dateInterval: DateInterval = DateInterval(start: datePicker.start.dateValue.day(timeZone: timeZone).start, end: datePicker.end.dateValue.day(timeZone: timeZone).end)
             switch popUpButton.indexOfSelectedItem {
             case 1:
                 return .spring(dateInterval)

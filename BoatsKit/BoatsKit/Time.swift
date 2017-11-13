@@ -1,6 +1,5 @@
 //
-//  BoatsKit
-//  © 2017 @toddheasley
+// © 2017 @toddheasley
 //
 
 import Foundation
@@ -18,9 +17,13 @@ public struct Time {
 }
 
 extension Time {
-    public init(from date: Date = Date()) {
+    public func date(timeZone: TimeZone? = nil) -> Date {
+        return Date(timeInterval: timeInterval, since: Date().day(timeZone: timeZone).start)
+    }
+    
+    public init(from date: Date = Date(), timeZone: TimeZone? = nil) {
         var calendar: Calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        calendar.timeZone = timeZone ?? .current
         self.timeInterval = date.timeIntervalSince1970 - calendar.startOfDay(for: date).timeIntervalSince1970
     }
 }

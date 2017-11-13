@@ -1,6 +1,5 @@
 //
-//  BoatsWeb
-//  © 2017 @toddheasley
+// © 2017 @toddheasley
 //
 
 import Foundation

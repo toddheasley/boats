@@ -1,6 +1,5 @@
 //
-//  BoatsKit
-//  © 2017 @toddheasley
+// © 2017 @toddheasley
 //
 
 import XCTest
@@ -29,7 +28,8 @@ class TimeTests: XCTestCase {
 
 extension TimeTests {
     func testDate() {
-        XCTAssertEqual(Time(from: Date(timeIntervalSince1970: 1498881600.0)).timeInterval, 14400.0)
+        XCTAssertEqual(Time(timeInterval: 58800.0).date(), Date(timeInterval: 58800.0, since: Date().day().start))
+        XCTAssertEqual(Time(from: Date(timeInterval: 58800.0, since: Date().day().start)), Time(timeInterval: 58800.0))
     }
 }
 

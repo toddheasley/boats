@@ -1,21 +1,23 @@
 //
-//  BoatsEdit
-//  © 2017 @toddheasley
+// © 2017 @toddheasley
 //
 
 import Cocoa
 
 class Input: NSView {
-    let contentInsets: NSEdgeInsets = NSEdgeInsets(top: 11.0, left: 22.0, bottom: 11.0, right: 22.0)
+    let contentInsets: NSEdgeInsets = NSEdgeInsets(top: 11.0, left: 12.0, bottom: 11.0, right: 12.0)
+    
+    var u: Int {
+        return 1
+    }
     
     override var intrinsicContentSize: NSSize {
-        return NSSize(width: 308.0 + (contentInsets.left + contentInsets.right), height: 22.0 + (contentInsets.top + contentInsets.bottom))
+        return NSSize(width: 340.0, height: (22.0 * CGFloat(u)) + (contentInsets.top + contentInsets.bottom))
     }
     
     override var frame: NSRect {
         set {
-            super.frame.size.width = max(newValue.size.width, intrinsicContentSize.width)
-            super.frame.size.height = intrinsicContentSize.height
+            super.frame.size = intrinsicContentSize
             super.frame.origin = newValue.origin
         }
         get {

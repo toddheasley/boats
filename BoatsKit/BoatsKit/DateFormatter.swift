@@ -1,6 +1,5 @@
 //
-//  BoatsKit
-//  © 2017 @toddheasley
+// © 2017 @toddheasley
 //
 
 import Foundation
@@ -39,7 +38,7 @@ extension DateFormatter {
     
     public func string(from time: Time = Time()) -> String {
         let format: String = dateFormat
-        let date: Date = Date(timeIntervalSince1970: time.timeInterval + timeZone.daylightSavingTimeOffset())
+        let date: Date = time.date(timeZone: timeZone)
         var string: String = ""
         if is24HourTime {
             dateFormat = "HH:mm"
@@ -58,7 +57,7 @@ extension DateFormatter {
     
     public func components(from time: Time = Time()) -> [String] {
         let format: String = dateFormat
-        let date: Date = Date(timeIntervalSince1970: time.timeInterval + timeZone.daylightSavingTimeOffset())
+        let date: Date = time.date(timeZone: timeZone)
         var components: [String] = []
         if is24HourTime {
             dateFormat = "HH:mm "

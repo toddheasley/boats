@@ -1,6 +1,5 @@
 //
-//  BoatsEdit
-//  © 2017 @toddheasley
+// © 2017 @toddheasley
 //
 
 import Cocoa
@@ -8,6 +7,8 @@ import BoatsKit
 import BoatsWeb
 
 class IndexViewController: NSViewController, NSOpenSavePanelDelegate {
+    @IBOutlet var scrollView: NSScrollView?
+    
     @IBAction func show(_ sender: AnyObject?) {
         guard let url: URL = IndexManager.url else {
             return
@@ -41,10 +42,18 @@ class IndexViewController: NSViewController, NSOpenSavePanelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let input = HolidayInput()
+        scrollView?.documentView?.autoresizingMask = [.height]
+        scrollView?.documentView?.frame.size.height = view.bounds.size.height
+        
+        let group = InputGroup()
+        group.autoresizingMask = [.height]
+        group.frame.size.height = view.bounds.size.height
+        scrollView?.documentView?.addSubview(group)
+        
+        let input = Input()
         input.frame.origin.x = 44.0
         input.frame.origin.y = 176.0
         input.frame.size.width = 0.0
-        view.addSubview(input)
+        //scrollView?.documentView?.addSubview(input)
     }
 }
