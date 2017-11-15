@@ -6,12 +6,21 @@ import Cocoa
 import BoatsKit
 
 class DayInput: Input {
+    private let datePicker: NSDatePicker = NSDatePicker()
+    private let specialButton: NSButton = NSButton(checkboxWithTitle: "Special", target: nil, action: nil)
     private var buttons: [NSButton] = []
     
     var days: [Day] {
         set {
             for (index, day) in Day.all.enumerated() {
                 buttons[index].state = newValue.contains(day) ? .on : .off
+            }
+            specialButton.state = .off
+            for day in newValue {
+                if let date = day.date {
+                    datePicker.dateValue = date
+                    specialButton.state = .on
+                }
             }
         }
         get {
@@ -22,34 +31,35 @@ class DayInput: Input {
                 }
                 days.append(day)
             }
+            if specialButton.state == .on {
+                days.append(.special(datePicker.dateValue.day(timeZone: timeZone).start))
+            }
             return days
         }
     }
     
-    var services: [Service] {
+    var timeZone: TimeZone? {
         set {
-            for (index, service) in Service.all.enumerated() {
-                buttons[index].state = newValue.contains(service) ? .on : .off
-            }
+            datePicker.timeZone = newValue
+            datePicker.dateValue = Date()
         }
         get {
-            var services: [Service] = []
-            for (index, service) in Service.all.enumerated() {
-                guard buttons[index].state == .on else {
-                    continue
-                }
-                services.append(service)
-            }
-            return services
+            return datePicker.timeZone
         }
     }
     
+    @IBAction func select(_ sender: AnyObject? = nil) {
+        layout()
+    }
+    
     override var u: Int {
-        return Day.all.count
+        return 7
     }
     
     override func layout() {
         super.layout()
+        
+        datePicker.isHidden = specialButton.state != .on
     }
     
     override func setUp() {
@@ -57,12 +67,38 @@ class DayInput: Input {
         
         for (index, day) in Day.all.enumerated() {
             let button: NSButton = NSButton(checkboxWithTitle: day.rawValue.capitalized, target: nil, action: nil)
+            button.frame.size.width = 120.0
             button.frame.size.height = 22.0
-            button.frame.origin.x = contentInsets.left
-            button.frame.origin.y = contentInsets.top + (CGFloat(Day.all.count - (index + 1)) * button.frame.size.height)
+            if index < 5 {
+                button.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + (button.frame.size.width * 2.0))
+                button.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + (button.frame.size.height * CGFloat(index + 3)))
+            } else {
+                button.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + button.frame.size.width)
+                button.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + (button.frame.size.height * CGFloat(index - 2)))
+            }
             addSubview(button)
             buttons.append(button)
         }
+        
+        specialButton.target = self
+        specialButton.action = #selector(select(_:))
+        specialButton.frame.size.width = 240.0
+        specialButton.frame.size.height = 22.0
+        specialButton.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + specialButton.frame.size.width)
+        specialButton.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + specialButton.frame.size.height)
+        addSubview(specialButton)
+        
+        datePicker.refusesFirstResponder = true
+        datePicker.isBezeled = false
+        datePicker.datePickerStyle = .textFieldDatePickerStyle
+        datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
+        datePicker.sizeToFit()
+        datePicker.frame.size.height = 22.0
+        datePicker.frame.origin.x = 80.0
+        datePicker.frame.origin.y = 0.0
+        specialButton.addSubview(datePicker)
+        
+        label = "Days"
+        timeZone = nil
     }
 }
-

@@ -20,6 +20,10 @@ class LocalizationInput: Input {
         }
     }
     
+    override var u: Int {
+        return 2
+    }
+    
     override func layout() {
         super.layout()
         
@@ -37,6 +41,7 @@ class LocalizationInput: Input {
         popUpButton.sizeToFit()
         addSubview(popUpButton)
         
+        label = "Localization"
         localization = nil
     }
 }

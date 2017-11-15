@@ -50,10 +50,14 @@ class IndexViewController: NSViewController, NSOpenSavePanelDelegate {
         group.frame.size.height = view.bounds.size.height
         scrollView?.documentView?.addSubview(group)
         
-        let input = Input()
-        input.frame.origin.x = 44.0
-        input.frame.origin.y = 176.0
+        let input = ProviderInput()
+        input.frame.origin.x = 0.0
+        input.frame.origin.y = view.bounds.size.height - input.frame.size.height
         input.frame.size.width = 0.0
-        //scrollView?.documentView?.addSubview(input)
+        scrollView?.documentView?.addSubview(input)
+        
+        var provider = Provider()
+        provider.name = "Casco Bay Lines"
+        //input.provider = provider
     }
 }

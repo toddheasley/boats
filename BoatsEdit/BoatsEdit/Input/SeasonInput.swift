@@ -64,6 +64,10 @@ class SeasonInput: Input {
         datePicker.end.minDate = Date(timeInterval: 86400.0, since: datePicker.start.dateValue)
     }
     
+    override var u: Int {
+        return 2
+    }
+    
     override func layout() {
         super.layout()
         
@@ -75,6 +79,7 @@ class SeasonInput: Input {
         textField.frame.origin.x = datePicker.end.frame.origin.x - textField.frame.size.width
         textField.frame.origin.y = datePicker.end.frame.origin.y
         
+        datePicker.start.isBezeled = datePicker.end.isBezeled
         datePicker.start.isHidden = datePicker.end.isHidden
         datePicker.start.frame.origin.x = textField.frame.origin.x - datePicker.start.frame.size.width
         datePicker.start.frame.origin.y = datePicker.end.frame.origin.y
@@ -99,6 +104,7 @@ class SeasonInput: Input {
         popUpButton.action = #selector(select(_:))
         addSubview(popUpButton)
         
+        datePicker.start.isBezeled = false
         datePicker.start.datePickerStyle = .textFieldDatePickerStyle
         datePicker.start.datePickerElements = [.yearMonthDayDatePickerElementFlag]
         datePicker.start.sizeToFit()
@@ -106,6 +112,7 @@ class SeasonInput: Input {
         datePicker.start.action = #selector(validate(_:))
         addSubview(datePicker.start)
         
+        datePicker.end.isBezeled = false
         datePicker.end.datePickerStyle = datePicker.start.datePickerStyle
         datePicker.end.datePickerElements = datePicker.start.datePickerElements
         datePicker.end.frame.size = datePicker.start.frame.size
@@ -116,10 +123,11 @@ class SeasonInput: Input {
         textField.isEditable = false
         textField.backgroundColor = nil
         textField.isBordered = false
-        textField.frame.size.width = 22.0
+        textField.sizeToFit()
         textField.frame.size.height = 19.0
         addSubview(textField)
         
+        label = "Season"
         season = nil
     }
 }

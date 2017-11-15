@@ -40,31 +40,32 @@ class HolidayInput: Input, NSTextFieldDelegate {
         }
     }
     
-    override func layout() {
-        super.layout()
-        
-        datePicker.frame.origin.x = bounds.size.width - (contentInsets.right + datePicker.frame.size.width)
-        datePicker.frame.origin.y = contentInsets.bottom
-        
-        textField.frame.size.width = datePicker.frame.origin.x - (contentInsets.left + 14.0)
-        textField.frame.size.height = bounds.size.height - (contentInsets.top + contentInsets.bottom)
-        textField.frame.origin.x = contentInsets.left
-        textField.frame.origin.y = contentInsets.bottom
-        textField.refusesFirstResponder = false
+    override var u: Int {
+        return 2
     }
     
     override func setUp() {
         super.setUp()
         
+        datePicker.isBezeled = false
         datePicker.datePickerStyle = .textFieldDatePickerStyle
         datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
         datePicker.sizeToFit()
+        datePicker.frame.size.height = 22.0
+        datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width)
+        datePicker.frame.origin.y = contentInsets.bottom
         addSubview(datePicker)
         
         textField.delegate = self
         textField.refusesFirstResponder = true
+        textField.frame.size.width = datePicker.frame.origin.x - (contentInsets.left + 14.0)
+        textField.frame.size.height = 22.0
+        textField.frame.origin.x = contentInsets.left
+        textField.frame.origin.y = contentInsets.bottom
         addSubview(textField)
         
+        label = "Holiday"
+        placeholder = "Groundhog Day"
         holiday = nil
     }
     

@@ -5,14 +5,24 @@
 import Cocoa
 
 class Input: NSView {
-    let contentInsets: NSEdgeInsets = NSEdgeInsets(top: 11.0, left: 12.0, bottom: 11.0, right: 12.0)
+    let contentInsets: NSEdgeInsets = NSEdgeInsets(top: 14.0, left: 16.0, bottom: 10.0, right: 16.0)
+    let labelTextField: NSTextField = NSTextField(labelWithString: "")
+    
+    var label: String {
+        set {
+            labelTextField.stringValue = newValue
+        }
+        get {
+            return labelTextField.stringValue
+        }
+    }
     
     var u: Int {
         return 1
     }
     
     override var intrinsicContentSize: NSSize {
-        return NSSize(width: 340.0, height: (22.0 * CGFloat(u)) + (contentInsets.top + contentInsets.bottom))
+        return NSSize(width: 360.0, height: (22.0 * CGFloat(u)) + (contentInsets.top + contentInsets.bottom))
     }
     
     override var frame: NSRect {
@@ -26,8 +36,15 @@ class Input: NSView {
     }
     
     func setUp() {
+        labelTextField.font = .boldSystemFont(ofSize: labelTextField.font!.pointSize)
+        labelTextField.frame.size.width = intrinsicContentSize.width - (contentInsets.left + contentInsets.right)
+        labelTextField.frame.size.height = 22.0
+        labelTextField.frame.origin.x = contentInsets.left + 2.0
+        labelTextField.frame.origin.y = intrinsicContentSize.height - (labelTextField.frame.size.height + contentInsets.top)
+        addSubview(labelTextField)
+        
         wantsLayer = true
-        layer?.backgroundColor = NSColor.red.withAlphaComponent(0.1).cgColor
+        layer?.backgroundColor = NSColor.blue.withAlphaComponent(0.05).cgColor
     }
     
     override init(frame rect: NSRect) {

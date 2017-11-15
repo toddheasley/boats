@@ -9,10 +9,10 @@ class StringInput: Input, NSTextFieldDelegate {
     
     var string: String? {
         set {
-            textField.stringValue = newValue ?? ""
+            textField.stringValue = newValue?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         }
         get {
-            return !textField.stringValue.isEmpty ? textField.stringValue : nil
+            return !textField.stringValue.isEmpty ? textField.stringValue.trimmingCharacters(in: .whitespacesAndNewlines) : nil
         }
     }
     
@@ -25,13 +25,8 @@ class StringInput: Input, NSTextFieldDelegate {
         }
     }
     
-    override func layout() {
-        super.layout()
-        
-        textField.frame.size.width = bounds.size.width - (contentInsets.left + contentInsets.right)
-        textField.frame.size.height = bounds.size.height - (contentInsets.top + contentInsets.bottom)
-        textField.frame.origin.x = contentInsets.left
-        textField.frame.origin.y = contentInsets.bottom
+    override var u: Int {
+        return 2
     }
     
     override func setUp() {
@@ -39,7 +34,13 @@ class StringInput: Input, NSTextFieldDelegate {
         
         textField.delegate = self
         textField.refusesFirstResponder = true
+        textField.frame.size.width = intrinsicContentSize.width - (contentInsets.left + contentInsets.right)
+        textField.frame.size.height = 22.0
+        textField.frame.origin.x = contentInsets.left
+        textField.frame.origin.y = contentInsets.bottom
         addSubview(textField)
+        
+        label = "String"
     }
     
     // MARK: NSTextFieldDelegate

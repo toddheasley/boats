@@ -9,7 +9,7 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
     let table: NSTableView = NSTableView()
     
     override var intrinsicContentSize: NSSize {
-        return NSSize(width: 308.0, height: 0.0)
+        return Input().intrinsicContentSize
     }
     
     override var frame: NSRect {

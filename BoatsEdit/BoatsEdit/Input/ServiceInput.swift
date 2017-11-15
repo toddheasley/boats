@@ -27,7 +27,7 @@ class ServiceInput: Input {
     }
     
     override var u: Int {
-        return Service.all.count
+        return (Service.all.count / 2) + (Service.all.count % 2 == 1 ? 1 : 0)
     }
     
     override func layout() {
@@ -39,11 +39,14 @@ class ServiceInput: Input {
         
         for (index, service) in Service.all.enumerated() {
             let button: NSButton = NSButton(checkboxWithTitle: service.rawValue.capitalized, target: nil, action: nil)
+            button.frame.size.width = 120.0
             button.frame.size.height = 22.0
-            button.frame.origin.x = contentInsets.left
-            button.frame.origin.y = contentInsets.bottom + (CGFloat(Service.all.count - (index + 1)) * button.frame.size.height)
+            button.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + (button.frame.size.width * (index % 2 == 1 ? 1.0 : 2.0)))
+            button.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + (button.frame.size.height * CGFloat(index / 2 + 1)))
             addSubview(button)
             buttons.append(button)
         }
+        
+        label = "Services"
     }
 }
