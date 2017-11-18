@@ -88,7 +88,6 @@ class DayInput: Input {
         specialButton.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + specialButton.frame.size.height)
         addSubview(specialButton)
         
-        datePicker.refusesFirstResponder = true
         datePicker.isBezeled = false
         datePicker.datePickerStyle = .textFieldDatePickerStyle
         datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]

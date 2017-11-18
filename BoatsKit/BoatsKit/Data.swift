@@ -37,7 +37,7 @@ public protocol DataReading {
     init(url: URL) throws
 }
 
-public protocol DataWriting{
+public protocol DataWriting {
     func write(to url: URL) throws
 }
 

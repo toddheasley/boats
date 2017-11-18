@@ -12,6 +12,7 @@
 		5C1752761FB9340200D9A9F5 /* DayInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1752751FB9340200D9A9F5 /* DayInput.swift */; };
 		5C33B03A1F530D5D0025B1BA /* IndexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */; };
 		5C4C2D0C1F5309F300B6FBE3 /* IndexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */; };
+		5C6EA8361FBFE53000464FCE /* CoordinateInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA8351FBFE53000464FCE /* CoordinateInput.swift */; };
 		5C79D1C71F5B317100D19DD9 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */; };
 		5C84E9C51FBB748400AF4096 /* TimeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84E9C41FBB748400AF4096 /* TimeInput.swift */; };
 		5C84E9C71FBB764200AF4096 /* DirectionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84E9C61FBB764200AF4096 /* DirectionInput.swift */; };
@@ -67,6 +68,7 @@
 		5C17526A1FB8DB7200D9A9F5 /* InputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRow.swift; sourceTree = "<group>"; };
 		5C1752751FB9340200D9A9F5 /* DayInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInput.swift; sourceTree = "<group>"; };
 		5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManager.swift; sourceTree = "<group>"; };
+		5C6EA8351FBFE53000464FCE /* CoordinateInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateInput.swift; sourceTree = "<group>"; };
 		5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		5C84E9C41FBB748400AF4096 /* TimeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInput.swift; sourceTree = "<group>"; };
 		5C84E9C61FBB764200AF4096 /* DirectionInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionInput.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		5CFC0E3C1F657D790062A563 /* Input */ = {
 			isa = PBXGroup;
 			children = (
+				5C6EA8351FBFE53000464FCE /* CoordinateInput.swift */,
 				5C1752751FB9340200D9A9F5 /* DayInput.swift */,
 				5C84E9C81FBB7EA000AF4096 /* DepartureInput.swift */,
 				5C84E9C61FBB764200AF4096 /* DirectionInput.swift */,
@@ -313,6 +316,7 @@
 				5CFC0E4C1F65D5330062A563 /* HolidayInput.swift in Sources */,
 				5CFC0E481F659D140062A563 /* SeasonInput.swift in Sources */,
 				5C84E9CD1FBBAF4B00AF4096 /* ProviderInput.swift in Sources */,
+				5C6EA8361FBFE53000464FCE /* CoordinateInput.swift in Sources */,
 				5C84E9CF1FBBB0E300AF4096 /* RouteInput.swift in Sources */,
 				5C79D1C71F5B317100D19DD9 /* IndexViewController.swift in Sources */,
 				5CFC0E4A1F65C7140062A563 /* LocalizationInput.swift in Sources */,

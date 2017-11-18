@@ -15,7 +15,7 @@ class ScheduleInput: Input {
     override func layout() {
         super.layout()
         
-        label = nil ?? "New Provider"
+        label = nil ?? "New Schedule"
         labelTextField.textColor = schedule != nil ? .textColor : .selectedMenuItemColor
     }
     

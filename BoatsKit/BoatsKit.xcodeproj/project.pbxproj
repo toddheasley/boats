@@ -53,6 +53,11 @@
 		5C6BDCE71F5EDE8100B3DF34 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE41F5EDE8100B3DF34 /* URL.swift */; };
 		5C6BDCE81F5EDE8100B3DF34 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE41F5EDE8100B3DF34 /* URL.swift */; };
 		5C6BDCEA1F5EE1F400B3DF34 /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE91F5EE1F400B3DF34 /* URLTests.swift */; };
+		5C6EA82D1FBF914400464FCE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA82C1FBF914400464FCE /* Coordinate.swift */; };
+		5C6EA82E1FBF914400464FCE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA82C1FBF914400464FCE /* Coordinate.swift */; };
+		5C6EA82F1FBF914400464FCE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA82C1FBF914400464FCE /* Coordinate.swift */; };
+		5C6EA8301FBF914400464FCE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA82C1FBF914400464FCE /* Coordinate.swift */; };
+		5C6EA8321FBF928C00464FCE /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA8311FBF928C00464FCE /* CoordinateTests.swift */; };
 		5C7E15A11F3FDF2000C5F8C5 /* RouteTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AEB341F3FC12600BE9C6F /* RouteTests.json */; };
 		5C7E15A21F3FEC3700C5F8C5 /* ScheduleTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AEB351F3FC13100BE9C6F /* ScheduleTests.json */; };
 		5C7E15A41F3FFD7300C5F8C5 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */; };
@@ -101,7 +106,6 @@
 		5CC6BD5C1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */; };
 		5CC6BD5D1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */; };
 		5CC6BD5E1F3CF86E00CC0322 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */; };
-		5CC6BD601F3CF88E00CC0322 /* CLLocationCoordinate2DTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5F1F3CF88E00CC0322 /* CLLocationCoordinate2DTests.swift */; };
 		5CD0F14A1F3E959A008E3CDE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
 		5CD0F14B1F3E959A008E3CDE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
 		5CD0F14C1F3E959A008E3CDE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
@@ -113,7 +117,6 @@
 		5CD0F1581F3EC0A9008E3CDE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */; };
 		5CD7F8B11F3D3B350025DA14 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7F8B01F3D3B350025DA14 /* LocationTests.swift */; };
 		5CD7F8B31F3D3C7F0025DA14 /* LocationTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CD7F8B21F3D3C7F0025DA14 /* LocationTests.json */; };
-		5CD7F8B61F3D59300025DA14 /* CLLocationCoordinate2DTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CD7F8B51F3D59300025DA14 /* CLLocationCoordinate2DTests.json */; };
 		5CDFBF4F1F37FB7A008523C1 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
 		5CDFBF501F37FB7A008523C1 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
 		5CEB152D1F37F85100347A43 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
@@ -157,6 +160,8 @@
 		5C4E8EF31F37F9140039EA25 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6BDCE41F5EDE8100B3DF34 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		5C6BDCE91F5EE1F400B3DF34 /* URLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
+		5C6EA82C1FBF914400464FCE /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		5C6EA8311FBF928C00464FCE /* CoordinateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateTests.swift; sourceTree = "<group>"; };
 		5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		5C7E15A81F3FFDB300C5F8C5 /* LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTests.swift; sourceTree = "<group>"; };
 		5C7E15AA1F3FFDF000C5F8C5 /* LocalizationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocalizationTests.json; sourceTree = "<group>"; };
@@ -178,12 +183,10 @@
 		5CB764581F3A8E05008B05FA /* ScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTests.swift; sourceTree = "<group>"; };
 		5CB7645A1F3A9EAD008B05FA /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
-		5CC6BD5F1F3CF88E00CC0322 /* CLLocationCoordinate2DTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DTests.swift; sourceTree = "<group>"; };
 		5CD0F1491F3E959A008E3CDE /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		5CD7F8B01F3D3B350025DA14 /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		5CD7F8B21F3D3C7F0025DA14 /* LocationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationTests.json; sourceTree = "<group>"; };
-		5CD7F8B51F3D59300025DA14 /* CLLocationCoordinate2DTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CLLocationCoordinate2DTests.json; sourceTree = "<group>"; };
 		5CDFBF471F37FB20008523C1 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -245,6 +248,7 @@
 			children = (
 				5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */,
 				5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */,
+				5C6EA82C1FBF914400464FCE /* Coordinate.swift */,
 				5C382FE61F42B7B700349B0D /* Data.swift */,
 				5C17526E1FB91AF400D9A9F5 /* Date.swift */,
 				5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */,
@@ -271,8 +275,7 @@
 		5C33E98B1F37FE9F00D6EF27 /* BoatsKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				5CC6BD5F1F3CF88E00CC0322 /* CLLocationCoordinate2DTests.swift */,
-				5CD7F8B51F3D59300025DA14 /* CLLocationCoordinate2DTests.json */,
+				5C6EA8311FBF928C00464FCE /* CoordinateTests.swift */,
 				5C1752731FB91E8800D9A9F5 /* DateTests.swift */,
 				5C1AEB321F3F92CA00BE9C6F /* DateFormatterTests.swift */,
 				5C14C7381F3E3171008294ED /* DayTests.swift */,
@@ -503,7 +506,6 @@
 				5C14C7201F3DF145008294ED /* ProviderTests.json in Resources */,
 				5C7E15A21F3FEC3700C5F8C5 /* ScheduleTests.json in Resources */,
 				5CB6755C1F3F4CCA00B7FCE1 /* DayTests.json in Resources */,
-				5CD7F8B61F3D59300025DA14 /* CLLocationCoordinate2DTests.json in Resources */,
 				5C14C7211F3DF145008294ED /* DepartureTests.json in Resources */,
 				5CD7F8B31F3D3C7F0025DA14 /* LocationTests.json in Resources */,
 				5CB675551F3F34E200B7FCE1 /* HolidayTests.json in Resources */,
@@ -570,6 +572,7 @@
 				5CD0F14D1F3E959B008E3CDE /* Service.swift in Sources */,
 				5C382FEA1F42B7B700349B0D /* Data.swift in Sources */,
 				5C8E493B1F39047000848AEB /* Index.swift in Sources */,
+				5C6EA8301FBF914400464FCE /* Coordinate.swift in Sources */,
 				5CB764571F3A8DBA008B05FA /* Schedule.swift in Sources */,
 				5C14C7371F3E3164008294ED /* Day.swift in Sources */,
 				5CD0F1581F3EC0A9008E3CDE /* DateFormatter.swift in Sources */,
@@ -600,7 +603,7 @@
 				5C02BEAA1F5DB44600029EDB /* URITests.swift in Sources */,
 				5C14C7191F3DF0BB008294ED /* DepartureTests.swift in Sources */,
 				5CB675531F3F347100B7FCE1 /* HolidayTests.swift in Sources */,
-				5CC6BD601F3CF88E00CC0322 /* CLLocationCoordinate2DTests.swift in Sources */,
+				5C6EA8321FBF928C00464FCE /* CoordinateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +625,7 @@
 				5CD0F14B1F3E959A008E3CDE /* Service.swift in Sources */,
 				5C382FE81F42B7B700349B0D /* Data.swift in Sources */,
 				5C8E49391F39046F00848AEB /* Index.swift in Sources */,
+				5C6EA82E1FBF914400464FCE /* Coordinate.swift in Sources */,
 				5CB764551F3A8DBA008B05FA /* Schedule.swift in Sources */,
 				5C14C7351F3E3164008294ED /* Day.swift in Sources */,
 				5CD0F1561F3EC0A9008E3CDE /* DateFormatter.swift in Sources */,
@@ -649,6 +653,7 @@
 				5CD0F14A1F3E959A008E3CDE /* Service.swift in Sources */,
 				5C382FE71F42B7B700349B0D /* Data.swift in Sources */,
 				5C8E49361F39045F00848AEB /* Index.swift in Sources */,
+				5C6EA82D1FBF914400464FCE /* Coordinate.swift in Sources */,
 				5CB764541F3A8DBA008B05FA /* Schedule.swift in Sources */,
 				5C14C7341F3E3164008294ED /* Day.swift in Sources */,
 				5CD0F1551F3EC0A9008E3CDE /* DateFormatter.swift in Sources */,
@@ -676,6 +681,7 @@
 				5CD0F14C1F3E959A008E3CDE /* Service.swift in Sources */,
 				5C382FE91F42B7B700349B0D /* Data.swift in Sources */,
 				5C8E493A1F39047000848AEB /* Index.swift in Sources */,
+				5C6EA82F1FBF914400464FCE /* Coordinate.swift in Sources */,
 				5CB764561F3A8DBA008B05FA /* Schedule.swift in Sources */,
 				5C14C7361F3E3164008294ED /* Day.swift in Sources */,
 				5CD0F1571F3EC0A9008E3CDE /* DateFormatter.swift in Sources */,

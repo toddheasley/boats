@@ -2,7 +2,7 @@
     "name": "Peaks Island",
     "description": "Forest City Landing",
     "coordinate": {
-        "latitude": "43.661719",
-        "longitude": "-70.1960907"
+        "latitude": 43.661719,
+        "longitude": -70.1960907
     }
 }

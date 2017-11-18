@@ -33,7 +33,6 @@ class StringInput: Input, NSTextFieldDelegate {
         super.setUp()
         
         textField.delegate = self
-        textField.refusesFirstResponder = true
         textField.frame.size.width = intrinsicContentSize.width - (contentInsets.left + contentInsets.right)
         textField.frame.size.height = 22.0
         textField.frame.origin.x = contentInsets.left

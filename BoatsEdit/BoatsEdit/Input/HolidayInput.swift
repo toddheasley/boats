@@ -57,7 +57,6 @@ class HolidayInput: Input, NSTextFieldDelegate {
         addSubview(datePicker)
         
         textField.delegate = self
-        textField.refusesFirstResponder = true
         textField.frame.size.width = datePicker.frame.origin.x - (contentInsets.left + 14.0)
         textField.frame.size.height = 22.0
         textField.frame.origin.x = contentInsets.left

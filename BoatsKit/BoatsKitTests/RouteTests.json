@@ -5,16 +5,16 @@
         "name": "Peaks Island",
         "description": "Forest City Landing",
         "coordinate": {
-            "latitude": "43.661719",
-            "longitude": "-70.1960907"
+            "latitude": 43.661719,
+            "longitude": -70.1960907
         }
     },
     "origin": {
         "name": "Portland",
         "description": "Casco Bay Lines Ferry Terminal",
         "coordinate": {
-            "latitude": "43.6570177",
-            "longitude": "-70.2487110"
+            "latitude": 43.6570177,
+            "longitude": -70.2487110
         }
     },
     "services": [

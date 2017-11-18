@@ -53,7 +53,6 @@ class URLInput: Input, NSTextFieldDelegate {
         addSubview(previewButton)
         
         textField.delegate = self
-        textField.refusesFirstResponder = true
         textField.frame.size.width = previewButton.frame.origin.x - (contentInsets.left + 6.0)
         textField.frame.size.height = 22.0
         textField.frame.origin.x = contentInsets.left
