@@ -26,6 +26,10 @@ class URIInput: Input, NSTextFieldDelegate {
         }
     }
     
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override var u: Int {
         return 2
     }
@@ -34,7 +38,7 @@ class URIInput: Input, NSTextFieldDelegate {
         super.setUp()
         
         textField.delegate = self
-        textField.frame.size.width = intrinsicContentSize.width - (contentInsets.left + contentInsets.right)
+        textField.frame.size.width = intrinsicContentSize.width - contentInsets.width
         textField.frame.size.height = 22.0
         textField.frame.origin.x = contentInsets.left
         textField.frame.origin.y = contentInsets.bottom

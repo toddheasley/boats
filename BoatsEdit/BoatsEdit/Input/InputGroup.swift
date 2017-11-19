@@ -5,8 +5,9 @@
 import Cocoa
 
 class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
-    let table: NSTableView = NSTableView()
-    let scroll: NSScrollView = NSScrollView()
+    let tableView: NSTableView = NSTableView()
+    let scrollView: NSScrollView = NSScrollView()
+    let headerInput: HeaderInput = HeaderInput()
     
     override var intrinsicContentSize: NSSize {
         return Input().intrinsicContentSize
@@ -26,23 +27,23 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
     override func layout() {
         super.layout()
         
-        scroll.frame.size.width = bounds.size.width + 1.5
-        scroll.frame.size.height = bounds.size.height + 2.0
+        scrollView.frame.size.width = bounds.size.width + 1.5
+        scrollView.frame.size.height = bounds.size.height + 2.0
     }
     
     func setUp() {
-        table.headerView = nil
-        table.allowsMultipleSelection = false
-        table.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "Input")))
-        table.dataSource = self
-        table.delegate = self
+        tableView.headerView = nil
+        tableView.allowsMultipleSelection = false
+        tableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "Input")))
+        tableView.dataSource = self
+        tableView.delegate = self
         
-        scroll.documentView = table
-        scroll.hasVerticalScroller = true
-        scroll.borderType = .bezelBorder
-        scroll.frame.origin.x = -1.0
-        scroll.frame.origin.y = -1.0
-        addSubview(scroll)
+        scrollView.documentView = tableView
+        scrollView.hasVerticalScroller = true
+        scrollView.borderType = .bezelBorder
+        scrollView.frame.origin.x = -1.0
+        scrollView.frame.origin.y = -1.0
+        addSubview(scrollView)
     }
     
     override init(frame rect: NSRect) {
@@ -59,9 +60,18 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         return InputRowView()
     }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        guard let input = tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input, input.allowsSelection else {
+            return false
+        }
+        (tableView.view(atColumn: 0, row: max(tableView.selectedRow, 0), makeIfNecessary: false) as? Input)?.isSelected = false
+        (tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input)?.isSelected = true
+        return true
+    }
 }
 
-fileprivate class InputRowView: NSTableRowView {
+class InputRowView: NSTableRowView {
     override var interiorBackgroundStyle: NSView.BackgroundStyle {
         return .light
     }

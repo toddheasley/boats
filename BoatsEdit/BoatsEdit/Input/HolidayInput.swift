@@ -40,6 +40,10 @@ class HolidayInput: Input, NSTextFieldDelegate {
         }
     }
     
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override var u: Int {
         return 2
     }

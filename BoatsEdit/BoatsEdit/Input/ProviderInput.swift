@@ -12,6 +12,10 @@ class ProviderInput: Input {
         }
     }
     
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override func layout() {
         super.layout()
         
@@ -23,5 +27,10 @@ class ProviderInput: Input {
         super.setUp()
         
         labelTextField.font = .systemFont(ofSize: labelTextField.font!.pointSize)
+    }
+    
+    convenience init(provider: Provider) {
+        self.init()
+        self.provider = provider
     }
 }

@@ -64,6 +64,10 @@ class SeasonInput: Input {
         datePicker.end.minDate = Date(timeInterval: 86400.0, since: datePicker.start.dateValue)
     }
     
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override var u: Int {
         return 2
     }

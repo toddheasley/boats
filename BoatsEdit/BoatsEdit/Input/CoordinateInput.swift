@@ -29,6 +29,10 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
         }
     }
     
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override var u: Int {
         return 14
     }
@@ -38,7 +42,7 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
         
         textField.latitude.delegate = self
         textField.latitude.placeholderString = "Latitude"
-        textField.latitude.frame.size.width = (intrinsicContentSize.width - ((contentInsets.left + contentInsets.right) * 1.5)) / 2.0
+        textField.latitude.frame.size.width = (intrinsicContentSize.width - (contentInsets.width * 1.5)) / 2.0
         textField.latitude.frame.size.height = 22.0
         textField.latitude.frame.origin.x = contentInsets.left
         textField.latitude.frame.origin.y = labelTextField.frame.origin.y - textField.latitude.frame.size.height
@@ -52,8 +56,8 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
         addSubview(textField.longitude)
         
         map.delegate = self
-        map.frame.size.width = intrinsicContentSize.width - (contentInsets.left + contentInsets.right)
-        map.frame.size.height = textField.latitude.frame.origin.y - (contentInsets.top + contentInsets.bottom)
+        map.frame.size.width = intrinsicContentSize.width - contentInsets.width
+        map.frame.size.height = textField.latitude.frame.origin.y - contentInsets.height
         map.frame.origin.x = contentInsets.left
         map.frame.origin.y = contentInsets.bottom
         addSubview(map)

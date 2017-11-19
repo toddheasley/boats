@@ -5,8 +5,11 @@
 import Cocoa
 
 class Input: NSView {
-    let contentInsets: NSEdgeInsets = NSEdgeInsets(top: 14.0, left: 16.0, bottom: 10.0, right: 16.0)
+    let contentInsets: NSEdgeInsets = NSEdgeInsets(top: 4.0, left: 14.0, bottom: 8.0, right: 14.0)
     let labelTextField: NSTextField = NSTextField(labelWithString: "")
+    
+    private(set) var allowsSelection: Bool = false
+    var isSelected: Bool = false
     
     var label: String {
         set {
@@ -22,7 +25,7 @@ class Input: NSView {
     }
     
     override var intrinsicContentSize: NSSize {
-        return NSSize(width: 360.0, height: (22.0 * CGFloat(u)) + (contentInsets.top + contentInsets.bottom))
+        return NSSize(width: 360.0, height: (22.0 * CGFloat(u)) + contentInsets.height)
     }
     
     override var frame: NSRect {
@@ -36,11 +39,12 @@ class Input: NSView {
     }
     
     func setUp() {
-        labelTextField.font = .boldSystemFont(ofSize: labelTextField.font!.pointSize)
-        labelTextField.frame.size.width = intrinsicContentSize.width - (contentInsets.left + contentInsets.right)
-        labelTextField.frame.size.height = 22.0
-        labelTextField.frame.origin.x = contentInsets.left + 2.0
-        labelTextField.frame.origin.y = intrinsicContentSize.height - (labelTextField.frame.size.height + contentInsets.top)
+        labelTextField.font = NSFont.systemFont(ofSize: 12.0, weight: .bold)
+        labelTextField.textColor = labelTextField.textColor?.withAlphaComponent(0.8)
+        labelTextField.frame.size.width = intrinsicContentSize.width - contentInsets.width
+        labelTextField.frame.size.height = 17.0
+        labelTextField.frame.origin.x = contentInsets.left
+        labelTextField.frame.origin.y = intrinsicContentSize.height - (labelTextField.frame.size.height + contentInsets.top + 4.0)
         addSubview(labelTextField)
     }
     
@@ -53,5 +57,15 @@ class Input: NSView {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
         setUp()
+    }
+}
+
+extension NSEdgeInsets {
+    var width: CGFloat {
+        return left + right
+    }
+    
+    var height: CGFloat {
+        return top + bottom
     }
 }

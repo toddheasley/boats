@@ -27,6 +27,10 @@ class TimeInput: Input {
         }
     }
     
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override func setUp() {
         super.setUp()
         

@@ -12,6 +12,10 @@ class ScheduleInput: Input {
         }
     }
     
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override func layout() {
         super.layout()
         

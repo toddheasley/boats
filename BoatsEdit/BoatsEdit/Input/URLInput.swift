@@ -34,6 +34,10 @@ class URLInput: Input, NSTextFieldDelegate {
         NSWorkspace.shared.open(url)
     }
     
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override var u: Int {
         return 2
     }

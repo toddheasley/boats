@@ -26,6 +26,10 @@ class ServiceInput: Input {
         }
     }
     
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override var u: Int {
         return (Service.all.count / 2) + (Service.all.count % 2 == 1 ? 1 : 0)
     }

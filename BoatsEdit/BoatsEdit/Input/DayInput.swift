@@ -52,6 +52,10 @@ class DayInput: Input {
         layout()
     }
     
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override var u: Int {
         return 7
     }
