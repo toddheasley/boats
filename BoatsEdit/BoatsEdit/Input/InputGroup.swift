@@ -5,8 +5,8 @@
 import Cocoa
 
 class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
-    let separator: NSView = NSView()
     let table: NSTableView = NSTableView()
+    let scroll: NSScrollView = NSScrollView()
     
     override var intrinsicContentSize: NSSize {
         return Input().intrinsicContentSize
@@ -26,22 +26,23 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
     override func layout() {
         super.layout()
         
-        separator.frame.origin.x = bounds.size.width - separator.frame.size.width
+        scroll.frame.size.width = bounds.size.width + 1.5
+        scroll.frame.size.height = bounds.size.height + 2.0
     }
     
     func setUp() {
-        separator.wantsLayer = true
-        separator.layer?.backgroundColor = NSColor.gray.cgColor
-        separator.autoresizingMask = [.height]
-        separator.frame.size.width = 0.5
-        separator.frame.size.height = bounds.size.height
-        addSubview(separator)
-        
+        table.headerView = nil
+        table.allowsMultipleSelection = false
+        table.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "Input")))
         table.dataSource = self
         table.delegate = self
-        table.autoresizingMask = [.width, .height]
-        table.frame.size = bounds.size
-        addSubview(table)
+        
+        scroll.documentView = table
+        scroll.hasVerticalScroller = true
+        scroll.borderType = .bezelBorder
+        scroll.frame.origin.x = -1.0
+        scroll.frame.origin.y = -1.0
+        addSubview(scroll)
     }
     
     override init(frame rect: NSRect) {
@@ -54,10 +55,24 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
         setUp()
     }
     
-    // MARK: NSTableViewDataSource, NSTableViewDelegate
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return 30
+    // MARK: NSTableViewDelegate
+    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        return InputRowView()
+    }
+}
+
+fileprivate class InputRowView: NSTableRowView {
+    override var interiorBackgroundStyle: NSView.BackgroundStyle {
+        return .light
     }
     
-    
+    override func drawSelection(in dirtyRect: NSRect) {
+        if isEmphasized {
+            NSColor.alternateSelectedControlColor.withAlphaComponent(0.21).setFill()
+        } else {
+            NSColor.gridColor.withAlphaComponent(0.21).setFill()
+        }
+        let path = NSBezierPath(rect: dirtyRect)
+        path.fill()
+    }
 }

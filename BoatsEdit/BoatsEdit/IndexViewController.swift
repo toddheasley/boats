@@ -7,6 +7,8 @@ import BoatsKit
 import BoatsWeb
 
 class IndexViewController: NSViewController, NSOpenSavePanelDelegate {
+    private let index: IndexInputGroup = IndexInputGroup()
+    
     @IBOutlet var scrollView: NSScrollView?
     
     @IBAction func show(_ sender: AnyObject?) {
@@ -34,9 +36,10 @@ class IndexViewController: NSViewController, NSOpenSavePanelDelegate {
         }
     }
     
-    override func viewDidAppear() {
-        super.viewDidAppear()
+    override func viewWillAppear() {
+        super.viewWillAppear()
         
+        index.index = IndexManager.index
     }
     
     override func viewDidLoad() {
@@ -45,17 +48,8 @@ class IndexViewController: NSViewController, NSOpenSavePanelDelegate {
         scrollView?.documentView?.autoresizingMask = [.height]
         scrollView?.documentView?.frame.size.height = view.bounds.size.height
         
-        let group = InputGroup()
-        group.autoresizingMask = [.height]
-        group.frame.size.height = view.bounds.size.height
-        scrollView?.documentView?.addSubview(group)
-        
-        let input = CoordinateInput()
-        input.frame.origin.x = 0.0
-        input.frame.origin.y = view.bounds.size.height - input.frame.size.height
-        input.frame.size.width = 0.0
-        scrollView?.documentView?.addSubview(input)
-        
-        input.coordinate = Coordinate(43.6789807607588, -70.2020960258751)
+        index.autoresizingMask = [.height]
+        index.frame.size.height = view.bounds.size.height
+        scrollView?.documentView?.addSubview(index)
     }
 }

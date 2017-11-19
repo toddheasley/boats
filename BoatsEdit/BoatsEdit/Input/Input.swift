@@ -42,13 +42,11 @@ class Input: NSView {
         labelTextField.frame.origin.x = contentInsets.left + 2.0
         labelTextField.frame.origin.y = intrinsicContentSize.height - (labelTextField.frame.size.height + contentInsets.top)
         addSubview(labelTextField)
-        
-        wantsLayer = true
-        layer?.backgroundColor = NSColor.blue.withAlphaComponent(0.05).cgColor
     }
     
     override init(frame rect: NSRect) {
         super.init(frame: rect)
+        frame = rect
         setUp()
     }
     
