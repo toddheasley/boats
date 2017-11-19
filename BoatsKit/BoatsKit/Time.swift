@@ -29,6 +29,8 @@ extension Time {
 }
 
 extension Time: Codable {
+    
+    // MARK: Codable
     private var value: String {
         func format(_ component: Int) -> String {
             return String(format: "%02d", component)
@@ -63,6 +65,8 @@ extension Time: Codable {
 }
 
 extension Time: Comparable {
+    
+    // MARK: Comparable
     public static func ==(x: Time, y: Time) -> Bool {
         return x.timeInterval == y.timeInterval
     }

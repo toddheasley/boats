@@ -5,11 +5,12 @@
 import Foundation
 import BoatsKit
 
-struct HTML: ExpressibleByArrayLiteral, ExpressibleByStringLiteral, CustomStringConvertible {
+struct HTML: CustomStringConvertible, ExpressibleByStringLiteral, ExpressibleByArrayLiteral {
     typealias ArrayLiteralElement = HTML
     private var value: String?
     var elements: [HTML] = []
     
+    // MARK: CustomStringConvertible
     var description: String {
         if elements.isEmpty,
             let value = value {
@@ -20,10 +21,12 @@ struct HTML: ExpressibleByArrayLiteral, ExpressibleByStringLiteral, CustomString
         }.joined()
     }
     
+    // MARK: ExpressibleByStringLiteral
     init(stringLiteral value: String) {
         self.value = value
     }
     
+    // MARK: ExpressibleByArrayLiteral
     init(arrayLiteral elements: HTML...) {
         self.elements = elements
     }

@@ -25,6 +25,8 @@ public struct Provider {
 }
 
 extension Provider: Codable {
+    
+    // MARK: Codable
     private enum Key: CodingKey {
         case name
         case uri

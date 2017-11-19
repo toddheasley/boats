@@ -4,18 +4,25 @@
 
 import Foundation
 
-public struct URI: ExpressibleByStringLiteral, CustomStringConvertible {
+public struct URI: CustomStringConvertible, ExpressibleByStringLiteral {
     private var name: String = ""
     public private(set) var type: String?
-    
-    public var description: String {
-        return name
-    }
     
     public var resource: String {
         return "\(name)\(!(type?.isEmpty ?? true) ? ".\(type!)" : "")"
     }
     
+    public init(resource name: String, type: String? = nil) {
+        self.init(stringLiteral: name)
+        self.type = type
+    }
+    
+    // MARK: CustomStringConvertible
+    public var description: String {
+        return name
+    }
+    
+    // MARK: ExpressibleByStringLiteral
     public init(stringLiteral name: String) {
         let components: [String] = String(name.filter { element in
             "\(element)".rangeOfCharacter(from: .urlPathAllowed) != nil
@@ -23,14 +30,11 @@ public struct URI: ExpressibleByStringLiteral, CustomStringConvertible {
         self.name = components[0].replacingOccurrences(of: "/", with: "").lowercased()
         self.type = components.count > 1 && !components.last!.isEmpty ? components.last!.lowercased() : nil
     }
-    
-    public init(resource name: String, type: String? = nil) {
-        self.init(stringLiteral: name)
-        self.type = type
-    }
 }
 
 extension URI: Codable {
+    
+    // MARK: Codable
     public func encode(to encoder: Encoder) throws {
         var container: SingleValueEncodingContainer = encoder.singleValueContainer()
         try container.encode(name)
@@ -43,6 +47,8 @@ extension URI: Codable {
 }
 
 extension URI: Hashable {
+    
+    // MARK: Hashable
     public var hashValue: Int {
         return name.hashValue
     }

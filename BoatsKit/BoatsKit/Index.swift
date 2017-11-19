@@ -29,10 +29,13 @@ extension Index: DataCoding {
 }
 
 extension Index: DataResource, DataReading, DataWriting {
+    
+    // MARK: DataResource
     public var uri: URI {
         return URI(resource: "index", type: "json")
     }
     
+    // MARK: DataReading
     public static func read(from url: URL, completion: @escaping (Index?, Error?) -> Void) {
         URLSession.shared.dataTask(with: url.appending(uri: Index().uri)) { data, response, error in
             DispatchQueue.main.async {

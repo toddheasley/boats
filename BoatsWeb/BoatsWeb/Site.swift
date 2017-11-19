@@ -15,6 +15,8 @@ public struct Site {
 }
 
 extension Site: DataWriting, DataDeleting {
+    
+    // MARK: DataWriting
     public func write(to url: URL) throws {
         try delete(from: url)
         var manifest: Manifest = Manifest()
@@ -41,6 +43,7 @@ extension Site: DataWriting, DataDeleting {
         try manifest.write(to: url)
     }
     
+    // MARK: DataDeleting
     public func delete(from url: URL) throws {
         guard let manifest: Manifest = try? Manifest(url: url) else {
             return

@@ -12,6 +12,8 @@ enum SVG: String {
 }
 
 extension SVG: DataEncoding {
+    
+    // MARK: DataEncoding
     private class SVGClass {
         
     }
@@ -25,6 +27,8 @@ extension SVG: DataEncoding {
 }
 
 extension SVG: DataResource, DataWriting, DataDeleting {
+    
+    // MARK: DataResource
     public var uri: URI {
         return URI(resource: "\(rawValue.lowercased())", type: "svg")
     }

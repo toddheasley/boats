@@ -61,6 +61,8 @@ public enum Day {
 }
 
 extension Day: Codable {
+    
+    // MARK: Codable
     private enum Key: CodingKey {
         case day
         case date
@@ -92,6 +94,8 @@ extension Day: Codable {
 }
 
 extension Day: Equatable {
+    
+    // MARK: Equatable
     public static func ==(x: Day, y: Day) -> Bool {
         return x.rawValue == y.rawValue
     }

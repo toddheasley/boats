@@ -26,6 +26,8 @@ public enum Season {
 }
 
 extension Season: Codable {
+    
+    // MARK: Codable
     private enum Key: CodingKey {
         case season
         case dateInterval

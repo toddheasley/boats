@@ -14,6 +14,8 @@ struct Manifest {
 }
 
 extension Manifest: DataCoding {
+    
+    // MARK: DataCoding
     func data() throws -> Data {
         let components: [String] = ["CACHE MANIFEST"] + uris.map { uri in
             uri.resource
@@ -37,10 +39,13 @@ extension Manifest: DataCoding {
 }
 
 extension Manifest: DataResource, DataReading, DataWriting {
+    
+    // MARK: DataResource
     public var uri: URI {
         return URI(resource: "manifest", type: "appcache")
     }
     
+    // MARK: DataReading
     public static func read(from url: URL, completion: @escaping (Manifest?, Error?) -> Void) {
         URLSession.shared.dataTask(with: url.appending(uri: Manifest().uri)) { data, response, error in
             DispatchQueue.main.async {

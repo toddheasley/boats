@@ -6,7 +6,7 @@ import Cocoa
 import BoatsKit
 
 class IndexInputGroup: InputGroup {
-    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput()]
+    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput(style: .none)]
     private let nameInput: StringInput = StringInput()
     private let descriptionInput: StringInput = StringInput()
     private let localizationInput: LocalizationInput = LocalizationInput()
@@ -40,7 +40,7 @@ class IndexInputGroup: InputGroup {
     
     // MARK: NSTableViewDataSource
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return index != nil ? 7 + provider.input.count : 0
+        return index != nil ? 8 + provider.input.count : 0
     }
     
     // MARK: NSTableViewDelegate
@@ -52,7 +52,7 @@ class IndexInputGroup: InputGroup {
             return nameInput.intrinsicContentSize.height
         case 2:
             return descriptionInput.intrinsicContentSize.height
-        case 3, 5:
+        case 3, 5, (tableView.numberOfRows - 1):
             return dividerInput[0].intrinsicContentSize.height
         case 4:
             return localizationInput.intrinsicContentSize.height
@@ -79,6 +79,8 @@ class IndexInputGroup: InputGroup {
             return dividerInput[1]
         case 6:
             return provider.header
+        case (tableView.numberOfRows - 1):
+            return dividerInput[2]
         default:
             return provider.input[row - 7]
         }
