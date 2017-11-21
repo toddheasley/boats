@@ -27,6 +27,13 @@ public struct Schedule: Codable {
         }
     }
     
+    public func departures(index: Int) -> Departure? {
+        guard index >= 0, index < departures.count else {
+            return nil
+        }
+        return departures[index]
+    }
+    
     public func next(day: Day, time: Time = Time(), direction: Departure.Direction = .destination) -> Departure? {
         for departure in departures(day: day, direction: direction) {
             if departure.time > time {

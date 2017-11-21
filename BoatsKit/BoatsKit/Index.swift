@@ -19,6 +19,13 @@ public struct Index: Codable {
         return nil
     }
     
+    public func provider(index: Int) -> Provider? {
+        guard index >= 0, index < providers.count else {
+            return nil
+        }
+        return providers[index]
+    }
+    
     public init() {
         
     }

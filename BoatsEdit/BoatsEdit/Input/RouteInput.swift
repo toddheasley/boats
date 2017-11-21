@@ -28,4 +28,9 @@ class RouteInput: Input {
         
         labelTextField.font = .systemFont(ofSize: labelTextField.font!.pointSize)
     }
+    
+    convenience init(route: Route) {
+        self.init()
+        self.route = route
+    }
 }

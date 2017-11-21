@@ -44,10 +44,6 @@ class HolidayInput: Input, NSTextFieldDelegate {
         return true
     }
     
-    override var u: Int {
-        return 2
-    }
-    
     override func setUp() {
         super.setUp()
         
@@ -67,9 +63,13 @@ class HolidayInput: Input, NSTextFieldDelegate {
         textField.frame.origin.y = contentInsets.bottom
         addSubview(textField)
         
-        label = "Holiday"
         placeholder = "Groundhog Day"
         holiday = nil
+    }
+    
+    convenience init(holiday: Holiday) {
+        self.init()
+        self.holiday = holiday
     }
     
     // MARK: NSTextFieldDelegate

@@ -19,6 +19,13 @@ public struct Provider {
         return nil
     }
     
+    public func route(index: Int) -> Route? {
+        guard index >= 0, index < routes.count else {
+            return nil
+        }
+        return routes[index]
+    }
+    
     public init() {
         
     }

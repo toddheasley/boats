@@ -8,7 +8,7 @@ import BoatsKit
 
 class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
     private let textField: (latitude: NSTextField, longitude: NSTextField) = (NSTextField(), NSTextField())
-    private let map: CoordinateMap = CoordinateMap()
+    private let mapView: CoordinateMapView = CoordinateMapView()
     
     private func format(_ double: Double) -> String {
         let string: [String] = "\(double)".components(separatedBy: ".")
@@ -18,11 +18,11 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
         return string.joined(separator: ".")
     }
     
-    var coordinate: Coordinate {
+    var coordinate: Coordinate? {
         set {
-            textField.latitude.stringValue = format(newValue.latitude)
-            textField.longitude.stringValue = format(newValue.longitude)
-            map.coordinate = CLLocationCoordinate2D(coordinate: coordinate)
+            textField.latitude.stringValue = format(newValue?.latitude ?? 0.0)
+            textField.longitude.stringValue = format(newValue?.longitude ?? 0.0)
+            mapView.coordinate = CLLocationCoordinate2D(coordinate: coordinate!)
         }
         get {
             return Coordinate(textField.latitude.doubleValue, textField.longitude.doubleValue)
@@ -55,12 +55,12 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
         textField.longitude.frame.origin.y = textField.latitude.frame.origin.y
         addSubview(textField.longitude)
         
-        map.delegate = self
-        map.frame.size.width = intrinsicContentSize.width - contentInsets.width
-        map.frame.size.height = textField.latitude.frame.origin.y - contentInsets.height
-        map.frame.origin.x = contentInsets.left
-        map.frame.origin.y = contentInsets.bottom
-        addSubview(map)
+        mapView.delegate = self
+        mapView.frame.size.width = intrinsicContentSize.width - contentInsets.width
+        mapView.frame.size.height = textField.latitude.frame.origin.y - contentInsets.height
+        mapView.frame.origin.x = contentInsets.left
+        mapView.frame.origin.y = contentInsets.bottom
+        addSubview(mapView)
         
         label = "Coordinate"
         coordinate = Coordinate(0.0, 0.0)
@@ -68,21 +68,21 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
     
     // MARK: NSTextFieldDelegate
     override func controlTextDidEndEditing(_ obj: Notification) {
-        map.coordinate = CLLocationCoordinate2D(coordinate: coordinate)
+        mapView.coordinate = CLLocationCoordinate2D(coordinate: coordinate!)
     }
     
     // MARK: CoordinateMapDelegate
-    fileprivate func coordinateDidChange(map: CoordinateMap) {
+    fileprivate func coordinateDidChange(map: CoordinateMapView) {
         textField.latitude.stringValue = format(map.coordinate.latitude)
         textField.longitude.stringValue = format(map.coordinate.longitude)
     }
 }
 
 fileprivate protocol CoordinateMapDelegate {
-    func coordinateDidChange(map: CoordinateMap)
+    func coordinateDidChange(map: CoordinateMapView)
 }
 
-fileprivate class CoordinateMap: NSView, MKMapViewDelegate {
+fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
     private let mapView: MKMapView = MKMapView()
     private let target: NSView = NSView()
     private let button: (overlay: NSButton, lock: NSButton) = (NSButton(), NSButton())

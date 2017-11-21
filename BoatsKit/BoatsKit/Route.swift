@@ -21,6 +21,13 @@ public struct Route: Codable {
         return nil
     }
     
+    public func schedule(index: Int) -> Schedule? {
+        guard index >= 0, index < schedules.count else {
+            return nil
+        }
+        return schedules[index]
+    }
+    
     public init() {
         
     }

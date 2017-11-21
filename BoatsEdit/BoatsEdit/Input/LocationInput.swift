@@ -5,8 +5,10 @@
 import Cocoa
 import BoatsKit
 
-class ScheduleInput: Input {
-    var schedule: Schedule? {
+class LocationInput: Input {
+    private(set) var direction: Departure.Direction = .destination
+    
+    var location: Location? {
         didSet {
             layout()
         }
@@ -19,19 +21,20 @@ class ScheduleInput: Input {
     override func layout() {
         super.layout()
         
-        label = nil ?? "New Schedule"
-        labelTextField.textColor = schedule != nil ? .textColor : .selectedMenuItemColor
+        label = direction.rawValue.capitalized
     }
     
     override func setUp() {
         super.setUp()
         
-        labelTextField.font = .systemFont(ofSize: labelTextField.font!.pointSize)
+        
     }
     
-    convenience init(schedule: Schedule) {
+    convenience init(direction: Departure.Direction, location: Location? = nil) {
         self.init()
-        self.schedule = schedule
+        self.direction = direction
+        self.location = location
     }
 }
+
 

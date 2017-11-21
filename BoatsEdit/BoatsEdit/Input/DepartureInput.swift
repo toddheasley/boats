@@ -45,5 +45,10 @@ class DepartureInput: Input {
         
         labelTextField.font = .systemFont(ofSize: labelTextField.font!.pointSize)
     }
+    
+    convenience init(departure: Departure) {
+        self.init()
+        self.departure = departure
+    }
 }
 

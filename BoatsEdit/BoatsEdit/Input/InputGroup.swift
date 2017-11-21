@@ -3,11 +3,19 @@
 //
 
 import Cocoa
+import BoatsKit
+
+@objc protocol InputGroupDelegate {
+    @objc optional func input(group: InputGroup, didSelect input: Any?)
+}
 
 class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
     let tableView: NSTableView = NSTableView()
     let scrollView: NSScrollView = NSScrollView()
     let headerInput: HeaderInput = HeaderInput()
+    
+    var delegate: InputGroupDelegate?
+    var localization: Localization?
     
     override var intrinsicContentSize: NSSize {
         return Input().intrinsicContentSize

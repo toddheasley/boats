@@ -6,8 +6,13 @@ import Cocoa
 import BoatsKit
 import BoatsWeb
 
-class IndexViewController: NSViewController, NSOpenSavePanelDelegate {
-    private let index: IndexInputGroup = IndexInputGroup()
+class IndexViewController: NSViewController, InputGroupDelegate, NSOpenSavePanelDelegate {
+    private let indexInputGroup: IndexInputGroup = IndexInputGroup()
+    private let providerInputGroup: ProviderInputGroup = ProviderInputGroup()
+    private let routeInputGroup: RouteInputGroup = RouteInputGroup()
+    private let locationInputGroup: LocationInputGroup = LocationInputGroup()
+    private let scheduleInputGroup: ScheduleInputGroup = ScheduleInputGroup()
+    private let departureInputGroup: DepartureInputGroup = DepartureInputGroup()
     
     @IBOutlet var scrollView: NSScrollView?
     
@@ -39,17 +44,72 @@ class IndexViewController: NSViewController, NSOpenSavePanelDelegate {
     override func viewWillAppear() {
         super.viewWillAppear()
         
-        index.index = IndexManager.index
+        indexInputGroup.index = IndexManager.index
+        providerInputGroup.localization = indexInputGroup.index?.localization
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         scrollView?.documentView?.autoresizingMask = [.height]
+        scrollView?.documentView?.frame.size.width = indexInputGroup.intrinsicContentSize.width * 5.0
         scrollView?.documentView?.frame.size.height = view.bounds.size.height
         
-        index.autoresizingMask = [.height]
-        index.frame.size.height = view.bounds.size.height
-        scrollView?.documentView?.addSubview(index)
+        indexInputGroup.delegate = self
+        indexInputGroup.autoresizingMask = [.height]
+        indexInputGroup.frame.size.height = view.bounds.size.height
+        scrollView?.documentView?.addSubview(indexInputGroup)
+        
+        providerInputGroup.delegate = self
+        providerInputGroup.autoresizingMask = [.height]
+        providerInputGroup.frame.size.height = view.bounds.size.height
+        providerInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width
+        scrollView?.documentView?.addSubview(providerInputGroup)
+        
+        routeInputGroup.delegate = self
+        routeInputGroup.autoresizingMask = [.height]
+        routeInputGroup.frame.size.height = view.bounds.size.height
+        routeInputGroup.frame.origin.x = providerInputGroup.frame.origin.x * 2.0
+        scrollView?.documentView?.addSubview(routeInputGroup)
+        
+        locationInputGroup.delegate = self
+        locationInputGroup.autoresizingMask = [.height]
+        locationInputGroup.frame.size.height = view.bounds.size.height
+        locationInputGroup.frame.origin.x = providerInputGroup.frame.origin.x * 3.0
+        scrollView?.documentView?.addSubview(locationInputGroup)
+        
+        scheduleInputGroup.delegate = self
+        scheduleInputGroup.autoresizingMask = [.height]
+        scheduleInputGroup.frame.size.height = view.bounds.size.height
+        scheduleInputGroup.frame.origin.x = locationInputGroup.frame.origin.x
+        scrollView?.documentView?.addSubview(scheduleInputGroup)
+        
+        departureInputGroup.delegate = self
+        departureInputGroup.autoresizingMask = [.height]
+        departureInputGroup.frame.size.height = view.bounds.size.height
+        departureInputGroup.frame.origin.x = providerInputGroup.frame.origin.x * 4.0
+        scrollView?.documentView?.addSubview(departureInputGroup)
+    }
+    
+    // MARK: InputGroupDelegate
+    func input(group: InputGroup, didSelect input: Any?) {
+        switch group {
+        case is IndexInputGroup:
+            providerInputGroup.localization = indexInputGroup.index?.localization
+            providerInputGroup.provider = input as? Provider
+        case is ProviderInputGroup:
+            routeInputGroup.localization = indexInputGroup.index?.localization
+            routeInputGroup.route = input as? Route
+        case is RouteInputGroup:
+            locationInputGroup.localization = indexInputGroup.index?.localization
+            locationInputGroup.location = input as? Location
+            scheduleInputGroup.localization = locationInputGroup.localization
+            scheduleInputGroup.schedule = input as? Schedule
+        case is ScheduleInputGroup:
+            departureInputGroup.localization = indexInputGroup.index?.localization
+            departureInputGroup.departure = input as? Departure
+        default:
+            break
+        }
     }
 }
