@@ -6,7 +6,7 @@ import Cocoa
 import BoatsKit
 import BoatsWeb
 
-class IndexViewController: NSViewController, InputGroupDelegate, NSOpenSavePanelDelegate {
+class IndexViewController: NSViewController, InputGroupDelegate {
     private let indexInputGroup: IndexInputGroup = IndexInputGroup()
     private let providerInputGroup: ProviderInputGroup = ProviderInputGroup()
     private let routeInputGroup: RouteInputGroup = RouteInputGroup()
@@ -52,7 +52,6 @@ class IndexViewController: NSViewController, InputGroupDelegate, NSOpenSavePanel
         super.viewDidLoad()
         
         scrollView?.documentView?.autoresizingMask = [.height]
-        scrollView?.documentView?.frame.size.width = indexInputGroup.intrinsicContentSize.width * 5.0
         scrollView?.documentView?.frame.size.height = view.bounds.size.height
         
         indexInputGroup.delegate = self
@@ -69,13 +68,13 @@ class IndexViewController: NSViewController, InputGroupDelegate, NSOpenSavePanel
         routeInputGroup.delegate = self
         routeInputGroup.autoresizingMask = [.height]
         routeInputGroup.frame.size.height = view.bounds.size.height
-        routeInputGroup.frame.origin.x = providerInputGroup.frame.origin.x * 2.0
+        routeInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 2.0
         scrollView?.documentView?.addSubview(routeInputGroup)
         
         locationInputGroup.delegate = self
         locationInputGroup.autoresizingMask = [.height]
         locationInputGroup.frame.size.height = view.bounds.size.height
-        locationInputGroup.frame.origin.x = providerInputGroup.frame.origin.x * 3.0
+        locationInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 3.0
         scrollView?.documentView?.addSubview(locationInputGroup)
         
         scheduleInputGroup.delegate = self
@@ -87,7 +86,7 @@ class IndexViewController: NSViewController, InputGroupDelegate, NSOpenSavePanel
         departureInputGroup.delegate = self
         departureInputGroup.autoresizingMask = [.height]
         departureInputGroup.frame.size.height = view.bounds.size.height
-        departureInputGroup.frame.origin.x = providerInputGroup.frame.origin.x * 4.0
+        departureInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 4.0
         scrollView?.documentView?.addSubview(departureInputGroup)
     }
     
@@ -97,19 +96,50 @@ class IndexViewController: NSViewController, InputGroupDelegate, NSOpenSavePanel
         case is IndexInputGroup:
             providerInputGroup.localization = indexInputGroup.index?.localization
             providerInputGroup.provider = input as? Provider
+            fallthrough
         case is ProviderInputGroup:
             routeInputGroup.localization = indexInputGroup.index?.localization
             routeInputGroup.route = input as? Route
+            fallthrough
         case is RouteInputGroup:
             locationInputGroup.localization = indexInputGroup.index?.localization
             locationInputGroup.location = input as? Location
             scheduleInputGroup.localization = locationInputGroup.localization
             scheduleInputGroup.schedule = input as? Schedule
+            fallthrough
         case is ScheduleInputGroup:
             departureInputGroup.localization = indexInputGroup.index?.localization
             departureInputGroup.departure = input as? Departure
         default:
             break
+        }
+        
+        var rect: CGRect = indexInputGroup.frame
+        for group in [
+            providerInputGroup,
+            routeInputGroup,
+            locationInputGroup,
+            scheduleInputGroup,
+            departureInputGroup
+        ] {
+            rect = !group.isHidden && group.frame.origin.x > rect.origin.x ? group.frame : rect
+        }
+        scrollView?.documentView?.frame.size.width = max(scrollView?.documentView?.frame.size.width ?? 0.0, rect.origin.x + rect.size.width)
+        scrollView?.scroll(to: rect) {
+            self.scrollView?.documentView?.frame.size.width = rect.origin.x + rect.size.width
+        }
+    }
+}
+
+extension NSScrollView {
+    fileprivate func scroll(to rect: NSRect, completion: (() -> Void)? = nil) {
+        NSAnimationContext.beginGrouping()
+        NSAnimationContext.current.duration = 0.35
+        contentView.animator().setBoundsOrigin(NSPoint(x: (rect.origin.x + rect.size.width) - visibleRect.size.width, y: 0.0))
+        reflectScrolledClipView(contentView)
+        NSAnimationContext.endGrouping()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            completion?()
         }
     }
 }

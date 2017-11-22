@@ -78,8 +78,8 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
     }
 }
 
-fileprivate protocol CoordinateMapDelegate {
-    func coordinateDidChange(map: CoordinateMapView)
+@objc fileprivate protocol CoordinateMapDelegate {
+    @objc optional func coordinateDidChange(map: CoordinateMapView)
 }
 
 fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
@@ -100,6 +100,7 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
     
     var isLocked: Bool {
         set {
+            mapView.isScrollEnabled = !newValue
             button.overlay.isHidden = !newValue
             button.lock.image = NSImage(named: newValue ? NSImage.Name.lockLockedTemplate : NSImage.Name.lockUnlockedTemplate)
         }
@@ -112,10 +113,19 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         isLocked = !isLocked
     }
     
+    override func scrollWheel(with event: NSEvent) {
+        guard mapView.isScrollEnabled else {
+            nextResponder?.scrollWheel(with: event)
+            return
+        }
+        super.scrollWheel(with: event)
+    }
+    
     override func layout() {
         super.layout()
         
         button.lock.frame.origin.x = bounds.size.width - button.lock.frame.size.width
+        button.lock.frame.origin.y = bounds.size.height - button.lock.frame.size.height
         
         target.frame.origin.x = (mapView.frame.size.width - target.frame.size.width) / 2.0
         target.frame.origin.y = (mapView.frame.size.height - target.frame.size.height) / 2.0
@@ -129,6 +139,7 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         layer?.borderWidth = 0.5
         
         mapView.delegate = self
+        mapView.showsZoomControls = true
         mapView.region.span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         mapView.autoresizingMask = [.width, .height]
         mapView.frame = bounds
@@ -155,8 +166,8 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         button.lock.target = self
         button.lock.action = #selector(toggleLock(_:))
         button.lock.isBordered = false
-        button.lock.frame.size.width = 44.0
-        button.lock.frame.size.height = 44.0
+        button.lock.frame.size.width = 53.0
+        button.lock.frame.size.height = 49.0
         addSubview(button.lock)
         
         isLocked = true
@@ -168,7 +179,7 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
     
     // MKMapViewDelegate
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        delegate?.coordinateDidChange(map: self)
+        delegate?.coordinateDidChange?(map: self)
     }
 }
 

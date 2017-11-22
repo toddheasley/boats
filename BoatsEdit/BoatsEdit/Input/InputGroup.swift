@@ -11,7 +11,7 @@ import BoatsKit
 
 class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
     let tableView: NSTableView = NSTableView()
-    let scrollView: NSScrollView = NSScrollView()
+    let scrollView: NSScrollView = InputScrollView()
     let headerInput: HeaderInput = HeaderInput()
     
     var delegate: InputGroupDelegate?
@@ -92,5 +92,22 @@ class InputRowView: NSTableRowView {
         }
         let path = NSBezierPath(rect: dirtyRect)
         path.fill()
+    }
+}
+
+fileprivate class InputScrollView: NSScrollView {
+    override func scrollWheel(with event: NSEvent) {
+        guard usesPredominantAxisScrolling else {
+            return super.scrollWheel(with: event)
+        }
+        var next: Bool = !hasVerticalScroller
+        if fabs(event.deltaX) > fabs(event.deltaY) {
+            next = !hasHorizontalScroller
+        }
+        if next {
+            nextResponder?.scrollWheel(with: event)
+        } else {
+            super.scrollWheel(with: event)
+        }
     }
 }
