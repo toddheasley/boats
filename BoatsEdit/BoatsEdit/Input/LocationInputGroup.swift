@@ -45,7 +45,7 @@ class LocationInputGroup: InputGroup {
     
     // MARK: NSTableViewDataSource
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 5
+        return 6
     }
     
     // MARK: NSTableViewDelegate
@@ -57,10 +57,12 @@ class LocationInputGroup: InputGroup {
             return nameInput.intrinsicContentSize.height
         case 2:
             return descriptionInput.intrinsicContentSize.height
+        case 3:
+            return dividerInput[0].intrinsicContentSize.height
         case 4:
             return coordinateInput.intrinsicContentSize.height
         default:
-            return dividerInput[0].intrinsicContentSize.height
+            return dividerInput[1].intrinsicContentSize.height
         }
     }
     

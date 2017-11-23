@@ -70,10 +70,12 @@ class ProviderInputGroup: InputGroup {
             return uriInput.intrinsicContentSize.height
         case 3:
             return urlInput.intrinsicContentSize.height
-        case 4, (tableView.numberOfRows - 1):
+        case 4:
             return dividerInput[0].intrinsicContentSize.height
         case 5:
             return routes.header.intrinsicContentSize.height
+        case tableView.numberOfRows - 1:
+            return dividerInput[1].intrinsicContentSize.height
         default:
             return routes.input.first!.intrinsicContentSize.height
         }
@@ -93,7 +95,7 @@ class ProviderInputGroup: InputGroup {
             return dividerInput[0]
         case 5:
             return routes.header
-        case (tableView.numberOfRows - 1):
+        case tableView.numberOfRows - 1:
             return dividerInput[1]
         default:
             return routes.input[row - 6]

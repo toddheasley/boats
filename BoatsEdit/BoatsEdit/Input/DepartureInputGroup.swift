@@ -58,12 +58,14 @@ class DepartureInputGroup: InputGroup {
             return directionInput.intrinsicContentSize.height
         case 2:
             return timeInput.intrinsicContentSize.height
+        case 3, 5:
+            return dividerInput[0].intrinsicContentSize.height
         case 4:
             return dayInput.intrinsicContentSize.height
         case 6:
             return serviceInput.intrinsicContentSize.height
         default:
-            return dividerInput[0].intrinsicContentSize.height
+            return dividerInput[2].intrinsicContentSize.height
         }
     }
     

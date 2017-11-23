@@ -68,7 +68,7 @@ class RouteInputGroup: InputGroup {
             return nameInput.intrinsicContentSize.height
         case 2:
             return uriInput.intrinsicContentSize.height
-        case 3, 6, 8, tableView.numberOfRows - 1:
+        case 3, 6, 8:
             return dividerInput[0].intrinsicContentSize.height
         case 4, 5:
             return locationInput.destination.intrinsicContentSize.height
@@ -76,6 +76,8 @@ class RouteInputGroup: InputGroup {
             return serviceInput.intrinsicContentSize.height
         case 9:
             return schedules.header.intrinsicContentSize.height
+        case tableView.numberOfRows - 1:
+            return dividerInput[3].intrinsicContentSize.height
         default:
             return schedules.input.first!.intrinsicContentSize.height
         }
@@ -103,7 +105,7 @@ class RouteInputGroup: InputGroup {
             return dividerInput[2]
         case 9:
             return schedules.header
-        case (tableView.numberOfRows - 1):
+        case tableView.numberOfRows - 1:
             return dividerInput[3]
         default:
             return schedules.input[row - 10]

@@ -51,10 +51,25 @@ class IndexInputGroup: InputGroup {
         }
     }
     
+    var web: Bool {
+        set {
+            headerInput.webButton.state = newValue ? .on : .off
+        }
+        get {
+            return headerInput.webButton.state == .on
+        }
+    }
+    
+    var webButton: NSButton {
+        return headerInput.webButton
+    }
+    
     override func setUp() {
         super.setUp()
         
         headerInput.label = "Index"
+        headerInput.webButton.isHidden = false
+        
         nameInput.label = "Name"
         descriptionInput.label = "Description"
         providers.header.label = "Providers"
@@ -75,12 +90,14 @@ class IndexInputGroup: InputGroup {
             return nameInput.intrinsicContentSize.height
         case 2:
             return descriptionInput.intrinsicContentSize.height
-        case 3, 5, (tableView.numberOfRows - 1):
+        case 3, 5:
             return dividerInput[0].intrinsicContentSize.height
         case 4:
             return localizationInput.intrinsicContentSize.height
         case 6:
             return providers.header.intrinsicContentSize.height
+        case tableView.numberOfRows - 1:
+            return dividerInput[2].intrinsicContentSize.height
         default:
             return providers.input.first!.intrinsicContentSize.height
         }
@@ -102,7 +119,7 @@ class IndexInputGroup: InputGroup {
             return dividerInput[1]
         case 6:
             return providers.header
-        case (tableView.numberOfRows - 1):
+        case tableView.numberOfRows - 1:
             return dividerInput[2]
         default:
             return providers.input[row - 7]

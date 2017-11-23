@@ -71,8 +71,10 @@ class ScheduleInputGroup: InputGroup {
             return headerInput.intrinsicContentSize.height
         case 1:
             return seasonInput.intrinsicContentSize.height
-        case 2, 3 + holidays.input.count, tableView.numberOfRows - 1:
+        case 2, (3 + holidays.input.count):
             return dividerInput[0].intrinsicContentSize.height
+        case tableView.numberOfRows - 1:
+            return dividerInput[2].intrinsicContentSize.height
         default:
             return holidays.header.intrinsicContentSize.height
         }
@@ -92,7 +94,7 @@ class ScheduleInputGroup: InputGroup {
             return dividerInput[1]
         case 5 + holidays.input.count:
             return departures.header
-        case (tableView.numberOfRows - 1):
+        case tableView.numberOfRows - 1:
             return dividerInput[2]
         default:
             if row < 4 + holidays.input.count {

@@ -14,6 +14,14 @@ class IndexViewController: NSViewController, InputGroupDelegate {
     private let scheduleInputGroup: ScheduleInputGroup = ScheduleInputGroup()
     private let departureInputGroup: DepartureInputGroup = DepartureInputGroup()
     
+    private var webButton: NSButton {
+        return indexInputGroup.webButton
+    }
+    
+    private var previewButton: NSToolbarItem? {
+        return view.window?.toolbar?.items.last
+    }
+    
     @IBOutlet var scrollView: NSScrollView?
     
     @IBAction func show(_ sender: AnyObject?) {
@@ -28,6 +36,11 @@ class IndexViewController: NSViewController, InputGroupDelegate {
             return
         }
         NSWorkspace.shared.openFile(url.appending(uri: Site.uri).path)
+    }
+    
+    @IBAction func toggle(_ sender: AnyObject?) {
+        IndexManager.web = webButton.state == .on
+        previewButton?.isEnabled = IndexManager.web
     }
     
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
@@ -45,7 +58,15 @@ class IndexViewController: NSViewController, InputGroupDelegate {
         super.viewWillAppear()
         
         indexInputGroup.index = IndexManager.index
+        indexInputGroup.web = IndexManager.web
         providerInputGroup.localization = indexInputGroup.index?.localization
+        
+        webButton.action = #selector(toggle(_:))
+        webButton.target = self
+        
+        previewButton?.target = self
+        previewButton?.action = #selector(preview(_:))
+        previewButton?.isEnabled = IndexManager.web
     }
     
     override func viewDidLoad() {
@@ -88,6 +109,8 @@ class IndexViewController: NSViewController, InputGroupDelegate {
         departureInputGroup.frame.size.height = view.bounds.size.height
         departureInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 4.0
         scrollView?.documentView?.addSubview(departureInputGroup)
+        
+        input(group: indexInputGroup, didSelect: nil)
     }
     
     // MARK: InputGroupDelegate
