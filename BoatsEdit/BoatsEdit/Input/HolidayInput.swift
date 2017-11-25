@@ -50,6 +50,8 @@ class HolidayInput: Input, NSTextFieldDelegate {
         datePicker.isBezeled = false
         datePicker.datePickerStyle = .textFieldDatePickerStyle
         datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
+        datePicker.target = self
+        datePicker.action = #selector(inputEdited(_:))
         datePicker.sizeToFit()
         datePicker.frame.size.height = 22.0
         datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width)
@@ -73,7 +75,7 @@ class HolidayInput: Input, NSTextFieldDelegate {
     }
     
     // MARK: NSTextFieldDelegate
-    override func controlTextDidChange(_ obj: Notification) {
-        layout()
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        inputEdited(textField)
     }
 }

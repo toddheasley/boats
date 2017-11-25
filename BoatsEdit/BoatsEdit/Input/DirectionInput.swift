@@ -24,6 +24,8 @@ class DirectionInput: Input {
     override func setUp() {
         super.setUp()
         
+        segmentedControl.target = self
+        segmentedControl.action = #selector(inputEdited(_:))
         segmentedControl.segmentCount = 2
         segmentedControl.setLabel(Departure.Direction.origin.rawValue.capitalized, forSegment: 0)
         segmentedControl.setWidth(117.0, forSegment: 0)

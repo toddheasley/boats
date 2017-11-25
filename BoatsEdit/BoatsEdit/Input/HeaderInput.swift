@@ -22,16 +22,12 @@ class HeaderInput: Input {
     override func setUp() {
         super.setUp()
         
-        labelTextField.font = NSFont.systemFont(ofSize: 24.0, weight: .heavy)
-        labelTextField.textColor = labelTextField.textColor?.withAlphaComponent(0.7)
+        labelTextField.font = .systemFont(ofSize: 22.0, weight: .bold)
+        labelTextField.textColor = .textColor
         labelTextField.frame.size.height *= 2.0
         labelTextField.frame.origin.y = contentInsets.bottom
         
         webButton.isHidden = true
-        webButton.alignment = .right
         addSubview(webButton)
-        
-        webButton.wantsLayer = true
-        webButton.layer?.backgroundColor = labelTextField.layer?.backgroundColor
     }
 }

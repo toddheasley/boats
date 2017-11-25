@@ -39,7 +39,11 @@ class LocationInputGroup: InputGroup {
         
         headerInput.label = "Location"
         nameInput.label = "Name"
+        nameInput.delegate = self
         descriptionInput.label = "Description"
+        descriptionInput.delegate = self
+        coordinateInput.delegate = self
+        
         location = nil
     }
     

@@ -41,6 +41,8 @@ class DepartureInputGroup: InputGroup {
         super.setUp()
         
         headerInput.label = "Departure"
+        headerInput.delegate = self
+        
         departure = nil
     }
     

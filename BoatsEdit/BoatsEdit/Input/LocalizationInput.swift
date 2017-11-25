@@ -42,6 +42,8 @@ class LocalizationInput: Input {
         popUpButton.addItems(withTitles: TimeZone.knownTimeZoneIdentifiers.map { identifier in
             identifier.replacingOccurrences(of: "_", with: " ").replacingOccurrences(of: "/", with: " - ")
         })
+        popUpButton.target = self
+        popUpButton.action = #selector(inputEdited(_:))
         popUpButton.sizeToFit()
         addSubview(popUpButton)
         

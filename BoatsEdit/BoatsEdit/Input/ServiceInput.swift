@@ -42,7 +42,7 @@ class ServiceInput: Input {
         super.setUp()
         
         for (index, service) in Service.all.enumerated() {
-            let button: NSButton = NSButton(checkboxWithTitle: service.rawValue.capitalized, target: nil, action: nil)
+            let button: NSButton = NSButton(checkboxWithTitle: service.rawValue.capitalized, target: self, action: #selector(inputEdited(_:)))
             button.frame.size.width = 120.0
             button.frame.size.height = 22.0
             button.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + (button.frame.size.width * (index % 2 == 1 ? 1.0 : 2.0)))

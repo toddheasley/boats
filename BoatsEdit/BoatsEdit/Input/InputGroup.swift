@@ -5,11 +5,12 @@
 import Cocoa
 import BoatsKit
 
-@objc protocol InputGroupDelegate {
-    @objc optional func input(group: InputGroup, didSelect input: Any?)
+protocol InputGroupDelegate {
+    func input(_ group: InputGroup, didSelect input: Any?)
+    func inputDidEdit(_ group: InputGroup)
 }
 
-class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
+class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroupDelegate, InputDelegate {
     let tableView: NSTableView = NSTableView()
     let scrollView: NSScrollView = InputScrollView()
     let headerInput: HeaderInput = HeaderInput()
@@ -45,6 +46,8 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
         tableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "Input")))
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.registerForDraggedTypes([.input])
+        tableView.setDraggingSourceOperationMask(.move, forLocal: true)
         
         scrollView.documentView = tableView
         scrollView.hasVerticalScroller = true
@@ -76,6 +79,20 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate {
         (tableView.view(atColumn: 0, row: max(tableView.selectedRow, 0), makeIfNecessary: false) as? Input)?.isSelected = false
         (tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input)?.isSelected = true
         return true
+    }
+    
+    // MARK: InputGroupDelegate
+    func input(_ group: InputGroup, didSelect input: Any?) {
+        delegate?.input(group, didSelect: input)
+    }
+    
+    func inputDidEdit(_ group: InputGroup) {
+        delegate?.inputDidEdit(self)
+    }
+    
+    // MARK: InputDelegate
+    func inputDidEdit(_ input: Input) {
+        delegate?.inputDidEdit(self)
     }
 }
 
@@ -109,5 +126,11 @@ fileprivate class InputScrollView: NSScrollView {
         } else {
             super.scrollWheel(with: event)
         }
+    }
+}
+
+extension NSPasteboard.PasteboardType {
+    static var input: NSPasteboard.PasteboardType {
+        return NSPasteboard.PasteboardType("Input")
     }
 }

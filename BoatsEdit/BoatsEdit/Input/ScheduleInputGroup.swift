@@ -54,8 +54,10 @@ class ScheduleInputGroup: InputGroup {
         super.setUp()
         
         headerInput.label = "Schedule"
+        seasonInput.delegate = self
         holidays.header.label = "Holidays"
         departures.header.label = "Departures"
+        
         schedule = nil
     }
     
@@ -107,11 +109,9 @@ class ScheduleInputGroup: InputGroup {
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if tableView.selectedRow > 5 + holidays.input.count {
-            delegate?.input?(group: self, didSelect: schedule?.departures(index: tableView.selectedRow - (6 + holidays.input.count)) ?? Departure())
+            delegate?.input(self, didSelect: schedule?.departures(index: tableView.selectedRow - (6 + holidays.input.count)) ?? Departure())
         } else {
-            delegate?.input?(group: self, didSelect: nil)
+            delegate?.input(self, didSelect: nil)
         }
     }
 }
-
-

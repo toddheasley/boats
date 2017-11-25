@@ -26,7 +26,6 @@ class SeasonInput: Input {
             }
             datePicker.start.dateValue = newValue?.dateInterval?.start ?? Date()
             datePicker.end.dateValue = newValue?.dateInterval?.end ?? Date()
-            validate()
             layout()
         }
         get {
@@ -56,12 +55,9 @@ class SeasonInput: Input {
         }
     }
     
-    @IBAction func select(_ sender: AnyObject? = nil) {
+    override func inputEdited(_ sender: AnyObject?) {
         layout()
-    }
-    
-    @IBAction func validate(_ sender: AnyObject? = nil) {
-        datePicker.end.minDate = Date(timeInterval: 86400.0, since: datePicker.start.dateValue)
+        super.inputEdited(sender)
     }
     
     override var allowsSelection: Bool {
@@ -76,6 +72,7 @@ class SeasonInput: Input {
         super.layout()
         
         datePicker.end.isHidden = popUpButton.indexOfSelectedItem == 0
+        datePicker.end.minDate = Date(timeInterval: 86400.0, since: datePicker.start.dateValue)
         datePicker.end.frame.origin.x = bounds.size.width - (contentInsets.right + datePicker.end.frame.size.width)
         datePicker.end.frame.origin.y = contentInsets.bottom
         
@@ -105,7 +102,7 @@ class SeasonInput: Input {
         ])
         popUpButton.sizeToFit()
         popUpButton.target = self
-        popUpButton.action = #selector(select(_:))
+        popUpButton.action = #selector(inputEdited(_:))
         addSubview(popUpButton)
         
         datePicker.start.isBezeled = false
@@ -113,12 +110,14 @@ class SeasonInput: Input {
         datePicker.start.datePickerElements = [.yearMonthDayDatePickerElementFlag]
         datePicker.start.sizeToFit()
         datePicker.start.target = self
-        datePicker.start.action = #selector(validate(_:))
+        datePicker.start.action = #selector(inputEdited(_:))
         addSubview(datePicker.start)
         
         datePicker.end.isBezeled = false
         datePicker.end.datePickerStyle = datePicker.start.datePickerStyle
         datePicker.end.datePickerElements = datePicker.start.datePickerElements
+        datePicker.end.target = self
+        datePicker.end.action = #selector(inputEdited(_:))
         datePicker.end.frame.size = datePicker.start.frame.size
         addSubview(datePicker.end)
         

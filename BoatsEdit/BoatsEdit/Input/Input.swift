@@ -4,12 +4,25 @@
 
 import Cocoa
 
+protocol InputDelegate {
+    func inputDidEdit(_ input: Input)
+}
+
 class Input: NSView {
     let contentInsets: NSEdgeInsets = NSEdgeInsets(top: 4.0, left: 14.0, bottom: 8.0, right: 14.0)
     let labelTextField: NSTextField = NSTextField(labelWithString: "")
     
+    var delegate: InputDelegate?
+    
     private(set) var allowsSelection: Bool = false
     var isSelected: Bool = false
+    
+    var isDragging: Bool = false {
+        didSet {
+            wantsLayer = true
+            layer?.backgroundColor = isDragging ? NSColor.controlColor.cgColor : nil
+        }
+    }
     
     var label: String {
         set {
@@ -22,6 +35,10 @@ class Input: NSView {
     
     var u: Int {
         return 1
+    }
+    
+    @IBAction func inputEdited(_ sender: AnyObject?) {
+        delegate?.inputDidEdit(self)
     }
     
     override var intrinsicContentSize: NSSize {
@@ -39,8 +56,8 @@ class Input: NSView {
     }
     
     func setUp() {
-        labelTextField.font = NSFont.systemFont(ofSize: 12.0, weight: .bold)
-        labelTextField.textColor = labelTextField.textColor?.withAlphaComponent(0.8)
+        labelTextField.font = .systemFont(ofSize: 11.0, weight: .regular)
+        labelTextField.textColor = .disabledControlTextColor
         labelTextField.frame.size.width = intrinsicContentSize.width - contentInsets.width
         labelTextField.frame.size.height = 17.0
         labelTextField.frame.origin.x = contentInsets.left

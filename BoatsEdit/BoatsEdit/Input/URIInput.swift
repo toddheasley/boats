@@ -52,4 +52,8 @@ class URIInput: Input, NSTextFieldDelegate {
     override func controlTextDidChange(_ obj: Notification) {
         textField.stringValue = "\(URI(resource: textField.stringValue))"
     }
+    
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        inputEdited(textField)
+    }
 }

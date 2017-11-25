@@ -70,7 +70,7 @@ class DayInput: Input {
         super.setUp()
         
         for (index, day) in Day.all.enumerated() {
-            let button: NSButton = NSButton(checkboxWithTitle: day.rawValue.capitalized, target: nil, action: nil)
+            let button: NSButton = NSButton(checkboxWithTitle: day.rawValue.capitalized, target: self, action: #selector(inputEdited(_:)))
             button.frame.size.width = 120.0
             button.frame.size.height = 22.0
             if index < 5 {

@@ -27,7 +27,7 @@ class LocationInput: Input {
     override func setUp() {
         super.setUp()
         
-        
+        labelTextField.font = .systemFont(ofSize: 13.0)
     }
     
     convenience init(direction: Departure.Direction, location: Location? = nil) {

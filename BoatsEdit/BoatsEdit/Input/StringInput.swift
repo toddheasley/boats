@@ -47,7 +47,7 @@ class StringInput: Input, NSTextFieldDelegate {
     }
     
     // MARK: NSTextFieldDelegate
-    override func controlTextDidChange(_ obj: Notification) {
-        
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        inputEdited(textField)
     }
 }

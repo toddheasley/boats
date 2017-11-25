@@ -43,7 +43,7 @@ class DepartureInput: Input {
     override func setUp() {
         super.setUp()
         
-        labelTextField.font = .systemFont(ofSize: labelTextField.font!.pointSize)
+        labelTextField.font = .systemFont(ofSize: 13.0)
     }
     
     convenience init(departure: Departure) {

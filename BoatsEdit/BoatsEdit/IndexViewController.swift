@@ -80,41 +80,41 @@ class IndexViewController: NSViewController, InputGroupDelegate {
         indexInputGroup.frame.size.height = view.bounds.size.height
         scrollView?.documentView?.addSubview(indexInputGroup)
         
-        providerInputGroup.delegate = self
+        providerInputGroup.delegate = indexInputGroup
         providerInputGroup.autoresizingMask = [.height]
         providerInputGroup.frame.size.height = view.bounds.size.height
         providerInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width
         scrollView?.documentView?.addSubview(providerInputGroup)
         
-        routeInputGroup.delegate = self
+        routeInputGroup.delegate = providerInputGroup
         routeInputGroup.autoresizingMask = [.height]
         routeInputGroup.frame.size.height = view.bounds.size.height
         routeInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 2.0
         scrollView?.documentView?.addSubview(routeInputGroup)
         
-        locationInputGroup.delegate = self
+        locationInputGroup.delegate = routeInputGroup
         locationInputGroup.autoresizingMask = [.height]
         locationInputGroup.frame.size.height = view.bounds.size.height
         locationInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 3.0
         scrollView?.documentView?.addSubview(locationInputGroup)
         
-        scheduleInputGroup.delegate = self
+        scheduleInputGroup.delegate = routeInputGroup
         scheduleInputGroup.autoresizingMask = [.height]
         scheduleInputGroup.frame.size.height = view.bounds.size.height
         scheduleInputGroup.frame.origin.x = locationInputGroup.frame.origin.x
         scrollView?.documentView?.addSubview(scheduleInputGroup)
         
-        departureInputGroup.delegate = self
+        departureInputGroup.delegate = scheduleInputGroup
         departureInputGroup.autoresizingMask = [.height]
         departureInputGroup.frame.size.height = view.bounds.size.height
         departureInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 4.0
         scrollView?.documentView?.addSubview(departureInputGroup)
         
-        input(group: indexInputGroup, didSelect: nil)
+        input(indexInputGroup, didSelect: nil)
     }
     
     // MARK: InputGroupDelegate
-    func input(group: InputGroup, didSelect input: Any?) {
+    func input(_ group: InputGroup, didSelect input: Any?) {
         switch group {
         case is IndexInputGroup:
             providerInputGroup.localization = indexInputGroup.index?.localization
@@ -151,6 +151,10 @@ class IndexViewController: NSViewController, InputGroupDelegate {
         scrollView?.scroll(to: rect) {
             self.scrollView?.documentView?.frame.size.width = rect.origin.x + rect.size.width
         }
+    }
+    
+    func inputDidEdit(_ group: InputGroup) {
+        try? IndexManager.save(index: indexInputGroup.index)
     }
 }
 

@@ -37,9 +37,11 @@ class TimeInput: Input {
         datePicker.isBezeled = false
         datePicker.datePickerStyle = .textFieldDatePickerStyle
         datePicker.datePickerElements = [.hourMinuteDatePickerElementFlag]
+        datePicker.target = self
+        datePicker.action = #selector(inputEdited(_:))
         datePicker.sizeToFit()
         datePicker.frame.size.height = 22.0
-        datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width)
+        datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width + 2.0)
         datePicker.frame.origin.y = contentInsets.bottom
         addSubview(datePicker)
         

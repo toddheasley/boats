@@ -71,4 +71,8 @@ class URLInput: Input, NSTextFieldDelegate {
     override func controlTextDidChange(_ obj: Notification) {
         layout()
     }
+    
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        inputEdited(textField)
+    }
 }

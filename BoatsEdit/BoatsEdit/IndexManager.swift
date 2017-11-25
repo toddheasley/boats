@@ -63,7 +63,7 @@ struct IndexManager {
         }
     }
     
-    static func save() throws {
+    static func save(index: Index?) throws {
         guard let url: URL = url,
             let index: Index = index else {
             throw NSError(domain: NSURLErrorDomain, code: NSURLErrorFileDoesNotExist, userInfo: nil)

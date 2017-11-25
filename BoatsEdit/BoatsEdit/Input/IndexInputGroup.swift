@@ -69,16 +69,77 @@ class IndexInputGroup: InputGroup {
         
         headerInput.label = "Index"
         headerInput.webButton.isHidden = false
-        
         nameInput.label = "Name"
+        nameInput.delegate = self
         descriptionInput.label = "Description"
+        descriptionInput.delegate = self
         providers.header.label = "Providers"
+        
         index = nil
     }
     
     // MARK: NSTableViewDataSource
     func numberOfRows(in tableView: NSTableView) -> Int {
         return 8 + providers.input.count
+    }
+    
+    func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pasteboard: NSPasteboard) -> Bool {
+        guard rowIndexes.count == 1, rowIndexes.first! > 6, rowIndexes.first! < tableView.numberOfRows - 2 else {
+            return false
+        }
+        (tableView.view(atColumn: 0, row: rowIndexes.first!, makeIfNecessary: false) as? Input)?.isDragging = true
+        pasteboard.declareTypes([.input], owner: self)
+        pasteboard.setData(NSKeyedArchiver.archivedData(withRootObject: rowIndexes), forType: .input)
+        return true
+    }
+    
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+        for input in providers.input {
+            input.isDragging = false
+        }
+        guard dropOperation == .above,  row > 6, row < tableView.numberOfRows - 1 else {
+            return NSDragOperation()
+        }
+        return .move
+    }
+    
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+        guard let data = info.draggingPasteboard().data(forType: .input),
+            let first = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
+            row > 6, row < tableView.numberOfRows - 1,
+            let provider = index?.providers[first - 7] else {
+            return false
+        }
+        index?.providers.remove(at: first - 7)
+        index?.providers.insert(provider, at: (first < row ? row - 1: row) - 7)
+        
+        tableView.reloadData()
+        
+        /*
+        
+        // Move page to new index in data source
+        let page: Page = manager.site.pages[indexSet.first!]
+        manager.site.pages.remove(at: indexSet.first!)
+        manager.site.pages.insert(page, at: index)
+        do {
+            try manager.build()
+            try manager.clean()
+        } catch let error as NSError {
+            NSAlert(message: error.localizedFailureReason, description: error.localizedDescription, buttons: [
+                "Cancel"
+                ]).beginSheetModal(for: view.window!)
+        }
+        
+        tableView.reloadData()
+        if let selectedPage = selectedPage {
+            
+            // Restore page selection
+            tableView.selectRowIndexes(IndexSet(integer: (manager.site.pages as NSArray).index(of: selectedPage)), byExtendingSelection: false)
+        } else {
+            openSettings(self)
+        } */
+        
+        return true
     }
     
     // MARK: NSTableViewDelegate
@@ -128,9 +189,23 @@ class IndexInputGroup: InputGroup {
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if tableView.selectedRow > 6 {
-            delegate?.input?(group: self, didSelect: index?.provider(index: tableView.selectedRow - 7) ?? Provider())
+            delegate?.input(self, didSelect: index?.provider(index: tableView.selectedRow - 7) ?? Provider())
         } else {
-            delegate?.input?(group: self, didSelect: nil)
+            delegate?.input(self, didSelect: nil)
         }
+    }
+    
+    // MARK: InputGroupDelegate
+    override func inputDidEdit(_ group: InputGroup) {
+        if let provider = (group as? ProviderInputGroup)?.provider, tableView.selectedRow > 6 {
+            if tableView.selectedRow < tableView.numberOfRows - 2 {
+                index?.providers[tableView.selectedRow - 7] = provider
+            } else {
+                index?.providers.append(provider)
+            }
+        }
+        tableView.reloadData()
+        
+        delegate?.inputDidEdit(self)
     }
 }

@@ -66,10 +66,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
             open(self)
         }
     }
-
-    func applicationWillTerminate(_ notification: Notification) {
-        try? IndexManager.save()
-    }
     
     // MARK: NSOpenSavePanelDelegate
     func panel(_ sender: Any, shouldEnable url: URL) -> Bool {

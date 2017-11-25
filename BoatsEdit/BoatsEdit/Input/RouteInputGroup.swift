@@ -50,7 +50,11 @@ class RouteInputGroup: InputGroup {
         
         headerInput.label = "Route"
         nameInput.label = "Name"
+        nameInput.delegate = self
+        uriInput.delegate = self
+        serviceInput.delegate = self
         schedules.header.label = "Schedules"
+        
         route = nil
     }
     
@@ -115,14 +119,14 @@ class RouteInputGroup: InputGroup {
     func tableViewSelectionDidChange(_ notification: Notification) {
         switch tableView.selectedRow {
         case 4:
-            delegate?.input?(group: self, didSelect: locationInput.destination.location)
+            delegate?.input(self, didSelect: locationInput.destination.location)
         case 5:
-            delegate?.input?(group: self, didSelect: locationInput.origin.location)
+            delegate?.input(self, didSelect: locationInput.origin.location)
         default:
             if tableView.selectedRow > 9 {
-                delegate?.input?(group: self, didSelect: route?.schedule(index: tableView.selectedRow - 9) ?? Schedule())
+                delegate?.input(self, didSelect: route?.schedule(index: tableView.selectedRow - 9) ?? Schedule())
             } else {
-                delegate?.input?(group: self, didSelect: nil)
+                delegate?.input(self, didSelect: nil)
             }
         }
     }

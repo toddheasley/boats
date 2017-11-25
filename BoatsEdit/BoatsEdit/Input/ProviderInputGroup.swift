@@ -50,7 +50,11 @@ class ProviderInputGroup: InputGroup {
         
         headerInput.label = "Provider"
         nameInput.label = "Name"
+        nameInput.delegate = self
+        uriInput.delegate = self
+        urlInput.delegate = self
         routes.header.label = "Routes"
+        
         provider = nil
     }
     
@@ -104,9 +108,9 @@ class ProviderInputGroup: InputGroup {
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if tableView.selectedRow > 5 {
-            delegate?.input?(group: self, didSelect: provider?.route(index: tableView.selectedRow - 6) ?? Route())
+            delegate?.input(self, didSelect: provider?.route(index: tableView.selectedRow - 6) ?? Route())
         } else {
-            delegate?.input?(group: self, didSelect: nil)
+            delegate?.input(self, didSelect: nil)
         }
     }
 }
