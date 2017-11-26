@@ -79,8 +79,8 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
     }
 }
 
-@objc fileprivate protocol CoordinateMapDelegate {
-    @objc optional func coordinateDidChange(map: CoordinateMapView)
+fileprivate protocol CoordinateMapDelegate {
+    func coordinateDidChange(map: CoordinateMapView)
 }
 
 fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
@@ -180,7 +180,7 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
     
     // MKMapViewDelegate
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        delegate?.coordinateDidChange?(map: self)
+        delegate?.coordinateDidChange(map: self)
     }
 }
 

@@ -49,6 +49,7 @@ class ProviderInputGroup: InputGroup {
         super.setUp()
         
         headerInput.label = "Provider"
+        headerInput.deleteButton.isHidden = false
         nameInput.label = "Name"
         nameInput.delegate = self
         uriInput.delegate = self

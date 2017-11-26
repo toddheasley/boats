@@ -156,6 +156,10 @@ class IndexViewController: NSViewController, InputGroupDelegate {
     func inputDidEdit(_ group: InputGroup) {
         try? IndexManager.save(index: indexInputGroup.index)
     }
+    
+    func inputDidDelete(_ group: InputGroup) {
+        try? IndexManager.save(index: indexInputGroup.index)
+    }
 }
 
 extension NSScrollView {

@@ -40,10 +40,7 @@ class IndexInputGroup: InputGroup {
     
     override var localization: Localization? {
         set {
-            guard let newValue = newValue else {
-                return
-            }
-            index?.localization = newValue
+            index?.localization = newValue ?? Localization()
             tableView.reloadData()
         }
         get {
@@ -84,6 +81,8 @@ class IndexInputGroup: InputGroup {
     }
     
     func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pasteboard: NSPasteboard) -> Bool {
+        delegate?.input(self, didSelect: nil)
+        
         guard rowIndexes.count == 1, rowIndexes.first! > 6, rowIndexes.first! < tableView.numberOfRows - 2 else {
             return false
         }
@@ -97,7 +96,10 @@ class IndexInputGroup: InputGroup {
         for input in providers.input {
             input.isDragging = false
         }
-        guard dropOperation == .above,  row > 6, row < tableView.numberOfRows - 1 else {
+        guard dropOperation == .above,
+            let data = info.draggingPasteboard().data(forType: .input),
+            let first = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
+            row > 6, row < tableView.numberOfRows - 1, row != first, row != first + 1 else {
             return NSDragOperation()
         }
         return .move
@@ -112,33 +114,9 @@ class IndexInputGroup: InputGroup {
         }
         index?.providers.remove(at: first - 7)
         index?.providers.insert(provider, at: (first < row ? row - 1: row) - 7)
-        
         tableView.reloadData()
         
-        /*
-        
-        // Move page to new index in data source
-        let page: Page = manager.site.pages[indexSet.first!]
-        manager.site.pages.remove(at: indexSet.first!)
-        manager.site.pages.insert(page, at: index)
-        do {
-            try manager.build()
-            try manager.clean()
-        } catch let error as NSError {
-            NSAlert(message: error.localizedFailureReason, description: error.localizedDescription, buttons: [
-                "Cancel"
-                ]).beginSheetModal(for: view.window!)
-        }
-        
-        tableView.reloadData()
-        if let selectedPage = selectedPage {
-            
-            // Restore page selection
-            tableView.selectRowIndexes(IndexSet(integer: (manager.site.pages as NSArray).index(of: selectedPage)), byExtendingSelection: false)
-        } else {
-            openSettings(self)
-        } */
-        
+        delegate?.inputDidEdit(self)
         return true
     }
     
@@ -197,15 +175,23 @@ class IndexInputGroup: InputGroup {
     
     // MARK: InputGroupDelegate
     override func inputDidEdit(_ group: InputGroup) {
-        if let provider = (group as? ProviderInputGroup)?.provider, tableView.selectedRow > 6 {
-            if tableView.selectedRow < tableView.numberOfRows - 2 {
-                index?.providers[tableView.selectedRow - 7] = provider
-            } else {
-                index?.providers.append(provider)
+        if let provider = (group as? ProviderInputGroup)?.provider,
+            tableView.selectedRow > 6, tableView.selectedRow < tableView.numberOfRows - 1 {
+            providers.input[tableView.selectedRow - 7].provider = provider
+            if tableView.selectedRow == tableView.numberOfRows - 2 {
+                providers.input.append(ProviderInput())
+                tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
             }
         }
-        tableView.reloadData()
-        
         delegate?.inputDidEdit(self)
+    }
+    
+    override func inputDidDelete(_ group: InputGroup) {
+        if tableView.selectedRow > 6, tableView.selectedRow < tableView.numberOfRows - 2 {
+            providers.input.remove(at: tableView.selectedRow - 7)
+        }
+        tableView.reloadData()
+        delegate?.input(self, didSelect: nil)
+        delegate?.inputDidDelete(self)
     }
 }

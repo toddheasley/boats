@@ -54,6 +54,7 @@ class ScheduleInputGroup: InputGroup {
         super.setUp()
         
         headerInput.label = "Schedule"
+        headerInput.deleteButton.isHidden = false
         seasonInput.delegate = self
         holidays.header.label = "Holidays"
         departures.header.label = "Departures"

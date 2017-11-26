@@ -8,6 +8,7 @@ import BoatsKit
 protocol InputGroupDelegate {
     func input(_ group: InputGroup, didSelect input: Any?)
     func inputDidEdit(_ group: InputGroup)
+    func inputDidDelete(_ group: InputGroup)
 }
 
 class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroupDelegate, InputDelegate {
@@ -17,6 +18,18 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     
     var delegate: InputGroupDelegate?
     var localization: Localization?
+    
+    @IBAction func delete(_ sender: AnyObject?) {
+        let alert: NSAlert = NSAlert()
+        alert.messageText = "Message text"
+        alert.informativeText = "Informative text"
+        alert.addButton(withTitle: "Delete")
+        alert.addButton(withTitle: "Cancel")
+        guard alert.runModal() == .alertFirstButtonReturn else {
+            return
+        }
+        delegate?.inputDidDelete(self)
+    }
     
     override var intrinsicContentSize: NSSize {
         return Input().intrinsicContentSize
@@ -55,6 +68,9 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
         scrollView.frame.origin.x = -1.0
         scrollView.frame.origin.y = -1.0
         addSubview(scrollView)
+        
+        headerInput.deleteButton.target = self
+        headerInput.deleteButton.action = #selector(delete(_:))
     }
     
     override init(frame rect: NSRect) {
@@ -90,6 +106,10 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
         delegate?.inputDidEdit(self)
     }
     
+    func inputDidDelete(_ group: InputGroup) {
+        delegate?.inputDidDelete(self)
+    }
+    
     // MARK: InputDelegate
     func inputDidEdit(_ input: Input) {
         delegate?.inputDidEdit(self)
@@ -102,10 +122,9 @@ class InputRowView: NSTableRowView {
     }
     
     override func drawSelection(in dirtyRect: NSRect) {
+        NSColor.gridColor.withAlphaComponent(0.12).setFill()
         if isEmphasized {
-            NSColor.alternateSelectedControlColor.withAlphaComponent(0.21).setFill()
-        } else {
-            NSColor.gridColor.withAlphaComponent(0.21).setFill()
+            NSColor.alternateSelectedControlColor.withAlphaComponent(0.12).setFill()
         }
         let path = NSBezierPath(rect: dirtyRect)
         path.fill()
