@@ -17,13 +17,6 @@ class Input: NSView {
     private(set) var allowsSelection: Bool = false
     var isSelected: Bool = false
     
-    var isDragging: Bool = false {
-        didSet {
-            wantsLayer = true
-            layer?.backgroundColor = isDragging ? NSColor.controlColor.cgColor : nil
-        }
-    }
-    
     var label: String {
         set {
             labelTextField.stringValue = newValue
@@ -77,16 +70,6 @@ class Input: NSView {
     }
 }
 
-extension NSEdgeInsets {
-    var width: CGFloat {
-        return left + right
-    }
-    
-    var height: CGFloat {
-        return top + bottom
-    }
-}
-
 extension Array where Element: Input {
     @discardableResult mutating func move(from index: Int, to newIndex: Int) -> Bool {
         let range: ClosedRange<Int> = 0...(count - 1)
@@ -97,5 +80,15 @@ extension Array where Element: Input {
         remove(at: index)
         insert(input, at: index < newIndex ? newIndex - 1: newIndex)
         return true
+    }
+}
+
+extension NSEdgeInsets {
+    var width: CGFloat {
+        return left + right
+    }
+    
+    var height: CGFloat {
+        return top + bottom
     }
 }

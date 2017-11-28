@@ -27,6 +27,10 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
         
     }
     
+    func showSelection(for row: Int) -> Bool {
+        return false
+    }
+    
     @IBAction func delete(_ sender: AnyObject?) {
         let alert: NSAlert = NSAlert()
         alert.messageText = "Message text"
@@ -99,16 +103,12 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
             return false
         }
         tableView.deselectAll(nil)
-        (tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input)?.isDragging = true
         pasteboard.declareTypes([.input], owner: self)
         pasteboard.setData(NSKeyedArchiver.archivedData(withRootObject: rowIndexes), forType: .input)
         return true
     }
     
     func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
-        for row in 0...(tableView.numberOfRows - 1) {
-            (tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input)?.isDragging = false
-        }
         guard info.draggingSource() as? NSTableView == tableView, dropOperation == .above,
             let data = info.draggingPasteboard().data(forType: .input), 
             let dragRow = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
@@ -133,7 +133,7 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     
     // MARK: NSTableViewDelegate
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        return InputRowView()
+        return InputRowView(showSelection: showSelection(for: row))
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
@@ -165,17 +165,26 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
 }
 
 class InputRowView: NSTableRowView {
+    private(set) var showSelection: Bool = false
+    
     override var interiorBackgroundStyle: NSView.BackgroundStyle {
         return .light
     }
     
     override func drawSelection(in dirtyRect: NSRect) {
-        NSColor.gridColor.withAlphaComponent(0.12).setFill()
+        let alpha: CGFloat = showSelection ? 0.12 : 0.0
+        NSColor.gridColor.withAlphaComponent(alpha).setFill()
         if isEmphasized {
-            NSColor.alternateSelectedControlColor.withAlphaComponent(0.12).setFill()
+            NSColor.alternateSelectedControlColor.withAlphaComponent(alpha).setFill()
         }
         let path = NSBezierPath(rect: dirtyRect)
         path.fill()
+    }
+    
+    convenience init(showSelection: Bool) {
+        self.init()
+        self.showSelection = showSelection
+        
     }
 }
 

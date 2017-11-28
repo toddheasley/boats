@@ -72,6 +72,10 @@ class IndexInputGroup: InputGroup {
         providers.input.move(from: dragRow - 7, to: dropRow - 7)
     }
     
+    override func showSelection(for row: Int) -> Bool {
+        return row > 6
+    }
+    
     override func setUp() {
         super.setUp()
         

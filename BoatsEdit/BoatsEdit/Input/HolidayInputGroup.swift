@@ -27,6 +27,7 @@ class HolidayInputGroup: InputGroup {
     
     override var localization: Localization? {
         didSet {
+            dateInput.timeZone = localization?.timeZone
             tableView.reloadData()
         }
     }

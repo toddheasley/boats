@@ -56,6 +56,10 @@ class ProviderInputGroup: InputGroup {
         routes.input.move(from: dragRow - 6, to: dropRow - 6)
     }
     
+    override func showSelection(for row: Int) -> Bool {
+        return row > 5
+    }
+    
     override func setUp() {
         super.setUp()
         

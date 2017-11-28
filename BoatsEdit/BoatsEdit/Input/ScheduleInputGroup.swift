@@ -46,6 +46,13 @@ class ScheduleInputGroup: InputGroup {
     
     override var localization: Localization? {
         didSet {
+            seasonInput.timeZone = localization?.timeZone
+            for input in holidays.input {
+                input.timeZone = localization?.timeZone
+            }
+            for input in departures.input {
+                input.timeZone = localization?.timeZone
+            }
             tableView.reloadData()
         }
     }
@@ -65,6 +72,10 @@ class ScheduleInputGroup: InputGroup {
         } else {
             departures.input.move(from: dragRow - (holidays.input.count + 6), to: dropRow - (holidays.input.count + 6))
         }
+    }
+    
+    override func showSelection(for row: Int) -> Bool {
+        return (4...(holidays.input.count + 3)).contains(row) || row > (holidays.input.count + 5)
     }
     
     override func setUp() {

@@ -33,6 +33,7 @@ class DepartureInputGroup: InputGroup {
     
     override var localization: Localization? {
         didSet {
+            timeInput.timeZone = localization?.timeZone
             tableView.reloadData()
         }
     }
