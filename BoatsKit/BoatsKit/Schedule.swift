@@ -21,13 +21,20 @@ public struct Schedule: Codable {
         }.isEmpty
     }
     
+    public func holiday(at index: Int) -> Holiday? {
+        guard index >= 0, index < holidays.count else {
+            return nil
+        }
+        return holidays[index]
+    }
+    
     public func departures(day: Day, direction: Departure.Direction = .destination) -> [Departure] {
         return departures.filter { departure in
             return departure.days.contains(day) && departure.direction == direction
         }
     }
     
-    public func departures(index: Int) -> Departure? {
+    public func departure(at index: Int) -> Departure? {
         guard index >= 0, index < departures.count else {
             return nil
         }

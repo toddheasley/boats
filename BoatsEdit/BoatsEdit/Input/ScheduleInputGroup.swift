@@ -50,6 +50,23 @@ class ScheduleInputGroup: InputGroup {
         }
     }
     
+    override func dragRange(for row: Int) -> ClosedRange<Int>? {
+        if holidays.input.count > 2, (4...(holidays.input.count + 2)).contains(row) {
+            return 4...(holidays.input.count + 3)
+        } else if departures.input.count > 2, ((holidays.input.count + 6)...(holidays.input.count + departures.input.count + 4)).contains(row) {
+            return (holidays.input.count + 6)...(holidays.input.count + departures.input.count + 5)
+        }
+        return nil
+    }
+    
+    override func moveInput(from dragRow: Int, to dropRow: Int) {
+        if dragRow < holidays.input.count + 3 {
+            holidays.input.move(from: dragRow - 4, to: dropRow - 4)
+        } else {
+            departures.input.move(from: dragRow - (holidays.input.count + 6), to: dropRow - (holidays.input.count + 6))
+        }
+    }
+    
     override func setUp() {
         super.setUp()
         
@@ -109,10 +126,48 @@ class ScheduleInputGroup: InputGroup {
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        if tableView.selectedRow > 5 + holidays.input.count {
-            delegate?.input(self, didSelect: schedule?.departures(index: tableView.selectedRow - (6 + holidays.input.count)) ?? Departure())
+        if tableView.selectedRow > 3, tableView.selectedRow < 4 + holidays.input.count {
+            delegate?.input(self, didSelect: schedule?.holiday(at: tableView.selectedRow - 4) ?? Holiday())
+        } else if tableView.selectedRow > 5 + holidays.input.count {
+            delegate?.input(self, didSelect: schedule?.departure(at: tableView.selectedRow - (6 + holidays.input.count)) ?? Departure())
         } else {
             delegate?.input(self, didSelect: nil)
         }
+    }
+    
+    // MARK: InputGroupDelegate
+    override func inputDidEdit(_ group: InputGroup) {
+        if let holiday = (group as? HolidayInputGroup)?.holiday,
+            tableView.selectedRow > 3, tableView.selectedRow < 4 + holidays.input.count {
+            holidays.input[tableView.selectedRow - 4].holiday = holiday
+            if tableView.selectedRow == 3 + holidays.input.count {
+                holidays.input.append(HolidayInput())
+                tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
+            }
+        } else if let departure = (group as? DepartureInputGroup)?.departure,
+            tableView.selectedRow > 5 + holidays.input.count, tableView.selectedRow < tableView.numberOfRows - 1 {
+            departures.input[tableView.selectedRow - (6 + holidays.input.count)].departure = departure
+            if tableView.selectedRow == tableView.numberOfRows - 2 {
+                departures.input.append(DepartureInput())
+                tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
+            }
+        }
+        delegate?.inputDidEdit(self)
+    }
+    
+    override func inputDidDelete(_ group: InputGroup) {
+        switch group {
+        case is HolidayInputGroup:
+            if tableView.selectedRow > 3, tableView.selectedRow < 3 + holidays.input.count {
+                holidays.input.remove(at: tableView.selectedRow - 4)
+            }
+        default:
+            if tableView.selectedRow > 5 + holidays.input.count, tableView.selectedRow < tableView.numberOfRows - 2 {
+                departures.input.remove(at: tableView.selectedRow - (6 + holidays.input.count))
+            }
+        }
+        tableView.reloadData()
+        delegate?.input(self, didSelect: nil)
+        delegate?.inputDidEdit(self)
     }
 }

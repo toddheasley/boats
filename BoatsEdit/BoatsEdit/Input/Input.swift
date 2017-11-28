@@ -56,7 +56,7 @@ class Input: NSView {
     }
     
     func setUp() {
-        labelTextField.font = .systemFont(ofSize: 11.0, weight: .regular)
+        labelTextField.font = .systemFont(ofSize: 11.0)
         labelTextField.textColor = .disabledControlTextColor
         labelTextField.frame.size.width = intrinsicContentSize.width - contentInsets.width
         labelTextField.frame.size.height = 17.0
@@ -84,5 +84,18 @@ extension NSEdgeInsets {
     
     var height: CGFloat {
         return top + bottom
+    }
+}
+
+extension Array where Element: Input {
+    @discardableResult mutating func move(from index: Int, to newIndex: Int) -> Bool {
+        let range: ClosedRange<Int> = 0...(count - 1)
+        guard range.contains(index), range.contains(newIndex) else {
+            return false
+        }
+        let input = self[index]
+        remove(at: index)
+        insert(input, at: index < newIndex ? newIndex - 1: newIndex)
+        return true
     }
 }

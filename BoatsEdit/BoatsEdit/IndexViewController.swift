@@ -12,6 +12,7 @@ class IndexViewController: NSViewController, InputGroupDelegate {
     private let routeInputGroup: RouteInputGroup = RouteInputGroup()
     private let locationInputGroup: LocationInputGroup = LocationInputGroup()
     private let scheduleInputGroup: ScheduleInputGroup = ScheduleInputGroup()
+    private let holidayInputGroup: HolidayInputGroup = HolidayInputGroup()
     private let departureInputGroup: DepartureInputGroup = DepartureInputGroup()
     
     private var webButton: NSButton {
@@ -104,10 +105,16 @@ class IndexViewController: NSViewController, InputGroupDelegate {
         scheduleInputGroup.frame.origin.x = locationInputGroup.frame.origin.x
         scrollView?.documentView?.addSubview(scheduleInputGroup)
         
+        holidayInputGroup.delegate = scheduleInputGroup
+        holidayInputGroup.autoresizingMask = [.height]
+        holidayInputGroup.frame.size.height = view.bounds.size.height
+        holidayInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 4.0
+        scrollView?.documentView?.addSubview(holidayInputGroup)
+        
         departureInputGroup.delegate = scheduleInputGroup
         departureInputGroup.autoresizingMask = [.height]
         departureInputGroup.frame.size.height = view.bounds.size.height
-        departureInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 4.0
+        departureInputGroup.frame.origin.x = holidayInputGroup.frame.origin.x
         scrollView?.documentView?.addSubview(departureInputGroup)
         
         input(indexInputGroup, didSelect: nil)
@@ -131,6 +138,8 @@ class IndexViewController: NSViewController, InputGroupDelegate {
             scheduleInputGroup.schedule = input as? Schedule
             fallthrough
         case is ScheduleInputGroup:
+            holidayInputGroup.localization = indexInputGroup.index?.localization
+            holidayInputGroup.holiday = input as? Holiday
             departureInputGroup.localization = indexInputGroup.index?.localization
             departureInputGroup.departure = input as? Departure
         default:
@@ -143,6 +152,7 @@ class IndexViewController: NSViewController, InputGroupDelegate {
             routeInputGroup,
             locationInputGroup,
             scheduleInputGroup,
+            holidayInputGroup,
             departureInputGroup
         ] {
             rect = !group.isHidden && group.frame.origin.x > rect.origin.x ? group.frame : rect
@@ -158,7 +168,7 @@ class IndexViewController: NSViewController, InputGroupDelegate {
     }
     
     func inputDidDelete(_ group: InputGroup) {
-        try? IndexManager.save(index: indexInputGroup.index)
+        
     }
 }
 

@@ -10,17 +10,16 @@ class TimeInput: Input {
     
     var time: Time? {
         set {
-            
+            datePicker.dateValue = newValue?.date(timeZone: timeZone) ?? Date()
         }
         get {
-            return nil
+            return Time(from: datePicker.dateValue, timeZone: timeZone)
         }
     }
     
     var timeZone: TimeZone? {
         set {
             datePicker.timeZone = newValue
-            datePicker.dateValue = Date()
         }
         get {
             return datePicker.timeZone

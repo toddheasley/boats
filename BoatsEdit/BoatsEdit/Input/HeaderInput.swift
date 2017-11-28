@@ -38,14 +38,5 @@ class HeaderInput: Input {
         deleteButton.frame.size.height = labelTextField.frame.size.height
         deleteButton.frame.origin.y = labelTextField.frame.origin.y
         addSubview(deleteButton)
-        
-        wantsLayer = true
-        //layer?.backgroundColor = NSColor.blue.withAlphaComponent(0.15).cgColor
-        labelTextField.wantsLayer = true
-        labelTextField.layer?.backgroundColor = layer?.backgroundColor
-        webButton.wantsLayer = true
-        webButton.layer?.backgroundColor = layer?.backgroundColor
-        deleteButton.wantsLayer = true
-        deleteButton.layer?.backgroundColor = layer?.backgroundColor
     }
 }

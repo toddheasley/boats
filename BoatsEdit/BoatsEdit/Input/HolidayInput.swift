@@ -5,20 +5,12 @@
 import Cocoa
 import BoatsKit
 
-class HolidayInput: Input, NSTextFieldDelegate {
+class HolidayInput: Input {
     private let datePicker: NSDatePicker = NSDatePicker()
-    private let textField: NSTextField = NSTextField()
     
     var holiday: Holiday? {
-        set {
-            datePicker.dateValue = newValue?.date ?? Date()
-            textField.stringValue = newValue?.name ?? ""
-        }
-        get {
-            var holiday: Holiday = Holiday()
-            holiday.date = datePicker.dateValue.day(timeZone: timeZone).start
-            holiday.name = textField.stringValue
-            return holiday
+        didSet {
+            layout()
         }
     }
     
@@ -28,15 +20,7 @@ class HolidayInput: Input, NSTextFieldDelegate {
         }
         get {
             return datePicker.timeZone
-        }
-    }
-    
-    var placeholder: String? {
-        set {
-            textField.placeholderString = newValue
-        }
-        get {
-            return textField.placeholderString
+            
         }
     }
     
@@ -44,38 +28,34 @@ class HolidayInput: Input, NSTextFieldDelegate {
         return true
     }
     
+    override func layout() {
+        super.layout()
+        
+        label = holiday?.name ?? "New Holiday"
+        labelTextField.textColor = holiday != nil ? .textColor : .selectedMenuItemColor
+        
+        datePicker.dateValue = holiday?.date ?? Date()
+        datePicker.isHidden = holiday == nil
+    }
+    
     override func setUp() {
         super.setUp()
         
+        labelTextField.font = .systemFont(ofSize: 13.0)
+        
+        datePicker.isEnabled = false
         datePicker.isBezeled = false
         datePicker.datePickerStyle = .textFieldDatePickerStyle
         datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
-        datePicker.target = self
-        datePicker.action = #selector(inputEdited(_:))
         datePicker.sizeToFit()
         datePicker.frame.size.height = 22.0
-        datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width)
+        datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width + 2.0)
         datePicker.frame.origin.y = contentInsets.bottom
         addSubview(datePicker)
-        
-        textField.delegate = self
-        textField.frame.size.width = datePicker.frame.origin.x - (contentInsets.left + 14.0)
-        textField.frame.size.height = 22.0
-        textField.frame.origin.x = contentInsets.left
-        textField.frame.origin.y = contentInsets.bottom
-        addSubview(textField)
-        
-        placeholder = "Groundhog Day"
-        holiday = nil
     }
     
     convenience init(holiday: Holiday) {
         self.init()
         self.holiday = holiday
-    }
-    
-    // MARK: NSTextFieldDelegate
-    override func controlTextDidEndEditing(_ obj: Notification) {
-        inputEdited(textField)
     }
 }

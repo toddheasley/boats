@@ -5,12 +5,15 @@
 import Cocoa
 import BoatsKit
 
-class DepartureInput: Input {
+class DateInput: Input {
     private let datePicker: NSDatePicker = NSDatePicker()
     
-    var departure: Departure? {
-        didSet {
-            layout()
+    var date: Date? {
+        set {
+            datePicker.dateValue = newValue ?? Date()
+        }
+        get {
+            return datePicker.dateValue
         }
     }
     
@@ -20,7 +23,6 @@ class DepartureInput: Input {
         }
         get {
             return datePicker.timeZone
-            
         }
     }
     
@@ -28,25 +30,12 @@ class DepartureInput: Input {
         return true
     }
     
-    override func layout() {
-        super.layout()
-        
-        label = departure?.direction.rawValue.capitalized ?? "New Departure"
-        labelTextField.textColor = departure != nil ? .textColor : .selectedMenuItemColor
-        
-        datePicker.dateValue = departure?.time.date(timeZone: timeZone) ?? Date()
-        datePicker.isHidden = departure == nil
-    }
-    
     override func setUp() {
         super.setUp()
         
-        labelTextField.font = .systemFont(ofSize: 13.0)
-        
-        datePicker.isEnabled = false
         datePicker.isBezeled = false
         datePicker.datePickerStyle = .textFieldDatePickerStyle
-        datePicker.datePickerElements = [.hourMinuteDatePickerElementFlag]
+        datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
         datePicker.target = self
         datePicker.action = #selector(inputEdited(_:))
         datePicker.sizeToFit()
@@ -54,11 +43,9 @@ class DepartureInput: Input {
         datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width + 2.0)
         datePicker.frame.origin.y = contentInsets.bottom
         addSubview(datePicker)
-    }
-    
-    convenience init(departure: Departure) {
-        self.init()
-        self.departure = departure
+        
+        label = "Date"
+        timeZone = nil
     }
 }
 

@@ -19,6 +19,14 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     var delegate: InputGroupDelegate?
     var localization: Localization?
     
+    func dragRange(for row: Int) -> ClosedRange<Int>? {
+        return nil
+    }
+    
+    func moveInput(from dragRow: Int, to dropRow: Int) {
+        
+    }
+    
     @IBAction func delete(_ sender: AnyObject?) {
         let alert: NSAlert = NSAlert()
         alert.messageText = "Message text"
@@ -59,8 +67,8 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
         tableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "Input")))
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerForDraggedTypes([.input])
         tableView.setDraggingSourceOperationMask(.move, forLocal: true)
+        tableView.registerForDraggedTypes([.input])
         
         scrollView.documentView = tableView
         scrollView.hasVerticalScroller = true
@@ -81,6 +89,46 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
         setUp()
+    }
+    
+    // MARK: NSTableViewDataSource
+    func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pasteboard: NSPasteboard) -> Bool {
+        input(self, didSelect: nil)
+        
+        guard let row = rowIndexes.first, let _ = dragRange(for: row) else {
+            return false
+        }
+        tableView.deselectAll(nil)
+        (tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input)?.isDragging = true
+        pasteboard.declareTypes([.input], owner: self)
+        pasteboard.setData(NSKeyedArchiver.archivedData(withRootObject: rowIndexes), forType: .input)
+        return true
+    }
+    
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+        for row in 0...(tableView.numberOfRows - 1) {
+            (tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input)?.isDragging = false
+        }
+        guard info.draggingSource() as? NSTableView == tableView, dropOperation == .above,
+            let data = info.draggingPasteboard().data(forType: .input), 
+            let dragRow = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
+            let dragRange = dragRange(for: dragRow), dragRange.contains(row), row != dragRow, row != dragRow + 1 else {
+            return []
+        }
+        return .move
+    }
+    
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+        guard let data = info.draggingPasteboard().data(forType: .input),
+            let dragRow = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
+            let dragRange = dragRange(for: dragRow), dragRange.contains(row) else {
+            return false
+        }
+        moveInput(from: dragRow, to: row)
+        tableView.reloadData()
+        
+        delegate?.inputDidEdit(self)
+        return true
     }
     
     // MARK: NSTableViewDelegate
@@ -107,7 +155,7 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     }
     
     func inputDidDelete(_ group: InputGroup) {
-        delegate?.inputDidDelete(self)
+        
     }
     
     // MARK: InputDelegate
@@ -148,7 +196,7 @@ fileprivate class InputScrollView: NSScrollView {
     }
 }
 
-extension NSPasteboard.PasteboardType {
+fileprivate extension NSPasteboard.PasteboardType {
     static var input: NSPasteboard.PasteboardType {
         return NSPasteboard.PasteboardType("Input")
     }

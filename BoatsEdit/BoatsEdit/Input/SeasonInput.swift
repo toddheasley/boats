@@ -5,10 +5,9 @@
 import Cocoa
 import BoatsKit
 
-class SeasonInput: Input {
+class SeasonInput: Input, SeasonDatePickerDelegate {
     private let popUpButton: NSPopUpButton = NSPopUpButton()
-    private let datePicker: (start: NSDatePicker, end: NSDatePicker) = (NSDatePicker(), NSDatePicker())
-    private let textField: NSTextField = NSTextField()
+    private let datePicker: SeasonDatePicker = SeasonDatePicker()
     
     var season: Season? {
         set {
@@ -24,12 +23,13 @@ class SeasonInput: Input {
             case .evergreen:
                 popUpButton.selectItem(at: 0)
             }
-            datePicker.start.dateValue = newValue?.dateInterval?.start ?? Date()
-            datePicker.end.dateValue = newValue?.dateInterval?.end ?? Date()
+            datePicker.dateInterval = newValue?.dateInterval ?? DateInterval(start: Date(), duration: 0.0)
             layout()
         }
         get {
-            let dateInterval: DateInterval = DateInterval(start: datePicker.start.dateValue.day(timeZone: timeZone).start, end: datePicker.end.dateValue.day(timeZone: timeZone).end)
+            guard let dateInterval = datePicker.dateInterval else {
+                return nil
+            }
             switch popUpButton.indexOfSelectedItem {
             case 1:
                 return .spring(dateInterval)
@@ -47,11 +47,10 @@ class SeasonInput: Input {
     
     var timeZone: TimeZone? {
         set {
-            datePicker.start.timeZone = newValue
-            datePicker.end.timeZone = newValue
+            datePicker.timeZone = newValue
         }
         get {
-            return datePicker.start.timeZone
+            return datePicker.timeZone
         }
     }
     
@@ -71,23 +70,7 @@ class SeasonInput: Input {
     override func layout() {
         super.layout()
         
-        datePicker.end.isHidden = popUpButton.indexOfSelectedItem == 0
-        datePicker.end.minDate = Date(timeInterval: 86400.0, since: datePicker.start.dateValue)
-        datePicker.end.frame.origin.x = bounds.size.width - (contentInsets.right + datePicker.end.frame.size.width)
-        datePicker.end.frame.origin.y = contentInsets.bottom
-        
-        textField.isHidden = datePicker.end.isHidden
-        textField.frame.origin.x = datePicker.end.frame.origin.x - textField.frame.size.width
-        textField.frame.origin.y = datePicker.end.frame.origin.y
-        
-        datePicker.start.isBezeled = datePicker.end.isBezeled
-        datePicker.start.isHidden = datePicker.end.isHidden
-        datePicker.start.frame.origin.x = textField.frame.origin.x - datePicker.start.frame.size.width
-        datePicker.start.frame.origin.y = datePicker.end.frame.origin.y
-        
-        popUpButton.frame.size.width = datePicker.start.frame.origin.x - (contentInsets.left + 11.0)
-        popUpButton.frame.origin.x = contentInsets.left
-        popUpButton.frame.origin.y = contentInsets.bottom - 3.0
+        datePicker.isHidden = popUpButton.indexOfSelectedItem == 0
     }
     
     override func setUp() {
@@ -100,26 +83,83 @@ class SeasonInput: Input {
             "Fall",
             "Winter",
         ])
-        popUpButton.sizeToFit()
         popUpButton.target = self
         popUpButton.action = #selector(inputEdited(_:))
+        popUpButton.sizeToFit()
+        popUpButton.frame.size.width = 120.0
+        popUpButton.frame.origin.x = contentInsets.left
+        popUpButton.frame.origin.y = contentInsets.bottom - 3.0
         addSubview(popUpButton)
+        
+        datePicker.delegate = self
+        datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width)
+        datePicker.frame.origin.y = contentInsets.bottom
+        addSubview(datePicker)
+        
+        label = "Season"
+        season = nil
+    }
+    
+    // MARK: SeasonDatePickerDelegate
+    func seasonDidChangeDate(picker: SeasonDatePicker) {
+        inputEdited(picker)
+    }
+}
+
+protocol SeasonDatePickerDelegate {
+    func seasonDidChangeDate(picker: SeasonDatePicker)
+}
+
+class SeasonDatePicker: NSView {
+    private let datePicker: (start: NSDatePicker, end: NSDatePicker) = (NSDatePicker(), NSDatePicker())
+    private let textField: NSTextField = NSTextField()
+    
+    var delegate: SeasonDatePickerDelegate?
+    
+    var dateInterval: DateInterval? {
+        set {
+            datePicker.start.dateValue = newValue?.start ?? Date()
+            datePicker.end.dateValue = newValue?.end ?? Date()
+        }
+        get {
+            return DateInterval(start: datePicker.start.dateValue, end: max(datePicker.end.dateValue, datePicker.start.dateValue))
+        }
+    }
+    
+    var timeZone: TimeZone? {
+        set {
+            datePicker.start.timeZone = newValue
+            datePicker.end.timeZone = newValue
+        }
+        get {
+            return datePicker.start.timeZone
+        }
+    }
+    
+    var isEnabled: Bool {
+        set {
+            datePicker.start.isEnabled = newValue
+            datePicker.end.isEnabled = newValue
+        }
+        get {
+            return datePicker.start.isEnabled
+        }
+    }
+    
+    @IBAction func dateChange(_ sender: AnyObject?) {
+        delegate?.seasonDidChangeDate(picker: self)
+    }
+    
+    override init(frame rect: NSRect) {
+        super.init(frame: rect)
         
         datePicker.start.isBezeled = false
         datePicker.start.datePickerStyle = .textFieldDatePickerStyle
         datePicker.start.datePickerElements = [.yearMonthDayDatePickerElementFlag]
         datePicker.start.sizeToFit()
         datePicker.start.target = self
-        datePicker.start.action = #selector(inputEdited(_:))
+        datePicker.start.action = #selector(dateChange(_:))
         addSubview(datePicker.start)
-        
-        datePicker.end.isBezeled = false
-        datePicker.end.datePickerStyle = datePicker.start.datePickerStyle
-        datePicker.end.datePickerElements = datePicker.start.datePickerElements
-        datePicker.end.target = self
-        datePicker.end.action = #selector(inputEdited(_:))
-        datePicker.end.frame.size = datePicker.start.frame.size
-        addSubview(datePicker.end)
         
         textField.stringValue = "–"
         textField.alignment = .center
@@ -128,9 +168,23 @@ class SeasonInput: Input {
         textField.isBordered = false
         textField.sizeToFit()
         textField.frame.size.height = 19.0
+        textField.frame.origin.x = datePicker.start.frame.size.width
         addSubview(textField)
         
-        label = "Season"
-        season = nil
+        datePicker.end.isBezeled = false
+        datePicker.end.datePickerStyle = datePicker.start.datePickerStyle
+        datePicker.end.datePickerElements = datePicker.start.datePickerElements
+        datePicker.end.target = self
+        datePicker.end.action = #selector(dateChange(_:))
+        datePicker.end.frame.size = datePicker.start.frame.size
+        datePicker.end.frame.origin.x = textField.frame.origin.x + textField.frame.size.width
+        addSubview(datePicker.end)
+        
+        frame.size.width = datePicker.end.frame.origin.x + datePicker.end.frame.size.width
+        frame.size.height = datePicker.end.frame.size.height
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

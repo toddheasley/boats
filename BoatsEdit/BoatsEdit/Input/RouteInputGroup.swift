@@ -34,7 +34,12 @@ class RouteInputGroup: InputGroup {
             route.uri = uriInput.uri ?? ""
             route.destination = locationInput.destination.location ?? Location()
             route.origin = locationInput.origin.location ?? Location()
-            
+            route.services = serviceInput.services
+            for input in schedules.input {
+                if let schedule = input.schedule {
+                    route.schedules.append(schedule)
+                }
+            }
             return route
         }
     }
@@ -43,6 +48,17 @@ class RouteInputGroup: InputGroup {
         didSet {
             tableView.reloadData()
         }
+    }
+    
+    override func dragRange(for row: Int) -> ClosedRange<Int>? {
+        guard schedules.input.count > 2, (10...(schedules.input.count + 8)).contains(row) else {
+            return nil
+        }
+        return 10...(schedules.input.count + 9)
+    }
+    
+    override func moveInput(from dragRow: Int, to dropRow: Int) {
+        schedules.input.move(from: dragRow - 10, to: dropRow - 10)
     }
     
     override func setUp() {
@@ -125,11 +141,41 @@ class RouteInputGroup: InputGroup {
             delegate?.input(self, didSelect: locationInput.origin.location)
         default:
             if tableView.selectedRow > 9 {
-                delegate?.input(self, didSelect: route?.schedule(index: tableView.selectedRow - 9) ?? Schedule())
+                delegate?.input(self, didSelect: route?.schedule(at: tableView.selectedRow - 10) ?? Schedule())
             } else {
                 delegate?.input(self, didSelect: nil)
             }
         }
     }
+    
+    // MARK: InputGroupDelegate
+    override func inputDidEdit(_ group: InputGroup) {
+        if let location = (group as? LocationInputGroup)?.location {
+            switch tableView.selectedRow {
+            case 4:
+                locationInput.destination.location = location
+            case 5:
+                locationInput.origin.location = location
+            default:
+                break
+            }
+        } else if let schedule = (group as? ScheduleInputGroup)?.schedule,
+            tableView.selectedRow > 9, tableView.selectedRow < tableView.numberOfRows - 1 {
+            schedules.input[tableView.selectedRow - 10].schedule = schedule
+            if tableView.selectedRow == tableView.numberOfRows - 2 {
+                schedules.input.append(ScheduleInput())
+                tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
+            }
+        }
+        delegate?.inputDidEdit(self)
+    }
+    
+    override func inputDidDelete(_ group: InputGroup) {
+        if tableView.selectedRow > 9, tableView.selectedRow < tableView.numberOfRows - 2 {
+            schedules.input.remove(at: tableView.selectedRow - 10)
+        }
+        tableView.reloadData()
+        delegate?.input(self, didSelect: nil)
+        delegate?.inputDidEdit(self)
+    }
 }
-

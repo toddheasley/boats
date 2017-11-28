@@ -103,4 +103,9 @@ extension DateFormatter {
             return .saturday
         }
     }
+    
+    public convenience init(dateFormat: String) {
+        self.init()
+        self.dateFormat = dateFormat
+    }
 }

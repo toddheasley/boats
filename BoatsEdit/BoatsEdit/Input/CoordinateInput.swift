@@ -69,13 +69,14 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
     // MARK: NSTextFieldDelegate
     override func controlTextDidEndEditing(_ obj: Notification) {
         mapView.coordinate = CLLocationCoordinate2D(coordinate: coordinate!)
-        inputEdited(textField.latitude)
+        inputEdited(obj.object as? NSTextField)
     }
     
     // MARK: CoordinateMapDelegate
     fileprivate func coordinateDidChange(map: CoordinateMapView) {
         textField.latitude.stringValue = format(map.coordinate.latitude)
         textField.longitude.stringValue = format(map.coordinate.longitude)
+        inputEdited(mapView)
     }
 }
 
@@ -92,7 +93,9 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
     
     var coordinate: CLLocationCoordinate2D {
         set {
+            mapView.delegate = nil
             mapView.centerCoordinate = newValue
+            mapView.delegate = self
         }
         get {
             return mapView.centerCoordinate
@@ -132,8 +135,8 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         target.frame.origin.y = (mapView.frame.size.height - target.frame.size.height) / 2.0
     }
     
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
+    override init(frame rect: NSRect) {
+        super.init(frame: rect)
         
         wantsLayer = true
         layer?.borderColor = NSColor.gridColor.cgColor

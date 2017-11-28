@@ -22,7 +22,7 @@ class LocationInputGroup: InputGroup {
         get {
             var location: Location = Location()
             location.name = nameInput.string ?? ""
-            location.description = nameInput.string ?? ""
+            location.description = descriptionInput.string ?? ""
             location.coordinate = coordinateInput.coordinate!
             return location
         }

@@ -71,9 +71,9 @@ class IndexManagerTests: XCTestCase {
     
     func testSave() {
         try? FileManager.default.removeItem(at: url.appending(uri: Index().uri))
-        XCTAssertThrowsError(try IndexManager.save())
+        XCTAssertThrowsError(try IndexManager.save(index: nil))
         XCTAssertNoThrow(try IndexManager.make(at: url))
-        XCTAssertNoThrow(try IndexManager.save())
+        XCTAssertNoThrow(try IndexManager.save(index: IndexManager.index))
     }
     
     override func tearDown() {

@@ -42,7 +42,10 @@ class DepartureInputGroup: InputGroup {
         
         headerInput.label = "Departure"
         headerInput.deleteButton.isHidden = false
-        headerInput.delegate = self
+        directionInput.delegate = self
+        timeInput.delegate = self
+        dayInput.delegate = self
+        serviceInput.delegate = self
         
         departure = nil
     }

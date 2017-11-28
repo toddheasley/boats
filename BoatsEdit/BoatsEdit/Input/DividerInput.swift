@@ -16,7 +16,7 @@ class DividerInput: Input {
         set {
             divider?.removeFromSuperlayer()
             switch newValue {
-            case .rule:
+            case .rule:                
                 divider = CALayer()
                 divider!.backgroundColor = NSColor.gridColor.withAlphaComponent(0.5).cgColor
                 divider!.frame.size.width = intrinsicContentSize.width - (contentInsets.left + 2.0)

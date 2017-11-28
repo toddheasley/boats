@@ -61,6 +61,17 @@ class IndexInputGroup: InputGroup {
         return headerInput.webButton
     }
     
+    override func dragRange(for row: Int) -> ClosedRange<Int>? {
+        guard providers.input.count > 2, (7...(providers.input.count + 5)).contains(row) else {
+            return nil
+        }
+        return 7...(providers.input.count + 6)
+    }
+    
+    override func moveInput(from dragRow: Int, to dropRow: Int) {
+        providers.input.move(from: dragRow - 7, to: dropRow - 7)
+    }
+    
     override func setUp() {
         super.setUp()
         
@@ -78,46 +89,6 @@ class IndexInputGroup: InputGroup {
     // MARK: NSTableViewDataSource
     func numberOfRows(in tableView: NSTableView) -> Int {
         return 8 + providers.input.count
-    }
-    
-    func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pasteboard: NSPasteboard) -> Bool {
-        delegate?.input(self, didSelect: nil)
-        
-        guard rowIndexes.count == 1, rowIndexes.first! > 6, rowIndexes.first! < tableView.numberOfRows - 2 else {
-            return false
-        }
-        (tableView.view(atColumn: 0, row: rowIndexes.first!, makeIfNecessary: false) as? Input)?.isDragging = true
-        pasteboard.declareTypes([.input], owner: self)
-        pasteboard.setData(NSKeyedArchiver.archivedData(withRootObject: rowIndexes), forType: .input)
-        return true
-    }
-    
-    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
-        for input in providers.input {
-            input.isDragging = false
-        }
-        guard dropOperation == .above,
-            let data = info.draggingPasteboard().data(forType: .input),
-            let first = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
-            row > 6, row < tableView.numberOfRows - 1, row != first, row != first + 1 else {
-            return NSDragOperation()
-        }
-        return .move
-    }
-    
-    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-        guard let data = info.draggingPasteboard().data(forType: .input),
-            let first = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
-            row > 6, row < tableView.numberOfRows - 1,
-            let provider = index?.providers[first - 7] else {
-            return false
-        }
-        index?.providers.remove(at: first - 7)
-        index?.providers.insert(provider, at: (first < row ? row - 1: row) - 7)
-        tableView.reloadData()
-        
-        delegate?.inputDidEdit(self)
-        return true
     }
     
     // MARK: NSTableViewDelegate
@@ -167,7 +138,7 @@ class IndexInputGroup: InputGroup {
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if tableView.selectedRow > 6 {
-            delegate?.input(self, didSelect: index?.provider(index: tableView.selectedRow - 7) ?? Provider())
+            delegate?.input(self, didSelect: index?.provider(at: tableView.selectedRow - 7) ?? Provider())
         } else {
             delegate?.input(self, didSelect: nil)
         }
@@ -192,6 +163,6 @@ class IndexInputGroup: InputGroup {
         }
         tableView.reloadData()
         delegate?.input(self, didSelect: nil)
-        delegate?.inputDidDelete(self)
+        delegate?.inputDidEdit(self)
     }
 }
