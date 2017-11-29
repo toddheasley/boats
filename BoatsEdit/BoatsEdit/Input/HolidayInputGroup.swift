@@ -32,6 +32,13 @@ class HolidayInputGroup: InputGroup {
         }
     }
     
+    override var deleteLabel: String? {
+        guard let name = holiday?.name, !name.isEmpty else {
+            return "holiday"
+        }
+        return "\(name) holiday"
+    }
+    
     override func setUp() {
         super.setUp()
         

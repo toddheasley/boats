@@ -38,6 +38,13 @@ class DepartureInputGroup: InputGroup {
         }
     }
     
+    override var deleteLabel: String? {
+        guard let time = departure?.time else {
+            return "departure"
+        }
+        return "\(DateFormatter(localization: localization ?? Localization()).string(from: time)) departure"
+    }
+    
     override func setUp() {
         super.setUp()
         
@@ -97,5 +104,3 @@ class DepartureInputGroup: InputGroup {
         }
     }
 }
-
-

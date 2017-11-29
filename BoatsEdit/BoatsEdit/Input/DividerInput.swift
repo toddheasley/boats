@@ -51,4 +51,3 @@ class DividerInput: Input {
         self.style = style
     }
 }
-

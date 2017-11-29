@@ -45,6 +45,13 @@ class ProviderInputGroup: InputGroup {
         }
     }
     
+    override var deleteLabel: String? {
+        guard let name = provider?.name, !name.isEmpty else {
+            return "provider"
+        }
+        return "\(name) provider"
+    }
+    
     override func dragRange(for row: Int) -> ClosedRange<Int>? {
         guard routes.input.count > 2, (6...(routes.input.count + 4)).contains(row) else {
             return nil

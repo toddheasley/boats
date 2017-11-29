@@ -106,7 +106,7 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         set {
             mapView.isScrollEnabled = !newValue
             button.overlay.isHidden = !newValue
-            button.lock.image = NSImage(named: newValue ? NSImage.Name.lockLockedTemplate : NSImage.Name.lockUnlockedTemplate)
+            button.lock.image = NSImage(named: newValue ? .lockLockedTemplate : .lockUnlockedTemplate)
         }
         get {
             return !button.overlay.isHidden
@@ -150,8 +150,8 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         addSubview(mapView)
         
         target.wantsLayer = true
-        target.layer?.backgroundColor = NSColor.alternateSelectedControlColor.withAlphaComponent(0.3).cgColor
-        target.layer?.borderColor = NSColor.alternateSelectedControlColor.withAlphaComponent(0.6).cgColor
+        target.layer?.backgroundColor = NSColor.alternateSelectedControlColor.withAlphaComponent(0.1).cgColor
+        target.layer?.borderColor = NSColor.alternateSelectedControlColor.withAlphaComponent(0.4).cgColor
         target.layer?.borderWidth = 0.5
         target.layer?.cornerRadius = 22.0
         target.frame.size.width = 44.0
@@ -162,7 +162,7 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         button.overlay.action = #selector(toggleLock(_:))
         button.overlay.isTransparent = true
         button.overlay.wantsLayer = true
-        button.overlay.layer?.backgroundColor = NSColor.alternateSelectedControlColor.withAlphaComponent(0.2).cgColor
+        button.overlay.layer?.backgroundColor = target.layer?.backgroundColor
         button.overlay.autoresizingMask = [.width, .height]
         button.overlay.frame = bounds
         addSubview(button.overlay)
@@ -186,4 +186,3 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         delegate?.coordinateDidChange(map: self)
     }
 }
-

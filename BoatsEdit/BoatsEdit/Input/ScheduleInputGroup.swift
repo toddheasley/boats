@@ -57,6 +57,24 @@ class ScheduleInputGroup: InputGroup {
         }
     }
     
+    override var deleteLabel: String? {
+        guard let season = schedule?.season else {
+            return "schedule"
+        }
+        switch season {
+        case .spring:
+            return "spring schedule"
+        case .summer:
+            return "summer schedule"
+        case .fall:
+            return "fall schedule"
+        case .winter:
+            return "winter schedule"
+        case .evergreen:
+            return "evergreen schedule"
+        }
+    }
+    
     override func dragRange(for row: Int) -> ClosedRange<Int>? {
         if holidays.input.count > 2, (4...(holidays.input.count + 2)).contains(row) {
             return 4...(holidays.input.count + 3)

@@ -53,6 +53,13 @@ class RouteInputGroup: InputGroup {
         }
     }
     
+    override var deleteLabel: String? {
+        guard let name = route?.name, !name.isEmpty else {
+            return "route"
+        }
+        return "\(name) route"
+    }
+    
     override func dragRange(for row: Int) -> ClosedRange<Int>? {
         guard schedules.input.count > 2, (10...(schedules.input.count + 8)).contains(row) else {
             return nil

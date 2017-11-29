@@ -61,4 +61,3 @@ class DepartureInput: Input {
         self.departure = departure
     }
 }
-

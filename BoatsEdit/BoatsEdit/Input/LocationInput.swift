@@ -46,5 +46,3 @@ class LocationInput: Input {
         self.location = location
     }
 }
-
-

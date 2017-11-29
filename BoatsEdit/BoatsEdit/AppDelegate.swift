@@ -55,7 +55,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
     
     // MARK: NSApplicationDelegate
     func applicationWillFinishLaunching(_ notification: Notification) {
-        window = NSApplication.shared.keyWindow
+        window = NSApplication.shared.windows.first
         window?.setIsVisible(false)
     }
     

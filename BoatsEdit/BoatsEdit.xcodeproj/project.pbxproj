@@ -13,6 +13,7 @@
 		5C1F05E91FC3FCDE001504AF /* DepartureInputGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F05E81FC3FCDE001504AF /* DepartureInputGroup.swift */; };
 		5C33B03A1F530D5D0025B1BA /* IndexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */; };
 		5C4C2D0C1F5309F300B6FBE3 /* IndexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */; };
+		5C644E431FCD95E1006C7EB4 /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C644E421FCD95E1006C7EB4 /* NSColor.swift */; };
 		5C6EA8361FBFE53000464FCE /* CoordinateInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA8351FBFE53000464FCE /* CoordinateInput.swift */; };
 		5C7407CB1FC0ADA800A743D1 /* IndexInputGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7407CA1FC0ADA800A743D1 /* IndexInputGroup.swift */; };
 		5C79D1C71F5B317100D19DD9 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */; };
@@ -79,6 +80,7 @@
 		5C1F05E61FC3ED22001504AF /* ScheduleInputGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInputGroup.swift; sourceTree = "<group>"; };
 		5C1F05E81FC3FCDE001504AF /* DepartureInputGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureInputGroup.swift; sourceTree = "<group>"; };
 		5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManager.swift; sourceTree = "<group>"; };
+		5C644E421FCD95E1006C7EB4 /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
 		5C6EA8351FBFE53000464FCE /* CoordinateInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateInput.swift; sourceTree = "<group>"; };
 		5C7407CA1FC0ADA800A743D1 /* IndexInputGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexInputGroup.swift; sourceTree = "<group>"; };
 		5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */,
 				5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */,
 				5CFC0E3C1F657D790062A563 /* Input */,
+				5C644E421FCD95E1006C7EB4 /* NSColor.swift */,
 				5CFBB8191F51C00600BFA5CF /* Assets.xcassets */,
 				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
 				5CFBB81E1F51C00600BFA5CF /* Info.plist */,
@@ -340,6 +343,7 @@
 				5CFC0E441F6597C40062A563 /* URIInput.swift in Sources */,
 				5CFC0E421F658C930062A563 /* URLInput.swift in Sources */,
 				5CFC0E401F65812B0062A563 /* Input.swift in Sources */,
+				5C644E431FCD95E1006C7EB4 /* NSColor.swift in Sources */,
 				5C7B48751FC291700098EC70 /* RouteInputGroup.swift in Sources */,
 				5CAC2D461FB74DB500A07058 /* ServiceInput.swift in Sources */,
 				5C1752761FB9340200D9A9F5 /* DayInput.swift in Sources */,

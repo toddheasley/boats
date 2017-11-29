@@ -32,7 +32,8 @@ class HeaderInput: Input {
         addSubview(webButton)
         
         deleteButton.isHidden = true
-        deleteButton.image = NSImage(named: NSImage.Name("NSTouchBarDeleteTemplate"))
+        deleteButton.image = NSImage(named: .touchBarDeleteTemplate)
+        deleteButton.setButtonType(.momentaryChange)
         deleteButton.isBordered = false
         deleteButton.frame.size.width = labelTextField.frame.size.height
         deleteButton.frame.size.height = labelTextField.frame.size.height

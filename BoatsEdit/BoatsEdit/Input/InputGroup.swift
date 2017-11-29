@@ -19,6 +19,24 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     var delegate: InputGroupDelegate?
     var localization: Localization?
     
+    private(set) var deleteLabel: String?
+    
+    @IBAction func delete(_ sender: AnyObject?) {
+        let alert: NSAlert = NSAlert()
+        alert.alertStyle = .critical
+        alert.messageText = "Delete?"
+        if let deleteLabel = deleteLabel, !deleteLabel.isEmpty {
+            alert.messageText = "Delete \(deleteLabel)?"
+        }
+        alert.informativeText = "You can’t undo this action."
+        alert.addButton(withTitle: "Delete")
+        alert.addButton(withTitle: "Cancel")
+        guard alert.runModal() == .alertFirstButtonReturn else {
+            return
+        }
+        delegate?.inputDidDelete(self)
+    }
+    
     func dragRange(for row: Int) -> ClosedRange<Int>? {
         return nil
     }
@@ -29,18 +47,6 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     
     func showSelection(for row: Int) -> Bool {
         return false
-    }
-    
-    @IBAction func delete(_ sender: AnyObject?) {
-        let alert: NSAlert = NSAlert()
-        alert.messageText = "Message text"
-        alert.informativeText = "Informative text"
-        alert.addButton(withTitle: "Delete")
-        alert.addButton(withTitle: "Cancel")
-        guard alert.runModal() == .alertFirstButtonReturn else {
-            return
-        }
-        delegate?.inputDidDelete(self)
     }
     
     override var intrinsicContentSize: NSSize {
@@ -172,10 +178,12 @@ class InputRowView: NSTableRowView {
     }
     
     override func drawSelection(in dirtyRect: NSRect) {
-        let alpha: CGFloat = showSelection ? 0.12 : 0.0
-        NSColor.gridColor.withAlphaComponent(alpha).setFill()
+        guard showSelection else {
+            return
+        }
+        NSColor.gridColor.withAlphaComponent(0.12).setFill()
         if isEmphasized {
-            NSColor.alternateSelectedControlColor.withAlphaComponent(alpha).setFill()
+            NSColor.selection.setFill()
         }
         let path = NSBezierPath(rect: dirtyRect)
         path.fill()
