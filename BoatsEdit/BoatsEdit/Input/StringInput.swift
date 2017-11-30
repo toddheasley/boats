@@ -25,10 +25,7 @@ class StringInput: Input, NSTextFieldDelegate {
         }
     }
     
-    override var allowsSelection: Bool {
-        return true
-    }
-    
+    // MARK: Input
     override var u: Int {
         return 2
     }

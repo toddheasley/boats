@@ -12,15 +12,14 @@ class RouteInput: Input {
         }
     }
     
-    override var allowsSelection: Bool {
-        return true
+    convenience init(route: Route) {
+        self.init()
+        self.route = route
     }
     
-    override func layout() {
-        super.layout()
-        
-        label = route?.name ?? "New Route"
-        labelTextField.textColor = route != nil ? .textColor : .selectedMenuItemColor
+    // MARK: Input
+    override var allowsSelection: Bool {
+        return true
     }
     
     override func setUp() {
@@ -29,8 +28,10 @@ class RouteInput: Input {
         labelTextField.font = .systemFont(ofSize: 13.0)
     }
     
-    convenience init(route: Route) {
-        self.init()
-        self.route = route
+    override func layout() {
+        super.layout()
+        
+        label = route?.name ?? "New Route"
+        labelTextField.textColor = route != nil ? .textColor : .selectedMenuItemColor
     }
 }

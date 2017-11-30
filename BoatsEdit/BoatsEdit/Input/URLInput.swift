@@ -34,18 +34,9 @@ class URLInput: Input, NSTextFieldDelegate {
         NSWorkspace.shared.open(url)
     }
     
-    override var allowsSelection: Bool {
-        return true
-    }
-    
+    // MARK: Input
     override var u: Int {
         return 2
-    }
-    
-    override func layout() {
-        super.layout()
-        
-        previewButton.isEnabled = url != nil
     }
     
     override func setUp() {
@@ -65,6 +56,12 @@ class URLInput: Input, NSTextFieldDelegate {
         
         label = "URL"
         placeholder = "https://example.com"
+    }
+    
+    override func layout() {
+        super.layout()
+        
+        previewButton.isEnabled = url != nil
     }
     
     // MARK: NSTextFieldDelegate

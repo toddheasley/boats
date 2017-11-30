@@ -38,16 +38,6 @@ class IndexInputGroup: InputGroup {
         }
     }
     
-    override var localization: Localization? {
-        set {
-            index?.localization = newValue ?? Localization()
-            tableView.reloadData()
-        }
-        get {
-            return index?.localization
-        }
-    }
-    
     var web: Bool {
         set {
             headerInput.webButton.state = newValue ? .on : .off
@@ -61,6 +51,17 @@ class IndexInputGroup: InputGroup {
         return headerInput.webButton
     }
     
+    // MARK: InputGroup
+    override var localization: Localization? {
+        set {
+            index?.localization = newValue ?? Localization()
+            tableView.reloadData()
+        }
+        get {
+            return index?.localization
+        }
+    }
+    
     override func dragRange(for row: Int) -> ClosedRange<Int>? {
         guard providers.input.count > 2, (7...(providers.input.count + 5)).contains(row) else {
             return nil
@@ -70,10 +71,6 @@ class IndexInputGroup: InputGroup {
     
     override func moveInput(from dragRow: Int, to dropRow: Int) {
         providers.input.move(from: dragRow - 7, to: dropRow - 7)
-    }
-    
-    override func showSelection(for row: Int) -> Bool {
-        return row > 6
     }
     
     override func setUp() {

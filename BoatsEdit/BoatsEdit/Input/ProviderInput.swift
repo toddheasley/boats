@@ -12,15 +12,14 @@ class ProviderInput: Input {
         }
     }
     
-    override var allowsSelection: Bool {
-        return true
+    convenience init(provider: Provider) {
+        self.init()
+        self.provider = provider
     }
     
-    override func layout() {
-        super.layout()
-        
-        label = provider?.name ?? "New Provider"
-        labelTextField.textColor = provider != nil ? .textColor : .selectedMenuItemColor
+    // MARK: Input
+    override var allowsSelection: Bool {
+        return true
     }
     
     override func setUp() {
@@ -29,8 +28,10 @@ class ProviderInput: Input {
         labelTextField.font = .systemFont(ofSize: 13.0)
     }
     
-    convenience init(provider: Provider) {
-        self.init()
-        self.provider = provider
+    override func layout() {
+        super.layout()
+        
+        label = provider?.name ?? "New Provider"
+        labelTextField.textColor = provider != nil ? .textColor : .selectedMenuItemColor
     }
 }

@@ -20,20 +20,9 @@ class LocalizationInput: Input {
         }
     }
     
-    override var allowsSelection: Bool {
-        return true
-    }
-    
+    // MARK: Input
     override var u: Int {
         return 2
-    }
-    
-    override func layout() {
-        super.layout()
-        
-        popUpButton.frame.size.width = bounds.size.width - (contentInsets.width - 4.0)
-        popUpButton.frame.origin.x = contentInsets.left - 2.0
-        popUpButton.frame.origin.y = contentInsets.bottom - 2.0
     }
     
     override func setUp() {
@@ -49,5 +38,13 @@ class LocalizationInput: Input {
         
         label = "Localization"
         localization = nil
+    }
+    
+    override func layout() {
+        super.layout()
+        
+        popUpButton.frame.size.width = bounds.size.width - (contentInsets.width - 4.0)
+        popUpButton.frame.origin.x = contentInsets.left - 2.0
+        popUpButton.frame.origin.y = contentInsets.bottom - 2.0
     }
 }

@@ -15,14 +15,15 @@ class LocationInput: Input {
         }
     }
     
-    override var allowsSelection: Bool {
-        return true
+    convenience init(direction: Departure.Direction, location: Location? = nil) {
+        self.init()
+        self.direction = direction
+        self.location = location
     }
     
-    override func layout() {
-        super.layout()
-        
-        label = direction.rawValue.capitalized
+    // MARK: Input
+    override var allowsSelection: Bool {
+        return true
     }
     
     override func setUp() {
@@ -40,9 +41,9 @@ class LocationInput: Input {
         addSubview(textField)
     }
     
-    convenience init(direction: Departure.Direction, location: Location? = nil) {
-        self.init()
-        self.direction = direction
-        self.location = location
+    override func layout() {
+        super.layout()
+        
+        label = direction.rawValue.capitalized
     }
 }

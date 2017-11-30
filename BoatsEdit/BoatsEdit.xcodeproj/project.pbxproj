@@ -36,6 +36,7 @@
 		5CC7F21A1FC1EF7D00A69517 /* ProviderInputGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7F2191FC1EF7D00A69517 /* ProviderInputGroup.swift */; };
 		5CD03B6C1FC1A39300320457 /* HeaderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD03B6B1FC1A39300320457 /* HeaderInput.swift */; };
 		5CD03B6E1FC1B86300320457 /* DividerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD03B6D1FC1B86300320457 /* DividerInput.swift */; };
+		5CDB66571FCF9AF100BFE93F /* NSEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB66561FCF9AF100BFE93F /* NSEdgeInsets.swift */; };
 		5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */; };
 		5CFBB81A1F51C00600BFA5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB8191F51C00600BFA5CF /* Assets.xcassets */; };
 		5CFBB81D1F51C00600BFA5CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB81B1F51C00600BFA5CF /* Main.storyboard */; };
@@ -103,6 +104,7 @@
 		5CC7F2191FC1EF7D00A69517 /* ProviderInputGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderInputGroup.swift; sourceTree = "<group>"; };
 		5CD03B6B1FC1A39300320457 /* HeaderInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInput.swift; sourceTree = "<group>"; };
 		5CD03B6D1FC1B86300320457 /* DividerInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerInput.swift; sourceTree = "<group>"; };
+		5CDB66561FCF9AF100BFE93F /* NSEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEdgeInsets.swift; sourceTree = "<group>"; };
 		5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CFBB8191F51C00600BFA5CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CFBB81C1F51C00600BFA5CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */,
 				5CFC0E3C1F657D790062A563 /* Input */,
 				5C644E421FCD95E1006C7EB4 /* NSColor.swift */,
+				5CDB66561FCF9AF100BFE93F /* NSEdgeInsets.swift */,
 				5CFBB8191F51C00600BFA5CF /* Assets.xcassets */,
 				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
 				5CFBB81E1F51C00600BFA5CF /* Info.plist */,
@@ -365,6 +368,7 @@
 				5CA5D28E1FCB909E0086FDC0 /* HolidayInputGroup.swift in Sources */,
 				5C79D1C71F5B317100D19DD9 /* IndexViewController.swift in Sources */,
 				5CFC0E4A1F65C7140062A563 /* LocalizationInput.swift in Sources */,
+				5CDB66571FCF9AF100BFE93F /* NSEdgeInsets.swift in Sources */,
 				5CFC0E3E1F657D980062A563 /* StringInput.swift in Sources */,
 				5C84E9D11FBBB21600AF4096 /* ScheduleInput.swift in Sources */,
 			);

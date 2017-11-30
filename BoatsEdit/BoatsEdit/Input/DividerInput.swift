@@ -33,6 +33,12 @@ class DividerInput: Input {
         }
     }
     
+    convenience init(style: Style) {
+        self.init()
+        self.style = style
+    }
+    
+    // MARK: Input
     override var u: Int {
         return style == .none ? 0 : 1
     }
@@ -44,10 +50,5 @@ class DividerInput: Input {
         wantsLayer = true
         
         style = .rule
-    }
-    
-    convenience init(style: Style) {
-        self.init()
-        self.style = style
     }
 }

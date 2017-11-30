@@ -28,6 +28,7 @@ class LocationInputGroup: InputGroup {
         }
     }
     
+    // MARK: InputGroup
     override var localization: Localization? {
         didSet {
             tableView.reloadData()

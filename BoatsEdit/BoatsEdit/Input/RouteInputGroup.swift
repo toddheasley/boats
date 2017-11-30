@@ -44,6 +44,7 @@ class RouteInputGroup: InputGroup {
         }
     }
     
+    // MARK: InputGroup
     override var localization: Localization? {
         didSet {
             for input in schedules.input {
@@ -54,7 +55,7 @@ class RouteInputGroup: InputGroup {
     }
     
     override var deleteLabel: String? {
-        guard let name = route?.name, !name.isEmpty else {
+        guard let name: String = route?.name, !name.isEmpty else {
             return "route"
         }
         return "\(name) route"
@@ -69,10 +70,6 @@ class RouteInputGroup: InputGroup {
     
     override func moveInput(from dragRow: Int, to dropRow: Int) {
         schedules.input.move(from: dragRow - 10, to: dropRow - 10)
-    }
-    
-    override func showSelection(for row: Int) -> Bool {
-        return row == 4 || row == 5 || row > 9
     }
     
     override func setUp() {

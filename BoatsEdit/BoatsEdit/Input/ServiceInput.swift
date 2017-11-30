@@ -26,16 +26,9 @@ class ServiceInput: Input {
         }
     }
     
-    override var allowsSelection: Bool {
-        return true
-    }
-    
+    // MARK: Input
     override var u: Int {
         return (Service.all.count / 2) + (Service.all.count % 2 == 1 ? 1 : 0)
-    }
-    
-    override func layout() {
-        super.layout()
     }
     
     override func setUp() {

@@ -52,18 +52,9 @@ class DayInput: Input {
         layout()
     }
     
-    override var allowsSelection: Bool {
-        return true
-    }
-    
+    // // MARK: Input
     override var u: Int {
         return 7
-    }
-    
-    override func layout() {
-        super.layout()
-        
-        datePicker.isHidden = specialButton.state != .on
     }
     
     override func setUp() {
@@ -103,5 +94,11 @@ class DayInput: Input {
         
         label = "Days"
         timeZone = nil
+    }
+    
+    override func layout() {
+        super.layout()
+        
+        datePicker.isHidden = specialButton.state != .on
     }
 }

@@ -12,14 +12,14 @@ protocol InputGroupDelegate {
 }
 
 class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroupDelegate, InputDelegate {
-    let tableView: NSTableView = NSTableView()
+    let tableView: NSTableView = InputTableView()
     let scrollView: NSScrollView = InputScrollView()
     let headerInput: HeaderInput = HeaderInput()
     
-    var delegate: InputGroupDelegate?
+    private(set) var deleteLabel: String?
     var localization: Localization?
     
-    private(set) var deleteLabel: String?
+    var delegate: InputGroupDelegate?
     
     @IBAction func delete(_ sender: AnyObject?) {
         let alert: NSAlert = NSAlert()
@@ -45,10 +45,27 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
         
     }
     
-    func showSelection(for row: Int) -> Bool {
-        return false
+    func setUp() {
+        tableView.headerView = nil
+        tableView.allowsMultipleSelection = false
+        tableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "Input")))
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.setDraggingSourceOperationMask(.move, forLocal: true)
+        tableView.registerForDraggedTypes([.input])
+        
+        scrollView.documentView = tableView
+        scrollView.hasVerticalScroller = true
+        scrollView.borderType = .bezelBorder
+        scrollView.frame.origin.x = -1.0
+        scrollView.frame.origin.y = -1.0
+        addSubview(scrollView)
+        
+        headerInput.deleteButton.target = self
+        headerInput.deleteButton.action = #selector(delete(_:))
     }
     
+    // MARK: NSView
     override var intrinsicContentSize: NSSize {
         return Input().intrinsicContentSize
     }
@@ -71,26 +88,6 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
         scrollView.frame.size.height = bounds.size.height + 2.0
     }
     
-    func setUp() {
-        tableView.headerView = nil
-        tableView.allowsMultipleSelection = false
-        tableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "Input")))
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.setDraggingSourceOperationMask(.move, forLocal: true)
-        tableView.registerForDraggedTypes([.input])
-        
-        scrollView.documentView = tableView
-        scrollView.hasVerticalScroller = true
-        scrollView.borderType = .bezelBorder
-        scrollView.frame.origin.x = -1.0
-        scrollView.frame.origin.y = -1.0
-        addSubview(scrollView)
-        
-        headerInput.deleteButton.target = self
-        headerInput.deleteButton.action = #selector(delete(_:))
-    }
-    
     override init(frame rect: NSRect) {
         super.init(frame: rect)
         setUp()
@@ -105,7 +102,7 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pasteboard: NSPasteboard) -> Bool {
         input(self, didSelect: nil)
         
-        guard let row = rowIndexes.first, let _ = dragRange(for: row) else {
+        guard let row: Int = rowIndexes.first, let _: ClosedRange = dragRange(for: row) else {
             return false
         }
         tableView.deselectAll(nil)
@@ -116,18 +113,18 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     
     func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
         guard info.draggingSource() as? NSTableView == tableView, dropOperation == .above,
-            let data = info.draggingPasteboard().data(forType: .input), 
-            let dragRow = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
-            let dragRange = dragRange(for: dragRow), dragRange.contains(row), row != dragRow, row != dragRow + 1 else {
+            let data: Data = info.draggingPasteboard().data(forType: .input),
+            let dragRow: Int = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
+            let dragRange: ClosedRange<Int> = dragRange(for: dragRow), dragRange.contains(row), row != dragRow, row != dragRow + 1 else {
             return []
         }
         return .move
     }
     
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-        guard let data = info.draggingPasteboard().data(forType: .input),
-            let dragRow = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
-            let dragRange = dragRange(for: dragRow), dragRange.contains(row) else {
+        guard let data: Data = info.draggingPasteboard().data(forType: .input),
+            let dragRow: Int = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
+            let dragRange: ClosedRange<Int> = dragRange(for: dragRow), dragRange.contains(row) else {
             return false
         }
         moveInput(from: dragRow, to: row)
@@ -139,16 +136,11 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     
     // MARK: NSTableViewDelegate
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        return InputRowView(showSelection: showSelection(for: row))
+        return InputRowView()
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        guard let input = tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input, input.allowsSelection else {
-            return false
-        }
-        (tableView.view(atColumn: 0, row: max(tableView.selectedRow, 0), makeIfNecessary: false) as? Input)?.isSelected = false
-        (tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input)?.isSelected = true
-        return true
+        return (tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input)?.allowsSelection ?? false
     }
     
     // MARK: InputGroupDelegate
@@ -171,16 +163,11 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
 }
 
 class InputRowView: NSTableRowView {
-    private(set) var showSelection: Bool = false
-    
     override var interiorBackgroundStyle: NSView.BackgroundStyle {
         return .light
     }
     
     override func drawSelection(in dirtyRect: NSRect) {
-        guard showSelection else {
-            return
-        }
         NSColor.gridColor.withAlphaComponent(0.12).setFill()
         if isEmphasized {
             NSColor.selection.setFill()
@@ -188,15 +175,19 @@ class InputRowView: NSTableRowView {
         let path = NSBezierPath(rect: dirtyRect)
         path.fill()
     }
+}
+
+fileprivate class InputTableView: NSTableView {
     
-    convenience init(showSelection: Bool) {
-        self.init()
-        self.showSelection = showSelection
-        
+    // MARK: NSResponder
+    override func validateProposedFirstResponder(_ responder: NSResponder, for event: NSEvent?) -> Bool {
+        return true
     }
 }
 
 fileprivate class InputScrollView: NSScrollView {
+    
+    // MARK: NSResponder
     override func scrollWheel(with event: NSEvent) {
         guard usesPredominantAxisScrolling else {
             return super.scrollWheel(with: event)

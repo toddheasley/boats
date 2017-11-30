@@ -24,18 +24,15 @@ class DepartureInput: Input {
         }
     }
     
-    override var allowsSelection: Bool {
-        return true
+    convenience init(departure: Departure) {
+        self.init()
+        self.departure = departure
     }
     
-    override func layout() {
-        super.layout()
-        
-        label = departure?.direction.rawValue.capitalized ?? "New Departure"
-        labelTextField.textColor = departure != nil ? .textColor : .selectedMenuItemColor
-        
-        datePicker.dateValue = departure?.time.date(timeZone: timeZone) ?? Date()
-        datePicker.isHidden = departure == nil
+    
+    // MARK: Input
+    override var allowsSelection: Bool {
+        return true
     }
     
     override func setUp() {
@@ -56,8 +53,13 @@ class DepartureInput: Input {
         addSubview(datePicker)
     }
     
-    convenience init(departure: Departure) {
-        self.init()
-        self.departure = departure
+    override func layout() {
+        super.layout()
+        
+        label = departure?.direction.rawValue.capitalized ?? "New Departure"
+        labelTextField.textColor = departure != nil ? .textColor : .selectedMenuItemColor
+        
+        datePicker.dateValue = departure?.time.date(timeZone: timeZone) ?? Date()
+        datePicker.isHidden = departure == nil
     }
 }

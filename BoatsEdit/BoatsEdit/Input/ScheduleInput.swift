@@ -24,8 +24,31 @@ class ScheduleInput: Input {
         }
     }
     
+    convenience init(schedule: Schedule) {
+        self.init()
+        self.schedule = schedule
+    }
+    
+    // MARK: Input
     override var allowsSelection: Bool {
         return true
+    }
+    
+    override func setUp() {
+        super.setUp()
+        
+        labelTextField.font = .systemFont(ofSize: 13.0)
+        
+        statusView.frame.size.width = datePicker.frame.size.height
+        statusView.frame.size.height = statusView.frame.size.width
+        statusView.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + statusView.frame.size.width)
+        statusView.frame.origin.y = contentInsets.bottom
+        addSubview(statusView)
+        
+        datePicker.isEnabled = false
+        datePicker.frame.origin.x = statusView.frame.origin.x - (datePicker.frame.size.width + 4.0)
+        datePicker.frame.origin.y = contentInsets.bottom
+        addSubview(datePicker)
     }
     
     override func layout() {
@@ -53,28 +76,6 @@ class ScheduleInput: Input {
         
         datePicker.isHidden = schedule?.season.dateInterval == nil
         datePicker.dateInterval = schedule?.season.dateInterval
-    }
-    
-    override func setUp() {
-        super.setUp()
-        
-        labelTextField.font = .systemFont(ofSize: 13.0)
-        
-        statusView.frame.size.width = datePicker.frame.size.height
-        statusView.frame.size.height = statusView.frame.size.width
-        statusView.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + statusView.frame.size.width)
-        statusView.frame.origin.y = contentInsets.bottom
-        addSubview(statusView)
-        
-        datePicker.isEnabled = false
-        datePicker.frame.origin.x = statusView.frame.origin.x - (datePicker.frame.size.width + 4.0)
-        datePicker.frame.origin.y = contentInsets.bottom
-        addSubview(datePicker)
-    }
-    
-    convenience init(schedule: Schedule) {
-        self.init()
-        self.schedule = schedule
     }
 }
 
@@ -107,6 +108,7 @@ fileprivate class ScheduleStatusView: NSView {
         }
     }
     
+    // MARK: NSView
     override func layout() {
         super.layout()
         

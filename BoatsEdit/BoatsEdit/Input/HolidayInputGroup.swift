@@ -25,6 +25,7 @@ class HolidayInputGroup: InputGroup {
         }
     }
     
+    // MARK: InputGroup
     override var localization: Localization? {
         didSet {
             dateInput.timeZone = localization?.timeZone
@@ -33,7 +34,7 @@ class HolidayInputGroup: InputGroup {
     }
     
     override var deleteLabel: String? {
-        guard let name = holiday?.name, !name.isEmpty else {
+        guard let name: String = holiday?.name, !name.isEmpty else {
             return "holiday"
         }
         return "\(name) holiday"

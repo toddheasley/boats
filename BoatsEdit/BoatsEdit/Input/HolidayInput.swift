@@ -24,18 +24,14 @@ class HolidayInput: Input {
         }
     }
     
-    override var allowsSelection: Bool {
-        return true
+    convenience init(holiday: Holiday) {
+        self.init()
+        self.holiday = holiday
     }
     
-    override func layout() {
-        super.layout()
-        
-        label = holiday?.name ?? "New Holiday"
-        labelTextField.textColor = holiday != nil ? .textColor : .selectedMenuItemColor
-        
-        datePicker.dateValue = holiday?.date ?? Date()
-        datePicker.isHidden = holiday == nil
+    // MARK: Input
+    override var allowsSelection: Bool {
+        return true
     }
     
     override func setUp() {
@@ -54,8 +50,13 @@ class HolidayInput: Input {
         addSubview(datePicker)
     }
     
-    convenience init(holiday: Holiday) {
-        self.init()
-        self.holiday = holiday
+    override func layout() {
+        super.layout()
+        
+        label = holiday?.name ?? "New Holiday"
+        labelTextField.textColor = holiday != nil ? .textColor : .selectedMenuItemColor
+        
+        datePicker.dateValue = holiday?.date ?? Date()
+        datePicker.isHidden = holiday == nil
     }
 }

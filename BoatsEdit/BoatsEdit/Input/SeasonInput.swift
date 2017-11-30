@@ -27,7 +27,7 @@ class SeasonInput: Input, SeasonDatePickerDelegate {
             layout()
         }
         get {
-            guard let dateInterval = datePicker.dateInterval else {
+            guard let dateInterval: DateInterval = datePicker.dateInterval else {
                 return nil
             }
             switch popUpButton.indexOfSelectedItem {
@@ -54,11 +54,7 @@ class SeasonInput: Input, SeasonDatePickerDelegate {
         }
     }
     
-    override func inputEdited(_ sender: AnyObject?) {
-        layout()
-        super.inputEdited(sender)
-    }
-    
+    // MARK: Input
     override var allowsSelection: Bool {
         return true
     }
@@ -67,10 +63,9 @@ class SeasonInput: Input, SeasonDatePickerDelegate {
         return 2
     }
     
-    override func layout() {
-        super.layout()
-        
-        datePicker.isHidden = popUpButton.indexOfSelectedItem == 0
+    override func inputEdited(_ sender: AnyObject?) {
+        layout()
+        super.inputEdited(sender)
     }
     
     override func setUp() {
@@ -98,6 +93,12 @@ class SeasonInput: Input, SeasonDatePickerDelegate {
         
         label = "Season"
         season = nil
+    }
+    
+    override func layout() {
+        super.layout()
+        
+        datePicker.isHidden = popUpButton.indexOfSelectedItem == 0
     }
     
     // MARK: SeasonDatePickerDelegate
@@ -146,10 +147,11 @@ class SeasonDatePicker: NSView {
         }
     }
     
-    @IBAction func dateChange(_ sender: AnyObject?) {
+    @IBAction func dateEdited(_ sender: AnyObject?) {
         delegate?.seasonDidChangeDate(picker: self)
     }
     
+    // MARK: NSView
     override init(frame rect: NSRect) {
         super.init(frame: rect)
         
@@ -158,7 +160,7 @@ class SeasonDatePicker: NSView {
         datePicker.start.datePickerElements = [.yearMonthDayDatePickerElementFlag]
         datePicker.start.sizeToFit()
         datePicker.start.target = self
-        datePicker.start.action = #selector(dateChange(_:))
+        datePicker.start.action = #selector(dateEdited(_:))
         addSubview(datePicker.start)
         
         textField.stringValue = "–"
@@ -175,7 +177,7 @@ class SeasonDatePicker: NSView {
         datePicker.end.datePickerStyle = datePicker.start.datePickerStyle
         datePicker.end.datePickerElements = datePicker.start.datePickerElements
         datePicker.end.target = self
-        datePicker.end.action = #selector(dateChange(_:))
+        datePicker.end.action = #selector(dateEdited(_:))
         datePicker.end.frame.size = datePicker.start.frame.size
         datePicker.end.frame.origin.x = textField.frame.origin.x + textField.frame.size.width
         addSubview(datePicker.end)

@@ -12,10 +12,8 @@ class Input: NSView {
     let contentInsets: NSEdgeInsets = NSEdgeInsets(top: 4.0, left: 14.0, bottom: 8.0, right: 14.0)
     let labelTextField: NSTextField = NSTextField(labelWithString: "")
     
-    var delegate: InputDelegate?
-    
     private(set) var allowsSelection: Bool = false
-    var isSelected: Bool = false
+    var delegate: InputDelegate?
     
     var label: String {
         set {
@@ -34,6 +32,17 @@ class Input: NSView {
         delegate?.inputDidEdit(self)
     }
     
+    func setUp() {
+        labelTextField.font = .systemFont(ofSize: 11.0)
+        labelTextField.textColor = .disabledControlTextColor
+        labelTextField.frame.size.width = intrinsicContentSize.width - contentInsets.width
+        labelTextField.frame.size.height = 17.0
+        labelTextField.frame.origin.x = contentInsets.left
+        labelTextField.frame.origin.y = intrinsicContentSize.height - (labelTextField.frame.size.height + contentInsets.top + 4.0)
+        addSubview(labelTextField)
+    }
+    
+    // MARK: NSView
     override var intrinsicContentSize: NSSize {
         return NSSize(width: 360.0, height: (22.0 * CGFloat(u)) + contentInsets.height)
     }
@@ -46,16 +55,6 @@ class Input: NSView {
         get {
             return super.frame
         }
-    }
-    
-    func setUp() {
-        labelTextField.font = .systemFont(ofSize: 11.0)
-        labelTextField.textColor = .disabledControlTextColor
-        labelTextField.frame.size.width = intrinsicContentSize.width - contentInsets.width
-        labelTextField.frame.size.height = 17.0
-        labelTextField.frame.origin.x = contentInsets.left
-        labelTextField.frame.origin.y = intrinsicContentSize.height - (labelTextField.frame.size.height + contentInsets.top + 4.0)
-        addSubview(labelTextField)
     }
     
     override init(frame rect: NSRect) {
@@ -80,15 +79,5 @@ extension Array where Element: Input {
         remove(at: index)
         insert(input, at: index < newIndex ? newIndex - 1: newIndex)
         return true
-    }
-}
-
-extension NSEdgeInsets {
-    var width: CGFloat {
-        return left + right
-    }
-    
-    var height: CGFloat {
-        return top + bottom
     }
 }

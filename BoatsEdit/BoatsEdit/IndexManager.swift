@@ -7,31 +7,24 @@ import BoatsKit
 import BoatsWeb
 
 struct IndexManager {
-    private static var indexURL: URL?
     private(set) static var index: Index?
     
     static var url: URL? {
         set {
-            indexURL = newValue
-            UserDefaults.standard.set(indexURL, forKey: "url")
+            UserDefaults.standard.set(newValue, forKey: "URL")
             index = nil
         }
         get {
-            guard let url: URL = indexURL else {
-                indexURL = UserDefaults.standard.url(forKey: "url")
-                return indexURL
-            }
-            return url
+            return UserDefaults.standard.url(forKey: "URL")
         }
     }
     
     static var web: Bool {
         set {
-            guard let url: URL = url,
-                let index: Index = index else {
+            guard let url: URL = url else {
                 return
             }
-            try? index.write(to: url, web: newValue)
+            try? index?.write(to: url, web: newValue)
         }
         get {
             guard let url: URL = url else {

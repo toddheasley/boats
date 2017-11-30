@@ -29,10 +29,7 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
         }
     }
     
-    override var allowsSelection: Bool {
-        return true
-    }
-    
+    // MARK: Input
     override var u: Int {
         return 14
     }
@@ -117,14 +114,7 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         isLocked = !isLocked
     }
     
-    override func scrollWheel(with event: NSEvent) {
-        guard mapView.isScrollEnabled else {
-            nextResponder?.scrollWheel(with: event)
-            return
-        }
-        super.scrollWheel(with: event)
-    }
-    
+    // MARK: NSView
     override func layout() {
         super.layout()
         
@@ -181,7 +171,16 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MKMapViewDelegate
+    // MARK: NSResponder
+    override func scrollWheel(with event: NSEvent) {
+        guard mapView.isScrollEnabled else {
+            nextResponder?.scrollWheel(with: event)
+            return
+        }
+        super.scrollWheel(with: event)
+    }
+    
+    // MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         delegate?.coordinateDidChange(map: self)
     }

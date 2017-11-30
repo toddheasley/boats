@@ -39,6 +39,7 @@ class ProviderInputGroup: InputGroup {
         }
     }
     
+    // MARK: InputGroup
     override var localization: Localization? {
         didSet {
             tableView.reloadData()
@@ -46,7 +47,7 @@ class ProviderInputGroup: InputGroup {
     }
     
     override var deleteLabel: String? {
-        guard let name = provider?.name, !name.isEmpty else {
+        guard let name: String = provider?.name, !name.isEmpty else {
             return "provider"
         }
         return "\(name) provider"
@@ -61,10 +62,6 @@ class ProviderInputGroup: InputGroup {
     
     override func moveInput(from dragRow: Int, to dropRow: Int) {
         routes.input.move(from: dragRow - 6, to: dropRow - 6)
-    }
-    
-    override func showSelection(for row: Int) -> Bool {
-        return row > 5
     }
     
     override func setUp() {

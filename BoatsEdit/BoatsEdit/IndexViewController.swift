@@ -44,6 +44,7 @@ class IndexViewController: NSViewController, InputGroupDelegate {
         previewButton?.isEnabled = IndexManager.web
     }
     
+    // MARK: NSViewController
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         switch menuItem.tag {
         case 3:
@@ -60,10 +61,9 @@ class IndexViewController: NSViewController, InputGroupDelegate {
         
         indexInputGroup.index = IndexManager.index
         indexInputGroup.web = IndexManager.web
-        providerInputGroup.localization = indexInputGroup.index?.localization
         
-        webButton.action = #selector(toggle(_:))
         webButton.target = self
+        webButton.action = #selector(toggle(_:))
         
         previewButton?.target = self
         previewButton?.action = #selector(preview(_:))
@@ -172,8 +172,8 @@ class IndexViewController: NSViewController, InputGroupDelegate {
     }
 }
 
-extension NSScrollView {
-    fileprivate func scroll(to rect: NSRect, completion: (() -> Void)? = nil) {
+fileprivate extension NSScrollView {
+    func scroll(to rect: NSRect, completion: (() -> Void)? = nil) {
         NSAnimationContext.beginGrouping()
         NSAnimationContext.current.duration = 0.35
         contentView.animator().setBoundsOrigin(NSPoint(x: (rect.origin.x + rect.size.width) - visibleRect.size.width, y: 0.0))

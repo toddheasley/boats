@@ -8,15 +8,9 @@ class HeaderInput: Input {
     let webButton: NSButton = NSButton(checkboxWithTitle: "Include Web Pages", target: nil, action: nil)
     let deleteButton: NSButton = NSButton()
     
+    // MARK: Input
     override var u: Int {
         return 2
-    }
-    
-    override func layout() {
-        super.layout()
-        
-        webButton.frame.origin.x = (labelTextField.frame.origin.x + labelTextField.frame.size.width) - webButton.frame.size.width
-        deleteButton.frame.origin.x = (labelTextField.frame.origin.x + labelTextField.frame.size.width) - deleteButton.frame.size.width
     }
     
     override func setUp() {
@@ -39,5 +33,12 @@ class HeaderInput: Input {
         deleteButton.frame.size.height = labelTextField.frame.size.height
         deleteButton.frame.origin.y = labelTextField.frame.origin.y
         addSubview(deleteButton)
+    }
+    
+    override func layout() {
+        super.layout()
+        
+        webButton.frame.origin.x = (labelTextField.frame.origin.x + labelTextField.frame.size.width) - webButton.frame.size.width
+        deleteButton.frame.origin.x = (labelTextField.frame.origin.x + labelTextField.frame.size.width) - deleteButton.frame.size.width
     }
 }

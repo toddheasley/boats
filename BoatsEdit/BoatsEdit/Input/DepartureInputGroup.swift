@@ -31,6 +31,7 @@ class DepartureInputGroup: InputGroup {
         }
     }
     
+    // MARK: InputGroup
     override var localization: Localization? {
         didSet {
             timeInput.timeZone = localization?.timeZone
@@ -39,7 +40,7 @@ class DepartureInputGroup: InputGroup {
     }
     
     override var deleteLabel: String? {
-        guard let time = departure?.time else {
+        guard let time: Time = departure?.time else {
             return "departure"
         }
         return "\(DateFormatter(localization: localization ?? Localization()).string(from: time)) departure"
