@@ -6,17 +6,17 @@ import Cocoa
 import BoatsKit
 import BoatsWeb
 
-class IndexViewController: NSViewController, InputGroupDelegate {
-    private let indexInputGroup: IndexInputGroup = IndexInputGroup()
-    private let providerInputGroup: ProviderInputGroup = ProviderInputGroup()
-    private let routeInputGroup: RouteInputGroup = RouteInputGroup()
-    private let locationInputGroup: LocationInputGroup = LocationInputGroup()
-    private let scheduleInputGroup: ScheduleInputGroup = ScheduleInputGroup()
-    private let holidayInputGroup: HolidayInputGroup = HolidayInputGroup()
-    private let departureInputGroup: DepartureInputGroup = DepartureInputGroup()
+class IndexViewController: NSViewController, PanelViewDelegate {
+    private let indexPanelView: IndexPanelView = IndexPanelView()
+    private let providerPanelView: ProviderPanelView = ProviderPanelView()
+    private let routePanelView: RoutePanelView = RoutePanelView()
+    private let locationPanelView: LocationPanelView = LocationPanelView()
+    private let schedulePanelView: SchedulePanelView = SchedulePanelView()
+    private let holidayPanelView: HolidayPanelView = HolidayPanelView()
+    private let departurePanelView: DeparturePanelView = DeparturePanelView()
     
     private var webButton: NSButton {
-        return indexInputGroup.webButton
+        return indexPanelView.webButton
     }
     
     private var previewButton: NSToolbarItem? {
@@ -59,8 +59,8 @@ class IndexViewController: NSViewController, InputGroupDelegate {
     override func viewWillAppear() {
         super.viewWillAppear()
         
-        indexInputGroup.index = IndexManager.index
-        indexInputGroup.web = IndexManager.web
+        indexPanelView.index = IndexManager.index
+        indexPanelView.web = IndexManager.web
         
         webButton.target = self
         webButton.action = #selector(toggle(_:))
@@ -76,86 +76,86 @@ class IndexViewController: NSViewController, InputGroupDelegate {
         scrollView?.documentView?.autoresizingMask = [.height]
         scrollView?.documentView?.frame.size.height = view.bounds.size.height
         
-        indexInputGroup.delegate = self
-        indexInputGroup.autoresizingMask = [.height]
-        indexInputGroup.frame.size.height = view.bounds.size.height
-        scrollView?.documentView?.addSubview(indexInputGroup)
+        indexPanelView.delegate = self
+        indexPanelView.autoresizingMask = [.height]
+        indexPanelView.frame.size.height = view.bounds.size.height
+        scrollView?.documentView?.addSubview(indexPanelView)
         
-        providerInputGroup.delegate = indexInputGroup
-        providerInputGroup.autoresizingMask = [.height]
-        providerInputGroup.frame.size.height = view.bounds.size.height
-        providerInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width
-        scrollView?.documentView?.addSubview(providerInputGroup)
+        providerPanelView.delegate = indexPanelView
+        providerPanelView.autoresizingMask = [.height]
+        providerPanelView.frame.size.height = view.bounds.size.height
+        providerPanelView.frame.origin.x = indexPanelView.intrinsicContentSize.width
+        scrollView?.documentView?.addSubview(providerPanelView)
         
-        routeInputGroup.delegate = providerInputGroup
-        routeInputGroup.autoresizingMask = [.height]
-        routeInputGroup.frame.size.height = view.bounds.size.height
-        routeInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 2.0
-        scrollView?.documentView?.addSubview(routeInputGroup)
+        routePanelView.delegate = providerPanelView
+        routePanelView.autoresizingMask = [.height]
+        routePanelView.frame.size.height = view.bounds.size.height
+        routePanelView.frame.origin.x = indexPanelView.intrinsicContentSize.width * 2.0
+        scrollView?.documentView?.addSubview(routePanelView)
         
-        locationInputGroup.delegate = routeInputGroup
-        locationInputGroup.autoresizingMask = [.height]
-        locationInputGroup.frame.size.height = view.bounds.size.height
-        locationInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 3.0
-        scrollView?.documentView?.addSubview(locationInputGroup)
+        locationPanelView.delegate = routePanelView
+        locationPanelView.autoresizingMask = [.height]
+        locationPanelView.frame.size.height = view.bounds.size.height
+        locationPanelView.frame.origin.x = indexPanelView.intrinsicContentSize.width * 3.0
+        scrollView?.documentView?.addSubview(locationPanelView)
         
-        scheduleInputGroup.delegate = routeInputGroup
-        scheduleInputGroup.autoresizingMask = [.height]
-        scheduleInputGroup.frame.size.height = view.bounds.size.height
-        scheduleInputGroup.frame.origin.x = locationInputGroup.frame.origin.x
-        scrollView?.documentView?.addSubview(scheduleInputGroup)
+        schedulePanelView.delegate = routePanelView
+        schedulePanelView.autoresizingMask = [.height]
+        schedulePanelView.frame.size.height = view.bounds.size.height
+        schedulePanelView.frame.origin.x = locationPanelView.frame.origin.x
+        scrollView?.documentView?.addSubview(schedulePanelView)
         
-        holidayInputGroup.delegate = scheduleInputGroup
-        holidayInputGroup.autoresizingMask = [.height]
-        holidayInputGroup.frame.size.height = view.bounds.size.height
-        holidayInputGroup.frame.origin.x = indexInputGroup.intrinsicContentSize.width * 4.0
-        scrollView?.documentView?.addSubview(holidayInputGroup)
+        holidayPanelView.delegate = schedulePanelView
+        holidayPanelView.autoresizingMask = [.height]
+        holidayPanelView.frame.size.height = view.bounds.size.height
+        holidayPanelView.frame.origin.x = indexPanelView.intrinsicContentSize.width * 4.0
+        scrollView?.documentView?.addSubview(holidayPanelView)
         
-        departureInputGroup.delegate = scheduleInputGroup
-        departureInputGroup.autoresizingMask = [.height]
-        departureInputGroup.frame.size.height = view.bounds.size.height
-        departureInputGroup.frame.origin.x = holidayInputGroup.frame.origin.x
-        scrollView?.documentView?.addSubview(departureInputGroup)
+        departurePanelView.delegate = schedulePanelView
+        departurePanelView.autoresizingMask = [.height]
+        departurePanelView.frame.size.height = view.bounds.size.height
+        departurePanelView.frame.origin.x = holidayPanelView.frame.origin.x
+        scrollView?.documentView?.addSubview(departurePanelView)
         
-        input(indexInputGroup, didSelect: nil)
+        panel(indexPanelView, didSelect: nil)
     }
     
-    // MARK: InputGroupDelegate
-    func input(_ group: InputGroup, didSelect input: Any?) {
-        switch group {
-        case is IndexInputGroup:
-            providerInputGroup.localization = indexInputGroup.index?.localization
-            providerInputGroup.provider = input as? Provider
+    // MARK: PanelViewDelegate
+    func panel(_ view: PanelView, didSelect input: Any?) {
+        switch view {
+        case is IndexPanelView:
+            providerPanelView.localization = indexPanelView.index?.localization
+            providerPanelView.provider = input as? Provider
             fallthrough
-        case is ProviderInputGroup:
-            routeInputGroup.localization = indexInputGroup.index?.localization
-            routeInputGroup.route = input as? Route
+        case is ProviderPanelView:
+            routePanelView.localization = indexPanelView.index?.localization
+            routePanelView.route = input as? Route
             fallthrough
-        case is RouteInputGroup:
-            locationInputGroup.localization = indexInputGroup.index?.localization
-            locationInputGroup.location = input as? Location
-            scheduleInputGroup.localization = locationInputGroup.localization
-            scheduleInputGroup.schedule = input as? Schedule
+        case is RoutePanelView:
+            locationPanelView.localization = indexPanelView.index?.localization
+            locationPanelView.location = input as? Location
+            schedulePanelView.localization = locationPanelView.localization
+            schedulePanelView.schedule = input as? Schedule
             fallthrough
-        case is ScheduleInputGroup:
-            holidayInputGroup.localization = indexInputGroup.index?.localization
-            holidayInputGroup.holiday = input as? Holiday
-            departureInputGroup.localization = indexInputGroup.index?.localization
-            departureInputGroup.departure = input as? Departure
+        case is SchedulePanelView:
+            holidayPanelView.localization = indexPanelView.index?.localization
+            holidayPanelView.holiday = input as? Holiday
+            departurePanelView.localization = indexPanelView.index?.localization
+            departurePanelView.departure = input as? Departure
         default:
             break
         }
         
-        var rect: CGRect = indexInputGroup.frame
-        for group in [
-            providerInputGroup,
-            routeInputGroup,
-            locationInputGroup,
-            scheduleInputGroup,
-            holidayInputGroup,
-            departureInputGroup
+        var rect: CGRect = indexPanelView.frame
+        for panel in [
+            providerPanelView,
+            routePanelView,
+            locationPanelView,
+            schedulePanelView,
+            holidayPanelView,
+            departurePanelView
         ] {
-            rect = !group.isHidden && group.frame.origin.x > rect.origin.x ? group.frame : rect
+            rect = !panel.isHidden && panel.frame.origin.x > rect.origin.x ? panel.frame : rect
         }
         scrollView?.documentView?.frame.size.width = max(scrollView?.documentView?.frame.size.width ?? 0.0, rect.origin.x + rect.size.width)
         scrollView?.scroll(to: rect) {
@@ -163,11 +163,11 @@ class IndexViewController: NSViewController, InputGroupDelegate {
         }
     }
     
-    func inputDidEdit(_ group: InputGroup) {
-        try? IndexManager.save(index: indexInputGroup.index)
+    func panelDidEdit(_ view: PanelView) {
+        try? IndexManager.save(index: indexPanelView.index)
     }
     
-    func inputDidDelete(_ group: InputGroup) {
+    func panelDidDelete(_ view: PanelView) {
         
     }
 }

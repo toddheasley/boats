@@ -5,7 +5,7 @@
 import Cocoa
 import BoatsKit
 
-class HolidayInputGroup: InputGroup {
+class HolidayPanelView: PanelView {
     private let dividerInput: [DividerInput] = [DividerInput(style: .none)]
     private let nameInput: StringInput = StringInput()
     private let dateInput: DateInput = DateInput()
@@ -25,7 +25,7 @@ class HolidayInputGroup: InputGroup {
         }
     }
     
-    // MARK: InputGroup
+    // MARK: PanelView
     override var localization: Localization? {
         didSet {
             dateInput.timeZone = localization?.timeZone

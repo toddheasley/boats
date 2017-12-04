@@ -5,7 +5,7 @@
 import Cocoa
 import BoatsKit
 
-class DepartureInputGroup: InputGroup {
+class DeparturePanelView: PanelView {
     private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput(style: .none)]
     private let directionInput: DirectionInput = DirectionInput()
     private let timeInput: TimeInput = TimeInput()
@@ -31,7 +31,7 @@ class DepartureInputGroup: InputGroup {
         }
     }
     
-    // MARK: InputGroup
+    // MARK: PanelView
     override var localization: Localization? {
         didSet {
             timeInput.timeZone = localization?.timeZone

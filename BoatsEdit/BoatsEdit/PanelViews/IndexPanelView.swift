@@ -5,7 +5,7 @@
 import Cocoa
 import BoatsKit
 
-class IndexInputGroup: InputGroup {
+class IndexPanelView: PanelView {
     private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput(style: .none)]
     private let nameInput: StringInput = StringInput()
     private let descriptionInput: StringInput = StringInput()
@@ -51,7 +51,7 @@ class IndexInputGroup: InputGroup {
         return headerInput.webButton
     }
     
-    // MARK: InputGroup
+    // MARK: PanelView
     override var localization: Localization? {
         set {
             index?.localization = newValue ?? Localization()
@@ -139,15 +139,15 @@ class IndexInputGroup: InputGroup {
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if tableView.selectedRow > 6 {
-            delegate?.input(self, didSelect: index?.provider(at: tableView.selectedRow - 7) ?? Provider())
+            delegate?.panel(self, didSelect: index?.provider(at: tableView.selectedRow - 7) ?? Provider())
         } else {
-            delegate?.input(self, didSelect: nil)
+            delegate?.panel(self, didSelect: nil)
         }
     }
     
-    // MARK: InputGroupDelegate
-    override func inputDidEdit(_ group: InputGroup) {
-        if let provider = (group as? ProviderInputGroup)?.provider,
+    // MARK: PanelViewDelegate
+    override func panelDidEdit(_ view: PanelView) {
+        if let provider = (view as? ProviderPanelView)?.provider, !provider.uri.description.isEmpty, !provider.name.isEmpty,
             tableView.selectedRow > 6, tableView.selectedRow < tableView.numberOfRows - 1 {
             providers.input[tableView.selectedRow - 7].provider = provider
             if tableView.selectedRow == tableView.numberOfRows - 2 {
@@ -155,15 +155,15 @@ class IndexInputGroup: InputGroup {
                 tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
             }
         }
-        delegate?.inputDidEdit(self)
+        delegate?.panelDidEdit(self)
     }
     
-    override func inputDidDelete(_ group: InputGroup) {
+    override func panelDidDelete(_ view: PanelView) {
         if tableView.selectedRow > 6, tableView.selectedRow < tableView.numberOfRows - 2 {
             providers.input.remove(at: tableView.selectedRow - 7)
         }
         tableView.reloadData()
-        delegate?.input(self, didSelect: nil)
-        delegate?.inputDidEdit(self)
+        delegate?.panel(self, didSelect: nil)
+        delegate?.panelDidEdit(self)
     }
 }

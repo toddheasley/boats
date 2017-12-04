@@ -5,7 +5,7 @@
 import Cocoa
 import BoatsKit
 
-class RouteInputGroup: InputGroup {
+class RoutePanelView: PanelView {
     private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput(), DividerInput(style: .none)]
     private let nameInput: StringInput = StringInput()
     private let uriInput: URIInput = URIInput()
@@ -44,7 +44,7 @@ class RouteInputGroup: InputGroup {
         }
     }
     
-    // MARK: InputGroup
+    // MARK: PanelView
     override var localization: Localization? {
         didSet {
             for input in schedules.input {
@@ -147,21 +147,21 @@ class RouteInputGroup: InputGroup {
     func tableViewSelectionDidChange(_ notification: Notification) {
         switch tableView.selectedRow {
         case 4:
-            delegate?.input(self, didSelect: locationInput.destination.location)
+            delegate?.panel(self, didSelect: locationInput.destination.location)
         case 5:
-            delegate?.input(self, didSelect: locationInput.origin.location)
+            delegate?.panel(self, didSelect: locationInput.origin.location)
         default:
             if tableView.selectedRow > 9 {
-                delegate?.input(self, didSelect: route?.schedule(at: tableView.selectedRow - 10) ?? Schedule())
+                delegate?.panel(self, didSelect: route?.schedule(at: tableView.selectedRow - 10) ?? Schedule())
             } else {
-                delegate?.input(self, didSelect: nil)
+                delegate?.panel(self, didSelect: nil)
             }
         }
     }
     
-    // MARK: InputGroupDelegate
-    override func inputDidEdit(_ group: InputGroup) {
-        if let location = (group as? LocationInputGroup)?.location {
+    // MARK: PanelViewDelegate
+    override func panelDidEdit(_ view: PanelView) {
+        if let location = (view as? LocationPanelView)?.location {
             switch tableView.selectedRow {
             case 4:
                 locationInput.destination.location = location
@@ -170,7 +170,7 @@ class RouteInputGroup: InputGroup {
             default:
                 break
             }
-        } else if let schedule = (group as? ScheduleInputGroup)?.schedule,
+        } else if let schedule = (view as? SchedulePanelView)?.schedule,
             tableView.selectedRow > 9, tableView.selectedRow < tableView.numberOfRows - 1 {
             schedules.input[tableView.selectedRow - 10].schedule = schedule
             if tableView.selectedRow == tableView.numberOfRows - 2 {
@@ -178,15 +178,15 @@ class RouteInputGroup: InputGroup {
                 tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
             }
         }
-        delegate?.inputDidEdit(self)
+        delegate?.panelDidEdit(self)
     }
     
-    override func inputDidDelete(_ group: InputGroup) {
+    override func panelDidDelete(_ view: PanelView) {
         if tableView.selectedRow > 9, tableView.selectedRow < tableView.numberOfRows - 2 {
             schedules.input.remove(at: tableView.selectedRow - 10)
         }
         tableView.reloadData()
-        delegate?.input(self, didSelect: nil)
-        delegate?.inputDidEdit(self)
+        delegate?.panel(self, didSelect: nil)
+        delegate?.panelDidEdit(self)
     }
 }

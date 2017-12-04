@@ -5,21 +5,21 @@
 import Cocoa
 import BoatsKit
 
-protocol InputGroupDelegate {
-    func input(_ group: InputGroup, didSelect input: Any?)
-    func inputDidEdit(_ group: InputGroup)
-    func inputDidDelete(_ group: InputGroup)
+protocol PanelViewDelegate {
+    func panel(_ view: PanelView, didSelect input: Any?)
+    func panelDidEdit(_ view: PanelView)
+    func panelDidDelete(_ view: PanelView)
 }
 
-class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroupDelegate, InputDelegate {
-    let tableView: NSTableView = InputTableView()
-    let scrollView: NSScrollView = InputScrollView()
+class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDelegate, InputDelegate {
+    let tableView: NSTableView = PanelTableView()
+    let scrollView: NSScrollView = PanelScrollView()
     let headerInput: HeaderInput = HeaderInput()
     
     private(set) var deleteLabel: String?
     var localization: Localization?
     
-    var delegate: InputGroupDelegate?
+    var delegate: PanelViewDelegate?
     
     @IBAction func delete(_ sender: AnyObject?) {
         let alert: NSAlert = NSAlert()
@@ -34,7 +34,7 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
         guard alert.runModal() == .alertFirstButtonReturn else {
             return
         }
-        delegate?.inputDidDelete(self)
+        delegate?.panelDidDelete(self)
     }
     
     func dragRange(for row: Int) -> ClosedRange<Int>? {
@@ -100,7 +100,7 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
     
     // MARK: NSTableViewDataSource
     func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pasteboard: NSPasteboard) -> Bool {
-        input(self, didSelect: nil)
+        panel(self, didSelect: nil)
         
         guard let row: Int = rowIndexes.first, let _: ClosedRange = dragRange(for: row) else {
             return false
@@ -130,39 +130,39 @@ class InputGroup: NSView, NSTableViewDataSource, NSTableViewDelegate, InputGroup
         moveInput(from: dragRow, to: row)
         tableView.reloadData()
         
-        delegate?.inputDidEdit(self)
+        delegate?.panelDidEdit(self)
         return true
     }
     
     // MARK: NSTableViewDelegate
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        return InputRowView()
+        return PanelRowView()
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         return (tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? Input)?.allowsSelection ?? false
     }
     
-    // MARK: InputGroupDelegate
-    func input(_ group: InputGroup, didSelect input: Any?) {
-        delegate?.input(group, didSelect: input)
+    // MARK: PanelViewDelegate
+    func panel(_ view: PanelView, didSelect input: Any?) {
+        delegate?.panel(view, didSelect: input)
     }
     
-    func inputDidEdit(_ group: InputGroup) {
-        delegate?.inputDidEdit(self)
+    func panelDidEdit(_ view: PanelView) {
+        delegate?.panelDidEdit(self)
     }
     
-    func inputDidDelete(_ group: InputGroup) {
+    func panelDidDelete(_ view: PanelView) {
         
     }
     
     // MARK: InputDelegate
     func inputDidEdit(_ input: Input) {
-        delegate?.inputDidEdit(self)
+        delegate?.panelDidEdit(self)
     }
 }
 
-class InputRowView: NSTableRowView {
+class PanelRowView: NSTableRowView {
     override var interiorBackgroundStyle: NSView.BackgroundStyle {
         return .light
     }
@@ -177,7 +177,7 @@ class InputRowView: NSTableRowView {
     }
 }
 
-fileprivate class InputTableView: NSTableView {
+fileprivate class PanelTableView: NSTableView {
     
     // MARK: NSResponder
     override func validateProposedFirstResponder(_ responder: NSResponder, for event: NSEvent?) -> Bool {
@@ -185,7 +185,7 @@ fileprivate class InputTableView: NSTableView {
     }
 }
 
-fileprivate class InputScrollView: NSScrollView {
+fileprivate class PanelScrollView: NSScrollView {
     
     // MARK: NSResponder
     override func scrollWheel(with event: NSEvent) {

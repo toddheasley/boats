@@ -5,7 +5,7 @@
 import Cocoa
 import BoatsKit
 
-class LocationInputGroup: InputGroup {
+class LocationPanelView: PanelView {
     private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(style: .none)]
     private let nameInput: StringInput = StringInput()
     private let descriptionInput: StringInput = StringInput()
@@ -28,7 +28,7 @@ class LocationInputGroup: InputGroup {
         }
     }
     
-    // MARK: InputGroup
+    // MARK: PanelView
     override var localization: Localization? {
         didSet {
             tableView.reloadData()

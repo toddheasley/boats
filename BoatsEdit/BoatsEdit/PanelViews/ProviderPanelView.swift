@@ -5,7 +5,7 @@
 import Cocoa
 import BoatsKit
 
-class ProviderInputGroup: InputGroup {
+class ProviderPanelView: PanelView {
     private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(style: .none)]
     private let nameInput: StringInput = StringInput()
     private let uriInput: URIInput = URIInput()
@@ -39,7 +39,7 @@ class ProviderInputGroup: InputGroup {
         }
     }
     
-    // MARK: InputGroup
+    // MARK: PanelView
     override var localization: Localization? {
         didSet {
             tableView.reloadData()
@@ -128,15 +128,15 @@ class ProviderInputGroup: InputGroup {
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         if tableView.selectedRow > 5 {
-            delegate?.input(self, didSelect: provider?.route(at: tableView.selectedRow - 6) ?? Route())
+            delegate?.panel(self, didSelect: provider?.route(at: tableView.selectedRow - 6) ?? Route())
         } else {
-            delegate?.input(self, didSelect: nil)
+            delegate?.panel(self, didSelect: nil)
         }
     }
     
-    // MARK: InputGroupDelegate
-    override func inputDidEdit(_ group: InputGroup) {
-        if let route = (group as? RouteInputGroup)?.route,
+    // MARK: PanelViewDelegate
+    override func panelDidEdit(_ view: PanelView) {
+        if let route = (view as? RoutePanelView)?.route, !route.uri.description.isEmpty, !route.name.isEmpty,
             tableView.selectedRow > 5, tableView.selectedRow < tableView.numberOfRows - 1 {
             routes.input[tableView.selectedRow - 6].route = route
             if tableView.selectedRow == tableView.numberOfRows - 2 {
@@ -144,15 +144,15 @@ class ProviderInputGroup: InputGroup {
                 tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
             }
         }
-        delegate?.inputDidEdit(self)
+        delegate?.panelDidEdit(self)
     }
     
-    override func inputDidDelete(_ group: InputGroup) {
+    override func panelDidDelete(_ view: PanelView) {
         if tableView.selectedRow > 5, tableView.selectedRow < tableView.numberOfRows - 2 {
             routes.input.remove(at: tableView.selectedRow - 6)
         }
         tableView.reloadData()
-        delegate?.input(self, didSelect: nil)
-        delegate?.inputDidEdit(self)
+        delegate?.panel(self, didSelect: nil)
+        delegate?.panelDidEdit(self)
     }
 }
