@@ -140,14 +140,17 @@ class IndexPanelView: PanelView {
     func tableViewSelectionDidChange(_ notification: Notification) {
         if tableView.selectedRow > 6 {
             delegate?.panel(self, didSelect: index?.provider(at: tableView.selectedRow - 7) ?? Provider())
+            selectedRow = tableView.selectedRow
         } else {
             delegate?.panel(self, didSelect: nil)
+            selectedRow = -1
         }
     }
     
     // MARK: PanelViewDelegate
     override func panelDidEdit(_ view: PanelView) {
-        if let provider = (view as? ProviderPanelView)?.provider, !provider.uri.description.isEmpty, !provider.name.isEmpty,
+        if selectedRow == tableView.selectedRow,
+            let provider = (view as? ProviderPanelView)?.provider, !provider.uri.description.isEmpty, !provider.name.isEmpty,
             tableView.selectedRow > 6, tableView.selectedRow < tableView.numberOfRows - 1 {
             providers.input[tableView.selectedRow - 7].provider = provider
             if tableView.selectedRow == tableView.numberOfRows - 2 {

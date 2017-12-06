@@ -18,6 +18,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     
     private(set) var deleteLabel: String?
     var localization: Localization?
+    var selectedRow: Int = -1
     
     var delegate: PanelViewDelegate?
     

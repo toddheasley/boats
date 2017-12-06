@@ -129,14 +129,17 @@ class ProviderPanelView: PanelView {
     func tableViewSelectionDidChange(_ notification: Notification) {
         if tableView.selectedRow > 5 {
             delegate?.panel(self, didSelect: provider?.route(at: tableView.selectedRow - 6) ?? Route())
+            selectedRow = tableView.selectedRow
         } else {
             delegate?.panel(self, didSelect: nil)
+            selectedRow = -1
         }
     }
     
     // MARK: PanelViewDelegate
     override func panelDidEdit(_ view: PanelView) {
-        if let route = (view as? RoutePanelView)?.route, !route.uri.description.isEmpty, !route.name.isEmpty,
+        if selectedRow == tableView.selectedRow,
+            let route = (view as? RoutePanelView)?.route, !route.uri.description.isEmpty, !route.name.isEmpty,
             tableView.selectedRow > 5, tableView.selectedRow < tableView.numberOfRows - 1 {
             routes.input[tableView.selectedRow - 6].route = route
             if tableView.selectedRow == tableView.numberOfRows - 2 {

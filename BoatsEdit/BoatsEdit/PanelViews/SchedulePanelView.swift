@@ -154,28 +154,33 @@ class SchedulePanelView: PanelView {
     func tableViewSelectionDidChange(_ notification: Notification) {
         if tableView.selectedRow > 3, tableView.selectedRow < 4 + holidays.input.count {
             delegate?.panel(self, didSelect: schedule?.holiday(at: tableView.selectedRow - 4) ?? Holiday())
+            selectedRow = tableView.selectedRow
         } else if tableView.selectedRow > 5 + holidays.input.count {
             delegate?.panel(self, didSelect: schedule?.departure(at: tableView.selectedRow - (6 + holidays.input.count)) ?? Departure())
+            selectedRow = tableView.selectedRow
         } else {
             delegate?.panel(self, didSelect: nil)
+            selectedRow = -1
         }
     }
     
     // MARK: PanelViewDelegate
     override func panelDidEdit(_ view: PanelView) {
-        if let holiday = (view as? HolidayPanelView)?.holiday, !holiday.name.isEmpty,
-            tableView.selectedRow > 3, tableView.selectedRow < 4 + holidays.input.count {
-            holidays.input[tableView.selectedRow - 4].holiday = holiday
-            if tableView.selectedRow == 3 + holidays.input.count {
-                holidays.input.append(HolidayInput())
-                tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
-            }
-        } else if let departure = (view as? DeparturePanelView)?.departure,
-            tableView.selectedRow > 5 + holidays.input.count, tableView.selectedRow < tableView.numberOfRows - 1 {
-            departures.input[tableView.selectedRow - (6 + holidays.input.count)].departure = departure
-            if tableView.selectedRow == tableView.numberOfRows - 2 {
-                departures.input.append(DepartureInput())
-                tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
+        if selectedRow == tableView.selectedRow {
+            if let holiday = (view as? HolidayPanelView)?.holiday, !holiday.name.isEmpty,
+                tableView.selectedRow > 3, tableView.selectedRow < 4 + holidays.input.count {
+                holidays.input[tableView.selectedRow - 4].holiday = holiday
+                if tableView.selectedRow == 3 + holidays.input.count {
+                    holidays.input.append(HolidayInput())
+                    tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
+                }
+            } else if let departure = (view as? DeparturePanelView)?.departure,
+                tableView.selectedRow > 5 + holidays.input.count, tableView.selectedRow < tableView.numberOfRows - 1 {
+                departures.input[tableView.selectedRow - (6 + holidays.input.count)].departure = departure
+                if tableView.selectedRow == tableView.numberOfRows - 2 {
+                    departures.input.append(DepartureInput())
+                    tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
+                }
             }
         }
         delegate?.panelDidEdit(self)

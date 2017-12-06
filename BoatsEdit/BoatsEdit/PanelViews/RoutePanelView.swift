@@ -148,34 +148,40 @@ class RoutePanelView: PanelView {
         switch tableView.selectedRow {
         case 4:
             delegate?.panel(self, didSelect: locationInput.destination.location)
+            selectedRow = tableView.selectedRow
         case 5:
             delegate?.panel(self, didSelect: locationInput.origin.location)
+            selectedRow = tableView.selectedRow
         default:
             if tableView.selectedRow > 9 {
                 delegate?.panel(self, didSelect: route?.schedule(at: tableView.selectedRow - 10) ?? Schedule())
+                selectedRow = tableView.selectedRow
             } else {
                 delegate?.panel(self, didSelect: nil)
+                selectedRow = -1
             }
         }
     }
     
     // MARK: PanelViewDelegate
     override func panelDidEdit(_ view: PanelView) {
-        if let location = (view as? LocationPanelView)?.location {
-            switch tableView.selectedRow {
-            case 4:
-                locationInput.destination.location = location
-            case 5:
-                locationInput.origin.location = location
-            default:
-                break
-            }
-        } else if let schedule = (view as? SchedulePanelView)?.schedule,
-            tableView.selectedRow > 9, tableView.selectedRow < tableView.numberOfRows - 1 {
-            schedules.input[tableView.selectedRow - 10].schedule = schedule
-            if tableView.selectedRow == tableView.numberOfRows - 2 {
-                schedules.input.append(ScheduleInput())
-                tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
+        if selectedRow == tableView.selectedRow {
+            if let location = (view as? LocationPanelView)?.location {
+                switch tableView.selectedRow {
+                case 4:
+                    locationInput.destination.location = location
+                case 5:
+                    locationInput.origin.location = location
+                default:
+                    break
+                }
+            } else if let schedule = (view as? SchedulePanelView)?.schedule,
+                tableView.selectedRow > 9, tableView.selectedRow < tableView.numberOfRows - 1 {
+                schedules.input[tableView.selectedRow - 10].schedule = schedule
+                if tableView.selectedRow == tableView.numberOfRows - 2 {
+                    schedules.input.append(ScheduleInput())
+                    tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
+                }
             }
         }
         delegate?.panelDidEdit(self)
