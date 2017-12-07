@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-       location = "group:BoatsEdit/BoatsEdit.xcodeproj">
+      location = "group:BoatsEdit/BoatsEdit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:BoatsWeb/BoatsWeb.xcodeproj">
