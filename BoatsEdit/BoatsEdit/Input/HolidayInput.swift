@@ -1,14 +1,10 @@
-//
-// © 2018 @toddheasley
-//
-
 import Cocoa
 import BoatsKit
 
-class DepartureInput: Input {
+class HolidayInput: Input {
     private let datePicker: NSDatePicker = NSDatePicker()
     
-    var departure: Departure? {
+    var holiday: Holiday? {
         didSet {
             layout()
         }
@@ -24,11 +20,10 @@ class DepartureInput: Input {
         }
     }
     
-    convenience init(departure: Departure) {
+    convenience init(holiday: Holiday) {
         self.init()
-        self.departure = departure
+        self.holiday = holiday
     }
-    
     
     // MARK: Input
     override var allowsSelection: Bool {
@@ -43,9 +38,7 @@ class DepartureInput: Input {
         datePicker.isEnabled = false
         datePicker.isBezeled = false
         datePicker.datePickerStyle = .textFieldDatePickerStyle
-        datePicker.datePickerElements = [.hourMinuteDatePickerElementFlag]
-        datePicker.target = self
-        datePicker.action = #selector(inputEdited(_:))
+        datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
         datePicker.sizeToFit()
         datePicker.frame.size.height = 22.0
         datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width + 2.0)
@@ -56,10 +49,10 @@ class DepartureInput: Input {
     override func layout() {
         super.layout()
         
-        label = departure?.direction.rawValue.capitalized ?? "New Departure"
-        labelTextField.textColor = departure != nil ? .textColor : .selectedMenuItemColor
+        label = holiday?.name ?? "New Holiday"
+        labelTextField.textColor = holiday != nil ? .textColor : .selectedMenuItemColor
         
-        datePicker.dateValue = departure?.time.date(timeZone: timeZone) ?? Date()
-        datePicker.isHidden = departure == nil
+        datePicker.dateValue = holiday?.date ?? Date()
+        datePicker.isHidden = holiday == nil
     }
 }

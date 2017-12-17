@@ -1,7 +1,3 @@
-//
-// © 2018 @toddheasley
-//
-
 import XCTest
 import BoatsKit
 import BoatsWeb

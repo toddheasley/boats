@@ -1,7 +1,3 @@
-//
-// © 2018 @toddheasley
-//
-
 import Cocoa
 import BoatsKit
 import BoatsWeb

@@ -1,11 +1,7 @@
-//
-// © 2018 @toddheasley
-//
-
 import Foundation
 import BoatsKit
 
-class RouteView: HTMLView {
+class RouteHTMLView: HTMLView {
     required public init(index: Index, provider: Provider, route: Route) {
         super.init()
         self.name = URI(resource: "\(provider.uri)-\(route.uri)")

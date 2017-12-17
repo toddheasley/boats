@@ -1,20 +1,16 @@
-//
-// © 2018 @toddheasley
-//
-
 import Cocoa
 import BoatsKit
 
-class RouteInput: Input {
-    var route: Route? {
+class ProviderInput: Input {
+    var provider: Provider? {
         didSet {
             layout()
         }
     }
     
-    convenience init(route: Route) {
+    convenience init(provider: Provider) {
         self.init()
-        self.route = route
+        self.provider = provider
     }
     
     // MARK: Input
@@ -31,7 +27,7 @@ class RouteInput: Input {
     override func layout() {
         super.layout()
         
-        label = route?.name ?? "New Route"
-        labelTextField.textColor = route != nil ? .textColor : .selectedMenuItemColor
+        label = provider?.name ?? "New Provider"
+        labelTextField.textColor = provider != nil ? .textColor : .selectedMenuItemColor
     }
 }

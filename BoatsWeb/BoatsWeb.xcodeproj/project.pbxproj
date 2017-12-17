@@ -15,11 +15,10 @@
 		5C07DB3C1F5F3231004C8ACB /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB3A1F5F3231004C8ACB /* Index.swift */; };
 		5C07DB401F5F37EA004C8ACB /* HTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB3F1F5F37EA004C8ACB /* HTMLView.swift */; };
 		5C07DB411F5F37EA004C8ACB /* HTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB3F1F5F37EA004C8ACB /* HTMLView.swift */; };
-		5C07DB431F5F3F0F004C8ACB /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB421F5F3F0F004C8ACB /* IndexView.swift */; };
-		5C07DB441F5F3F0F004C8ACB /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB421F5F3F0F004C8ACB /* IndexView.swift */; };
-		5C07DB461F5F3F3D004C8ACB /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB451F5F3F3D004C8ACB /* RouteView.swift */; };
-		5C07DB471F5F3F3D004C8ACB /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB451F5F3F3D004C8ACB /* RouteView.swift */; };
-		5C138C041F40F0DE0034CD34 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C138C021F40F0C30034CD34 /* BoatsKit.framework */; };
+		5C07DB431F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB421F5F3F0F004C8ACB /* IndexHTMLView.swift */; };
+		5C07DB441F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB421F5F3F0F004C8ACB /* IndexHTMLView.swift */; };
+		5C07DB461F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB451F5F3F3D004C8ACB /* RouteHTMLView.swift */; };
+		5C07DB471F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB451F5F3F3D004C8ACB /* RouteHTMLView.swift */; };
 		5C1E39F01F423FF400ABE348 /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E39EF1F423FF400ABE348 /* HTML.swift */; };
 		5C1E39F11F423FF400ABE348 /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E39EF1F423FF400ABE348 /* HTML.swift */; };
 		5C28EE341F505A1B0093080D /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28EE331F505A1B0093080D /* Script.swift */; };
@@ -67,9 +66,8 @@
 		5C07DB371F5F31F8004C8ACB /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		5C07DB3A1F5F3231004C8ACB /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
 		5C07DB3F1F5F37EA004C8ACB /* HTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLView.swift; sourceTree = "<group>"; };
-		5C07DB421F5F3F0F004C8ACB /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
-		5C07DB451F5F3F3D004C8ACB /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
-		5C138C021F40F0C30034CD34 /* BoatsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoatsKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Boats-beasguutqweaegbpiwbnmtbrslsw/Build/Products/Debug-iphonesimulator/BoatsKit.framework"; sourceTree = "<group>"; };
+		5C07DB421F5F3F0F004C8ACB /* IndexHTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexHTMLView.swift; sourceTree = "<group>"; };
+		5C07DB451F5F3F3D004C8ACB /* RouteHTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHTMLView.swift; sourceTree = "<group>"; };
 		5C138C031F40F0C80034CD34 /* BoatsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoatsKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Boats-beasguutqweaegbpiwbnmtbrslsw/Build/Products/Debug/BoatsKit.framework"; sourceTree = "<group>"; };
 		5C1E39EF1F423FF400ABE348 /* HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTML.swift; sourceTree = "<group>"; };
 		5C28EE331F505A1B0093080D /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C138C041F40F0DE0034CD34 /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,12 +129,20 @@
 			path = SVG;
 			sourceTree = "<group>";
 		};
+		5C9876F51FE5E1ED00BB042C /* HTMLView */ = {
+			isa = PBXGroup;
+			children = (
+				5C07DB421F5F3F0F004C8ACB /* IndexHTMLView.swift */,
+				5C07DB451F5F3F3D004C8ACB /* RouteHTMLView.swift */,
+			);
+			path = HTMLView;
+			sourceTree = "<group>";
+		};
 		5CF356FC1F40ED7400348203 = {
 			isa = PBXGroup;
 			children = (
 				5CF357081F40ED7400348203 /* BoatsWeb */,
 				5CFB26011F42A1590066C80C /* BoatsWebTests */,
-				5C138C021F40F0C30034CD34 /* BoatsKit.framework */,
 				5C138C031F40F0C80034CD34 /* BoatsKit.framework */,
 				5CF3571E1F40EE1200348203 /* BoatsWeb.framework */,
 				5CF3571F1F40EE1200348203 /* BoatsWeb.framework */,
@@ -153,10 +158,9 @@
 				5C382FE21F42B35F00349B0D /* BookmarkIcon.png */,
 				5C1E39EF1F423FF400ABE348 /* HTML.swift */,
 				5C07DB3F1F5F37EA004C8ACB /* HTMLView.swift */,
+				5C9876F51FE5E1ED00BB042C /* HTMLView */,
 				5C07DB3A1F5F3231004C8ACB /* Index.swift */,
-				5C07DB421F5F3F0F004C8ACB /* IndexView.swift */,
 				5CE767C41F44DD52003A76EE /* Manifest.swift */,
-				5C07DB451F5F3F3D004C8ACB /* RouteView.swift */,
 				5C07DB371F5F31F8004C8ACB /* Site.swift */,
 				5C28EE331F505A1B0093080D /* Script.swift */,
 				5C28EE361F505A400093080D /* Script.js */,
@@ -362,8 +366,8 @@
 				5C53E1821F445F7800B2C89F /* SVG.swift in Sources */,
 				5C28EE341F505A1B0093080D /* Script.swift in Sources */,
 				5C07DB381F5F31F8004C8ACB /* Site.swift in Sources */,
-				5C07DB431F5F3F0F004C8ACB /* IndexView.swift in Sources */,
-				5C07DB461F5F3F3D004C8ACB /* RouteView.swift in Sources */,
+				5C07DB431F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */,
+				5C07DB461F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */,
 				5C6AB8041F429DF3003C7046 /* BookmarkIcon.swift in Sources */,
 				5C1E39F01F423FF400ABE348 /* HTML.swift in Sources */,
 				5C07DB401F5F37EA004C8ACB /* HTMLView.swift in Sources */,
@@ -381,8 +385,8 @@
 				5C53E1831F445F7800B2C89F /* SVG.swift in Sources */,
 				5C28EE351F505A1B0093080D /* Script.swift in Sources */,
 				5C07DB391F5F31F8004C8ACB /* Site.swift in Sources */,
-				5C07DB441F5F3F0F004C8ACB /* IndexView.swift in Sources */,
-				5C07DB471F5F3F3D004C8ACB /* RouteView.swift in Sources */,
+				5C07DB441F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */,
+				5C07DB471F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */,
 				5C6AB8051F429DF3003C7046 /* BookmarkIcon.swift in Sources */,
 				5C1E39F11F423FF400ABE348 /* HTML.swift in Sources */,
 				5C07DB411F5F37EA004C8ACB /* HTMLView.swift in Sources */,

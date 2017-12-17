@@ -1,19 +1,12 @@
-//
-// © 2018 @toddheasley
-//
-
 import Cocoa
 import BoatsKit
 
-class DateInput: Input {
+class DepartureInput: Input {
     private let datePicker: NSDatePicker = NSDatePicker()
     
-    var date: Date? {
-        set {
-            datePicker.dateValue = newValue ?? Date()
-        }
-        get {
-            return datePicker.dateValue
+    var departure: Departure? {
+        didSet {
+            layout()
         }
     }
     
@@ -23,16 +16,30 @@ class DateInput: Input {
         }
         get {
             return datePicker.timeZone
+            
         }
     }
     
+    convenience init(departure: Departure) {
+        self.init()
+        self.departure = departure
+    }
+    
+    
     // MARK: Input
+    override var allowsSelection: Bool {
+        return true
+    }
+    
     override func setUp() {
         super.setUp()
         
+        labelTextField.font = .systemFont(ofSize: 13.0)
+        
+        datePicker.isEnabled = false
         datePicker.isBezeled = false
         datePicker.datePickerStyle = .textFieldDatePickerStyle
-        datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
+        datePicker.datePickerElements = [.hourMinuteDatePickerElementFlag]
         datePicker.target = self
         datePicker.action = #selector(inputEdited(_:))
         datePicker.sizeToFit()
@@ -40,8 +47,15 @@ class DateInput: Input {
         datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width + 2.0)
         datePicker.frame.origin.y = contentInsets.bottom
         addSubview(datePicker)
+    }
+    
+    override func layout() {
+        super.layout()
         
-        label = "Date"
-        timeZone = nil
+        label = departure?.direction.rawValue.capitalized ?? "New Departure"
+        labelTextField.textColor = departure != nil ? .textColor : .selectedMenuItemColor
+        
+        datePicker.dateValue = departure?.time.date(timeZone: timeZone) ?? Date()
+        datePicker.isHidden = departure == nil
     }
 }

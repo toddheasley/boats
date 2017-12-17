@@ -1,7 +1,3 @@
-//
-// © 2018 @toddheasley
-//
-
 import Foundation
 
 public typealias DataCoding = DataDecoding & DataEncoding

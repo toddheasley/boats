@@ -1,7 +1,3 @@
-//
-// © 2018 @toddheasley
-//
-
 import Foundation
 import BoatsKit
 
@@ -32,9 +28,8 @@ struct HTML: CustomStringConvertible, ExpressibleByStringLiteral, ExpressibleByA
     }
 }
 
-/*
 extension HTML {
-    private static let dateFormatter: DateFormatter = DateFormatter()
+    fileprivate static let dateFormatter: DateFormatter = DateFormatter()
     
     static var localization: Localization {
         set {
@@ -44,18 +39,22 @@ extension HTML {
             return dateFormatter.localization
         }
     }
-    
+}
+
+extension HTML {
     static func head(title: String) -> HTML {
         var html: HTML = ""
         html.elements.append(HTML.title(string: title))
         html.elements.append(HTML.meta(name: "viewport", content: "initial-scale=1.0"))
-        html.elements.append(HTML.meta(name: "apple-mobile-web-app-title", content: "\(Site.name)"))
-        if let appIdentifier: String = Site.appIdentifier, !appIdentifier.isEmpty {
-            html.elements.append(HTML.meta(name: "apple-itunes-app", content: "app-id=\(appIdentifier)"))
-        }
-        html.elements.append(HTML.link(rel: "apple-touch-icon", href: "\(BookmarkIcon().uri.path)"))
-        html.elements.append(HTML.link(rel: "stylesheet", href: "\(Stylesheet().uri.path)"))
-        html.elements.append(HTML.script(src: "\(Script().uri.path)"))
+        
+        //html.elements.append(HTML.meta(name: "apple-mobile-web-app-title", content: "\()"))
+        //if let appIdentifier: String = Site.appIdentifier, !appIdentifier.isEmpty {
+        //    html.elements.append(HTML.meta(name: "apple-itunes-app", content: "app-id=\(appIdentifier)"))
+        //}
+        
+        html.elements.append(HTML.link(rel: "apple-touch-icon", href: "\(BookmarkIcon().uri.resource)"))
+        html.elements.append(HTML.link(rel: "stylesheet", href: "\(Stylesheet().uri.resource)"))
+        html.elements.append(HTML.script(src: "\(Script().uri.resource)"))
         return head(html: html)
     }
     
@@ -81,7 +80,7 @@ extension HTML {
     static func document(html: HTML) -> HTML {
         var document: HTML = ""
         document.elements.append(line("<!DOCTYPE html>"))
-        document.elements.append(line(HTML(stringLiteral: "<html manifest=\"\(Manifest().uri.path)\">")))
+        document.elements.append(line(HTML(stringLiteral: "<html manifest=\"\(Manifest().uri.resource)\">")))
         for element in html.elements {
             document.elements.append(line(tab(element)))
         }
@@ -207,4 +206,3 @@ extension HTML {
         return HTML(stringLiteral: "\(html)\n")
     }
 }
-*/

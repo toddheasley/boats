@@ -1,7 +1,3 @@
-//
-// © 2018 @toddheasley
-//
-
 import Foundation
 import BoatsKit
 
@@ -20,12 +16,12 @@ extension Site: DataWriting, DataDeleting {
     public func write(to url: URL) throws {
         try delete(from: url)
         var manifest: Manifest = Manifest()
-        let view: IndexView = IndexView(index: index)
+        let view: IndexHTMLView = IndexHTMLView(index: index)
         try view.write(to: url)
         manifest.uris.insert(view.uri)
         for provider in index.providers {
             for route in provider.routes {
-                let view: RouteView = RouteView(index: index, provider: provider, route: route)
+                let view: RouteHTMLView = RouteHTMLView(index: index, provider: provider, route: route)
                 try view.write(to: url)
                 manifest.uris.insert(view.uri)
             }

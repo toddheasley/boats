@@ -140,7 +140,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C2705101FD4C5010040053A /* PanelViews */ = {
+		5C2705101FD4C5010040053A /* PanelView */ = {
 			isa = PBXGroup;
 			children = (
 				5C1F05E81FC3FCDE001504AF /* DeparturePanelView.swift */,
@@ -151,7 +151,7 @@
 				5C7B48741FC291700098EC70 /* RoutePanelView.swift */,
 				5C1F05E61FC3ED22001504AF /* SchedulePanelView.swift */,
 			);
-			path = PanelViews;
+			path = PanelView;
 			sourceTree = "<group>";
 		};
 		5CFBB8091F51C00500BFA5CF = {
@@ -174,12 +174,12 @@
 				5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */,
 				5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */,
 				5CFC0E3F1F65812B0062A563 /* Input.swift */,
-				5CFC0E3C1F657D790062A563 /* Inputs */,
+				5CFC0E3C1F657D790062A563 /* Input */,
 				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
 				5C644E421FCD95E1006C7EB4 /* NSColor.swift */,
 				5CDB66561FCF9AF100BFE93F /* NSEdgeInsets.swift */,
 				5C1752681FB8BE0D00D9A9F5 /* PanelView.swift */,
-				5C2705101FD4C5010040053A /* PanelViews */,
+				5C2705101FD4C5010040053A /* PanelView */,
 				5CFBB81E1F51C00600BFA5CF /* Info.plist */,
 			);
 			path = BoatsEdit;
@@ -194,7 +194,7 @@
 			path = BoatsEditTests;
 			sourceTree = "<group>";
 		};
-		5CFC0E3C1F657D790062A563 /* Inputs */ = {
+		5CFC0E3C1F657D790062A563 /* Input */ = {
 			isa = PBXGroup;
 			children = (
 				5C6EA8351FBFE53000464FCE /* CoordinateInput.swift */,
@@ -217,7 +217,7 @@
 				5CFC0E431F6597C40062A563 /* URIInput.swift */,
 				5CFC0E411F658C930062A563 /* URLInput.swift */,
 			);
-			path = Inputs;
+			path = Input;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
