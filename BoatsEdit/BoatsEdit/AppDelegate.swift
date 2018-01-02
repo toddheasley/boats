@@ -51,6 +51,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
     
     // MARK: NSApplicationDelegate
     func applicationWillFinishLaunching(_ notification: Notification) {
+        Site.appIdentifier = "1152562893"
+        
         window = NSApplication.shared.windows.first
         window?.setIsVisible(false)
     }

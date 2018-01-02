@@ -19,8 +19,6 @@
 		5C07DB441F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB421F5F3F0F004C8ACB /* IndexHTMLView.swift */; };
 		5C07DB461F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB451F5F3F3D004C8ACB /* RouteHTMLView.swift */; };
 		5C07DB471F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB451F5F3F3D004C8ACB /* RouteHTMLView.swift */; };
-		5C1E39F01F423FF400ABE348 /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E39EF1F423FF400ABE348 /* HTML.swift */; };
-		5C1E39F11F423FF400ABE348 /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1E39EF1F423FF400ABE348 /* HTML.swift */; };
 		5C28EE341F505A1B0093080D /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28EE331F505A1B0093080D /* Script.swift */; };
 		5C28EE351F505A1B0093080D /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28EE331F505A1B0093080D /* Script.swift */; };
 		5C28EE371F505A400093080D /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 5C28EE361F505A400093080D /* Script.js */; };
@@ -37,9 +35,17 @@
 		5C5CC5091F438C8E00FDC699 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C138C031F40F0C80034CD34 /* BoatsKit.framework */; };
 		5C6AB8041F429DF3003C7046 /* BookmarkIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6AB8031F429DF3003C7046 /* BookmarkIcon.swift */; };
 		5C6AB8051F429DF3003C7046 /* BookmarkIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6AB8031F429DF3003C7046 /* BookmarkIcon.swift */; };
+		5C6D80C71FFA86A000B5F256 /* IndexHTMLView.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C6D80C51FFA869F00B5F256 /* IndexHTMLView.html */; };
+		5C6D80C81FFA86A000B5F256 /* RouteHTMLView.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C6D80C61FFA86A000B5F256 /* RouteHTMLView.html */; };
+		5C6D80C91FFA86A700B5F256 /* RouteHTMLView.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C6D80C61FFA86A000B5F256 /* RouteHTMLView.html */; };
+		5C6D80CA1FFA86AB00B5F256 /* IndexHTMLView.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C6D80C51FFA869F00B5F256 /* IndexHTMLView.html */; };
+		5C6D80CC1FFBA62E00B5F256 /* HTMLTests.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C6D80CB1FFBA62E00B5F256 /* HTMLTests.html */; };
 		5C9F2B241F49C6610047F09D /* ManifestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F2B231F49C6610047F09D /* ManifestTests.swift */; };
 		5C9F2B261F49CA8E0047F09D /* ManifestTests.appcache in Resources */ = {isa = PBXBuildFile; fileRef = 5C9F2B251F49CA8E0047F09D /* ManifestTests.appcache */; };
+		5CADAD6E1FF7CFB200FC1D11 /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADAD6D1FF7CFB200FC1D11 /* HTML.swift */; };
+		5CADAD6F1FF7CFB200FC1D11 /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADAD6D1FF7CFB200FC1D11 /* HTML.swift */; };
 		5CC755C91F4A357F00C8FCC5 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC755C81F4A357F00C8FCC5 /* XCTestCase.swift */; };
+		5CDA95551FF9AB30006C81EB /* HTMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA95541FF9AB30006C81EB /* HTMLTests.swift */; };
 		5CE767C51F44DD52003A76EE /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE767C41F44DD52003A76EE /* Manifest.swift */; };
 		5CE767C61F44DD52003A76EE /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE767C41F44DD52003A76EE /* Manifest.swift */; };
 		5CF357211F40EE1300348203 /* BoatsWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF357201F40EE1300348203 /* BoatsWeb.swift */; };
@@ -69,7 +75,6 @@
 		5C07DB421F5F3F0F004C8ACB /* IndexHTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexHTMLView.swift; sourceTree = "<group>"; };
 		5C07DB451F5F3F3D004C8ACB /* RouteHTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHTMLView.swift; sourceTree = "<group>"; };
 		5C138C031F40F0C80034CD34 /* BoatsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoatsKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Boats-beasguutqweaegbpiwbnmtbrslsw/Build/Products/Debug/BoatsKit.framework"; sourceTree = "<group>"; };
-		5C1E39EF1F423FF400ABE348 /* HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTML.swift; sourceTree = "<group>"; };
 		5C28EE331F505A1B0093080D /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 		5C28EE361F505A400093080D /* Script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
 		5C28EE391F505A600093080D /* ScriptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTests.swift; sourceTree = "<group>"; };
@@ -79,9 +84,14 @@
 		5C53E1841F445F8600B2C89F /* SVGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGTests.swift; sourceTree = "<group>"; };
 		5C6AB8031F429DF3003C7046 /* BookmarkIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkIcon.swift; sourceTree = "<group>"; };
 		5C6AB8061F429E7A003C7046 /* BookmarkIconTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkIconTests.swift; sourceTree = "<group>"; };
+		5C6D80C51FFA869F00B5F256 /* IndexHTMLView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = IndexHTMLView.html; sourceTree = "<group>"; };
+		5C6D80C61FFA86A000B5F256 /* RouteHTMLView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RouteHTMLView.html; sourceTree = "<group>"; };
+		5C6D80CB1FFBA62E00B5F256 /* HTMLTests.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HTMLTests.html; sourceTree = "<group>"; };
 		5C9F2B231F49C6610047F09D /* ManifestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestTests.swift; sourceTree = "<group>"; };
 		5C9F2B251F49CA8E0047F09D /* ManifestTests.appcache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ManifestTests.appcache; sourceTree = "<group>"; };
+		5CADAD6D1FF7CFB200FC1D11 /* HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTML.swift; sourceTree = "<group>"; };
 		5CC755C81F4A357F00C8FCC5 /* XCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		5CDA95541FF9AB30006C81EB /* HTMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLTests.swift; sourceTree = "<group>"; };
 		5CE767C41F44DD52003A76EE /* Manifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
 		5CF3570A1F40ED7400348203 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CF3571E1F40EE1200348203 /* BoatsWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				5C07DB421F5F3F0F004C8ACB /* IndexHTMLView.swift */,
+				5C6D80C51FFA869F00B5F256 /* IndexHTMLView.html */,
 				5C07DB451F5F3F3D004C8ACB /* RouteHTMLView.swift */,
+				5C6D80C61FFA86A000B5F256 /* RouteHTMLView.html */,
 			);
 			path = HTMLView;
 			sourceTree = "<group>";
@@ -156,7 +168,7 @@
 				5CF357201F40EE1300348203 /* BoatsWeb.swift */,
 				5C6AB8031F429DF3003C7046 /* BookmarkIcon.swift */,
 				5C382FE21F42B35F00349B0D /* BookmarkIcon.png */,
-				5C1E39EF1F423FF400ABE348 /* HTML.swift */,
+				5CADAD6D1FF7CFB200FC1D11 /* HTML.swift */,
 				5C07DB3F1F5F37EA004C8ACB /* HTMLView.swift */,
 				5C9876F51FE5E1ED00BB042C /* HTMLView */,
 				5C07DB3A1F5F3231004C8ACB /* Index.swift */,
@@ -177,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				5C6AB8061F429E7A003C7046 /* BookmarkIconTests.swift */,
+				5CDA95541FF9AB30006C81EB /* HTMLTests.swift */,
+				5C6D80CB1FFBA62E00B5F256 /* HTMLTests.html */,
 				5C9F2B231F49C6610047F09D /* ManifestTests.swift */,
 				5C9F2B251F49CA8E0047F09D /* ManifestTests.appcache */,
 				5C28EE391F505A600093080D /* ScriptTests.swift */,
@@ -313,6 +327,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C6D80C81FFA86A000B5F256 /* RouteHTMLView.html in Resources */,
+				5C6D80C71FFA86A000B5F256 /* IndexHTMLView.html in Resources */,
 				5C382FE31F42B35F00349B0D /* BookmarkIcon.png in Resources */,
 				5C28EE371F505A400093080D /* Script.js in Resources */,
 				5C533A9E1F42AE9A00565FCC /* Stylesheet.css in Resources */,
@@ -325,7 +341,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C382FE41F42B36D00349B0D /* BookmarkIcon.png in Resources */,
+				5C6D80CA1FFA86AB00B5F256 /* IndexHTMLView.html in Resources */,
 				5C28EE381F505A400093080D /* Script.js in Resources */,
+				5C6D80C91FFA86A700B5F256 /* RouteHTMLView.html in Resources */,
 				5C382FE51F42B37C00349B0D /* Stylesheet.css in Resources */,
 				5C03DF201F43A4F500367ABE /* Menu.svg in Resources */,
 			);
@@ -336,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9F2B261F49CA8E0047F09D /* ManifestTests.appcache in Resources */,
+				5C6D80CC1FFBA62E00B5F256 /* HTMLTests.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +388,7 @@
 				5C07DB431F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */,
 				5C07DB461F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */,
 				5C6AB8041F429DF3003C7046 /* BookmarkIcon.swift in Sources */,
-				5C1E39F01F423FF400ABE348 /* HTML.swift in Sources */,
+				5CADAD6E1FF7CFB200FC1D11 /* HTML.swift in Sources */,
 				5C07DB401F5F37EA004C8ACB /* HTMLView.swift in Sources */,
 				5C07DB3B1F5F3231004C8ACB /* Index.swift in Sources */,
 				5CE767C51F44DD52003A76EE /* Manifest.swift in Sources */,
@@ -388,7 +407,7 @@
 				5C07DB441F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */,
 				5C07DB471F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */,
 				5C6AB8051F429DF3003C7046 /* BookmarkIcon.swift in Sources */,
-				5C1E39F11F423FF400ABE348 /* HTML.swift in Sources */,
+				5CADAD6F1FF7CFB200FC1D11 /* HTML.swift in Sources */,
 				5C07DB411F5F37EA004C8ACB /* HTMLView.swift in Sources */,
 				5C07DB3C1F5F3231004C8ACB /* Index.swift in Sources */,
 				5CE767C61F44DD52003A76EE /* Manifest.swift in Sources */,
@@ -402,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9F2B241F49C6610047F09D /* ManifestTests.swift in Sources */,
+				5CDA95551FF9AB30006C81EB /* HTMLTests.swift in Sources */,
 				5CFB26161F42A7D60066C80C /* StylesheetTests.swift in Sources */,
 				5C28EE3B1F505BF20093080D /* ScriptTests.swift in Sources */,
 				5CFB260B1F42A17F0066C80C /* BookmarkIconTests.swift in Sources */,

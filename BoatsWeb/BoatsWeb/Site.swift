@@ -3,6 +3,7 @@ import BoatsKit
 
 public struct Site {
     public static let uri: URI = URI(resource: "index", type: "html")
+    public static var app: (name: String, identifier: String?) = ("Boats", nil)
     public private(set) var index: Index
     
     public init(index: Index) {
@@ -16,12 +17,12 @@ extension Site: DataWriting, DataDeleting {
     public func write(to url: URL) throws {
         try delete(from: url)
         var manifest: Manifest = Manifest()
-        let view: IndexHTMLView = IndexHTMLView(index: index)
+        let view: IndexHTMLView = IndexHTMLView()!
         try view.write(to: url)
         manifest.uris.insert(view.uri)
         for provider in index.providers {
             for route in provider.routes {
-                let view: RouteHTMLView = RouteHTMLView(index: index, provider: provider, route: route)
+                let view: RouteHTMLView = RouteHTMLView()!
                 try view.write(to: url)
                 manifest.uris.insert(view.uri)
             }
