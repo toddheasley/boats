@@ -17,12 +17,12 @@ extension Site: DataWriting, DataDeleting {
     public func write(to url: URL) throws {
         try delete(from: url)
         var manifest: Manifest = Manifest()
-        let view: IndexHTMLView = IndexHTMLView()!
+        let view: IndexHTMLView = IndexHTMLView(index: index)!
         try view.write(to: url)
         manifest.uris.insert(view.uri)
         for provider in index.providers {
             for route in provider.routes {
-                let view: RouteHTMLView = RouteHTMLView()!
+                let view: RouteHTMLView = RouteHTMLView(index: index, provider: provider, route: route)!
                 try view.write(to: url)
                 manifest.uris.insert(view.uri)
             }
@@ -33,10 +33,6 @@ extension Site: DataWriting, DataDeleting {
         manifest.uris.insert(Script().uri)
         try Stylesheet().write(to: url)
         manifest.uris.insert(Stylesheet().uri)
-        for svg: SVG in SVG.all {
-            try svg.write(to: url)
-            manifest.uris.insert(svg.uri)
-        }
         try manifest.write(to: url)
     }
     

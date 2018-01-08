@@ -7,6 +7,20 @@ enum SVG: String {
     static let all: [SVG] = [.menu]
 }
 
+extension SVG: HTMLConvertible {
+    
+    // MARK: HTMLConvertible
+    var html: HTML {
+        guard let data: Data = try? data(),
+            let string = String(data: data, encoding: .utf8) else {
+            return HTML(stringLiteral: "\(rawValue)")
+        }
+        return HTML(stringLiteral: string.components(separatedBy: "\n").map { string in
+            string.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " xmlns=\"http://www.w3.org/2000/svg\"", with: "")
+        }.joined())
+    }
+}
+
 extension SVG: DataEncoding {
     
     // MARK: DataEncoding
