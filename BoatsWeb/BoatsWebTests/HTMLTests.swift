@@ -14,14 +14,14 @@ class HTMLTests: XCTestCase, HTMLDataSource {
     }
     
     // MARK: HTMLDataSource
-    func value(of name: String, at index: Int?, in html: HTML) -> String? {
-        if let index = index {
-            return "\(index)"
+    func value(of name: String, at index: [Int], in html: HTML) -> String? {
+        if !index.isEmpty {
+            return "\(index[0])"
         }
         return "A"
     }
     
-    func count(of name: String, in html: HTML) -> Int {
+    func count(of name: String, at index: [Int], in html: HTML) -> Int {
         return 3
     }
 }
