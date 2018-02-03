@@ -3,8 +3,9 @@ import BoatsKit
 
 enum SVG: String {
     case menu = "Menu"
+    case car = "Car"
     
-    static let all: [SVG] = [.menu]
+    static let all: [SVG] = [.menu, .car]
 }
 
 extension SVG: HTMLConvertible {

@@ -8,5 +8,6 @@ class SVGTests: XCTestCase {
 extension SVGTests {
     func testDataEncoding() {
         XCTAssertNotNil(try? SVG.menu.data())
+        XCTAssertNotNil(try? SVG.car.data())
     }
 }

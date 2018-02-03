@@ -10,4 +10,3 @@ extension ScriptTests {
         XCTAssertNotNil(try? Script().data())
     }
 }
-

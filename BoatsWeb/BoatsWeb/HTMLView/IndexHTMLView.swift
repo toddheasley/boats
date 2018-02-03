@@ -18,47 +18,38 @@ class IndexHTMLView: HTMLView, HTMLDataSource {
     // MARK: HTMLDataSource
     func value(of name: String, at index: [Int], in html: HTML) -> String? {
         switch name {
-        case "MANIFEST.URI":
-            return Manifest().uri.resource
-        case "APP.NAME":
-            return Site.app.name
-        case "APP.IDENTIFIER":
-            return Site.app.identifier
-        case "BOOKMARK.URI":
-            return BookmarkIcon().uri.resource
-        case "STYLESHEET.URI":
-            return Stylesheet().uri.resource
-        case "SCRIPT.URI":
-            return Script().uri.resource
-        case "INDEX.NAME":
-            return self.index.name
-        case "INDEX.DESCRIPTION":
-            return self.index.description
-        case "PROVIDER.NAME":
+        case "PROVIDER":
             guard !index.isEmpty else {
                 return nil
             }
-            return self.index.providers[index[0]].name
-        case "PROVIDER.URL":
-            guard !index.isEmpty else {
-                return nil
+            let provider: Provider = self.index.providers[index[0]]
+            guard let url = provider.url else {
+                return "\(provider.name)"
             }
-            return self.index.providers[index[0]].url?.absoluteString
-        case "ROUTE.URI":
+            return "<a href=\"\(url)\">\(provider.name)</a>"
+        case "ROUTE":
             guard index.count > 1 else {
                 return nil
             }
-            return ""
-        case "ROUTE.NAME":
-            guard index.count > 1 else {
-                return nil
-            }
-            return self.index.providers[index[0]].routes[index[1]].name
-        case "ROUTE.ORIGIN":
-            guard index.count > 1 else {
-                return nil
-            }
-            return self.index.providers[index[0]].routes[index[1]].origin.name
+            let provider: Provider = self.index.providers[index[0]]
+            let route: Route = provider.routes[index[1]]
+            return "<a href=\"\(provider.uri)-\(route.uri).html\">\(route.name) <span>From \(route.origin.name)</span></a>"
+        case "INDEX_NAME":
+            return "\(self.index.name)"
+        case "INDEX_DESCRIPTION":
+            return "\(self.index.description)"
+        case "TITLE", "APP_TITLE":
+            return "\(Site.app.name)"
+        case "APP_ID":
+            return "\(Site.app.identifier!)"
+        case "MANIFEST_URI":
+            return "\(Manifest().uri.resource)"
+        case "BOOKMARK_URI":
+            return "\(BookmarkIcon().uri.resource)"
+        case "STYLESHEET_URI":
+            return "\(Stylesheet().uri.resource)"
+        case "SCRIPT_URI":
+            return "\(Script().uri.resource)"
         default:
             return nil
         }
@@ -70,7 +61,7 @@ class IndexHTMLView: HTMLView, HTMLDataSource {
             return self.index.providers.count
         case "ROUTE":
             guard !index.isEmpty else {
-                fallthrough
+                return 0
             }
             return self.index.providers[index[0]].routes.count
         default:

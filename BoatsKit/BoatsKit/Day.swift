@@ -13,29 +13,6 @@ public enum Day {
     
     public static let all: [Day] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday, .holiday]
     
-    public var rawValue: String {
-        switch self {
-        case .monday:
-            return "monday"
-        case .tuesday:
-            return "tuesday"
-        case .wednesday:
-            return "wednesday"
-        case .thursday:
-            return "thursday"
-        case .friday:
-            return "friday"
-        case .saturday:
-            return "saturday"
-        case .sunday:
-            return "sunday"
-        case .holiday:
-            return "holiday"
-        case .special:
-            return "special"
-        }
-    }
-    
     public var date: Date? {
         switch self {
         case .special(let date):
@@ -75,16 +52,68 @@ extension Day: Codable {
     public init(from decoder: Decoder) throws {
         let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
         let rawValue: String = try container.decode(String.self, forKey: .day)
-        if let date: Date = try? container.decode(Date.self, forKey: .date) {
-            self = .special(date)
-        } else {
-            for day in Day.all {
-                if day.rawValue == rawValue {
-                    self = day
-                    return
-                }
-            }
+        guard let day = Day(rawValue: rawValue, date: try? container.decode(Date.self, forKey: .date)) else {
             throw DecodingError.typeMismatch(Day.self, DecodingError.Context(codingPath: [Key.day], debugDescription: ""))
+        }
+        self = day
+    }
+}
+
+extension Day: RawRepresentable {
+    
+    // MARK: RawRepresentable
+    public var rawValue: String {
+        switch self {
+        case .monday:
+            return "monday"
+        case .tuesday:
+            return "tuesday"
+        case .wednesday:
+            return "wednesday"
+        case .thursday:
+            return "thursday"
+        case .friday:
+            return "friday"
+        case .saturday:
+            return "saturday"
+        case .sunday:
+            return "sunday"
+        case .holiday:
+            return "holiday"
+        case .special:
+            return "special"
+        }
+    }
+    
+    public init?(rawValue: String) {
+        self.init(rawValue: rawValue, date: nil)
+    }
+    
+    public init?(rawValue: String, date: Date?) {
+        switch rawValue {
+        case "monday":
+            self = .monday
+        case "tuesday":
+            self = .tuesday
+        case "wednesday":
+            self = .wednesday
+        case "thursday":
+            self = .thursday
+        case "friday":
+            self = .friday
+        case "saturday":
+            self = .saturday
+        case "sunday":
+            self = .sunday
+        case "holiday":
+            self = .holiday
+        case "special":
+            guard let date = date else {
+                fallthrough
+            }
+            self = .special(date)
+        default:
+            return nil
         }
     }
 }

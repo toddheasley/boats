@@ -41,6 +41,16 @@ extension DayTests {
 }
 
 extension DayTests {
+    func testRawRepresentable() {
+        let date: Date = Date()
+        XCTAssertEqual(Day(rawValue: "wednesday"), Day.wednesday)
+        XCTAssertEqual(Day(rawValue: "holiday"), Day.holiday)
+        XCTAssertEqual(Day(rawValue: "special", date: date), Day.special(date))
+        XCTAssertNil(Day(rawValue: "special"))
+    }
+}
+
+extension DayTests {
     func testEquatable() {
         XCTAssertEqual(Day.special(Date()), Day.special(Date()))
         XCTAssertNotEqual(Day.special(Date()), Day.wednesday)

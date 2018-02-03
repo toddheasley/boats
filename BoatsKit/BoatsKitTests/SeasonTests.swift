@@ -46,3 +46,14 @@ extension SeasonTests {
         }
     }
 }
+
+extension SeasonTests {
+    func testRawRepresentable() {
+        let dateInterval: DateInterval = DateInterval(start: Date(), duration: 86400.0)
+        XCTAssertEqual(Season(rawValue: "summer", dateInterval: dateInterval), Season.summer(dateInterval))
+        XCTAssertEqual(Season(rawValue: "summer", dateInterval: dateInterval)?.dateInterval, Season.summer(dateInterval).dateInterval)
+        XCTAssertNil(Season(rawValue: "summer"))
+        XCTAssertEqual(Season(rawValue: "evergreen"), Season.evergreen)
+        XCTAssertNil(Season(rawValue: "evergreen")?.dateInterval)
+    }
+}

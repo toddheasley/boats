@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<html manifest="<!-- MANIFEST.URI -->">
+<html manifest="<!-- MANIFEST_URI -->">
     <head>
-        <title><!-- APP.NAME --></title>
+        <title><!-- TITLE --></title>
         <meta name="viewport" content="initial-scale=1.0">
-        <meta name="apple-mobile-web-app-title" content="<!-- APP.NAME -->">
-<!-- APP.IDENTIFIER? -->
-        <meta name="apple-itunes-app" content="app-id=<!-- APP.IDENTIFIER -->">
-<!-- ?APP.IDENTIFIER -->
-        <link rel="apple-touch-icon" href="<!-- BOOKMARK.URI -->">
-        <link rel="stylesheet" href="<!-- STYLESHEET.URI -->">
-        <script src="<!-- SCRIPT.URI -->" defer></script>
+        <meta name="apple-mobile-web-app-title" content="<!-- APP_TITLE -->">
+<!-- APP_ID? -->
+        <meta name="apple-itunes-app" content="app-id=<!-- APP_ID -->">
+<!-- ?APP_ID -->
+        <link rel="apple-touch-icon" href="<!-- BOOKMARK_URI -->">
+        <link rel="stylesheet" href="<!-- STYLESHEET_URI -->">
+        <script src="<!-- SCRIPT_URI -->" defer></script>
     </head>
     <body>
         <header>
-            <h1><!-- INDEX.NAME --></h1>
-            <h2><!-- INDEX.DESCRIPTION --></h2>
+            <h1><!-- INDEX_NAME --></h1>
+            <h2><!-- INDEX_DESCRIPTION --></h2>
         </header>
 <!-- PROVIDER[ -->
         <section>
-            <h1><!-- PROVIDER.NAME --></h1>
-<!-- PROVIDER.URL? -->
-            <p><a href="<!-- PROVIDER.URL -->"><!-- PROVIDER.URL --></a></p>
-<!-- ?PROVIDER.URL -->
+            <h3><!-- PROVIDER --></h3>
             <ul>
 <!-- ROUTE[ -->
-                <li><a href="<!-- ROUTE.URI -->"><!-- ROUTE.NAME --> <span><!-- ROUTE.ORIGIN --></span></a></li>
+                <li><!-- ROUTE --></li>
 <!-- ]ROUTE -->
             </ul>
         </section>

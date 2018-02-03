@@ -4,6 +4,8 @@ public struct Departure: Codable {
     public enum Direction: String, Codable {
         case destination
         case origin
+        
+        public static let all: [Direction] = [.destination, .origin]
     }
     
     public var direction: Direction = .destination

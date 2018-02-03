@@ -31,7 +31,7 @@ class HTML: ExpressibleByStringLiteral, CustomStringConvertible {
             return value
         }
         var string: String = "\(value)"
-        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9.]*)\\b\\[ -->\n((.|\n)*)\n<!-- ]\\1 -->").matches(in: value, range: NSRange(value.startIndex..., in: value)) {
+        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b\\[ -->\n((.|\n)*)\n<!-- ]\\1 -->").matches(in: value, range: NSRange(value.startIndex..., in: value)) {
             var strings: [String] = []
             for i in 0...(dataSource.count(of: "\(value[Range(match.range(at: 1), in: value)!])", at: index, in: self)) {
                 guard i > 0 else {
@@ -41,14 +41,14 @@ class HTML: ExpressibleByStringLiteral, CustomStringConvertible {
             }
             string = string.replacingOccurrences(of: "\(value[Range(match.range(at: 0), in: value)!])", with: strings.joined(separator: "\n"))
         }
-        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9.]*)\\b\\? -->\n((.|\n)*)\n<!-- \\?\\1 -->").matches(in: value, range: NSRange(value.startIndex..., in: value)) {
+        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b\\? -->((.|\n)*)<!-- \\?\\1 -->").matches(in: value, range: NSRange(value.startIndex..., in: value)) {
             var strings: [String] = []
             if let _ = dataSource.value(of: "\(value[Range(match.range(at: 1), in: value)!])", at: index, in: self) {
                 strings.append(populate(value: "\(value[Range(match.range(at: 2), in: value)!])", at: index))
             }
             string = string.replacingOccurrences(of: "\(value[Range(match.range(at: 0), in: value)!])", with: strings.joined())
         }
-        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9.]*)\\b -->").matches(in: value, range: NSRange(value.startIndex..., in: value)) {
+        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b -->").matches(in: value, range: NSRange(value.startIndex..., in: value)) {
             string = string.replacingOccurrences(of: "\(value[Range(match.range(at: 0), in: value)!])", with: dataSource.value(of: "\(value[Range(match.range(at: 1), in: value)!])", at: index, in: self) ?? "")
         }
         return string

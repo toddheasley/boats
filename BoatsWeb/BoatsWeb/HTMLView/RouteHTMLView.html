@@ -1,24 +1,44 @@
 <!DOCTYPE html>
-<html manifest="<!-- MANIFEST.URI -->">
+<html manifest="<!-- MANIFEST_URI -->">
     <head>
         <title><!-- TITLE --></title>
         <meta name="viewport" content="initial-scale=1.0">
-        <meta name="apple-mobile-web-app-title" content="<!-- APP.NAME -->">
-<!-- APP.IDENTIFIER? -->
-        <meta name="apple-itunes-app" content="app-id=<!-- APP.IDENTIFIER -->">
-<!-- ?APP.IDENTIFIER -->
-        <link rel="apple-touch-icon" href="<!-- BOOKMARK.URI -->">
-        <link rel="stylesheet" href="<!-- STYLESHEET.URI -->">
-        <script src="<!-- SCRIPT.URI -->" defer></script>
+        <meta name="apple-mobile-web-app-title" content="<!-- APP_TITLE -->">
+<!-- APP_ID? -->
+        <meta name="apple-itunes-app" content="app-id=<!-- APP_ID -->">
+<!-- ?APP_ID -->
+        <link rel="apple-touch-icon" href="<!-- BOOKMARK_URI -->">
+        <link rel="stylesheet" href="<!-- STYLESHEET_URI -->">
+        <script src="<!-- SCRIPT_URI -->" defer></script>
     </head>
     <body>
-        <nav><a href="<!-- INDEX.URI -->"><!-- SVG.MENU --></a></nav>
+        <nav><!-- MENU --></nav>
         <header>
-            <h1><a href="<!-- INDEX.URI -->"><!-- INDEX.NAME --></a></h1>
-            <h2><!-- INDEX.DESCRIPTION --></h2>
+            <h1><!-- INDEX_NAME --></h1>
+            <h2><!-- INDEX_DESCRIPTION --></h2>
         </header>
-        <article>
-            <h1><!-- ROUTE.NAME --></h1>
-        </article>
+        <main>
+            <h3><!-- PROVIDER --></h3>
+            <h1><!-- ROUTE --></h1>
+            <h2><!-- SCHEDULE --></h2>
+<!-- DAY[ -->
+            <section>
+                <h3><!-- DAY --></h3>
+<!-- DIRECTION[ -->
+                <table>
+                    <tr>
+                        <th colspan="2"><!-- DIRECTION --></th>
+                    </tr>
+<!-- DEPARTURE[ -->
+                    <tr>
+                        <td><!-- DEPARTURE_CAR --></td>
+                        <td><time><!-- DEPARTURE_TIME --></time></td>
+                    </tr>
+<!-- ]DEPARTURE -->
+                </table>
+<!-- ]DIRECTION -->
+            </section>
+<!-- ]DAY -->
+        </main>
     </body>
 </html>

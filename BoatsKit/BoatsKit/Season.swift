@@ -68,3 +68,57 @@ extension Season: Codable {
         }
     }
 }
+
+extension Season: RawRepresentable {
+    
+    // MARK: RawRepresentable
+    public var rawValue: String {
+        switch self {
+        case .spring:
+            return "spring"
+        case .summer:
+            return "summer"
+        case .fall:
+            return "fall"
+        case .winter:
+            return "winter"
+        case .evergreen:
+            return "evergreen"
+        }
+    }
+    
+    public init?(rawValue: String) {
+        self.init(rawValue: rawValue, dateInterval: nil)
+    }
+    
+    public init?(rawValue: String, dateInterval: DateInterval?) {
+        switch rawValue {
+        case "evergreen":
+            self = .evergreen
+        default:
+            guard let dateInterval = dateInterval else {
+                return nil
+            }
+            switch rawValue {
+            case "spring":
+                self = .spring(dateInterval)
+            case "summer":
+                self = .summer(dateInterval)
+            case "fall":
+                self = .fall(dateInterval)
+            case "winter":
+                self = .winter(dateInterval)
+            default:
+                return nil
+            }
+        }
+    }
+}
+
+extension Season: Equatable {
+    
+    // MARK: Equatable
+    public static func ==(x: Season, y: Season) -> Bool {
+        return x.rawValue == y.rawValue
+    }
+}

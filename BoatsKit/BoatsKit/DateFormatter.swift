@@ -23,8 +23,7 @@ extension DateFormatter {
     public var is24HourTime: Bool {
         let style: (date: Style, time: Style, format: String) = (dateStyle, timeStyle, dateFormat)
         dateStyle = .none
-        timeStyle = .short
-        dateFormat = ""
+        timeStyle = .medium
         let is24HouTime: Bool = !string(from: Date()).contains(" ")
         dateStyle = style.date
         timeStyle = style.time
@@ -32,7 +31,7 @@ extension DateFormatter {
         return is24HouTime
     }
     
-    public func string(from time: Time = Time()) -> String {
+    public func string(from time: Time) -> String {
         let format: String = dateFormat
         let date: Date = time.date(timeZone: timeZone)
         var string: String = ""
@@ -51,7 +50,23 @@ extension DateFormatter {
         return string
     }
     
-    public func components(from time: Time = Time()) -> [String] {
+    public func string(from season: Season, style: Style = .medium) -> String {
+        var string: String = ""
+        if let dateInterval = season.dateInterval {
+            let format: String = dateFormat
+            dateStyle = style
+            timeStyle = .none
+            string = ": \(self.string(from: dateInterval.start)) - \(self.string(from: dateInterval.end))"
+            dateFormat = format
+        }
+        return "\(season.rawValue.capitalized)\(string)"
+    }
+    
+    public func string(from day: Day) -> String {
+        return "\(day.rawValue.capitalized)"
+    }
+    
+    public func components(from time: Time) -> [String] {
         let format: String = dateFormat
         let date: Date = time.date(timeZone: timeZone)
         var components: [String] = []
@@ -61,10 +76,13 @@ extension DateFormatter {
                 "\(element)"
             })
         } else {
-            dateFormat = "hh"
-            components.append(contentsOf: self.string(from: date).replacingOccurrences(of: "0", with: " ").map { element in
+            dateFormat = "h"
+            components.append(contentsOf: self.string(from: date).map { element in
                 "\(element)"
             })
+            if components.count < 2 {
+                components.insert(" ", at: 0)
+            }
             components.append(":")
             dateFormat = "mm"
             components.append(contentsOf: self.string(from: date).map { element in
