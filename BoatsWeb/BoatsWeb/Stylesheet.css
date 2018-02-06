@@ -1,4 +1,171 @@
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+}
+
+body {
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    margin: 0 auto;
+    max-width: 460pt;
+    width: 100%;
+}
+
+body > * {
+    margin: 0 8pt;
+}
+
+body > section h3 {
+    margin-bottom: 5pt;
+}
+
+h3 {
+    font-size: 1em;
+}
+
+header {
+    padding: 12pt 0;
+    margin-bottom: 1em;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header h1 {
+    font-size: 1em;
+}
+
+header h2 {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+hr {
+    visibility: hidden;
+}
+
+main h1 {
+    font-size: 2em;
+}
+
+main h2 {
+    font-size: 1em;
+    font-weight: normal;
+    margin-bottom: 2em;
+}
+
+main section h3 {
+    font-size: 1em;
+}
+
+main section table {
+    float: left;
+    width: 50%;
+}
+
+main section td svg {
+    position: relative;
+    top: 1pt;
+}
+
+nav {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    float: right;
+    padding: 11pt 8pt;
+}
+
+nav svg {
+    display: block;
+}
+
+section {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+section + section {
+    margin-top: 2em;
+}
+
 svg {
-    width: 21px;
-    height: 17px;
+    display: inline-block;
+    width: 21pt;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border: 1pt solid;
+    padding: 1pt 4pt;
+}
+
+td a {
+    color: inherit;
+    display: block;
+    font-size: 18pt;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 2pt 0;
+}
+
+td a span {
+    display: block;
+    margin-top: 1pt;
+}
+
+td a span, th {
+    font-size: 9pt;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+th {
+    padding: 4pt 0 1pt 0;
+    text-align: left;
+}
+
+time {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+time span {
+    display: inline-block;
+    font-size: 24pt;
+    font-weight: bold;
+    text-align: center;
+    width: 0.6em;
+}
+
+time span:nth-child(3), time span:last-child {
+    width: 0.3em;
+}
+
+time + span {
+    display: inline-block;
+    width: 21pt;
+    margin-left: 4pt;
+}
+
+@media (min-width: 300pt)  {
+    td {
+        padding: 1pt 1em;
+    }
+    
+    time + span {
+        margin-left: 1em;
+    }
 }
