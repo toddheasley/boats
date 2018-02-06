@@ -25,6 +25,8 @@ class LocationInput: Input {
     override func setUp() {
         super.setUp()
         
+        labelTextField.frame.origin.y -= 2.0
+        
         textField.font = .systemFont(ofSize: 13.0)
         textField.alignment = .right
         textField.backgroundColor = nil

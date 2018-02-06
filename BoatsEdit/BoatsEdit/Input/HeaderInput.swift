@@ -9,10 +9,16 @@ class HeaderInput: Input {
         return 2
     }
     
+    override var label: String {
+        didSet {
+            labelTextField.stringValue = label
+        }
+    }
+    
     override func setUp() {
         super.setUp()
         
-        labelTextField.font = .systemFont(ofSize: 22.0, weight: .bold)
+        labelTextField.font = .systemFont(ofSize: 24.0, weight: .bold)
         labelTextField.textColor = .textColor
         labelTextField.frame.size.height = 27.0
         labelTextField.frame.origin.y = contentInsets.bottom + 7.0

@@ -11,12 +11,9 @@ class Input: NSView {
     private(set) var allowsSelection: Bool = false
     var delegate: InputDelegate?
     
-    var label: String {
-        set {
-            labelTextField.stringValue = newValue
-        }
-        get {
-            return labelTextField.stringValue
+    var label: String = "" {
+        didSet {
+            labelTextField.stringValue = label.uppercased()
         }
     }
     
@@ -29,8 +26,7 @@ class Input: NSView {
     }
     
     func setUp() {
-        labelTextField.font = .systemFont(ofSize: 11.0)
-        labelTextField.textColor = .disabledControlTextColor
+        labelTextField.font = .systemFont(ofSize: 10.0)
         labelTextField.frame.size.width = intrinsicContentSize.width - contentInsets.width
         labelTextField.frame.size.height = 17.0
         labelTextField.frame.origin.x = contentInsets.left

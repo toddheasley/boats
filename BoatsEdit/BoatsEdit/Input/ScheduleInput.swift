@@ -30,6 +30,12 @@ class ScheduleInput: Input {
         return true
     }
     
+    override var label: String {
+        didSet {
+            labelTextField.stringValue = label
+        }
+    }
+    
     override func setUp() {
         super.setUp()
         

@@ -2,6 +2,6 @@ import Cocoa
 
 extension NSColor {
     static var selection: NSColor {
-        return NSColor(calibratedRed: 0.93, green: 0.96, blue: 0.99, alpha: 1.0)
+        return NSColor(calibratedRed: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
     }
 }
