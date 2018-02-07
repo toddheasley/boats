@@ -1,4 +1,5 @@
 import UIKit
+import BoatsKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

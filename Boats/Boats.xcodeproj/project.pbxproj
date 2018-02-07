@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C2B4955202A614B005B4775 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4953202A614B005B4775 /* Interface.storyboard */; };
+		5C2B4957202A614C005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4956202A614C005B4775 /* Assets.xcassets */; };
+		5C2B495E202A614C005B4775 /* BoatsWatchExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5C2B4963202A614C005B4775 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4962202A614C005B4775 /* InterfaceController.swift */; };
+		5C2B4965202A614C005B4775 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4964202A614C005B4775 /* ExtensionDelegate.swift */; };
+		5C2B4967202A614C005B4775 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4966202A614C005B4775 /* NotificationController.swift */; };
+		5C2B4969202A614C005B4775 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4968202A614C005B4775 /* ComplicationController.swift */; };
+		5C2B496B202A614D005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B496A202A614D005B4775 /* Assets.xcassets */; };
+		5C2B4970202A614D005B4775 /* BoatsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C2B4951202A614B005B4775 /* BoatsWatch.app */; };
 		5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313A202A56AE00FE7B02 /* AppDelegate.swift */; };
 		5C93313D202A56AE00FE7B02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313C202A56AE00FE7B02 /* ViewController.swift */; };
 		5C933140202A56AE00FE7B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C93313E202A56AE00FE7B02 /* Main.storyboard */; };
@@ -15,9 +24,25 @@
 		5CC9A660202A5A0700B1B7F5 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC9A65F202A5A0700B1B7F5 /* BoatsKit.framework */; };
 		5CC9A661202A5A0700B1B7F5 /* BoatsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC9A65F202A5A0700B1B7F5 /* BoatsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CC9A66A202A5ADA00B1B7F5 /* BoatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9A669202A5ADA00B1B7F5 /* BoatsTests.swift */; };
+		5CDEF180202A8E5A00DBB961 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */; };
+		5CDEF181202A8E5A00DBB961 /* BoatsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5C2B495F202A614C005B4775 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C93312F202A56AE00FE7B02 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C2B495C202A614C005B4775;
+			remoteInfo = BoatsWatchExtension;
+		};
+		5C2B496E202A614D005B4775 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C93312F202A56AE00FE7B02 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C2B4950202A614B005B4775;
+			remoteInfo = BoatsWatch;
+		};
 		5CC9A66C202A5ADA00B1B7F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5C93312F202A56AE00FE7B02 /* Project object */;
@@ -28,6 +53,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		5C2B4976202A614D005B4775 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5C2B495E202A614C005B4775 /* BoatsWatchExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C2B4978202A614D005B4775 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5C2B4970202A614D005B4775 /* BoatsWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5CC9A662202A5A0700B1B7F5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,9 +86,32 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5CDEF182202A8E5A00DBB961 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5CDEF181202A8E5A00DBB961 /* BoatsKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C2B4951202A614B005B4775 /* BoatsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C2B4954202A614B005B4775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		5C2B4956202A614C005B4775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C2B4958202A614C005B4775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BoatsWatchExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C2B4962202A614C005B4775 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		5C2B4964202A614C005B4775 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		5C2B4966202A614C005B4775 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		5C2B4968202A614C005B4775 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		5C2B496A202A614D005B4775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C2B496C202A614D005B4775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C2B496D202A614D005B4775 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		5C93313A202A56AE00FE7B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C93313C202A56AE00FE7B02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C93313F202A56AE00FE7B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,9 +123,18 @@
 		5CC9A667202A5ADA00B1B7F5 /* BoatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC9A669202A5ADA00B1B7F5 /* BoatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsTests.swift; sourceTree = "<group>"; };
 		5CC9A66B202A5ADA00B1B7F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5C2B495A202A614C005B4775 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CDEF180202A8E5A00DBB961 /* BoatsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5C933134202A56AE00FE7B02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,13 +153,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C2B4952202A614B005B4775 /* BoatsWatch */ = {
+			isa = PBXGroup;
+			children = (
+				5C2B4953202A614B005B4775 /* Interface.storyboard */,
+				5C2B4956202A614C005B4775 /* Assets.xcassets */,
+				5C2B4958202A614C005B4775 /* Info.plist */,
+			);
+			path = BoatsWatch;
+			sourceTree = "<group>";
+		};
+		5C2B4961202A614C005B4775 /* BoatsWatchExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5C2B496A202A614D005B4775 /* Assets.xcassets */,
+				5C2B4968202A614C005B4775 /* ComplicationController.swift */,
+				5C2B4964202A614C005B4775 /* ExtensionDelegate.swift */,
+				5C2B4962202A614C005B4775 /* InterfaceController.swift */,
+				5C2B4966202A614C005B4775 /* NotificationController.swift */,
+				5C2B496D202A614D005B4775 /* PushNotificationPayload.apns */,
+				5C2B496C202A614D005B4775 /* Info.plist */,
+			);
+			path = BoatsWatchExtension;
+			sourceTree = "<group>";
+		};
 		5C93312E202A56AE00FE7B02 = {
 			isa = PBXGroup;
 			children = (
 				5C933139202A56AE00FE7B02 /* Boats */,
+				5C2B4952202A614B005B4775 /* BoatsWatch */,
+				5C2B4961202A614C005B4775 /* BoatsWatchExtension */,
 				5CC9A668202A5ADA00B1B7F5 /* BoatsTests */,
 				5CC9A65F202A5A0700B1B7F5 /* BoatsKit.framework */,
+				5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */,
 				5CC9A65D202A583B00B1B7F5 /* Boats.app */,
+				5C2B4951202A614B005B4775 /* BoatsWatch.app */,
+				5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */,
 				5CC9A667202A5ADA00B1B7F5 /* BoatsTests.xctest */,
 			);
 			sourceTree = "<group>";
@@ -110,6 +218,43 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5C2B4950202A614B005B4775 /* BoatsWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C2B4977202A614D005B4775 /* Build configuration list for PBXNativeTarget "BoatsWatch" */;
+			buildPhases = (
+				5C2B494F202A614B005B4775 /* Resources */,
+				5C2B4976202A614D005B4775 /* Embed App Extensions */,
+				5CC9A65E202A59CE00B1B7F5 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C2B4960202A614C005B4775 /* PBXTargetDependency */,
+			);
+			name = BoatsWatch;
+			productName = BoatsWatch;
+			productReference = 5C2B4951202A614B005B4775 /* BoatsWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		5C2B495C202A614C005B4775 /* BoatsWatchExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C2B4975202A614D005B4775 /* Build configuration list for PBXNativeTarget "BoatsWatchExtension" */;
+			buildPhases = (
+				5C2B4959202A614C005B4775 /* Sources */,
+				5C2B495A202A614C005B4775 /* Frameworks */,
+				5C2B495B202A614C005B4775 /* Resources */,
+				5CC9A65E202A59CE00B1B7F5 /* Set Build Number */,
+				5CDEF182202A8E5A00DBB961 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsWatchExtension;
+			productName = BoatsWatchExtension;
+			productReference = 5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		5C933136202A56AE00FE7B02 /* Boats */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C933149202A56AF00FE7B02 /* Build configuration list for PBXNativeTarget "Boats" */;
@@ -119,10 +264,12 @@
 				5C933135202A56AE00FE7B02 /* Resources */,
 				5CC9A65E202A59CE00B1B7F5 /* Set Build Number */,
 				5CC9A662202A5A0700B1B7F5 /* Embed Frameworks */,
+				5C2B4978202A614D005B4775 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5C2B496F202A614D005B4775 /* PBXTargetDependency */,
 			);
 			name = Boats;
 			productName = Boats;
@@ -157,6 +304,12 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "@toddheasley";
 				TargetAttributes = {
+					5C2B4950202A614B005B4775 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					5C2B495C202A614C005B4775 = {
+						CreatedOnToolsVersion = 9.3;
+					};
 					5C933136202A56AE00FE7B02 = {
 						CreatedOnToolsVersion = 9.3;
 					};
@@ -180,12 +333,31 @@
 			projectRoot = "";
 			targets = (
 				5C933136202A56AE00FE7B02 /* Boats */,
+				5C2B4950202A614B005B4775 /* BoatsWatch */,
+				5C2B495C202A614C005B4775 /* BoatsWatchExtension */,
 				5CC9A666202A5ADA00B1B7F5 /* BoatsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5C2B494F202A614B005B4775 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2B4957202A614C005B4775 /* Assets.xcassets in Resources */,
+				5C2B4955202A614B005B4775 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C2B495B202A614C005B4775 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2B496B202A614D005B4775 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5C933135202A56AE00FE7B02 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,6 +395,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5C2B4959202A614C005B4775 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C2B4967202A614C005B4775 /* NotificationController.swift in Sources */,
+				5C2B4969202A614C005B4775 /* ComplicationController.swift in Sources */,
+				5C2B4965202A614C005B4775 /* ExtensionDelegate.swift in Sources */,
+				5C2B4963202A614C005B4775 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5C933133202A56AE00FE7B02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +426,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5C2B4960202A614C005B4775 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C2B495C202A614C005B4775 /* BoatsWatchExtension */;
+			targetProxy = 5C2B495F202A614C005B4775 /* PBXContainerItemProxy */;
+		};
+		5C2B496F202A614D005B4775 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C2B4950202A614B005B4775 /* BoatsWatch */;
+			targetProxy = 5C2B496E202A614D005B4775 /* PBXContainerItemProxy */;
+		};
 		5CC9A66D202A5ADA00B1B7F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5C933136202A56AE00FE7B02 /* Boats */;
@@ -251,6 +444,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5C2B4953202A614B005B4775 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C2B4954202A614B005B4775 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		5C93313E202A56AE00FE7B02 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -270,6 +471,88 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5C2B4971202A614D005B4775 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				IBSC_MODULE = BoatsWatchExtension;
+				INFOPLIST_FILE = BoatsWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		5C2B4972202A614D005B4775 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				IBSC_MODULE = BoatsWatchExtension;
+				INFOPLIST_FILE = BoatsWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
+		5C2B4973202A614D005B4775 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				INFOPLIST_FILE = BoatsWatchExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Debug;
+		};
+		5C2B4974202A614D005B4775 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				INFOPLIST_FILE = BoatsWatchExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
+			};
+			name = Release;
+		};
 		5C933147202A56AF00FE7B02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -394,7 +677,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.Boats;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -412,7 +695,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.Boats;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -431,7 +714,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -451,7 +734,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.BoatsTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -462,6 +745,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5C2B4975202A614D005B4775 /* Build configuration list for PBXNativeTarget "BoatsWatchExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C2B4973202A614D005B4775 /* Debug */,
+				5C2B4974202A614D005B4775 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C2B4977202A614D005B4775 /* Build configuration list for PBXNativeTarget "BoatsWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C2B4971202A614D005B4775 /* Debug */,
+				5C2B4972202A614D005B4775 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5C933132202A56AE00FE7B02 /* Build configuration list for PBXProject "Boats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -9,14 +9,28 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5CC9A666202A5ADA00B1B7F5"
-               BuildableName = "BoatsTests.xctest"
-               BlueprintName = "BoatsTests"
+               BlueprintIdentifier = "5C2B4950202A614B005B4775"
+               BuildableName = "BoatsWatch.app"
+               BlueprintName = "BoatsWatch"
+               ReferencedContainer = "container:Boats.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5C933136202A56AE00FE7B02"
+               BuildableName = "Boats.app"
+               BlueprintName = "Boats"
                ReferencedContainer = "container:Boats.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,23 +42,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5CC9A666202A5ADA00B1B7F5"
-               BuildableName = "BoatsTests.xctest"
-               BlueprintName = "BoatsTests"
-               ReferencedContainer = "container:Boats.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5CC9A666202A5ADA00B1B7F5"
-            BuildableName = "BoatsTests.xctest"
-            BlueprintName = "BoatsTests"
+            BlueprintIdentifier = "5C2B4950202A614B005B4775"
+            BuildableName = "BoatsWatch.app"
+            BlueprintName = "BoatsWatch"
             ReferencedContainer = "container:Boats.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,12 +65,24 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Boats">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5C2B4950202A614B005B4775"
+            BuildableName = "BoatsWatch.app"
+            BlueprintName = "BoatsWatch"
+            ReferencedContainer = "container:Boats.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5CC9A666202A5ADA00B1B7F5"
-            BuildableName = "BoatsTests.xctest"
-            BlueprintName = "BoatsTests"
+            BlueprintIdentifier = "5C2B4950202A614B005B4775"
+            BuildableName = "BoatsWatch.app"
+            BlueprintName = "BoatsWatch"
             ReferencedContainer = "container:Boats.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,12 +95,24 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Boats">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5C2B4950202A614B005B4775"
+            BuildableName = "BoatsWatch.app"
+            BlueprintName = "BoatsWatch"
+            ReferencedContainer = "container:Boats.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5CC9A666202A5ADA00B1B7F5"
-            BuildableName = "BoatsTests.xctest"
-            BlueprintName = "BoatsTests"
+            BlueprintIdentifier = "5C2B4950202A614B005B4775"
+            BuildableName = "BoatsWatch.app"
+            BlueprintName = "BoatsWatch"
             ReferencedContainer = "container:Boats.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
