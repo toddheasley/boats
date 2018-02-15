@@ -9,8 +9,8 @@ a {
 }
 
 body {
-    background: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    background: white;
+    color: black;
     margin: 0 auto;
     max-width: 460pt;
     width: 100%;
@@ -71,7 +71,7 @@ main section table {
 
 main section td svg {
     position: relative;
-    top: 1pt;
+    top: 6pt;
 }
 
 nav {
@@ -81,7 +81,7 @@ nav {
 nav a {
     display: block;
     float: right;
-    padding: 11pt 8pt;
+    padding: 6pt 8pt;
 }
 
 nav svg {
@@ -99,7 +99,7 @@ section + section {
 
 svg {
     display: inline-block;
-    width: 21pt;
+    width: 24pt;
 }
 
 table {

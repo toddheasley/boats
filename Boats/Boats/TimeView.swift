@@ -33,7 +33,7 @@ class TimeView: UIView, ModeTransitioning {
     
     // MARK: UIView
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 231.0, height: 56.0)
+        return CGSize(width: 210.0, height: 56.0)
     }
     
     override var frame: CGRect {
@@ -42,19 +42,6 @@ class TimeView: UIView, ModeTransitioning {
         }
         get {
             return super.frame
-        }
-    }
-    
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        contentView.backgroundColor = UIColor.red.withAlphaComponent(0.15)
-        contentView.layer.borderColor = UIColor.red.withAlphaComponent(0.3).cgColor
-        contentView.layer.borderWidth = 1.0
-        for label in labels {
-            label.layer.borderColor = contentView.layer.borderColor
-            label.layer.borderWidth = contentView.layer.borderWidth
         }
     }
     
@@ -67,14 +54,13 @@ class TimeView: UIView, ModeTransitioning {
         contentView.frame.origin.y = (bounds.size.height - intrinsicContentSize.height) / 2.0
         addSubview(contentView)
         
-        var x: CGFloat = intrinsicContentSize.width / 11
+        var x: CGFloat = 0.0
         for (index, label) in labels.enumerated() {
-            label.font = UIFont.systemFont(ofSize: 64.0, weight: .medium)
+            label.font = UIFont.systemFont(ofSize: 64.0, weight: .bold)
             label.textAlignment = .center
-            label.frame.size.width = (intrinsicContentSize.width / 11) * (index != 2 && index != 5 ? 2 : 1)
+            label.frame.size.width = (intrinsicContentSize.width / 10) * (index != 2 && index != 5 ? 2 : 1)
             label.frame.size.height = intrinsicContentSize.height
             label.frame.origin.x = x
-            label.frame.origin.y = index == 2 || index == 5 ? 0.0 : 0.0
             contentView.addSubview(label)
             x += label.frame.size.width
         }
@@ -96,9 +82,27 @@ class TimeView: UIView, ModeTransitioning {
     func transitionMode(duration: TimeInterval) {
         TimeView.formatter.localization = localization
         
+        var components: [(text: String, color: UIColor)] = [
+            ("0", .fade),
+            ("0", .fade),
+            (":", .fade),
+            ("0", .fade),
+            ("0", .fade),
+            (".", .fade)
+        ]
+        if let time = time {
+            for (index, component) in TimeView.formatter.components(from: time).enumerated() {
+                guard component != " " else {
+                    continue
+                }
+                components[index] = (component, .text)
+            }
+        }
+        
         UIView.animate(withDuration: duration) {
             for (index, label) in self.labels.enumerated() {
-                
+                label.textColor = components[index].color
+                label.text = components[index].text
             }
         }
     }
