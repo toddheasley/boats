@@ -83,12 +83,12 @@ class TimeView: UIView, ModeTransitioning {
         TimeView.formatter.localization = localization
         
         var components: [(text: String, color: UIColor)] = [
-            ("0", .fade),
-            ("0", .fade),
-            (":", .fade),
-            ("0", .fade),
-            ("0", .fade),
-            (".", .fade)
+            ("0", .tint(.light)),
+            ("0", .tint(.light)),
+            (":", .tint(.light)),
+            ("0", .tint(.light)),
+            ("0", .tint(.light)),
+            (".", .tint(.light))
         ]
         if let time = time {
             for (index, component) in TimeView.formatter.components(from: time).enumerated() {

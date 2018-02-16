@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14092" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14092"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -337,13 +337,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="360" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="LcG-GM-Uoh">
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" id="LcG-GM-Uoh">
                                 <rect key="frame" x="0.0" y="0.0" width="360" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <clipView key="contentView" id="ZdF-em-7ov">
                                     <rect key="frame" x="0.0" y="0.0" width="360" height="480"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="49l-gb-9S0">
+                                        <view id="49l-gb-9S0">
                                             <rect key="frame" x="0.0" y="0.0" width="345" height="465"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
@@ -359,12 +360,6 @@
                                 </scroller>
                             </scrollView>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="LcG-GM-Uoh" secondAttribute="trailing" id="gJR-4x-fIW"/>
-                            <constraint firstItem="LcG-GM-Uoh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="jtt-vB-Hrm"/>
-                            <constraint firstItem="LcG-GM-Uoh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="qpK-uk-LH3"/>
-                            <constraint firstAttribute="bottom" secondItem="LcG-GM-Uoh" secondAttribute="bottom" id="zdV-4c-qzm"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="LcG-GM-Uoh" id="LIB-eK-p9R"/>

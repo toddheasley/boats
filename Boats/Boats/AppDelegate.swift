@@ -3,7 +3,6 @@ import BoatsKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private let timeInterval: TimeInterval = 10.0
     private var timer: Timer?
     
     @objc func applicationScreenBrightnessDidChange() {
@@ -29,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.post(name: Notification.Name.ModeChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(applicationScreenBrightnessDidChange), name: Notification.Name.UIScreenBrightnessDidChange, object: nil)
         timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
         timer?.fire()
     }
     

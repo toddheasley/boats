@@ -16,6 +16,7 @@
 		5C2B4969202A614C005B4775 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4968202A614C005B4775 /* ComplicationController.swift */; };
 		5C2B496B202A614D005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B496A202A614D005B4775 /* Assets.xcassets */; };
 		5C2B4970202A614D005B4775 /* BoatsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C2B4951202A614B005B4775 /* BoatsWatch.app */; };
+		5C3766AD2036761B0035BC78 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3766AC2036761B0035BC78 /* UIViewController.swift */; };
 		5C5E807F202D47CE001001B2 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E807E202D47CE001001B2 /* IconView.swift */; };
 		5C5E8081202D4A4C001001B2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E8080202D4A4C001001B2 /* UIView.swift */; };
 		5C5F231C203320C4008D9FFE /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F231B203320C4008D9FFE /* TimeView.swift */; };
@@ -119,6 +120,7 @@
 		5C2B496A202A614D005B4775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C2B496C202A614D005B4775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C2B496D202A614D005B4775 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		5C3766AC2036761B0035BC78 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		5C5E807E202D47CE001001B2 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		5C5E8080202D4A4C001001B2 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5C5F231B203320C4008D9FFE /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				5CCBBE2C20349B2700E79F28 /* Settings.bundle */,
 				5C5F231B203320C4008D9FFE /* TimeView.swift */,
 				5C5E8080202D4A4C001001B2 /* UIView.swift */,
+				5C3766AC2036761B0035BC78 /* UIViewController.swift */,
 				5C93313C202A56AE00FE7B02 /* ViewController.swift */,
 				5C933146202A56AF00FE7B02 /* Info.plist */,
 			);
@@ -434,6 +437,7 @@
 			files = (
 				5C5E8081202D4A4C001001B2 /* UIView.swift in Sources */,
 				5C5E807F202D47CE001001B2 /* IconView.swift in Sources */,
+				5C3766AD2036761B0035BC78 /* UIViewController.swift in Sources */,
 				5CCBBE2B203496B400E79F28 /* RouteViewController.swift in Sources */,
 				5CCBBE272033C90600E79F28 /* Mode.swift in Sources */,
 				5C5F231C203320C4008D9FFE /* TimeView.swift in Sources */,

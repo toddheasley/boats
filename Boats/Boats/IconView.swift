@@ -94,7 +94,7 @@ class IconView: UIControl, ModeTransitioning {
     override var isHighlighted: Bool {
         set {
             super.isHighlighted = newValue
-            shapeLayer.backgroundColor = isHighlighted ? UIColor.tint.cgColor : nil
+            shapeLayer.backgroundColor = isHighlighted ? UIColor.tint(.medium).cgColor : nil
         }
         get {
             return super.isHighlighted

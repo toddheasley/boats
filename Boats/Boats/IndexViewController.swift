@@ -12,5 +12,8 @@ class IndexViewController: ViewController {
     override func transitionMode(duration: TimeInterval) {
         super.transitionMode(duration: duration)
         
+        UIView.animate(withDuration: duration) {
+            
+        }
     }
 }

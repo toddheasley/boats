@@ -40,26 +40,6 @@ extension ModeTransitioning {
 }
 
 extension UIColor {
-    static var fade: UIColor {
-        switch Mode.current {
-        case .contrast:
-            return .clear
-        default:
-            return .tint
-        }
-    }
-    
-    static var tint: UIColor {
-        switch Mode.current {
-        case .light, .auto:
-            return UIColor.black.withAlphaComponent(0.15)
-        case .dark:
-            return UIColor.white.withAlphaComponent(0.15)
-        case .contrast:
-            return UIColor.orange.withAlphaComponent(0.2)
-        }
-    }
-    
     static var background: UIColor {
         switch Mode.current {
         case .light, .auto:
@@ -79,6 +59,46 @@ extension UIColor {
             return .white
         case .contrast:
             return .purple
+        }
+    }
+    
+    static func tint(_ alpha: CGFloat) -> UIColor {
+        switch Mode.current {
+        case .light, .auto:
+            return UIColor.black.withAlphaComponent(alpha)
+        case .dark:
+            return UIColor.white.withAlphaComponent(alpha)
+        case .contrast:
+            return UIColor.orange.withAlphaComponent(alpha)
+        }
+    }
+}
+
+extension CGFloat {
+    static var light: CGFloat {
+        switch Mode.current {
+        case .contrast:
+            return 0.0
+        default:
+            return 0.05
+        }
+    }
+    
+    static var medium: CGFloat {
+        switch Mode.current {
+        case .contrast:
+            return 1.0
+        default:
+            return 0.15
+        }
+    }
+    
+    static var heavy: CGFloat {
+        switch Mode.current {
+        case .contrast:
+            return 1.0
+        default:
+            return 0.25
         }
     }
 }
