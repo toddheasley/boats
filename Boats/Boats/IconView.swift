@@ -117,7 +117,7 @@ class IconView: UIControl, ModeTransitioning {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        shapeLayer.cornerRadius = 5.0
+        shapeLayer.cornerRadius = .cornerRadius
         shapeLayer.frame.origin.x = (bounds.size.width - shapeLayer.frame.size.width) / 2.0
         shapeLayer.frame.origin.y = (bounds.size.height - shapeLayer.frame.size.height) / 2.0
         shapeLayer.path = icon?.path.cgPath
@@ -128,9 +128,10 @@ class IconView: UIControl, ModeTransitioning {
         
         isEnabled = false
         
-        transitionMode(duration: 0.0)
         shapeLayer.frame.size = intrinsicContentSize
         layer.addSublayer(shapeLayer)
+        
+        transitionMode(duration: 0.0)
     }
     
     override init(frame: CGRect) {

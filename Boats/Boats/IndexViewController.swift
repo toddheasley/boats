@@ -4,12 +4,13 @@ import BoatsKit
 class IndexViewController: ViewController, UITableViewDataSource, UITableViewDelegate {
     private let url: URL = URL(string: "https://toddheasley.github.io/boats/index.json")!
     
-    @IBOutlet var tableView: UITableView?
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var toolbar: IndexToolbar!
     
     var index: Index? {
         didSet {
-            (tableView?.tableHeaderView as? IndexView)?.index = index
-            tableView?.reloadData()
+            tableView.reloadData()
+            toolbar.index = index
         }
     }
     
@@ -17,7 +18,7 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Index.read(from: url) { index, error in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            self.tableView?.refreshControl?.endRefreshing()
+            self.tableView.refreshControl?.endRefreshing()
             self.index = index
         }
     }
@@ -25,7 +26,12 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     // MARK: ViewController
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        scrollViewDidScroll(tableView)
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        scrollViewDidScroll(tableView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,10 +42,9 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView?.refreshControl = UIRefreshControl()
-        tableView?.refreshControl?.addTarget(self, action: #selector(reloadIndex), for: .valueChanged)
-        tableView?.separatorStyle = .none
-        
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(reloadIndex), for: .valueChanged)
+        tableView.separatorStyle = .none
         
         transitionMode(duration: 0.0)
     }
@@ -47,10 +52,11 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     override func transitionMode(duration: TimeInterval) {
         super.transitionMode(duration: duration)
         
-        (tableView?.tableHeaderView as? ModeTransitioning)?.transitionMode(duration: duration)
+        tableView.indicatorStyle = mode.indicatorStyle
         for cell in tableView?.visibleCells ?? [] {
             (cell as? ModeTransitioning)?.transitionMode(duration: duration)
         }
+        toolbar.transitionMode(duration: duration)
     }
     
     // MARK: UITableViewDataSource
@@ -63,16 +69,32 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "Route")!
+        let cell: RouteViewCell = tableView.dequeueReusableCell(withIdentifier: "Route") as! RouteViewCell
+        cell.route = index?.routes[indexPath.row].route
+        cell.provider = index?.routes[indexPath.row].provider
+        return cell
     }
     
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120.0
+        return 400.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height: CGFloat = view.safeAreaInsets.top + toolbar.intrinsicContentSize.height
+        let y = view.safeAreaInsets.top + scrollView.contentOffset.y
+        
+        tableView.scrollIndicatorInsets.top = max(0.0, toolbar.intrinsicContentSize.height + min(0.0, y))
+        toolbar.frame.size.height = max(height, height - y)
+        toolbar.isBackgroundHidden = y < 2.0
+    }
+    
+    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
+        scrollViewDidScroll(scrollView)
     }
 }
 

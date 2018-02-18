@@ -1,7 +1,7 @@
 import UIKit
 import BoatsKit
 
-class IndexView: UIView, ModeTransitioning {
+class IndexToolbar: Toolbar {
     private let nameLabel: UILabel = UILabel()
     private let descriptionLabel: UILabel = UILabel()
     
@@ -16,9 +16,9 @@ class IndexView: UIView, ModeTransitioning {
         self.index = index
     }
     
-    // MARK: UIView
+    // MARK: Toolbar
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: super.intrinsicContentSize.width, height: 0.0)
+        return CGSize(width: super.intrinsicContentSize.width, height: 62.0)
     }
     
     override func layoutSubviews() {
@@ -31,37 +31,27 @@ class IndexView: UIView, ModeTransitioning {
     override func setUp() {
         super.setUp()
         
-        backgroundColor = .clear
+        separatorPosition = .bottom
         
-        //nameLabel.font = .systemFont(ofSize: 24.0, weight: .bold)
+        nameLabel.font = UIFont.systemFont(ofSize: 19.0, weight: .bold)
         nameLabel.autoresizingMask = [.flexibleWidth]
-        nameLabel.frame.size.width = bounds.size.width
-        nameLabel.frame.origin.x = 10.0
-        nameLabel.frame.origin.y = 10.0
-        addSubview(nameLabel)
+        nameLabel.frame.size.width = contentView.bounds.size.width
+        nameLabel.frame.size.height = 21.0
+        contentView.addSubview(nameLabel)
         
-        //descriptionLabel.font = .systemFont(ofSize: 24.0, weight: .regular)
+        descriptionLabel.font = UIFont.systemFont(ofSize: .base, weight: .regular)
         descriptionLabel.autoresizingMask = [.flexibleWidth]
-        descriptionLabel.frame.size.width = bounds.size.width
-        descriptionLabel.frame.origin.x = 10.0
-        descriptionLabel.frame.origin.y = 40.0
-        addSubview(descriptionLabel)
+        descriptionLabel.frame.size.width = contentView.bounds.size.width
+        descriptionLabel.frame.size.height = 19.0
+        descriptionLabel.frame.origin.y = nameLabel.frame.size.height
+        contentView.addSubview(descriptionLabel)
         
         transitionMode(duration: 0.0)
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setUp()
-    }
-    
-    required init?(coder decoder: NSCoder) {
-        super.init(coder: decoder)
-        setUp()
-    }
-    
-    // MARK: ModeTransitioning
-    func transitionMode(duration: TimeInterval) {
+    override func transitionMode(duration: TimeInterval) {
+        super.transitionMode(duration: duration)
+        
         UIView.animate(withDuration: duration) {
             self.nameLabel.textColor = .text
             self.descriptionLabel.textColor = .text

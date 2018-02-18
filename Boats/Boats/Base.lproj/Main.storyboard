@@ -22,14 +22,13 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="xzg-pN-rp6" customClass="IndexView" customModule="Boats" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="CEu-Nd-Okv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Route" id="Nyh-LO-BNf" customClass="RouteViewCell" customModule="Boats" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="45" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="89" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nyh-LO-BNf" id="gsL-xJ-rDT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -42,11 +41,16 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="EU7-zJ-g6k"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" id="AYA-DF-zLE" customClass="IndexToolbar" customModule="Boats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="hLx-9b-fMM" id="zbu-sF-e24"/>
+                        <outlet property="toolbar" destination="AYA-DF-zLE" id="bPS-Hi-bqE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -15,6 +15,15 @@ enum Mode: String {
         }
     }
     
+    var indicatorStyle: UIScrollViewIndicatorStyle {
+        switch self {
+        case .dark:
+            return .white
+        default:
+            return .black
+        }
+    }
+    
     var statusBarStyle: UIStatusBarStyle {
         switch self {
         case .dark:

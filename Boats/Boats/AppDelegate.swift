@@ -27,9 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         NotificationCenter.default.post(name: Notification.Name.ModeChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(applicationScreenBrightnessDidChange), name: Notification.Name.UIScreenBrightnessDidChange, object: nil)
+        
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
         timer?.fire()
+        
+        window?.rootViewController?.viewWillAppear(false)
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {

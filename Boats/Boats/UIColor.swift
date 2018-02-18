@@ -55,11 +55,6 @@ extension CGFloat {
     }
     
     static var heavy: CGFloat {
-        switch Mode.current {
-        case .contrast:
-            return 1.0
-        default:
-            return 0.25
-        }
+        return 0.4
     }
 }

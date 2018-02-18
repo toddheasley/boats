@@ -1,6 +1,15 @@
 import UIKit
+import BoatsKit
+
+// ROUTE NAME: HEAVY 19.0
+// 
 
 class RouteView: UIView, ModeTransitioning {
+    var route: Route? {
+        didSet {
+            
+        }
+    }
     
     // MARK: UIView
     override var intrinsicContentSize: CGSize {
@@ -33,6 +42,18 @@ class RouteView: UIView, ModeTransitioning {
 
 class RouteViewCell: UITableViewCell, ModeTransitioning {
     private let routeView: RouteView = RouteView()
+    
+    var route: Route? {
+        didSet {
+            
+        }
+    }
+    
+    var provider: Provider? {
+        didSet {
+            
+        }
+    }
     
     // MARK: UITableViewCell
     override func setUp() {
