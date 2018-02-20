@@ -2,7 +2,6 @@ import UIKit
 import BoatsKit
 
 class TimeView: UIView, ModeTransitioning {
-    private static let formatter: DateFormatter = DateFormatter()
     private let contentView: UIView = UIView()
     private let labels: [UILabel] = [
         UILabel(),
@@ -13,7 +12,9 @@ class TimeView: UIView, ModeTransitioning {
         UILabel()
     ]
     
-    var localization: Localization = Localization() {
+    static let formatter: DateFormatter = DateFormatter()
+    
+    var localization: Localization? {
         didSet {
             transitionMode(duration: 0.0)
         }
@@ -80,15 +81,14 @@ class TimeView: UIView, ModeTransitioning {
     
     // MARK: ModeTransitioning
     func transitionMode(duration: TimeInterval) {
-        TimeView.formatter.localization = localization
-        
+        TimeView.formatter.localization = localization ?? Localization()
         var components: [(text: String, color: UIColor)] = [
-            ("0", .tint(.light)),
-            ("0", .tint(.light)),
-            (":", .tint(.light)),
-            ("0", .tint(.light)),
-            ("0", .tint(.light)),
-            (".", .tint(.light))
+            ("0", .burn),
+            ("0", .burn),
+            (":", .burn),
+            ("0", .burn),
+            ("0", .burn),
+            (".", .burn)
         ]
         if let time = time {
             for (index, component) in TimeView.formatter.components(from: time).enumerated() {

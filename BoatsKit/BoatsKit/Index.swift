@@ -14,7 +14,7 @@ public struct Index: Codable {
             }
         }
         return routes.sorted {
-            $0.route.name > $1.route.name
+            $0.route.name < $1.route.name
         }
     }
     

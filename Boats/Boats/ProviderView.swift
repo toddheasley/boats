@@ -20,7 +20,7 @@ class ProviderView: UIControl, ModeTransitioning {
     override var isHighlighted: Bool {
         set {
             super.isHighlighted = newValue
-            contentView.layer.backgroundColor = isHighlighted && provider?.url != nil ? UIColor.tint(.medium).cgColor : nil
+            contentView.layer.backgroundColor = isHighlighted && provider?.url != nil ? UIColor.highlight.cgColor : nil
         }
         get {
             return super.isHighlighted
@@ -28,7 +28,7 @@ class ProviderView: UIControl, ModeTransitioning {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 128.0, height: 32.0)
+        return CGSize(width: super.intrinsicContentSize.width, height: 32.0)
     }
     
     override var frame: CGRect {
@@ -55,6 +55,7 @@ class ProviderView: UIControl, ModeTransitioning {
         } else {
             label.text = nil
         }
+        label.frame.origin.x = 4.0
         label.frame.size.width = min(bounds.size.width - (label.frame.origin.x * 2.0), label.sizeThatFits(bounds.size).width)
         contentView.frame.size.width = label.text != nil ? label.frame.size.width + (label.frame.origin.x * 2.0) : bounds.size.width
         contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
@@ -68,11 +69,11 @@ class ProviderView: UIControl, ModeTransitioning {
         contentView.isUserInteractionEnabled = false
         contentView.layer.cornerRadius = .cornerRadius
         contentView.frame.size.height = intrinsicContentSize.height
+        contentView.frame.origin.x = -4.0
         addSubview(contentView)
         
-        label.font = UIFont.systemFont(ofSize: .base, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
         label.frame.size.height = contentView.bounds.size.height
-        label.frame.origin.x = 4.0
         contentView.addSubview(label)
         
         transitionMode(duration: 0.0)

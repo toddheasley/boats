@@ -22,14 +22,14 @@ public enum Day {
         }
     }
     
-    public init(localization: Localization, date: Date = Date(), holidays: [Holiday] = []) {
-        for holiday in holidays {
+    public init(date: Date = Date(), localization: Localization? = nil, holidays: [Holiday]? = nil) {
+        for holiday in holidays ?? [] {
             if holiday.date == date {
                 self = .holiday
                 return
             }
         }
-        self = DateFormatter(localization: localization).day(from: date)
+        self = DateFormatter(localization: localization ?? Localization()).day(from: date)
     }
 }
 

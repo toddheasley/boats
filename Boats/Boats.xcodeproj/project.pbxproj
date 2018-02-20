@@ -20,6 +20,7 @@
 		5C5E8081202D4A4C001001B2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E8080202D4A4C001001B2 /* UIView.swift */; };
 		5C5F231C203320C4008D9FFE /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F231B203320C4008D9FFE /* TimeView.swift */; };
 		5C8BB0D1203723B5001DB153 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8BB0D0203723B5001DB153 /* RouteView.swift */; };
+		5C911B42203A1FA70020C927 /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C911B41203A1FA70020C927 /* DepartureView.swift */; };
 		5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313A202A56AE00FE7B02 /* AppDelegate.swift */; };
 		5C93313D202A56AE00FE7B02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313C202A56AE00FE7B02 /* ViewController.swift */; };
 		5C933140202A56AE00FE7B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C93313E202A56AE00FE7B02 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		5CDEF181202A8E5A00DBB961 /* BoatsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CE778532038C6470078468F /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE778522038C6470078468F /* Toolbar.swift */; };
 		5CE778552038C8400078468F /* IndexToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE778542038C8400078468F /* IndexToolbar.swift */; };
+		5CFC7B242039D1F900F5784B /* IndexViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC7B232039D1F900F5784B /* IndexViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,7 @@
 		5C5E8080202D4A4C001001B2 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5C5F231B203320C4008D9FFE /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		5C8BB0D0203723B5001DB153 /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
+		5C911B41203A1FA70020C927 /* DepartureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureView.swift; sourceTree = "<group>"; };
 		5C93313A202A56AE00FE7B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C93313C202A56AE00FE7B02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C93313F202A56AE00FE7B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +151,7 @@
 		5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE778522038C6470078468F /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		5CE778542038C8400078468F /* IndexToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexToolbar.swift; sourceTree = "<group>"; };
+		5CFC7B232039D1F900F5784B /* IndexViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,16 +224,18 @@
 		5C933139202A56AE00FE7B02 /* Boats */ = {
 			isa = PBXGroup;
 			children = (
-				5CC264432038924400764A76 /* _ */,
 				5C93313A202A56AE00FE7B02 /* AppDelegate.swift */,
 				5C933141202A56AF00FE7B02 /* Assets.xcassets */,
+				5C911B41203A1FA70020C927 /* DepartureView.swift */,
 				5C5E807E202D47CE001001B2 /* IconView.swift */,
 				5CE778542038C8400078468F /* IndexToolbar.swift */,
+				5CFC7B232039D1F900F5784B /* IndexViewCell.swift */,
 				5CCBBE282034965900E79F28 /* IndexViewController.swift */,
 				5C933143202A56AF00FE7B02 /* Launch.storyboard */,
 				5C93313E202A56AE00FE7B02 /* Main.storyboard */,
 				5CCBBE262033C90600E79F28 /* Mode.swift */,
 				5CC264442038936800764A76 /* ProviderView.swift */,
+				5C8BB0D0203723B5001DB153 /* RouteView.swift */,
 				5CCBBE2A203496B400E79F28 /* RouteViewController.swift */,
 				5CCBBE2C20349B2700E79F28 /* Settings.bundle */,
 				5C5F231B203320C4008D9FFE /* TimeView.swift */,
@@ -240,14 +246,6 @@
 				5C933146202A56AF00FE7B02 /* Info.plist */,
 			);
 			path = Boats;
-			sourceTree = "<group>";
-		};
-		5CC264432038924400764A76 /* _ */ = {
-			isa = PBXGroup;
-			children = (
-				5C8BB0D0203723B5001DB153 /* RouteView.swift */,
-			);
-			path = _;
 			sourceTree = "<group>";
 		};
 		5CC9A668202A5ADA00B1B7F5 /* BoatsTests */ = {
@@ -458,6 +456,8 @@
 				5C5E8081202D4A4C001001B2 /* UIView.swift in Sources */,
 				5CE778532038C6470078468F /* Toolbar.swift in Sources */,
 				5CE778552038C8400078468F /* IndexToolbar.swift in Sources */,
+				5CFC7B242039D1F900F5784B /* IndexViewCell.swift in Sources */,
+				5C911B42203A1FA70020C927 /* DepartureView.swift in Sources */,
 				5C5E807F202D47CE001001B2 /* IconView.swift in Sources */,
 				5CCBBE2B203496B400E79F28 /* RouteViewController.swift in Sources */,
 				5CCBBE272033C90600E79F28 /* Mode.swift in Sources */,

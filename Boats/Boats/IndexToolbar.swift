@@ -18,7 +18,7 @@ class IndexToolbar: Toolbar {
     
     // MARK: Toolbar
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: super.intrinsicContentSize.width, height: 62.0)
+        return CGSize(width: super.intrinsicContentSize.width, height: 61.0 + UIEdgeInsets.padding.size.height)
     }
     
     override func layoutSubviews() {
@@ -33,17 +33,17 @@ class IndexToolbar: Toolbar {
         
         separatorPosition = .bottom
         
-        nameLabel.font = UIFont.systemFont(ofSize: 19.0, weight: .bold)
-        nameLabel.autoresizingMask = [.flexibleWidth]
+        nameLabel.font = UIFont.systemFont(ofSize: 34.0, weight: .bold)
+        nameLabel.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         nameLabel.frame.size.width = contentView.bounds.size.width
-        nameLabel.frame.size.height = 21.0
+        nameLabel.frame.size.height = 44.0
+        nameLabel.frame.origin.y = contentView.bounds.size.height - nameLabel.frame.size.height
         contentView.addSubview(nameLabel)
         
-        descriptionLabel.font = UIFont.systemFont(ofSize: .base, weight: .regular)
+        descriptionLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .regular)
         descriptionLabel.autoresizingMask = [.flexibleWidth]
         descriptionLabel.frame.size.width = contentView.bounds.size.width
-        descriptionLabel.frame.size.height = 19.0
-        descriptionLabel.frame.origin.y = nameLabel.frame.size.height
+        descriptionLabel.frame.size.height = 22.0
         contentView.addSubview(descriptionLabel)
         
         transitionMode(duration: 0.0)

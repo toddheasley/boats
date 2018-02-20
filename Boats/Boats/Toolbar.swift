@@ -56,7 +56,7 @@ class Toolbar: UIView, ModeTransitioning {
             separatorView.isHidden = true
             contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
         }
-        contentView.frame.size.width = bounds.size.width - (UIEdgeInsets.padding.left + UIEdgeInsets.padding.right)
+        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width
     }
     
     override func setUp() {
@@ -68,10 +68,10 @@ class Toolbar: UIView, ModeTransitioning {
         
         separatorView.autoresizingMask = [.flexibleWidth]
         separatorView.frame.size.width = bounds.size.width
-        separatorView.frame.size.height = 1.0
+        separatorView.frame.size.height = CGSize.separator.height
         backgroundView.addSubview(separatorView)
         
-        contentView.frame.size.height = intrinsicContentSize.height - (UIEdgeInsets.padding.top + UIEdgeInsets.padding.bottom)
+        contentView.frame.size.height = intrinsicContentSize.height - UIEdgeInsets.padding.size.height
         contentView.frame.origin.x = UIEdgeInsets.padding.left
         addSubview(contentView)
         
@@ -92,7 +92,7 @@ class Toolbar: UIView, ModeTransitioning {
     func transitionMode(duration: TimeInterval) {
         UIView.animate(withDuration: duration) {
             self.backgroundView.backgroundColor = .background
-            self.separatorView.backgroundColor = .tint(.heavy)
+            self.separatorView.backgroundColor = .separator
         }
     }
 }

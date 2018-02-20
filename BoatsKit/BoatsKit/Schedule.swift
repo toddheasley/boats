@@ -46,6 +46,10 @@ public struct Schedule: Codable {
         return nil
     }
     
+    public func last(day: Day, direction: Departure.Direction = .destination) -> Departure? {
+        return departures(day: day, direction: direction).last
+    }
+    
     public init() {
         
     }

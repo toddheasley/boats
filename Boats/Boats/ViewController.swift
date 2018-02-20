@@ -2,7 +2,7 @@ import UIKit
 
 class ViewController: UIViewController, ModeTransitioning {
     @objc func handleModeChange() {
-        transitionMode(duration: 0.5)
+        transitionMode(duration: 1.0)
     }
     
     @objc func handleTimeChange() {

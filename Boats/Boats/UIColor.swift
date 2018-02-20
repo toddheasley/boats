@@ -23,38 +23,32 @@ extension UIColor {
         }
     }
     
-    static func tint(_ alpha: CGFloat) -> UIColor {
+    static var separator: UIColor {
+        switch Mode.current {
+        case .contrast:
+            return .text
+        default:
+            return .gray
+        }
+    }
+    
+    static var highlight: UIColor {
+        switch Mode.current {
+        case .contrast:
+            return .orange
+        default:
+            return UIColor.burn.withAlphaComponent(0.75)
+        }
+    }
+    
+    static var burn: UIColor {
         switch Mode.current {
         case .light, .auto:
-            return UIColor.black.withAlphaComponent(alpha)
+            return UIColor(white: 0.9, alpha: 1.0)
         case .dark:
-            return UIColor.white.withAlphaComponent(alpha)
+            return UIColor(white: 0.15, alpha: 1.0)
         case .contrast:
-            return UIColor.orange.withAlphaComponent(alpha)
+            return .clear
         }
-    }
-}
-
-extension CGFloat {
-    static var light: CGFloat {
-        switch Mode.current {
-        case .contrast:
-            return 0.0
-        default:
-            return 0.05
-        }
-    }
-    
-    static var medium: CGFloat {
-        switch Mode.current {
-        case .contrast:
-            return 1.0
-        default:
-            return 0.15
-        }
-    }
-    
-    static var heavy: CGFloat {
-        return 0.4
     }
 }

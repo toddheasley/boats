@@ -14,8 +14,8 @@ class DayTests: XCTestCase {
         let localization: Localization = Localization(timeZone: TimeZone(identifier: "America/Los_Angeles")!)
         var holiday: Holiday = Holiday()
         holiday.date = Date()
-        XCTAssertEqual(Day(localization: localization, date: holiday.date), DateFormatter(localization: localization).day(from: holiday.date))
-        XCTAssertEqual(Day(localization: localization, date: holiday.date, holidays: [
+        XCTAssertEqual(Day(date: holiday.date, localization: localization), DateFormatter(localization: localization).day(from: holiday.date))
+        XCTAssertEqual(Day(date: holiday.date, localization: localization, holidays: [
             holiday
         ]), Day.holiday)
     }

@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(applicationScreenBrightnessDidChange), name: Notification.Name.UIScreenBrightnessDidChange, object: nil)
         
         timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
         timer?.fire()
         
         window?.rootViewController?.viewWillAppear(false)
