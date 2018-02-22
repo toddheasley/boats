@@ -31,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
         timer?.fire()
-        
-        window?.rootViewController?.viewWillAppear(false)
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {

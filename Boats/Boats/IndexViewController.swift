@@ -1,13 +1,14 @@
 import UIKit
 import BoatsKit
 
-class IndexViewController: ViewController, UITableViewDataSource, UITableViewDelegate {
+class IndexViewController: ViewController, UITableViewDataSource, UITableViewDelegate, RouteViewAnimatorDelegate {
     private let url: URL = URL(string: "https://toddheasley.github.io/boats/index.json")!
+    private var selectedIndexPath: IndexPath?
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var toolbar: IndexToolbar!
     
-    var index: Index? {
+    private(set) var index: Index? {
         didSet {
             handleTimeChange()
         }
@@ -50,8 +51,6 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(reloadIndex), for: .valueChanged)
         tableView.separatorStyle = .none
-        
-        transitionMode(duration: 0.0)
     }
     
     override func transitionMode(duration: TimeInterval) {
@@ -91,11 +90,30 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView()
+        let view = UIView()
+        view.isUserInteractionEnabled = false
+        return view
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let routeViewController = storyboard?.instantiateViewController(withIdentifier: "Route") as? RouteViewController,
+            let localization = index?.localization,
+            let routes = index?.routes, routes.count > indexPath.row else {
+            selectedIndexPath = nil
+            return
+        }
+        selectedIndexPath = indexPath
+        
+        routeViewController.localization = localization
+        routeViewController.provider = routes[indexPath.row].provider
+        routeViewController.route = routes[indexPath.row].route
+        routeViewController.delegate = self
+        
+        DispatchQueue.main.async {
+            self.present(routeViewController, animated: true)
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -109,6 +127,15 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     
     func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
         scrollViewDidScroll(scrollView)
+    }
+    
+    // MARK: RouteViewAnimatorDelegate
+    func routeViewAnimatorTargetRect(controller: RouteViewController) -> CGRect? {
+        return nil
+    }
+    
+    func routeViewDidFinish(controller: RouteViewController) {
+        dismiss(animated: true)
     }
 }
 

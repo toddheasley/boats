@@ -16,19 +16,18 @@ class ViewController: UIViewController, ModeTransitioning {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleModeChange), name: Notification.Name.ModeChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleTimeChange), name: Notification.Name.TimeChange, object: nil)
+        
+        transitionMode(duration: 0.0)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
         NotificationCenter.default.removeObserver(self, name: Notification.Name.ModeChange, object: nil)
         NotificationCenter.default.removeObserver(self, name: Notification.Name.TimeChange, object: nil)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        transitionMode(duration: 0.0)
     }
     
     // MARK: ModeTransitioning

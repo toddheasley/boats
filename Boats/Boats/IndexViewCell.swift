@@ -57,11 +57,13 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
+        
         backgroundColor = highlighted ? .highlight : .clear
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
         backgroundColor = selected ? .highlight : .clear
     }
     
@@ -104,11 +106,13 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setUp()
     }
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
+        
         setUp()
     }
     

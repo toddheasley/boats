@@ -83,11 +83,13 @@ class DepartureView: UIView, ModeTransitioning {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUp()
     }
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
+        
         setUp()
     }
     
@@ -101,4 +103,3 @@ class DepartureView: UIView, ModeTransitioning {
         }
     }
 }
-

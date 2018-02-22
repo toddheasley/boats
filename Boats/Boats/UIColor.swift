@@ -37,7 +37,7 @@ extension UIColor {
         case .contrast:
             return .orange
         default:
-            return UIColor.burn.withAlphaComponent(0.75)
+            return .gray
         }
     }
     

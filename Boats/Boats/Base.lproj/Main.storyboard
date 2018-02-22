@@ -60,8 +60,28 @@
                     <view key="view" contentMode="scaleToFill" id="EEO-00-umg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" id="MhD-DC-tEl" userLabel="Header Toolbar" customClass="RouteHeaderToolbar" customModule="Boats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="W00-2x-NzN" id="vBc-7W-ruo"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" id="eEh-3v-bSs" userLabel="Footer Toolbar" customClass="RouteFooterToolbar" customModule="Boats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="W00-2x-NzN" id="WVP-X9-Y5c"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="footerToolbar" destination="eEh-3v-bSs" id="dNS-1K-n4l"/>
+                        <outlet property="headerToolbar" destination="MhD-DC-tEl" id="Ili-zh-8or"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qWh-uL-zDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

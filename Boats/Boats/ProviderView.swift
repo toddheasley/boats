@@ -81,11 +81,13 @@ class ProviderView: UIControl, ModeTransitioning {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUp()
     }
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
+        
         setUp()
     }
     
@@ -96,4 +98,3 @@ class ProviderView: UIControl, ModeTransitioning {
         }
     }
 }
-

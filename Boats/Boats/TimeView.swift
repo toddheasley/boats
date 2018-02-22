@@ -71,17 +71,20 @@ class TimeView: UIView, ModeTransitioning {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUp()
     }
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
+        
         setUp()
     }
     
     // MARK: ModeTransitioning
     func transitionMode(duration: TimeInterval) {
         TimeView.formatter.localization = localization ?? Localization()
+        
         var components: [(text: String, color: UIColor)] = [
             ("0", .burn),
             ("0", .burn),

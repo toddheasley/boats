@@ -12,6 +12,12 @@ class RouteView: UIView, ModeTransitioning {
     
     private(set) var style: Style = .origin
     
+    var localization: Localization? {
+        didSet {
+            layoutSubviews()
+        }
+    }
+    
     var route: Route? {
         didSet {
             layoutSubviews()
@@ -76,11 +82,13 @@ class RouteView: UIView, ModeTransitioning {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUp()
     }
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
+        
         setUp()
     }
     

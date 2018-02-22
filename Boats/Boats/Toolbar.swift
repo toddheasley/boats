@@ -1,5 +1,11 @@
 import UIKit
 
+@objc protocol ToolbarDelegate {
+    @objc optional func toolbar(_ toolbar: Toolbar, didOpen url: URL)
+    @objc optional func toolbarDidChange(_ toolbar: Toolbar)
+    @objc optional func toolbarDidFinish(_ toolbar: Toolbar)
+}
+
 class Toolbar: UIView, ModeTransitioning {
     enum SeparatorPosition {
         case top
@@ -10,6 +16,8 @@ class Toolbar: UIView, ModeTransitioning {
     private let backgroundView: UIView = UIView()
     private let separatorView: UIView = UIView()
     let contentView: UIView = UIView()
+    
+    @IBOutlet var delegate: ToolbarDelegate?
     
     var separatorPosition: SeparatorPosition = .none {
         didSet {
@@ -57,6 +65,7 @@ class Toolbar: UIView, ModeTransitioning {
             contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
         }
         contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width
+        contentView.frame.origin.x = UIEdgeInsets.padding.left
     }
     
     override func setUp() {
@@ -72,7 +81,6 @@ class Toolbar: UIView, ModeTransitioning {
         backgroundView.addSubview(separatorView)
         
         contentView.frame.size.height = intrinsicContentSize.height - UIEdgeInsets.padding.size.height
-        contentView.frame.origin.x = UIEdgeInsets.padding.left
         addSubview(contentView)
         
         transitionMode(duration: 0.0)
@@ -80,11 +88,13 @@ class Toolbar: UIView, ModeTransitioning {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setUp()
     }
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
+        
         setUp()
     }
     

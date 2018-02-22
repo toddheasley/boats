@@ -19,5 +19,5 @@ extension CGSize {
 }
 
 extension CGFloat {
-    static let cornerRadius: CGFloat = 5.0
+    static let cornerRadius: CGFloat = 7.0
 }
