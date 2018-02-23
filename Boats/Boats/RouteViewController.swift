@@ -6,8 +6,9 @@ protocol RouteViewDelegate {
     func routeViewDidFinish(controller: RouteViewController)
 }
 
-class RouteViewController: ViewController, UIViewControllerTransitioningDelegate, ToolbarDelegate {
+class RouteViewController: ViewController, ScheduleViewDelegate, ToolbarDelegate, UIViewControllerTransitioningDelegate {
     
+    @IBOutlet var scheduleView: ScheduleView?
     @IBOutlet var headerToolbar: RouteHeaderToolbar?
     @IBOutlet var footerToolbar: RouteFooterToolbar?
     
@@ -15,6 +16,7 @@ class RouteViewController: ViewController, UIViewControllerTransitioningDelegate
     
     var localization: Localization? {
         didSet {
+            scheduleView?.localization = localization
             headerToolbar?.localization = localization
         }
     }
@@ -27,6 +29,7 @@ class RouteViewController: ViewController, UIViewControllerTransitioningDelegate
     
     var route: Route? {
         didSet {
+            scheduleView?.schedule = route?.schedule()
             headerToolbar?.route = route
         }
     }
@@ -35,14 +38,32 @@ class RouteViewController: ViewController, UIViewControllerTransitioningDelegate
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
         
-        headerToolbar?.frame.size.height = (headerToolbar?.intrinsicContentSize.height ?? 0.0) + view.safeAreaInsets.top
+        viewDidLayoutSubviews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        footerToolbar?.frame.size.height = (footerToolbar?.intrinsicContentSize.height ?? 0.0) + view.safeAreaInsets.bottom
-        footerToolbar?.frame.origin.y = view.bounds.size.height - (footerToolbar?.frame.size.height ?? 0.0)
+        guard let scheduleView = scheduleView,
+            let headerToolbar = headerToolbar,
+            let footerToolbar = footerToolbar else {
+                return
+        }
+        
+        headerToolbar.frame.size.height = headerToolbar.intrinsicContentSize.height + view.safeAreaInsets.top
+        
+        footerToolbar.frame.size.height = footerToolbar.intrinsicContentSize.height + view.safeAreaInsets.bottom
+        footerToolbar.frame.origin.y = view.bounds.size.height - footerToolbar.frame.size.height
+        
+        scheduleView.frame.origin.y = headerToolbar.frame.size.height
+        scheduleView.frame.size.height = view.bounds.size.height - (scheduleView.frame.origin.y + footerToolbar.frame.size.height)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scheduleView?.localization = localization
+        scheduleView?.schedule = route?.schedule()
         
         headerToolbar?.localization = localization
         headerToolbar?.route = route
@@ -56,12 +77,14 @@ class RouteViewController: ViewController, UIViewControllerTransitioningDelegate
     override func transitionMode(duration: TimeInterval) {
         super.transitionMode(duration: duration)
         
+        scheduleView?.transitionMode(duration: duration)
         headerToolbar?.transitionMode(duration: duration)
         footerToolbar?.transitionMode(duration: duration)
-        
-        UIView.animate(withDuration: duration) {
-            
-        }
+    }
+    
+    // MARK: ScheduleViewDelegate
+    func scheduleViewDidChangeDirection(_ view: ScheduleView) {
+        headerToolbar?.direction = view.direction
     }
     
     // MARK: ToolbarDelegate
@@ -70,7 +93,9 @@ class RouteViewController: ViewController, UIViewControllerTransitioningDelegate
     }
     
     func toolbarDidChange(_ toolbar: Toolbar) {
-        
+        if let toolbar = toolbar as? RouteHeaderToolbar {
+            scheduleView?.direction = toolbar.direction
+        }
     }
     
     func toolbarDidFinish(_ toolbar: Toolbar) {

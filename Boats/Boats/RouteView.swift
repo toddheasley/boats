@@ -7,6 +7,8 @@ class RouteView: UIView, ModeTransitioning {
         case origin
     }
     
+    static let formatter: DateFormatter = DateFormatter()
+    
     private let nameLabel: UILabel = UILabel()
     private let descriptionLabel: UILabel = UILabel()
     
@@ -24,9 +26,10 @@ class RouteView: UIView, ModeTransitioning {
         }
     }
     
-    convenience init(style: Style, route: Route? = nil) {
+    convenience init(style: Style, localization: Localization? = nil, route: Route? = nil) {
         self.init(frame: .zero)
         self.style = style
+        self.localization = localization
         self.route = route
     }
     
@@ -51,7 +54,12 @@ class RouteView: UIView, ModeTransitioning {
             nameLabel.text = route.name
             switch style {
             case .season:
-                descriptionLabel.text = "SEASON"
+                if let season = route.schedule()?.season {
+                    RouteView.formatter.localization = localization ?? Localization()
+                    descriptionLabel.text = "\(RouteView.formatter.string(from: season, style: .medium))"
+                } else {
+                    descriptionLabel.text = "Schedule Unavailable"
+                }
             case .origin:
                 descriptionLabel.text = "From \(route.origin.name)"
             }
@@ -64,13 +72,13 @@ class RouteView: UIView, ModeTransitioning {
     override func setUp() {
         super.setUp()
         
-        nameLabel.font = UIFont.systemFont(ofSize: 19.0, weight: .bold)
+        nameLabel.font = .systemFont(ofSize: 19.0, weight: .bold)
         nameLabel.autoresizingMask = [.flexibleWidth]
         nameLabel.frame.size.width = bounds.size.width
         nameLabel.frame.size.height = 22.0
         addSubview(nameLabel)
         
-        descriptionLabel.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
+        descriptionLabel.font = .systemFont(ofSize: 14.0, weight: .bold)
         descriptionLabel.autoresizingMask = [.flexibleWidth]
         descriptionLabel.frame.size.width = bounds.size.width
         descriptionLabel.frame.size.height = 22.0

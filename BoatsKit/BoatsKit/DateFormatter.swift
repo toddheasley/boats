@@ -31,6 +31,30 @@ extension DateFormatter {
         return is24HouTime
     }
     
+    public func string(from season: Season, style: Style) -> String {
+        var string: String = ""
+        if let dateInterval = season.dateInterval {
+            let format: String = dateFormat
+            dateStyle = style
+            timeStyle = .none
+            string = ": \(self.string(from: dateInterval.start)) - \(self.string(from: dateInterval.end))"
+            dateFormat = format
+        }
+        return "\(season.rawValue.capitalized)\(string)"
+    }
+    
+    public func string(from date: Date, style: Style) -> String {
+        
+        print("CALLED")
+        
+        let format: String = dateFormat
+        dateStyle = style
+        timeStyle = .none
+        let string: String = self.string(from: date)
+        dateFormat = format
+        return string
+    }
+    
     public func string(from time: Time) -> String {
         let format: String = dateFormat
         let date: Date = time.date(timeZone: timeZone)
@@ -48,22 +72,6 @@ extension DateFormatter {
         }
         dateFormat = format
         return string
-    }
-    
-    public func string(from season: Season, style: Style = .medium) -> String {
-        var string: String = ""
-        if let dateInterval = season.dateInterval {
-            let format: String = dateFormat
-            dateStyle = style
-            timeStyle = .none
-            string = ": \(self.string(from: dateInterval.start)) - \(self.string(from: dateInterval.end))"
-            dateFormat = format
-        }
-        return "\(season.rawValue.capitalized)\(string)"
-    }
-    
-    public func string(from day: Day) -> String {
-        return "\(day.rawValue.capitalized)"
     }
     
     public func components(from time: Time) -> [String] {
@@ -93,6 +101,10 @@ extension DateFormatter {
         }
         dateFormat = format
         return components
+    }
+    
+    public func string(from day: Day) -> String {
+        return "\(day.rawValue.capitalized)"
     }
     
     public func day(from date: Date = Date()) -> Day {

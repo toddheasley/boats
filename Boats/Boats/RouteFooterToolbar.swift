@@ -26,14 +26,17 @@ class RouteFooterToolbar: Toolbar {
     
     // MARK: Toolbar
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: super.intrinsicContentSize.width, height: providerView.intrinsicContentSize.height + UIEdgeInsets.padding.size.height)
+        return CGSize(width: super.intrinsicContentSize.width, height: 22.0 + UIEdgeInsets.padding.size.height)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        iconView.frame.origin.x = contentView.bounds.size.width - iconView.frame.size.width + 3.0
+        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width + 4.0
+        contentView.frame.size.height = providerView.frame.size.height
+        contentView.frame.origin.y = (intrinsicContentSize.height - contentView.frame.size.height) / 2.0
         
+        iconView.frame.origin.x = contentView.bounds.size.width - iconView.frame.size.width
         providerView.frame.size.width = iconView.frame.origin.x - UIEdgeInsets.padding.right
     }
     

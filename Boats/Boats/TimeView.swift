@@ -2,6 +2,8 @@ import UIKit
 import BoatsKit
 
 class TimeView: UIView, ModeTransitioning {
+    static let formatter: DateFormatter = DateFormatter()
+    
     private let contentView: UIView = UIView()
     private let labels: [UILabel] = [
         UILabel(),
@@ -11,8 +13,6 @@ class TimeView: UIView, ModeTransitioning {
         UILabel(),
         UILabel()
     ]
-    
-    static let formatter: DateFormatter = DateFormatter()
     
     var localization: Localization? {
         didSet {
@@ -26,7 +26,7 @@ class TimeView: UIView, ModeTransitioning {
         }
     }
     
-    convenience init(localization: Localization = Localization(), time: Time) {
+    convenience init(localization: Localization? = nil, time: Time) {
         self.init(frame: .zero)
         self.localization = localization
         self.time = time
@@ -57,7 +57,7 @@ class TimeView: UIView, ModeTransitioning {
         
         var x: CGFloat = 0.0
         for (index, label) in labels.enumerated() {
-            label.font = UIFont.systemFont(ofSize: 64.0, weight: .bold)
+            label.font = .systemFont(ofSize: 64.0, weight: .bold)
             label.textAlignment = .center
             label.frame.size.width = (intrinsicContentSize.width / 10) * (index != 2 && index != 5 ? 2 : 1)
             label.frame.size.height = intrinsicContentSize.height

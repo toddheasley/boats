@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C2690AB203F13E900C7AAEA /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2690AA203F13E900C7AAEA /* ScheduleView.swift */; };
 		5C2B4955202A614B005B4775 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4953202A614B005B4775 /* Interface.storyboard */; };
 		5C2B4957202A614C005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4956202A614C005B4775 /* Assets.xcassets */; };
 		5C2B495E202A614C005B4775 /* BoatsWatchExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -16,6 +17,7 @@
 		5C2B4969202A614C005B4775 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4968202A614C005B4775 /* ComplicationController.swift */; };
 		5C2B496B202A614D005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B496A202A614D005B4775 /* Assets.xcassets */; };
 		5C2B4970202A614D005B4775 /* BoatsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C2B4951202A614B005B4775 /* BoatsWatch.app */; };
+		5C3AFD74203F3BA2003F87D1 /* ScheduleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3AFD73203F3BA2003F87D1 /* ScheduleViewCell.swift */; };
 		5C5E807F202D47CE001001B2 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E807E202D47CE001001B2 /* IconView.swift */; };
 		5C5E8081202D4A4C001001B2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E8080202D4A4C001001B2 /* UIView.swift */; };
 		5C5F231C203320C4008D9FFE /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5F231B203320C4008D9FFE /* TimeView.swift */; };
@@ -26,6 +28,8 @@
 		5C933140202A56AE00FE7B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C93313E202A56AE00FE7B02 /* Main.storyboard */; };
 		5C933142202A56AF00FE7B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C933141202A56AF00FE7B02 /* Assets.xcassets */; };
 		5C933145202A56AF00FE7B02 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C933143202A56AF00FE7B02 /* Launch.storyboard */; };
+		5CA233FD203F5ECD009C9CF3 /* ScheduleDayReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA233FC203F5ECD009C9CF3 /* ScheduleDayReusableView.swift */; };
+		5CA233FF203F5F01009C9CF3 /* ScheduleHolidayReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA233FE203F5F01009C9CF3 /* ScheduleHolidayReusableView.swift */; };
 		5CB9379420367BD700505353 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB9379320367BD700505353 /* UIColor.swift */; };
 		5CC264452038936800764A76 /* ProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC264442038936800764A76 /* ProviderView.swift */; };
 		5CC814C0203E1C8B00C3E2B8 /* RouteHeaderToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC814BF203E1C8B00C3E2B8 /* RouteHeaderToolbar.swift */; };
@@ -116,6 +120,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C2690AA203F13E900C7AAEA /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		5C2B4951202A614B005B4775 /* BoatsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2B4954202A614B005B4775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		5C2B4956202A614C005B4775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +133,7 @@
 		5C2B496A202A614D005B4775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C2B496C202A614D005B4775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C2B496D202A614D005B4775 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		5C3AFD73203F3BA2003F87D1 /* ScheduleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewCell.swift; sourceTree = "<group>"; };
 		5C5E807E202D47CE001001B2 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		5C5E8080202D4A4C001001B2 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5C5F231B203320C4008D9FFE /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
@@ -139,6 +145,8 @@
 		5C933141202A56AF00FE7B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C933144202A56AF00FE7B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		5C933146202A56AF00FE7B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CA233FC203F5ECD009C9CF3 /* ScheduleDayReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDayReusableView.swift; sourceTree = "<group>"; };
+		5CA233FE203F5F01009C9CF3 /* ScheduleHolidayReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleHolidayReusableView.swift; sourceTree = "<group>"; };
 		5CB9379320367BD700505353 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5CC264442038936800764A76 /* ProviderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderView.swift; sourceTree = "<group>"; };
 		5CC814BF203E1C8B00C3E2B8 /* RouteHeaderToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHeaderToolbar.swift; sourceTree = "<group>"; };
@@ -243,6 +251,10 @@
 				5CC814BF203E1C8B00C3E2B8 /* RouteHeaderToolbar.swift */,
 				5C8BB0D0203723B5001DB153 /* RouteView.swift */,
 				5CCBBE2A203496B400E79F28 /* RouteViewController.swift */,
+				5CA233FC203F5ECD009C9CF3 /* ScheduleDayReusableView.swift */,
+				5CA233FE203F5F01009C9CF3 /* ScheduleHolidayReusableView.swift */,
+				5C2690AA203F13E900C7AAEA /* ScheduleView.swift */,
+				5C3AFD73203F3BA2003F87D1 /* ScheduleViewCell.swift */,
 				5CCBBE2C20349B2700E79F28 /* Settings.bundle */,
 				5C5F231B203320C4008D9FFE /* TimeView.swift */,
 				5CE778522038C6470078468F /* Toolbar.swift */,
@@ -459,16 +471,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C3AFD74203F3BA2003F87D1 /* ScheduleViewCell.swift in Sources */,
 				5C5E8081202D4A4C001001B2 /* UIView.swift in Sources */,
 				5CE778532038C6470078468F /* Toolbar.swift in Sources */,
 				5CE778552038C8400078468F /* IndexToolbar.swift in Sources */,
 				5CFC7B242039D1F900F5784B /* IndexViewCell.swift in Sources */,
+				5CA233FD203F5ECD009C9CF3 /* ScheduleDayReusableView.swift in Sources */,
 				5C911B42203A1FA70020C927 /* DepartureView.swift in Sources */,
+				5C2690AB203F13E900C7AAEA /* ScheduleView.swift in Sources */,
 				5C5E807F202D47CE001001B2 /* IconView.swift in Sources */,
 				5CCBBE2B203496B400E79F28 /* RouteViewController.swift in Sources */,
 				5CCBBE272033C90600E79F28 /* Mode.swift in Sources */,
 				5C5F231C203320C4008D9FFE /* TimeView.swift in Sources */,
 				5C93313D202A56AE00FE7B02 /* ViewController.swift in Sources */,
+				5CA233FF203F5F01009C9CF3 /* ScheduleHolidayReusableView.swift in Sources */,
 				5CC264452038936800764A76 /* ProviderView.swift in Sources */,
 				5C8BB0D1203723B5001DB153 /* RouteView.swift in Sources */,
 				5CCBBE292034965900E79F28 /* IndexViewController.swift in Sources */,

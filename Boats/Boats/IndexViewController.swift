@@ -5,8 +5,8 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     private let url: URL = URL(string: "https://toddheasley.github.io/boats/index.json")!
     private var selectedIndexPath: IndexPath?
     
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var toolbar: IndexToolbar!
+    @IBOutlet var tableView: UITableView?
+    @IBOutlet var toolbar: IndexToolbar?
     
     private(set) var index: Index? {
         didSet {
@@ -18,7 +18,7 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Index.read(from: url) { index, error in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            self.tableView.refreshControl?.endRefreshing()
+            self.tableView?.refreshControl?.endRefreshing()
             self.index = index
         }
     }
@@ -27,9 +27,12 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     override func handleTimeChange() {
         super.handleTimeChange()
         
+        guard let tableView = tableView,
+            let toolbar = toolbar else {
+            return
+        }
         toolbar.index = index
         tableView.reloadData()
-        
         scrollViewDidScroll(tableView)
     }
     
@@ -48,19 +51,19 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.refreshControl = UIRefreshControl()
-        tableView.refreshControl?.addTarget(self, action: #selector(reloadIndex), for: .valueChanged)
-        tableView.separatorStyle = .none
+        tableView?.refreshControl = UIRefreshControl()
+        tableView?.refreshControl?.addTarget(self, action: #selector(reloadIndex), for: .valueChanged)
+        tableView?.separatorStyle = .none
     }
     
     override func transitionMode(duration: TimeInterval) {
         super.transitionMode(duration: duration)
         
-        tableView.indicatorStyle = mode.indicatorStyle
+        tableView?.indicatorStyle = mode.indicatorStyle
         for cell in tableView?.visibleCells ?? [] {
             (cell as? ModeTransitioning)?.transitionMode(duration: duration)
         }
-        toolbar.transitionMode(duration: duration)
+        toolbar?.transitionMode(duration: duration)
     }
     
     // MARK: UITableViewDataSource
@@ -117,12 +120,16 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let tableView = tableView,
+            let toolbar = toolbar else {
+            return
+        }
         let height: CGFloat = view.safeAreaInsets.top + toolbar.intrinsicContentSize.height
         let y = view.safeAreaInsets.top + scrollView.contentOffset.y
         
         tableView.scrollIndicatorInsets.top = max(0.0, toolbar.intrinsicContentSize.height + min(0.0, y))
         toolbar.frame.size.height = max(height, height - y)
-        toolbar.isBackgroundHidden = y < 1.0 + max(tableView(tableView, heightForHeaderInSection: 0) + view.safeAreaInsets.top - toolbar.frame.size.height, 0.0)
+        toolbar.isBackgroundHidden = y < 1.0 + max(self.tableView(tableView, heightForHeaderInSection: 0) + view.safeAreaInsets.top - toolbar.frame.size.height, 0.0)
     }
     
     func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
@@ -136,24 +143,5 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     
     func routeViewDidFinish(controller: RouteViewController) {
         dismiss(animated: true)
-    }
-}
-
-extension UserDefaults {
-    static var route: (uri: URI, direction: Departure.Direction)? {
-        set {
-            if let newValue = newValue {
-                standard.set("\(newValue.uri):\(newValue.direction.rawValue)", forKey: "route")
-            } else {
-                standard.removeObject(forKey: "route")
-            }
-        }
-        get {
-            guard let components = standard.string(forKey: "route")?.components(separatedBy: ":"), components.count == 2,
-                let direction = Departure.Direction(rawValue: components[1]) else {
-                return nil
-            }
-            return (URI(resource: components[0]), direction)
-        }
     }
 }

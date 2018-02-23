@@ -36,7 +36,7 @@ class RouteHTMLView: HTMLView, HTMLDataSource {
             guard let schedule = route.schedule() else {
                 return "Schedule Unavailable"
             }
-            return "\(dateFormatter.string(from: schedule.season))"
+            return "\(dateFormatter.string(from: schedule.season, style: .medium))"
         case "DAY":
             guard !index.isEmpty, let schedule = route.schedule() else {
                 return nil

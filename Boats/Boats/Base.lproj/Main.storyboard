@@ -75,17 +75,25 @@
                                     <outlet property="delegate" destination="W00-2x-NzN" id="WVP-X9-Y5c"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" misplaced="YES" id="xk1-Am-9pv" customClass="ScheduleView" customModule="Boats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="52" width="375" height="563"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="W00-2x-NzN" id="4Hd-1J-kCc"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
                         <outlet property="footerToolbar" destination="eEh-3v-bSs" id="dNS-1K-n4l"/>
                         <outlet property="headerToolbar" destination="MhD-DC-tEl" id="Ili-zh-8or"/>
+                        <outlet property="scheduleView" destination="xk1-Am-9pv" id="Bgz-9t-anj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qWh-uL-zDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="521" y="149"/>
+            <point key="canvasLocation" x="520.5" y="148.5"/>
         </scene>
     </scenes>
 </document>

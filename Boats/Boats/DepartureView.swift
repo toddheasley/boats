@@ -36,7 +36,7 @@ class DepartureView: UIView, ModeTransitioning {
         }
     }
     
-    convenience init(localization: Localization = Localization(), departure: Departure) {
+    convenience init(localization: Localization? = nil, departure: Departure) {
         self.init(frame: .zero)
         self.localization = localization
         self.departure = departure

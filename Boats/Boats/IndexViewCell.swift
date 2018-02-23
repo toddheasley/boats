@@ -2,14 +2,14 @@ import UIKit
 import BoatsKit
 
 class IndexViewCell: UITableViewCell, ModeTransitioning {
+    static func height(for width: CGFloat) -> CGFloat {
+        return width < 768.0 ? 156.0 : 99.0
+    }
+    
     private let separatorView: UIView = UIView()
     private let providerView: ProviderView = ProviderView()
     private let routeView: RouteView = RouteView(style: .origin)
     private let departureView: DepartureView = DepartureView()
-    
-    static func height(for width: CGFloat) -> CGFloat {
-        return width < 768.0 ? 156.0 : 99.0
-    }
     
     var localization: Localization? {
         set {
@@ -83,7 +83,7 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         routeView.frame.size.width = contentView.bounds.size.width
         
         departureView.frame.size.width = contentView.bounds.size.width
-        departureView.frame.origin.y = min(contentView.bounds.size.height - departureView.frame.size.height, 49.0)
+        departureView.frame.origin.y = contentView.bounds.size.height < 100.0 ? 11.0 : 49.0
     }
     
     override func setUp() {
