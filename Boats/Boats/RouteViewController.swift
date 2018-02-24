@@ -35,6 +35,11 @@ class RouteViewController: ViewController, ScheduleViewDelegate, ToolbarDelegate
     }
     
     // MARK: ViewController
+    override func handleTimeChange() {
+        super.handleTimeChange()
+        
+    }
+    
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
         

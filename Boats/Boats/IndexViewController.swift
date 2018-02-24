@@ -2,24 +2,38 @@ import UIKit
 import BoatsKit
 
 class IndexViewController: ViewController, UITableViewDataSource, UITableViewDelegate, RouteViewAnimatorDelegate {
-    private let url: URL = URL(string: "https://toddheasley.github.io/boats/index.json")!
-    private var selectedIndexPath: IndexPath?
+    private var date: Date?
     
     @IBOutlet var tableView: UITableView?
     @IBOutlet var toolbar: IndexToolbar?
     
     private(set) var index: Index? {
         didSet {
-            handleTimeChange()
+            date = index != nil ? Date() : nil
         }
     }
     
     @objc func reloadIndex() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Index.read(from: url) { index, error in
+        Index.read(from: URL(string: "https://toddheasley.github.io/boats/index.json")!) { index, error in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.tableView?.refreshControl?.endRefreshing()
+            
+            guard let index = index else {
+                return
+            }
             self.index = index
+            self.handleTimeChange()
+            
+            guard let routeViewController = self.presentedViewController as? RouteViewController,
+                let provider = index.provider(uri: routeViewController.provider?.uri),
+                let route = provider.route(uri: routeViewController.route?.uri) else {
+                self.dismiss(animated: false)
+                return
+            }
+            routeViewController.localization = index.localization
+            routeViewController.provider = provider
+            routeViewController.route = route
         }
     }
     
@@ -27,6 +41,10 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     override func handleTimeChange() {
         super.handleTimeChange()
         
+        guard let date = date, date > Date(timeIntervalSinceNow: -3600.0 * 8.0) else {
+            reloadIndex()
+            return
+        }
         guard let tableView = tableView,
             let toolbar = toolbar else {
             return
@@ -45,7 +63,7 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        reloadIndex()
+        handleTimeChange()
     }
     
     override func viewDidLoad() {
@@ -72,14 +90,14 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return index?.routes.count ?? 0
+        return index?.sorted.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: IndexViewCell = tableView.dequeueReusableCell(withIdentifier: "Index") as! IndexViewCell
         cell.localization = index?.localization
-        cell.provider = index?.routes[indexPath.row].provider
-        cell.route = index?.routes[indexPath.row].route
+        cell.provider = index?.sorted[indexPath.row].provider
+        cell.route = index?.sorted[indexPath.row].route
         return cell
     }
     
@@ -89,7 +107,7 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return max((tableView.bounds.size.height - tableView.safeAreaInsets.size.height) - (CGFloat(index?.routes.count ?? 0) * IndexViewCell.height(for: tableView.bounds.size.width)), 242.0)
+        return max((tableView.bounds.size.height - tableView.safeAreaInsets.size.height) - (CGFloat(index?.sorted.count ?? 0) * IndexViewCell.height(for: tableView.bounds.size.width)), 242.0)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -103,17 +121,13 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
         
         guard let routeViewController = storyboard?.instantiateViewController(withIdentifier: "Route") as? RouteViewController,
             let localization = index?.localization,
-            let routes = index?.routes, routes.count > indexPath.row else {
-            selectedIndexPath = nil
+            let routes = index?.sorted, routes.count > indexPath.row else {
             return
         }
-        selectedIndexPath = indexPath
-        
         routeViewController.localization = localization
         routeViewController.provider = routes[indexPath.row].provider
         routeViewController.route = routes[indexPath.row].route
         routeViewController.delegate = self
-        
         DispatchQueue.main.async {
             self.present(routeViewController, animated: true)
         }

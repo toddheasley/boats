@@ -49,12 +49,6 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         return CGSize(width: super.intrinsicContentSize.width, height: IndexViewCell.height(for: bounds.size.width))
     }
     
-    override var separatorInset: UIEdgeInsets {
-        didSet {
-            layoutSubviews()
-        }
-    }
-    
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         
@@ -76,8 +70,8 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         contentView.frame.origin.x = UIEdgeInsets.padding.left
         contentView.frame.origin.y = UIEdgeInsets.padding.top
         
-        separatorView.frame.origin.x = separatorInset.left
-        separatorView.frame.size.width = bounds.size.width - (separatorInset.left + separatorInset.right)
+        separatorView.frame.origin.x = UIEdgeInsets.padding.left
+        separatorView.frame.size.width = bounds.size.width - separatorView.frame.origin.x
         
         providerView.frame.size.width = contentView.bounds.size.width
         routeView.frame.size.width = contentView.bounds.size.width

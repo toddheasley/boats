@@ -6,19 +6,7 @@ public struct Index: Codable {
     public var localization: Localization = Localization()
     public var providers: [Provider] = []
     
-    public var routes: [(route: Route, provider: Provider)] {
-        var routes: [(route: Route, provider: Provider)] = []
-        for provider in providers {
-            for route in provider.routes {
-                routes.append((route, provider))
-            }
-        }
-        return routes.sorted {
-            $0.route.name < $1.route.name
-        }
-    }
-    
-    public func provider(uri: URI) -> Provider? {
+    public func provider(uri: URI?) -> Provider? {
         for provider in providers {
             if provider.uri == uri {
                 return provider
@@ -32,6 +20,18 @@ public struct Index: Codable {
             return nil
         }
         return providers[index]
+    }
+    
+    public var sorted: [(route: Route, provider: Provider)] {
+        var sorted: [(route: Route, provider: Provider)] = []
+        for provider in providers {
+            for route in provider.routes {
+                sorted.append((route, provider))
+            }
+        }
+        return sorted.sorted {
+            $0.route.name < $1.route.name
+        }
     }
     
     public init() {
