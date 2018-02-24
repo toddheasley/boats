@@ -61,7 +61,7 @@ class DepartureView: UIView, ModeTransitioning {
         
         contentView.autoresizingMask = [.flexibleLeftMargin, .flexibleTopMargin, .flexibleBottomMargin]
         contentView.frame.size = intrinsicContentSize
-        contentView.frame.origin.x = bounds.size.width - contentView.frame.size.width
+        contentView.frame.origin.x = bounds.size.width - contentView.frame.size.width + 5.0
         addSubview(contentView)
         
         timeView.frame.origin.x = contentView.bounds.size.width - timeView.frame.size.width

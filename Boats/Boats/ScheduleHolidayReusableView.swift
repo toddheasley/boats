@@ -28,8 +28,6 @@ class ScheduleHolidayReusableView: UICollectionReusableView, ModeTransitioning {
             holidayViews = []
             for (index, holiday) in (holidays ?? []).enumerated() {
                 let holidayView: ScheduleHolidayView = ScheduleHolidayView(localization: localization, holiday: holiday)
-                holidayView.autoresizingMask = [.flexibleWidth]
-                holidayView.frame.size.width = contentView.bounds.size.width
                 holidayView.frame.origin.y = holidayView.frame.size.height * CGFloat(index)
                 contentView.addSubview(holidayView)
                 
@@ -54,16 +52,12 @@ class ScheduleHolidayReusableView: UICollectionReusableView, ModeTransitioning {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width
-    }
-    
     override func setUp() {
         super.setUp()
         
-        contentView.frame.origin.x = UIEdgeInsets.padding.left
+        contentView.autoresizingMask = [.flexibleLeftMargin]
+        contentView.frame.size.width = ScheduleHolidayReusableView.view.intrinsicContentSize.width
+        contentView.frame.origin.x = bounds.size.width - (contentView.frame.size.width + UIEdgeInsets.padding.right)
         contentView.frame.origin.y = UIEdgeInsets.padding.top
         addSubview(contentView)
         
@@ -116,12 +110,12 @@ fileprivate class ScheduleHolidayView: UIView, ModeTransitioning {
     
     // MARK: UIView
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 210.0, height: 17.0)
+        return CGSize(width: 200.0, height: 13.0)
     }
     
     override var frame: CGRect {
         set {
-            super.frame = CGRect(x: newValue.origin.x, y: newValue.origin.y, width: max(newValue.size.width, intrinsicContentSize.width), height: intrinsicContentSize.height)
+            super.frame = CGRect(x: newValue.origin.x, y: newValue.origin.y, width: intrinsicContentSize.width, height: intrinsicContentSize.height)
         }
         get {
             return super.frame
@@ -133,24 +127,24 @@ fileprivate class ScheduleHolidayView: UIView, ModeTransitioning {
         
         ScheduleHolidayView.formatter.localization = localization ?? Localization()
         
-        nameLabel.text = holiday?.name
+        nameLabel.text = holiday?.name.uppercased()
         nameLabel.frame.size.width = bounds.size.width - dateLabel.frame.size.width
         
-        dateLabel.text = holiday != nil ? ScheduleHolidayView.formatter.string(from: holiday!.date, style: .medium) : nil
+        dateLabel.text = holiday != nil ? ScheduleHolidayView.formatter.string(from: holiday!.date, style: .medium).uppercased() : nil
         dateLabel.frame.origin.x = nameLabel.frame.size.width
     }
     
     override func setUp() {
         super.setUp()
         
-        nameLabel.font = .systemFont(ofSize: 9.0, weight: .regular)
-        nameLabel.textAlignment = .right
+        nameLabel.font = .systemFont(ofSize: 9.0, weight: .bold)
+        nameLabel.textAlignment = .left
         nameLabel.frame.size.height = bounds.size.height
         addSubview(nameLabel)
         
-        dateLabel.font = .systemFont(ofSize: 9.0, weight: .regular)
+        dateLabel.font = nameLabel.font
         dateLabel.textAlignment = .right
-        dateLabel.frame.size.width = 132.0
+        dateLabel.frame.size.width = 76.0
         dateLabel.frame.size.height = bounds.size.height
         addSubview(dateLabel)
         

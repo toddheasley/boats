@@ -44,9 +44,6 @@ extension DateFormatter {
     }
     
     public func string(from date: Date, style: Style) -> String {
-        
-        print("CALLED")
-        
         let format: String = dateFormat
         dateStyle = style
         timeStyle = .none
