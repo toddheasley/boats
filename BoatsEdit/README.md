@@ -1,2 +1,2 @@
-Boats Edit
+BoatsEdit
 ----
