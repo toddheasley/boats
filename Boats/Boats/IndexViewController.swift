@@ -1,7 +1,7 @@
 import UIKit
 import BoatsKit
 
-class IndexViewController: ViewController, UITableViewDataSource, UITableViewDelegate, RouteViewAnimatorDelegate {
+class IndexViewController: ViewController, UITableViewDataSource, UITableViewDelegate {
     private var date: Date?
     
     @IBOutlet var tableView: UITableView?
@@ -127,7 +127,6 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
         routeViewController.localization = localization
         routeViewController.provider = routes[indexPath.row].provider
         routeViewController.route = routes[indexPath.row].route
-        routeViewController.delegate = self
         DispatchQueue.main.async {
             self.present(routeViewController, animated: true)
         }
@@ -148,14 +147,5 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     
     func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
         scrollViewDidScroll(scrollView)
-    }
-    
-    // MARK: RouteViewAnimatorDelegate
-    func routeViewAnimatorTargetRect(controller: RouteViewController) -> CGRect? {
-        return nil
-    }
-    
-    func routeViewDidFinish(controller: RouteViewController) {
-        dismiss(animated: true)
     }
 }

@@ -26,9 +26,9 @@ class ScheduleHolidayReusableView: UICollectionReusableView, ModeTransitioning {
                 holidayView.removeFromSuperview()
             }
             holidayViews = []
-            for (index, holiday) in (holidays ?? []).enumerated() {
+            for (i, holiday) in (holidays ?? []).enumerated() {
                 let holidayView: ScheduleHolidayView = ScheduleHolidayView(localization: localization, holiday: holiday)
-                holidayView.frame.origin.y = holidayView.frame.size.height * CGFloat(index)
+                holidayView.frame.origin.y = holidayView.frame.size.height * CGFloat(i)
                 contentView.addSubview(holidayView)
                 
                 holidayViews.append(holidayView)

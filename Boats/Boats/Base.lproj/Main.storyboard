@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="hLx-9b-fMM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" id="hLx-9b-fMM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,7 +37,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="EU7-zJ-g6k"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" id="AYA-DF-zLE" customClass="IndexToolbar" customModule="Boats" customModuleProvider="target">
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AYA-DF-zLE" customClass="IndexToolbar" customModule="Boats" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </view>
@@ -61,25 +61,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" id="MhD-DC-tEl" userLabel="Header Toolbar" customClass="RouteHeaderToolbar" customModule="Boats" customModuleProvider="target">
+                            <view contentMode="scaleToFill" id="xk1-Am-9pv" customClass="ScheduleView" customModule="Boats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="52" width="375" height="563"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="W00-2x-NzN" id="4Hd-1J-kCc"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MhD-DC-tEl" userLabel="Header Toolbar" customClass="RouteHeaderToolbar" customModule="Boats" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="W00-2x-NzN" id="vBc-7W-ruo"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" id="eEh-3v-bSs" userLabel="Footer Toolbar" customClass="RouteFooterToolbar" customModule="Boats" customModuleProvider="target">
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eEh-3v-bSs" userLabel="Footer Toolbar" customClass="RouteFooterToolbar" customModule="Boats" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="W00-2x-NzN" id="WVP-X9-Y5c"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" id="xk1-Am-9pv" customClass="ScheduleView" customModule="Boats" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="52" width="375" height="563"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="W00-2x-NzN" id="4Hd-1J-kCc"/>
                                 </connections>
                             </view>
                         </subviews>

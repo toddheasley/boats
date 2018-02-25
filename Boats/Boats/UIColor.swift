@@ -3,52 +3,31 @@ import UIKit
 extension UIColor {
     static var background: UIColor {
         switch Mode.current {
-        case .light, .auto:
-            return .white
         case .dark:
             return .black
-        case .contrast:
-            return .green
+        default:
+            return .white
         }
     }
     
     static var text: UIColor {
         switch Mode.current {
-        case .light, .auto:
-            return .black
         case .dark:
             return .white
-        case .contrast:
-            return .purple
+        default:
+            return .black
         }
     }
     
-    static var separator: UIColor {
-        switch Mode.current {
-        case .contrast:
-            return .text
-        default:
-            return .gray
-        }
-    }
-    
-    static var highlight: UIColor {
-        switch Mode.current {
-        case .contrast:
-            return .orange
-        default:
-            return .gray
-        }
+    static var tint: UIColor {
+        return UIColor.text.withAlphaComponent(0.15)
     }
     
     static var burn: UIColor {
-        switch Mode.current {
-        case .light, .auto:
-            return UIColor(white: 0.9, alpha: 1.0)
-        case .dark:
-            return UIColor(white: 0.15, alpha: 1.0)
-        case .contrast:
-            return .clear
-        }
+        return UIColor.text.withAlphaComponent(0.1)
+    }
+    
+    static var separator: UIColor {
+        return .gray
     }
 }

@@ -20,7 +20,7 @@ class ProviderView: UIControl, ModeTransitioning {
     override var isHighlighted: Bool {
         set {
             super.isHighlighted = newValue
-            contentView.layer.backgroundColor = isHighlighted && provider?.url != nil ? UIColor.highlight.cgColor : nil
+            contentView.layer.backgroundColor = isHighlighted && provider?.url != nil ? UIColor.tint.cgColor : nil
         }
         get {
             return super.isHighlighted

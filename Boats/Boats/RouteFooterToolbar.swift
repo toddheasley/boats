@@ -32,7 +32,7 @@ class RouteFooterToolbar: Toolbar {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width + 4.0
+        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width
         contentView.frame.size.height = providerView.frame.size.height
         contentView.frame.origin.y = (intrinsicContentSize.height - contentView.frame.size.height) / 2.0
         

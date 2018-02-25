@@ -52,13 +52,13 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         
-        backgroundColor = highlighted ? .highlight : .clear
+        backgroundView?.backgroundColor = highlighted ? .tint : .clear
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        backgroundColor = selected ? .highlight : .clear
+        backgroundView?.backgroundColor = selected ? .tint : .clear
     }
     
     
@@ -69,6 +69,11 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         contentView.frame.size.height = bounds.size.height - UIEdgeInsets.padding.size.height
         contentView.frame.origin.x = UIEdgeInsets.padding.left
         contentView.frame.origin.y = UIEdgeInsets.padding.top
+        
+        backgroundView?.frame.size.width = contentView.frame.size.width + 8.0
+        backgroundView?.frame.size.height = contentView.frame.size.height + 8.0
+        backgroundView?.frame.origin.x = contentView.frame.origin.x - 4.0
+        backgroundView?.frame.origin.y = contentView.frame.origin.y - 4.0
         
         separatorView.frame.origin.x = UIEdgeInsets.padding.left
         separatorView.frame.size.width = bounds.size.width - separatorView.frame.origin.x
@@ -84,6 +89,7 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         super.setUp()
         
         selectionStyle = .none
+        backgroundColor = .clear
         
         separatorView.frame.size.height = CGSize.separator.height
         addSubview(separatorView)
@@ -94,6 +100,9 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         
         contentView.addSubview(routeView)
         contentView.addSubview(departureView)
+        
+        backgroundView = UIView()
+        backgroundView?.layer.cornerRadius = .cornerRadius
         
         transitionMode(duration: 0.0)
     }

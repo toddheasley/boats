@@ -3,7 +3,6 @@ import UIKit
 enum Mode: String {
     case light
     case dark
-    case contrast
     case auto
     
     static var current: Mode {

@@ -8,8 +8,8 @@ class DayInput: Input {
     
     var days: [Day] {
         set {
-            for (index, day) in Day.all.enumerated() {
-                buttons[index].state = newValue.contains(day) ? .on : .off
+            for (i, day) in Day.all.enumerated() {
+                buttons[i].state = newValue.contains(day) ? .on : .off
             }
             specialButton.state = .off
             for day in newValue {
@@ -21,8 +21,8 @@ class DayInput: Input {
         }
         get {
             var days: [Day] = []
-            for (index, day) in Day.all.enumerated() {
-                guard buttons[index].state == .on else {
+            for (i, day) in Day.all.enumerated() {
+                guard buttons[i].state == .on else {
                     continue
                 }
                 days.append(day)
@@ -56,16 +56,16 @@ class DayInput: Input {
     override func setUp() {
         super.setUp()
         
-        for (index, day) in Day.all.enumerated() {
+        for (i, day) in Day.all.enumerated() {
             let button: NSButton = NSButton(checkboxWithTitle: day.rawValue.capitalized, target: self, action: #selector(inputEdited(_:)))
             button.frame.size.width = 120.0
             button.frame.size.height = 22.0
-            if index < 5 {
+            if i < 5 {
                 button.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + (button.frame.size.width * 2.0))
-                button.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + (button.frame.size.height * CGFloat(index + 3)))
+                button.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + (button.frame.size.height * CGFloat(i + 3)))
             } else {
                 button.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + button.frame.size.width)
-                button.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + (button.frame.size.height * CGFloat(index - 2)))
+                button.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + (button.frame.size.height * CGFloat(i - 2)))
             }
             addSubview(button)
             buttons.append(button)
