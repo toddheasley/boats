@@ -16,8 +16,29 @@ enum Icon: String {
             path.append(UIBezierPath(roundedRect: CGRect(x: 11.0, y: 21.75, width: 16.0, height: 1.5), cornerRadius: 0.5))
             return path
         case .car:
+            let subpath: UIBezierPath = UIBezierPath()
+            subpath.move(to: CGPoint(x: 7.5, y: 14.5))
+            subpath.addLine(to: CGPoint(x: 8.5, y: 9.5))
+            subpath.addQuadCurve(to: CGPoint(x: 10.5, y: 7.75), controlPoint: CGPoint(x: 8.5, y: 7.5))
+            subpath.addLine(to: CGPoint(x: 21.5, y: 7.75))
+            subpath.addQuadCurve(to: CGPoint(x: 23.5, y: 9.5), controlPoint: CGPoint(x: 23.0, y: 7.5))
+            subpath.addLine(to: CGPoint(x: 24.5, y: 14.5))
+            subpath.close()
+            
             let path: UIBezierPath = UIBezierPath()
-            path.append(UIBezierPath(roundedRect: CGRect(x: 4.0, y: 5.0, width: 24.0, height: 22.0), cornerRadius: 0.5))
+            path.move(to: CGPoint(x: 5.5, y: 14.5))
+            path.addLine(to: CGPoint(x: 7.0, y: 8.0))
+            path.addQuadCurve(to: CGPoint(x: 10.0, y: 6.0), controlPoint: CGPoint(x: 7.5, y: 6.0))
+            path.addLine(to: CGPoint(x: 22.0, y: 6.0))
+            path.addQuadCurve(to: CGPoint(x: 25.0, y: 8.0), controlPoint: CGPoint(x: 24.5, y: 6.0))
+            path.addLine(to: CGPoint(x: 26.5, y: 14.5))
+            path.close()
+            path.append(UIBezierPath(roundedRect: CGRect(x: 4.0, y: 14.0, width: 24.0, height: 10.0), cornerRadius: 2.0))
+            path.append(UIBezierPath(roundedRect: CGRect(x: 4.75, y: 23.0, width: 4.0, height: 4.0), cornerRadius: 1.0))
+            path.append(UIBezierPath(roundedRect: CGRect(x: 23.25, y: 23.0, width: 4.0, height: 4.0), cornerRadius: 1.0))
+            path.append(subpath.reversing())
+            path.append(UIBezierPath(ovalIn: CGRect(x: 6.0, y: 17.0, width: 4.0, height: 4.0)).reversing())
+            path.append(UIBezierPath(ovalIn: CGRect(x: 22.0, y: 17.0, width: 4.0, height: 4.0)).reversing())
             return path
         }
     }
