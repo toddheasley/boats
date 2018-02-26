@@ -46,7 +46,7 @@ class RouteHeaderToolbar: Toolbar {
     
     // MARK: Toolbar
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: routeView.intrinsicContentSize.width, height: routeView.intrinsicContentSize.height + 44.0 + UIEdgeInsets.padding.size.height)
+        return CGSize(width: routeView.intrinsicContentSize.width, height: routeView.intrinsicContentSize.height + 44.0 + UIEdgeInsets.padding.height)
     }
     
     override func layoutSubviews() {

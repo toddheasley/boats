@@ -7,11 +7,11 @@ struct IndexManager {
     
     static var url: URL? {
         set {
-            UserDefaults.standard.set(newValue, forKey: "URL")
+            UserDefaults.url = newValue
             index = nil
         }
         get {
-            return UserDefaults.standard.url(forKey: "URL")
+            return UserDefaults.url
         }
     }
     
@@ -58,5 +58,16 @@ struct IndexManager {
             throw NSError(domain: NSURLErrorDomain, code: NSURLErrorFileDoesNotExist, userInfo: nil)
         }
         try index.write(to: url, web: web)
+    }
+}
+
+extension UserDefaults {
+    fileprivate static var url: URL? {
+        set {
+            UserDefaults.standard.set(newValue, forKey: "url")
+        }
+        get {
+            return UserDefaults.standard.url(forKey: "url")
+        }
     }
 }

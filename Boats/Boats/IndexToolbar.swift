@@ -18,7 +18,7 @@ class IndexToolbar: Toolbar {
     
     // MARK: Toolbar
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: super.intrinsicContentSize.width, height: 61.0 + UIEdgeInsets.padding.size.height)
+        return CGSize(width: super.intrinsicContentSize.width, height: 61.0 + UIEdgeInsets.padding.height)
     }
     
     override func layoutSubviews() {

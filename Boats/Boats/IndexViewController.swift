@@ -107,7 +107,7 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return max((tableView.bounds.size.height - tableView.safeAreaInsets.size.height) - (CGFloat(index?.sorted.count ?? 0) * IndexViewCell.height(for: tableView.bounds.size.width)), 242.0)
+        return max((tableView.bounds.size.height - tableView.safeAreaInsets.height) - (CGFloat(index?.sorted.count ?? 0) * IndexViewCell.height(for: tableView.bounds.size.width)), 242.0)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

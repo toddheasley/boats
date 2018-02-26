@@ -53,9 +53,6 @@ class IndexManagerTests: XCTestCase {
     }
     
     func testMake() {
-        
-        NSWorkspace.shared.open(url)
-        
         try? FileManager.default.removeItem(at: url.appending(uri: Index().uri))
         XCTAssertNoThrow(try IndexManager.make(at: url))
         XCTAssertNotNil(IndexManager.index)

@@ -8,7 +8,7 @@ class ScheduleHolidayReusableView: UICollectionReusableView, ModeTransitioning {
         guard let holidays = holidays, !holidays.isEmpty else {
             return .zero
         }
-        return CGSize(width: width, height: (view.intrinsicContentSize.height * CGFloat(holidays.count)) + UIEdgeInsets.padding.size.height)
+        return CGSize(width: width, height: (view.intrinsicContentSize.height * CGFloat(holidays.count)) + UIEdgeInsets.padding.height)
     }
     
     private let contentView: UIView = UIView()

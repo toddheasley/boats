@@ -65,8 +65,8 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width
-        contentView.frame.size.height = bounds.size.height - UIEdgeInsets.padding.size.height
+        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.width
+        contentView.frame.size.height = bounds.size.height - UIEdgeInsets.padding.height
         contentView.frame.origin.x = UIEdgeInsets.padding.left
         contentView.frame.origin.y = UIEdgeInsets.padding.top
         
@@ -91,7 +91,7 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         selectionStyle = .none
         backgroundColor = .clear
         
-        separatorView.frame.size.height = CGSize.separator.height
+        separatorView.frame.size.height = .separatorHeight
         addSubview(separatorView)
         
         providerView.autoresizingMask = [.flexibleTopMargin]

@@ -17,6 +17,7 @@
 		5C2B4969202A614C005B4775 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4968202A614C005B4775 /* ComplicationController.swift */; };
 		5C2B496B202A614D005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B496A202A614D005B4775 /* Assets.xcassets */; };
 		5C2B4970202A614D005B4775 /* BoatsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C2B4951202A614B005B4775 /* BoatsWatch.app */; };
+		5C2BC43820444E7E00135294 /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BC43720444E7E00135294 /* UIEdgeInsets.swift */; };
 		5C3AFD74203F3BA2003F87D1 /* ScheduleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3AFD73203F3BA2003F87D1 /* ScheduleViewCell.swift */; };
 		5C5E807F202D47CE001001B2 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E807E202D47CE001001B2 /* IconView.swift */; };
 		5C5E8081202D4A4C001001B2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5E8080202D4A4C001001B2 /* UIView.swift */; };
@@ -133,6 +134,7 @@
 		5C2B496A202A614D005B4775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C2B496C202A614D005B4775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C2B496D202A614D005B4775 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		5C2BC43720444E7E00135294 /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		5C3AFD73203F3BA2003F87D1 /* ScheduleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewCell.swift; sourceTree = "<group>"; };
 		5C5E807E202D47CE001001B2 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		5C5E8080202D4A4C001001B2 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				5C5F231B203320C4008D9FFE /* TimeView.swift */,
 				5CE778522038C6470078468F /* Toolbar.swift */,
 				5CB9379320367BD700505353 /* UIColor.swift */,
+				5C2BC43720444E7E00135294 /* UIEdgeInsets.swift */,
 				5C5E8080202D4A4C001001B2 /* UIView.swift */,
 				5C93313C202A56AE00FE7B02 /* ViewController.swift */,
 				5C933146202A56AF00FE7B02 /* Info.plist */,
@@ -491,6 +494,7 @@
 				5CC814C2203E1CC200C3E2B8 /* RouteFooterToolbar.swift in Sources */,
 				5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */,
 				5CC814C0203E1C8B00C3E2B8 /* RouteHeaderToolbar.swift in Sources */,
+				5C2BC43820444E7E00135294 /* UIEdgeInsets.swift in Sources */,
 				5CB9379420367BD700505353 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
