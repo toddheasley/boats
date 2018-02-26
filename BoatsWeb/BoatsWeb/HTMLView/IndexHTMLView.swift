@@ -16,24 +16,14 @@ class IndexHTMLView: HTMLView, HTMLDataSource {
     }
     
     // MARK: HTMLDataSource
-    func value(of name: String, at index: [Int], in html: HTML) -> String? {
+    func value(of name: String, at i: [Int], in html: HTML) -> String? {
         switch name {
-        case "PROVIDER":
-            guard !index.isEmpty else {
-                return nil
-            }
-            let provider: Provider = self.index.providers[index[0]]
-            guard let url = provider.url else {
-                return "\(provider.name)"
-            }
-            return "<a href=\"\(url)\">\(provider.name)</a>"
         case "ROUTE":
-            guard index.count > 1 else {
+            guard !i.isEmpty else {
                 return nil
             }
-            let provider: Provider = self.index.providers[index[0]]
-            let route: Route = provider.routes[index[1]]
-            return "<a href=\"\(provider.uri)-\(route.uri).html\">\(route.name) <span>From \(route.origin.name)</span></a>"
+            let item = index.sorted[i[0]]
+            return "<a href=\"\(item.provider.uri)-\(item.route.uri).html\">\(item.route.services.contains(.car) ? "\(SVG.car.html) " : "")<b>\(item.route.name)</b> From \(item.route.origin.name) <span>Operated by \(item.provider.name)</span></a>"
         case "INDEX_NAME":
             return "\(self.index.name)"
         case "INDEX_DESCRIPTION":
@@ -55,15 +45,10 @@ class IndexHTMLView: HTMLView, HTMLDataSource {
         }
     }
     
-    func count(of name: String, at index: [Int], in html: HTML) -> Int {
+    func count(of name: String, at i: [Int], in html: HTML) -> Int {
         switch name {
-        case "PROVIDER":
-            return self.index.providers.count
         case "ROUTE":
-            guard !index.isEmpty else {
-                return 0
-            }
-            return self.index.providers[index[0]].routes.count
+            return index.sorted.count
         default:
             return 0
         }
