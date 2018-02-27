@@ -30,12 +30,6 @@ class ScheduleInput: Input {
         return true
     }
     
-    override var label: String {
-        didSet {
-            labelTextField.stringValue = label
-        }
-    }
-    
     override func setUp() {
         super.setUp()
         
@@ -43,13 +37,13 @@ class ScheduleInput: Input {
         
         statusView.frame.size.width = datePicker.frame.size.height
         statusView.frame.size.height = statusView.frame.size.width
-        statusView.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + statusView.frame.size.width)
-        statusView.frame.origin.y = contentInsets.bottom
+        statusView.frame.origin.x = intrinsicContentSize.width - (padding.right + statusView.frame.size.width)
+        statusView.frame.origin.y = padding.bottom
         addSubview(statusView)
         
         datePicker.isEnabled = false
         datePicker.frame.origin.x = statusView.frame.origin.x - (datePicker.frame.size.width + 4.0)
-        datePicker.frame.origin.y = contentInsets.bottom
+        datePicker.frame.origin.y = padding.bottom
         addSubview(datePicker)
     }
     

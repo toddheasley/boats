@@ -23,10 +23,6 @@ class ServiceInput: Input {
     }
     
     // MARK: Input
-    override var u: Int {
-        return (Service.all.count / 2) + (Service.all.count % 2 == 1 ? 1 : 0)
-    }
-    
     override func setUp() {
         super.setUp()
         
@@ -34,8 +30,8 @@ class ServiceInput: Input {
             let button: NSButton = NSButton(checkboxWithTitle: service.rawValue.capitalized, target: self, action: #selector(inputEdited(_:)))
             button.frame.size.width = 120.0
             button.frame.size.height = 22.0
-            button.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + (button.frame.size.width * (i % 2 == 1 ? 1.0 : 2.0)))
-            button.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + (button.frame.size.height * CGFloat(i / 2 + 1)))
+            button.frame.origin.x = intrinsicContentSize.width - (padding.right + (button.frame.size.width * (i % 2 == 1 ? 1.0 : 2.0)))
+            button.frame.origin.y = intrinsicContentSize.height - (padding.top + (button.frame.size.height * CGFloat(i / 2 + 1)))
             addSubview(button)
             buttons.append(button)
         }

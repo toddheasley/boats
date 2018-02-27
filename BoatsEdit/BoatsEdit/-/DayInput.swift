@@ -48,10 +48,7 @@ class DayInput: Input {
         layout()
     }
     
-    // // MARK: Input
-    override var u: Int {
-        return 7
-    }
+    // MARK: Input
     
     override func setUp() {
         super.setUp()
@@ -61,11 +58,11 @@ class DayInput: Input {
             button.frame.size.width = 120.0
             button.frame.size.height = 22.0
             if i < 5 {
-                button.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + (button.frame.size.width * 2.0))
-                button.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + (button.frame.size.height * CGFloat(i + 3)))
+                button.frame.origin.x = intrinsicContentSize.width - (padding.right + (button.frame.size.width * 2.0))
+                button.frame.origin.y = intrinsicContentSize.height - (padding.top + (button.frame.size.height * CGFloat(i + 3)))
             } else {
-                button.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + button.frame.size.width)
-                button.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + (button.frame.size.height * CGFloat(i - 2)))
+                button.frame.origin.x = intrinsicContentSize.width - (padding.right + button.frame.size.width)
+                button.frame.origin.y = intrinsicContentSize.height - (padding.top + (button.frame.size.height * CGFloat(i - 2)))
             }
             addSubview(button)
             buttons.append(button)
@@ -75,8 +72,8 @@ class DayInput: Input {
         specialButton.action = #selector(select(_:))
         specialButton.frame.size.width = 240.0
         specialButton.frame.size.height = 22.0
-        specialButton.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + specialButton.frame.size.width)
-        specialButton.frame.origin.y = intrinsicContentSize.height - (contentInsets.top + specialButton.frame.size.height)
+        specialButton.frame.origin.x = intrinsicContentSize.width - (padding.right + specialButton.frame.size.width)
+        specialButton.frame.origin.y = intrinsicContentSize.height - (padding.top + specialButton.frame.size.height)
         addSubview(specialButton)
         
         datePicker.isBezeled = false

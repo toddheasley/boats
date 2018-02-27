@@ -14,15 +14,6 @@ class URLInput: Input, NSTextFieldDelegate {
         }
     }
     
-    var placeholder: String? {
-        set {
-            textField.placeholderString = newValue
-        }
-        get {
-            return textField.placeholderString
-        }
-    }
-    
     @IBAction func preview(_ sender: AnyObject? = nil) {
         guard let url: URL = url else {
             return
@@ -30,24 +21,20 @@ class URLInput: Input, NSTextFieldDelegate {
         NSWorkspace.shared.open(url)
     }
     
-    // MARK: Input
-    override var u: Int {
-        return 2
-    }
-    
+    // MARK: Input    
     override func setUp() {
         super.setUp()
         
         previewButton.target = self
-        previewButton.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + previewButton.frame.size.width - 6.0)
-        previewButton.frame.origin.y = contentInsets.bottom - 6.5
+        previewButton.frame.origin.x = intrinsicContentSize.width - (padding.right + previewButton.frame.size.width - 6.0)
+        previewButton.frame.origin.y = padding.bottom - 6.5
         addSubview(previewButton)
         
         textField.delegate = self
-        textField.frame.size.width = previewButton.frame.origin.x - (contentInsets.left + 6.0)
+        textField.frame.size.width = previewButton.frame.origin.x - (padding.left + 6.0)
         textField.frame.size.height = 22.0
-        textField.frame.origin.x = contentInsets.left
-        textField.frame.origin.y = contentInsets.bottom
+        textField.frame.origin.x = padding.left
+        textField.frame.origin.y = padding.bottom
         addSubview(textField)
         
         label = "URL"

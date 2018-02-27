@@ -72,7 +72,7 @@ class ProviderView: UIControl, ModeTransitioning {
         contentView.frame.origin.x = -4.0
         addSubview(contentView)
         
-        label.font = .systemFont(ofSize: 14.0, weight: .regular)
+        label.font = .base
         label.frame.size.height = contentView.bounds.size.height
         contentView.addSubview(label)
         

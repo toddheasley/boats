@@ -31,12 +31,6 @@ class DepartureInput: Input {
         return true
     }
     
-    override var label: String {
-        didSet {
-            labelTextField.stringValue = label
-        }
-    }
-    
     override func setUp() {
         super.setUp()
         
@@ -50,8 +44,8 @@ class DepartureInput: Input {
         datePicker.action = #selector(inputEdited(_:))
         datePicker.sizeToFit()
         datePicker.frame.size.height = 22.0
-        datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width + 2.0)
-        datePicker.frame.origin.y = contentInsets.bottom
+        datePicker.frame.origin.x = intrinsicContentSize.width - (padding.right + datePicker.frame.size.width + 2.0)
+        datePicker.frame.origin.y = padding.bottom
         addSubview(datePicker)
     }
     

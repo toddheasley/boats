@@ -55,10 +55,6 @@ class SeasonInput: Input, SeasonDatePickerDelegate {
         return true
     }
     
-    override var u: Int {
-        return 2
-    }
-    
     override func inputEdited(_ sender: AnyObject?) {
         layout()
         super.inputEdited(sender)
@@ -78,13 +74,13 @@ class SeasonInput: Input, SeasonDatePickerDelegate {
         popUpButton.action = #selector(inputEdited(_:))
         popUpButton.sizeToFit()
         popUpButton.frame.size.width = 120.0
-        popUpButton.frame.origin.x = contentInsets.left
-        popUpButton.frame.origin.y = contentInsets.bottom - 3.0
+        popUpButton.frame.origin.x = padding.left
+        popUpButton.frame.origin.y = padding.bottom - 3.0
         addSubview(popUpButton)
         
         datePicker.delegate = self
-        datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width)
-        datePicker.frame.origin.y = contentInsets.bottom
+        datePicker.frame.origin.x = intrinsicContentSize.width - (padding.right + datePicker.frame.size.width)
+        datePicker.frame.origin.y = padding.bottom
         addSubview(datePicker)
         
         label = "Season"

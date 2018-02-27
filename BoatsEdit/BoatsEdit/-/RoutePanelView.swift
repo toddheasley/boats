@@ -2,7 +2,7 @@ import Cocoa
 import BoatsKit
 
 class RoutePanelView: PanelView {
-    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput(), DividerInput(style: .none)]
+    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput(), DividerInput()]
     private let nameInput: StringInput = StringInput()
     private let uriInput: URIInput = URIInput()
     private let locationInput: (destination: LocationInput, origin: LocationInput) = (LocationInput(direction: .destination), LocationInput(direction: .origin))

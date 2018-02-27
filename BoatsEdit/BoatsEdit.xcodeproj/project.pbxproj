@@ -8,46 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		5C1752691FB8BE0D00D9A9F5 /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1752681FB8BE0D00D9A9F5 /* PanelView.swift */; };
-		5C1752761FB9340200D9A9F5 /* DayInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1752751FB9340200D9A9F5 /* DayInput.swift */; };
-		5C1F05E71FC3ED22001504AF /* SchedulePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F05E61FC3ED22001504AF /* SchedulePanelView.swift */; };
-		5C1F05E91FC3FCDE001504AF /* DeparturePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F05E81FC3FCDE001504AF /* DeparturePanelView.swift */; };
 		5C33B03A1F530D5D0025B1BA /* IndexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */; };
 		5C4C2D0C1F5309F300B6FBE3 /* IndexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */; };
+		5C5FC23C20446026007F9127 /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FC23B20446026007F9127 /* NSFont.swift */; };
+		5C5FC23E20447556007F9127 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FC23D20447556007F9127 /* NSView.swift */; };
+		5C5FC23F2044A8D9007F9127 /* IndexPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7407CA1FC0ADA800A743D1 /* IndexPanelView.swift */; };
+		5C5FC2422044C8A4007F9127 /* PanelInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FC2412044C8A4007F9127 /* PanelInputView.swift */; };
 		5C644E431FCD95E1006C7EB4 /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C644E421FCD95E1006C7EB4 /* NSColor.swift */; };
-		5C6EA8361FBFE53000464FCE /* CoordinateInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA8351FBFE53000464FCE /* CoordinateInput.swift */; };
-		5C7407CB1FC0ADA800A743D1 /* IndexPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7407CA1FC0ADA800A743D1 /* IndexPanelView.swift */; };
 		5C79D1C71F5B317100D19DD9 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */; };
-		5C7B48751FC291700098EC70 /* RoutePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B48741FC291700098EC70 /* RoutePanelView.swift */; };
-		5C7B48771FC295BA0098EC70 /* LocationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B48761FC295BA0098EC70 /* LocationInput.swift */; };
-		5C84E9C51FBB748400AF4096 /* TimeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84E9C41FBB748400AF4096 /* TimeInput.swift */; };
-		5C84E9C71FBB764200AF4096 /* DirectionInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84E9C61FBB764200AF4096 /* DirectionInput.swift */; };
-		5C84E9C91FBB7EA000AF4096 /* DepartureInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84E9C81FBB7EA000AF4096 /* DepartureInput.swift */; };
-		5C84E9CD1FBBAF4B00AF4096 /* ProviderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84E9CC1FBBAF4B00AF4096 /* ProviderInput.swift */; };
-		5C84E9CF1FBBB0E300AF4096 /* RouteInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84E9CE1FBBB0E300AF4096 /* RouteInput.swift */; };
-		5C84E9D11FBBB21600AF4096 /* ScheduleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84E9D01FBBB21600AF4096 /* ScheduleInput.swift */; };
 		5C85127A1F51C133006343AF /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; };
 		5C85127B1F51C133006343AF /* BoatsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C85127E1F51C144006343AF /* BoatsWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85127D1F51C144006343AF /* BoatsWeb.framework */; };
 		5C85127F1F51C144006343AF /* BoatsWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85127D1F51C144006343AF /* BoatsWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5CA5D28E1FCB909E0086FDC0 /* HolidayPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA5D28D1FCB909E0086FDC0 /* HolidayPanelView.swift */; };
-		5CA5D2901FCB93E80086FDC0 /* DateInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA5D28F1FCB93E80086FDC0 /* DateInput.swift */; };
-		5CAC2D461FB74DB500A07058 /* ServiceInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC2D451FB74DB500A07058 /* ServiceInput.swift */; };
-		5CAD34971FC3D369009C366B /* LocationPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAD34961FC3D369009C366B /* LocationPanelView.swift */; };
-		5CC7F21A1FC1EF7D00A69517 /* ProviderPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7F2191FC1EF7D00A69517 /* ProviderPanelView.swift */; };
-		5CD03B6C1FC1A39300320457 /* HeaderInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD03B6B1FC1A39300320457 /* HeaderInput.swift */; };
-		5CD03B6E1FC1B86300320457 /* DividerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD03B6D1FC1B86300320457 /* DividerInput.swift */; };
 		5CDB66571FCF9AF100BFE93F /* NSEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB66561FCF9AF100BFE93F /* NSEdgeInsets.swift */; };
 		5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */; };
 		5CFBB81A1F51C00600BFA5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB8191F51C00600BFA5CF /* Assets.xcassets */; };
 		5CFBB81D1F51C00600BFA5CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB81B1F51C00600BFA5CF /* Main.storyboard */; };
 		5CFBB8291F51C00600BFA5CF /* IndexManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8281F51C00600BFA5CF /* IndexManagerTests.swift */; };
-		5CFC0E3E1F657D980062A563 /* StringInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC0E3D1F657D980062A563 /* StringInput.swift */; };
-		5CFC0E401F65812B0062A563 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC0E3F1F65812B0062A563 /* Input.swift */; };
-		5CFC0E421F658C930062A563 /* URLInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC0E411F658C930062A563 /* URLInput.swift */; };
-		5CFC0E441F6597C40062A563 /* URIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC0E431F6597C40062A563 /* URIInput.swift */; };
-		5CFC0E481F659D140062A563 /* SeasonInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC0E471F659D140062A563 /* SeasonInput.swift */; };
-		5CFC0E4A1F65C7140062A563 /* LocalizationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC0E491F65C7140062A563 /* LocalizationInput.swift */; };
-		5CFC0E4C1F65D5330062A563 /* HolidayInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC0E4B1F65D5330062A563 /* HolidayInput.swift */; };
+		5CFC0E401F65812B0062A563 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC0E3F1F65812B0062A563 /* InputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +59,9 @@
 		5C1F05E61FC3ED22001504AF /* SchedulePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePanelView.swift; sourceTree = "<group>"; };
 		5C1F05E81FC3FCDE001504AF /* DeparturePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturePanelView.swift; sourceTree = "<group>"; };
 		5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManager.swift; sourceTree = "<group>"; };
+		5C5FC23B20446026007F9127 /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
+		5C5FC23D20447556007F9127 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
+		5C5FC2412044C8A4007F9127 /* PanelInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelInputView.swift; sourceTree = "<group>"; };
 		5C644E421FCD95E1006C7EB4 /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
 		5C6EA8351FBFE53000464FCE /* CoordinateInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateInput.swift; sourceTree = "<group>"; };
 		5C7407CA1FC0ADA800A743D1 /* IndexPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPanelView.swift; sourceTree = "<group>"; };
@@ -112,7 +93,7 @@
 		5CFBB8281F51C00600BFA5CF /* IndexManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManagerTests.swift; sourceTree = "<group>"; };
 		5CFBB82A1F51C00600BFA5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CFC0E3D1F657D980062A563 /* StringInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringInput.swift; sourceTree = "<group>"; };
-		5CFC0E3F1F65812B0062A563 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
+		5CFC0E3F1F65812B0062A563 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		5CFC0E411F658C930062A563 /* URLInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLInput.swift; sourceTree = "<group>"; };
 		5CFC0E431F6597C40062A563 /* URIInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URIInput.swift; sourceTree = "<group>"; };
 		5CFC0E471F659D140062A563 /* SeasonInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonInput.swift; sourceTree = "<group>"; };
@@ -143,15 +124,16 @@
 		5C2705101FD4C5010040053A /* PanelView */ = {
 			isa = PBXGroup;
 			children = (
-				5C1F05E81FC3FCDE001504AF /* DeparturePanelView.swift */,
-				5CA5D28D1FCB909E0086FDC0 /* HolidayPanelView.swift */,
-				5C7407CA1FC0ADA800A743D1 /* IndexPanelView.swift */,
-				5CAD34961FC3D369009C366B /* LocationPanelView.swift */,
-				5CC7F2191FC1EF7D00A69517 /* ProviderPanelView.swift */,
-				5C7B48741FC291700098EC70 /* RoutePanelView.swift */,
-				5C1F05E61FC3ED22001504AF /* SchedulePanelView.swift */,
 			);
 			path = PanelView;
+			sourceTree = "<group>";
+		};
+		5C5FC2402044BBFC007F9127 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				5C5FC2412044C8A4007F9127 /* PanelInputView.swift */,
+			);
+			path = InputView;
 			sourceTree = "<group>";
 		};
 		5CFBB8091F51C00500BFA5CF = {
@@ -169,15 +151,18 @@
 		5CFBB8141F51C00600BFA5CF /* BoatsEdit */ = {
 			isa = PBXGroup;
 			children = (
+				5CFC0E3C1F657D790062A563 /* - */,
 				5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */,
 				5CFBB8191F51C00600BFA5CF /* Assets.xcassets */,
 				5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */,
 				5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */,
-				5CFC0E3F1F65812B0062A563 /* Input.swift */,
-				5CFC0E3C1F657D790062A563 /* Input */,
+				5CFC0E3F1F65812B0062A563 /* InputView.swift */,
+				5C5FC2402044BBFC007F9127 /* InputView */,
 				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
 				5C644E421FCD95E1006C7EB4 /* NSColor.swift */,
 				5CDB66561FCF9AF100BFE93F /* NSEdgeInsets.swift */,
+				5C5FC23B20446026007F9127 /* NSFont.swift */,
+				5C5FC23D20447556007F9127 /* NSView.swift */,
 				5C1752681FB8BE0D00D9A9F5 /* PanelView.swift */,
 				5C2705101FD4C5010040053A /* PanelView */,
 				5CFBB81E1F51C00600BFA5CF /* Info.plist */,
@@ -194,9 +179,16 @@
 			path = BoatsEditTests;
 			sourceTree = "<group>";
 		};
-		5CFC0E3C1F657D790062A563 /* Input */ = {
+		5CFC0E3C1F657D790062A563 /* - */ = {
 			isa = PBXGroup;
 			children = (
+				5C1F05E81FC3FCDE001504AF /* DeparturePanelView.swift */,
+				5CA5D28D1FCB909E0086FDC0 /* HolidayPanelView.swift */,
+				5C7407CA1FC0ADA800A743D1 /* IndexPanelView.swift */,
+				5CAD34961FC3D369009C366B /* LocationPanelView.swift */,
+				5CC7F2191FC1EF7D00A69517 /* ProviderPanelView.swift */,
+				5C7B48741FC291700098EC70 /* RoutePanelView.swift */,
+				5C1F05E61FC3ED22001504AF /* SchedulePanelView.swift */,
 				5C6EA8351FBFE53000464FCE /* CoordinateInput.swift */,
 				5CA5D28F1FCB93E80086FDC0 /* DateInput.swift */,
 				5C1752751FB9340200D9A9F5 /* DayInput.swift */,
@@ -217,7 +209,7 @@
 				5CFC0E431F6597C40062A563 /* URIInput.swift */,
 				5CFC0E411F658C930062A563 /* URLInput.swift */,
 			);
-			path = Input;
+			path = "-";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,39 +338,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CAD34971FC3D369009C366B /* LocationPanelView.swift in Sources */,
-				5C84E9C71FBB764200AF4096 /* DirectionInput.swift in Sources */,
+				5C5FC23F2044A8D9007F9127 /* IndexPanelView.swift in Sources */,
+				5C5FC2422044C8A4007F9127 /* PanelInputView.swift in Sources */,
 				5C1752691FB8BE0D00D9A9F5 /* PanelView.swift in Sources */,
-				5C7407CB1FC0ADA800A743D1 /* IndexPanelView.swift in Sources */,
-				5CD03B6C1FC1A39300320457 /* HeaderInput.swift in Sources */,
-				5CFC0E441F6597C40062A563 /* URIInput.swift in Sources */,
-				5CFC0E421F658C930062A563 /* URLInput.swift in Sources */,
-				5CFC0E401F65812B0062A563 /* Input.swift in Sources */,
+				5CFC0E401F65812B0062A563 /* InputView.swift in Sources */,
 				5C644E431FCD95E1006C7EB4 /* NSColor.swift in Sources */,
-				5C7B48751FC291700098EC70 /* RoutePanelView.swift in Sources */,
-				5CAC2D461FB74DB500A07058 /* ServiceInput.swift in Sources */,
-				5C1752761FB9340200D9A9F5 /* DayInput.swift in Sources */,
-				5C84E9C91FBB7EA000AF4096 /* DepartureInput.swift in Sources */,
 				5C4C2D0C1F5309F300B6FBE3 /* IndexManager.swift in Sources */,
-				5C84E9C51FBB748400AF4096 /* TimeInput.swift in Sources */,
-				5CD03B6E1FC1B86300320457 /* DividerInput.swift in Sources */,
 				5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */,
-				5C7B48771FC295BA0098EC70 /* LocationInput.swift in Sources */,
-				5CFC0E4C1F65D5330062A563 /* HolidayInput.swift in Sources */,
-				5CA5D2901FCB93E80086FDC0 /* DateInput.swift in Sources */,
-				5CFC0E481F659D140062A563 /* SeasonInput.swift in Sources */,
-				5C84E9CD1FBBAF4B00AF4096 /* ProviderInput.swift in Sources */,
-				5C1F05E91FC3FCDE001504AF /* DeparturePanelView.swift in Sources */,
-				5C6EA8361FBFE53000464FCE /* CoordinateInput.swift in Sources */,
-				5C1F05E71FC3ED22001504AF /* SchedulePanelView.swift in Sources */,
-				5C84E9CF1FBBB0E300AF4096 /* RouteInput.swift in Sources */,
-				5CC7F21A1FC1EF7D00A69517 /* ProviderPanelView.swift in Sources */,
-				5CA5D28E1FCB909E0086FDC0 /* HolidayPanelView.swift in Sources */,
+				5C5FC23C20446026007F9127 /* NSFont.swift in Sources */,
+				5C5FC23E20447556007F9127 /* NSView.swift in Sources */,
 				5C79D1C71F5B317100D19DD9 /* IndexViewController.swift in Sources */,
-				5CFC0E4A1F65C7140062A563 /* LocalizationInput.swift in Sources */,
 				5CDB66571FCF9AF100BFE93F /* NSEdgeInsets.swift in Sources */,
-				5CFC0E3E1F657D980062A563 /* StringInput.swift in Sources */,
-				5C84E9D11FBBB21600AF4096 /* ScheduleInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

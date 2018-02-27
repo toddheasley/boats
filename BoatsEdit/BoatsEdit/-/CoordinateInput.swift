@@ -26,33 +26,30 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
     }
     
     // MARK: Input
-    override var u: Int {
-        return 14
-    }
     
     override func setUp() {
         super.setUp()
         
         textField.latitude.delegate = self
         textField.latitude.placeholderString = "Latitude"
-        textField.latitude.frame.size.width = (intrinsicContentSize.width - (contentInsets.width * 1.5)) / 2.0
+        textField.latitude.frame.size.width = (intrinsicContentSize.width - (padding.width * 1.5)) / 2.0
         textField.latitude.frame.size.height = 22.0
-        textField.latitude.frame.origin.x = contentInsets.left
+        textField.latitude.frame.origin.x = padding.left
         textField.latitude.frame.origin.y = labelTextField.frame.origin.y - textField.latitude.frame.size.height
         addSubview(textField.latitude)
         
         textField.longitude.delegate = self
         textField.longitude.placeholderString = "Longitude"
         textField.longitude.frame.size = textField.latitude.frame.size
-        textField.longitude.frame.origin.x = intrinsicContentSize.width - (textField.longitude.frame.size.width + contentInsets.right)
+        textField.longitude.frame.origin.x = intrinsicContentSize.width - (textField.longitude.frame.size.width + padding.right)
         textField.longitude.frame.origin.y = textField.latitude.frame.origin.y
         addSubview(textField.longitude)
         
         mapView.delegate = self
-        mapView.frame.size.width = intrinsicContentSize.width - contentInsets.width
-        mapView.frame.size.height = textField.latitude.frame.origin.y - contentInsets.height
-        mapView.frame.origin.x = contentInsets.left
-        mapView.frame.origin.y = contentInsets.bottom
+        mapView.frame.size.width = intrinsicContentSize.width - padding.width
+        mapView.frame.size.height = textField.latitude.frame.origin.y - padding.height
+        mapView.frame.origin.x = padding.left
+        mapView.frame.origin.y = padding.bottom
         addSubview(mapView)
         
         label = "Coordinate"

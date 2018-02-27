@@ -5,23 +5,13 @@ class HeaderInput: Input {
     let deleteButton: NSButton = NSButton()
     
     // MARK: Input
-    override var u: Int {
-        return 2
-    }
-    
-    override var label: String {
-        didSet {
-            labelTextField.stringValue = label
-        }
-    }
-    
     override func setUp() {
         super.setUp()
         
         labelTextField.font = .systemFont(ofSize: 24.0, weight: .bold)
         labelTextField.textColor = .textColor
         labelTextField.frame.size.height = 27.0
-        labelTextField.frame.origin.y = contentInsets.bottom + 7.0
+        labelTextField.frame.origin.y = padding.bottom + 7.0
         
         webButton.isHidden = true
         webButton.frame.origin.y = labelTextField.frame.origin.y + 2.0

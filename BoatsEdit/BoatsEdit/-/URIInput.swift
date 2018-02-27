@@ -13,28 +13,16 @@ class URIInput: Input, NSTextFieldDelegate {
         }
     }
     
-    var placeholder: String? {
-        set {
-            textField.placeholderString = newValue
-        }
-        get {
-            return textField.placeholderString
-        }
-    }
-    
     // MARK: Input
-    override var u: Int {
-        return 2
-    }
     
     override func setUp() {
         super.setUp()
         
         textField.delegate = self
-        textField.frame.size.width = intrinsicContentSize.width - contentInsets.width
+        textField.frame.size.width = intrinsicContentSize.width - padding.width
         textField.frame.size.height = 22.0
-        textField.frame.origin.x = contentInsets.left
-        textField.frame.origin.y = contentInsets.bottom
+        textField.frame.origin.x = padding.left
+        textField.frame.origin.y = padding.bottom
         addSubview(textField)
         
         label = "URI"

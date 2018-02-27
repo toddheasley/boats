@@ -1,15 +1,15 @@
 import Cocoa
 import BoatsKit
 
-class TimeInput: Input {
+class DateInput: Input {
     private let datePicker: NSDatePicker = NSDatePicker()
     
-    var time: Time? {
+    var date: Date? {
         set {
-            datePicker.dateValue = newValue?.date(timeZone: timeZone) ?? Date()
+            datePicker.dateValue = newValue ?? Date()
         }
         get {
-            return Time(from: datePicker.dateValue, timeZone: timeZone)
+            return datePicker.dateValue
         }
     }
     
@@ -28,16 +28,16 @@ class TimeInput: Input {
         
         datePicker.isBezeled = false
         datePicker.datePickerStyle = .textFieldDatePickerStyle
-        datePicker.datePickerElements = [.hourMinuteDatePickerElementFlag]
+        datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
         datePicker.target = self
         datePicker.action = #selector(inputEdited(_:))
         datePicker.sizeToFit()
         datePicker.frame.size.height = 22.0
-        datePicker.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + datePicker.frame.size.width + 2.0)
-        datePicker.frame.origin.y = contentInsets.bottom
+        datePicker.frame.origin.x = intrinsicContentSize.width - (padding.right + datePicker.frame.size.width + 2.0)
+        datePicker.frame.origin.y = padding.bottom
         addSubview(datePicker)
         
-        label = "Time"
+        label = "Date"
         timeZone = nil
     }
 }

@@ -25,8 +25,8 @@ class DirectionInput: Input {
         segmentedControl.setLabel(Departure.Direction.destination.rawValue.capitalized, forSegment: 1)
         segmentedControl.setWidth(117.0, forSegment: 1)
         segmentedControl.frame.size.width = 240.0
-        segmentedControl.frame.origin.x = intrinsicContentSize.width - (contentInsets.right + segmentedControl.frame.size.width)
-        segmentedControl.frame.origin.y = contentInsets.bottom
+        segmentedControl.frame.origin.x = intrinsicContentSize.width - (padding.right + segmentedControl.frame.size.width)
+        segmentedControl.frame.origin.y = padding.bottom
         addSubview(segmentedControl)
         
         label = "Direction"

@@ -2,7 +2,7 @@ import Cocoa
 import BoatsKit
 
 class SchedulePanelView: PanelView {
-    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput(style: .none)]
+    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput()]
     private let seasonInput: SeasonInput = SeasonInput()
     private var holidays: (header: Input, input: [HolidayInput]) = (Input(), [HolidayInput()])
     private var departures: (header: Input, input: [DepartureInput]) = (Input(), [DepartureInput()])

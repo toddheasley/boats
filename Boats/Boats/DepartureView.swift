@@ -72,7 +72,7 @@ class DepartureView: UIView, ModeTransitioning {
         iconView.frame.origin.y = contentView.bounds.size.height - iconView.frame.size.height
         contentView.addSubview(iconView)
         
-        statusLabel.font = .systemFont(ofSize: 9.0, weight: .bold)
+        statusLabel.font = .meta
         statusLabel.textAlignment = .center
         statusLabel.text = ""
         statusLabel.frame.size.width = iconView.frame.size.width

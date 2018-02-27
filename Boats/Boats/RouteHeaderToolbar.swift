@@ -65,7 +65,7 @@ class RouteHeaderToolbar: Toolbar {
         contentView.addSubview(routeView)
         
         directionControl.setTitleTextAttributes([
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 9.0, weight: .bold)
+            NSAttributedStringKey.font: UIFont.meta
         ], for: .normal)
         directionControl.selectedSegmentIndex = 0
         directionControl.autoresizingMask = [.flexibleWidth]

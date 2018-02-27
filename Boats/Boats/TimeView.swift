@@ -57,7 +57,7 @@ class TimeView: UIView, ModeTransitioning {
         
         var x: CGFloat = 0.0
         for (i, label) in labels.enumerated() {
-            label.font = .systemFont(ofSize: 64.0, weight: .bold)
+            label.font = .time
             label.textAlignment = .center
             label.frame.size.width = (intrinsicContentSize.width / 10) * (i != 2 && i != 5 ? 2 : 1)
             label.frame.size.height = intrinsicContentSize.height

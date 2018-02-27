@@ -1,57 +1,52 @@
 import Cocoa
 import BoatsKit
 
-class HolidayPanelView: PanelView {
-    private let dividerInput: [DividerInput] = [DividerInput(style: .none)]
+class LocationPanelView: PanelView {
+    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(style: .spacer)]
     private let nameInput: StringInput = StringInput()
-    private let dateInput: DateInput = DateInput()
+    private let descriptionInput: StringInput = StringInput()
+    private let coordinateInput: CoordinateInput = CoordinateInput()
     
-    var holiday: Holiday? {
+    var location: Location? {
         set {
             nameInput.string = newValue?.name
-            dateInput.date = newValue?.date
+            descriptionInput.string = newValue?.description
+            coordinateInput.coordinate = newValue?.coordinate
             tableView.reloadData()
             isHidden = newValue == nil
         }
         get {
-            var holiday: Holiday = Holiday()
-            holiday.name = nameInput.string ?? ""
-            holiday.date = dateInput.date ?? Date()
-            return holiday
+            var location: Location = Location()
+            location.name = nameInput.string ?? ""
+            location.description = descriptionInput.string ?? ""
+            location.coordinate = coordinateInput.coordinate!
+            return location
         }
     }
     
     // MARK: PanelView
     override var localization: Localization? {
         didSet {
-            dateInput.timeZone = localization?.timeZone
             tableView.reloadData()
         }
-    }
-    
-    override var deleteLabel: String? {
-        guard let name: String = holiday?.name, !name.isEmpty else {
-            return "holiday"
-        }
-        return "\(name) holiday"
     }
     
     override func setUp() {
         super.setUp()
         
-        headerInput.label = "Holiday"
-        headerInput.deleteButton.isHidden = false
+        headerInput.label = "Location"
         nameInput.label = "Name"
-        nameInput.placeholder = "Groundhog Day"
         nameInput.delegate = self
-        dateInput.delegate = self
+        descriptionInput.label = "Description"
+        descriptionInput.delegate = self
+        coordinateInput.delegate = self
         
-        holiday = nil
+        location = nil
     }
     
     // MARK: NSTableViewDataSource
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 4
+        return 6
     }
     
     // MARK: NSTableViewDelegate
@@ -62,9 +57,13 @@ class HolidayPanelView: PanelView {
         case 1:
             return nameInput.intrinsicContentSize.height
         case 2:
-            return dateInput.intrinsicContentSize.height
-        default:
+            return descriptionInput.intrinsicContentSize.height
+        case 3:
             return dividerInput[0].intrinsicContentSize.height
+        case 4:
+            return coordinateInput.intrinsicContentSize.height
+        default:
+            return dividerInput[1].intrinsicContentSize.height
         }
     }
     
@@ -75,9 +74,13 @@ class HolidayPanelView: PanelView {
         case 1:
             return nameInput
         case 2:
-            return dateInput
-        default:
+            return descriptionInput
+        case 3:
             return dividerInput[0]
+        case 4:
+            return coordinateInput
+        default:
+            return dividerInput[1]
         }
     }
 }

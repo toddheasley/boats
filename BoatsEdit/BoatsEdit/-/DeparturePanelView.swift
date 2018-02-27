@@ -2,7 +2,7 @@ import Cocoa
 import BoatsKit
 
 class DeparturePanelView: PanelView {
-    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput(style: .none)]
+    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput()]
     private let directionInput: DirectionInput = DirectionInput()
     private let timeInput: TimeInput = TimeInput()
     private let dayInput: DayInput = DayInput()

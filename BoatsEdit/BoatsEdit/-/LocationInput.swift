@@ -34,7 +34,7 @@ class LocationInput: Input {
         textField.isBordered = false
         textField.frame.size.width = 240.0
         textField.frame.size.height = labelTextField.frame.size.height
-        textField.frame.origin.x = bounds.size.width - (contentInsets.left + textField.frame.size.width)
+        textField.frame.origin.x = bounds.size.width - (padding.left + textField.frame.size.width)
         textField.frame.origin.y = labelTextField.frame.origin.y
         addSubview(textField)
     }

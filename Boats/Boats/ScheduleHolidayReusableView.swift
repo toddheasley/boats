@@ -137,7 +137,7 @@ fileprivate class ScheduleHolidayView: UIView, ModeTransitioning {
     override func setUp() {
         super.setUp()
         
-        nameLabel.font = .systemFont(ofSize: 9.0, weight: .bold)
+        nameLabel.font = .meta
         nameLabel.textAlignment = .left
         nameLabel.frame.size.height = bounds.size.height
         addSubview(nameLabel)

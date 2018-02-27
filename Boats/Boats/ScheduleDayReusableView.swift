@@ -39,7 +39,7 @@ class ScheduleDayReusableView: UICollectionReusableView, ModeTransitioning {
     override func setUp() {
         super.setUp()
         
-        label.font = .systemFont(ofSize: 14.0, weight: .bold)
+        label.font = .base(.bold)
         label.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin]
         label.frame.size.height = 22.0
         label.frame.origin.y = (bounds.size.height - label.frame.size.height) / 2.0

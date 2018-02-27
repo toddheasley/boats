@@ -1,6 +1,8 @@
 import Cocoa
 
 extension NSEdgeInsets {
+    static let padding: NSEdgeInsets = NSEdgeInsets(top: 11.0, left: 15.0, bottom: 11.0, right: 15.0)
+    
     var width: CGFloat {
         return left + right
     }

@@ -72,13 +72,13 @@ class RouteView: UIView, ModeTransitioning {
     override func setUp() {
         super.setUp()
         
-        nameLabel.font = .systemFont(ofSize: 19.0, weight: .bold)
+        nameLabel.font = .head
         nameLabel.autoresizingMask = [.flexibleWidth]
         nameLabel.frame.size.width = bounds.size.width
         nameLabel.frame.size.height = 22.0
         addSubview(nameLabel)
         
-        descriptionLabel.font = .systemFont(ofSize: 14.0, weight: .bold)
+        descriptionLabel.font = .base(.bold)
         descriptionLabel.autoresizingMask = [.flexibleWidth]
         descriptionLabel.frame.size.width = bounds.size.width
         descriptionLabel.frame.size.height = 22.0

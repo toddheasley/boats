@@ -2,7 +2,16 @@ import Cocoa
 import BoatsKit
 
 class IndexPanelView: PanelView {
-    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput(style: .none)]
+    override func setUp() {
+        super.setUp()
+        
+        label = "Index"
+    }
+}
+
+/*
+class IndexPanelView: PanelView {
+    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput()]
     private let nameInput: StringInput = StringInput()
     private let descriptionInput: StringInput = StringInput()
     private let localizationInput: LocalizationInput = LocalizationInput()
@@ -166,3 +175,4 @@ class IndexPanelView: PanelView {
         delegate?.panelDidEdit(self)
     }
 }
+*/
