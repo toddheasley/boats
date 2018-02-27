@@ -15,7 +15,7 @@ class RouteFooterToolbar: Toolbar {
     }
     
     @objc func handleProviderAction(_ sender: AnyObject?) {
-        if let url = (sender as? ProviderView)?.provider?.url {
+        if let url: URL = (sender as? ProviderView)?.provider?.url {
             delegate?.toolbar?(self, didOpen: url)
         }
     }

@@ -43,10 +43,10 @@ class RouteViewController: ViewController, ScheduleViewDelegate, ToolbarDelegate
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        guard let scheduleView = scheduleView,
-            let headerToolbar = headerToolbar,
-            let footerToolbar = footerToolbar else {
-                return
+        guard let scheduleView: ScheduleView = scheduleView,
+            let headerToolbar: RouteHeaderToolbar = headerToolbar,
+            let footerToolbar: RouteFooterToolbar = footerToolbar else {
+            return
         }
         
         headerToolbar.frame.size.height = headerToolbar.intrinsicContentSize.height + view.safeAreaInsets.top
@@ -92,7 +92,7 @@ class RouteViewController: ViewController, ScheduleViewDelegate, ToolbarDelegate
     }
     
     func toolbarDidChange(_ toolbar: Toolbar) {
-        if let toolbar = toolbar as? RouteHeaderToolbar {
+        if let toolbar: RouteHeaderToolbar = toolbar as? RouteHeaderToolbar {
             scheduleView?.direction = toolbar.direction
         }
     }
@@ -132,8 +132,8 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         switch operation {
         case .present:
-            guard let viewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-                let routeViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? RouteViewController else {
+            guard let viewController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+                let routeViewController: RouteViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? RouteViewController else {
                 transitionContext.completeTransition(false)
                 return
             }
@@ -147,8 +147,8 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 transitionContext.completeTransition(true)
             })
         case .dismiss:
-            guard let viewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
-                let routeViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? RouteViewController else {
+            guard let viewController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
+                let routeViewController: RouteViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? RouteViewController else {
                 transitionContext.completeTransition(false)
                 return
             }

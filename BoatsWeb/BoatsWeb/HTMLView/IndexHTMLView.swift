@@ -22,7 +22,7 @@ class IndexHTMLView: HTMLView, HTMLDataSource {
             guard !i.isEmpty else {
                 return nil
             }
-            let item = index.sorted[i[0]]
+            let item: (route: Route, provider: Provider) = index.sorted[i[0]]
             return "<a href=\"\(item.provider.uri)-\(item.route.uri).html\">\(item.route.services.contains(.car) ? "\(SVG.car.html) " : "")<b>\(item.route.name)</b> From \(item.route.origin.name) <span>Operated by \(item.provider.name)</span></a>"
         case "INDEX_NAME":
             return "\(self.index.name)"

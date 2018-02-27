@@ -327,7 +327,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="355"/>
+            <point key="canvasLocation" x="-62" y="364"/>
         </scene>
         <!--Index View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -335,7 +335,7 @@
                 <viewController id="XfG-lQ-9wD" customClass="IndexViewController" customModule="Boats_Edit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" misplaced="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="360" height="420"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView misplaced="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" id="LcG-GM-Uoh">
                                 <rect key="frame" x="0.0" y="0.0" width="360" height="420"/>
@@ -367,7 +367,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383" y="186"/>
+            <point key="canvasLocation" x="387" y="186"/>
         </scene>
     </scenes>
 </document>

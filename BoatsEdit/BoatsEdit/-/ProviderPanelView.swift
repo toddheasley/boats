@@ -27,7 +27,7 @@ class ProviderPanelView: PanelView {
             provider.uri = uriInput.uri ?? ""
             provider.url = urlInput.url
             for input in routes.input {
-                if let route = input.route {
+                if let route: Route = input.route {
                     provider.routes.append(route)
                 }
             }
@@ -135,7 +135,7 @@ class ProviderPanelView: PanelView {
     // MARK: PanelViewDelegate
     override func panelDidEdit(_ view: PanelView) {
         if selectedRow == tableView.selectedRow,
-            let route = (view as? RoutePanelView)?.route, !route.uri.description.isEmpty, !route.name.isEmpty,
+            let route: Route = (view as? RoutePanelView)?.route, !route.uri.description.isEmpty, !route.name.isEmpty,
             tableView.selectedRow > 5, tableView.selectedRow < tableView.numberOfRows - 1 {
             routes.input[tableView.selectedRow - 6].route = route
             if tableView.selectedRow == tableView.numberOfRows - 2 {

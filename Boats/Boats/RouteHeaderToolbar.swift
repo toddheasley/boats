@@ -18,7 +18,7 @@ class RouteHeaderToolbar: Toolbar {
         set {
             routeView.route = newValue
             
-            if let newValue = newValue {
+            if let newValue: Route = newValue {
                 directionControl.setTitle("From \(newValue.origin.name)".uppercased(), forSegmentAt: 0)
                 directionControl.setTitle("To \(newValue.origin.name)".uppercased(), forSegmentAt: 1)
             } else {

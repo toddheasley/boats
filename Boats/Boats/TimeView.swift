@@ -93,7 +93,7 @@ class TimeView: UIView, ModeTransitioning {
             ("0", .burn),
             (".", .burn)
         ]
-        if let time = time {
+        if let time: Time = time {
             for (i, component) in TimeView.formatter.components(from: time).enumerated() {
                 guard component != " " else {
                     continue

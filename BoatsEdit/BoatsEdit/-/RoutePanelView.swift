@@ -32,7 +32,7 @@ class RoutePanelView: PanelView {
             route.origin = locationInput.origin.location ?? Location()
             route.services = serviceInput.services
             for input in schedules.input {
-                if let schedule = input.schedule {
+                if let schedule: Schedule = input.schedule {
                     route.schedules.append(schedule)
                 }
             }
@@ -162,7 +162,7 @@ class RoutePanelView: PanelView {
     // MARK: PanelViewDelegate
     override func panelDidEdit(_ view: PanelView) {
         if selectedRow == tableView.selectedRow {
-            if let location = (view as? LocationPanelView)?.location {
+            if let location: Location = (view as? LocationPanelView)?.location {
                 switch tableView.selectedRow {
                 case 4:
                     locationInput.destination.location = location
@@ -171,7 +171,7 @@ class RoutePanelView: PanelView {
                 default:
                     break
                 }
-            } else if let schedule = (view as? SchedulePanelView)?.schedule,
+            } else if let schedule: Schedule = (view as? SchedulePanelView)?.schedule,
                 tableView.selectedRow > 9, tableView.selectedRow < tableView.numberOfRows - 1 {
                 schedules.input[tableView.selectedRow - 10].schedule = schedule
                 if tableView.selectedRow == tableView.numberOfRows - 2 {

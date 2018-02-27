@@ -12,9 +12,7 @@ class IndexViewController: NSViewController, PanelViewDelegate {
     //private let holidayPanelView: HolidayPanelView = HolidayPanelView()
     //private let departurePanelView: DeparturePanelView = DeparturePanelView()
     
-    //private var webButton: NSButton {
-        //return indexPanelView.webButton
-    //}
+
     
     private var previewButton: NSToolbarItem? {
         return view.window?.toolbar?.items.last
@@ -36,11 +34,6 @@ class IndexViewController: NSViewController, PanelViewDelegate {
         NSWorkspace.shared.openFile(url.appending(uri: Site.uri).path)
     }
     
-    @IBAction func toggle(_ sender: AnyObject?) {
-        //IndexManager.web = webButton.state == .on
-        previewButton?.isEnabled = IndexManager.web
-    }
-    
     // MARK: NSViewController
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         switch menuItem.tag {
@@ -56,11 +49,8 @@ class IndexViewController: NSViewController, PanelViewDelegate {
     override func viewWillAppear() {
         super.viewWillAppear()
         
-        //indexPanelView.index = IndexManager.index
-        //indexPanelView.web = IndexManager.web
-        
-        //webButton.target = self
-        //webButton.action = #selector(toggle(_:))
+        indexPanelView.index = IndexManager.index
+        indexPanelView.web = IndexManager.web
         
         previewButton?.target = self
         previewButton?.action = #selector(preview(_:))
@@ -137,6 +127,7 @@ class IndexViewController: NSViewController, PanelViewDelegate {
     // MARK: PanelViewDelegate
     func panelView(_ view: PanelView, didSelect input: Any?) {
         
+        
         /*
         switch view {
         case is IndexPanelView:
@@ -181,7 +172,12 @@ class IndexViewController: NSViewController, PanelViewDelegate {
     }
     
     func panelViewDidEdit(_ view: PanelView) {
-        //try? IndexManager.save(index: indexPanelView.index)
+        if IndexManager.web != indexPanelView.web {
+            IndexManager.web = indexPanelView.web
+            previewButton?.isEnabled = IndexManager.web
+        } else {
+            try? IndexManager.save(index: indexPanelView.index)
+        }
     }
     
     func panelViewDidDelete(_ view: PanelView) {

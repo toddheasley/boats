@@ -41,7 +41,7 @@ class ProviderView: UIControl, ModeTransitioning {
     }
     
     override func sendAction(_ action: Selector, to target: Any?, for event: UIEvent?) {
-        guard let _ = provider?.url else {
+        guard let _: URL = provider?.url else {
             return
         }
         super.sendAction(action, to: target, for: event)
@@ -50,7 +50,7 @@ class ProviderView: UIControl, ModeTransitioning {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        if let provider = provider {
+        if let provider: Provider = provider {
             label.text = "Operated by \(provider.name)"
         } else {
             label.text = nil

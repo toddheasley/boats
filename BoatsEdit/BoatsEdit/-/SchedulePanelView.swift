@@ -27,12 +27,12 @@ class SchedulePanelView: PanelView {
             var schedule: Schedule = Schedule()
             schedule.season = seasonInput.season ?? .evergreen
             for input in holidays.input {
-                if let holiday = input.holiday {
+                if let holiday: Holiday = input.holiday {
                     schedule.holidays.append(holiday)
                 }
             }
             for input in departures.input {
-                if let departure = input.departure {
+                if let departure: departure = input.departure {
                     schedule.departures.append(departure)
                 }
             }
@@ -163,14 +163,14 @@ class SchedulePanelView: PanelView {
     // MARK: PanelViewDelegate
     override func panelDidEdit(_ view: PanelView) {
         if selectedRow == tableView.selectedRow {
-            if let holiday = (view as? HolidayPanelView)?.holiday, !holiday.name.isEmpty,
+            if let holiday: Holiday = (view as? HolidayPanelView)?.holiday, !holiday.name.isEmpty,
                 tableView.selectedRow > 3, tableView.selectedRow < 4 + holidays.input.count {
                 holidays.input[tableView.selectedRow - 4].holiday = holiday
                 if tableView.selectedRow == 3 + holidays.input.count {
                     holidays.input.append(HolidayInput())
                     tableView.insertRows(at: IndexSet(integer: tableView.selectedRow + 1))
                 }
-            } else if let departure = (view as? DeparturePanelView)?.departure,
+            } else if let departure: Departure = (view as? DeparturePanelView)?.departure,
                 tableView.selectedRow > 5 + holidays.input.count, tableView.selectedRow < tableView.numberOfRows - 1 {
                 departures.input[tableView.selectedRow - (6 + holidays.input.count)].departure = departure
                 if tableView.selectedRow == tableView.numberOfRows - 2 {

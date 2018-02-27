@@ -27,7 +27,7 @@ class HTML: ExpressibleByStringLiteral, CustomStringConvertible {
     }
     
     private func populate(value: String, at i: [Int] = []) -> String {
-        guard let dataSource = dataSource else {
+        guard let dataSource: HTMLDataSource = dataSource else {
             return value
         }
         var string: String = "\(value)"
@@ -43,7 +43,7 @@ class HTML: ExpressibleByStringLiteral, CustomStringConvertible {
         }
         for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b\\? -->((.|\n)*)<!-- \\?\\1 -->").matches(in: value, range: NSRange(value.startIndex..., in: value)) {
             var strings: [String] = []
-            if let _ = dataSource.value(of: "\(value[Range(match.range(at: 1), in: value)!])", at: i, in: self) {
+            if let _: String = dataSource.value(of: "\(value[Range(match.range(at: 1), in: value)!])", at: i, in: self) {
                 strings.append(populate(value: "\(value[Range(match.range(at: 2), in: value)!])", at: i))
             }
             string = string.replacingOccurrences(of: "\(value[Range(match.range(at: 0), in: value)!])", with: strings.joined())

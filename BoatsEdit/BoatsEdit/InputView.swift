@@ -2,6 +2,7 @@ import Cocoa
 
 protocol InputViewDelegate {
     func inputViewDidEdit(_ view: InputView)
+    func inputViewDidDelete(_ view: InputView)
 }
 
 class InputView: NSView {
@@ -18,17 +19,18 @@ class InputView: NSView {
     
     private(set) var style: Style = .custom
     var delegate: InputViewDelegate?
+    var input: Any?
     
     var label: String? {
         didSet {
             switch style {
             case .label:
-                labelTextField.stringValue = label?.uppercased() ?? ""
-            case .custom:
                 labelTextField.stringValue = label ?? ""
+            case .custom:
+                labelTextField.stringValue = label?.uppercased() ?? ""
             default:
                 labelTextField.stringValue = ""
-                if let _ = label {
+                if let _: String = label {
                     label = nil
                 }
             }
@@ -54,15 +56,11 @@ class InputView: NSView {
         setUp()
     }
     
-    @IBAction func inputEdited(_ sender: AnyObject?) {
-        delegate?.inputViewDidEdit(self)
-    }
-    
     // MARK: NSView
     override var intrinsicContentSize: NSSize {
         switch style {
         case .label:
-            return NSSize(width: .inputWidth, height: labelTextField.bounds.size.height + padding.height)
+            return NSSize(width: .inputWidth, height: 12.0 + padding.height)
         case .custom:
             return NSSize(width: .inputWidth, height: contentView.bounds.size.height + padding.height)
         case .spacer, .separator:
@@ -79,12 +77,6 @@ class InputView: NSView {
         }
     }
     
-    override func layout() {
-        super.layout()
-        
-        labelTextField.frame.origin.y = contentView.bounds.size.height - labelTextField.frame.size.height
-    }
-    
     override func setUp() {
         super.setUp()
         
@@ -94,40 +86,33 @@ class InputView: NSView {
             labelTextField.frame.size.width = intrinsicContentSize.width - padding.width
             labelTextField.frame.size.height = 22.0
             labelTextField.frame.origin.x = padding.left
-            labelTextField.frame.origin.y = padding.bottom
+            labelTextField.frame.origin.y = padding.bottom - 5.0
             addSubview(labelTextField)
         case .custom:
             contentView.frame.size.width = intrinsicContentSize.width - padding.width
-            contentView.frame.size.height = 12.0
+            contentView.frame.size.height = 8.0
             contentView.frame.origin.x = padding.left
             contentView.frame.origin.y = padding.bottom
             addSubview(contentView)
             
+            labelTextField.autoresizingMask = [.minYMargin]
             labelTextField.font = .meta
-            labelTextField.frame = contentView.bounds
-            labelTextField.frame.origin.y = contentView.bounds.size.height - labelTextField.frame.size.height
-            contentView.addSubview(labelTextField)
+            labelTextField.frame.size.width = contentView.bounds.size.width
+            labelTextField.frame.size.height = 14.0
+            labelTextField.frame.origin.x = padding.left
+            labelTextField.frame.origin.y = bounds.size.height - (padding.top + labelTextField.frame.size.height)
+            addSubview(labelTextField)
         case .separator:
             separatorView.wantsLayer = true
             separatorView.layer?.backgroundColor = NSColor.separator.cgColor
             separatorView.frame.size.width = intrinsicContentSize.width - padding.width
-            separatorView.frame.size.height = 1.0
+            separatorView.frame.size.height = 0.5
             separatorView.frame.origin.x = padding.left
             separatorView.frame.origin.y = padding.bottom
             addSubview(separatorView)
         case .spacer:
             break
         }
-        
-
-        wantsLayer = true
-        layer?.backgroundColor = NSColor.red.withAlphaComponent(0.15).cgColor
-        
-        labelTextField.wantsLayer = true
-        labelTextField.layer?.backgroundColor = layer?.backgroundColor
-        
-        contentView.wantsLayer = true
-        contentView.layer?.backgroundColor = layer?.backgroundColor
     }
     
     override init(frame rect: NSRect) {
@@ -140,15 +125,17 @@ class InputView: NSView {
     }
 }
 
-extension Array where Element: InputView {
+extension Array {
     @discardableResult mutating func move(from i: Int, to ii: Int) -> Bool {
         let range: ClosedRange<Int> = 0...(count - 1)
         guard range.contains(i), range.contains(ii) else {
             return false
         }
-        let input = self[i]
-        remove(at: i)
-        insert(input, at: i < ii ? ii - 1: i)
+        var elements = self
+        let element = elements[i]
+        elements.remove(at: i)
+        elements.insert(element, at: i < ii ? ii - 1: ii)
+        self = elements
         return true
     }
 }

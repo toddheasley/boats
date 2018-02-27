@@ -13,7 +13,7 @@ extension SVG: HTMLConvertible {
     // MARK: HTMLConvertible
     var html: HTML {
         guard let data: Data = try? data(),
-            let string = String(data: data, encoding: .utf8) else {
+            let string: String = String(data: data, encoding: .utf8) else {
             return HTML(stringLiteral: "\(rawValue)")
         }
         return HTML(stringLiteral: string.components(separatedBy: "\n").map { string in

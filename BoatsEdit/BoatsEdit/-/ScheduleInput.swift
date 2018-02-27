@@ -52,7 +52,7 @@ class ScheduleInput: Input {
         
         label = "New Schedule"
         labelTextField.textColor = schedule != nil ? .textColor : .selectedMenuItemColor
-        if let schedule = schedule {
+        if let schedule: Schedule = schedule {
             switch schedule.season {
             case .spring:
                 label = "Spring"
@@ -84,7 +84,7 @@ fileprivate class ScheduleStatusView: NSView {
         
         init(dateInterval: DateInterval?, date: Date = Date()) {
             self = .active
-            if let dateInterval = dateInterval {
+            if let dateInterval: DateInterval = dateInterval {
                 if date > dateInterval.end {
                     self = .expired
                 } else if date.addingTimeInterval(604800.0) > dateInterval.end {

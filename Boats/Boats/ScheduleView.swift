@@ -122,7 +122,7 @@ fileprivate class ScheduleDirectionView: UICollectionView, UICollectionViewDataS
             time = Time()
             day = Day(localization: localization, holidays: schedule?.holidays)
             days = []
-            if let schedule = schedule {
+            if let schedule: Schedule = schedule {
                 days = schedule.days.map { day in
                     (day, schedule.departures(day: day, direction: direction))
                 }
@@ -185,9 +185,9 @@ fileprivate class ScheduleDirectionView: UICollectionView, UICollectionViewDataS
         cell.departure = days[indexPath.section].departures[indexPath.row]
         cell.status = .none
         if days[indexPath.section].day == day {
-            if let last = departures.last, last.time == days[indexPath.section].departures[indexPath.row].time {
+            if let last: Departure = departures.last, last.time == days[indexPath.section].departures[indexPath.row].time {
                 cell.status = .last
-            } else if let next = departures.next, next.time == days[indexPath.section].departures[indexPath.row].time {
+            } else if let next: Departure = departures.next, next.time == days[indexPath.section].departures[indexPath.row].time {
                 cell.status = .next
             }
         }

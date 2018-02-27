@@ -60,7 +60,7 @@ extension Index: DataResource, DataReading, DataWriting {
                 }
                 do {
                     completion(try Index(data: data), nil)
-                } catch let error {
+                } catch {
                     completion(nil, error)
                 }
             }

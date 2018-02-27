@@ -13,7 +13,7 @@ class DayInput: Input {
             }
             specialButton.state = .off
             for day in newValue {
-                if let date = day.date {
+                if let date: Date = day.date {
                     datePicker.dateValue = date
                     specialButton.state = .on
                 }

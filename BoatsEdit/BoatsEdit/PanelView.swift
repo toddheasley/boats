@@ -8,15 +8,9 @@ protocol PanelViewDelegate {
 }
 
 class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDelegate, InputViewDelegate {
-    private let panelInputView: PanelInputView = PanelInputView()
     private let tableView: NSTableView = PanelTableView()
     private let scrollView: NSScrollView = PanelScrollView()
-    
-    private(set) var selectedInput: Int? {
-        didSet {
-            print("selectedInput: \(selectedInput ?? -99)")
-        }
-    }
+    let panelInputView: PanelInputView = PanelInputView()
     
     var inputViews: [InputView] = [] {
         didSet {
@@ -44,6 +38,10 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
         }
     }
     
+    func inputSelected(at i: Int?) {
+        delegate?.panelView(self, didSelect: i != nil ? inputViews[i!].input : nil)
+    }
+    
     func dragRange(for i: Int) -> ClosedRange<Int>? {
         return nil
     }
@@ -52,7 +50,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
         let alert: NSAlert = NSAlert()
         alert.alertStyle = .critical
         alert.messageText = "Delete?"
-        if let label = label, !label.isEmpty {
+        if let label: String = label, !label.isEmpty {
             alert.messageText = "Delete \(label)?"
         }
         alert.informativeText = "You can’t undo this action."
@@ -88,6 +86,8 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
         wantsLayer = true
         layer?.backgroundColor = NSColor.separator.cgColor
         
+        panelInputView.delegate = self
+        
         tableView.backgroundColor = .background
         tableView.headerView = nil
         tableView.allowsMultipleSelection = false
@@ -104,10 +104,6 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
         scrollView.frame.size.width = intrinsicContentSize.width - 0.5
         scrollView.frame.size.height = bounds.size.height
         addSubview(scrollView)
-        
-        //titleInputView
-        //headerInput.deleteButton.target = self
-        //headerInput.deleteButton.action = #selector(delete(_:))
     }
     
     override init(frame rect: NSRect) {
@@ -127,7 +123,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pasteboard: NSPasteboard) -> Bool {
         panelView(self, didSelect: nil)
         
-        guard let row: Int = rowIndexes.first, let _: ClosedRange = dragRange(for: row) else {
+        guard let row: Int = rowIndexes.first, let _: ClosedRange<Int> = dragRange(for: row - 1) else {
             return false
         }
         tableView.deselectAll(nil)
@@ -140,7 +136,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
         guard info.draggingSource() as? NSTableView == tableView, dropOperation == .above,
             let data: Data = info.draggingPasteboard().data(forType: .input),
             let dragRow: Int = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
-            let dragRange: ClosedRange<Int> = dragRange(for: dragRow), dragRange.contains(row), row != dragRow, row != dragRow + 1 else {
+            let dragRange: ClosedRange<Int> = dragRange(for: dragRow - 1), dragRange.contains(row - 1), row != dragRow, row != dragRow + 1 else {
             return []
         }
         return .move
@@ -149,10 +145,10 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
         guard let data: Data = info.draggingPasteboard().data(forType: .input),
             let dragRow: Int = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
-            let dragRange: ClosedRange<Int> = dragRange(for: dragRow), dragRange.contains(row) else {
+            let dragRange: ClosedRange<Int> = dragRange(for: dragRow - 1), dragRange.contains(row - 1) else {
             return false
         }
-        inputViews.move(from: dragRow, to: row)
+        inputViews.move(from: dragRow - 1, to: row - 1)
         
         delegate?.panelViewDidEdit(self)
         return true
@@ -186,7 +182,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        selectedInput = tableView.selectedRow > 0 ? tableView.selectedRow - 1 : nil
+        inputSelected(at: tableView.selectedRow > 0 ? tableView.selectedRow - 1 : nil)
     }
     
     // MARK: PanelViewDelegate
@@ -204,7 +200,11 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     
     // MARK: InputViewDelegate
     func inputViewDidEdit(_ view: InputView) {
-        delegate?.panelViewDidEdit(self)
+        panelViewDidEdit(self)
+    }
+    
+    func inputViewDidDelete(_ view: InputView) {
+        panelViewDidDelete(self)
     }
 }
 
@@ -220,7 +220,7 @@ fileprivate class PanelRowView: NSTableRowView {
         if isEmphasized {
             NSColor.tint.setFill()
         }
-        let path = NSBezierPath(rect: dirtyRect)
+        let path: NSBezierPath = NSBezierPath(rect: dirtyRect)
         path.fill()
     }
 }

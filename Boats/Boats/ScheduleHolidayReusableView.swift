@@ -5,7 +5,7 @@ class ScheduleHolidayReusableView: UICollectionReusableView, ModeTransitioning {
     private static let view: ScheduleHolidayView = ScheduleHolidayView()
     
     static func size(for width: CGFloat, holidays: [Holiday]? = nil) -> CGSize {
-        guard let holidays = holidays, !holidays.isEmpty else {
+        guard let holidays: [Holiday] = holidays, !holidays.isEmpty else {
             return .zero
         }
         return CGSize(width: width, height: (view.intrinsicContentSize.height * CGFloat(holidays.count)) + UIEdgeInsets.padding.height)

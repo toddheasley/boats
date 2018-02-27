@@ -50,11 +50,11 @@ class RouteView: UIView, ModeTransitioning {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        if let route = route {
+        if let route: Route = route {
             nameLabel.text = route.name
             switch style {
             case .season:
-                if let season = route.schedule()?.season {
+                if let season: Season = route.schedule()?.season {
                     RouteView.formatter.localization = localization ?? Localization()
                     descriptionLabel.text = "\(RouteView.formatter.string(from: season, style: .medium))"
                 } else {

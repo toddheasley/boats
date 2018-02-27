@@ -19,15 +19,15 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.tableView?.refreshControl?.endRefreshing()
             
-            guard let index = index else {
+            guard let index: Index = index else {
                 return
             }
             self.index = index
             self.handleTimeChange()
             
-            guard let routeViewController = self.presentedViewController as? RouteViewController,
-                let provider = index.provider(uri: routeViewController.provider?.uri),
-                let route = provider.route(uri: routeViewController.route?.uri) else {
+            guard let routeViewController: RouteViewController = self.presentedViewController as? RouteViewController,
+                let provider: Provider = index.provider(uri: routeViewController.provider?.uri),
+                let route: Route = provider.route(uri: routeViewController.route?.uri) else {
                 self.dismiss(animated: false)
                 return
             }
@@ -41,12 +41,12 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     override func handleTimeChange() {
         super.handleTimeChange()
         
-        guard let date = date, date > Date(timeIntervalSinceNow: -3600.0 * 8.0) else {
+        guard let date: Date = date, date > Date(timeIntervalSinceNow: -3600.0 * 8.0) else {
             reloadIndex()
             return
         }
-        guard let tableView = tableView,
-            let toolbar = toolbar else {
+        guard let tableView: UITableView = tableView,
+            let toolbar: IndexToolbar = toolbar else {
             return
         }
         toolbar.index = index
@@ -111,7 +111,7 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
+        let view: UIView = UIView()
         view.isUserInteractionEnabled = false
         return view
     }
@@ -119,9 +119,9 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let routeViewController = storyboard?.instantiateViewController(withIdentifier: "Route") as? RouteViewController,
-            let localization = index?.localization,
-            let routes = index?.sorted, routes.count > indexPath.row else {
+        guard let routeViewController: RouteViewController = storyboard?.instantiateViewController(withIdentifier: "Route") as? RouteViewController,
+            let localization: Localization = index?.localization,
+            let routes: [(route: Route, provider: Provider)] = index?.sorted, routes.count > indexPath.row else {
             return
         }
         routeViewController.localization = localization
@@ -133,12 +133,12 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let tableView = tableView,
-            let toolbar = toolbar else {
+        guard let tableView: UITableView = tableView,
+            let toolbar: IndexToolbar = toolbar else {
             return
         }
         let height: CGFloat = view.safeAreaInsets.top + toolbar.intrinsicContentSize.height
-        let y = view.safeAreaInsets.top + scrollView.contentOffset.y
+        let y: CGFloat = view.safeAreaInsets.top + scrollView.contentOffset.y
         
         tableView.scrollIndicatorInsets.top = max(0.0, toolbar.intrinsicContentSize.height + min(0.0, y))
         toolbar.frame.size.height = max(height, height - y)
