@@ -96,7 +96,7 @@
 		5C8512791F51C133006343AF /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C85127D1F51C144006343AF /* BoatsWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8512801F51C203006343AF /* BoatsEditTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsEditTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C8512811F51C21F006343AF /* Boats Edit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boats Edit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C8512811F51C21F006343AF /* BoatsEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatsEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CA5D28D1FCB909E0086FDC0 /* HolidayPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayPanelView.swift; sourceTree = "<group>"; };
 		5CA5D28F1FCB93E80086FDC0 /* DateInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInput.swift; sourceTree = "<group>"; };
 		5CAC2D451FB74DB500A07058 /* ServiceInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInput.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 				5CFBB8271F51C00600BFA5CF /* BoatsEditTests */,
 				5C8512791F51C133006343AF /* BoatsKit.framework */,
 				5C85127D1F51C144006343AF /* BoatsWeb.framework */,
-				5C8512811F51C21F006343AF /* Boats Edit.app */,
+				5C8512811F51C21F006343AF /* BoatsEdit.app */,
 				5C8512801F51C203006343AF /* BoatsEditTests.xctest */,
 			);
 			sourceTree = "<group>";
@@ -239,7 +239,7 @@
 			);
 			name = BoatsEdit;
 			productName = BoatsEdit;
-			productReference = 5C8512811F51C21F006343AF /* Boats Edit.app */;
+			productReference = 5C8512811F51C21F006343AF /* BoatsEdit.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5CFBB8231F51C00600BFA5CF /* BoatsEditTests */ = {
@@ -535,7 +535,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mac.boats.edit;
-				PRODUCT_NAME = "Boats Edit";
+				PRODUCT_NAME = BoatsEdit;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -552,7 +552,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mac.boats.edit;
-				PRODUCT_NAME = "Boats Edit";
+				PRODUCT_NAME = BoatsEdit;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
