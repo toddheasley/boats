@@ -2,31 +2,46 @@ import Cocoa
 import BoatsKit
 
 class IndexPanelView: PanelView {
-    private let dividerInput: [DividerInput] = [DividerInput(), DividerInput(), DividerInput(style: .none)]
-    private let nameInput: StringInput = StringInput()
-    private let descriptionInput: StringInput = StringInput()
-    private let localizationInput: LocalizationInput = LocalizationInput()
-    private var providers: (header: Input, input: [ProviderInput]) = (Input(), [ProviderInput()])
+    
     
     var index: Index? {
         set {
-            nameInput.string = newValue?.name
-            descriptionInput.string = newValue?.description
-            localizationInput.localization = newValue?.localization
-            providers.input = []
+            var inputViews: [InputView] = []
+            
+            inputViews.append(StringInputView())
+            (inputViews.last as? StringInputView)?.string = newValue?.name
+            inputViews.last?.label = "Name"
+            inputViews.append(StringInputView())
+            (inputViews.last as? StringInputView)?.string = newValue?.description
+            inputViews.last?.label = "Description"
+            
+            inputViews.append(InputView(style: .separator))
+            
+            inputViews.append(LocalizationInputView())
+            (inputViews.last as? LocalizationInputView)?.localization = newValue?.localization
+            
+            inputViews.append(InputView(style: .separator))
+            
+            inputViews.append(InputView(style: .custom)) // Providers
+            inputViews.last?.label = "Providers"
             for provider in newValue?.providers ?? [] {
-                providers.input.append(ProviderInput(provider: provider))
+                inputViews.append(InputView(style: .label))
+                inputViews.last?.label = provider.name
+                inputViews.last?.input = provider
             }
-            providers.input.append(ProviderInput())
-            tableView.reloadData()
+            inputViews.append(InputView(style: .label))
+            inputViews.last?.placeholder = "New Provider"
+            inputViews.last?.input = Provider()
+            
+            self.inputViews = inputViews
         }
         get {
             var index: Index = Index()
-            index.name = nameInput.string ?? ""
-            index.description = descriptionInput.string ?? ""
-            index.localization = localizationInput.localization ?? Localization()
-            for input in providers.input {
-                if let provider = input.provider {
+            index.name = (inputViews[0] as? StringInputView)?.string ?? ""
+            index.description = (inputViews[1] as? StringInputView)?.string ?? ""
+            index.localization = (inputViews[2] as? LocalizationInputView)?.localization ?? Localization()
+            for inputView in inputViews {
+                if let provider: Provider = inputView.input as? Provider, !provider.name.isEmpty {
                     index.providers.append(provider)
                 }
             }
@@ -36,117 +51,52 @@ class IndexPanelView: PanelView {
     
     var web: Bool {
         set {
-            headerInput.webButton.state = newValue ? .on : .off
+            panelInputView.web = newValue
         }
         get {
-            return headerInput.webButton.state == .on
+            return panelInputView.web
         }
-    }
-    
-    var webButton: NSButton {
-        return headerInput.webButton
     }
     
     // MARK: PanelView
     override var localization: Localization? {
         set {
             index?.localization = newValue ?? Localization()
-            tableView.reloadData()
         }
         get {
             return index?.localization
         }
     }
     
-    override func dragRange(for row: Int) -> ClosedRange<Int>? {
-        guard providers.input.count > 2, (7...(providers.input.count + 5)).contains(row) else {
+    override func dragRange(for i: Int) -> ClosedRange<Int>? {
+        var dragEligible: [Int] = []
+        for (ii, inputView) in inputViews.enumerated() {
+            if let _: String = label,
+                let provider: Provider = inputView.input as? Provider, !provider.name.isEmpty {
+                dragEligible.append(ii)
+            }
+        }
+        guard dragEligible.count > 1, dragEligible.contains(i) else {
             return nil
         }
-        return 7...(providers.input.count + 6)
-    }
-    
-    override func moveInput(from dragRow: Int, to dropRow: Int) {
-        providers.input.move(from: dragRow - 7, to: dropRow - 7)
+        return dragEligible.first!...(dragEligible.last! + 1)
     }
     
     override func setUp() {
         super.setUp()
         
-        headerInput.label = "Index"
-        headerInput.webButton.isHidden = false
-        nameInput.label = "Name"
-        nameInput.delegate = self
-        descriptionInput.label = "Description"
-        descriptionInput.delegate = self
-        providers.header.label = "Providers"
+        label = "Index"
+        panelInputView.accessory = .web
         
         index = nil
     }
-    
-    // MARK: NSTableViewDataSource
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return 8 + providers.input.count
-    }
-    
-    // MARK: NSTableViewDelegate
-    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        switch row {
-        case 0:
-            return headerInput.intrinsicContentSize.height
-        case 1:
-            return nameInput.intrinsicContentSize.height
-        case 2:
-            return descriptionInput.intrinsicContentSize.height
-        case 3, 5:
-            return dividerInput[0].intrinsicContentSize.height
-        case 4:
-            return localizationInput.intrinsicContentSize.height
-        case 6:
-            return providers.header.intrinsicContentSize.height
-        case tableView.numberOfRows - 1:
-            return dividerInput[2].intrinsicContentSize.height
-        default:
-            return providers.input.first!.intrinsicContentSize.height
-        }
-    }
-    
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        switch row {
-        case 0:
-            return headerInput
-        case 1:
-            return nameInput
-        case 2:
-            return descriptionInput
-        case 3:
-            return dividerInput[0]
-        case 4:
-            return localizationInput
-        case 5:
-            return dividerInput[1]
-        case 6:
-            return providers.header
-        case tableView.numberOfRows - 1:
-            return dividerInput[2]
-        default:
-            return providers.input[row - 7]
-        }
-    }
-    
-    func tableViewSelectionDidChange(_ notification: Notification) {
-        if tableView.selectedRow > 6 {
-            delegate?.panel(self, didSelect: index?.provider(at: tableView.selectedRow - 7) ?? Provider())
-            selectedRow = tableView.selectedRow
-        } else {
-            delegate?.panel(self, didSelect: nil)
-            selectedRow = -1
-        }
-    }
-    
+}
+
+/*
     // MARK: PanelViewDelegate
     override func panelDidEdit(_ view: PanelView) {
         if selectedRow == tableView.selectedRow,
-            let provider = (view as? ProviderPanelView)?.provider, !provider.uri.description.isEmpty, !provider.name.isEmpty,
+            let provider: Provider = (view as? ProviderPanelView)?.provider, !provider.uri.description.isEmpty, !provider.name.isEmpty,
             tableView.selectedRow > 6, tableView.selectedRow < tableView.numberOfRows - 1 {
             providers.input[tableView.selectedRow - 7].provider = provider
             if tableView.selectedRow == tableView.numberOfRows - 2 {
@@ -165,4 +115,4 @@ class IndexPanelView: PanelView {
         delegate?.panel(self, didSelect: nil)
         delegate?.panelDidEdit(self)
     }
-}
+*/

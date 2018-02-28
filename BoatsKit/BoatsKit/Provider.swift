@@ -6,7 +6,7 @@ public struct Provider {
     public var routes: [Route] = []
     public var url: URL?
     
-    public func route(uri: URI) -> Route? {
+    public func route(uri: URI?) -> Route? {
         for route in routes {
             if route.uri == uri {
                 return route

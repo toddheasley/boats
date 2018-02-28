@@ -4,7 +4,7 @@ import XCTest
 class HTMLTests: XCTestCase, HTMLDataSource {
     func testCustomStringConvertible() {
         guard let data: Data = data(for: .mock, type: "html"),
-            let string = String(data: data, encoding: .utf8) else {
+            let string: String = String(data: data, encoding: .utf8) else {
             XCTFail()
             return
         }

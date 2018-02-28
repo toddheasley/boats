@@ -96,7 +96,7 @@ extension Season: RawRepresentable {
         case "evergreen":
             self = .evergreen
         default:
-            guard let dateInterval = dateInterval else {
+            guard let dateInterval: DateInterval = dateInterval else {
                 return nil
             }
             switch rawValue {

@@ -52,7 +52,7 @@ extension Day: Codable {
     public init(from decoder: Decoder) throws {
         let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
         let rawValue: String = try container.decode(String.self, forKey: .day)
-        guard let day = Day(rawValue: rawValue, date: try? container.decode(Date.self, forKey: .date)) else {
+        guard let day: Day = Day(rawValue: rawValue, date: try? container.decode(Date.self, forKey: .date)) else {
             throw DecodingError.typeMismatch(Day.self, DecodingError.Context(codingPath: [Key.day], debugDescription: ""))
         }
         self = day
@@ -108,7 +108,7 @@ extension Day: RawRepresentable {
         case "holiday":
             self = .holiday
         case "special":
-            guard let date = date else {
+            guard let date: Date = date else {
                 fallthrough
             }
             self = .special(date)

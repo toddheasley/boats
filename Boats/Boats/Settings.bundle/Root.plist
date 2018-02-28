@@ -15,14 +15,12 @@
 			<array>
 				<string>Light</string>
 				<string>Dark</string>
-				<string>Contrast</string>
 				<string>Auto</string>
 			</array>
 			<key>Values</key>
 			<array>
 				<string>light</string>
 				<string>dark</string>
-				<string>contrast</string>
 				<string>auto</string>
 			</array>
 			<key>DefaultValue</key>

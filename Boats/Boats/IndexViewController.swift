@@ -1,25 +1,39 @@
 import UIKit
 import BoatsKit
 
-class IndexViewController: ViewController, UITableViewDataSource, UITableViewDelegate, RouteViewAnimatorDelegate {
-    private let url: URL = URL(string: "https://toddheasley.github.io/boats/index.json")!
-    private var selectedIndexPath: IndexPath?
+class IndexViewController: ViewController, UITableViewDataSource, UITableViewDelegate {
+    private var date: Date?
     
     @IBOutlet var tableView: UITableView?
     @IBOutlet var toolbar: IndexToolbar?
     
     private(set) var index: Index? {
         didSet {
-            handleTimeChange()
+            date = index != nil ? Date() : nil
         }
     }
     
     @objc func reloadIndex() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Index.read(from: url) { index, error in
+        Index.read(from: URL(string: "https://toddheasley.github.io/boats/index.json")!) { index, error in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             self.tableView?.refreshControl?.endRefreshing()
+            
+            guard let index: Index = index else {
+                return
+            }
             self.index = index
+            self.handleTimeChange()
+            
+            guard let routeViewController: RouteViewController = self.presentedViewController as? RouteViewController,
+                let provider: Provider = index.provider(uri: routeViewController.provider?.uri),
+                let route: Route = provider.route(uri: routeViewController.route?.uri) else {
+                self.dismiss(animated: false)
+                return
+            }
+            routeViewController.localization = index.localization
+            routeViewController.provider = provider
+            routeViewController.route = route
         }
     }
     
@@ -27,8 +41,12 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     override func handleTimeChange() {
         super.handleTimeChange()
         
-        guard let tableView = tableView,
-            let toolbar = toolbar else {
+        guard let date: Date = date, date > Date(timeIntervalSinceNow: -3600.0 * 8.0) else {
+            reloadIndex()
+            return
+        }
+        guard let tableView: UITableView = tableView,
+            let toolbar: IndexToolbar = toolbar else {
             return
         }
         toolbar.index = index
@@ -45,7 +63,7 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        reloadIndex()
+        handleTimeChange()
     }
     
     override func viewDidLoad() {
@@ -72,14 +90,14 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return index?.routes.count ?? 0
+        return index?.sorted.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: IndexViewCell = tableView.dequeueReusableCell(withIdentifier: "Index") as! IndexViewCell
         cell.localization = index?.localization
-        cell.provider = index?.routes[indexPath.row].provider
-        cell.route = index?.routes[indexPath.row].route
+        cell.provider = index?.sorted[indexPath.row].provider
+        cell.route = index?.sorted[indexPath.row].route
         return cell
     }
     
@@ -89,11 +107,11 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return max((tableView.bounds.size.height - tableView.safeAreaInsets.size.height) - (CGFloat(index?.routes.count ?? 0) * IndexViewCell.height(for: tableView.bounds.size.width)), 242.0)
+        return max((tableView.bounds.size.height - tableView.safeAreaInsets.height) - (CGFloat(index?.sorted.count ?? 0) * IndexViewCell.height(for: tableView.bounds.size.width)), 242.0)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView()
+        let view: UIView = UIView()
         view.isUserInteractionEnabled = false
         return view
     }
@@ -101,31 +119,26 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let routeViewController = storyboard?.instantiateViewController(withIdentifier: "Route") as? RouteViewController,
-            let localization = index?.localization,
-            let routes = index?.routes, routes.count > indexPath.row else {
-            selectedIndexPath = nil
+        guard let routeViewController: RouteViewController = storyboard?.instantiateViewController(withIdentifier: "Route") as? RouteViewController,
+            let localization: Localization = index?.localization,
+            let routes: [(route: Route, provider: Provider)] = index?.sorted, routes.count > indexPath.row else {
             return
         }
-        selectedIndexPath = indexPath
-        
         routeViewController.localization = localization
         routeViewController.provider = routes[indexPath.row].provider
         routeViewController.route = routes[indexPath.row].route
-        routeViewController.delegate = self
-        
         DispatchQueue.main.async {
             self.present(routeViewController, animated: true)
         }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let tableView = tableView,
-            let toolbar = toolbar else {
+        guard let tableView: UITableView = tableView,
+            let toolbar: IndexToolbar = toolbar else {
             return
         }
         let height: CGFloat = view.safeAreaInsets.top + toolbar.intrinsicContentSize.height
-        let y = view.safeAreaInsets.top + scrollView.contentOffset.y
+        let y: CGFloat = view.safeAreaInsets.top + scrollView.contentOffset.y
         
         tableView.scrollIndicatorInsets.top = max(0.0, toolbar.intrinsicContentSize.height + min(0.0, y))
         toolbar.frame.size.height = max(height, height - y)
@@ -134,14 +147,5 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
     
     func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
         scrollViewDidScroll(scrollView)
-    }
-    
-    // MARK: RouteViewAnimatorDelegate
-    func routeViewAnimatorTargetRect(controller: RouteViewController) -> CGRect? {
-        return nil
-    }
-    
-    func routeViewDidFinish(controller: RouteViewController) {
-        dismiss(animated: true)
     }
 }

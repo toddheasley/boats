@@ -15,7 +15,7 @@ class RouteFooterToolbar: Toolbar {
     }
     
     @objc func handleProviderAction(_ sender: AnyObject?) {
-        if let url = (sender as? ProviderView)?.provider?.url {
+        if let url: URL = (sender as? ProviderView)?.provider?.url {
             delegate?.toolbar?(self, didOpen: url)
         }
     }
@@ -26,13 +26,13 @@ class RouteFooterToolbar: Toolbar {
     
     // MARK: Toolbar
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: super.intrinsicContentSize.width, height: 22.0 + UIEdgeInsets.padding.size.height)
+        return CGSize(width: super.intrinsicContentSize.width, height: 22.0 + UIEdgeInsets.padding.height)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width + 4.0
+        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.width
         contentView.frame.size.height = providerView.frame.size.height
         contentView.frame.origin.y = (intrinsicContentSize.height - contentView.frame.size.height) / 2.0
         

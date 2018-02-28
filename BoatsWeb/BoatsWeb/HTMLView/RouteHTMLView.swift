@@ -23,49 +23,58 @@ class RouteHTMLView: HTMLView, HTMLDataSource {
     }
     
     // MARK: HTMLDataSource
-    func value(of name: String, at index: [Int], in html: HTML) -> String? {
+    func value(of name: String, at i: [Int], in html: HTML) -> String? {
         switch name {
         case "PROVIDER":
-            guard let url = provider.url else {
+            guard let url: URL = provider.url else {
                 return "\(provider.name)"
             }
             return "<a href=\"\(url)\">\(provider.name)</a>"
-        case "ROUTE":
+        case "ROUTE_NAME":
             return "\(route.name)"
-        case "SCHEDULE":
-            guard let schedule = route.schedule() else {
+        case "SCHEDULE_SEASON":
+            guard let schedule: Schedule = route.schedule() else {
                 return "Schedule Unavailable"
             }
             return "\(dateFormatter.string(from: schedule.season, style: .medium))"
         case "DAY":
-            guard !index.isEmpty, let schedule = route.schedule() else {
+            guard !i.isEmpty,
+                let schedule: Schedule = route.schedule() else {
                 return nil
             }
-            return "\(dateFormatter.string(from: schedule.days[index[0]]))"
+            return "\(dateFormatter.string(from: schedule.days[i[0]]))"
         case "DIRECTION":
-            guard index.count > 1 else {
+            guard i.count > 1 else {
                 return nil
             }
-            switch Departure.Direction.all[index[1]] {
+            switch Departure.Direction.all[i[1]] {
             case .destination:
                 return "From \(route.origin.name)"
             case .origin:
                 return "To \(route.origin.name)"
             }
         case "DEPARTURE_CAR":
-            guard index.count > 2,
-                let schedule = route.schedule(),
-                let departures = route.schedule()?.departures(day: schedule.days[index[0]], direction: Departure.Direction.all[index[1]]) else {
+            guard i.count > 2,
+                let schedule: Schedule = route.schedule(),
+                let departures: [Departure] = route.schedule()?.departures(day: schedule.days[i[0]], direction: Departure.Direction.all[i[1]]) else {
                 return nil
             }
-            return departures[index[2]].services.contains(.car) ? "\(SVG.car.html)" : ""
+            return departures[i[2]].services.contains(.car) ? "\(SVG.car.html)" : ""
         case "DEPARTURE_TIME":
-            guard index.count > 2,
-                let schedule = route.schedule(),
-                let departures = route.schedule()?.departures(day: schedule.days[index[0]], direction: Departure.Direction.all[index[1]]) else {
+            guard i.count > 2,
+                let schedule: Schedule = route.schedule(),
+                let departures: [Departure] = route.schedule()?.departures(day: schedule.days[i[0]], direction: Departure.Direction.all[i[1]]) else {
                 return nil
             }
-            return "<span>\(dateFormatter.components(from: departures[index[2]].time).joined(separator: "</span><span>"))</span>"
+            return "<span>\(dateFormatter.components(from: departures[i[2]].time).joined(separator: "</span><span>"))</span>"
+        case "HOLIDAYS":
+            guard !i.isEmpty,
+                let schedule: Schedule = route.schedule(), schedule.days[i[0]] == .holiday, !schedule.holidays.isEmpty else {
+                return nil
+            }
+            return schedule.holidays.map { holiday in
+                "<span><b>\(holiday.name)</b> \(dateFormatter.string(from: holiday.date, style: .medium))</span>"
+            }.joined(separator: " ")
         case "MENU":
             return "<a href=\"\(self.index.uri).html\">\(SVG.menu.html)</a>"
         case "INDEX_NAME":
@@ -91,17 +100,18 @@ class RouteHTMLView: HTMLView, HTMLDataSource {
         }
     }
     
-    func count(of name: String, at index: [Int], in html: HTML) -> Int {
+    func count(of name: String, at i: [Int], in html: HTML) -> Int {
         switch name {
         case "DAY":
             return route.schedule()?.days.count ?? 0
         case "DIRECTION":
             return Departure.Direction.all.count
         case "DEPARTURE":
-            guard index.count > 1, let schedule = route.schedule() else {
+            guard i.count > 1,
+                let schedule: Schedule = route.schedule() else {
                 return 0
             }
-            return schedule.departures(day: schedule.days[index[0]], direction: Departure.Direction.all[index[1]]).count
+            return schedule.departures(day: schedule.days[i[0]], direction: Departure.Direction.all[i[1]]).count
         default:
             return 0
         }

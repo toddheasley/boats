@@ -18,7 +18,7 @@ class RouteHeaderToolbar: Toolbar {
         set {
             routeView.route = newValue
             
-            if let newValue = newValue {
+            if let newValue: Route = newValue {
                 directionControl.setTitle("From \(newValue.origin.name)".uppercased(), forSegmentAt: 0)
                 directionControl.setTitle("To \(newValue.origin.name)".uppercased(), forSegmentAt: 1)
             } else {
@@ -46,7 +46,7 @@ class RouteHeaderToolbar: Toolbar {
     
     // MARK: Toolbar
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: routeView.intrinsicContentSize.width, height: routeView.intrinsicContentSize.height + 44.0 + UIEdgeInsets.padding.size.height)
+        return CGSize(width: routeView.intrinsicContentSize.width, height: routeView.intrinsicContentSize.height + 44.0 + UIEdgeInsets.padding.height)
     }
     
     override func layoutSubviews() {
@@ -65,7 +65,7 @@ class RouteHeaderToolbar: Toolbar {
         contentView.addSubview(routeView)
         
         directionControl.setTitleTextAttributes([
-            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 9.0, weight: .bold)
+            NSAttributedStringKey.font: UIFont.meta
         ], for: .normal)
         directionControl.selectedSegmentIndex = 0
         directionControl.autoresizingMask = [.flexibleWidth]

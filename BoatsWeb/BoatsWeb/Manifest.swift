@@ -51,7 +51,7 @@ extension Manifest: DataResource, DataReading, DataWriting {
                 }
                 do {
                     completion(try Manifest(data: data), nil)
-                } catch let error {
+                } catch {
                     completion(nil, error)
                 }
             }

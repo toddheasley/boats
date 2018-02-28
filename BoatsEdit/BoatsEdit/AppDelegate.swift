@@ -4,7 +4,6 @@ import BoatsWeb
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
-    private var window: NSWindow?
     private var hasPanel: Bool = false
     
     @IBAction func make(_ sender: AnyObject?) {
@@ -50,10 +49,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
     }
     
     // MARK: NSApplicationDelegate
+    private var window: NSWindow?
+    
     func applicationWillFinishLaunching(_ notification: Notification) {
         Site.app.identifier = "1152562893"
         
         window = NSApplication.shared.windows.first
+        window?.backgroundColor = .background
+        window?.toolbar?.showsBaselineSeparator = false
         window?.setIsVisible(false)
     }
     

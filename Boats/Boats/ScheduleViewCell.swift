@@ -39,7 +39,7 @@ class ScheduleViewCell: UICollectionViewCell, ModeTransitioning {
     
     // MARK: UICollectionViewCell
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: departureView.intrinsicContentSize.width + UIEdgeInsets.padding.size.width, height: departureView.intrinsicContentSize.height + UIEdgeInsets.padding.size.height)
+        return CGSize(width: departureView.intrinsicContentSize.width + UIEdgeInsets.padding.width, height: departureView.intrinsicContentSize.height + UIEdgeInsets.padding.height)
     }
     
     override var frame: CGRect {
@@ -54,8 +54,8 @@ class ScheduleViewCell: UICollectionViewCell, ModeTransitioning {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width
-        contentView.frame.size.height = bounds.size.height - UIEdgeInsets.padding.size.height
+        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.width
+        contentView.frame.size.height = bounds.size.height - UIEdgeInsets.padding.height
         contentView.frame.origin.x = UIEdgeInsets.padding.left
         contentView.frame.origin.y = UIEdgeInsets.padding.top
     }

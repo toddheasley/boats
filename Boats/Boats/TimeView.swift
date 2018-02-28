@@ -56,10 +56,10 @@ class TimeView: UIView, ModeTransitioning {
         addSubview(contentView)
         
         var x: CGFloat = 0.0
-        for (index, label) in labels.enumerated() {
-            label.font = .systemFont(ofSize: 64.0, weight: .bold)
+        for (i, label) in labels.enumerated() {
+            label.font = .time
             label.textAlignment = .center
-            label.frame.size.width = (intrinsicContentSize.width / 10) * (index != 2 && index != 5 ? 2 : 1)
+            label.frame.size.width = (intrinsicContentSize.width / 10) * (i != 2 && i != 5 ? 2 : 1)
             label.frame.size.height = intrinsicContentSize.height
             label.frame.origin.x = x
             contentView.addSubview(label)
@@ -93,19 +93,19 @@ class TimeView: UIView, ModeTransitioning {
             ("0", .burn),
             (".", .burn)
         ]
-        if let time = time {
-            for (index, component) in TimeView.formatter.components(from: time).enumerated() {
+        if let time: Time = time {
+            for (i, component) in TimeView.formatter.components(from: time).enumerated() {
                 guard component != " " else {
                     continue
                 }
-                components[index] = (component, .text)
+                components[i] = (component, .text)
             }
         }
         
         UIView.animate(withDuration: duration) {
-            for (index, label) in self.labels.enumerated() {
-                label.textColor = components[index].color
-                label.text = components[index].text
+            for (i, label) in self.labels.enumerated() {
+                label.textColor = components[i].color
+                label.text = components[i].text
             }
         }
     }

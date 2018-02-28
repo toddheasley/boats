@@ -16,61 +16,29 @@ enum Icon: String {
             path.append(UIBezierPath(roundedRect: CGRect(x: 11.0, y: 21.75, width: 16.0, height: 1.5), cornerRadius: 0.5))
             return path
         case .car:
+            let subpath: UIBezierPath = UIBezierPath()
+            subpath.move(to: CGPoint(x: 7.5, y: 14.5))
+            subpath.addLine(to: CGPoint(x: 8.5, y: 9.5))
+            subpath.addQuadCurve(to: CGPoint(x: 10.5, y: 7.75), controlPoint: CGPoint(x: 8.5, y: 7.5))
+            subpath.addLine(to: CGPoint(x: 21.5, y: 7.75))
+            subpath.addQuadCurve(to: CGPoint(x: 23.5, y: 9.5), controlPoint: CGPoint(x: 23.0, y: 7.5))
+            subpath.addLine(to: CGPoint(x: 24.5, y: 14.5))
+            subpath.close()
+            
             let path: UIBezierPath = UIBezierPath()
-            path.move(to: CGPoint(x: 24.0, y: 14.25))
-            path.addCurve(to: CGPoint(x: 25.5, y: 17.0), controlPoint1: CGPoint(x: 25.0, y: 14.75), controlPoint2: CGPoint(x: 25.5, y: 15.75))
-            path.addCurve(to: CGPoint(x: 25.5, y: 17.0), controlPoint1: CGPoint(x: 25.5, y: 17.0), controlPoint2: CGPoint(x: 25.5, y: 17.0))
-            path.addLine(to: CGPoint(x: 25.5, y: 21.5))
-            path.addCurve(to: CGPoint(x: 24.0, y: 23.0), controlPoint1: CGPoint(x: 25.5, y: 22.25), controlPoint2: CGPoint(x: 24.75, y: 23.0))
-            path.addCurve(to: CGPoint(x: 22.5, y: 21.5), controlPoint1: CGPoint(x: 23.25, y: 23.0), controlPoint2: CGPoint(x: 22.5, y: 22.25))
-            path.addLine(to: CGPoint(x: 22.5, y: 20.5))
-            path.addCurve(to: CGPoint(x: 22.0, y: 20.5), controlPoint1: CGPoint(x: 22.25, y: 20.5), controlPoint2: CGPoint(x: 22.25, y: 20.5))
-            path.addLine(to: CGPoint(x: 10.0, y: 20.5))
-            path.addCurve(to: CGPoint(x: 9.5, y: 20.5), controlPoint1: CGPoint(x: 9.75, y: 20.5), controlPoint2: CGPoint(x: 9.75, y: 20.5))
-            path.addLine(to: CGPoint(x: 9.5, y: 21.5))
-            path.addCurve(to: CGPoint(x: 8.0, y: 23.0), controlPoint1: CGPoint(x: 9.5, y: 22.25), controlPoint2: CGPoint(x: 8.75, y: 23.0))
-            path.addCurve(to: CGPoint(x: 6.5, y: 21.5), controlPoint1: CGPoint(x: 7.25, y: 23.0), controlPoint2: CGPoint(x: 6.5, y: 22.25))
-            path.addLine(to: CGPoint(x: 6.5, y: 17.0))
-            path.addCurve(to: CGPoint(x: 6.5, y: 17.0), controlPoint1: CGPoint(x: 6.5, y: 17.0), controlPoint2: CGPoint(x: 6.5, y: 17.0))
-            path.addCurve(to: CGPoint(x: 8.0, y: 14.25), controlPoint1: CGPoint(x: 6.5, y: 15.75), controlPoint2: CGPoint(x: 7.0, y: 14.75))
-            path.addCurve(to: CGPoint(x: 8.25, y: 13.75), controlPoint1: CGPoint(x: 8.0, y: 14.0), controlPoint2: CGPoint(x: 8.0, y: 14.0))
-            path.addLine(to: CGPoint(x: 10.0, y: 9.75))
-            path.addCurve(to: CGPoint(x: 11.0, y: 9.0), controlPoint1: CGPoint(x: 10.25, y: 9.25), controlPoint2: CGPoint(x: 10.75, y: 9.0))
-            path.addLine(to: CGPoint(x: 21.0, y: 9.0))
-            path.addCurve(to: CGPoint(x: 22.0, y: 9.75), controlPoint1: CGPoint(x: 21.25, y: 9.0), controlPoint2: CGPoint(x: 21.75, y: 9.25))
-            path.addLine(to: CGPoint(x: 23.75, y: 13.75))
-            path.addCurve(to: CGPoint(x: 24.0, y: 14.25), controlPoint1: CGPoint(x: 24.0, y: 14.0), controlPoint2: CGPoint(x: 24.0, y: 14.25))
+            path.move(to: CGPoint(x: 5.5, y: 14.5))
+            path.addLine(to: CGPoint(x: 7.0, y: 8.0))
+            path.addQuadCurve(to: CGPoint(x: 10.0, y: 6.0), controlPoint: CGPoint(x: 7.5, y: 6.0))
+            path.addLine(to: CGPoint(x: 22.0, y: 6.0))
+            path.addQuadCurve(to: CGPoint(x: 25.0, y: 8.0), controlPoint: CGPoint(x: 24.5, y: 6.0))
+            path.addLine(to: CGPoint(x: 26.5, y: 14.5))
             path.close()
-            path.move(to: CGPoint(x: 13.75, y: 16.5))
-            path.addCurve(to: CGPoint(x: 13.0, y: 17.25), controlPoint1: CGPoint(x: 13.25, y: 16.5), controlPoint2: CGPoint(x: 13.0, y: 16.75))
-            path.addCurve(to: CGPoint(x: 13.75, y: 18.0), controlPoint1: CGPoint(x: 13.0, y: 17.75), controlPoint2: CGPoint(x: 13.25, y: 18.0))
-            path.addLine(to: CGPoint(x: 18.25, y: 18.0))
-            path.addCurve(to: CGPoint(x: 19.0, y: 17.25), controlPoint1: CGPoint(x: 18.75, y: 18.0), controlPoint2: CGPoint(x: 19.0, y: 17.75))
-            path.addCurve(to: CGPoint(x: 18.25, y: 16.5), controlPoint1: CGPoint(x: 19.0, y: 16.75), controlPoint2: CGPoint(x: 18.75, y: 16.5))
-            path.addLine(to: CGPoint(x: 13.75, y: 16.5))
-            path.close()
-            path.move(to: CGPoint(x: 9.5, y: 18.25))
-            path.addCurve(to: CGPoint(x: 10.75, y: 17.25), controlPoint1: CGPoint(x: 10.25, y: 18.25), controlPoint2: CGPoint(x: 10.75, y: 17.75))
-            path.addCurve(to: CGPoint(x: 9.5, y: 16.0), controlPoint1: CGPoint(x: 10.75, y: 16.5), controlPoint2: CGPoint(x: 10.25, y: 16.0))
-            path.addCurve(to: CGPoint(x: 8.5, y: 17.25), controlPoint1: CGPoint(x: 9.0, y: 16.0), controlPoint2: CGPoint(x: 8.5, y: 16.5))
-            path.addCurve(to: CGPoint(x: 9.5, y: 18.25), controlPoint1: CGPoint(x: 8.5, y: 17.75), controlPoint2: CGPoint(x: 9.0, y: 18.25))
-            path.close()
-            path.move(to: CGPoint(x: 22.5, y: 18.25))
-            path.addCurve(to: CGPoint(x: 23.5, y: 17.25), controlPoint1: CGPoint(x: 23.0, y: 18.25), controlPoint2: CGPoint(x: 23.5, y: 17.75))
-            path.addCurve(to: CGPoint(x: 22.5, y: 16.0), controlPoint1: CGPoint(x: 23.5, y: 16.5), controlPoint2: CGPoint(x: 23.0, y: 16.0))
-            path.addCurve(to: CGPoint(x: 21.25, y: 17.25), controlPoint1: CGPoint(x: 21.75, y: 16.0), controlPoint2: CGPoint(x: 21.25, y: 17.0))
-            path.addCurve(to: CGPoint(x: 22.5, y: 18.25), controlPoint1: CGPoint(x: 21.25, y: 17.75), controlPoint2: CGPoint(x: 21.75, y: 18.25))
-            path.close()
-            path.move(to: CGPoint(x: 11.75, y: 10.0))
-            path.addCurve(to: CGPoint(x: 11.0, y: 10.5), controlPoint1: CGPoint(x: 11.5, y: 10.0), controlPoint2: CGPoint(x: 11.0, y: 10.25))
-            path.addLine(to: CGPoint(x: 9.75, y: 13.0))
-            path.addCurve(to: CGPoint(x: 9.75, y: 13.5), controlPoint1: CGPoint(x: 9.75, y: 13.25), controlPoint2: CGPoint(x: 9.5, y: 13.5))
-            path.addLine(to: CGPoint(x: 22.25, y: 13.5))
-            path.addCurve(to: CGPoint(x: 22.25, y: 13.0), controlPoint1: CGPoint(x: 22.5, y: 13.5), controlPoint2: CGPoint(x: 22.25, y: 13.25))
-            path.addLine(to: CGPoint(x: 21.0, y: 10.5))
-            path.addCurve(to: CGPoint(x: 20.25, y: 10.0), controlPoint1: CGPoint(x: 21.0, y: 10.25), controlPoint2: CGPoint(x: 20.5, y: 10.0))
-            path.addLine(to: CGPoint(x: 11.75, y: 10.0))
-            path.close()
+            path.append(UIBezierPath(roundedRect: CGRect(x: 4.0, y: 14.0, width: 24.0, height: 10.0), cornerRadius: 2.0))
+            path.append(UIBezierPath(roundedRect: CGRect(x: 4.75, y: 23.0, width: 4.0, height: 4.0), cornerRadius: 1.0))
+            path.append(UIBezierPath(roundedRect: CGRect(x: 23.25, y: 23.0, width: 4.0, height: 4.0), cornerRadius: 1.0))
+            path.append(subpath.reversing())
+            path.append(UIBezierPath(ovalIn: CGRect(x: 6.0, y: 17.0, width: 4.0, height: 4.0)).reversing())
+            path.append(UIBezierPath(ovalIn: CGRect(x: 22.0, y: 17.0, width: 4.0, height: 4.0)).reversing())
             return path
         }
     }
@@ -94,7 +62,7 @@ class IconView: UIControl, ModeTransitioning {
     override var isHighlighted: Bool {
         set {
             super.isHighlighted = newValue
-            shapeLayer.backgroundColor = isHighlighted ? UIColor.highlight.cgColor: nil
+            shapeLayer.backgroundColor = isHighlighted ? UIColor.tint.cgColor: nil
         }
         get {
             return super.isHighlighted
@@ -102,7 +70,7 @@ class IconView: UIControl, ModeTransitioning {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 32.0, height: 32.0)
+        return CGSize(width: 24.0, height: 32.0)
     }
     
     override var frame: CGRect {
@@ -128,7 +96,7 @@ class IconView: UIControl, ModeTransitioning {
         
         isEnabled = false
         
-        shapeLayer.frame.size = intrinsicContentSize
+        shapeLayer.frame.size = CGSize(width: intrinsicContentSize.height, height: intrinsicContentSize.height)
         layer.addSublayer(shapeLayer)
         
         transitionMode(duration: 0.0)

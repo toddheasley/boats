@@ -1,5 +1,4 @@
 * {
-    font-family: sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -11,26 +10,14 @@ a {
 body {
     background: white;
     color: black;
+    font: 14px -apple-system, sans-serif;
     margin: 0 auto;
-    max-width: 460pt;
+    max-width: 480px;
     width: 100%;
 }
 
 body > * {
-    margin: 0 8pt;
-}
-
-body > section h3 {
-    margin-bottom: 5pt;
-}
-
-h3 {
-    font-size: 1em;
-}
-
-header {
-    padding: 12pt 0;
-    margin-bottom: 1em;
+    margin: 11px 15px;
 }
 
 header a {
@@ -38,7 +25,9 @@ header a {
 }
 
 header h1 {
-    font-size: 1em;
+    font-size: 34.0;
+    font-weight: bold;
+    margin-top: 1px;
 }
 
 header h2 {
@@ -50,18 +39,50 @@ hr {
     visibility: hidden;
 }
 
+main {
+    margin-top: 64px;
+}
+
 main h1 {
-    font-size: 2em;
+    font-size: 19px;
 }
 
 main h2 {
     font-size: 1em;
+    margin: 1px 0;
+}
+
+main h3 {
+    font-size: 1em;
     font-weight: normal;
-    margin-bottom: 2em;
+}
+
+main section {
+    margin-top: 32px;
 }
 
 main section h3 {
-    font-size: 1em;
+    font-weight: bold;
+}
+
+main section p {
+    clear: both;
+    float: right;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 2px 0 22px 0;
+    text-align: right;
+    text-transform: uppercase;
+    width: 224px;
+}
+
+main section p b {
+    float: left;
+}
+
+main section p span {
+    display: block;
+    margin: 1px 0;
 }
 
 main section table {
@@ -69,37 +90,60 @@ main section table {
     width: 50%;
 }
 
+main section td {
+    text-align: right;
+}
+
 main section td svg {
     position: relative;
-    top: 6pt;
+    top: 6px;
+}
+
+main table a {
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main table a b {
+    display: block;
+    font-size: 19px;
+    margin: 6px 0 1px 0;
+}
+
+main table a span {
+    display: block;
+    font-weight: normal;
+    margin: 1px 0 4px 0;
+}
+
+main > table {
+    margin-bottom: 25px;
+}
+
+main > table svg {
+    float: right;
+    margin-top: 14px;
 }
 
 nav {
-    margin: 0;
+    height: 1px;
+    margin: 0 11px 0 0;
 }
 
 nav a {
     display: block;
     float: right;
-    padding: 6pt 8pt;
+    margin-top: 4px;
 }
 
 nav svg {
     display: block;
 }
 
-section {
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
-section + section {
-    margin-top: 2em;
-}
-
 svg {
     display: inline-block;
-    width: 24pt;
+    height: 32px;
 }
 
 table {
@@ -108,33 +152,16 @@ table {
 }
 
 td {
-    border: 1pt solid;
-    padding: 1pt 4pt;
-}
-
-td a {
-    color: inherit;
-    display: block;
-    font-size: 18pt;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 2pt 0;
-}
-
-td a span {
-    display: block;
-    margin-top: 1pt;
-}
-
-td a span, th {
-    font-size: 9pt;
-    font-weight: normal;
-    text-transform: uppercase;
+    border: 1px solid;
+    padding: 6px;
 }
 
 th {
-    padding: 4pt 0 1pt 0;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 6px 0 2px 0;
     text-align: left;
+    text-transform: uppercase;
 }
 
 time {
@@ -144,28 +171,12 @@ time {
 
 time span {
     display: inline-block;
-    font-size: 24pt;
+    font-size: 29px;
     font-weight: bold;
     text-align: center;
-    width: 0.6em;
+    width: 18px;
 }
 
 time span:nth-child(3), time span:last-child {
-    width: 0.3em;
-}
-
-time + span {
-    display: inline-block;
-    width: 21pt;
-    margin-left: 4pt;
-}
-
-@media (min-width: 300pt)  {
-    td {
-        padding: 1pt 1em;
-    }
-    
-    time + span {
-        margin-left: 1em;
-    }
+    width: 9px;
 }

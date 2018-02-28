@@ -4,16 +4,15 @@ import BoatsWeb
 
 class IndexViewController: NSViewController, PanelViewDelegate {
     private let indexPanelView: IndexPanelView = IndexPanelView()
-    private let providerPanelView: ProviderPanelView = ProviderPanelView()
-    private let routePanelView: RoutePanelView = RoutePanelView()
-    private let locationPanelView: LocationPanelView = LocationPanelView()
-    private let schedulePanelView: SchedulePanelView = SchedulePanelView()
-    private let holidayPanelView: HolidayPanelView = HolidayPanelView()
-    private let departurePanelView: DeparturePanelView = DeparturePanelView()
     
-    private var webButton: NSButton {
-        return indexPanelView.webButton
-    }
+    //private let providerPanelView: ProviderPanelView = ProviderPanelView()
+    //private let routePanelView: RoutePanelView = RoutePanelView()
+    //private let locationPanelView: LocationPanelView = LocationPanelView()
+    //private let schedulePanelView: SchedulePanelView = SchedulePanelView()
+    //private let holidayPanelView: HolidayPanelView = HolidayPanelView()
+    //private let departurePanelView: DeparturePanelView = DeparturePanelView()
+    
+
     
     private var previewButton: NSToolbarItem? {
         return view.window?.toolbar?.items.last
@@ -35,11 +34,6 @@ class IndexViewController: NSViewController, PanelViewDelegate {
         NSWorkspace.shared.openFile(url.appending(uri: Site.uri).path)
     }
     
-    @IBAction func toggle(_ sender: AnyObject?) {
-        IndexManager.web = webButton.state == .on
-        previewButton?.isEnabled = IndexManager.web
-    }
-    
     // MARK: NSViewController
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         switch menuItem.tag {
@@ -58,9 +52,6 @@ class IndexViewController: NSViewController, PanelViewDelegate {
         indexPanelView.index = IndexManager.index
         indexPanelView.web = IndexManager.web
         
-        webButton.target = self
-        webButton.action = #selector(toggle(_:))
-        
         previewButton?.target = self
         previewButton?.action = #selector(preview(_:))
         previewButton?.isEnabled = IndexManager.web
@@ -77,6 +68,20 @@ class IndexViewController: NSViewController, PanelViewDelegate {
         indexPanelView.frame.size.height = view.bounds.size.height
         scrollView?.documentView?.addSubview(indexPanelView)
         
+        let separatorView: NSView = NSView()
+        separatorView.wantsLayer = true
+        separatorView.layer?.backgroundColor = NSColor.separator.cgColor
+        separatorView.autoresizingMask = [.width, .minYMargin]
+        separatorView.frame.size.width = view.bounds.size.width
+        separatorView.frame.size.height = 0.5
+        separatorView.frame.origin.y = view.bounds.size.height - separatorView.frame.size.height
+        view.addSubview(separatorView)
+        
+        
+        
+        scrollView?.documentView?.frame.size.width = 361.0
+        
+        /*
         providerPanelView.delegate = indexPanelView
         providerPanelView.autoresizingMask = [.height]
         providerPanelView.frame.size.height = view.bounds.size.height
@@ -112,12 +117,18 @@ class IndexViewController: NSViewController, PanelViewDelegate {
         departurePanelView.frame.size.height = view.bounds.size.height
         departurePanelView.frame.origin.x = holidayPanelView.frame.origin.x
         scrollView?.documentView?.addSubview(departurePanelView)
+        */
         
-        panel(indexPanelView, didSelect: nil)
+        
+        
+        panelView(indexPanelView, didSelect: nil)
     }
     
     // MARK: PanelViewDelegate
-    func panel(_ view: PanelView, didSelect input: Any?) {
+    func panelView(_ view: PanelView, didSelect input: Any?) {
+        
+        
+        /*
         switch view {
         case is IndexPanelView:
             providerPanelView.localization = indexPanelView.index?.localization
@@ -157,13 +168,19 @@ class IndexViewController: NSViewController, PanelViewDelegate {
         scrollView?.scroll(to: rect) {
             self.scrollView?.documentView?.frame.size.width = rect.origin.x + rect.size.width
         }
+        */
     }
     
-    func panelDidEdit(_ view: PanelView) {
-        try? IndexManager.save(index: indexPanelView.index)
+    func panelViewDidEdit(_ view: PanelView) {
+        if IndexManager.web != indexPanelView.web {
+            IndexManager.web = indexPanelView.web
+            previewButton?.isEnabled = IndexManager.web
+        } else {
+            try? IndexManager.save(index: indexPanelView.index)
+        }
     }
     
-    func panelDidDelete(_ view: PanelView) {
+    func panelViewDidDelete(_ view: PanelView) {
         
     }
 }

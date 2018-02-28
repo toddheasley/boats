@@ -33,7 +33,7 @@ extension DateFormatter {
     
     public func string(from season: Season, style: Style) -> String {
         var string: String = ""
-        if let dateInterval = season.dateInterval {
+        if let dateInterval: DateInterval = season.dateInterval {
             let format: String = dateFormat
             dateStyle = style
             timeStyle = .none
@@ -44,9 +44,6 @@ extension DateFormatter {
     }
     
     public func string(from date: Date, style: Style) -> String {
-        
-        print("CALLED")
-        
         let format: String = dateFormat
         dateStyle = style
         timeStyle = .none

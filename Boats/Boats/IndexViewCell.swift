@@ -49,35 +49,34 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         return CGSize(width: super.intrinsicContentSize.width, height: IndexViewCell.height(for: bounds.size.width))
     }
     
-    override var separatorInset: UIEdgeInsets {
-        didSet {
-            layoutSubviews()
-        }
-    }
-    
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         
-        backgroundColor = highlighted ? .highlight : .clear
+        backgroundView?.backgroundColor = highlighted ? .tint : .clear
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        backgroundColor = selected ? .highlight : .clear
+        backgroundView?.backgroundColor = selected ? .tint : .clear
     }
     
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width
-        contentView.frame.size.height = bounds.size.height - UIEdgeInsets.padding.size.height
+        contentView.frame.size.width = bounds.size.width - UIEdgeInsets.padding.width
+        contentView.frame.size.height = bounds.size.height - UIEdgeInsets.padding.height
         contentView.frame.origin.x = UIEdgeInsets.padding.left
         contentView.frame.origin.y = UIEdgeInsets.padding.top
         
-        separatorView.frame.origin.x = separatorInset.left
-        separatorView.frame.size.width = bounds.size.width - (separatorInset.left + separatorInset.right)
+        backgroundView?.frame.size.width = contentView.frame.size.width + 8.0
+        backgroundView?.frame.size.height = contentView.frame.size.height + 8.0
+        backgroundView?.frame.origin.x = contentView.frame.origin.x - 4.0
+        backgroundView?.frame.origin.y = contentView.frame.origin.y - 4.0
+        
+        separatorView.frame.origin.x = UIEdgeInsets.padding.left
+        separatorView.frame.size.width = bounds.size.width - separatorView.frame.origin.x
         
         providerView.frame.size.width = contentView.bounds.size.width
         routeView.frame.size.width = contentView.bounds.size.width
@@ -90,8 +89,9 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         super.setUp()
         
         selectionStyle = .none
+        backgroundColor = .clear
         
-        separatorView.frame.size.height = CGSize.separator.height
+        separatorView.frame.size.height = .separatorHeight
         addSubview(separatorView)
         
         providerView.autoresizingMask = [.flexibleTopMargin]
@@ -100,6 +100,9 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         
         contentView.addSubview(routeView)
         contentView.addSubview(departureView)
+        
+        backgroundView = UIView()
+        backgroundView?.layer.cornerRadius = .cornerRadius
         
         transitionMode(duration: 0.0)
     }

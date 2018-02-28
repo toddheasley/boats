@@ -18,7 +18,7 @@ class ScheduleDayReusableView: UICollectionReusableView, ModeTransitioning {
     
     // MARK: UICollectionReusableView
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: super.intrinsicContentSize.width, height: label.frame.size.height + UIEdgeInsets.padding.size.height)
+        return CGSize(width: super.intrinsicContentSize.width, height: label.frame.size.height + UIEdgeInsets.padding.height)
     }
     
     override var frame: CGRect {
@@ -33,13 +33,13 @@ class ScheduleDayReusableView: UICollectionReusableView, ModeTransitioning {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        label.frame.size.width = bounds.size.width - UIEdgeInsets.padding.size.width
+        label.frame.size.width = bounds.size.width - UIEdgeInsets.padding.width
     }
     
     override func setUp() {
         super.setUp()
         
-        label.font = .systemFont(ofSize: 14.0, weight: .bold)
+        label.font = .base(.bold)
         label.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin]
         label.frame.size.height = 22.0
         label.frame.origin.y = (bounds.size.height - label.frame.size.height) / 2.0

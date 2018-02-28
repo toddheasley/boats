@@ -2,17 +2,11 @@ import UIKit
 import SafariServices
 import BoatsKit
 
-protocol RouteViewDelegate {
-    func routeViewDidFinish(controller: RouteViewController)
-}
-
 class RouteViewController: ViewController, ScheduleViewDelegate, ToolbarDelegate, UIViewControllerTransitioningDelegate {
     
     @IBOutlet var scheduleView: ScheduleView?
     @IBOutlet var headerToolbar: RouteHeaderToolbar?
     @IBOutlet var footerToolbar: RouteFooterToolbar?
-    
-    var delegate: RouteViewDelegate?
     
     var localization: Localization? {
         didSet {
@@ -35,6 +29,11 @@ class RouteViewController: ViewController, ScheduleViewDelegate, ToolbarDelegate
     }
     
     // MARK: ViewController
+    override func handleTimeChange() {
+        super.handleTimeChange()
+        
+    }
+    
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
         
@@ -44,10 +43,10 @@ class RouteViewController: ViewController, ScheduleViewDelegate, ToolbarDelegate
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        guard let scheduleView = scheduleView,
-            let headerToolbar = headerToolbar,
-            let footerToolbar = footerToolbar else {
-                return
+        guard let scheduleView: ScheduleView = scheduleView,
+            let headerToolbar: RouteHeaderToolbar = headerToolbar,
+            let footerToolbar: RouteFooterToolbar = footerToolbar else {
+            return
         }
         
         headerToolbar.frame.size.height = headerToolbar.intrinsicContentSize.height + view.safeAreaInsets.top
@@ -93,27 +92,23 @@ class RouteViewController: ViewController, ScheduleViewDelegate, ToolbarDelegate
     }
     
     func toolbarDidChange(_ toolbar: Toolbar) {
-        if let toolbar = toolbar as? RouteHeaderToolbar {
+        if let toolbar: RouteHeaderToolbar = toolbar as? RouteHeaderToolbar {
             scheduleView?.direction = toolbar.direction
         }
     }
     
     func toolbarDidFinish(_ toolbar: Toolbar) {
-        delegate?.routeViewDidFinish(controller: self)
+        dismiss(animated: true)
     }
     
     // MARK: UIViewControllerTransitioningDelegate
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil //RouteViewAnimator(.present)
+        return RouteViewAnimator(.present)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil //RouteViewAnimator(.dismiss)
+        return RouteViewAnimator(.dismiss)
     }
-}
-
-protocol RouteViewAnimatorDelegate: RouteViewDelegate {
-    func routeViewAnimatorTargetRect(controller: RouteViewController) -> CGRect?
 }
 
 class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -126,23 +121,47 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     required init(_ operation: TransitionOperation) {
         super.init()
-        
         self.operation = operation
     }
     
     // MARK: UIViewControllerAnimatedTransitioning
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return (transitionContext?.containerView.bounds.size.height ?? 0.0) > 812.0 ? 1.5 : 1.0
+        return 1.0
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        //guard let fromViewController = transitionContext.viewController(forKey: .from),
-        //    let toViewController = transitionContext.viewController(forKey: .to) else {
-        //    transitionContext.completeTransition(false)
-        //    return
-        //}
-        
-        transitionContext.completeTransition(true)
+        switch operation {
+        case .present:
+            guard let viewController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+                let routeViewController: RouteViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? RouteViewController else {
+                transitionContext.completeTransition(false)
+                return
+            }
+            routeViewController.view.frame = CGRect(x: 0.0, y: transitionContext.containerView.bounds.size.height, width: transitionContext.containerView.bounds.size.width, height: 0.0)
+            routeViewController.view.layoutIfNeeded()
+            transitionContext.containerView.addSubview(viewController.view)
+            transitionContext.containerView.addSubview(routeViewController.view)
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveEaseIn, animations: {
+                routeViewController.view.frame = transitionContext.containerView.bounds
+            }, completion: { _ in
+                transitionContext.completeTransition(true)
+            })
+        case .dismiss:
+            guard let viewController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to),
+                let routeViewController: RouteViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? RouteViewController else {
+                transitionContext.completeTransition(false)
+                return
+            }
+            viewController.view.frame = transitionContext.containerView.bounds
+            viewController.view.layoutIfNeeded()
+            transitionContext.containerView.addSubview(viewController.view)
+            transitionContext.containerView.addSubview(routeViewController.view)
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
+                routeViewController.view.frame.origin.y = transitionContext.containerView.bounds.size.height
+            }, completion: { finished in
+                transitionContext.completeTransition(true)
+            })
+        }
     }
     
     func animationEnded(_ transitionCompleted: Bool) {
