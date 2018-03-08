@@ -2,8 +2,6 @@ import Cocoa
 import BoatsKit
 
 class IndexPanelView: PanelView {
-    
-    
     var index: Index? {
         set {
             var inputViews: [InputView] = []
@@ -22,7 +20,7 @@ class IndexPanelView: PanelView {
             
             inputViews.append(InputView(style: .separator))
             
-            inputViews.append(InputView(style: .custom)) // Providers
+            inputViews.append(InputView(style: .custom))
             inputViews.last?.label = "Providers"
             for provider in newValue?.providers ?? [] {
                 inputViews.append(InputView(style: .label))
@@ -87,8 +85,31 @@ class IndexPanelView: PanelView {
         
         label = "Index"
         panelInputView.accessory = .web
-        
         index = nil
+    }
+    
+    // MARK: PanelViewDelegate
+    override func panelViewDidEdit(_ view: PanelView) {
+        guard let provider = (view as? ProviderPanelView)?.provider,
+            let selectedInput = selectedInput else {
+            return
+        }
+        
+        print(provider)
+        
+        inputViews[selectedInput].input = provider
+        
+        delegate?.panelViewDidEdit(self)
+    }
+    
+    override func panelViewDidDelete(_ view: PanelView) {
+        guard let selectedInput = selectedInput,
+            let _ = inputViews[selectedInput].input as? Provider else {
+            return
+        }
+        delegate?.panelView(self, didSelect: nil)
+        inputViews.remove(at: selectedInput)
+        delegate?.panelViewDidEdit(self)
     }
 }
 

@@ -39,10 +39,18 @@ class InputView: NSView {
     
     var placeholder: String? {
         set {
-            labelTextField.placeholderString = style == .label ? newValue : nil
+            if style == .label,
+                let newValue = newValue, !newValue.isEmpty {
+                labelTextField.placeholderAttributedString = NSAttributedString(string: "\(newValue)", attributes: [
+                    .font: NSFont.systemFont(ofSize: labelTextField.font!.pointSize, weight: .regular),
+                    .foregroundColor: NSColor.separator
+                ])
+            } else {
+                labelTextField.placeholderAttributedString = nil
+            }
         }
         get {
-            return labelTextField.placeholderString
+            return labelTextField.placeholderAttributedString?.string
         }
     }
     
@@ -89,19 +97,19 @@ class InputView: NSView {
             labelTextField.frame.origin.y = padding.bottom - 5.0
             addSubview(labelTextField)
         case .custom:
-            contentView.frame.size.width = intrinsicContentSize.width - padding.width
-            contentView.frame.size.height = 8.0
-            contentView.frame.origin.x = padding.left
-            contentView.frame.origin.y = padding.bottom
-            addSubview(contentView)
-            
             labelTextField.autoresizingMask = [.minYMargin]
             labelTextField.font = .meta
-            labelTextField.frame.size.width = contentView.bounds.size.width
+            labelTextField.frame.size.width = intrinsicContentSize.width - padding.width
             labelTextField.frame.size.height = 14.0
             labelTextField.frame.origin.x = padding.left
             labelTextField.frame.origin.y = bounds.size.height - (padding.top + labelTextField.frame.size.height)
             addSubview(labelTextField)
+            
+            contentView.frame.size.width = labelTextField.frame.size.width
+            contentView.frame.size.height = 8.0
+            contentView.frame.origin.x = padding.left
+            contentView.frame.origin.y = padding.bottom
+            addSubview(contentView)
         case .separator:
             separatorView.wantsLayer = true
             separatorView.layer?.backgroundColor = NSColor.separator.cgColor

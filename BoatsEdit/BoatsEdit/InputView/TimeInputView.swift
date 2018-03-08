@@ -1,7 +1,7 @@
 import Cocoa
 import BoatsKit
 
-class TimeInput: Input {
+class TimeInputView: InputView {
     private let datePicker: NSDatePicker = NSDatePicker()
     
     var time: Time? {
@@ -22,7 +22,11 @@ class TimeInput: Input {
         }
     }
     
-    // MARK: Input
+    @objc func handleTime(_ sender: AnyObject?) {
+        delegate?.inputViewDidEdit(self)
+    }
+    
+    // MARK: InputView
     override func setUp() {
         super.setUp()
         
@@ -30,12 +34,13 @@ class TimeInput: Input {
         datePicker.datePickerStyle = .textFieldDatePickerStyle
         datePicker.datePickerElements = [.hourMinuteDatePickerElementFlag]
         datePicker.target = self
-        datePicker.action = #selector(inputEdited(_:))
+        datePicker.action = #selector(handleTime(_:))
         datePicker.sizeToFit()
         datePicker.frame.size.height = 22.0
-        datePicker.frame.origin.x = intrinsicContentSize.width - (padding.right + datePicker.frame.size.width + 2.0)
-        datePicker.frame.origin.y = padding.bottom
-        addSubview(datePicker)
+        datePicker.frame.origin.x = contentView.bounds.size.width - datePicker.frame.size.width
+        contentView.addSubview(datePicker)
+        
+        contentView.frame.size.height = datePicker.frame.size.height - 4.0
         
         label = "Time"
         timeZone = nil

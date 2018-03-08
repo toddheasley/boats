@@ -2,7 +2,7 @@ import Cocoa
 import MapKit
 import BoatsKit
 
-class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
+class CoordinateInputView: InputView, NSTextFieldDelegate, CoordinateMapDelegate {
     private let textField: (latitude: NSTextField, longitude: NSTextField) = (NSTextField(), NSTextField())
     private let mapView: CoordinateMapView = CoordinateMapView()
     
@@ -25,32 +25,30 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
         }
     }
     
-    // MARK: Input
-    
+    // MARK: InputView
     override func setUp() {
         super.setUp()
         
+        contentView.frame.size.height = labelTextField.frame.size.height + 348.0
+        
+        mapView.delegate = self
+        mapView.frame.size.width = contentView.bounds.size.width
+        mapView.frame.size.height = 320.0
+        contentView.addSubview(mapView)
+        
         textField.latitude.delegate = self
         textField.latitude.placeholderString = "Latitude"
-        textField.latitude.frame.size.width = (intrinsicContentSize.width - (padding.width * 1.5)) / 2.0
+        textField.latitude.frame.size.width = (contentView.bounds.size.width / 2.0) - 3.0
         textField.latitude.frame.size.height = 22.0
-        textField.latitude.frame.origin.x = padding.left
-        textField.latitude.frame.origin.y = labelTextField.frame.origin.y - textField.latitude.frame.size.height
-        addSubview(textField.latitude)
+        textField.latitude.frame.origin.y = 326.0
+        contentView.addSubview(textField.latitude)
         
         textField.longitude.delegate = self
         textField.longitude.placeholderString = "Longitude"
         textField.longitude.frame.size = textField.latitude.frame.size
-        textField.longitude.frame.origin.x = intrinsicContentSize.width - (textField.longitude.frame.size.width + padding.right)
+        textField.longitude.frame.origin.x = contentView.bounds.size.width - textField.longitude.frame.size.width
         textField.longitude.frame.origin.y = textField.latitude.frame.origin.y
-        addSubview(textField.longitude)
-        
-        mapView.delegate = self
-        mapView.frame.size.width = intrinsicContentSize.width - padding.width
-        mapView.frame.size.height = textField.latitude.frame.origin.y - padding.height
-        mapView.frame.origin.x = padding.left
-        mapView.frame.origin.y = padding.bottom
-        addSubview(mapView)
+        contentView.addSubview(textField.longitude)
         
         label = "Coordinate"
         coordinate = Coordinate(0.0, 0.0)
@@ -59,14 +57,14 @@ class CoordinateInput: Input, NSTextFieldDelegate, CoordinateMapDelegate {
     // MARK: NSTextFieldDelegate
     override func controlTextDidEndEditing(_ obj: Notification) {
         mapView.coordinate = CLLocationCoordinate2D(coordinate: coordinate!)
-        inputEdited(obj.object as? NSTextField)
+        //inputEdited(obj.object as? NSTextField)
     }
     
     // MARK: CoordinateMapDelegate
     fileprivate func coordinateDidChange(map: CoordinateMapView) {
         textField.latitude.stringValue = format(map.coordinate.latitude)
         textField.longitude.stringValue = format(map.coordinate.longitude)
-        inputEdited(mapView)
+        //inputEdited(mapView)
     }
 }
 
@@ -108,6 +106,14 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
     }
     
     // MARK: NSView
+    override func scrollWheel(with event: NSEvent) {
+        guard mapView.isScrollEnabled else {
+            nextResponder?.scrollWheel(with: event)
+            return
+        }
+        super.scrollWheel(with: event)
+    }
+    
     override func layout() {
         super.layout()
         
@@ -162,15 +168,6 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
     
     required init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: NSResponder
-    override func scrollWheel(with event: NSEvent) {
-        guard mapView.isScrollEnabled else {
-            nextResponder?.scrollWheel(with: event)
-            return
-        }
-        super.scrollWheel(with: event)
     }
     
     // MARK: MKMapViewDelegate

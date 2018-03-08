@@ -55,8 +55,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
         Site.app.identifier = "1152562893"
         
         window = NSApplication.shared.windows.first
-        window?.backgroundColor = .background
-        window?.toolbar?.showsBaselineSeparator = false
         window?.setIsVisible(false)
     }
     

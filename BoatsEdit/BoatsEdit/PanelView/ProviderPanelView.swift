@@ -2,6 +2,54 @@ import Cocoa
 import BoatsKit
 
 class ProviderPanelView: PanelView {
+    var provider: Provider? {
+        set {
+            var inputViews: [InputView] = []
+            
+            inputViews.append(StringInputView())
+            (inputViews.last as? StringInputView)?.string = newValue?.name
+            inputViews.last?.label = "Name"
+            
+            inputViews.append(URIInputView())
+            (inputViews.last as? URIInputView)?.uri = newValue?.uri
+            
+            inputViews.append(URLInputView())
+            (inputViews.last as? URLInputView)?.url = newValue?.url
+            
+            inputViews.append(InputView(style: .separator))
+            
+            inputViews.append(CoordinateInputView())
+            
+            inputViews.append(InputView(style: .separator))
+            
+            inputViews.append(InputView(style: .custom))
+            
+            self.inputViews = inputViews
+            
+            isHidden = newValue == nil
+        }
+        get {
+            return nil
+        }
+    }
+    
+    // MARK: PanelView
+    override func dragRange(for i: Int) -> ClosedRange<Int>? {
+        return nil
+    }
+    
+    override func setUp() {
+        super.setUp()
+        
+        label = "Provider"
+        panelInputView.accessory = .delete
+        provider = nil
+    }
+}
+
+
+/*
+class ProviderPanelView: PanelView {
     private let dividerInput: [DividerInput] = [DividerInput(), DividerInput()]
     private let nameInput: StringInput = StringInput()
     private let uriInput: URIInput = URIInput()
@@ -154,4 +202,4 @@ class ProviderPanelView: PanelView {
         delegate?.panel(self, didSelect: nil)
         delegate?.panelDidEdit(self)
     }
-}
+} */

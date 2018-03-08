@@ -1,7 +1,7 @@
 import Cocoa
 import BoatsKit
 
-class ServiceInput: Input {
+class ServiceInputView: InputView {
     private var buttons: [NSButton] = []
     
     var services: [Service] {
@@ -22,17 +22,23 @@ class ServiceInput: Input {
         }
     }
     
-    // MARK: Input
+    @objc func handleService(_ sender: AnyObject?) {
+        delegate?.inputViewDidEdit(self)
+    }
+    
+    // MARK: InputView
     override func setUp() {
         super.setUp()
         
+        contentView.frame.size.height = (ceil(CGFloat(Service.all.count) / 2.0) * 22.0) - 3.0
         for (i, service) in Service.all.enumerated() {
-            let button: NSButton = NSButton(checkboxWithTitle: service.rawValue.capitalized, target: self, action: #selector(inputEdited(_:)))
+            let button: NSButton = NSButton(checkboxWithTitle: service.rawValue.capitalized, target: self, action: #selector(handleService(_:)))
             button.frame.size.width = 120.0
             button.frame.size.height = 22.0
-            button.frame.origin.x = intrinsicContentSize.width - (padding.right + (button.frame.size.width * (i % 2 == 1 ? 1.0 : 2.0)))
-            button.frame.origin.y = intrinsicContentSize.height - (padding.top + (button.frame.size.height * CGFloat(i / 2 + 1)))
-            addSubview(button)
+            button.frame.origin.x = contentView.bounds.size.width - (button.frame.size.width * (i % 2 == 1 ? 1.0 : 2.0))
+            button.frame.origin.y = contentView.bounds.size.height - (button.frame.size.height * CGFloat(i / 2 + 1)) + 3.0
+            
+            contentView.addSubview(button)
             buttons.append(button)
         }
         

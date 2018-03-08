@@ -30,7 +30,8 @@ class LocalizationInputView: InputView {
         popUpButton.target = self
         popUpButton.action = #selector(handleLocalization(_:))
         popUpButton.sizeToFit()
-        popUpButton.frame.size.width = contentView.bounds.size.width
+        popUpButton.frame.size.width = contentView.bounds.size.width + 4.0
+        popUpButton.frame.origin.x = -2.0
         contentView.addSubview(popUpButton)
         
         contentView.frame.size.height = labelTextField.frame.size.height + popUpButton.frame.size.height

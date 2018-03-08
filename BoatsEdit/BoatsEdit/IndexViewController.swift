@@ -4,8 +4,8 @@ import BoatsWeb
 
 class IndexViewController: NSViewController, PanelViewDelegate {
     private let indexPanelView: IndexPanelView = IndexPanelView()
+    private let providerPanelView: ProviderPanelView = ProviderPanelView()
     
-    //private let providerPanelView: ProviderPanelView = ProviderPanelView()
     //private let routePanelView: RoutePanelView = RoutePanelView()
     //private let locationPanelView: LocationPanelView = LocationPanelView()
     //private let schedulePanelView: SchedulePanelView = SchedulePanelView()
@@ -68,26 +68,15 @@ class IndexViewController: NSViewController, PanelViewDelegate {
         indexPanelView.frame.size.height = view.bounds.size.height
         scrollView?.documentView?.addSubview(indexPanelView)
         
-        let separatorView: NSView = NSView()
-        separatorView.wantsLayer = true
-        separatorView.layer?.backgroundColor = NSColor.separator.cgColor
-        separatorView.autoresizingMask = [.width, .minYMargin]
-        separatorView.frame.size.width = view.bounds.size.width
-        separatorView.frame.size.height = 0.5
-        separatorView.frame.origin.y = view.bounds.size.height - separatorView.frame.size.height
-        view.addSubview(separatorView)
-        
-        
-        
-        scrollView?.documentView?.frame.size.width = 361.0
-        
-        /*
         providerPanelView.delegate = indexPanelView
         providerPanelView.autoresizingMask = [.height]
         providerPanelView.frame.size.height = view.bounds.size.height
         providerPanelView.frame.origin.x = indexPanelView.intrinsicContentSize.width
         scrollView?.documentView?.addSubview(providerPanelView)
         
+        scrollView?.documentView?.frame.size.width = 800.0
+        
+        /*
         routePanelView.delegate = providerPanelView
         routePanelView.autoresizingMask = [.height]
         routePanelView.frame.size.height = view.bounds.size.height
@@ -126,7 +115,25 @@ class IndexViewController: NSViewController, PanelViewDelegate {
     
     // MARK: PanelViewDelegate
     func panelView(_ view: PanelView, didSelect input: Any?) {
+        switch view {
+        case is IndexPanelView:
+            providerPanelView.localization = indexPanelView.index?.localization
+            providerPanelView.provider = input as? Provider
+            fallthrough
+        default:
+            break
+        }
         
+        var rect: CGRect = indexPanelView.frame
+        for panel in [
+            providerPanelView,
+        ] {
+            rect = !panel.isHidden && panel.frame.origin.x > rect.origin.x ? panel.frame : rect
+        }
+        scrollView?.documentView?.frame.size.width = max(scrollView?.documentView?.frame.size.width ?? 0.0, rect.origin.x + rect.size.width)
+        scrollView?.scroll(to: rect) {
+            self.scrollView?.documentView?.frame.size.width = rect.origin.x + rect.size.width
+        }
         
         /*
         switch view {
@@ -174,7 +181,7 @@ class IndexViewController: NSViewController, PanelViewDelegate {
     func panelViewDidEdit(_ view: PanelView) {
         if IndexManager.web != indexPanelView.web {
             IndexManager.web = indexPanelView.web
-            previewButton?.isEnabled = IndexManager.web
+            previewButton?.isEnabled = indexPanelView.web
         } else {
             try? IndexManager.save(index: indexPanelView.index)
         }

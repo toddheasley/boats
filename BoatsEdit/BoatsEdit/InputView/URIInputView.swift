@@ -1,7 +1,7 @@
 import Cocoa
 import BoatsKit
 
-class URIInput: Input, NSTextFieldDelegate {
+class URIInputView: InputView, NSTextFieldDelegate {
     private let textField: NSTextField = NSTextField()
     
     var uri: URI? {
@@ -13,20 +13,29 @@ class URIInput: Input, NSTextFieldDelegate {
         }
     }
     
-    // MARK: Input
+    // MARK: InputView
+    override var placeholder: String? {
+        set {
+            textField.placeholderString = newValue
+        }
+        get {
+            return textField.placeholderString
+        }
+    }
     
     override func setUp() {
         super.setUp()
         
         textField.delegate = self
-        textField.frame.size.width = intrinsicContentSize.width - padding.width
+        textField.frame.size.width = contentView.bounds.size.width
         textField.frame.size.height = 22.0
-        textField.frame.origin.x = padding.left
-        textField.frame.origin.y = padding.bottom
-        addSubview(textField)
+        contentView.addSubview(textField)
+        
+        contentView.frame.size.height = labelTextField.frame.size.height + textField.frame.size.height
         
         label = "URI"
         placeholder = "example"
+        uri = nil
     }
     
     // MARK: NSTextFieldDelegate
@@ -35,6 +44,6 @@ class URIInput: Input, NSTextFieldDelegate {
     }
     
     override func controlTextDidEndEditing(_ obj: Notification) {
-        inputEdited(textField)
+        delegate?.inputViewDidEdit(self)
     }
 }

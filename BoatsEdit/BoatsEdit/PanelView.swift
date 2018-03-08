@@ -12,6 +12,10 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     private let scrollView: NSScrollView = PanelScrollView()
     let panelInputView: PanelInputView = PanelInputView()
     
+    var selectedInput: Int? {
+        return tableView.selectedRow > 0 ? tableView.selectedRow - 1 : nil
+    }
+    
     var inputViews: [InputView] = [] {
         didSet {
             for inputView in inputViews {
@@ -44,26 +48,6 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     
     func dragRange(for i: Int) -> ClosedRange<Int>? {
         return nil
-    }
-    
-    func delete(label: String? = nil) {
-        let alert: NSAlert = NSAlert()
-        alert.alertStyle = .critical
-        alert.messageText = "Delete?"
-        if let label: String = label, !label.isEmpty {
-            alert.messageText = "Delete \(label)?"
-        }
-        alert.informativeText = "You can’t undo this action."
-        alert.addButton(withTitle: "Delete")
-        alert.addButton(withTitle: "Cancel")
-        guard alert.runModal() == .alertFirstButtonReturn else {
-            return
-        }
-        delegate?.panelViewDidDelete(self)
-    }
-    
-    @objc func handleDelete(_ sender: AnyObject?) {
-        delete()
     }
     
     // MARK: NSView
@@ -182,7 +166,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        inputSelected(at: tableView.selectedRow > 0 ? tableView.selectedRow - 1 : nil)
+        inputSelected(at: selectedInput)
     }
     
     // MARK: PanelViewDelegate
@@ -195,7 +179,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     }
     
     func panelViewDidDelete(_ view: PanelView) {
-        
+        delegate?.panelViewDidDelete(self)
     }
     
     // MARK: InputViewDelegate
@@ -204,6 +188,18 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     }
     
     func inputViewDidDelete(_ view: InputView) {
+        let alert: NSAlert = NSAlert()
+        alert.alertStyle = .critical
+        alert.messageText = "Delete?"
+        if let label: String = label, !label.isEmpty {
+            alert.messageText = "Delete \(label)?"
+        }
+        alert.informativeText = "You can’t undo this action."
+        alert.addButton(withTitle: "Delete")
+        alert.addButton(withTitle: "Cancel")
+        guard alert.runModal() == .alertFirstButtonReturn else {
+            return
+        }
         panelViewDidDelete(self)
     }
 }
@@ -216,12 +212,14 @@ fileprivate class PanelRowView: NSTableRowView {
     }
     
     override func drawSelection(in dirtyRect: NSRect) {
-        NSColor.gridColor.withAlphaComponent(0.12).setFill()
-        if isEmphasized {
-            NSColor.tint.setFill()
-        }
-        let path: NSBezierPath = NSBezierPath(rect: dirtyRect)
-        path.fill()
+        var rect: CGRect = dirtyRect
+        rect.size.width -= (padding.width - 4.0)
+        rect.size.height -= 4.0
+        rect.origin.x += (padding.left - 2.0)
+        rect.origin.y += 2.0
+        
+        NSColor.tint(emphasized: isEmphasized).setFill()
+        NSBezierPath(roundedRect: rect, xRadius: 3.5, yRadius: 3.5).fill()
     }
 }
 
