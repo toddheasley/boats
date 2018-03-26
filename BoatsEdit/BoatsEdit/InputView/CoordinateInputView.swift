@@ -29,18 +29,18 @@ class CoordinateInputView: InputView, NSTextFieldDelegate, CoordinateMapDelegate
     override func setUp() {
         super.setUp()
         
-        contentView.frame.size.height = labelTextField.frame.size.height + 348.0
+        contentView.frame.size.height = labelTextField.frame.size.height + 338.0
         
         mapView.delegate = self
         mapView.frame.size.width = contentView.bounds.size.width
-        mapView.frame.size.height = 320.0
+        mapView.frame.size.height = 310.0
         contentView.addSubview(mapView)
         
         textField.latitude.delegate = self
         textField.latitude.placeholderString = "Latitude"
         textField.latitude.frame.size.width = (contentView.bounds.size.width / 2.0) - 3.0
         textField.latitude.frame.size.height = 22.0
-        textField.latitude.frame.origin.y = 326.0
+        textField.latitude.frame.origin.y = 316.0
         contentView.addSubview(textField.latitude)
         
         textField.longitude.delegate = self
@@ -57,14 +57,16 @@ class CoordinateInputView: InputView, NSTextFieldDelegate, CoordinateMapDelegate
     // MARK: NSTextFieldDelegate
     override func controlTextDidEndEditing(_ obj: Notification) {
         mapView.coordinate = CLLocationCoordinate2D(coordinate: coordinate!)
-        //inputEdited(obj.object as? NSTextField)
+        
+        delegate?.inputViewDidEdit(self)
     }
     
     // MARK: CoordinateMapDelegate
     fileprivate func coordinateDidChange(map: CoordinateMapView) {
         textField.latitude.stringValue = format(map.coordinate.latitude)
         textField.longitude.stringValue = format(map.coordinate.longitude)
-        //inputEdited(mapView)
+        
+        delegate?.inputViewDidEdit(self)
     }
 }
 
@@ -139,12 +141,11 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         addSubview(mapView)
         
         target.wantsLayer = true
-        target.layer?.backgroundColor = NSColor.alternateSelectedControlColor.withAlphaComponent(0.1).cgColor
-        target.layer?.borderColor = NSColor.alternateSelectedControlColor.withAlphaComponent(0.4).cgColor
+        target.layer?.borderColor = NSColor.text.cgColor
         target.layer?.borderWidth = 0.5
-        target.layer?.cornerRadius = 22.0
-        target.frame.size.width = 44.0
-        target.frame.size.height = 44.0
+        target.layer?.cornerRadius = 11.0
+        target.frame.size.width = 22.0
+        target.frame.size.height = 22.0
         mapView.addSubview(target)
         
         button.overlay.target = self

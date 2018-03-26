@@ -1,7 +1,7 @@
 import Cocoa
 import BoatsKit
 
-class DirectionInput: Input {
+class DirectionInputView: InputView {
     private let segmentedControl: NSSegmentedControl = NSSegmentedControl()
     
     var direction: Departure.Direction {
@@ -13,21 +13,27 @@ class DirectionInput: Input {
         }
     }
     
-    // MARK: Input
+    @objc func handleDirection(_ sender: AnyObject?) {
+        delegate?.inputViewDidEdit(self)
+    }
+    
+    // MARK: InputView
     override func setUp() {
         super.setUp()
         
+        contentView.frame.size.height = 22.0
+        
         segmentedControl.target = self
-        segmentedControl.action = #selector(inputEdited(_:))
+        segmentedControl.action = #selector(handleDirection(_:))
         segmentedControl.segmentCount = 2
         segmentedControl.setLabel(Departure.Direction.origin.rawValue.capitalized, forSegment: 0)
         segmentedControl.setWidth(117.0, forSegment: 0)
         segmentedControl.setLabel(Departure.Direction.destination.rawValue.capitalized, forSegment: 1)
         segmentedControl.setWidth(117.0, forSegment: 1)
         segmentedControl.frame.size.width = 240.0
-        segmentedControl.frame.origin.x = intrinsicContentSize.width - (padding.right + segmentedControl.frame.size.width)
-        segmentedControl.frame.origin.y = padding.bottom
-        addSubview(segmentedControl)
+        segmentedControl.frame.origin.x = contentView.bounds.size.width - segmentedControl.frame.size.width + 2.0
+        segmentedControl.frame.origin.y = -2.0
+        contentView.addSubview(segmentedControl)
         
         label = "Direction"
         direction = .destination

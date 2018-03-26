@@ -20,7 +20,7 @@ class IndexPanelView: PanelView {
             
             inputViews.append(InputView(style: .separator))
             
-            inputViews.append(InputView(style: .custom))
+            inputViews.append(InputView(style: .control))
             inputViews.last?.label = "Providers"
             for provider in newValue?.providers ?? [] {
                 inputViews.append(InputView(style: .label))

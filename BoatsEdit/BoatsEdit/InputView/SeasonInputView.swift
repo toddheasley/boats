@@ -1,7 +1,7 @@
 import Cocoa
 import BoatsKit
 
-class SeasonInput: Input, SeasonDatePickerDelegate {
+class SeasonInputView: InputView, SeasonDatePickerDelegate {
     private let popUpButton: NSPopUpButton = NSPopUpButton()
     private let datePicker: SeasonDatePicker = SeasonDatePicker()
     
@@ -50,18 +50,23 @@ class SeasonInput: Input, SeasonDatePickerDelegate {
         }
     }
     
-    // MARK: Input
-    override var allowsSelection: Bool {
-        return true
+    @objc func handleSeason(_ sender: AnyObject?) {
+        layout()
+        
+        delegate?.inputViewDidEdit(self)
     }
     
-    override func inputEdited(_ sender: AnyObject?) {
-        layout()
-        super.inputEdited(sender)
+    // MARK: InputView
+    override func layout() {
+        super.layout()
+        
+        datePicker.isHidden = popUpButton.indexOfSelectedItem == 0
     }
     
     override func setUp() {
         super.setUp()
+        
+        contentView.frame.size.height = labelTextField.frame.size.height + 22.0
         
         popUpButton.addItems(withTitles: [
             "Evergreen",
@@ -71,31 +76,24 @@ class SeasonInput: Input, SeasonDatePickerDelegate {
             "Winter",
         ])
         popUpButton.target = self
-        popUpButton.action = #selector(inputEdited(_:))
+        popUpButton.action = #selector(handleSeason(_:))
         popUpButton.sizeToFit()
         popUpButton.frame.size.width = 120.0
-        popUpButton.frame.origin.x = padding.left
-        popUpButton.frame.origin.y = padding.bottom - 3.0
-        addSubview(popUpButton)
+        popUpButton.frame.origin.x = -2.0
+        popUpButton.frame.origin.y = -3.0
+        contentView.addSubview(popUpButton)
         
         datePicker.delegate = self
-        datePicker.frame.origin.x = intrinsicContentSize.width - (padding.right + datePicker.frame.size.width)
-        datePicker.frame.origin.y = padding.bottom
-        addSubview(datePicker)
+        datePicker.frame.origin.x = contentView.bounds.size.width - datePicker.frame.size.width
+        contentView.addSubview(datePicker)
         
         label = "Season"
         season = nil
     }
     
-    override func layout() {
-        super.layout()
-        
-        datePicker.isHidden = popUpButton.indexOfSelectedItem == 0
-    }
-    
     // MARK: SeasonDatePickerDelegate
     func seasonDidChangeDate(picker: SeasonDatePicker) {
-        inputEdited(picker)
+        delegate?.inputViewDidEdit(self)
     }
 }
 

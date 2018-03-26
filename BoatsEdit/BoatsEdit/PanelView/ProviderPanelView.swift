@@ -18,7 +18,7 @@ class ProviderPanelView: PanelView {
             
             inputViews.append(InputView(style: .separator))
             
-            inputViews.append(CoordinateInputView())
+            inputViews.append(LocationInputView())
             
             inputViews.append(InputView(style: .separator))
             

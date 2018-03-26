@@ -8,7 +8,7 @@ protocol InputViewDelegate {
 class InputView: NSView {
     enum Style {
         case label
-        case custom
+        case control
         case separator
         case spacer
     }
@@ -17,16 +17,15 @@ class InputView: NSView {
     let labelTextField: NSTextField = NSTextField(labelWithString: "")
     let contentView: NSView = NSView()
     
-    private(set) var style: Style = .custom
+    private(set) var style: Style = .control
     var delegate: InputViewDelegate?
-    var input: Any?
     
     var label: String? {
         didSet {
             switch style {
             case .label:
                 labelTextField.stringValue = label ?? ""
-            case .custom:
+            case .control:
                 labelTextField.stringValue = label?.uppercased() ?? ""
             default:
                 labelTextField.stringValue = ""
@@ -58,10 +57,9 @@ class InputView: NSView {
         return style == .label
     }
     
-    required init(style: Style) {
-        super.init(frame: .zero)
-        self.style = className == InputView().className ? style : .custom
-        setUp()
+    convenience init(style: Style = .control) {
+        self.init(frame: .zero)
+        self.style = style
     }
     
     // MARK: NSView
@@ -69,7 +67,7 @@ class InputView: NSView {
         switch style {
         case .label:
             return NSSize(width: .inputWidth, height: 12.0 + padding.height)
-        case .custom:
+        case .control:
             return NSSize(width: .inputWidth, height: contentView.bounds.size.height + padding.height)
         case .spacer, .separator:
             return NSSize(width: .inputWidth, height: padding.height)
@@ -96,7 +94,7 @@ class InputView: NSView {
             labelTextField.frame.origin.x = padding.left
             labelTextField.frame.origin.y = padding.bottom - 5.0
             addSubview(labelTextField)
-        case .custom:
+        case .control:
             labelTextField.autoresizingMask = [.minYMargin]
             labelTextField.font = .meta
             labelTextField.frame.size.width = intrinsicContentSize.width - padding.width
