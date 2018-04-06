@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C029613207813EF00FCE626 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C029612207813EF00FCE626 /* BoatsKit.framework */; };
 		5C03DF1F1F43A4F500367ABE /* Menu.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5C03DF1E1F43A4F500367ABE /* Menu.svg */; };
 		5C03DF201F43A4F500367ABE /* Menu.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5C03DF1E1F43A4F500367ABE /* Menu.svg */; };
 		5C07DB381F5F31F8004C8ACB /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB371F5F31F8004C8ACB /* Site.swift */; };
@@ -70,6 +71,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C0296102078139B00FCE626 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C029612207813EF00FCE626 /* BoatsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoatsKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Boats-beasguutqweaegbpiwbnmtbrslsw/Build/Products/Debug-iphonesimulator/BoatsKit.framework"; sourceTree = "<group>"; };
 		5C03DF1E1F43A4F500367ABE /* Menu.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Menu.svg; sourceTree = "<group>"; };
 		5C07DB371F5F31F8004C8ACB /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		5C07DB3A1F5F3231004C8ACB /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C029613207813EF00FCE626 /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +138,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C02960F2078139B00FCE626 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C0296102078139B00FCE626 /* BoatsKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5C53E1861F44609B00B2C89F /* SVG */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,9 +172,11 @@
 				5CF357081F40ED7400348203 /* BoatsWeb */,
 				5CFB26011F42A1590066C80C /* BoatsWebTests */,
 				5C138C031F40F0C80034CD34 /* BoatsKit.framework */,
+				5C029612207813EF00FCE626 /* BoatsKit.framework */,
 				5CF3571E1F40EE1200348203 /* BoatsWeb.framework */,
 				5CF3571F1F40EE1200348203 /* BoatsWeb.framework */,
 				5CFB26001F42A1590066C80C /* BoatsWebTests.xctest */,
+				5C02960F2078139B00FCE626 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
