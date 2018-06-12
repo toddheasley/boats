@@ -13,6 +13,10 @@ class ProviderInputView: InputView {
         
     }
     
+    required init(style: Style) {
+        super.init(style: style)
+    }
+    
     required init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

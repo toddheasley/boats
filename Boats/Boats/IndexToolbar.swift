@@ -34,14 +34,14 @@ class IndexToolbar: Toolbar {
         separatorPosition = .bottom
         
         nameLabel.font = .mast
-        nameLabel.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        nameLabel.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleTopMargin]
         nameLabel.frame.size.width = contentView.bounds.size.width
         nameLabel.frame.size.height = 44.0
         nameLabel.frame.origin.y = contentView.bounds.size.height - nameLabel.frame.size.height
         contentView.addSubview(nameLabel)
         
         descriptionLabel.font = .base
-        descriptionLabel.autoresizingMask = [.flexibleWidth]
+        descriptionLabel.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth]
         descriptionLabel.frame.size.width = contentView.bounds.size.width
         descriptionLabel.frame.size.height = 22.0
         contentView.addSubview(descriptionLabel)

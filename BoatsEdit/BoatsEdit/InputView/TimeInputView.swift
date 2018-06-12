@@ -31,8 +31,8 @@ class TimeInputView: InputView {
         super.setUp()
         
         datePicker.isBezeled = false
-        datePicker.datePickerStyle = .textFieldDatePickerStyle
-        datePicker.datePickerElements = [.hourMinuteDatePickerElementFlag]
+        datePicker.datePickerStyle = .textField
+        datePicker.datePickerElements = [.hourMinute]
         datePicker.target = self
         datePicker.action = #selector(handleTime(_:))
         datePicker.sizeToFit()

@@ -55,7 +55,7 @@ class ScheduleHolidayReusableView: UICollectionReusableView, ModeTransitioning {
     override func setUp() {
         super.setUp()
         
-        contentView.autoresizingMask = [.flexibleLeftMargin]
+        contentView.autoresizingMask = [UIView.AutoresizingMask.flexibleLeftMargin]
         contentView.frame.size.width = ScheduleHolidayReusableView.view.intrinsicContentSize.width
         contentView.frame.origin.x = bounds.size.width - (contentView.frame.size.width + UIEdgeInsets.padding.right)
         contentView.frame.origin.y = UIEdgeInsets.padding.top

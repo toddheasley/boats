@@ -40,7 +40,7 @@ class ScheduleDayReusableView: UICollectionReusableView, ModeTransitioning {
         super.setUp()
         
         label.font = .base(.bold)
-        label.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin]
+        label.autoresizingMask = [UIView.AutoresizingMask.flexibleTopMargin, UIView.AutoresizingMask.flexibleBottomMargin]
         label.frame.size.height = 22.0
         label.frame.origin.y = (bounds.size.height - label.frame.size.height) / 2.0
         label.frame.origin.x = UIEdgeInsets.padding.left

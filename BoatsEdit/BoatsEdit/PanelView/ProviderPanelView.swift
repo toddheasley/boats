@@ -22,8 +22,6 @@ class ProviderPanelView: PanelView {
             
             inputViews.append(InputView(style: .separator))
             
-            inputViews.append(InputView(style: .custom))
-            
             self.inputViews = inputViews
             
             isHidden = newValue == nil

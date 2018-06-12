@@ -14,7 +14,7 @@ enum Mode: String {
         }
     }
     
-    var indicatorStyle: UIScrollViewIndicatorStyle {
+    var indicatorStyle: UIScrollView.IndicatorStyle {
         switch self {
         case .dark:
             return .white

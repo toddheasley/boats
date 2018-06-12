@@ -112,13 +112,13 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
         }
         tableView.deselectAll(nil)
         pasteboard.declareTypes([.input], owner: self)
-        pasteboard.setData(NSKeyedArchiver.archivedData(withRootObject: rowIndexes), forType: .input)
+        pasteboard.setData(try? NSKeyedArchiver.archivedData(withRootObject: rowIndexes, requiringSecureCoding: false), forType: .input)
         return true
     }
     
     func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
-        guard info.draggingSource() as? NSTableView == tableView, dropOperation == .above,
-            let data: Data = info.draggingPasteboard().data(forType: .input),
+        guard info.draggingSource as? NSTableView == tableView, dropOperation == .above,
+            let data: Data = info.draggingPasteboard.data(forType: .input),
             let dragRow: Int = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
             let dragRange: ClosedRange<Int> = dragRange(for: dragRow - 1), dragRange.contains(row - 1), row != dragRow, row != dragRow + 1 else {
             return []
@@ -127,7 +127,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     }
     
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
-        guard let data: Data = info.draggingPasteboard().data(forType: .input),
+        guard let data: Data = info.draggingPasteboard.data(forType: .input),
             let dragRow: Int = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
             let dragRange: ClosedRange<Int> = dragRange(for: dragRow - 1), dragRange.contains(row - 1) else {
             return false

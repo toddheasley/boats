@@ -146,8 +146,8 @@ class SeasonDatePicker: NSView {
         super.init(frame: rect)
         
         datePicker.start.isBezeled = false
-        datePicker.start.datePickerStyle = .textFieldDatePickerStyle
-        datePicker.start.datePickerElements = [.yearMonthDayDatePickerElementFlag]
+        datePicker.start.datePickerStyle = .textField
+        datePicker.start.datePickerElements = [.yearMonthDay]
         datePicker.start.sizeToFit()
         datePicker.start.target = self
         datePicker.start.action = #selector(dateEdited(_:))

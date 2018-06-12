@@ -60,18 +60,18 @@ class RouteHeaderToolbar: Toolbar {
         
         separatorPosition = .bottom
         
-        routeView.autoresizingMask = [.flexibleWidth]
+        routeView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth]
         routeView.frame.size.width = contentView.bounds.size.width
         contentView.addSubview(routeView)
         
         directionControl.setTitleTextAttributes([
-            NSAttributedStringKey.font: UIFont.meta
-        ], for: .normal)
+            NSAttributedString.Key.font: UIFont.meta
+        ], for: UIControl.State.normal)
         directionControl.selectedSegmentIndex = 0
-        directionControl.autoresizingMask = [.flexibleWidth]
+        directionControl.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth]
         directionControl.frame.size.width = contentView.bounds.size.width
         directionControl.frame.size.height = 27.0
-        directionControl.addTarget(self, action: #selector(handleDirectionChange(_:)), for: .valueChanged)
+        directionControl.addTarget(self, action: #selector(handleDirectionChange(_:)), for: UIControl.Event.valueChanged)
         contentView.addSubview(directionControl)
         
         transitionMode(duration: 0.0)

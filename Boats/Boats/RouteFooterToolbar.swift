@@ -45,11 +45,11 @@ class RouteFooterToolbar: Toolbar {
         
         separatorPosition = .top
         
-        providerView.addTarget(self, action: #selector(handleProviderAction(_:)), for: .touchUpInside)
+        providerView.addTarget(self, action: #selector(handleProviderAction(_:)), for: UIControl.Event.touchUpInside)
         providerView.isEnabled = true
         contentView.addSubview(providerView)
         
-        iconView.addTarget(self, action: #selector(handleIconAction(_:)), for: .touchUpInside)
+        iconView.addTarget(self, action: #selector(handleIconAction(_:)), for: UIControl.Event.touchUpInside)
         iconView.isEnabled = true
         contentView.addSubview(iconView)
         

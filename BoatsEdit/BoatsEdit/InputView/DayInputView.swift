@@ -81,8 +81,8 @@ class DayInputView: InputView {
         datePicker.isBezeled = false
         datePicker.target = self
         datePicker.action = #selector(handleDay(_:))
-        datePicker.datePickerStyle = .textFieldDatePickerStyle
-        datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
+        datePicker.datePickerStyle = .textField
+        datePicker.datePickerElements = [.yearMonthDay]
         datePicker.sizeToFit()
         datePicker.frame.size.height = 22.0
         datePicker.frame.origin.x = 68.0

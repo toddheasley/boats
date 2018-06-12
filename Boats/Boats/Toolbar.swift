@@ -71,11 +71,11 @@ class Toolbar: UIView, ModeTransitioning {
     override func setUp() {
         super.setUp()
         
-        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        backgroundView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         backgroundView.frame = bounds
         addSubview(backgroundView)
         
-        separatorView.autoresizingMask = [.flexibleWidth]
+        separatorView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth]
         separatorView.frame.size.width = bounds.size.width
         separatorView.frame.size.height = .separatorHeight
         backgroundView.addSubview(separatorView)

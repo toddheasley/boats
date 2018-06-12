@@ -2,6 +2,7 @@ import UIKit
 
 extension UIEdgeInsets {
     static let padding: UIEdgeInsets = UIEdgeInsets(top: 11.0, left: 15.0, bottom: 11.0, right: 15.0)
+    static let zero: UIEdgeInsets = UIEdgeInsets()
     
     var width: CGFloat {
         return left + right

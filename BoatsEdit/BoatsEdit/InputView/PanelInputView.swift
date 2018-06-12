@@ -78,7 +78,7 @@ class PanelInputView: InputView {
         webButton.action = #selector(handleWeb(_:))
         contentView.addSubview(webButton)
         
-        deleteButton.image = NSImage(named: .touchBarDeleteTemplate)
+        deleteButton.image = NSImage(named: NSImage.touchBarDeleteTemplateName)
         deleteButton.setButtonType(.momentaryChange)
         deleteButton.isBordered = false
         deleteButton.frame.size.width = labelTextField.frame.size.height

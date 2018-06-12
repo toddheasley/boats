@@ -63,7 +63,7 @@ class ScheduleViewCell: UICollectionViewCell, ModeTransitioning {
     override func setUp() {
         super.setUp()
         
-        departureView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        departureView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         departureView.frame = contentView.bounds
         contentView.addSubview(departureView)
         

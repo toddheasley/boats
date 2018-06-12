@@ -59,15 +59,15 @@ class ScheduleView: UIView, UIScrollViewDelegate, ModeTransitioning {
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
-        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        scrollView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         scrollView.frame = bounds
         addSubview(scrollView)
         
-        destinationView.autoresizingMask = [.flexibleHeight]
+        destinationView.autoresizingMask = [UIView.AutoresizingMask.flexibleHeight]
         destinationView.frame.size.height = scrollView.bounds.size.height
         scrollView.addSubview(destinationView)
         
-        originView.autoresizingMask = [.flexibleHeight]
+        originView.autoresizingMask = [UIView.AutoresizingMask.flexibleHeight]
         originView.frame.size.height = scrollView.bounds.size.height
         scrollView.addSubview(originView)
         
@@ -146,8 +146,8 @@ fileprivate class ScheduleDirectionView: UICollectionView, UICollectionViewDataS
         self.schedule = schedule
         
         backgroundColor = .clear
-        register(ScheduleDayReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Day")
-        register(ScheduleHolidayReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "Holiday")
+        register(ScheduleDayReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Day")
+        register(ScheduleHolidayReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Holiday")
         register(ScheduleViewCell.self, forCellWithReuseIdentifier: "Cell")
         dataSource = self
         delegate = self
@@ -196,13 +196,13 @@ fileprivate class ScheduleDirectionView: UICollectionView, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
-        case UICollectionElementKindSectionFooter:
+        case UICollectionView.elementKindSectionFooter:
             let view: ScheduleHolidayReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Holiday", for: indexPath) as! ScheduleHolidayReusableView
             view.localization = localization
             view.holidays = schedule?.holidays
             return view
         default:
-            let view: ScheduleDayReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Day", for: indexPath) as! ScheduleDayReusableView
+            let view: ScheduleDayReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Day", for: indexPath) as! ScheduleDayReusableView
             view.day = days[indexPath.section].day
             return view
         }
@@ -224,10 +224,10 @@ fileprivate class ScheduleDirectionView: UICollectionView, UICollectionViewDataS
     // MARK: ModeTransitioning
     func transitionMode(duration: TimeInterval) {
         indicatorStyle = mode.indicatorStyle
-        for view in visibleSupplementaryViews(ofKind: UICollectionElementKindSectionHeader) {
+        for view in visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader) {
             (view as? ModeTransitioning)?.transitionMode(duration: duration)
         }
-        for view in visibleSupplementaryViews(ofKind: UICollectionElementKindSectionFooter) {
+        for view in visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionFooter) {
             (view as? ModeTransitioning)?.transitionMode(duration: duration)
         }
         for cell in visibleCells {

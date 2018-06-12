@@ -19,14 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UIApplicationDelegate
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         applicationWillEnterForeground(application)
         return true
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         NotificationCenter.default.post(name: Notification.Name.ModeChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationScreenBrightnessDidChange), name: Notification.Name.UIScreenBrightnessDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationScreenBrightnessDidChange), name: UIScreen.brightnessDidChangeNotification, object: nil)
         
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(applicationTimeDidChange), userInfo: nil, repeats: true)
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIScreenBrightnessDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIScreen.brightnessDidChangeNotification, object: nil)
         timer?.invalidate()
     }
 }

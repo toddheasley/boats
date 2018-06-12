@@ -118,13 +118,13 @@ fileprivate class ScheduleStatusView: NSView {
         
         switch status {
         case .active:
-            imageView.image = NSImage(named: .statusAvailable)
+            imageView.image = NSImage(named: NSImage.statusAvailableName)
         case .caution:
-            imageView.image = NSImage(named: .statusPartiallyAvailable)
+            imageView.image = NSImage(named: NSImage.statusPartiallyAvailableName)
         case .expired:
-            imageView.image = NSImage(named: .statusUnavailable)
+            imageView.image = NSImage(named: NSImage.statusUnavailableName)
         case .none:
-            imageView.image = NSImage(named: .statusNone)
+            imageView.image = NSImage(named: NSImage.statusNoneName)
         }
     }
     

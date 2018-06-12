@@ -70,7 +70,7 @@ class IndexViewController: ViewController, UITableViewDataSource, UITableViewDel
         super.viewDidLoad()
         
         tableView?.refreshControl = UIRefreshControl()
-        tableView?.refreshControl?.addTarget(self, action: #selector(reloadIndex), for: .valueChanged)
+        tableView?.refreshControl?.addTarget(self, action: #selector(reloadIndex), for: UIControl.Event.valueChanged)
         tableView?.separatorStyle = .none
     }
     

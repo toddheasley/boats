@@ -96,7 +96,7 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         set {
             mapView.isScrollEnabled = !newValue
             button.overlay.isHidden = !newValue
-            button.lock.image = NSImage(named: newValue ? .lockLockedTemplate : .lockUnlockedTemplate)
+            button.lock.image = NSImage(named: newValue ? NSImage.lockLockedTemplateName : NSImage.lockUnlockedTemplateName)
         }
         get {
             return !button.overlay.isHidden

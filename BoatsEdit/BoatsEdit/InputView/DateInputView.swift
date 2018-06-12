@@ -31,8 +31,8 @@ class DateInputView: InputView {
         super.setUp()
         
         datePicker.isBezeled = false
-        datePicker.datePickerStyle = .textFieldDatePickerStyle
-        datePicker.datePickerElements = [.yearMonthDayDatePickerElementFlag]
+        datePicker.datePickerStyle = .textField
+        datePicker.datePickerElements = [.yearMonthDay]
         datePicker.target = self
         datePicker.action = #selector(handleDate(_:))
         datePicker.sizeToFit()

@@ -141,7 +141,7 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             routeViewController.view.layoutIfNeeded()
             transitionContext.containerView.addSubview(viewController.view)
             transitionContext.containerView.addSubview(routeViewController.view)
-            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveEaseIn, animations: {
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
                 routeViewController.view.frame = transitionContext.containerView.bounds
             }, completion: { _ in
                 transitionContext.completeTransition(true)
@@ -156,7 +156,7 @@ class RouteViewAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             viewController.view.layoutIfNeeded()
             transitionContext.containerView.addSubview(viewController.view)
             transitionContext.containerView.addSubview(routeViewController.view)
-            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
                 routeViewController.view.frame.origin.y = transitionContext.containerView.bounds.size.height
             }, completion: { finished in
                 transitionContext.completeTransition(true)

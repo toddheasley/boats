@@ -73,13 +73,13 @@ class RouteView: UIView, ModeTransitioning {
         super.setUp()
         
         nameLabel.font = .head
-        nameLabel.autoresizingMask = [.flexibleWidth]
+        nameLabel.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth]
         nameLabel.frame.size.width = bounds.size.width
         nameLabel.frame.size.height = 22.0
         addSubview(nameLabel)
         
         descriptionLabel.font = .base(.bold)
-        descriptionLabel.autoresizingMask = [.flexibleWidth]
+        descriptionLabel.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth]
         descriptionLabel.frame.size.width = bounds.size.width
         descriptionLabel.frame.size.height = 22.0
         descriptionLabel.frame.origin.y = nameLabel.frame.size.height

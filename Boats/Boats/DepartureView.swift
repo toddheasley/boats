@@ -59,7 +59,7 @@ class DepartureView: UIView, ModeTransitioning {
     override func setUp() {
         super.setUp()
         
-        contentView.autoresizingMask = [.flexibleLeftMargin, .flexibleTopMargin, .flexibleBottomMargin]
+        contentView.autoresizingMask = [UIView.AutoresizingMask.flexibleLeftMargin, UIView.AutoresizingMask.flexibleTopMargin, UIView.AutoresizingMask.flexibleBottomMargin]
         contentView.frame.size = intrinsicContentSize
         contentView.frame.origin.x = bounds.size.width - contentView.frame.size.width
         addSubview(contentView)

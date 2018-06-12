@@ -17,6 +17,8 @@ class InputView: NSView {
     let labelTextField: NSTextField = NSTextField(labelWithString: "")
     let contentView: NSView = NSView()
     
+    var input: Any?
+    
     private(set) var style: Style = .control
     var delegate: InputViewDelegate?
     
@@ -41,8 +43,8 @@ class InputView: NSView {
             if style == .label,
                 let newValue = newValue, !newValue.isEmpty {
                 labelTextField.placeholderAttributedString = NSAttributedString(string: "\(newValue)", attributes: [
-                    .font: NSFont.systemFont(ofSize: labelTextField.font!.pointSize, weight: .regular),
-                    .foregroundColor: NSColor.separator
+                    NSAttributedString.Key.font: NSFont.systemFont(ofSize: labelTextField.font!.pointSize, weight: .regular),
+                    NSAttributedString.Key.foregroundColor: NSColor.separator
                 ])
             } else {
                 labelTextField.placeholderAttributedString = nil
@@ -57,8 +59,8 @@ class InputView: NSView {
         return style == .label
     }
     
-    convenience init(style: Style = .control) {
-        self.init(frame: .zero)
+    required init(style: Style = .control) {
+        super.init(frame: .zero)
         self.style = style
     }
     

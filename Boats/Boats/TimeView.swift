@@ -49,7 +49,7 @@ class TimeView: UIView, ModeTransitioning {
     override func setUp() {
         super.setUp()
         
-        contentView.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleLeftMargin]
+        contentView.autoresizingMask = [UIView.AutoresizingMask.flexibleTopMargin, UIView.AutoresizingMask.flexibleRightMargin, UIView.AutoresizingMask.flexibleBottomMargin, UIView.AutoresizingMask.flexibleLeftMargin]
         contentView.frame.size = intrinsicContentSize
         contentView.frame.origin.x = (bounds.size.width - intrinsicContentSize.width) / 2.0
         contentView.frame.origin.y = (bounds.size.height - intrinsicContentSize.height) / 2.0

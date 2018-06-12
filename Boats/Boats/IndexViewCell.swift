@@ -94,7 +94,7 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         separatorView.frame.size.height = .separatorHeight
         addSubview(separatorView)
         
-        providerView.autoresizingMask = [.flexibleTopMargin]
+        providerView.autoresizingMask = [UIView.AutoresizingMask.flexibleTopMargin]
         providerView.frame.origin.y = contentView.bounds.size.height - (providerView.frame.size.height - 5.0)
         contentView.addSubview(providerView)
         
@@ -107,7 +107,7 @@ class IndexViewCell: UITableViewCell, ModeTransitioning {
         transitionMode(duration: 0.0)
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setUp()
