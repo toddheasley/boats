@@ -70,11 +70,11 @@ class CoordinateInputView: InputView, NSTextFieldDelegate, CoordinateMapDelegate
     }
 }
 
-fileprivate protocol CoordinateMapDelegate {
+private protocol CoordinateMapDelegate {
     func coordinateDidChange(map: CoordinateMapView)
 }
 
-fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
+private class CoordinateMapView: NSView, MKMapViewDelegate {
     private let mapView: MKMapView = MKMapView()
     private let target: NSView = NSView()
     private let button: (overlay: NSButton, lock: NSButton) = (NSButton(), NSButton())
@@ -141,7 +141,7 @@ fileprivate class CoordinateMapView: NSView, MKMapViewDelegate {
         addSubview(mapView)
         
         target.wantsLayer = true
-        target.layer?.borderColor = NSColor.text.cgColor
+        target.layer?.borderColor = NSColor.black.cgColor
         target.layer?.borderWidth = 0.5
         target.layer?.cornerRadius = 11.0
         target.frame.size.width = 22.0

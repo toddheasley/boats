@@ -11,8 +11,6 @@ public enum Day {
     case holiday
     case special(Date)
     
-    public static let all: [Day] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday, .holiday]
-    
     public var date: Date? {
         switch self {
         case .special(let date):
@@ -31,6 +29,12 @@ public enum Day {
         }
         self = DateFormatter(localization: localization ?? Localization()).day(from: date)
     }
+}
+
+extension Day: CaseIterable {
+    
+    // MARK: CaseIterable
+    public static let allCases: [Day] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday, .holiday]
 }
 
 extension Day: Codable {

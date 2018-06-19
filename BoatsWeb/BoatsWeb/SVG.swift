@@ -1,11 +1,9 @@
 import Foundation
 import BoatsKit
 
-enum SVG: String {
+enum SVG: String, CaseIterable {
     case menu = "Menu"
     case car = "Car"
-    
-    static let all: [SVG] = [.menu, .car]
 }
 
 extension SVG: HTMLConvertible {

@@ -6,13 +6,13 @@ class ServiceInputView: InputView {
     
     var services: [Service] {
         set {
-            for (i, service) in Service.all.enumerated() {
+            for (i, service) in Service.allCases.enumerated() {
                 buttons[i].state = newValue.contains(service) ? .on : .off
             }
         }
         get {
             var services: [Service] = []
-            for (i, service) in Service.all.enumerated() {
+            for (i, service) in Service.allCases.enumerated() {
                 guard buttons[i].state == .on else {
                     continue
                 }
@@ -30,8 +30,8 @@ class ServiceInputView: InputView {
     override func setUp() {
         super.setUp()
         
-        contentView.frame.size.height = (ceil(CGFloat(Service.all.count) / 2.0) * 22.0) - 3.0
-        for (i, service) in Service.all.enumerated() {
+        contentView.frame.size.height = (ceil(CGFloat(Service.allCases.count) / 2.0) * 22.0) - 3.0
+        for (i, service) in Service.allCases.enumerated() {
             let button: NSButton = NSButton(checkboxWithTitle: service.rawValue.capitalized, target: self, action: #selector(handleService(_:)))
             button.frame.size.width = 120.0
             button.frame.size.height = 22.0

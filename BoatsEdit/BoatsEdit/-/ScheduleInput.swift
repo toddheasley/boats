@@ -75,7 +75,7 @@ class ScheduleInput: Input {
     }
 }
 
-fileprivate class ScheduleStatusView: NSView {
+private class ScheduleStatusView: NSView {
     enum Status {
         case active
         case caution

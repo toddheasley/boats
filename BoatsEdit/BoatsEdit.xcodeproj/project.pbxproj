@@ -14,7 +14,6 @@
 		5C5FC23E20447556007F9127 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FC23D20447556007F9127 /* NSView.swift */; };
 		5C5FC23F2044A8D9007F9127 /* IndexPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7407CA1FC0ADA800A743D1 /* IndexPanelView.swift */; };
 		5C5FC2422044C8A4007F9127 /* PanelInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FC2412044C8A4007F9127 /* PanelInputView.swift */; };
-		5C644E431FCD95E1006C7EB4 /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C644E421FCD95E1006C7EB4 /* NSColor.swift */; };
 		5C65951A2045C57200708867 /* StringInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6595192045C57200708867 /* StringInputView.swift */; };
 		5C65951C2045CE3600708867 /* LocalizationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C65951B2045CE3600708867 /* LocalizationInputView.swift */; };
 		5C7105372054AD610020E400 /* SeasonInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7105362054AD610020E400 /* SeasonInputView.swift */; };
@@ -76,7 +75,6 @@
 		5C5FC23B20446026007F9127 /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
 		5C5FC23D20447556007F9127 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
 		5C5FC2412044C8A4007F9127 /* PanelInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelInputView.swift; sourceTree = "<group>"; };
-		5C644E421FCD95E1006C7EB4 /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
 		5C6595192045C57200708867 /* StringInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringInputView.swift; sourceTree = "<group>"; };
 		5C65951B2045CE3600708867 /* LocalizationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationInputView.swift; sourceTree = "<group>"; };
 		5C7105362054AD610020E400 /* SeasonInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonInputView.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				5CFC0E3F1F65812B0062A563 /* InputView.swift */,
 				5C5FC2402044BBFC007F9127 /* InputView */,
 				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
-				5C644E421FCD95E1006C7EB4 /* NSColor.swift */,
 				5CDB66561FCF9AF100BFE93F /* NSEdgeInsets.swift */,
 				5C5FC23B20446026007F9127 /* NSFont.swift */,
 				5C5FC23D20447556007F9127 /* NSView.swift */,
@@ -287,6 +284,7 @@
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 5CFBB8111F51C00600BFA5CF;
 					};
 				};
 			};
@@ -366,7 +364,6 @@
 				5CA598F2205037B900F9054C /* ServiceInputView.swift in Sources */,
 				5C65951C2045CE3600708867 /* LocalizationInputView.swift in Sources */,
 				5C71053D2054BE1C0020E400 /* ScheduleInputView.swift in Sources */,
-				5C644E431FCD95E1006C7EB4 /* NSColor.swift in Sources */,
 				5CAD8A12204F2A0100745C2B /* URIInputView.swift in Sources */,
 				5C4C2D0C1F5309F300B6FBE3 /* IndexManager.swift in Sources */,
 				5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */,
@@ -571,6 +568,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoatsEdit.app/Contents/MacOS/BoatsEdit";
 			};
 			name = Debug;
 		};
@@ -587,6 +585,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoatsEdit.app/Contents/MacOS/BoatsEdit";
 			};
 			name = Release;
 		};

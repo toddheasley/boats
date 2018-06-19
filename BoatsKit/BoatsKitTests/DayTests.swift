@@ -5,7 +5,7 @@ class DayTests: XCTestCase {
     func testDate() {
         let date: Date = Date()
         XCTAssertEqual(Day.special(date).date, date)
-        for day in Day.all {
+        for day in Day.allCases {
             XCTAssertNil(day.date)
         }
     }
@@ -18,6 +18,12 @@ class DayTests: XCTestCase {
         XCTAssertEqual(Day(date: holiday.date, localization: localization, holidays: [
             holiday
         ]), Day.holiday)
+    }
+}
+
+extension DayTests {
+    func testCaseIterable() {
+        XCTAssertEqual(Day.allCases.count, 8)
     }
 }
 

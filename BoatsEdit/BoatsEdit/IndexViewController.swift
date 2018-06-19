@@ -192,8 +192,8 @@ class IndexViewController: NSViewController, PanelViewDelegate {
     }
 }
 
-fileprivate extension NSScrollView {
-    func scroll(to rect: NSRect, completion: (() -> Void)? = nil) {
+extension NSScrollView {
+    fileprivate func scroll(to rect: NSRect, completion: (() -> Void)? = nil) {
         NSAnimationContext.beginGrouping()
         NSAnimationContext.current.duration = 0.35
         contentView.animator().setBoundsOrigin(NSPoint(x: (rect.origin.x + rect.size.width) - visibleRect.size.width, y: 0.0))

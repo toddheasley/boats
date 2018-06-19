@@ -84,7 +84,7 @@ class ScheduleHolidayReusableView: UICollectionReusableView, ModeTransitioning {
     }
 }
 
-fileprivate class ScheduleHolidayView: UIView, ModeTransitioning {
+private class ScheduleHolidayView: UIView, ModeTransitioning {
     static let formatter: DateFormatter = DateFormatter()
     
     private let nameLabel: UILabel = UILabel()

@@ -6,7 +6,7 @@ public struct Schedule: Codable {
     public var departures: [Departure] = []
     
     public var days: [Day] {
-        return Day.all.filter { day in
+        return Day.allCases.filter { day in
             contains(day: day)
         }
     }

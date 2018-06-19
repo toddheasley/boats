@@ -64,15 +64,17 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
         }
     }
     
+    override func updateLayer() {
+        super.updateLayer()
+        
+        layer?.backgroundColor = NSColor.quaternaryLabelColor.cgColor
+    }
+    
     override func setUp() {
         super.setUp()
         
-        wantsLayer = true
-        layer?.backgroundColor = NSColor.separator.cgColor
-        
         panelInputView.delegate = self
         
-        tableView.backgroundColor = .background
         tableView.headerView = nil
         tableView.allowsMultipleSelection = false
         tableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "Input")))
@@ -112,14 +114,14 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
         }
         tableView.deselectAll(nil)
         pasteboard.declareTypes([.input], owner: self)
-        pasteboard.setData(try? NSKeyedArchiver.archivedData(withRootObject: rowIndexes, requiringSecureCoding: false), forType: .input)
+        pasteboard.setData(try? NSKeyedArchiver.archivedData(withRootObject: row as NSNumber, requiringSecureCoding: false), forType: .input)
         return true
     }
     
     func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
         guard info.draggingSource as? NSTableView == tableView, dropOperation == .above,
             let data: Data = info.draggingPasteboard.data(forType: .input),
-            let dragRow: Int = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
+            let dragRow: Int = (try? NSKeyedUnarchiver.unarchivedObject(ofClass: NSNumber.self, from: data)) as? Int,
             let dragRange: ClosedRange<Int> = dragRange(for: dragRow - 1), dragRange.contains(row - 1), row != dragRow, row != dragRow + 1 else {
             return []
         }
@@ -128,7 +130,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
         guard let data: Data = info.draggingPasteboard.data(forType: .input),
-            let dragRow: Int = (NSKeyedUnarchiver.unarchiveObject(with: data) as? IndexSet)?.first,
+            let dragRow: Int = (try? NSKeyedUnarchiver.unarchivedObject(ofClass: NSNumber.self, from: data)) as? Int,
             let dragRange: ClosedRange<Int> = dragRange(for: dragRow - 1), dragRange.contains(row - 1) else {
             return false
         }
@@ -153,6 +155,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
         case 0:
             return panelInputView
         default:
+            print(inputViews[row - 1].style)
             return inputViews[row - 1]
         }
     }
@@ -204,7 +207,7 @@ class PanelView: NSView, NSTableViewDataSource, NSTableViewDelegate, PanelViewDe
     }
 }
 
-fileprivate class PanelRowView: NSTableRowView {
+private class PanelRowView: NSTableRowView {
     
     // MARK: NSTableRowView
     override var interiorBackgroundStyle: NSView.BackgroundStyle {
@@ -218,12 +221,12 @@ fileprivate class PanelRowView: NSTableRowView {
         rect.origin.x += (padding.left - 2.0)
         rect.origin.y += 2.0
         
-        NSColor.tint(emphasized: isEmphasized).setFill()
+        NSColor.secondaryLabelColor.setFill()
         NSBezierPath(roundedRect: rect, xRadius: 3.5, yRadius: 3.5).fill()
     }
 }
 
-fileprivate class PanelTableView: NSTableView {
+private class PanelTableView: NSTableView {
     
     // MARK: NSTableView
     override func validateProposedFirstResponder(_ responder: NSResponder, for event: NSEvent?) -> Bool {
@@ -231,7 +234,7 @@ fileprivate class PanelTableView: NSTableView {
     }
 }
 
-fileprivate class PanelScrollView: NSScrollView {
+private class PanelScrollView: NSScrollView {
     
     // MARK: NSScrollView
     override func scrollWheel(with event: NSEvent) {

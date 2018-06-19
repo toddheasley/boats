@@ -8,7 +8,7 @@ class DayInputView: InputView {
     
     var days: [Day] {
         set {
-            for (i, day) in Day.all.enumerated() {
+            for (i, day) in Day.allCases.enumerated() {
                 buttons[i].state = newValue.contains(day) ? .on : .off
             }
             specialButton.state = .off
@@ -21,7 +21,7 @@ class DayInputView: InputView {
         }
         get {
             var days: [Day] = []
-            for (i, day) in Day.all.enumerated() {
+            for (i, day) in Day.allCases.enumerated() {
                 guard buttons[i].state == .on else {
                     continue
                 }
@@ -55,7 +55,7 @@ class DayInputView: InputView {
         
         contentView.frame.size.height = 130.0 + padding.top
         
-        for (i, day) in Day.all.enumerated() {
+        for (i, day) in Day.allCases.enumerated() {
             let button: NSButton = NSButton(checkboxWithTitle: day.rawValue.capitalized, target: self, action: #selector(handleDay(_:)))
             button.frame.size.width = 120.0
             button.frame.size.height = 22.0

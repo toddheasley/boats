@@ -1,11 +1,9 @@
 import Foundation
 
-public enum Service: String, Codable {
+public enum Service: String, Codable, CaseIterable {
     case car
     case bicycle
     case freight
     case wheelchair
     case dog
-    
-    public static let all: [Service] = [.car, .bicycle, .freight, .wheelchair, .dog]
 }

@@ -44,7 +44,7 @@ class InputView: NSView {
                 let newValue = newValue, !newValue.isEmpty {
                 labelTextField.placeholderAttributedString = NSAttributedString(string: "\(newValue)", attributes: [
                     NSAttributedString.Key.font: NSFont.systemFont(ofSize: labelTextField.font!.pointSize, weight: .regular),
-                    NSAttributedString.Key.foregroundColor: NSColor.separator
+                    NSAttributedString.Key.foregroundColor: NSColor.tertiaryLabelColor
                 ])
             } else {
                 labelTextField.placeholderAttributedString = nil
@@ -91,6 +91,7 @@ class InputView: NSView {
         switch style {
         case .label:
             labelTextField.font = .base(.bold)
+            labelTextField.textColor = .labelColor
             labelTextField.frame.size.width = intrinsicContentSize.width - padding.width
             labelTextField.frame.size.height = 22.0
             labelTextField.frame.origin.x = padding.left
@@ -99,8 +100,9 @@ class InputView: NSView {
         case .control:
             labelTextField.autoresizingMask = [.minYMargin]
             labelTextField.font = .meta
+            labelTextField.textColor = .secondaryLabelColor
             labelTextField.frame.size.width = intrinsicContentSize.width - padding.width
-            labelTextField.frame.size.height = 14.0
+            labelTextField.frame.size.height = 17.0
             labelTextField.frame.origin.x = padding.left
             labelTextField.frame.origin.y = bounds.size.height - (padding.top + labelTextField.frame.size.height)
             addSubview(labelTextField)
@@ -111,8 +113,6 @@ class InputView: NSView {
             contentView.frame.origin.y = padding.bottom
             addSubview(contentView)
         case .separator:
-            separatorView.wantsLayer = true
-            separatorView.layer?.backgroundColor = NSColor.separator.cgColor
             separatorView.frame.size.width = intrinsicContentSize.width - padding.width
             separatorView.frame.size.height = 0.5
             separatorView.frame.origin.x = padding.left

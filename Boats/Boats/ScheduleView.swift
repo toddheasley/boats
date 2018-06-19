@@ -103,7 +103,7 @@ class ScheduleView: UIView, UIScrollViewDelegate, ModeTransitioning {
     }
 }
 
-fileprivate class ScheduleDirectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ModeTransitioning {
+private class ScheduleDirectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ModeTransitioning {
     private var time: Time = Time()
     private var day: Day = Day()
     private var days: [(day: Day, departures: [Departure])] = []
