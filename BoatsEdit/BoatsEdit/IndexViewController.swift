@@ -35,7 +35,7 @@ class IndexViewController: NSViewController, PanelViewDelegate {
     }
     
     // MARK: NSViewController
-    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         switch menuItem.tag {
         case 3:
             return IndexManager.index != nil

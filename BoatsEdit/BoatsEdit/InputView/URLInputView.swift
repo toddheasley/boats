@@ -59,11 +59,11 @@ class URLInputView: InputView, NSTextFieldDelegate {
     }
     
     // MARK: NSTextFieldDelegate
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         layout()
     }
     
-    override func controlTextDidEndEditing(_ obj: Notification) {
+    func controlTextDidEndEditing(_ obj: Notification) {
         delegate?.inputViewDidEdit(self)
     }
 }

@@ -39,11 +39,11 @@ class URIInputView: InputView, NSTextFieldDelegate {
     }
     
     // MARK: NSTextFieldDelegate
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         textField.stringValue = "\(URI(resource: textField.stringValue))"
     }
     
-    override func controlTextDidEndEditing(_ obj: Notification) {
+    func controlTextDidEndEditing(_ obj: Notification) {
         delegate?.inputViewDidEdit(self)
     }
 }

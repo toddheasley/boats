@@ -55,7 +55,7 @@ class CoordinateInputView: InputView, NSTextFieldDelegate, CoordinateMapDelegate
     }
     
     // MARK: NSTextFieldDelegate
-    override func controlTextDidEndEditing(_ obj: Notification) {
+    func controlTextDidEndEditing(_ obj: Notification) {
         mapView.coordinate = CLLocationCoordinate2D(coordinate: coordinate!)
         
         delegate?.inputViewDidEdit(self)

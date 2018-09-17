@@ -242,7 +242,7 @@ private class PanelScrollView: NSScrollView {
             return super.scrollWheel(with: event)
         }
         var next: Bool = !hasVerticalScroller
-        if fabs(event.deltaX) > fabs(event.deltaY) {
+        if abs(event.deltaX) > abs(event.deltaY) {
             next = !hasHorizontalScroller
         }
         if next {
