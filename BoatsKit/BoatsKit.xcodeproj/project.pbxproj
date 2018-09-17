@@ -77,7 +77,6 @@
 		5CA8C55F1F3A6B440017B385 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8C55B1F3A6B440017B385 /* Route.swift */; };
 		5CA8C5611F3A6B560017B385 /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8C5601F3A6B560017B385 /* ProviderTests.swift */; };
 		5CA8C5631F3A6BD50017B385 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8C5621F3A6BD50017B385 /* RouteTests.swift */; };
-		5CAF9C8D1F37DD7F00F8A02B /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
 		5CB6754E1F3F327D00B7FCE1 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */; };
 		5CB6754F1F3F327D00B7FCE1 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */; };
 		5CB675501F3F327D00B7FCE1 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */; };
@@ -117,9 +116,6 @@
 		5CD0F1581F3EC0A9008E3CDE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */; };
 		5CD7F8B11F3D3B350025DA14 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7F8B01F3D3B350025DA14 /* LocationTests.swift */; };
 		5CD7F8B31F3D3C7F0025DA14 /* LocationTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CD7F8B21F3D3C7F0025DA14 /* LocationTests.json */; };
-		5CDFBF4F1F37FB7A008523C1 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
-		5CDFBF501F37FB7A008523C1 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
-		5CEB152D1F37F85100347A43 /* BoatsKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,7 +168,6 @@
 		5CA8C5601F3A6B560017B385 /* ProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTests.swift; sourceTree = "<group>"; };
 		5CA8C5621F3A6BD50017B385 /* RouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
 		5CAF9C8A1F37D07500F8A02B /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsKit.swift; sourceTree = "<group>"; };
 		5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
 		5CB675521F3F347100B7FCE1 /* HolidayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayTests.swift; sourceTree = "<group>"; };
 		5CB675541F3F34E200B7FCE1 /* HolidayTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HolidayTests.json; sourceTree = "<group>"; };
@@ -246,7 +241,6 @@
 		5C27DEEC1F37C8410010B7D8 /* BoatsKit */ = {
 			isa = PBXGroup;
 			children = (
-				5CAF9C8C1F37DD7F00F8A02B /* BoatsKit.swift */,
 				5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */,
 				5C6EA82C1FBF914400464FCE /* Coordinate.swift */,
 				5C382FE61F42B7B700349B0D /* Data.swift */,
@@ -563,7 +557,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CB675611F3F535000B7FCE1 /* Season.swift in Sources */,
-				5CAF9C8D1F37DD7F00F8A02B /* BoatsKit.swift in Sources */,
 				5C02BEAD1F5DB45300029EDB /* URI.swift in Sources */,
 				5CB675511F3F327D00B7FCE1 /* Holiday.swift in Sources */,
 				5C14C7431F3E427C008294ED /* Time.swift in Sources */,
@@ -616,7 +609,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CB6755F1F3F535000B7FCE1 /* Season.swift in Sources */,
-				5CDFBF4F1F37FB7A008523C1 /* BoatsKit.swift in Sources */,
 				5C02BEAB1F5DB45200029EDB /* URI.swift in Sources */,
 				5CB6754F1F3F327D00B7FCE1 /* Holiday.swift in Sources */,
 				5C14C7411F3E427C008294ED /* Time.swift in Sources */,
@@ -644,7 +636,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CB6755E1F3F535000B7FCE1 /* Season.swift in Sources */,
-				5CEB152D1F37F85100347A43 /* BoatsKit.swift in Sources */,
 				5C02BEA81F5DB42400029EDB /* URI.swift in Sources */,
 				5CB6754E1F3F327D00B7FCE1 /* Holiday.swift in Sources */,
 				5C14C7401F3E427C008294ED /* Time.swift in Sources */,
@@ -672,7 +663,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CB675601F3F535000B7FCE1 /* Season.swift in Sources */,
-				5CDFBF501F37FB7A008523C1 /* BoatsKit.swift in Sources */,
 				5C02BEAC1F5DB45300029EDB /* URI.swift in Sources */,
 				5CB675501F3F327D00B7FCE1 /* Holiday.swift in Sources */,
 				5C14C7421F3E427C008294ED /* Time.swift in Sources */,
