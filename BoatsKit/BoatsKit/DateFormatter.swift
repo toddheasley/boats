@@ -20,15 +20,15 @@ extension DateFormatter {
 }
 
 extension DateFormatter {
-    public var is24HourTime: Bool {
+    public var is24Hour: Bool {
         let style: (date: Style, time: Style, format: String) = (dateStyle, timeStyle, dateFormat)
         dateStyle = .none
         timeStyle = .medium
-        let is24HouTime: Bool = !string(from: Date()).contains(" ")
+        let is24Hour: Bool = !string(from: Date()).contains(" ")
         dateStyle = style.date
         timeStyle = style.time
         dateFormat = style.format
-        return is24HouTime
+        return is24Hour
     }
     
     public func string(from season: Season, style: Style) -> String {

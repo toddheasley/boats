@@ -1,15 +1,7 @@
 import Foundation
 
 public enum Day {
-    case monday
-    case tuesday
-    case wednesday
-    case thursday
-    case friday
-    case saturday
-    case sunday
-    case holiday
-    case special(Date)
+    case monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday, special(Date)
     
     public var date: Date? {
         switch self {
@@ -40,11 +32,6 @@ extension Day: CaseIterable {
 extension Day: Codable {
     
     // MARK: Codable
-    private enum Key: CodingKey {
-        case day
-        case date
-    }
-    
     public func encode(to encoder: Encoder) throws {
         var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
         try container.encode(rawValue, forKey: .day)
@@ -60,6 +47,10 @@ extension Day: Codable {
             throw DecodingError.typeMismatch(Day.self, DecodingError.Context(codingPath: [Key.day], debugDescription: ""))
         }
         self = day
+    }
+    
+    private enum Key: CodingKey {
+        case day, date
     }
 }
 
