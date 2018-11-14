@@ -8,7 +8,12 @@ class ScheduleTests: XCTestCase {
             XCTFail()
             return
         }
-        XCTAssertEqual(schedule.season.dateInterval, DateInterval(start: Date(timeIntervalSince1970: 1498881600.0), duration: 2592000))
+        switch schedule.season {
+        case .summer(let dateInterval):
+            XCTAssertEqual(dateInterval, DateInterval(start: Date(timeIntervalSince1970: 1498881600.0), duration: 2592000))
+        default:
+            XCTFail()
+        }
         XCTAssertEqual(schedule.holidays.count, 1)
         XCTAssertEqual(schedule.departures.count, 3)
     }

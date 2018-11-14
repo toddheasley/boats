@@ -20,6 +20,14 @@ class URITests: XCTestCase {
 }
 
 extension URITests {
+    func testEquatable() {
+        XCTAssertNotEqual(URI(stringLiteral: "peaks-island"), URI(stringLiteral: "portland"))
+        XCTAssertEqual(URI(stringLiteral: "peaks-island"), URI(stringLiteral: "peaks-island"))
+        XCTAssertEqual(URI(stringLiteral: "peaks-island"), "peaks-island")
+    }
+}
+
+extension URITests {
     func testCodable() {
         guard let data: Data = try? JSON.encoder.encode([URI(stringLiteral: "peaks-island")]),
             let uri: [URI] = try? JSON.decoder.decode(Array<URI>.self, from: data) else {
@@ -27,13 +35,5 @@ extension URITests {
             return
         }
         XCTAssertEqual(uri[0], "peaks-island")
-    }
-}
-
-extension URITests {
-    func testHashable() {
-        XCTAssertNotEqual(URI(stringLiteral: "peaks-island"), URI(stringLiteral: "portland"))
-        XCTAssertEqual(URI(stringLiteral: "peaks-island"), URI(stringLiteral: "peaks-island"))
-        XCTAssertEqual(URI(stringLiteral: "peaks-island"), "peaks-island")
     }
 }

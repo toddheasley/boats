@@ -1,50 +1,38 @@
 import Foundation
 
 public enum Season {
-    case spring(DateInterval)
-    case summer(DateInterval)
-    case fall(DateInterval)
-    case winter(DateInterval)
-    case evergreen
-    
-    public var dateInterval: DateInterval? {
-        switch self {
-        case .spring(let dateInterval), .summer(let dateInterval), .fall(let dateInterval), .winter(let dateInterval):
-            return dateInterval
-        case .evergreen:
-            return nil
-        }
-    }
+    case spring(DateInterval), summer(DateInterval), fall(DateInterval), winter(DateInterval), evergreen
     
     public func contains(date: Date) -> Bool {
-        return dateInterval?.contains(date) ?? true
+        switch self {
+        case .spring(let dateInterval), .summer(let dateInterval), .fall(let dateInterval), .winter(let dateInterval):
+            return dateInterval.contains(date)
+        case .evergreen:
+            return true
+        }
     }
 }
 
 extension Season: Codable {
     
     // MARK: Codable
-    private enum Key: CodingKey {
-        case season
-        case dateInterval
-    }
-    
     public func encode(to encoder: Encoder) throws {
         var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
         switch self {
-        case .spring:
+        case .spring(let dateInterval):
             try container.encode("spring", forKey: .season)
-        case .summer:
+            try container.encode(dateInterval, forKey: .dateInterval)
+        case .summer(let dateInterval):
             try container.encode("summer", forKey: .season)
-        case .fall:
+            try container.encode(dateInterval, forKey: .dateInterval)
+        case .fall(let dateInterval):
             try container.encode("fall", forKey: .season)
-        case .winter:
+            try container.encode(dateInterval, forKey: .dateInterval)
+        case .winter(let dateInterval):
             try container.encode("winter", forKey: .season)
+            try container.encode(dateInterval, forKey: .dateInterval)
         case .evergreen:
             try container.encode("", forKey: .season)
-        }
-        if let dateInterval: DateInterval = dateInterval {
-            try container.encode(dateInterval, forKey: .dateInterval)
         }
     }
     
@@ -66,6 +54,11 @@ extension Season: Codable {
         } else {
             self = .evergreen
         }
+    }
+    
+    private enum Key: CodingKey {
+        case season
+        case dateInterval
     }
 }
 

@@ -10,7 +10,7 @@ public struct Route: Codable {
     
     public func schedule(for date: Date = Date()) -> Schedule? {
         for schedule in schedules {
-            if schedule.season.dateInterval == nil || schedule.season.dateInterval?.contains(date) ?? false {
+            if schedule.season.contains(date: date) {
                 return schedule
             }
         }

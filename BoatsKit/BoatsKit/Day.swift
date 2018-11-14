@@ -1,5 +1,18 @@
 import Foundation
 
+public enum Day: String, Codable {
+    case monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday
+}
+
+extension Day: CustomStringConvertible {
+    
+    // MARK: CustomStringConvertible
+    public var description: String {
+        return "\(rawValue)"
+    }
+}
+
+/*
 public enum Day {
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday, special(Date)
     
@@ -120,3 +133,4 @@ extension Day: Equatable {
         return x.rawValue == y.rawValue
     }
 }
+*/

@@ -28,6 +28,12 @@ public struct URI: CustomStringConvertible, ExpressibleByStringLiteral {
     }
 }
 
+extension URI: Equatable {
+    public static func ==(x: URI, y: URI) -> Bool {
+        return x.name == y.name
+    }
+}
+
 extension URI: Codable {
     
     // MARK: Codable
@@ -39,17 +45,5 @@ extension URI: Codable {
     public init(from decoder: Decoder) throws {
         let container: SingleValueDecodingContainer = try decoder.singleValueContainer()
         self.name = try container.decode(String.self)
-    }
-}
-
-extension URI: Hashable {
-    
-    // MARK: Hashable
-    public var hashValue: Int {
-        return name.hashValue
-    }
-    
-    public static func ==(x: URI, y: URI) -> Bool {
-        return x.hashValue == y.hashValue
     }
 }

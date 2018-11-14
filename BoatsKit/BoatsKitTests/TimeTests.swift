@@ -3,46 +3,95 @@ import XCTest
 
 class TimeTests: XCTestCase {
     func testComponents() {
-        XCTAssertEqual(Time(timeInterval: 0.0).components.hour, 0)
-        XCTAssertEqual(Time(timeInterval: 0.0).components.minute, 0)
-        XCTAssertEqual(Time(timeInterval: 0.0).components.second, 0)
-        XCTAssertEqual(Time(timeInterval: 86399.0).components.hour, 23)
-        XCTAssertEqual(Time(timeInterval: 86399.0).components.minute, 59)
-        XCTAssertEqual(Time(timeInterval: 86399.0).components.second, 59)
-        XCTAssertEqual(Time(timeInterval: 47996.0).components.hour, 13)
-        XCTAssertEqual(Time(timeInterval: 47996.0).components.minute, 19)
-        XCTAssertEqual(Time(timeInterval: 47996.0).components.second, 56)
+        XCTAssertEqual(Time(interval: 86340.0).components.hour, 23)
+        XCTAssertEqual(Time(interval: 86340.0).components.minute, 59)
+        XCTAssertEqual(Time(interval: 53100.0).components.hour, 14)
+        XCTAssertEqual(Time(interval: 53100.0).components.minute, 45)
+        XCTAssertEqual(Time(interval: 21900.0).components.hour, 6)
+        XCTAssertEqual(Time(interval: 21900.0).components.minute, 5)
+        XCTAssertEqual(Time(interval: 0.0).components.hour, 0)
+        XCTAssertEqual(Time(interval: 0.0).components.minute, 0)
     }
     
-    func testTimeInterval() {
-        XCTAssertEqual(Time(timeInterval: 0.0).timeInterval, 0.0)
-        XCTAssertEqual(Time(timeInterval: 72085.1).timeInterval, 72085.0)
-        XCTAssertEqual(Time(timeInterval: 86400.0).timeInterval, 0.0)
-        XCTAssertEqual(Time(timeInterval: 93066.0).timeInterval, 6666.0)
+    func testComponentsInit() {
+        XCTAssertEqual(Time(hour: 24, minute: 0).interval, 82800.0)
+        XCTAssertEqual(Time(hour: 23, minute: 0).interval, 82800.0)
+        XCTAssertEqual(Time(hour: 0, minute: 60).interval, 3540.0)
+        XCTAssertEqual(Time(hour: 0, minute: 59).interval, 3540.0)
+        XCTAssertEqual(Time(hour: 24, minute: 60).interval, 86340.0)
+        XCTAssertEqual(Time(hour: 23, minute: 59).interval, 86340.0)
+        XCTAssertEqual(Time(hour: 14, minute: 45).interval, 53100.0)
+        XCTAssertEqual(Time(hour: 6, minute: 5).interval, 21900.0)
+        XCTAssertEqual(Time(hour: -1, minute: 0).interval, 0.0)
+        XCTAssertEqual(Time(hour: 0, minute: -1).interval, 0.0)
+        XCTAssertEqual(Time(hour: -1, minute: -1).interval, 0.0)
+        XCTAssertEqual(Time(hour: 0, minute: 0).interval, 0.0)
+    }
+    
+    func testIntervalInit() {
+        XCTAssertEqual(Time(interval: -3600.0).interval, 0.0)
+        XCTAssertEqual(Time(interval: 86400.0).interval, 86340.0)
+        XCTAssertEqual(Time(interval: 53120.5).interval, 53100.0)
+        XCTAssertEqual(Time(interval: 21959.9).interval, 21900.0)
+        XCTAssertEqual(Time(interval: 0.0).interval, 0.0)
+    }
+    
+    func testDateInit() {
+        XCTAssertEqual(Time(date: Date(timeIntervalSince1970: 1542230400.0)), Time(hour: 16, minute: 20))
     }
 }
 
 extension TimeTests {
-    func testDate() {
-        XCTAssertEqual(Time(timeInterval: 58800.0).date(), Date(timeInterval: 58800.0, since: Date().day().start))
-        XCTAssertEqual(Time(from: Date(timeInterval: 58800.0, since: Date().day().start)), Time(timeInterval: 58800.0))
+    
+    // MARK: CustomStringConvertible
+    func testDescription() {
+        XCTAssertEqual(Time(hour: 6, minute: 15).description(is24Hour: true), "06:15")
+        XCTAssertEqual(Time(hour: 6, minute: 15).description(is24Hour: false), "6:15")
+        XCTAssertEqual(Time(hour: 12, minute: 30).description(is24Hour: true), "12:30")
+        XCTAssertEqual(Time(hour: 12, minute: 30).description(is24Hour: false), "12:30.")
+        XCTAssertEqual(Time(hour: 12, minute: 30).description(is24Hour: true), "12:30")
+        XCTAssertEqual(Time(hour: 12, minute: 30).description(is24Hour: false), "12:30.")
+        XCTAssertEqual(Time(hour: 13, minute: 0).description(is24Hour: true), "13:00")
+        XCTAssertEqual(Time(hour: 13, minute: 0).description(is24Hour: false), "1:00.")
+        XCTAssertEqual(Time(hour: 23, minute: 45).description(is24Hour: true), "23:45")
+        XCTAssertEqual(Time(hour: 23, minute: 45).description(is24Hour: false), "11:45.")
+        XCTAssertEqual(Time(hour: 0, minute: 0).description(is24Hour: true), "00:00")
+        XCTAssertEqual(Time(hour: 0, minute: 0).description(is24Hour: false), "12:00")
     }
 }
 
 extension TimeTests {
-    func testCodable() {
-        guard let data: Data = try? JSON.encoder.encode([Time(timeInterval: 6666.0)]),
-            let time: [Time] = try? JSON.decoder.decode(Array<Time>.self, from: data) else {
+    
+    // MARK: Comparable
+    func testEqual() {
+        XCTAssertNotEqual(Time(hour: 10, minute: 45), Time(hour: 10, minute: 44))
+        XCTAssertNotEqual(Time(hour: 10, minute: 45), Time(hour: 10, minute: 46))
+        XCTAssertEqual(Time(hour: 10, minute: 45), Time(hour: 10, minute: 45))
+    }
+    
+    func testLessThan() {
+        XCTAssertLessThan(Time(hour: 10, minute: 44), Time(hour: 10, minute: 45))
+    }
+}
+
+extension TimeTests {
+    
+    // MARK: Codable
+    func testDecodeInit() {
+        guard let data: Data = data(resource: .bundle, type: "json"), let times: [Time] = try? JSONDecoder().decode([Time].self, from: data) else {
             XCTFail()
             return
         }
-        XCTAssertEqual(time[0].timeInterval, 6666.0)
+        XCTAssertEqual(times.count, 2)
+        XCTAssertEqual(times.first, Time(hour: 23, minute: 59))
+        XCTAssertEqual(times.last, Time(hour: 0, minute: 0))
     }
-}
-
-extension TimeTests {
-    func testComparable() {
-        XCTAssertNotEqual(Time(timeInterval: 6666.0), Time(timeInterval: 6667.0))
-        XCTAssertEqual(Time(timeInterval: 6666.0), Time(timeInterval: 6666.0))
+    
+    func testEncode() {
+        guard let data: Data = try? JSONEncoder().encode(Time(hour: 12, minute: 30)), let time: Time = try? JSONDecoder().decode(Time.self, from: data) else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(time, Time(hour: 12, minute: 30))
     }
 }

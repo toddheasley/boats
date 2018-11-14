@@ -3,119 +3,42 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C02BEA81F5DB42400029EDB /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02BEA71F5DB42400029EDB /* URI.swift */; };
-		5C02BEAA1F5DB44600029EDB /* URITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02BEA91F5DB44600029EDB /* URITests.swift */; };
-		5C02BEAB1F5DB45200029EDB /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02BEA71F5DB42400029EDB /* URI.swift */; };
-		5C02BEAC1F5DB45300029EDB /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02BEA71F5DB42400029EDB /* URI.swift */; };
-		5C02BEAD1F5DB45300029EDB /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02BEA71F5DB42400029EDB /* URI.swift */; };
-		5C14C7141F3DE85D008294ED /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7131F3DE85D008294ED /* Departure.swift */; };
-		5C14C7151F3DE85D008294ED /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7131F3DE85D008294ED /* Departure.swift */; };
-		5C14C7161F3DE85D008294ED /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7131F3DE85D008294ED /* Departure.swift */; };
-		5C14C7171F3DE85D008294ED /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7131F3DE85D008294ED /* Departure.swift */; };
-		5C14C7191F3DF0BB008294ED /* DepartureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7181F3DF0BB008294ED /* DepartureTests.swift */; };
-		5C14C7201F3DF145008294ED /* ProviderTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C14C71C1F3DF144008294ED /* ProviderTests.json */; };
-		5C14C7211F3DF145008294ED /* DepartureTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C14C71D1F3DF145008294ED /* DepartureTests.json */; };
-		5C14C7341F3E3164008294ED /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
-		5C14C7351F3E3164008294ED /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
-		5C14C7361F3E3164008294ED /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
-		5C14C7371F3E3164008294ED /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
-		5C14C7391F3E3171008294ED /* DayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7381F3E3171008294ED /* DayTests.swift */; };
-		5C14C7401F3E427C008294ED /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C73F1F3E427C008294ED /* Time.swift */; };
-		5C14C7411F3E427C008294ED /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C73F1F3E427C008294ED /* Time.swift */; };
-		5C14C7421F3E427C008294ED /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C73F1F3E427C008294ED /* Time.swift */; };
-		5C14C7431F3E427C008294ED /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C73F1F3E427C008294ED /* Time.swift */; };
-		5C14C7471F3E42CC008294ED /* TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7461F3E42CC008294ED /* TimeTests.swift */; };
-		5C17526F1FB91AF400D9A9F5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C17526E1FB91AF400D9A9F5 /* Date.swift */; };
-		5C1752701FB91AF400D9A9F5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C17526E1FB91AF400D9A9F5 /* Date.swift */; };
-		5C1752711FB91AF400D9A9F5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C17526E1FB91AF400D9A9F5 /* Date.swift */; };
-		5C1752721FB91AF400D9A9F5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C17526E1FB91AF400D9A9F5 /* Date.swift */; };
-		5C1752741FB91E8800D9A9F5 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1752731FB91E8800D9A9F5 /* DateTests.swift */; };
-		5C1AEB2F1F3F5A5900BE9C6F /* SeasonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AEB2E1F3F5A5900BE9C6F /* SeasonTests.swift */; };
-		5C1AEB311F3F5A9200BE9C6F /* SeasonTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AEB301F3F5A9200BE9C6F /* SeasonTests.json */; };
-		5C1AEB331F3F92CA00BE9C6F /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AEB321F3F92CA00BE9C6F /* DateFormatterTests.swift */; };
-		5C30B6771F390E6B002A36FB /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30B6761F390E6B002A36FB /* Provider.swift */; };
-		5C30B6781F390E6B002A36FB /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30B6761F390E6B002A36FB /* Provider.swift */; };
-		5C30B6791F390E6B002A36FB /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30B6761F390E6B002A36FB /* Provider.swift */; };
-		5C30B67A1F390E6B002A36FB /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30B6761F390E6B002A36FB /* Provider.swift */; };
+		5C205A28219B7D9500549E5A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
+		5C205A29219B7D9600549E5A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
+		5C205A2A219B7D9700549E5A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
+		5C205A2B219B7D9800549E5A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
+		5C205A2C219B7DB100549E5A /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C73F1F3E427C008294ED /* Time.swift */; };
+		5C205A2D219B7DB200549E5A /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C73F1F3E427C008294ED /* Time.swift */; };
+		5C205A2E219B7DB400549E5A /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C73F1F3E427C008294ED /* Time.swift */; };
+		5C205A2F219B7DB500549E5A /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C73F1F3E427C008294ED /* Time.swift */; };
+		5C205A31219B83A500549E5A /* TimeTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C205A30219B83A500549E5A /* TimeTests.json */; };
+		5C205A32219B860F00549E5A /* TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7461F3E42CC008294ED /* TimeTests.swift */; };
 		5C30B67C1F394154002A36FB /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C30B67B1F394154002A36FB /* XCTestCase.swift */; };
-		5C30B67E1F3945C3002A36FB /* IndexTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C30B67D1F3945C3002A36FB /* IndexTests.json */; };
 		5C33E98F1F37FEA000D6EF27 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CAF9C8A1F37D07500F8A02B /* BoatsKit.framework */; };
-		5C382FE71F42B7B700349B0D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382FE61F42B7B700349B0D /* Data.swift */; };
-		5C382FE81F42B7B700349B0D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382FE61F42B7B700349B0D /* Data.swift */; };
-		5C382FE91F42B7B700349B0D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382FE61F42B7B700349B0D /* Data.swift */; };
-		5C382FEA1F42B7B700349B0D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C382FE61F42B7B700349B0D /* Data.swift */; };
-		5C6BDCE51F5EDE8100B3DF34 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE41F5EDE8100B3DF34 /* URL.swift */; };
-		5C6BDCE61F5EDE8100B3DF34 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE41F5EDE8100B3DF34 /* URL.swift */; };
-		5C6BDCE71F5EDE8100B3DF34 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE41F5EDE8100B3DF34 /* URL.swift */; };
-		5C6BDCE81F5EDE8100B3DF34 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE41F5EDE8100B3DF34 /* URL.swift */; };
-		5C6BDCEA1F5EE1F400B3DF34 /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6BDCE91F5EE1F400B3DF34 /* URLTests.swift */; };
-		5C6EA82D1FBF914400464FCE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA82C1FBF914400464FCE /* Coordinate.swift */; };
-		5C6EA82E1FBF914400464FCE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA82C1FBF914400464FCE /* Coordinate.swift */; };
-		5C6EA82F1FBF914400464FCE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA82C1FBF914400464FCE /* Coordinate.swift */; };
-		5C6EA8301FBF914400464FCE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA82C1FBF914400464FCE /* Coordinate.swift */; };
-		5C6EA8321FBF928C00464FCE /* CoordinateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA8311FBF928C00464FCE /* CoordinateTests.swift */; };
-		5C7E15A11F3FDF2000C5F8C5 /* RouteTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AEB341F3FC12600BE9C6F /* RouteTests.json */; };
-		5C7E15A21F3FEC3700C5F8C5 /* ScheduleTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C1AEB351F3FC13100BE9C6F /* ScheduleTests.json */; };
-		5C7E15A41F3FFD7300C5F8C5 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */; };
-		5C7E15A51F3FFD7300C5F8C5 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */; };
-		5C7E15A61F3FFD7300C5F8C5 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */; };
-		5C7E15A71F3FFD7300C5F8C5 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */; };
-		5C7E15A91F3FFDB300C5F8C5 /* LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E15A81F3FFDB300C5F8C5 /* LocalizationTests.swift */; };
-		5C7E15AB1F3FFDF000C5F8C5 /* LocalizationTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C7E15AA1F3FFDF000C5F8C5 /* LocalizationTests.json */; };
-		5C8E49361F39045F00848AEB /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E49351F39045F00848AEB /* Index.swift */; };
-		5C8E49381F39046C00848AEB /* IndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E49371F39046C00848AEB /* IndexTests.swift */; };
-		5C8E49391F39046F00848AEB /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E49351F39045F00848AEB /* Index.swift */; };
-		5C8E493A1F39047000848AEB /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E49351F39045F00848AEB /* Index.swift */; };
-		5C8E493B1F39047000848AEB /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E49351F39045F00848AEB /* Index.swift */; };
-		5CA8C55C1F3A6B440017B385 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8C55B1F3A6B440017B385 /* Route.swift */; };
-		5CA8C55D1F3A6B440017B385 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8C55B1F3A6B440017B385 /* Route.swift */; };
-		5CA8C55E1F3A6B440017B385 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8C55B1F3A6B440017B385 /* Route.swift */; };
-		5CA8C55F1F3A6B440017B385 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8C55B1F3A6B440017B385 /* Route.swift */; };
-		5CA8C5611F3A6B560017B385 /* ProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8C5601F3A6B560017B385 /* ProviderTests.swift */; };
-		5CA8C5631F3A6BD50017B385 /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8C5621F3A6BD50017B385 /* RouteTests.swift */; };
-		5CB6754E1F3F327D00B7FCE1 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */; };
-		5CB6754F1F3F327D00B7FCE1 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */; };
-		5CB675501F3F327D00B7FCE1 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */; };
-		5CB675511F3F327D00B7FCE1 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */; };
-		5CB675531F3F347100B7FCE1 /* HolidayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB675521F3F347100B7FCE1 /* HolidayTests.swift */; };
-		5CB675551F3F34E200B7FCE1 /* HolidayTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CB675541F3F34E200B7FCE1 /* HolidayTests.json */; };
-		5CB675571F3F4A1F00B7FCE1 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB675561F3F4A1F00B7FCE1 /* JSON.swift */; };
-		5CB675581F3F4A1F00B7FCE1 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB675561F3F4A1F00B7FCE1 /* JSON.swift */; };
-		5CB675591F3F4A1F00B7FCE1 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB675561F3F4A1F00B7FCE1 /* JSON.swift */; };
-		5CB6755A1F3F4A1F00B7FCE1 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB675561F3F4A1F00B7FCE1 /* JSON.swift */; };
-		5CB6755C1F3F4CCA00B7FCE1 /* DayTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CB6755B1F3F4CC900B7FCE1 /* DayTests.json */; };
-		5CB6755E1F3F535000B7FCE1 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6755D1F3F535000B7FCE1 /* Season.swift */; };
-		5CB6755F1F3F535000B7FCE1 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6755D1F3F535000B7FCE1 /* Season.swift */; };
-		5CB675601F3F535000B7FCE1 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6755D1F3F535000B7FCE1 /* Season.swift */; };
-		5CB675611F3F535000B7FCE1 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6755D1F3F535000B7FCE1 /* Season.swift */; };
-		5CB764541F3A8DBA008B05FA /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB764531F3A8DBA008B05FA /* Schedule.swift */; };
-		5CB764551F3A8DBA008B05FA /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB764531F3A8DBA008B05FA /* Schedule.swift */; };
-		5CB764561F3A8DBA008B05FA /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB764531F3A8DBA008B05FA /* Schedule.swift */; };
-		5CB764571F3A8DBA008B05FA /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB764531F3A8DBA008B05FA /* Schedule.swift */; };
-		5CB764591F3A8E05008B05FA /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB764581F3A8E05008B05FA /* ScheduleTests.swift */; };
-		5CB7645B1F3A9EAD008B05FA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7645A1F3A9EAD008B05FA /* Location.swift */; };
-		5CB7645C1F3A9EAD008B05FA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7645A1F3A9EAD008B05FA /* Location.swift */; };
-		5CB7645D1F3A9EAD008B05FA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7645A1F3A9EAD008B05FA /* Location.swift */; };
-		5CB7645E1F3A9EAD008B05FA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7645A1F3A9EAD008B05FA /* Location.swift */; };
+		5C479C65219B2B7E00F09D1D /* CLLocationCoordinate2DTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C479C64219B2B7E00F09D1D /* CLLocationCoordinate2DTests.json */; };
+		5C6EA8321FBF928C00464FCE /* CLLocationCoordinate2DTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6EA8311FBF928C00464FCE /* CLLocationCoordinate2DTests.swift */; };
+		5C7D1557219B997F00683F2C /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1556219B997F00683F2C /* TimeZone.swift */; };
+		5C7D1558219B997F00683F2C /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1556219B997F00683F2C /* TimeZone.swift */; };
+		5C7D1559219B997F00683F2C /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1556219B997F00683F2C /* TimeZone.swift */; };
+		5C7D155A219B997F00683F2C /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D1556219B997F00683F2C /* TimeZone.swift */; };
+		5C7D155C219B9A0900683F2C /* TimeZoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D155B219B9A0900683F2C /* TimeZoneTests.swift */; };
+		5C7D155D219B9CA700683F2C /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AEB321F3F92CA00BE9C6F /* DateFormatterTests.swift */; };
+		5C7D155E219B9CD900683F2C /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */; };
+		5C7D155F219B9CDB00683F2C /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */; };
+		5C7D1560219B9CDC00683F2C /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */; };
+		5C7D1561219B9CDD00683F2C /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */; };
+		5C7D1562219BCA8800683F2C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
+		5C7D1563219BCA8900683F2C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
+		5C7D1564219BCA8B00683F2C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
+		5C7D1565219BCA8F00683F2C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
 		5CC6BD5B1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */; };
 		5CC6BD5C1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */; };
 		5CC6BD5D1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */; };
 		5CC6BD5E1F3CF86E00CC0322 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */; };
-		5CD0F14A1F3E959A008E3CDE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
-		5CD0F14B1F3E959A008E3CDE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
-		5CD0F14C1F3E959A008E3CDE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
-		5CD0F14D1F3E959B008E3CDE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
-		5CD0F14E1F3E959B008E3CDE /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
-		5CD0F1551F3EC0A9008E3CDE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */; };
-		5CD0F1561F3EC0A9008E3CDE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */; };
-		5CD0F1571F3EC0A9008E3CDE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */; };
-		5CD0F1581F3EC0A9008E3CDE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */; };
-		5CD7F8B11F3D3B350025DA14 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7F8B01F3D3B350025DA14 /* LocationTests.swift */; };
-		5CD7F8B31F3D3C7F0025DA14 /* LocationTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CD7F8B21F3D3C7F0025DA14 /* LocationTests.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +69,7 @@
 		5C1AEB321F3F92CA00BE9C6F /* DateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
 		5C1AEB341F3FC12600BE9C6F /* RouteTests.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RouteTests.json; sourceTree = "<group>"; };
 		5C1AEB351F3FC13100BE9C6F /* ScheduleTests.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ScheduleTests.json; sourceTree = "<group>"; };
+		5C205A30219B83A500549E5A /* TimeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TimeTests.json; sourceTree = "<group>"; };
 		5C27DEEE1F37C8410010B7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C30B6761F390E6B002A36FB /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		5C30B67B1F394154002A36FB /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
@@ -153,11 +77,13 @@
 		5C33E98A1F37FE9F00D6EF27 /* BoatsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C33E98E1F37FEA000D6EF27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C382FE61F42B7B700349B0D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		5C479C64219B2B7E00F09D1D /* CLLocationCoordinate2DTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CLLocationCoordinate2DTests.json; sourceTree = "<group>"; };
 		5C4E8EF31F37F9140039EA25 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6BDCE41F5EDE8100B3DF34 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		5C6BDCE91F5EE1F400B3DF34 /* URLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
-		5C6EA82C1FBF914400464FCE /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
-		5C6EA8311FBF928C00464FCE /* CoordinateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateTests.swift; sourceTree = "<group>"; };
+		5C6EA8311FBF928C00464FCE /* CLLocationCoordinate2DTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2DTests.swift; sourceTree = "<group>"; };
+		5C7D1556219B997F00683F2C /* TimeZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZone.swift; sourceTree = "<group>"; };
+		5C7D155B219B9A0900683F2C /* TimeZoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneTests.swift; sourceTree = "<group>"; };
 		5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		5C7E15A81F3FFDB300C5F8C5 /* LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTests.swift; sourceTree = "<group>"; };
 		5C7E15AA1F3FFDF000C5F8C5 /* LocalizationTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocalizationTests.json; sourceTree = "<group>"; };
@@ -171,7 +97,6 @@
 		5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
 		5CB675521F3F347100B7FCE1 /* HolidayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayTests.swift; sourceTree = "<group>"; };
 		5CB675541F3F34E200B7FCE1 /* HolidayTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HolidayTests.json; sourceTree = "<group>"; };
-		5CB675561F3F4A1F00B7FCE1 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		5CB6755B1F3F4CC900B7FCE1 /* DayTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DayTests.json; sourceTree = "<group>"; };
 		5CB6755D1F3F535000B7FCE1 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		5CB764531F3A8DBA008B05FA /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -186,39 +111,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5C27DEE61F37C8410010B7D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5C33E9871F37FE9F00D6EF27 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5C33E98F1F37FEA000D6EF27 /* BoatsKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C4E8EEF1F37F9140039EA25 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C9A66F21F37F78000A32A3B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5CDFBF431F37FB20008523C1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,25 +139,24 @@
 			isa = PBXGroup;
 			children = (
 				5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */,
-				5C6EA82C1FBF914400464FCE /* Coordinate.swift */,
-				5C382FE61F42B7B700349B0D /* Data.swift */,
-				5C17526E1FB91AF400D9A9F5 /* Date.swift */,
 				5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */,
 				5C14C7331F3E3164008294ED /* Day.swift */,
-				5C14C7131F3DE85D008294ED /* Departure.swift */,
-				5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */,
-				5C8E49351F39045F00848AEB /* Index.swift */,
-				5CB675561F3F4A1F00B7FCE1 /* JSON.swift */,
-				5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */,
-				5CB7645A1F3A9EAD008B05FA /* Location.swift */,
-				5C30B6761F390E6B002A36FB /* Provider.swift */,
-				5CA8C55B1F3A6B440017B385 /* Route.swift */,
-				5CB764531F3A8DBA008B05FA /* Schedule.swift */,
-				5CB6755D1F3F535000B7FCE1 /* Season.swift */,
 				5CD0F1491F3E959A008E3CDE /* Service.swift */,
 				5C14C73F1F3E427C008294ED /* Time.swift */,
+				5C7D1556219B997F00683F2C /* TimeZone.swift */,
+				5C17526E1FB91AF400D9A9F5 /* Date.swift */,
+				5C14C7131F3DE85D008294ED /* Departure.swift */,
+				5CB6754D1F3F327D00B7FCE1 /* Holiday.swift */,
+				5C7E15A31F3FFD7300C5F8C5 /* Localization.swift */,
+				5CB7645A1F3A9EAD008B05FA /* Location.swift */,
+				5CB764531F3A8DBA008B05FA /* Schedule.swift */,
+				5CB6755D1F3F535000B7FCE1 /* Season.swift */,
+				5C30B6761F390E6B002A36FB /* Provider.swift */,
+				5CA8C55B1F3A6B440017B385 /* Route.swift */,
 				5C02BEA71F5DB42400029EDB /* URI.swift */,
 				5C6BDCE41F5EDE8100B3DF34 /* URL.swift */,
+				5C382FE61F42B7B700349B0D /* Data.swift */,
+				5C8E49351F39045F00848AEB /* Index.swift */,
 				5C27DEEE1F37C8410010B7D8 /* Info.plist */,
 			);
 			path = BoatsKit;
@@ -269,32 +165,35 @@
 		5C33E98B1F37FE9F00D6EF27 /* BoatsKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				5C6EA8311FBF928C00464FCE /* CoordinateTests.swift */,
-				5C1752731FB91E8800D9A9F5 /* DateTests.swift */,
+				5C6EA8311FBF928C00464FCE /* CLLocationCoordinate2DTests.swift */,
+				5C479C64219B2B7E00F09D1D /* CLLocationCoordinate2DTests.json */,
 				5C1AEB321F3F92CA00BE9C6F /* DateFormatterTests.swift */,
 				5C14C7381F3E3171008294ED /* DayTests.swift */,
 				5CB6755B1F3F4CC900B7FCE1 /* DayTests.json */,
+				5C14C7461F3E42CC008294ED /* TimeTests.swift */,
+				5C205A30219B83A500549E5A /* TimeTests.json */,
+				5C7D155B219B9A0900683F2C /* TimeZoneTests.swift */,
+				5C1752731FB91E8800D9A9F5 /* DateTests.swift */,
 				5C14C7181F3DF0BB008294ED /* DepartureTests.swift */,
 				5C14C71D1F3DF145008294ED /* DepartureTests.json */,
 				5CB675521F3F347100B7FCE1 /* HolidayTests.swift */,
 				5CB675541F3F34E200B7FCE1 /* HolidayTests.json */,
-				5C8E49371F39046C00848AEB /* IndexTests.swift */,
-				5C30B67D1F3945C3002A36FB /* IndexTests.json */,
 				5C7E15A81F3FFDB300C5F8C5 /* LocalizationTests.swift */,
 				5C7E15AA1F3FFDF000C5F8C5 /* LocalizationTests.json */,
 				5CD7F8B01F3D3B350025DA14 /* LocationTests.swift */,
 				5CD7F8B21F3D3C7F0025DA14 /* LocationTests.json */,
-				5CA8C5601F3A6B560017B385 /* ProviderTests.swift */,
-				5C14C71C1F3DF144008294ED /* ProviderTests.json */,
-				5CA8C5621F3A6BD50017B385 /* RouteTests.swift */,
-				5C1AEB341F3FC12600BE9C6F /* RouteTests.json */,
 				5CB764581F3A8E05008B05FA /* ScheduleTests.swift */,
 				5C1AEB351F3FC13100BE9C6F /* ScheduleTests.json */,
 				5C1AEB2E1F3F5A5900BE9C6F /* SeasonTests.swift */,
 				5C1AEB301F3F5A9200BE9C6F /* SeasonTests.json */,
-				5C14C7461F3E42CC008294ED /* TimeTests.swift */,
+				5CA8C5601F3A6B560017B385 /* ProviderTests.swift */,
+				5C14C71C1F3DF144008294ED /* ProviderTests.json */,
+				5CA8C5621F3A6BD50017B385 /* RouteTests.swift */,
+				5C1AEB341F3FC12600BE9C6F /* RouteTests.json */,
 				5C02BEA91F5DB44600029EDB /* URITests.swift */,
 				5C6BDCE91F5EE1F400B3DF34 /* URLTests.swift */,
+				5C8E49371F39046C00848AEB /* IndexTests.swift */,
+				5C30B67D1F3945C3002A36FB /* IndexTests.json */,
 				5C30B67B1F394154002A36FB /* XCTestCase.swift */,
 				5C33E98E1F37FEA000D6EF27 /* Info.plist */,
 			);
@@ -303,46 +202,12 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		5C27DEE71F37C8410010B7D8 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C4E8EF01F37F9140039EA25 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C9A66F31F37F78000A32A3B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5CDFBF441F37FB20008523C1 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		5C27DEE91F37C8410010B7D8 /* BoatsKitMac */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C27DEFE1F37C8410010B7D8 /* Build configuration list for PBXNativeTarget "BoatsKitMac" */;
 			buildPhases = (
 				5C27DEE51F37C8410010B7D8 /* Sources */,
-				5C27DEE61F37C8410010B7D8 /* Frameworks */,
-				5C27DEE71F37C8410010B7D8 /* Headers */,
-				5C27DEE81F37C8410010B7D8 /* Resources */,
 				5C27DF041F37CB780010B7D8 /* Set Build Number */,
 			);
 			buildRules = (
@@ -377,9 +242,6 @@
 			buildConfigurationList = 5C4E8EFA1F37F9140039EA25 /* Build configuration list for PBXNativeTarget "BoatsKitWatch" */;
 			buildPhases = (
 				5C4E8EEE1F37F9140039EA25 /* Sources */,
-				5C4E8EEF1F37F9140039EA25 /* Frameworks */,
-				5C4E8EF01F37F9140039EA25 /* Headers */,
-				5C4E8EF11F37F9140039EA25 /* Resources */,
 				5C27DF041F37CB780010B7D8 /* Set Build Number */,
 			);
 			buildRules = (
@@ -396,9 +258,6 @@
 			buildConfigurationList = 5C9A66FD1F37F78000A32A3B /* Build configuration list for PBXNativeTarget "BoatsKit" */;
 			buildPhases = (
 				5C9A66F11F37F78000A32A3B /* Sources */,
-				5C9A66F21F37F78000A32A3B /* Frameworks */,
-				5C9A66F31F37F78000A32A3B /* Headers */,
-				5C9A66F41F37F78000A32A3B /* Resources */,
 				5C27DF041F37CB780010B7D8 /* Set Build Number */,
 			);
 			buildRules = (
@@ -415,9 +274,6 @@
 			buildConfigurationList = 5CDFBF4E1F37FB20008523C1 /* Build configuration list for PBXNativeTarget "BoatsKitTV" */;
 			buildPhases = (
 				5CDFBF421F37FB20008523C1 /* Sources */,
-				5CDFBF431F37FB20008523C1 /* Frameworks */,
-				5CDFBF441F37FB20008523C1 /* Headers */,
-				5CDFBF451F37FB20008523C1 /* Resources */,
 				5C27DF041F37CB780010B7D8 /* Set Build Number */,
 			);
 			buildRules = (
@@ -437,7 +293,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = "@toddheasley";
+				ORGANIZATIONNAME = toddheasley;
 				TargetAttributes = {
 					5C27DEE91F37C8410010B7D8 = {
 						CreatedOnToolsVersion = 9.0;
@@ -466,7 +322,7 @@
 				};
 			};
 			buildConfigurationList = 5C27DEE41F37C8410010B7D8 /* Build configuration list for PBXProject "BoatsKit" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -487,48 +343,12 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5C27DEE81F37C8410010B7D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5C33E9881F37FE9F00D6EF27 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C1AEB311F3F5A9200BE9C6F /* SeasonTests.json in Resources */,
-				5C7E15A11F3FDF2000C5F8C5 /* RouteTests.json in Resources */,
-				5C30B67E1F3945C3002A36FB /* IndexTests.json in Resources */,
-				5C14C7201F3DF145008294ED /* ProviderTests.json in Resources */,
-				5C7E15A21F3FEC3700C5F8C5 /* ScheduleTests.json in Resources */,
-				5CB6755C1F3F4CCA00B7FCE1 /* DayTests.json in Resources */,
-				5C14C7211F3DF145008294ED /* DepartureTests.json in Resources */,
-				5CD7F8B31F3D3C7F0025DA14 /* LocationTests.json in Resources */,
-				5CB675551F3F34E200B7FCE1 /* HolidayTests.json in Resources */,
-				5C7E15AB1F3FFDF000C5F8C5 /* LocalizationTests.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C4E8EF11F37F9140039EA25 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C9A66F41F37F78000A32A3B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5CDFBF451F37FB20008523C1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				5C205A31219B83A500549E5A /* TimeTests.json in Resources */,
+				5C479C65219B2B7E00F09D1D /* CLLocationCoordinate2DTests.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +367,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"";
+			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -556,26 +376,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CB675611F3F535000B7FCE1 /* Season.swift in Sources */,
-				5C02BEAD1F5DB45300029EDB /* URI.swift in Sources */,
-				5CB675511F3F327D00B7FCE1 /* Holiday.swift in Sources */,
-				5C14C7431F3E427C008294ED /* Time.swift in Sources */,
-				5C1752721FB91AF400D9A9F5 /* Date.swift in Sources */,
-				5CA8C55F1F3A6B440017B385 /* Route.swift in Sources */,
-				5C6BDCE81F5EDE8100B3DF34 /* URL.swift in Sources */,
+				5C7D155A219B997F00683F2C /* TimeZone.swift in Sources */,
+				5C205A2F219B7DB500549E5A /* Time.swift in Sources */,
+				5C7D1562219BCA8800683F2C /* Day.swift in Sources */,
 				5CC6BD5D1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */,
-				5C7E15A71F3FFD7300C5F8C5 /* Localization.swift in Sources */,
-				5CB6755A1F3F4A1F00B7FCE1 /* JSON.swift in Sources */,
-				5CD0F14D1F3E959B008E3CDE /* Service.swift in Sources */,
-				5C382FEA1F42B7B700349B0D /* Data.swift in Sources */,
-				5C8E493B1F39047000848AEB /* Index.swift in Sources */,
-				5C6EA8301FBF914400464FCE /* Coordinate.swift in Sources */,
-				5CB764571F3A8DBA008B05FA /* Schedule.swift in Sources */,
-				5C14C7371F3E3164008294ED /* Day.swift in Sources */,
-				5CD0F1581F3EC0A9008E3CDE /* DateFormatter.swift in Sources */,
-				5CB7645E1F3A9EAD008B05FA /* Location.swift in Sources */,
-				5C14C7171F3DE85D008294ED /* Departure.swift in Sources */,
-				5C30B67A1F390E6B002A36FB /* Provider.swift in Sources */,
+				5C205A2B219B7D9800549E5A /* Service.swift in Sources */,
+				5C7D1561219B9CDD00683F2C /* DateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,24 +389,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C1AEB2F1F3F5A5900BE9C6F /* SeasonTests.swift in Sources */,
-				5CA8C5611F3A6B560017B385 /* ProviderTests.swift in Sources */,
-				5CA8C5631F3A6BD50017B385 /* RouteTests.swift in Sources */,
+				5C7D155C219B9A0900683F2C /* TimeZoneTests.swift in Sources */,
+				5C205A32219B860F00549E5A /* TimeTests.swift in Sources */,
+				5C7D155D219B9CA700683F2C /* DateFormatterTests.swift in Sources */,
 				5C30B67C1F394154002A36FB /* XCTestCase.swift in Sources */,
-				5CB764591F3A8E05008B05FA /* ScheduleTests.swift in Sources */,
-				5C6BDCEA1F5EE1F400B3DF34 /* URLTests.swift in Sources */,
-				5CD7F8B11F3D3B350025DA14 /* LocationTests.swift in Sources */,
-				5CD0F14E1F3E959B008E3CDE /* Service.swift in Sources */,
-				5C1AEB331F3F92CA00BE9C6F /* DateFormatterTests.swift in Sources */,
-				5C14C7471F3E42CC008294ED /* TimeTests.swift in Sources */,
-				5C8E49381F39046C00848AEB /* IndexTests.swift in Sources */,
-				5C14C7391F3E3171008294ED /* DayTests.swift in Sources */,
-				5C7E15A91F3FFDB300C5F8C5 /* LocalizationTests.swift in Sources */,
-				5C1752741FB91E8800D9A9F5 /* DateTests.swift in Sources */,
-				5C02BEAA1F5DB44600029EDB /* URITests.swift in Sources */,
-				5C14C7191F3DF0BB008294ED /* DepartureTests.swift in Sources */,
-				5CB675531F3F347100B7FCE1 /* HolidayTests.swift in Sources */,
-				5C6EA8321FBF928C00464FCE /* CoordinateTests.swift in Sources */,
+				5C6EA8321FBF928C00464FCE /* CLLocationCoordinate2DTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,26 +401,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CB6755F1F3F535000B7FCE1 /* Season.swift in Sources */,
-				5C02BEAB1F5DB45200029EDB /* URI.swift in Sources */,
-				5CB6754F1F3F327D00B7FCE1 /* Holiday.swift in Sources */,
-				5C14C7411F3E427C008294ED /* Time.swift in Sources */,
-				5C1752701FB91AF400D9A9F5 /* Date.swift in Sources */,
-				5CA8C55D1F3A6B440017B385 /* Route.swift in Sources */,
-				5C6BDCE61F5EDE8100B3DF34 /* URL.swift in Sources */,
+				5C7D1558219B997F00683F2C /* TimeZone.swift in Sources */,
+				5C205A2D219B7DB200549E5A /* Time.swift in Sources */,
+				5C7D1564219BCA8B00683F2C /* Day.swift in Sources */,
 				5CC6BD5E1F3CF86E00CC0322 /* CLLocationCoordinate2D.swift in Sources */,
-				5C7E15A51F3FFD7300C5F8C5 /* Localization.swift in Sources */,
-				5CB675581F3F4A1F00B7FCE1 /* JSON.swift in Sources */,
-				5CD0F14B1F3E959A008E3CDE /* Service.swift in Sources */,
-				5C382FE81F42B7B700349B0D /* Data.swift in Sources */,
-				5C8E49391F39046F00848AEB /* Index.swift in Sources */,
-				5C6EA82E1FBF914400464FCE /* Coordinate.swift in Sources */,
-				5CB764551F3A8DBA008B05FA /* Schedule.swift in Sources */,
-				5C14C7351F3E3164008294ED /* Day.swift in Sources */,
-				5CD0F1561F3EC0A9008E3CDE /* DateFormatter.swift in Sources */,
-				5CB7645C1F3A9EAD008B05FA /* Location.swift in Sources */,
-				5C14C7151F3DE85D008294ED /* Departure.swift in Sources */,
-				5C30B6781F390E6B002A36FB /* Provider.swift in Sources */,
+				5C205A29219B7D9600549E5A /* Service.swift in Sources */,
+				5C7D155F219B9CDB00683F2C /* DateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,26 +414,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CB6755E1F3F535000B7FCE1 /* Season.swift in Sources */,
-				5C02BEA81F5DB42400029EDB /* URI.swift in Sources */,
-				5CB6754E1F3F327D00B7FCE1 /* Holiday.swift in Sources */,
-				5C14C7401F3E427C008294ED /* Time.swift in Sources */,
-				5C17526F1FB91AF400D9A9F5 /* Date.swift in Sources */,
-				5CA8C55C1F3A6B440017B385 /* Route.swift in Sources */,
-				5C6BDCE51F5EDE8100B3DF34 /* URL.swift in Sources */,
+				5C7D1557219B997F00683F2C /* TimeZone.swift in Sources */,
+				5C205A2C219B7DB100549E5A /* Time.swift in Sources */,
+				5C7D1565219BCA8F00683F2C /* Day.swift in Sources */,
 				5CC6BD5B1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */,
-				5C7E15A41F3FFD7300C5F8C5 /* Localization.swift in Sources */,
-				5CB675571F3F4A1F00B7FCE1 /* JSON.swift in Sources */,
-				5CD0F14A1F3E959A008E3CDE /* Service.swift in Sources */,
-				5C382FE71F42B7B700349B0D /* Data.swift in Sources */,
-				5C8E49361F39045F00848AEB /* Index.swift in Sources */,
-				5C6EA82D1FBF914400464FCE /* Coordinate.swift in Sources */,
-				5CB764541F3A8DBA008B05FA /* Schedule.swift in Sources */,
-				5C14C7341F3E3164008294ED /* Day.swift in Sources */,
-				5CD0F1551F3EC0A9008E3CDE /* DateFormatter.swift in Sources */,
-				5CB7645B1F3A9EAD008B05FA /* Location.swift in Sources */,
-				5C14C7141F3DE85D008294ED /* Departure.swift in Sources */,
-				5C30B6771F390E6B002A36FB /* Provider.swift in Sources */,
+				5C205A28219B7D9500549E5A /* Service.swift in Sources */,
+				5C7D155E219B9CD900683F2C /* DateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,26 +427,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CB675601F3F535000B7FCE1 /* Season.swift in Sources */,
-				5C02BEAC1F5DB45300029EDB /* URI.swift in Sources */,
-				5CB675501F3F327D00B7FCE1 /* Holiday.swift in Sources */,
-				5C14C7421F3E427C008294ED /* Time.swift in Sources */,
-				5C1752711FB91AF400D9A9F5 /* Date.swift in Sources */,
-				5CA8C55E1F3A6B440017B385 /* Route.swift in Sources */,
-				5C6BDCE71F5EDE8100B3DF34 /* URL.swift in Sources */,
+				5C7D1559219B997F00683F2C /* TimeZone.swift in Sources */,
+				5C205A2E219B7DB400549E5A /* Time.swift in Sources */,
+				5C7D1563219BCA8900683F2C /* Day.swift in Sources */,
 				5CC6BD5C1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */,
-				5C7E15A61F3FFD7300C5F8C5 /* Localization.swift in Sources */,
-				5CB675591F3F4A1F00B7FCE1 /* JSON.swift in Sources */,
-				5CD0F14C1F3E959A008E3CDE /* Service.swift in Sources */,
-				5C382FE91F42B7B700349B0D /* Data.swift in Sources */,
-				5C8E493A1F39047000848AEB /* Index.swift in Sources */,
-				5C6EA82F1FBF914400464FCE /* Coordinate.swift in Sources */,
-				5CB764561F3A8DBA008B05FA /* Schedule.swift in Sources */,
-				5C14C7361F3E3164008294ED /* Day.swift in Sources */,
-				5CD0F1571F3EC0A9008E3CDE /* DateFormatter.swift in Sources */,
-				5CB7645D1F3A9EAD008B05FA /* Location.swift in Sources */,
-				5C14C7161F3DE85D008294ED /* Departure.swift in Sources */,
-				5C30B6791F390E6B002A36FB /* Provider.swift in Sources */,
+				5C205A2A219B7D9700549E5A /* Service.swift in Sources */,
+				5C7D1560219B9CDC00683F2C /* DateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -804,11 +555,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -830,7 +582,11 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = BoatsKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
 				PRODUCT_NAME = BoatsKit;
@@ -857,7 +613,11 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = BoatsKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
 				PRODUCT_NAME = BoatsKit;
@@ -874,7 +634,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -888,7 +652,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -910,7 +678,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/BoatsKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
 				PRODUCT_NAME = BoatsKit;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -918,7 +690,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
 			};
 			name = Debug;
 		};
@@ -937,7 +709,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/BoatsKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
 				PRODUCT_NAME = BoatsKit;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -946,7 +722,7 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
 			};
 			name = Release;
 		};
@@ -964,8 +740,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BoatsKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -990,8 +770,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BoatsKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1017,7 +801,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/BoatsKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
 				PRODUCT_NAME = BoatsKit;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1025,7 +813,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};
 			name = Debug;
 		};
@@ -1043,7 +831,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "$(SRCROOT)/BoatsKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.kit;
 				PRODUCT_NAME = BoatsKit;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1051,7 +843,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

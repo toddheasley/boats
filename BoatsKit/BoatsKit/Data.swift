@@ -52,3 +52,17 @@ extension DataDeleting where Self: DataResource {
         try FileManager.default.removeItem(at: url.appending(uri: uri))
     }
 }
+
+struct JSON {
+    static var encoder: JSONEncoder {
+        let encoder: JSONEncoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        return encoder
+    }
+    
+    static var decoder: JSONDecoder {
+        let decoder: JSONDecoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return decoder
+    }
+}

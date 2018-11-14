@@ -1,24 +1,24 @@
 import XCTest
 
 extension XCTestCase {
-    enum DataLocation {
-        case mock
-        case temp
+    enum Resource {
+        case bundle, temporary
     }
     
-    func url(for location: DataLocation, resource name: String? = nil, type: String) -> URL? {
-        switch location {
-        case .mock:
-            return Bundle(for: Swift.type(of: self)).url(forResource: name ?? String(describing: Swift.type(of: self)), withExtension: type)
-        case .temp:
-            return URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(name ?? String(describing: Swift.type(of: self))).\(type)")
-        }
-    }
-    
-    func data(for location: DataLocation, resource: String? = nil, type: String) -> Data? {
-        guard let url: URL = url(for: location, resource: resource, type: type) else {
+    func data(resource: Resource, name: String? = nil, type: String) -> Data? {
+        guard let url: URL = url(resource: resource, name: name, type: type) else {
             return nil
         }
         return try? Data(contentsOf: url)
+    }
+    
+    func url(resource: Resource, name: String? = nil, type: String) -> URL? {
+        let name: String = name ?? String(describing: Swift.type(of: self))
+        switch resource {
+        case .bundle:
+            return Bundle(for: Swift.type(of: self)).url(forResource: name, withExtension: type)
+        case .temporary:
+            return URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("\(name).\(type)")
+        }
     }
 }
