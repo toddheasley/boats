@@ -1,12 +1,24 @@
 import Foundation
 
 extension DateFormatter {
+    enum ClockFormat {
+        case twelveHour, twentyFourHour, auto
+    }
+    
     static let shared: DateFormatter = DateFormatter(timeZone: .shared)
+    static var clockFormat: ClockFormat = .auto
     
     var is24Hour: Bool {
-        dateStyle = .none
-        timeStyle = .medium
-        return !string(from: Date()).contains(" ")
+        switch DateFormatter.clockFormat {
+        case .twelveHour:
+            return false
+        case .twentyFourHour:
+            return true
+        case .auto:
+            dateStyle = .none
+            timeStyle = .medium
+            return !string(from: Date()).contains(" ")
+        }
     }
     
     func time(from date: Date) -> Time {

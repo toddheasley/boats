@@ -24,17 +24,17 @@ extension CLLocationCoordinate2DTests {
             XCTFail()
             return
         }
-        XCTAssertEqual(coordinates.count, 10)
-        XCTAssertEqual(coordinates.first, CLLocationCoordinate2D(latitude: 43.6576798, longitude: -70.2481828))
-        XCTAssertEqual(coordinates.last, CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0))
+        XCTAssertEqual(coordinates.count, 9)
+        XCTAssertEqual(coordinates.first, CLLocationCoordinate2D(latitude: 43.655520, longitude: -70.199316))
+        XCTAssertEqual(coordinates.last, CLLocationCoordinate2D(latitude: 43.656513, longitude: -70.248247))
     }
     
     func testEncode() {
-        guard let data: Data = try? JSONEncoder().encode(CLLocationCoordinate2D(latitude: 43.6576798, longitude: -70.2481828)),
+        guard let data: Data = try? JSONEncoder().encode(CLLocationCoordinate2D(latitude: 43.655520, longitude: -70.199316)),
             let coordinate: CLLocationCoordinate2D = try? JSONDecoder().decode(CLLocationCoordinate2D.self, from: data) else {
             XCTFail()
             return
         }
-        XCTAssertEqual(coordinate, CLLocationCoordinate2D(latitude: 43.6576798, longitude: -70.2481828))
+        XCTAssertEqual(coordinate, CLLocationCoordinate2D(latitude: 43.655520, longitude: -70.199316))
     }
 }

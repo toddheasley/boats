@@ -1,19 +1,23 @@
 import Foundation
 
 public struct Departure: Codable {
-    public enum Direction: String, Codable {
-        case destination
-        case origin
-        
-        public static let all: [Direction] = [.destination, .origin]
+    public private(set) var time: Time
+    public private(set) var services: [Service]
+    
+    public var isCarFerry: Bool {
+        return services.contains(.car)
     }
     
-    public var direction: Direction = .destination
-    public var time: Time = Time()
-    public var days: [Day] = []
-    public var services: [Service] = []
+    public init(time: Time, services: [Service] = []) {
+        self.time = time
+        self.services = services
+    }
+}
+
+extension Departure: CustomStringConvertible {
     
-    public init() {
-        
+    // MARK: CustomStringConvertible
+    public var description: String {
+        return "\(time.description)\(isCarFerry ? " cf" : "")"
     }
 }

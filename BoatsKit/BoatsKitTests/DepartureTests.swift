@@ -2,15 +2,19 @@ import XCTest
 @testable import BoatsKit
 
 class DepartureTests: XCTestCase {
-    func testCodable() {
-        guard let data: Data = try? JSON.encoder.encode(try? JSON.decoder.decode(Departure.self, from: data(for: .mock, type: "json") ?? Data())),
-            let departure: Departure = try? JSON.decoder.decode(Departure.self, from: data) else {
-            XCTFail()
-            return
-        }
-        XCTAssertEqual(departure.direction, .destination)
-        XCTAssertEqual(departure.time, Time(timeInterval: 52200.0))
-        XCTAssertEqual(departure.days.count, 2)
-        XCTAssertEqual(departure.services.count, 3)
+    func testCarFerry() {
+        XCTAssertTrue(Departure(time: Time(hour: 16, minute: 20), services: [.car]).isCarFerry)
+        XCTAssertFalse(Departure(time: Time(hour: 16, minute: 20)).isCarFerry)
+    }
+}
+
+extension DepartureTests {
+    
+    // MARK: CustomStringConvertible
+    func testDescription() {
+        DateFormatter.clockFormat = .twelveHour
+        XCTAssertEqual(Departure(time: Time(hour: 16, minute: 20), services: [.car]).description, "4:20. cf")
+        XCTAssertEqual(Departure(time: Time(hour: 16, minute: 20)).description, "4:20.")
+        DateFormatter.clockFormat = .auto
     }
 }

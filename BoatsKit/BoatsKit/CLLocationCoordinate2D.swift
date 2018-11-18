@@ -1,10 +1,6 @@
 import Foundation
 import CoreLocation
 
-extension CLLocationCoordinate2D {
-    public static let null: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
-}
-
 extension CLLocationCoordinate2D: Equatable {
     
     // MARK: Equatable

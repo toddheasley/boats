@@ -24,12 +24,8 @@ extension Time: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        return description(is24Hour: DateFormatter.shared.is24Hour)
-    }
-    
-    func description(is24Hour: Bool) -> String {
         let components: (hour: Int, minute: Int) = self.components
-        if is24Hour {
+        if DateFormatter.shared.is24Hour {
             return "\(String(format: "%02d", components.hour)):\(String(format: "%02d", components.minute))"
         } else if components.hour > 11 {
             return "\(components.hour == 12 ? 12 : components.hour - 12):\(String(format: "%02d", components.minute))."

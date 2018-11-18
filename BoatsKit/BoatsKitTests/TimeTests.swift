@@ -45,18 +45,19 @@ extension TimeTests {
     
     // MARK: CustomStringConvertible
     func testDescription() {
-        XCTAssertEqual(Time(hour: 6, minute: 15).description(is24Hour: true), "06:15")
-        XCTAssertEqual(Time(hour: 6, minute: 15).description(is24Hour: false), "6:15")
-        XCTAssertEqual(Time(hour: 12, minute: 30).description(is24Hour: true), "12:30")
-        XCTAssertEqual(Time(hour: 12, minute: 30).description(is24Hour: false), "12:30.")
-        XCTAssertEqual(Time(hour: 12, minute: 30).description(is24Hour: true), "12:30")
-        XCTAssertEqual(Time(hour: 12, minute: 30).description(is24Hour: false), "12:30.")
-        XCTAssertEqual(Time(hour: 13, minute: 0).description(is24Hour: true), "13:00")
-        XCTAssertEqual(Time(hour: 13, minute: 0).description(is24Hour: false), "1:00.")
-        XCTAssertEqual(Time(hour: 23, minute: 45).description(is24Hour: true), "23:45")
-        XCTAssertEqual(Time(hour: 23, minute: 45).description(is24Hour: false), "11:45.")
-        XCTAssertEqual(Time(hour: 0, minute: 0).description(is24Hour: true), "00:00")
-        XCTAssertEqual(Time(hour: 0, minute: 0).description(is24Hour: false), "12:00")
+        DateFormatter.clockFormat = .twelveHour
+        XCTAssertEqual(Time(hour: 6, minute: 15).description, "6:15")
+        XCTAssertEqual(Time(hour: 12, minute: 30).description, "12:30.")
+        XCTAssertEqual(Time(hour: 13, minute: 0).description, "1:00.")
+        XCTAssertEqual(Time(hour: 23, minute: 45).description, "11:45.")
+        XCTAssertEqual(Time(hour: 0, minute: 0).description, "12:00")
+        DateFormatter.clockFormat = .twentyFourHour
+        XCTAssertEqual(Time(hour: 6, minute: 15).description, "06:15")
+        XCTAssertEqual(Time(hour: 12, minute: 30).description, "12:30")
+        XCTAssertEqual(Time(hour: 13, minute: 0).description, "13:00")
+        XCTAssertEqual(Time(hour: 23, minute: 45).description, "23:45")
+        XCTAssertEqual(Time(hour: 0, minute: 0).description, "00:00")
+        DateFormatter.clockFormat = .auto
     }
 }
 
