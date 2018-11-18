@@ -26,8 +26,8 @@ extension Season: CustomStringConvertible {
     public var description: String {
         let dateIntervalFormatter: DateIntervalFormatter = DateIntervalFormatter()
         dateIntervalFormatter.timeZone = .shared
-        dateIntervalFormatter.timeStyle = .none
         dateIntervalFormatter.dateStyle = .medium
+        dateIntervalFormatter.timeStyle = .none
         return "\(name): \(dateIntervalFormatter.string(from: dateInterval) ?? "")".trimmingCharacters(in: .whitespaces)
     }
 }
