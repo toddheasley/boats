@@ -1,10 +1,10 @@
 import Foundation
 
 public struct Holiday: Codable {
-    private(set) var name: String
-    private(set) var date: Date
+    public private(set) var name: String
+    public private(set) var date: Date
     
-    public init(name: String, date: Date) {
+    init(name: String, date: Date) {
         self.name = name
         self.date = date
     }
@@ -14,9 +14,23 @@ extension Holiday: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        DateFormatter.shared.dateStyle = .medium
-        DateFormatter.shared.timeStyle = .none
-        return "\(name): \(DateFormatter.shared.string(from: date))"
+        return "\(name): \(DateFormatter.shared.description(from: date))"
+    }
+}
+
+extension Holiday: Equatable {
+    
+    // MARK: Equatable
+    public static func ==(x: Holiday, y: Holiday) -> Bool {
+        return x.date == y.date
+    }
+}
+
+extension Holiday: CaseIterable {
+    
+    // MARK: CaseIterable
+    public static var allCases: [Holiday] {
+        return [.memorial, .independence, .labor, .columbus, .veterans, .thanksgiving, .christmas, .newYears]
     }
 }
 

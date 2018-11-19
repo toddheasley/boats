@@ -21,6 +21,22 @@ extension DateFormatter {
         }
     }
     
+    func description(from date: Date) -> String {
+        dateFormat = "MMM d"
+        return string(from: date)
+    }
+    
+    func description(from dateInterval: DateInterval) -> String {
+        let year: (start: Int, end: Int) = (self.year(from: dateInterval.start), self.year(from: dateInterval.end))
+        dateFormat = "MMM d"
+        switch year.start {
+        case year.end:
+            return "\(string(from: dateInterval.start)) - \(string(from: dateInterval.end)), \(year.end)"
+        default:
+            return "\(string(from: dateInterval.start)), \(year.start) - \(string(from: dateInterval.end)), \(year.end)"
+        }
+    }
+    
     func time(from date: Date) -> Time {
         dateFormat = "H:m"
         let components: [String] = string(from: date).components(separatedBy: ":")
@@ -29,7 +45,7 @@ extension DateFormatter {
     
     func next(in components: [(year: Int, month: Int, day: Int)], from date: Date = Date()) -> Date {
         for component in components {
-            let next: Date = calendar.date(from: DateComponents(timeZone: .shared, year: component.year, month: component.month, day: component.day))!
+            let next: Date = DateFormatter.calendar.date(from: DateComponents(timeZone: .shared, year: component.year, month: component.month, day: component.day))!
             if date > next {
                 continue
             }
@@ -40,11 +56,23 @@ extension DateFormatter {
     
     func next(month: Int, day: Int, from date: Date = Date()) -> Date {
         let year: Int = self.year(from: date)
-        let next: Date = calendar.date(from: DateComponents(timeZone: .shared, year: year, month: month, day: day))!
+        let next: Date = DateFormatter.calendar.date(from: DateComponents(timeZone: .shared, year: year, month: month, day: day))!
         if date > next {
-            return calendar.date(from: DateComponents(timeZone: .shared, year: year + 1, month: month, day: day))!
+            return DateFormatter.calendar.date(from: DateComponents(timeZone: .shared, year: year + 1, month: month, day: day))!
         }
         return next
+    }
+    
+    func day(from date: Date) -> Day {
+        let date: Date = DateFormatter.calendar.startOfDay(for: date)
+        for holiday in Holiday.allCases {
+            guard holiday.date == date else {
+                continue
+            }
+            return .holiday
+        }
+        dateFormat = "EEEE"
+        return Day(rawValue: string(from: date).lowercased())!
     }
     
     func year(from date: Date) -> Int {
@@ -59,8 +87,4 @@ extension DateFormatter {
     }
     
     private static var calendar: Calendar = Calendar(identifier: .gregorian)
-    
-    private var calendar: Calendar {
-        return DateFormatter.calendar
-    }
 }

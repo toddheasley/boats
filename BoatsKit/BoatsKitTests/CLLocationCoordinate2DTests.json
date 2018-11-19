@@ -1,5 +1,9 @@
 [
     {
+        "latitude": 43.656513,
+        "longitude": -70.248247
+    },
+    {
         "latitude": 43.655520,
         "longitude": -70.199316
     },
@@ -30,9 +34,5 @@
     {
         "latitude": 43.748963,
         "longitude": -69.991044
-    },
-    {
-        "latitude": 43.656513,
-        "longitude": -70.248247
     }
 ]

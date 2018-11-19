@@ -1,6 +1,14 @@
 [
     {
         "coordinate": {
+            "latitude": 43.656513,
+            "longitude": -70.248247
+        },
+        "name": "Portland",
+        "description": "Casco Bay Lines Ferry Terminal"
+    },
+    {
+        "coordinate": {
             "latitude": 43.655520,
             "longitude": -70.199316
         },
@@ -62,13 +70,5 @@
         },
         "name": "Bailey Island",
         "description": "Cook's Landing"
-    },
-    {
-        "coordinate": {
-            "latitude": 43.656513,
-            "longitude": -70.248247
-        },
-        "name": "Portland",
-        "description": "Casco Bay Lines Ferry Terminal"
     }
 ]

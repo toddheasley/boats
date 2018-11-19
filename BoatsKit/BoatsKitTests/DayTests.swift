@@ -2,7 +2,10 @@ import XCTest
 @testable import BoatsKit
 
 class DayTests: XCTestCase {
-    
+    func testDayInit() {
+        XCTAssertEqual(Day(date: Date(timeIntervalSince1970:  1524196800.0)), .friday)
+        XCTAssertEqual(Day(date: Date(timeIntervalSince1970:  1587355200.0)), .monday)
+    }
 }
 
 extension DayTests {

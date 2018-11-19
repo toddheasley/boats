@@ -25,8 +25,8 @@ extension CLLocationCoordinate2DTests {
             return
         }
         XCTAssertEqual(coordinates.count, 9)
-        XCTAssertEqual(coordinates.first, CLLocationCoordinate2D(latitude: 43.655520, longitude: -70.199316))
-        XCTAssertEqual(coordinates.last, CLLocationCoordinate2D(latitude: 43.656513, longitude: -70.248247))
+        XCTAssertEqual(coordinates.first,  CLLocationCoordinate2D(latitude: 43.656513, longitude: -70.248247))
+        XCTAssertEqual(coordinates.last,  CLLocationCoordinate2D(latitude: 43.748963, longitude: -69.991044))
     }
     
     func testEncode() {

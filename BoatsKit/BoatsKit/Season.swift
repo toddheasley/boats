@@ -17,17 +17,12 @@ public struct Season: Codable {
         self.name = name
         self.dateInterval = dateInterval
     }
-    
 }
 
 extension Season: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        let dateIntervalFormatter: DateIntervalFormatter = DateIntervalFormatter()
-        dateIntervalFormatter.timeZone = .shared
-        dateIntervalFormatter.dateStyle = .medium
-        dateIntervalFormatter.timeStyle = .none
-        return "\(name): \(dateIntervalFormatter.string(from: dateInterval) ?? "")".trimmingCharacters(in: .whitespaces)
+        return "\(name): \(DateFormatter.shared.description(from: dateInterval))"
     }
 }

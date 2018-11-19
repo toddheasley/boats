@@ -14,6 +14,18 @@ extension DateFormatterTests {
         XCTAssertFalse(DateFormatter.shared.is24Hour)
     }
     
+    func testDateDescription() {
+        XCTAssertEqual(DateFormatter.shared.description(from: Date(timeIntervalSince1970: 1523678400.0)), "Apr 14")
+        XCTAssertEqual(DateFormatter.shared.description(from: Date(timeIntervalSince1970: 1536033600.0)), "Sep 4")
+    }
+    
+    func testDateIntervalDescription() {
+        XCTAssertEqual(DateFormatter.shared.description(from: DateInterval(start: Date(timeIntervalSince1970: 1523678400.0), end: Date(timeIntervalSince1970: 1529121599.9))), "Apr 14 - Jun 15, 2018")
+        XCTAssertEqual(DateFormatter.shared.description(from: DateInterval(start: Date(timeIntervalSince1970: 1529121600.0), end: Date(timeIntervalSince1970: 1536033599.9))), "Jun 16 - Sep 3, 2018")
+        XCTAssertEqual(DateFormatter.shared.description(from: DateInterval(start: Date(timeIntervalSince1970: 1536033600.0), end: Date(timeIntervalSince1970: 1539057599.9))), "Sep 4 - Oct 8, 2018")
+        XCTAssertEqual(DateFormatter.shared.description(from: DateInterval(start: Date(timeIntervalSince1970: 1539057600), end: Date(timeIntervalSince1970: 1546664399.9))), "Oct 9, 2018 - Jan 4, 2019")
+    }
+    
     func testTime() {
         XCTAssertEqual(DateFormatter.shared.time(from: Date(timeIntervalSince1970: 1541303999.0)), Time(hour: 23, minute: 59))
         XCTAssertEqual(DateFormatter.shared.time(from: Date(timeIntervalSince1970: 1541304000.0)), Time(hour: 0, minute: 0))
@@ -31,6 +43,12 @@ extension DateFormatterTests {
         XCTAssertEqual(DateFormatter.shared.next(month: 4, day: 20, from: Date()), DateFormatter.shared.next(month: 4, day: 20))
         XCTAssertEqual(DateFormatter.shared.next(month: 4, day: 20, from: Date(timeIntervalSince1970: 1555732800.0)), Date(timeIntervalSince1970: 1555732800.0))
         XCTAssertEqual(DateFormatter.shared.next(month: 4, day: 20, from: Date(timeIntervalSince1970: 1555732801.0)), Date(timeIntervalSince1970: 1587355200.0))
+    }
+    
+    func testDay() {
+        XCTAssertEqual(DateFormatter.shared.day(from: DateFormatter.shared.next(month: 7, day: 4)), .holiday)
+        XCTAssertEqual(DateFormatter.shared.day(from: Date(timeIntervalSince1970:  1524196800.0)), .friday)
+        XCTAssertEqual(DateFormatter.shared.day(from: Date(timeIntervalSince1970:  1587355200.0)), .monday)
     }
     
     func testYear() {
