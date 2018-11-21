@@ -96,3 +96,12 @@ extension TimeTests {
         XCTAssertEqual(time, Time(hour: 12, minute: 30))
     }
 }
+
+extension TimeTests {
+    
+    // MARK: HTMLConvertible
+    func testHTMLInit() {
+        XCTAssertEqual(try? Time(from: "\nPM4:20"), Time(hour: 16, minute: 20))
+        XCTAssertEqual(try? Time(from: "AM4:20 "), Time(hour: 4, minute: 20))
+    }
+}

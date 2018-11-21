@@ -23,3 +23,17 @@ class ScheduleTests: XCTestCase {
         XCTAssertEqual(schedule.timetable(for: .tuesday)?.trips.count, 1)
     }
 }
+
+extension ScheduleTests {
+    
+    // MARK: HTMLConvertible
+    func testHTMLInit() {
+        guard let data: Data = data(resource: .bundle, type: "html"),
+            let html: String = String(data: data, encoding: .utf8), !html.isEmpty else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(try? Schedule(from: html).season.name, .winter)
+        XCTAssertEqual(try? Schedule(from: html).timetables.count, 4)
+    }
+}

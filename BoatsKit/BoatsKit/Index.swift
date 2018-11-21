@@ -11,14 +11,8 @@ public struct Index: CustomStringConvertible, Codable {
     public init() {
         name = "Casco Bay Lines"
         description = "Ferry Schedules"
-        url = URL(string: "https://www.cascobaylines.com")!
+        url = .build
         location = .portland
         routes = Route.allCases
     }
-    
-    func scheduleURL(for route: Route, season: Season.Name) -> URL? {
-        return URL(string: "\(url)/schedules/\(route.uri)-schedule/\(season.rawValue)")
-    }
 }
-
-

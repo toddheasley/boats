@@ -22,3 +22,20 @@ extension DayTests {
         XCTAssertEqual(Day.holiday.description, "Holiday")
     }
 }
+
+extension DayTests {
+    
+    // MARK: HTMLConvertible
+    func testHTMLInit() {
+        XCTAssertEqual(try? Day(from: "Monday"), .monday)
+        XCTAssertEqual(try? Day(from: "Tues."), .tuesday)
+        XCTAssertEqual(try? Day(from: "Wed"), .wednesday)
+        XCTAssertEqual(try? Day(from: "Thurs"), .thursday)
+        XCTAssertEqual(try? Day(from: "Friday"), .friday)
+        XCTAssertEqual(try? Day(from: "Sa."), .saturday)
+        XCTAssertEqual(try? Day(from: "Su"), .sunday)
+        XCTAssertEqual(try? Day(from: "Holidoy"), .holiday)
+        XCTAssertNil(try? Day(from: "Day"))
+        XCTAssertNil(try? Day(from: "S"))
+    }
+}

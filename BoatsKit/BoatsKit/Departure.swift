@@ -21,3 +21,11 @@ extension Departure: CustomStringConvertible {
         return "\(time.description)\(isCarFerry ? " cf" : "")"
     }
 }
+
+extension Departure: HTMLConvertible {
+    
+    // MARK: HTMLConvertible
+    init(from html: String) throws {
+        self.init(time: try Time(from: html.replacingOccurrences(of: "cf", with: "").trim()), services: html.contains("cf") ? [.car] : [])
+    }
+}

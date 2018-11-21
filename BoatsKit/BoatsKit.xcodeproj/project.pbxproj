@@ -17,6 +17,16 @@
 		5C205A2F219B7DB500549E5A /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C73F1F3E427C008294ED /* Time.swift */; };
 		5C205A31219B83A500549E5A /* TimeTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C205A30219B83A500549E5A /* TimeTests.json */; };
 		5C205A32219B860F00549E5A /* TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7461F3E42CC008294ED /* TimeTests.swift */; };
+		5C20BB3521A453A000A9158F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20BB3421A453A000A9158F /* String.swift */; };
+		5C20BB3621A453A000A9158F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20BB3421A453A000A9158F /* String.swift */; };
+		5C20BB3721A453A000A9158F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20BB3421A453A000A9158F /* String.swift */; };
+		5C20BB3821A453A000A9158F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20BB3421A453A000A9158F /* String.swift */; };
+		5C20BB3A21A453E300A9158F /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20BB3921A453E300A9158F /* StringTests.swift */; };
+		5C20BB3C21A459B200A9158F /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20BB3B21A459B200A9158F /* HTML.swift */; };
+		5C20BB3D21A459B200A9158F /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20BB3B21A459B200A9158F /* HTML.swift */; };
+		5C20BB3E21A459B200A9158F /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20BB3B21A459B200A9158F /* HTML.swift */; };
+		5C20BB3F21A459B200A9158F /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20BB3B21A459B200A9158F /* HTML.swift */; };
+		5C20BB4121A462CF00A9158F /* HTMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C20BB4021A462CF00A9158F /* HTMLTests.swift */; };
 		5C285E1D21A0D21200E673E8 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C285E1C21A0D21200E673E8 /* Departure.swift */; };
 		5C285E1E21A0D21200E673E8 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C285E1C21A0D21200E673E8 /* Departure.swift */; };
 		5C285E1F21A0D21200E673E8 /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C285E1C21A0D21200E673E8 /* Departure.swift */; };
@@ -41,6 +51,9 @@
 		5C37EE1321A1FC9C00B7250A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37EE0F21A1FC9C00B7250A /* Route.swift */; };
 		5C37EE1521A1FCC700B7250A /* RouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37EE1421A1FCC700B7250A /* RouteTests.swift */; };
 		5C479C65219B2B7E00F09D1D /* CLLocationCoordinate2DTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C479C64219B2B7E00F09D1D /* CLLocationCoordinate2DTests.json */; };
+		5C58E9E721A4A33100C12631 /* SeasonTests.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C58E9E621A4A33100C12631 /* SeasonTests.html */; };
+		5C58E9E921A4B1EE00C12631 /* ScheduleTests.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C58E9E821A4B1EE00C12631 /* ScheduleTests.html */; };
+		5C58E9EB21A4B2E300C12631 /* TimetableTests.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C58E9EA21A4B2E300C12631 /* TimetableTests.html */; };
 		5C5B034E21A11D810075F499 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5B034D21A11D810075F499 /* Schedule.swift */; };
 		5C5B034F21A11D810075F499 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5B034D21A11D810075F499 /* Schedule.swift */; };
 		5C5B035021A11D810075F499 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5B034D21A11D810075F499 /* Schedule.swift */; };
@@ -81,6 +94,16 @@
 		5CCDD8BB219F5DA000A33F0F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7645A1F3A9EAD008B05FA /* Location.swift */; };
 		5CCDD8BC219F5DA100A33F0F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7645A1F3A9EAD008B05FA /* Location.swift */; };
 		5CCDD8BD219F5DA300A33F0F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7645A1F3A9EAD008B05FA /* Location.swift */; };
+		5CD0ED8921A3184B00FA7462 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED8821A3184B00FA7462 /* URLSession.swift */; };
+		5CD0ED8A21A3184B00FA7462 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED8821A3184B00FA7462 /* URLSession.swift */; };
+		5CD0ED8B21A3184B00FA7462 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED8821A3184B00FA7462 /* URLSession.swift */; };
+		5CD0ED8C21A3184B00FA7462 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED8821A3184B00FA7462 /* URLSession.swift */; };
+		5CD0ED8E21A3186B00FA7462 /* URLSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED8D21A3186B00FA7462 /* URLSessionTests.swift */; };
+		5CD0ED9621A3546100FA7462 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED9521A3546100FA7462 /* URL.swift */; };
+		5CD0ED9721A3546100FA7462 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED9521A3546100FA7462 /* URL.swift */; };
+		5CD0ED9821A3546100FA7462 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED9521A3546100FA7462 /* URL.swift */; };
+		5CD0ED9921A3546100FA7462 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED9521A3546100FA7462 /* URL.swift */; };
+		5CD0ED9B21A3547100FA7462 /* URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED9A21A3547100FA7462 /* URLTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +123,10 @@
 		5C14C7461F3E42CC008294ED /* TimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTests.swift; sourceTree = "<group>"; };
 		5C1AEB321F3F92CA00BE9C6F /* DateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
 		5C205A30219B83A500549E5A /* TimeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TimeTests.json; sourceTree = "<group>"; };
+		5C20BB3421A453A000A9158F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		5C20BB3921A453E300A9158F /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		5C20BB3B21A459B200A9158F /* HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTML.swift; sourceTree = "<group>"; };
+		5C20BB4021A462CF00A9158F /* HTMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLTests.swift; sourceTree = "<group>"; };
 		5C27DEEE1F37C8410010B7D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C285E1C21A0D21200E673E8 /* Departure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
 		5C285E2121A0D4BE00E673E8 /* DepartureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureTests.swift; sourceTree = "<group>"; };
@@ -115,6 +142,9 @@
 		5C37EE1421A1FCC700B7250A /* RouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTests.swift; sourceTree = "<group>"; };
 		5C479C64219B2B7E00F09D1D /* CLLocationCoordinate2DTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CLLocationCoordinate2DTests.json; sourceTree = "<group>"; };
 		5C4E8EF31F37F9140039EA25 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C58E9E621A4A33100C12631 /* SeasonTests.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SeasonTests.html; sourceTree = "<group>"; };
+		5C58E9E821A4B1EE00C12631 /* ScheduleTests.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ScheduleTests.html; sourceTree = "<group>"; };
+		5C58E9EA21A4B2E300C12631 /* TimetableTests.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TimetableTests.html; sourceTree = "<group>"; };
 		5C5B034D21A11D810075F499 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		5C5B035221A11DAB0075F499 /* ScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTests.swift; sourceTree = "<group>"; };
 		5C5B035421A11F5E0075F499 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
@@ -127,6 +157,10 @@
 		5CAF9C8A1F37D07500F8A02B /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB7645A1F3A9EAD008B05FA /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		5CD0ED8821A3184B00FA7462 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		5CD0ED8D21A3186B00FA7462 /* URLSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTests.swift; sourceTree = "<group>"; };
+		5CD0ED9521A3546100FA7462 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		5CD0ED9A21A3547100FA7462 /* URLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTests.swift; sourceTree = "<group>"; };
 		5CD0F1491F3E959A008E3CDE /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5CD0F1541F3EC0A9008E3CDE /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		5CD7F8B01F3D3B350025DA14 /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
@@ -167,15 +201,19 @@
 				5C14C7331F3E3164008294ED /* Day.swift */,
 				5C285E1C21A0D21200E673E8 /* Departure.swift */,
 				5C5B035921A1287E0075F499 /* Holiday.swift */,
+				5C20BB3B21A459B200A9158F /* HTML.swift */,
 				5C37EE0821A1FA9300B7250A /* Index.swift */,
 				5CB7645A1F3A9EAD008B05FA /* Location.swift */,
 				5C37EE0F21A1FC9C00B7250A /* Route.swift */,
 				5C5B034D21A11D810075F499 /* Schedule.swift */,
 				5C285E2F21A0E82800E673E8 /* Season.swift */,
 				5CD0F1491F3E959A008E3CDE /* Service.swift */,
+				5C20BB3421A453A000A9158F /* String.swift */,
 				5C14C73F1F3E427C008294ED /* Time.swift */,
 				5C5B035421A11F5E0075F499 /* Timetable.swift */,
 				5C7D1556219B997F00683F2C /* TimeZone.swift */,
+				5CD0ED9521A3546100FA7462 /* URL.swift */,
+				5CD0ED8821A3184B00FA7462 /* URLSession.swift */,
 				5C27DEEE1F37C8410010B7D8 /* Info.plist */,
 			);
 			path = BoatsKit;
@@ -190,16 +228,23 @@
 				5C14C7381F3E3171008294ED /* DayTests.swift */,
 				5C285E2121A0D4BE00E673E8 /* DepartureTests.swift */,
 				5C5B035E21A12B190075F499 /* HolidayTests.swift */,
+				5C20BB4021A462CF00A9158F /* HTMLTests.swift */,
 				5C37EE0D21A1FAB600B7250A /* IndexTests.swift */,
 				5CD7F8B01F3D3B350025DA14 /* LocationTests.swift */,
 				5CD7F8B21F3D3C7F0025DA14 /* LocationTests.json */,
 				5C37EE1421A1FCC700B7250A /* RouteTests.swift */,
 				5C5B035221A11DAB0075F499 /* ScheduleTests.swift */,
+				5C58E9E821A4B1EE00C12631 /* ScheduleTests.html */,
 				5C285E3421A0EBBE00E673E8 /* SeasonTests.swift */,
+				5C58E9E621A4A33100C12631 /* SeasonTests.html */,
+				5C20BB3921A453E300A9158F /* StringTests.swift */,
 				5C14C7461F3E42CC008294ED /* TimeTests.swift */,
 				5C205A30219B83A500549E5A /* TimeTests.json */,
 				5C37EE0621A1E82D00B7250A /* TimetableTests.swift */,
+				5C58E9EA21A4B2E300C12631 /* TimetableTests.html */,
 				5C7D155B219B9A0900683F2C /* TimeZoneTests.swift */,
+				5CD0ED9A21A3547100FA7462 /* URLTests.swift */,
+				5CD0ED8D21A3186B00FA7462 /* URLSessionTests.swift */,
 				5C30B67B1F394154002A36FB /* XCTestCase.swift */,
 				5C33E98E1F37FEA000D6EF27 /* Info.plist */,
 			);
@@ -356,6 +401,9 @@
 				5C205A31219B83A500549E5A /* TimeTests.json in Resources */,
 				5C479C65219B2B7E00F09D1D /* CLLocationCoordinate2DTests.json in Resources */,
 				5CCDD8B9219F5D9500A33F0F /* LocationTests.json in Resources */,
+				5C58E9E721A4A33100C12631 /* SeasonTests.html in Resources */,
+				5C58E9EB21A4B2E300C12631 /* TimetableTests.html in Resources */,
+				5C58E9E921A4B1EE00C12631 /* ScheduleTests.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,18 +431,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C20BB3F21A459B200A9158F /* HTML.swift in Sources */,
 				5C7D155A219B997F00683F2C /* TimeZone.swift in Sources */,
 				5C285E3321A0E82800E673E8 /* Season.swift in Sources */,
+				5CD0ED8C21A3184B00FA7462 /* URLSession.swift in Sources */,
 				5C205A2F219B7DB500549E5A /* Time.swift in Sources */,
 				5C7D1562219BCA8800683F2C /* Day.swift in Sources */,
 				5C37EE0C21A1FA9300B7250A /* Index.swift in Sources */,
 				5C37EE1321A1FC9C00B7250A /* Route.swift in Sources */,
+				5CD0ED9921A3546100FA7462 /* URL.swift in Sources */,
 				5CC6BD5D1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */,
 				5C205A2B219B7D9800549E5A /* Service.swift in Sources */,
 				5C5B035D21A1287E0075F499 /* Holiday.swift in Sources */,
 				5C5B035821A11F5E0075F499 /* Timetable.swift in Sources */,
 				5C7D1561219B9CDD00683F2C /* DateFormatter.swift in Sources */,
 				5C285E2021A0D21200E673E8 /* Departure.swift in Sources */,
+				5C20BB3821A453A000A9158F /* String.swift in Sources */,
 				5C5B035121A11D810075F499 /* Schedule.swift in Sources */,
 				5CCDD8BD219F5DA300A33F0F /* Location.swift in Sources */,
 			);
@@ -408,8 +460,11 @@
 				5C5B035F21A12B190075F499 /* HolidayTests.swift in Sources */,
 				5C7D155C219B9A0900683F2C /* TimeZoneTests.swift in Sources */,
 				5C205A32219B860F00549E5A /* TimeTests.swift in Sources */,
+				5C20BB4121A462CF00A9158F /* HTMLTests.swift in Sources */,
 				5C7D155D219B9CA700683F2C /* DateFormatterTests.swift in Sources */,
+				5CD0ED8E21A3186B00FA7462 /* URLSessionTests.swift in Sources */,
 				5C37EE0721A1E82D00B7250A /* TimetableTests.swift in Sources */,
+				5C20BB3A21A453E300A9158F /* StringTests.swift in Sources */,
 				5CCDD8B8219F5D9500A33F0F /* LocationTests.swift in Sources */,
 				5C30B67C1F394154002A36FB /* XCTestCase.swift in Sources */,
 				5C37EE0E21A1FAB600B7250A /* IndexTests.swift in Sources */,
@@ -418,6 +473,7 @@
 				5C285E2221A0D4BE00E673E8 /* DepartureTests.swift in Sources */,
 				5C5B035321A11DAB0075F499 /* ScheduleTests.swift in Sources */,
 				5C6EA8321FBF928C00464FCE /* CLLocationCoordinate2DTests.swift in Sources */,
+				5CD0ED9B21A3547100FA7462 /* URLTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,18 +481,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C20BB3D21A459B200A9158F /* HTML.swift in Sources */,
 				5C7D1558219B997F00683F2C /* TimeZone.swift in Sources */,
 				5C285E3121A0E82800E673E8 /* Season.swift in Sources */,
+				5CD0ED8A21A3184B00FA7462 /* URLSession.swift in Sources */,
 				5C205A2D219B7DB200549E5A /* Time.swift in Sources */,
 				5C7D1564219BCA8B00683F2C /* Day.swift in Sources */,
 				5C37EE0A21A1FA9300B7250A /* Index.swift in Sources */,
 				5C37EE1121A1FC9C00B7250A /* Route.swift in Sources */,
+				5CD0ED9721A3546100FA7462 /* URL.swift in Sources */,
 				5CC6BD5E1F3CF86E00CC0322 /* CLLocationCoordinate2D.swift in Sources */,
 				5C205A29219B7D9600549E5A /* Service.swift in Sources */,
 				5C5B035B21A1287E0075F499 /* Holiday.swift in Sources */,
 				5C5B035621A11F5E0075F499 /* Timetable.swift in Sources */,
 				5C7D155F219B9CDB00683F2C /* DateFormatter.swift in Sources */,
 				5C285E1E21A0D21200E673E8 /* Departure.swift in Sources */,
+				5C20BB3621A453A000A9158F /* String.swift in Sources */,
 				5C5B034F21A11D810075F499 /* Schedule.swift in Sources */,
 				5CCDD8BB219F5DA000A33F0F /* Location.swift in Sources */,
 			);
@@ -446,18 +506,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C20BB3C21A459B200A9158F /* HTML.swift in Sources */,
 				5C7D1557219B997F00683F2C /* TimeZone.swift in Sources */,
 				5C285E3021A0E82800E673E8 /* Season.swift in Sources */,
+				5CD0ED8921A3184B00FA7462 /* URLSession.swift in Sources */,
 				5C205A2C219B7DB100549E5A /* Time.swift in Sources */,
 				5C7D1565219BCA8F00683F2C /* Day.swift in Sources */,
 				5C37EE0921A1FA9300B7250A /* Index.swift in Sources */,
 				5C37EE1021A1FC9C00B7250A /* Route.swift in Sources */,
+				5CD0ED9621A3546100FA7462 /* URL.swift in Sources */,
 				5CC6BD5B1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */,
 				5C205A28219B7D9500549E5A /* Service.swift in Sources */,
 				5C5B035A21A1287E0075F499 /* Holiday.swift in Sources */,
 				5C5B035521A11F5E0075F499 /* Timetable.swift in Sources */,
 				5C7D155E219B9CD900683F2C /* DateFormatter.swift in Sources */,
 				5C285E1D21A0D21200E673E8 /* Departure.swift in Sources */,
+				5C20BB3521A453A000A9158F /* String.swift in Sources */,
 				5C5B034E21A11D810075F499 /* Schedule.swift in Sources */,
 				5CCDD8BA219F5D9F00A33F0F /* Location.swift in Sources */,
 			);
@@ -467,18 +531,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C20BB3E21A459B200A9158F /* HTML.swift in Sources */,
 				5C7D1559219B997F00683F2C /* TimeZone.swift in Sources */,
 				5C285E3221A0E82800E673E8 /* Season.swift in Sources */,
+				5CD0ED8B21A3184B00FA7462 /* URLSession.swift in Sources */,
 				5C205A2E219B7DB400549E5A /* Time.swift in Sources */,
 				5C7D1563219BCA8900683F2C /* Day.swift in Sources */,
 				5C37EE0B21A1FA9300B7250A /* Index.swift in Sources */,
 				5C37EE1221A1FC9C00B7250A /* Route.swift in Sources */,
+				5CD0ED9821A3546100FA7462 /* URL.swift in Sources */,
 				5CC6BD5C1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */,
 				5C205A2A219B7D9700549E5A /* Service.swift in Sources */,
 				5C5B035C21A1287E0075F499 /* Holiday.swift in Sources */,
 				5C5B035721A11F5E0075F499 /* Timetable.swift in Sources */,
 				5C7D1560219B9CDC00683F2C /* DateFormatter.swift in Sources */,
 				5C285E1F21A0D21200E673E8 /* Departure.swift in Sources */,
+				5C20BB3721A453A000A9158F /* String.swift in Sources */,
 				5C5B035021A11D810075F499 /* Schedule.swift in Sources */,
 				5CCDD8BC219F5DA100A33F0F /* Location.swift in Sources */,
 			);

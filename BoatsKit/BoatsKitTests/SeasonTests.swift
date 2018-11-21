@@ -15,3 +15,27 @@ extension SeasonTests {
         XCTAssertEqual(Season(name: .winter, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1539057600), end: Date(timeIntervalSince1970: 1546664399.9))).description, "Winter: Oct 9, 2018 - Jan 4, 2019")
     }
 }
+
+extension SeasonTests {
+    
+    // MARK: HTMLConvertible
+    func testHTMLInit() {
+        guard let data: Data = data(resource: .bundle, type: "html"),
+            let html: [String] = String(data: data, encoding: .utf8)?.find("<p[^>]*>(.*?)</p>"), html.count == 4 else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(try? Season(from: "\(html[0])").name, .spring)
+        XCTAssertEqual(try? Season(from: "\(html[0])").dateInterval.start.timeIntervalSince1970, 1523678400.0)
+        XCTAssertEqual(try? Season(from: "\(html[0])").dateInterval.end.timeIntervalSince1970, 1529121599.9)
+        XCTAssertEqual(try? Season(from: "\(html[1])").name, .summer)
+        XCTAssertEqual(try? Season(from: "\(html[1])").dateInterval.start.timeIntervalSince1970, 1529121600.0)
+        XCTAssertEqual(try? Season(from: "\(html[1])").dateInterval.end.timeIntervalSince1970, 1536033599.9)
+        XCTAssertEqual(try? Season(from: "\(html[2])").name, .fall)
+        XCTAssertEqual(try? Season(from: "\(html[2])").dateInterval.start.timeIntervalSince1970, 1536033600.0)
+        XCTAssertEqual(try? Season(from: "\(html[2])").dateInterval.end.timeIntervalSince1970, 1539057599.9)
+        XCTAssertEqual(try? Season(from: "\(html[3])").name, .winter)
+        XCTAssertEqual(try? Season(from: "\(html[3])").dateInterval.start.timeIntervalSince1970, 1539057600.0)
+        XCTAssertEqual(try? Season(from: "\(html[3])").dateInterval.end.timeIntervalSince1970, 1546664399.9)
+    }
+}

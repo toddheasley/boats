@@ -65,3 +65,15 @@ extension Time: Codable {
         case hour, minute
     }
 }
+
+extension Time: HTMLConvertible {
+    
+    // MARK: HTMLConvertible
+    init(from html: String) throws {
+        DateFormatter.shared.dateFormat = "ah:mm"
+        guard let date: Date = DateFormatter.shared.date(from: html) else {
+            throw(HTML.error(Time.self, from: html))
+        }
+        self.init(date: date)
+    }
+}
