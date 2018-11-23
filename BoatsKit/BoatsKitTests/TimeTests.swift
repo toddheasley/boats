@@ -79,7 +79,7 @@ extension TimeTests {
     
     // MARK: Codable
     func testDecodeInit() {
-        guard let data: Data = data(resource: .bundle, type: "json"), let times: [Time] = try? JSONDecoder().decode([Time].self, from: data) else {
+        guard let data: Data = data(resource: .bundle, type: "json"), let times: [Time] = try? JSONDecoder.shared.decode([Time].self, from: data) else {
             XCTFail()
             return
         }
@@ -89,7 +89,7 @@ extension TimeTests {
     }
     
     func testEncode() {
-        guard let data: Data = try? JSONEncoder().encode(Time(hour: 12, minute: 30)), let time: Time = try? JSONDecoder().decode(Time.self, from: data) else {
+        guard let data: Data = try? JSONEncoder.shared.encode(Time(hour: 12, minute: 30)), let time: Time = try? JSONDecoder.shared.decode(Time.self, from: data) else {
             XCTFail()
             return
         }

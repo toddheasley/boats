@@ -8,11 +8,11 @@ public struct Index: CustomStringConvertible, Codable {
     public private(set) var location: Location
     public private(set) var routes: [Route]
     
-    public init() {
-        name = "Casco Bay Lines"
-        description = "Ferry Schedules"
-        url = .build
-        location = .portland
-        routes = Route.allCases
+    init(routes: [Route] = Route.allCases) {
+        self.name = "Casco Bay Lines"
+        self.description = "Ferry Schedules"
+        self.url = .build
+        self.location = .portland
+        self.routes = routes
     }
 }

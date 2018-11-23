@@ -25,7 +25,7 @@ extension Location: CaseIterable {
     
     // MARK: CaseIterable
     public static var allCases: [Location] {
-        return [.portland, .peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff, .bailey]
+        return [.portland, .peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff]
     }
     
 }

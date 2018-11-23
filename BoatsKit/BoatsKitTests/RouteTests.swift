@@ -46,7 +46,7 @@ extension RouteTests {
     
     // MARK: CaseIterable
     func testAllCases() {
-        XCTAssertEqual(Route.allCases, [Route.peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff, .bailey])
+        XCTAssertEqual(Route.allCases, [Route.peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff])
     }
 }
 

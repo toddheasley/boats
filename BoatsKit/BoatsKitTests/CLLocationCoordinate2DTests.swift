@@ -20,7 +20,7 @@ extension CLLocationCoordinate2DTests {
     
     // MARK: Codable
     func testDecodeInit() {
-        guard let data: Data = data(resource: .bundle, type: "json"), let coordinates: [CLLocationCoordinate2D] = try? JSONDecoder().decode([CLLocationCoordinate2D].self, from: data) else {
+        guard let data: Data = data(resource: .bundle, type: "json"), let coordinates: [CLLocationCoordinate2D] = try? JSONDecoder.shared.decode([CLLocationCoordinate2D].self, from: data) else {
             XCTFail()
             return
         }
@@ -30,8 +30,8 @@ extension CLLocationCoordinate2DTests {
     }
     
     func testEncode() {
-        guard let data: Data = try? JSONEncoder().encode(CLLocationCoordinate2D(latitude: 43.655520, longitude: -70.199316)),
-            let coordinate: CLLocationCoordinate2D = try? JSONDecoder().decode(CLLocationCoordinate2D.self, from: data) else {
+        guard let data: Data = try? JSONEncoder.shared.encode(CLLocationCoordinate2D(latitude: 43.655520, longitude: -70.199316)),
+            let coordinate: CLLocationCoordinate2D = try? JSONDecoder.shared.decode(CLLocationCoordinate2D.self, from: data) else {
             XCTFail()
             return
         }

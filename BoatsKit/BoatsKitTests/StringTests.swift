@@ -6,6 +6,11 @@ class StringTests: XCTestCase {
 }
 
 extension SeasonTests {
+    func testCapitalized() {
+        XCTAssertEqual("ferry schedules for the islands of Casco Bay".capitalized(case: .sentence), "Ferry schedules for the islands of Casco Bay")
+        XCTAssertEqual("chebeague island schedule".capitalized(case: .title), "Chebeague Island Schedule")
+    }
+    
     func testFind() {
         XCTAssertEqual("<p style=\"text-align: center;\"><span style=\"font-size: large;\"><strong>Currently Displaying:</strong> Winter Schedule </span><br />".find("<span[^>]*>(.*?)</span>").first, "<strong>Currently Displaying:</strong> Winter Schedule ")
     }

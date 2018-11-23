@@ -46,7 +46,7 @@ extension Route: CaseIterable {
     
     // MARK: CaseIterable
     public static var allCases: [Route] {
-        return [.peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff, .bailey]
+        return [.peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff]
     }
 
 }

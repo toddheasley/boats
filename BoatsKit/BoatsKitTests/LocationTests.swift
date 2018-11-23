@@ -6,7 +6,7 @@ class LocationTests: XCTestCase {
     
     // MARK: Codable
     func testDecodeInit() {
-        guard let data: Data = data(resource: .bundle, type: "json"), let locations: [Location] = try? JSONDecoder().decode([Location].self, from: data) else {
+        guard let data: Data = data(resource: .bundle, type: "json"), let locations: [Location] = try? JSONDecoder.shared.decode([Location].self, from: data) else {
             XCTFail()
             return
         }
@@ -20,7 +20,7 @@ class LocationTests: XCTestCase {
     }
     
     func testEncode() {
-        guard let data: Data = try? JSONEncoder().encode(Location(coordinate: CLLocationCoordinate2D(latitude: 43.655520, longitude: -70.199316), name: "Peaks Island", description: "Forest City Landing")), let location: Location = try? JSONDecoder().decode(Location.self, from: data) else {
+        guard let data: Data = try? JSONEncoder.shared.encode(Location(coordinate: CLLocationCoordinate2D(latitude: 43.655520, longitude: -70.199316), name: "Peaks Island", description: "Forest City Landing")), let location: Location = try? JSONDecoder.shared.decode(Location.self, from: data) else {
             XCTFail()
             return
         }
@@ -39,12 +39,11 @@ extension LocationTests {
     }
 }
 
-
 extension LocationTests {
     
     // MARK: CaseIterable
     func testAllCases() {
-        XCTAssertEqual(Location.allCases, [Location.portland, .peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff, .bailey])
+        XCTAssertEqual(Location.allCases, [Location.portland, .peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff])
     }
 }
 

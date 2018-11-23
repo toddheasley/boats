@@ -27,15 +27,15 @@ extension SeasonTests {
         }
         XCTAssertEqual(try? Season(from: "\(html[0])").name, .spring)
         XCTAssertEqual(try? Season(from: "\(html[0])").dateInterval.start.timeIntervalSince1970, 1523678400.0)
-        XCTAssertEqual(try? Season(from: "\(html[0])").dateInterval.end.timeIntervalSince1970, 1529121599.9)
+        XCTAssertEqual(try? Season(from: "\(html[0])").dateInterval.end.timeIntervalSince1970, 1529121599.0)
         XCTAssertEqual(try? Season(from: "\(html[1])").name, .summer)
         XCTAssertEqual(try? Season(from: "\(html[1])").dateInterval.start.timeIntervalSince1970, 1529121600.0)
-        XCTAssertEqual(try? Season(from: "\(html[1])").dateInterval.end.timeIntervalSince1970, 1536033599.9)
+        XCTAssertEqual(try? Season(from: "\(html[1])").dateInterval.end.timeIntervalSince1970, 1536033599.0)
         XCTAssertEqual(try? Season(from: "\(html[2])").name, .fall)
         XCTAssertEqual(try? Season(from: "\(html[2])").dateInterval.start.timeIntervalSince1970, 1536033600.0)
-        XCTAssertEqual(try? Season(from: "\(html[2])").dateInterval.end.timeIntervalSince1970, 1539057599.9)
+        XCTAssertEqual(try? Season(from: "\(html[2])").dateInterval.end.timeIntervalSince1970, 1539057599.0)
         XCTAssertEqual(try? Season(from: "\(html[3])").name, .winter)
         XCTAssertEqual(try? Season(from: "\(html[3])").dateInterval.start.timeIntervalSince1970, 1539057600.0)
-        XCTAssertEqual(try? Season(from: "\(html[3])").dateInterval.end.timeIntervalSince1970, 1546664399.9)
+        XCTAssertEqual(try? Season(from: "\(html[3])").dateInterval.end.timeIntervalSince1970, 1546664399.0)
     }
 }
