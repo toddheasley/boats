@@ -1,7 +1,7 @@
 import Foundation
 
 extension URLSession {
-    public enum Action {
+    public enum Action: String, CaseIterable {
         case fetch, build
     }
     

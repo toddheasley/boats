@@ -1,4 +1,4 @@
-var is24HourTime = new Date().toLocaleString().toUpperCase().indexOf("M") == -1
+var is24Hour = new Date().toLocaleString().toUpperCase().indexOf("M") == -1
 
 function convertTo24Hour(time) {
     var span = time.getElementsByTagName("span")
@@ -21,7 +21,7 @@ function convertTo24Hour(time) {
     span[1].innerHTML = hour.charAt(1)
 }
 
-if (is24HourTime) {
+if (is24Hour) {
     var times = document.getElementsByTagName("time")
     for (var i = 0; i < times.length; i++ ) {
         convertTo24Hour(times[i])

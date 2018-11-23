@@ -2,8 +2,7 @@ import Foundation
 import BoatsKit
 
 enum SVG: String, CaseIterable {
-    case menu = "Menu"
-    case car = "Car"
+    case menu = "Menu", car = "Car"
 }
 
 extension SVG: HTMLConvertible {

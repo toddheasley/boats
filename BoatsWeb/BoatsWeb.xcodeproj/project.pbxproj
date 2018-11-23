@@ -3,59 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5C029613207813EF00FCE626 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C029612207813EF00FCE626 /* BoatsKit.framework */; };
 		5C03DF1F1F43A4F500367ABE /* Menu.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5C03DF1E1F43A4F500367ABE /* Menu.svg */; };
 		5C03DF201F43A4F500367ABE /* Menu.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5C03DF1E1F43A4F500367ABE /* Menu.svg */; };
-		5C07DB381F5F31F8004C8ACB /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB371F5F31F8004C8ACB /* Site.swift */; };
-		5C07DB391F5F31F8004C8ACB /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB371F5F31F8004C8ACB /* Site.swift */; };
-		5C07DB3B1F5F3231004C8ACB /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB3A1F5F3231004C8ACB /* Index.swift */; };
-		5C07DB3C1F5F3231004C8ACB /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB3A1F5F3231004C8ACB /* Index.swift */; };
-		5C07DB401F5F37EA004C8ACB /* HTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB3F1F5F37EA004C8ACB /* HTMLView.swift */; };
-		5C07DB411F5F37EA004C8ACB /* HTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB3F1F5F37EA004C8ACB /* HTMLView.swift */; };
-		5C07DB431F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB421F5F3F0F004C8ACB /* IndexHTMLView.swift */; };
-		5C07DB441F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB421F5F3F0F004C8ACB /* IndexHTMLView.swift */; };
-		5C07DB461F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB451F5F3F3D004C8ACB /* RouteHTMLView.swift */; };
-		5C07DB471F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB451F5F3F3D004C8ACB /* RouteHTMLView.swift */; };
 		5C0F6345202501A100201D68 /* Car.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5C85AE1F2024E1B00088B9A4 /* Car.svg */; };
-		5C28EE341F505A1B0093080D /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28EE331F505A1B0093080D /* Script.swift */; };
-		5C28EE351F505A1B0093080D /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28EE331F505A1B0093080D /* Script.swift */; };
-		5C28EE371F505A400093080D /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 5C28EE361F505A400093080D /* Script.js */; };
-		5C28EE381F505A400093080D /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 5C28EE361F505A400093080D /* Script.js */; };
-		5C28EE3B1F505BF20093080D /* ScriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28EE391F505A600093080D /* ScriptTests.swift */; };
 		5C28EE3D1F505D310093080D /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C138C031F40F0C80034CD34 /* BoatsKit.framework */; };
-		5C382FE31F42B35F00349B0D /* BookmarkIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C382FE21F42B35F00349B0D /* BookmarkIcon.png */; };
-		5C382FE41F42B36D00349B0D /* BookmarkIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C382FE21F42B35F00349B0D /* BookmarkIcon.png */; };
-		5C382FE51F42B37C00349B0D /* Stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = 5C533A9D1F42AE9A00565FCC /* Stylesheet.css */; };
-		5C533A9E1F42AE9A00565FCC /* Stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = 5C533A9D1F42AE9A00565FCC /* Stylesheet.css */; };
-		5C53E1821F445F7800B2C89F /* SVG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53E1811F445F7800B2C89F /* SVG.swift */; };
-		5C53E1831F445F7800B2C89F /* SVG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53E1811F445F7800B2C89F /* SVG.swift */; };
-		5C53E1851F445F8600B2C89F /* SVGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C53E1841F445F8600B2C89F /* SVGTests.swift */; };
 		5C5CC5091F438C8E00FDC699 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C138C031F40F0C80034CD34 /* BoatsKit.framework */; };
-		5C6AB8041F429DF3003C7046 /* BookmarkIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6AB8031F429DF3003C7046 /* BookmarkIcon.swift */; };
-		5C6AB8051F429DF3003C7046 /* BookmarkIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6AB8031F429DF3003C7046 /* BookmarkIcon.swift */; };
-		5C6D80C71FFA86A000B5F256 /* IndexHTMLView.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C6D80C51FFA869F00B5F256 /* IndexHTMLView.html */; };
-		5C6D80C81FFA86A000B5F256 /* RouteHTMLView.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C6D80C61FFA86A000B5F256 /* RouteHTMLView.html */; };
-		5C6D80C91FFA86A700B5F256 /* RouteHTMLView.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C6D80C61FFA86A000B5F256 /* RouteHTMLView.html */; };
-		5C6D80CA1FFA86AB00B5F256 /* IndexHTMLView.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C6D80C51FFA869F00B5F256 /* IndexHTMLView.html */; };
-		5C6D80CC1FFBA62E00B5F256 /* HTMLTests.html in Resources */ = {isa = PBXBuildFile; fileRef = 5C6D80CB1FFBA62E00B5F256 /* HTMLTests.html */; };
 		5C85AE202024E1B00088B9A4 /* Car.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5C85AE1F2024E1B00088B9A4 /* Car.svg */; };
-		5C9F2B241F49C6610047F09D /* ManifestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F2B231F49C6610047F09D /* ManifestTests.swift */; };
-		5C9F2B261F49CA8E0047F09D /* ManifestTests.appcache in Resources */ = {isa = PBXBuildFile; fileRef = 5C9F2B251F49CA8E0047F09D /* ManifestTests.appcache */; };
-		5CADAD6E1FF7CFB200FC1D11 /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADAD6D1FF7CFB200FC1D11 /* HTML.swift */; };
-		5CADAD6F1FF7CFB200FC1D11 /* HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CADAD6D1FF7CFB200FC1D11 /* HTML.swift */; };
 		5CC755C91F4A357F00C8FCC5 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC755C81F4A357F00C8FCC5 /* XCTestCase.swift */; };
-		5CDA95551FF9AB30006C81EB /* HTMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDA95541FF9AB30006C81EB /* HTMLTests.swift */; };
-		5CE767C51F44DD52003A76EE /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE767C41F44DD52003A76EE /* Manifest.swift */; };
-		5CE767C61F44DD52003A76EE /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE767C41F44DD52003A76EE /* Manifest.swift */; };
 		5CFB26051F42A1590066C80C /* BoatsWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF3571F1F40EE1200348203 /* BoatsWeb.framework */; };
-		5CFB260B1F42A17F0066C80C /* BookmarkIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6AB8061F429E7A003C7046 /* BookmarkIconTests.swift */; };
-		5CFB26131F42A7760066C80C /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB26121F42A7760066C80C /* Stylesheet.swift */; };
-		5CFB26141F42A7760066C80C /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB26121F42A7760066C80C /* Stylesheet.swift */; };
-		5CFB26161F42A7D60066C80C /* StylesheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB26151F42A7D60066C80C /* StylesheetTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,7 +250,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = "@toddheasley";
+				ORGANIZATIONNAME = toddheasley;
 				TargetAttributes = {
 					5CF357051F40ED7400348203 = {
 						CreatedOnToolsVersion = 9.0;
@@ -309,7 +269,7 @@
 				};
 			};
 			buildConfigurationList = 5CF357001F40ED7400348203 /* Build configuration list for PBXProject "BoatsWeb" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -332,12 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C6D80C81FFA86A000B5F256 /* RouteHTMLView.html in Resources */,
-				5C6D80C71FFA86A000B5F256 /* IndexHTMLView.html in Resources */,
-				5C382FE31F42B35F00349B0D /* BookmarkIcon.png in Resources */,
 				5C85AE202024E1B00088B9A4 /* Car.svg in Resources */,
-				5C28EE371F505A400093080D /* Script.js in Resources */,
-				5C533A9E1F42AE9A00565FCC /* Stylesheet.css in Resources */,
 				5C03DF1F1F43A4F500367ABE /* Menu.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,12 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C382FE41F42B36D00349B0D /* BookmarkIcon.png in Resources */,
-				5C6D80CA1FFA86AB00B5F256 /* IndexHTMLView.html in Resources */,
-				5C28EE381F505A400093080D /* Script.js in Resources */,
 				5C0F6345202501A100201D68 /* Car.svg in Resources */,
-				5C6D80C91FFA86A700B5F256 /* RouteHTMLView.html in Resources */,
-				5C382FE51F42B37C00349B0D /* Stylesheet.css in Resources */,
 				5C03DF201F43A4F500367ABE /* Menu.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,8 +310,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C9F2B261F49CA8E0047F09D /* ManifestTests.appcache in Resources */,
-				5C6D80CC1FFBA62E00B5F256 /* HTMLTests.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,17 +337,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C53E1821F445F7800B2C89F /* SVG.swift in Sources */,
-				5C28EE341F505A1B0093080D /* Script.swift in Sources */,
-				5C07DB381F5F31F8004C8ACB /* Site.swift in Sources */,
-				5C07DB431F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */,
-				5C07DB461F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */,
-				5C6AB8041F429DF3003C7046 /* BookmarkIcon.swift in Sources */,
-				5CADAD6E1FF7CFB200FC1D11 /* HTML.swift in Sources */,
-				5C07DB401F5F37EA004C8ACB /* HTMLView.swift in Sources */,
-				5C07DB3B1F5F3231004C8ACB /* Index.swift in Sources */,
-				5CE767C51F44DD52003A76EE /* Manifest.swift in Sources */,
-				5CFB26131F42A7760066C80C /* Stylesheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,17 +344,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C53E1831F445F7800B2C89F /* SVG.swift in Sources */,
-				5C28EE351F505A1B0093080D /* Script.swift in Sources */,
-				5C07DB391F5F31F8004C8ACB /* Site.swift in Sources */,
-				5C07DB441F5F3F0F004C8ACB /* IndexHTMLView.swift in Sources */,
-				5C07DB471F5F3F3D004C8ACB /* RouteHTMLView.swift in Sources */,
-				5C6AB8051F429DF3003C7046 /* BookmarkIcon.swift in Sources */,
-				5CADAD6F1FF7CFB200FC1D11 /* HTML.swift in Sources */,
-				5C07DB411F5F37EA004C8ACB /* HTMLView.swift in Sources */,
-				5C07DB3C1F5F3231004C8ACB /* Index.swift in Sources */,
-				5CE767C61F44DD52003A76EE /* Manifest.swift in Sources */,
-				5CFB26141F42A7760066C80C /* Stylesheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,12 +351,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C9F2B241F49C6610047F09D /* ManifestTests.swift in Sources */,
-				5CDA95551FF9AB30006C81EB /* HTMLTests.swift in Sources */,
-				5CFB26161F42A7D60066C80C /* StylesheetTests.swift in Sources */,
-				5C28EE3B1F505BF20093080D /* ScriptTests.swift in Sources */,
-				5CFB260B1F42A17F0066C80C /* BookmarkIconTests.swift in Sources */,
-				5C53E1851F445F8600B2C89F /* SVGTests.swift in Sources */,
 				5CC755C91F4A357F00C8FCC5 /* XCTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,7 +417,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -554,11 +474,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -580,8 +501,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BoatsWeb/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.web;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -607,8 +532,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = BoatsWeb/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.web;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -634,7 +563,11 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "$(SRCROOT)/BoatsWeb/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.web;
 				PRODUCT_NAME = BoatsWeb;
@@ -662,7 +595,11 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "$(SRCROOT)/BoatsWeb/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.web;
 				PRODUCT_NAME = BoatsWeb;
@@ -681,7 +618,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsWebTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.web.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -698,7 +639,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsWebTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.web.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
