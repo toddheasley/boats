@@ -1,6 +1,29 @@
 import Foundation
 
 extension URL {
+    public init(directory path: String) throws {
+        let url: URL = URL(fileURLWithPath: path)
+        var isDirectory: ObjCBool = false
+        guard url.hasDirectoryPath,
+            FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory),
+            isDirectory.boolValue else {
+            throw(NSError(domain: NSURLErrorDomain, code: NSURLErrorBadURL))
+        }
+        self = url
+    }
+    
+    public func delete() throws {
+        guard isFileURL else {
+            throw(NSError(domain: NSURLErrorDomain, code: NSURLErrorUnsupportedURL))
+        }
+        guard FileManager.default.fileExists(atPath: path) else {
+            return
+        }
+        try FileManager.default.trashItem(at: self, resultingItemURL: nil)
+    }
+}
+
+extension URL {
     static let fetch: URL = URL(string: "https://toddheasley.github.io/boats/index.json")!
     static let build: URL = URL(string: "https://www.cascobaylines.com")!
     

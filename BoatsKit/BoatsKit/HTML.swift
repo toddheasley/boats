@@ -13,9 +13,6 @@ struct HTML {
     }
     
     static func error<T>(_ type: T.Type, from html: String) -> NSError {
-        return NSError(domain: HTMLErrorDomain, code: HTMLConvertibleError, userInfo: [
-            "type": "\(String(describing: type))",
-            "html": "\(html)"
-        ])
+        return NSError(domain: HTMLErrorDomain, code: HTMLConvertibleError)
     }
 }

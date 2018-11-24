@@ -6,6 +6,26 @@ class URLTests: XCTestCase {
 }
 
 extension URLTests {
+    func testDirectoryInit() {
+        XCTAssertThrowsError(try URL(directory: "\(NSTemporaryDirectory())files/"))
+        XCTAssertThrowsError(try URL(directory: "\(NSTemporaryDirectory())file.txt"))
+        XCTAssertNoThrow(try URL(directory: NSTemporaryDirectory()))
+    }
+    
+    func testDelete() {
+        guard let url: URL = (try? URL(directory: NSTemporaryDirectory()))?.appendingPathComponent("file.txt") else {
+            XCTFail()
+            return
+        }
+        try? Data().write(to: url)
+        XCTAssertTrue(FileManager.default.fileExists(atPath: url.path))
+        XCTAssertNoThrow(try url.delete())
+        XCTAssertFalse(FileManager.default.fileExists(atPath: url.path))
+        XCTAssertNoThrow(try url.delete())
+    }
+}
+
+extension URLTests {
     func testSchedule() {
         XCTAssertEqual(URL.schedule(for: .peaks, season: .spring), URL(string: "https://www.cascobaylines.com/schedules/peaks-island-schedule/spring"))
         XCTAssertEqual(URL.schedule(for: .littleDiamond, season: .summer), URL(string: "https://www.cascobaylines.com/schedules/little-diamond-island-schedule/summer"))

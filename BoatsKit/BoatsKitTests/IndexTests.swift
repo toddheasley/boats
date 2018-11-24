@@ -9,5 +9,6 @@ class IndexTests: XCTestCase {
         XCTAssertEqual(Index().location, .portland)
         XCTAssertEqual(Index(routes: [.bailey]).routes, [.bailey])
         XCTAssertEqual(Index().routes, Route.allCases)
+        XCTAssertEqual(Index().uri, "index")
     }
 }

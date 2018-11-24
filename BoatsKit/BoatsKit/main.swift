@@ -2,26 +2,25 @@ import Foundation
 
 let name: String = Bundle.main.executableURL!.lastPathComponent
 
-var isDirectory: ObjCBool = false
-guard CommandLine.arguments.count == 3,
+guard CommandLine.arguments.count > 2,
     let action: URLSession.Action = URLSession.Action(rawValue: CommandLine.arguments[1]),
-    FileManager.default.fileExists(atPath: CommandLine.arguments[2], isDirectory: &isDirectory), isDirectory.boolValue else {
-    print("\(name) [bad argument(s)]")
+    let url: URL = try? URL(directory: CommandLine.arguments[2]) else {
+    print("\(name) options: [fetch|build] \"/path/to/directory/\"")
     exit(1)
 }
 
 let runLoop: CFRunLoop = CFRunLoopGetCurrent()
 URLSession.shared.index(action: action) { index, error in
     guard let index: Index = index else {
-        print("\(name) [failed: \(error?.localizedDescription ?? "")]")
+        print("\(name) \(action.rawValue) failed: \(error?.localizedDescription ?? "Unknown error")")
         exit(1)
     }
     do {
         let data: Data = try JSONEncoder.shared.encode(index)
-        try data.write(to: URL(fileURLWithPath: "\(CommandLine.arguments[2])/Index.json"))
+        try data.write(to: url.appendingPathComponent("\(index.uri).json"))
         exit(0)
     } catch {
-        print("\(name) [\(error)]")
+        print("\(name) \(action.rawValue) failed: \(error.localizedDescription)")
         exit(1)
     }
     CFRunLoopStop(runLoop)

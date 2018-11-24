@@ -267,8 +267,8 @@
 				5C7D1556219B997F00683F2C /* TimeZone.swift */,
 				5CD0ED9521A3546100FA7462 /* URL.swift */,
 				5CD0ED8821A3184B00FA7462 /* URLSession.swift */,
-				5C27DEEE1F37C8410010B7D8 /* Info.plist */,
 				5C055D1521A829EE0086D5A0 /* main.swift */,
+				5C27DEEE1F37C8410010B7D8 /* Info.plist */,
 			);
 			path = BoatsKit;
 			sourceTree = "<group>";
