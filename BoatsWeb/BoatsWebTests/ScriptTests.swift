@@ -6,7 +6,13 @@ class ScriptTests: XCTestCase {
 }
 
 extension ScriptTests {
-    func testDataEncoding() {
-        XCTAssertNotNil(try? Script().data())
+    
+    // MARK: Resource
+    func testPath() {
+        XCTAssertEqual(Script().path, "script.js")
+    }
+    
+    func testData() {
+        XCTAssertNoThrow(try Script().data())
     }
 }

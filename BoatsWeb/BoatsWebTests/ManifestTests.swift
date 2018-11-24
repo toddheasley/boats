@@ -1,5 +1,4 @@
 import XCTest
-@testable import BoatsKit
 @testable import BoatsWeb
 
 class ManifestTests: XCTestCase {
@@ -7,40 +6,26 @@ class ManifestTests: XCTestCase {
 }
 
 extension ManifestTests {
-    func testDataCoding() {
-        guard let data: Data = data(for: .mock, type: "appcache"),
-            let manifest: Manifest = try? Manifest(data: data) else {
+    func testDataInit() {
+        guard let data: Data = data(resource: .bundle, type: "appcache") else {
             XCTFail()
             return
         }
-        XCTAssertEqual(manifest.uris.count, 3)
-        XCTAssertNotNil(try manifest.data())
-    }
-}
-
-extension ManifestTests {
-    func testDataReading() {
-        guard let url: URL = url(for: .temp, resource: "manifest", type: "appcache"),
-            let data: Data = data(for: .mock, type: "appcache"), let _ = try? data.write(to: url) else {
-            XCTFail()
-            return
-        }
-        XCTAssertNoThrow(try Manifest(url: url))
-        let expect: XCTestExpectation = expectation(description: "")
-        Manifest.read(from: url) { manifest, error in
-            XCTAssertNil(error)
-            XCTAssertNotNil(manifest)
-            expect.fulfill()
-        }
-        waitForExpectations(timeout: 1.0, handler: nil)
+        XCTAssertNoThrow(try Manifest(data: data))
+        XCTAssertEqual(try? Manifest(data: data).paths, ["favicon.png", "script.js", "index.html", "stylesheet.css"])
     }
     
-    func testDataWriting() {
-        guard let url: URL = url(for: .temp, resource: "manifest", type: "appcache"),
-            let manifest: Manifest = try? Manifest(data: data(for: .mock, type: "appcache") ?? Data()) else {
+    // MARK: Resource
+    func testPath() {
+        XCTAssertEqual(Manifest().path, "manifest.appcache")
+    }
+    
+    func testData() {
+        guard let data: Data = data(resource: .bundle, type: "appcache") else {
             XCTFail()
             return
         }
-        XCTAssertNoThrow(try manifest.write(to: url))
+        XCTAssertNoThrow(try Manifest(data: data).data())
+        XCTAssertNoThrow(try Manifest().data())
     }
 }

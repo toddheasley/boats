@@ -1,25 +1,18 @@
 import Foundation
 import BoatsKit
 
-class Stylesheet {
+struct Stylesheet {
     
 }
 
-extension Stylesheet: DataEncoding {
+extension Stylesheet: Resource {
     
-    // MARK: DataEncoding
-    func data() throws -> Data {
-        guard let url: URL = Bundle(for: type(of: self)).url(forResource: String(describing: type(of: self)), withExtension: "css") else {
-            throw NSError(domain: NSURLErrorDomain, code: NSFileNoSuchFileError, userInfo: nil)
-        }
-        return try Data(contentsOf: url)
+    // MARK: Resource
+    public var path: String {
+        return "stylesheet.css"
     }
-}
-
-extension Stylesheet: DataResource, DataWriting, DataDeleting {
     
-    // MARK: DataResource
-    public var uri: URI {
-        return URI(resource: "stylesheet", type: "css")
+    public func data() throws -> Data {
+        return try Data(contentsOf: try URL.bundle(resource: "Stylesheet", type: "css"))
     }
 }

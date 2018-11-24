@@ -2,42 +2,38 @@ import Foundation
 import BoatsKit
 
 enum SVG: String, CaseIterable {
-    case menu = "Menu", car = "Car"
+    case menu, car
+}
+
+extension SVG: CustomStringConvertible {
+    
+    // MARK: CustomStringConvertible
+    public var description: String {
+        return "\(rawValue)"
+    }
+}
+
+extension SVG: Resource {
+    
+    // MARK: Resource
+    public var path: String {
+        return "\(rawValue).svg"
+    }
+    
+    public func data() throws -> Data {
+        return try Data(contentsOf: try URL.bundle(resource: "\(rawValue.capitalized())", type: "svg"))
+    }
 }
 
 extension SVG: HTMLConvertible {
     
     // MARK: HTMLConvertible
-    var html: HTML {
-        guard let data: Data = try? data(),
-            let string: String = String(data: data, encoding: .utf8) else {
-            return HTML(stringLiteral: "\(rawValue)")
+    func html() throws -> String {
+        guard let html: String = String(data: try data(), encoding: .utf8) else {
+            throw(NSError(domain: NSCocoaErrorDomain, code: NSFileReadCorruptFileError))
         }
-        return HTML(stringLiteral: string.components(separatedBy: "\n").map { string in
-            string.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " xmlns=\"http://www.w3.org/2000/svg\"", with: "")
-        }.joined())
-    }
-}
-
-extension SVG: DataEncoding {
-    
-    // MARK: DataEncoding
-    private class SVGClass {
-        
-    }
-    
-    func data() throws -> Data {
-        guard let url: URL = Bundle(for: type(of: SVGClass())).url(forResource: "\(rawValue)", withExtension: "svg") else {
-            throw NSError(domain: NSURLErrorDomain, code: NSFileNoSuchFileError, userInfo: nil)
-        }
-        return try Data(contentsOf: url)
-    }
-}
-
-extension SVG: DataResource, DataWriting, DataDeleting {
-    
-    // MARK: DataResource
-    public var uri: URI {
-        return URI(resource: "\(rawValue.lowercased())", type: "svg")
+        return html.components(separatedBy: "\n").map { component in
+            component.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " xmlns=\"http://www.w3.org/2000/svg\"", with: "")
+        }.joined()
     }
 }

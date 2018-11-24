@@ -1,6 +1,15 @@
 import Foundation
 import BoatsKit
 
+struct Site {
+    public private(set) var index: Index?
+    
+    public init(index: Index) {
+        self.index = index
+    }
+}
+
+/*
 public struct Site {
     public static let uri: URI = URI(resource: "index", type: "html")
     public static var app: (name: String, identifier: String?) = ("Boats", nil)
@@ -46,4 +55,4 @@ extension Site: DataWriting, DataDeleting {
         }
         try FileManager.default.removeItem(at: url.appending(uri: manifest.uri))
     }
-}
+} */

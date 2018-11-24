@@ -12,3 +12,15 @@ class IndexTests: XCTestCase {
         XCTAssertEqual(Index().uri, "index")
     }
 }
+
+extension IndexTests {
+    
+    // MARK: Resource
+    func testPath() {
+        XCTAssertEqual(Index().path, "index.json")
+    }
+    
+    func testData() {
+        XCTAssertNoThrow(try Index().data())
+    }
+}

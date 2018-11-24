@@ -1,56 +1,69 @@
 import Foundation
 import BoatsKit
 
-protocol HTMLDataSource {
-    func value(of name: String, at i: [Int], in html: HTML) -> String?
-    func count(of name: String, at i: [Int], in html: HTML) -> Int
-}
-
 protocol HTMLConvertible {
-    var html: HTML {
-        get
-    }
+    func html() throws -> String
 }
 
-class HTML: ExpressibleByStringLiteral, CustomStringConvertible {
-    private var value: String = ""
+protocol HTMLDataSource {
+    func template(of name: String, at index: [Int]) -> String?
+    func count(of name: String, at index: [Int]) -> Int
+}
+
+struct HTML: HTMLConvertible {
+    private(set) var template: String
     var dataSource: HTMLDataSource?
     
-    // MARK: ExpressibleByStringLiteral
-    required init(stringLiteral value: String) {
-        self.value = value
+    init(template: String) {
+        self.template = template
     }
     
-    // MARK: CustomStringConvertible
-    var description: String {
-        return populate(value: value).replacingOccurrences(of: "\n\n", with: "\n").trimmingCharacters(in: .whitespacesAndNewlines)
+    // MARK: HTMLConvertible
+    func html() throws -> String {
+        return try populate(template: template)
     }
     
-    private func populate(value: String, at i: [Int] = []) -> String {
+    private func populate(template: String, at i: [Int] = []) throws -> String {
         guard let dataSource: HTMLDataSource = dataSource else {
-            return value
+            throw(NSError(domain: NSCocoaErrorDomain, code: NSFeatureUnsupportedError))
         }
-        var string: String = "\(value)"
-        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b\\[ -->\n((.|\n)*)\n<!-- ]\\1 -->").matches(in: value, range: NSRange(value.startIndex..., in: value)) {
+        var string: String = "\(template)"
+        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b\\[ -->\n((.|\n)*)\n<!-- ]\\1 -->").matches(in: template, range: NSRange(template.startIndex..., in: template)) {
             var strings: [String] = []
-            for ii in 0...(dataSource.count(of: "\(value[Range(match.range(at: 1), in: value)!])", at: i, in: self)) {
+            for ii in 0...(dataSource.count(of: "\(template[Range(match.range(at: 1), in: template)!])", at: i)) {
                 guard ii > 0 else {
                     continue
                 }
-                strings.append(populate(value: "\(value[Range(match.range(at: 2), in: value)!])", at: i + [(ii - 1)]))
+                strings.append(try populate(template: "\(template[Range(match.range(at: 2), in: template)!])", at: i + [(ii - 1)]))
             }
-            string = string.replacingOccurrences(of: "\(value[Range(match.range(at: 0), in: value)!])", with: strings.joined(separator: "\n"))
+            string = string.replacingOccurrences(of: "\(template[Range(match.range(at: 0), in: template)!])", with: strings.joined(separator: "\n"))
         }
-        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b\\? -->((.|\n)*)<!-- \\?\\1 -->").matches(in: value, range: NSRange(value.startIndex..., in: value)) {
+        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b\\? -->((.|\n)*)<!-- \\?\\1 -->").matches(in: template, range: NSRange(template.startIndex..., in: template)) {
             var strings: [String] = []
-            if let _: String = dataSource.value(of: "\(value[Range(match.range(at: 1), in: value)!])", at: i, in: self) {
-                strings.append(populate(value: "\(value[Range(match.range(at: 2), in: value)!])", at: i))
+            if let _: String = dataSource.template(of: "\(template[Range(match.range(at: 1), in: template)!])", at: i) {
+                strings.append(try populate(template: "\(template[Range(match.range(at: 2), in: template)!])", at: i))
             }
-            string = string.replacingOccurrences(of: "\(value[Range(match.range(at: 0), in: value)!])", with: strings.joined())
+            string = string.replacingOccurrences(of: "\(template[Range(match.range(at: 0), in: template)!])", with: strings.joined())
         }
-        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b -->").matches(in: value, range: NSRange(value.startIndex..., in: value)) {
-            string = string.replacingOccurrences(of: "\(value[Range(match.range(at: 0), in: value)!])", with: dataSource.value(of: "\(value[Range(match.range(at: 1), in: value)!])", at: i, in: self) ?? "")
+        for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b -->").matches(in: template, range: NSRange(template.startIndex..., in: template)) {
+            string = string.replacingOccurrences(of: "\(template[Range(match.range(at: 0), in: template)!])", with: dataSource.template(of: "\(template[Range(match.range(at: 1), in: template)!])", at: i) ?? "")
         }
-        return string
+        return string.replacingOccurrences(of: "\n\n", with: "\n")
+    }
+}
+
+extension HTML {
+    init(data: Data) throws {
+        guard let template: String = String(data: data, encoding: .utf8) else {
+            throw(NSError(domain: NSCocoaErrorDomain, code: NSFileReadUnknownStringEncodingError))
+        }
+        self.template = template
+    }
+    
+    func data() throws -> Data {
+        guard let data: Data = (try html()).data(using: .utf8) else {
+            throw(NSError(domain: NSCocoaErrorDomain, code: NSFileReadUnknownStringEncodingError))
+        }
+        return data
     }
 }

@@ -7,13 +7,13 @@ class URLTests: XCTestCase {
 
 extension URLTests {
     func testDirectoryInit() {
-        XCTAssertThrowsError(try URL(directory: "\(NSTemporaryDirectory())files/"))
-        XCTAssertThrowsError(try URL(directory: "\(NSTemporaryDirectory())file.txt"))
+        XCTAssertThrowsError(try URL(directory: "\(NSTemporaryDirectory())test/"))
+        XCTAssertThrowsError(try URL(directory: "\(NSTemporaryDirectory())test.txt"))
         XCTAssertNoThrow(try URL(directory: NSTemporaryDirectory()))
     }
     
     func testDelete() {
-        guard let url: URL = (try? URL(directory: NSTemporaryDirectory()))?.appendingPathComponent("file.txt") else {
+        guard let url: URL = (try? URL(directory: NSTemporaryDirectory()))?.appendingPathComponent("test.txt") else {
             XCTFail()
             return
         }

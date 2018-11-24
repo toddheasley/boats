@@ -16,8 +16,9 @@ URLSession.shared.index(action: action) { index, error in
         exit(1)
     }
     do {
-        let data: Data = try JSONEncoder.shared.encode(index)
-        try data.write(to: url.appendingPathComponent("\(index.uri).json"))
+        let data: Data = try index.data()
+        try data.write(to: url.appendingPathComponent(index.path))
+        print("\(name) \(action.rawValue) completed")
         exit(0)
     } catch {
         print("\(name) \(action.rawValue) failed: \(error.localizedDescription)")

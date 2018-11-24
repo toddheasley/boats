@@ -6,7 +6,13 @@ class BookmarkIconTests: XCTestCase {
 }
 
 extension BookmarkIconTests {
-    func testDataEncoding() {
-        XCTAssertNotNil(try? BookmarkIcon().data())
+    
+    // MARK: Resource
+    func testPath() {
+        XCTAssertEqual(BookmarkIcon().path, "favicon.png")
+    }
+    
+    func testData() {
+        XCTAssertNoThrow(try BookmarkIcon().data())
     }
 }

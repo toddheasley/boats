@@ -29,6 +29,11 @@
 		5C055D2A21A82A260086D5A0 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED9521A3546100FA7462 /* URL.swift */; };
 		5C055D2B21A82A260086D5A0 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0ED8821A3184B00FA7462 /* URLSession.swift */; };
 		5C055D2C21A82A260086D5A0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C055D1521A829EE0086D5A0 /* main.swift */; };
+		5C1CBB8821A9A754001E4DB8 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1CBB8721A9A754001E4DB8 /* Resource.swift */; };
+		5C1CBB8921A9A754001E4DB8 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1CBB8721A9A754001E4DB8 /* Resource.swift */; };
+		5C1CBB8A21A9A754001E4DB8 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1CBB8721A9A754001E4DB8 /* Resource.swift */; };
+		5C1CBB8B21A9A754001E4DB8 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1CBB8721A9A754001E4DB8 /* Resource.swift */; };
+		5C1CBB8F21A9AE01001E4DB8 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1CBB8721A9A754001E4DB8 /* Resource.swift */; };
 		5C205A28219B7D9500549E5A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
 		5C205A29219B7D9600549E5A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
 		5C205A2A219B7D9700549E5A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0F1491F3E959A008E3CDE /* Service.swift */; };
@@ -156,13 +161,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C055D0E21A8292E0086D5A0 /* boatskit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = boatskit; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C055D0E21A8292E0086D5A0 /* boats */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = boats; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C055D1521A829EE0086D5A0 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5C14C7331F3E3164008294ED /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		5C14C7381F3E3171008294ED /* DayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTests.swift; sourceTree = "<group>"; };
 		5C14C73F1F3E427C008294ED /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		5C14C7461F3E42CC008294ED /* TimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTests.swift; sourceTree = "<group>"; };
 		5C1AEB321F3F92CA00BE9C6F /* DateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
+		5C1CBB7E21A9A13D001E4DB8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5C1CBB8721A9A754001E4DB8 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		5C205A30219B83A500549E5A /* TimeTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TimeTests.json; sourceTree = "<group>"; };
 		5C20BB3421A453A000A9158F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5C20BB3921A453E300A9158F /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
@@ -238,8 +245,9 @@
 				5C9A66F61F37F78000A32A3B /* BoatsKit.framework */,
 				5C4E8EF31F37F9140039EA25 /* BoatsKit.framework */,
 				5CDFBF471F37FB20008523C1 /* BoatsKit.framework */,
-				5C055D0E21A8292E0086D5A0 /* boatskit */,
 				5C33E98A1F37FE9F00D6EF27 /* BoatsKitTests.xctest */,
+				5C055D0E21A8292E0086D5A0 /* boats */,
+				5C1CBB7E21A9A13D001E4DB8 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,6 +265,7 @@
 				5C39126021A77EB000B1AC1D /* JSONDecoder.swift */,
 				5C39125B21A77E9700B1AC1D /* JSONEncoder.swift */,
 				5CB7645A1F3A9EAD008B05FA /* Location.swift */,
+				5C1CBB8721A9A754001E4DB8 /* Resource.swift */,
 				5C37EE0F21A1FC9C00B7250A /* Route.swift */,
 				5C5B034D21A11D810075F499 /* Schedule.swift */,
 				5C285E2F21A0E82800E673E8 /* Season.swift */,
@@ -267,8 +276,8 @@
 				5C7D1556219B997F00683F2C /* TimeZone.swift */,
 				5CD0ED9521A3546100FA7462 /* URL.swift */,
 				5CD0ED8821A3184B00FA7462 /* URLSession.swift */,
-				5C055D1521A829EE0086D5A0 /* main.swift */,
 				5C27DEEE1F37C8410010B7D8 /* Info.plist */,
+				5C055D1521A829EE0086D5A0 /* main.swift */,
 			);
 			path = BoatsKit;
 			sourceTree = "<group>";
@@ -325,7 +334,7 @@
 			);
 			name = BoatsKitCLI;
 			productName = BoatsKitCLI;
-			productReference = 5C055D0E21A8292E0086D5A0 /* boatskit */;
+			productReference = 5C055D0E21A8292E0086D5A0 /* boats */;
 			productType = "com.apple.product-type.tool";
 		};
 		5C27DEE91F37C8410010B7D8 /* BoatsKitMac */ = {
@@ -466,8 +475,8 @@
 				5C4E8EF21F37F9140039EA25 /* BoatsKitWatch */,
 				5CDFBF461F37FB20008523C1 /* BoatsKitTV */,
 				5C27DEE91F37C8410010B7D8 /* BoatsKitMac */,
-				5C055D0D21A8292E0086D5A0 /* BoatsKitCLI */,
 				5C33E9891F37FE9F00D6EF27 /* BoatsKitTests */,
+				5C055D0D21A8292E0086D5A0 /* BoatsKitCLI */,
 			);
 		};
 /* End PBXProject section */
@@ -519,6 +528,7 @@
 				5C055D1C21A82A260086D5A0 /* Holiday.swift in Sources */,
 				5C055D1D21A82A260086D5A0 /* HTML.swift in Sources */,
 				5C055D1E21A82A260086D5A0 /* Index.swift in Sources */,
+				5C1CBB8F21A9AE01001E4DB8 /* Resource.swift in Sources */,
 				5C055D1F21A82A260086D5A0 /* JSONDecoder.swift in Sources */,
 				5C055D2021A82A260086D5A0 /* JSONEncoder.swift in Sources */,
 				5C055D2121A82A260086D5A0 /* Location.swift in Sources */,
@@ -543,6 +553,7 @@
 				5C20BB3F21A459B200A9158F /* HTML.swift in Sources */,
 				5C7D155A219B997F00683F2C /* TimeZone.swift in Sources */,
 				5C285E3321A0E82800E673E8 /* Season.swift in Sources */,
+				5C1CBB8B21A9A754001E4DB8 /* Resource.swift in Sources */,
 				5C7A375721A635AB00629FEA /* Deviation.swift in Sources */,
 				5CD0ED8C21A3184B00FA7462 /* URLSession.swift in Sources */,
 				5C205A2F219B7DB500549E5A /* Time.swift in Sources */,
@@ -600,6 +611,7 @@
 				5C20BB3D21A459B200A9158F /* HTML.swift in Sources */,
 				5C7D1558219B997F00683F2C /* TimeZone.swift in Sources */,
 				5C285E3121A0E82800E673E8 /* Season.swift in Sources */,
+				5C1CBB8921A9A754001E4DB8 /* Resource.swift in Sources */,
 				5C7A375521A635AB00629FEA /* Deviation.swift in Sources */,
 				5CD0ED8A21A3184B00FA7462 /* URLSession.swift in Sources */,
 				5C205A2D219B7DB200549E5A /* Time.swift in Sources */,
@@ -628,6 +640,7 @@
 				5C20BB3C21A459B200A9158F /* HTML.swift in Sources */,
 				5C7D1557219B997F00683F2C /* TimeZone.swift in Sources */,
 				5C285E3021A0E82800E673E8 /* Season.swift in Sources */,
+				5C1CBB8821A9A754001E4DB8 /* Resource.swift in Sources */,
 				5C7A375421A635AB00629FEA /* Deviation.swift in Sources */,
 				5CD0ED8921A3184B00FA7462 /* URLSession.swift in Sources */,
 				5C205A2C219B7DB100549E5A /* Time.swift in Sources */,
@@ -656,6 +669,7 @@
 				5C20BB3E21A459B200A9158F /* HTML.swift in Sources */,
 				5C7D1559219B997F00683F2C /* TimeZone.swift in Sources */,
 				5C285E3221A0E82800E673E8 /* Season.swift in Sources */,
+				5C1CBB8A21A9A754001E4DB8 /* Resource.swift in Sources */,
 				5C7A375621A635AB00629FEA /* Deviation.swift in Sources */,
 				5CD0ED8B21A3184B00FA7462 /* URLSession.swift in Sources */,
 				5C205A2E219B7DB400549E5A /* Time.swift in Sources */,
@@ -703,7 +717,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_MODULE_NAME = BoatsKit;
-				PRODUCT_NAME = boatskit;
+				PRODUCT_NAME = boats;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
@@ -723,7 +737,7 @@
 				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_MODULE_NAME = BoatsKit;
-				PRODUCT_NAME = boatskit;
+				PRODUCT_NAME = boats;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;

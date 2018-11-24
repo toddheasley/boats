@@ -19,7 +19,7 @@ extension URL {
         guard FileManager.default.fileExists(atPath: path) else {
             return
         }
-        try FileManager.default.trashItem(at: self, resultingItemURL: nil)
+        try FileManager.default.removeItem(at: self)
     }
 }
 

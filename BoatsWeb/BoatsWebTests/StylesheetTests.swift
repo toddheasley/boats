@@ -6,7 +6,13 @@ class StylesheetTests: XCTestCase {
 }
 
 extension StylesheetTests {
-    func testDataEncoding() {
-        XCTAssertNotNil(try? Stylesheet().data())
+    
+    // MARK: Resource
+    func testPath() {
+        XCTAssertEqual(Stylesheet().path, "stylesheet.css")
+    }
+    
+    func testData() {
+        XCTAssertNoThrow(try Stylesheet().data())
     }
 }
