@@ -14,6 +14,22 @@ class IndexTests: XCTestCase {
 }
 
 extension IndexTests {
+    func testURLInit() {
+        guard let url: URL = try? URL(directory: NSTemporaryDirectory()) else {
+            XCTFail()
+            return
+        }
+        XCTAssertNoThrow(try Index().build(to: url))
+        XCTAssertNoThrow(try Index(from: url))
+    }
+    
+    func testDataInit() {
+        guard let data: Data = try? Index().data() else {
+            XCTFail()
+            return
+        }
+        XCTAssertNoThrow(try Index(data: data))
+    }
     
     // MARK: Resource
     func testPath() {

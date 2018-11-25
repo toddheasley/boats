@@ -20,10 +20,10 @@ struct HTML: HTMLConvertible {
     
     // MARK: HTMLConvertible
     func html() throws -> String {
-        return try populate(template: template)
+        return try build(template: template)
     }
     
-    private func populate(template: String, at i: [Int] = []) throws -> String {
+    private func build(template: String, at i: [Int] = []) throws -> String {
         guard let dataSource: HTMLDataSource = dataSource else {
             throw(NSError(domain: NSCocoaErrorDomain, code: NSFeatureUnsupportedError))
         }
@@ -34,14 +34,14 @@ struct HTML: HTMLConvertible {
                 guard ii > 0 else {
                     continue
                 }
-                strings.append(try populate(template: "\(template[Range(match.range(at: 2), in: template)!])", at: i + [(ii - 1)]))
+                strings.append(try build(template: "\(template[Range(match.range(at: 2), in: template)!])", at: i + [(ii - 1)]))
             }
             string = string.replacingOccurrences(of: "\(template[Range(match.range(at: 0), in: template)!])", with: strings.joined(separator: "\n"))
         }
         for match in try! NSRegularExpression(pattern: "<!-- ([A-Z0-9_]*)\\b\\? -->((.|\n)*)<!-- \\?\\1 -->").matches(in: template, range: NSRange(template.startIndex..., in: template)) {
             var strings: [String] = []
             if let _: String = dataSource.template(of: "\(template[Range(match.range(at: 1), in: template)!])", at: i) {
-                strings.append(try populate(template: "\(template[Range(match.range(at: 2), in: template)!])", at: i))
+                strings.append(try build(template: "\(template[Range(match.range(at: 2), in: template)!])", at: i))
             }
             string = string.replacingOccurrences(of: "\(template[Range(match.range(at: 0), in: template)!])", with: strings.joined())
         }

@@ -1,4 +1,5 @@
 import XCTest
+import BoatsKit
 @testable import BoatsWeb
 
 class ManifestTests: XCTestCase {
@@ -6,6 +7,16 @@ class ManifestTests: XCTestCase {
 }
 
 extension ManifestTests {
+    func testURLInit() {
+        guard let data: Data = data(resource: .bundle, type: "appcache") else {
+            XCTFail()
+            return
+        }
+        XCTAssertNoThrow(try data.write(to: try URL(directory: NSTemporaryDirectory()).appendingPathComponent(Manifest().path)))
+        XCTAssertNoThrow(try Manifest(url: try URL(directory: NSTemporaryDirectory())))
+        
+    }
+    
     func testDataInit() {
         guard let data: Data = data(resource: .bundle, type: "appcache") else {
             XCTFail()

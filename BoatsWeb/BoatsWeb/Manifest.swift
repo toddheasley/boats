@@ -10,6 +10,10 @@ struct Manifest {
 }
 
 extension Manifest: Resource {
+    public init(url: URL) throws {
+        try self.init(data: try Data(contentsOf: url.appendingPathComponent(Manifest().path)))
+    }
+    
     public init(data: Data) throws {
         guard let manifest: String = String(data: data, encoding: .utf8), manifest.contains("CACHE MANIFEST\n") else {
             throw(NSError(domain: NSCocoaErrorDomain, code: NSFileReadUnknownStringEncodingError))

@@ -2,57 +2,54 @@ import Foundation
 import BoatsKit
 
 struct Site {
-    public private(set) var index: Index?
-    
-    public init(index: Index) {
-        self.index = index
-    }
-}
-
-/*
-public struct Site {
-    public static let uri: URI = URI(resource: "index", type: "html")
-    public static var app: (name: String, identifier: String?) = ("Boats", nil)
+    public let name: String = "Boats"
+    public let appIdentifier: String = "1152562893"
     public private(set) var index: Index
     
+    public var appURL: URL {
+        return URL(string: "https://itunes.apple.com/us/app/id\(appIdentifier)")!
+    }
+    
     public init(index: Index) {
         self.index = index
     }
 }
 
-extension Site: DataWriting, DataDeleting {
+extension Site: Resource {
     
-    // MARK: DataWriting
-    public func write(to url: URL) throws {
-        try delete(from: url)
+    var path: String {
+        return index.path
+    }
+    
+    public func build(to url: URL) throws {
+        try? delete(from: url)
         var manifest: Manifest = Manifest()
-        let view: IndexHTMLView = IndexHTMLView(index: index)!
-        try view.write(to: url)
-        manifest.uris.insert(view.uri)
-        for provider in index.providers {
-            for route in provider.routes {
-                let view: RouteHTMLView = RouteHTMLView(index: index, provider: provider, route: route)!
-                try view.write(to: url)
-                manifest.uris.insert(view.uri)
-            }
+        manifest.paths = [
+            BookmarkIcon().path,
+            Script().path,
+            Stylesheet().path,
+            IndexView(index: index).path
+        ]
+        try BookmarkIcon().build(to: url)
+        try Script().build(to: url)
+        try Stylesheet().build(to: url)
+        try IndexView(index: index).build(to: url)
+        for route in index.routes {
+            manifest.paths.insert(RouteView(route: route, index: index).path)
+            try RouteView(route: route, index: index).build(to: url)
         }
-        try BookmarkIcon().write(to: url)
-        manifest.uris.insert(BookmarkIcon().uri)
-        try Script().write(to: url)
-        manifest.uris.insert(Script().uri)
-        try Stylesheet().write(to: url)
-        manifest.uris.insert(Stylesheet().uri)
-        try manifest.write(to: url)
+        try manifest.build(to: url)
     }
     
-    // MARK: DataDeleting
     public func delete(from url: URL) throws {
-        guard let manifest: Manifest = try? Manifest(url: url) else {
-            return
+        let manifest: Manifest = try Manifest(data: try Data(contentsOf: url.appendingPathComponent(Manifest().path)))
+        for path in manifest.paths {
+            try url.appendingPathComponent(path).delete()
         }
-        for uri in manifest.uris {
-            try? FileManager.default.removeItem(at: url.appending(uri: uri))
-        }
-        try FileManager.default.removeItem(at: url.appending(uri: manifest.uri))
+        try manifest.delete(from: url)
     }
-} */
+    
+    func data() throws -> Data {
+        return try index.data()
+    }
+}

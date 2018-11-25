@@ -20,6 +20,13 @@ public struct Index: CustomStringConvertible, Codable {
 }
 
 extension Index: Resource {
+    public init(from url: URL) throws {
+        try self.init(data: try Data(contentsOf: url.appendingPathComponent(Index().path)))
+    }
+    
+    public init(data: Data) throws {
+        self = try JSONDecoder.shared.decode(Index.self, from: data)
+    }
     
     // MARK: Resource
     public var path: String {

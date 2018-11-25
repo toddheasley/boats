@@ -1,14 +1,5 @@
 import Foundation
-
-public protocol Resource {
-    var path: String {
-        get
-    }
-    
-    func build(to url: URL) throws
-    func delete(from url: URL) throws
-    func data() throws -> Data
-}
+import BoatsKit
 
 extension Resource {
     public func build(to url: URL) throws {
