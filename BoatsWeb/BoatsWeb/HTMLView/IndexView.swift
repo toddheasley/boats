@@ -18,53 +18,42 @@ extension IndexView: HTMLDataSource {
     
     // MARK: HTMLDataSource
     func template(of name: String, at index: [Int]) -> String? {
-        return nil
+        switch name {
+        case "ROUTE":
+            guard !index.isEmpty else {
+                return nil
+            }
+            let route: Route = self.index.routes[index[0]]
+            return "<a href=\"\(RouteView(route: route, index: self.index).path)\">\(route.services.contains(.car) ? "\((try? SVG.menu.html()) ?? SVG.menu.description) " : "")<b>\(route.name)</b> <span>\(route.location.description)</span></a>"
+        case "INDEX_NAME":
+            return "\(self.index.name)"
+        case "INDEX_DESCRIPTION":
+            return "\(self.index.description)"
+        case "INDEX_URL":
+            return "<a href=\"\(self.index.url.absoluteString)\">\(self.index.url.host ?? self.index.url.absoluteString)</a>"
+        case "TITLE", "NAME":
+            return "\(Site.name)"
+        case "APP_ID":
+            return Site.appIdentifier
+        case "MANIFEST_PATH":
+            return "\(Manifest().path)"
+        case "BOOKMARK_PATH":
+            return "\(BookmarkIcon().path)"
+        case "STYLESHEET_PATH":
+            return "\(Stylesheet().path)"
+        case "SCRIPT_PATH":
+            return "\(Script().path)"
+        default:
+            return nil
+        }
     }
     
     func count(of name: String, at index: [Int]) -> Int {
-        return 0
-    }
-}
-
-/*
- 
-// MARK: HTMLDataSource
-func value(of name: String, at i: [Int], in html: HTML) -> String? {
-    switch name {
-    case "ROUTE":
-        guard !i.isEmpty else {
-            return nil
+        switch name {
+        case "ROUTE":
+            return self.index.routes.count
+        default:
+            return 0
         }
-        let item: (route: Route, provider: Provider) = index.sorted[i[0]]
-        return "<a href=\"\(item.provider.uri)-\(item.route.uri).html\">\(item.route.services.contains(.car) ? "\(SVG.car.html) " : "")<b>\(item.route.name)</b> From \(item.route.origin.name) <span>Operated by \(item.provider.name)</span></a>"
-    case "INDEX_NAME":
-        return "\(self.index.name)"
-    case "INDEX_DESCRIPTION":
-        return "\(self.index.description)"
-    case "TITLE", "APP_TITLE":
-        return "\(Site.app.name)"
-    case "APP_ID":
-        return "\(Site.app.identifier!)"
-    case "MANIFEST_URI":
-        return "\(Manifest().uri.resource)"
-    case "BOOKMARK_URI":
-        return "\(BookmarkIcon().uri.resource)"
-    case "STYLESHEET_URI":
-        return "\(Stylesheet().uri.resource)"
-    case "SCRIPT_URI":
-        return "\(Script().uri.resource)"
-    default:
-        return nil
     }
 }
-
-func count(of name: String, at i: [Int], in html: HTML) -> Int {
-    switch name {
-    case "ROUTE":
-        return index.sorted.count
-    default:
-        return 0
-    }
-}
-
-*/

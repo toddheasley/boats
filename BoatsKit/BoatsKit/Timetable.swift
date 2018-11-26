@@ -24,9 +24,41 @@ extension Timetable: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        return days.map { day in
-            day.description
-        }.joined(separator: ", ")
+        let indices: [Int] = days.map { day in
+            return Day.allCases.index(of: day)!
+        }.sorted()
+        var ranges: [[Int]] = []
+        var range: [Int] = []
+        
+        func flush() {
+            if range.count < 3 {
+                for index in range {
+                    ranges.append([index])
+                }
+            } else {
+                ranges.append(range)
+            }
+            range = []
+        }
+        
+        for index in indices {
+            if index < 7, let last: Int = range.last, index == last + 1 {
+                range.append(index)
+            } else {
+                flush()
+                range.append(index)
+            }
+        }
+        flush()
+        var strings: [String] = []
+        for range in ranges {
+            if range.count > 1 {
+                strings.append("\(Day.allCases[range.first!].abbreviated)-\(Day.allCases[range.last!].abbreviated)")
+            } else {
+                strings.append("\(Day.allCases[range.first!].abbreviated)")
+            }
+        }
+        return strings.joined(separator: "/")
     }
 }
 

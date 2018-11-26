@@ -16,31 +16,31 @@
         <header>
             <h2><!-- INDEX_DESCRIPTION --></h2>
             <h1><!-- INDEX_NAME --></h1>
+            <h3><!-- INDEX_URL --></h3>
         </header>
         <main>
             <h1><!-- ROUTE_NAME --></h1>
-            <h2><!-- SCHEDULE_SEASON --></h2>
-<!-- DAY[ -->
+            <h2><!-- SEASON --></h2>
+<!-- TIMETABLE[ -->
             <section>
-                <h3><!-- DAY --></h3>
-<!-- DIRECTION[ -->
+                <h3><!-- DAYS --></h3>
                 <table>
                     <tr>
-                        <th><!-- DIRECTION --></th>
+                        <th><!-- INDEX_LOCATION --></th>
+                        <th><!-- ROUTE_LOCATION --></th>
                     </tr>
-<!-- DEPARTURE[ -->
+<!-- TRIP[ -->
                     <tr>
-                        <td><span><!-- DEPARTURE_CAR --></span> <time><!-- DEPARTURE_TIME --></time></td>
+                        <td><!-- TRIP_ORIGIN --></td>
+                        <td><!-- TRIP_DESTINATION --></td>
                     </tr>
-<!-- ]DEPARTURE -->
+<!-- ]TRIP -->
                 </table>
-<!-- ]DIRECTION -->
 <!-- HOLIDAYS? -->
                 <p><!-- HOLIDAYS --></p>
 <!-- ?HOLIDAYS -->
-                <hr>
             </section>
-<!-- ]DAY -->
+<!-- ]TIMETABLE -->
         </main>
     </body>
 </html>

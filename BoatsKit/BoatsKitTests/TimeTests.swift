@@ -42,6 +42,21 @@ class TimeTests: XCTestCase {
 }
 
 extension TimeTests {
+    func testDescriptionComponents() {
+        DateFormatter.clockFormat = .twelveHour
+        XCTAssertEqual(Time(hour: 6, minute: 15).descriptionComponents, ["", "6", ":", "1", "5", ""])
+        XCTAssertEqual(Time(hour: 12, minute: 30).descriptionComponents, ["1", "2", ":", "3", "0", "."])
+        XCTAssertEqual(Time(hour: 13, minute: 0).descriptionComponents, ["", "1", ":", "0", "0", "."])
+        XCTAssertEqual(Time(hour: 23, minute: 45).descriptionComponents, ["1", "1", ":", "4", "5", "."])
+        XCTAssertEqual(Time(hour: 0, minute: 0).descriptionComponents, ["1", "2", ":", "0", "0", ""])
+        DateFormatter.clockFormat = .twentyFourHour
+        XCTAssertEqual(Time(hour: 6, minute: 15).descriptionComponents, ["0", "6", ":", "1", "5", ""])
+        XCTAssertEqual(Time(hour: 12, minute: 30).descriptionComponents, ["1", "2", ":", "3", "0", ""])
+        XCTAssertEqual(Time(hour: 13, minute: 0).descriptionComponents, ["1", "3", ":", "0", "0", ""])
+        XCTAssertEqual(Time(hour: 23, minute: 45).descriptionComponents, ["2", "3", ":", "4", "5", ""])
+        XCTAssertEqual(Time(hour: 0, minute: 0).descriptionComponents, ["0", "0", ":", "0", "0", ""])
+        DateFormatter.clockFormat = .auto
+    }
     
     // MARK: CustomStringConvertible
     func testDescription() {

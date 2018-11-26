@@ -2,13 +2,17 @@ import Foundation
 import BoatsKit
 
 struct Site {
-    public let name: String = "Boats"
-    public let appIdentifier: String = "1152562893"
-    public private(set) var index: Index
+    public static let name: String = "Boats"
+    public static let appIdentifier: String? = "1152562893"
     
-    public var appURL: URL {
-        return URL(string: "https://itunes.apple.com/us/app/id\(appIdentifier)")!
+    public static var appURL: URL? {
+        guard let appIdentifier: String = appIdentifier, !appIdentifier.isEmpty else {
+            return nil
+        }
+        return URL(string: "https://itunes.apple.com/us/app/id\(appIdentifier)")
     }
+    
+    public private(set) var index: Index
     
     public init(index: Index) {
         self.index = index

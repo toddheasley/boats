@@ -9,6 +9,9 @@ public enum Day: String, CaseIterable, Codable {
 }
 
 extension Day: CustomStringConvertible {
+    public var abbreviated: String {
+        return "\(description[...rawValue.index(rawValue.startIndex, offsetBy: 2)])"
+    }
     
     // MARK: CustomStringConvertible
     public var description: String {

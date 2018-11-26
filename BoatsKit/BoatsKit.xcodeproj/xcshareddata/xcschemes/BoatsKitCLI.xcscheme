@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5C055D0D21A8292E0086D5A0"
-               BuildableName = "boatskit"
+               BuildableName = "boats"
                BlueprintName = "BoatsKitCLI"
                ReferencedContainer = "container:BoatsKit.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C055D0D21A8292E0086D5A0"
-            BuildableName = "boatskit"
+            BuildableName = "boats"
             BlueprintName = "BoatsKitCLI"
             ReferencedContainer = "container:BoatsKit.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C055D0D21A8292E0086D5A0"
-            BuildableName = "boatskit"
+            BuildableName = "boats"
             BlueprintName = "BoatsKitCLI"
             ReferencedContainer = "container:BoatsKit.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5C055D0D21A8292E0086D5A0"
-            BuildableName = "boatskit"
+            BuildableName = "boats"
             BlueprintName = "BoatsKitCLI"
             ReferencedContainer = "container:BoatsKit.xcodeproj">
          </BuildableReference>

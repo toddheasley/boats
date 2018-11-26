@@ -31,9 +31,9 @@ extension DateFormatter {
         dateFormat = "MMM d"
         switch year.start {
         case year.end:
-            return "\(string(from: dateInterval.start)) - \(string(from: dateInterval.end)), \(year.end)"
+            return "\(string(from: dateInterval.start))-\(string(from: dateInterval.end)), \(year.end)"
         default:
-            return "\(string(from: dateInterval.start)), \(year.start) - \(string(from: dateInterval.end)), \(year.end)"
+            return "\(string(from: dateInterval.start)), \(year.start)-\(string(from: dateInterval.end)), \(year.end)"
         }
     }
     

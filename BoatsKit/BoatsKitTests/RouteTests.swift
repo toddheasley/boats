@@ -53,6 +53,7 @@ extension RouteTests {
 extension RouteTests {
     func testPeaks() {
         XCTAssertEqual(Route.peaks.location, .peaks)
+        XCTAssertEqual(Route.peaks.services, [.car])
         XCTAssertEqual(Route.peaks.uri, "peaks-island")
     }
     

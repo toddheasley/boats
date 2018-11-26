@@ -4,6 +4,7 @@ import CoreLocation
 public struct Route: Codable {
     public private(set) var location: Location
     public private(set) var schedules: [Schedule] = []
+    public private(set) var services: [Service]
     public private(set) var uri: String
     
     public var name: String {
@@ -28,8 +29,9 @@ public struct Route: Codable {
         return true
     }
     
-    init(location: Location, uri: String) {
+    init(location: Location, services: [Service] = [], uri: String) {
         self.location = location
+        self.services = services
         self.uri = uri
     }
 }
@@ -53,7 +55,7 @@ extension Route: CaseIterable {
 
 extension Route {
     public static var peaks: Route {
-        return Route(location: .peaks, uri: "peaks-island")
+        return Route(location: .peaks, services: [.car], uri: "peaks-island")
     }
     
     public static var littleDiamond: Route {

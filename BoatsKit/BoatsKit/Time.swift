@@ -21,6 +21,18 @@ public struct Time {
 }
 
 extension Time: CustomStringConvertible {
+    public var descriptionComponents: [String] {
+        let description: String = self.description
+        let components: [String] = description.replacingOccurrences(of: ".", with: "").components(separatedBy: ":")
+        var descriptionComponents: [String] = []
+        if components[0].count == 2 {
+            descriptionComponents.append(contentsOf: ["\(components[0].first!)", "\(components[0].last!)"])
+        } else {
+            descriptionComponents.append(contentsOf: ["", "\(components[0].first!)"])
+        }
+        descriptionComponents.append(contentsOf: [":", "\(components[1].first!)", "\(components[1].last!)", "\(description.contains(".") ? "." : "")"])
+        return descriptionComponents
+    }
     
     // MARK: CustomStringConvertible
     public var description: String {

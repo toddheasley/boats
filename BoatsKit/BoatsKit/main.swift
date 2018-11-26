@@ -3,7 +3,7 @@ import Foundation
 let name: String = Bundle.main.executableURL!.lastPathComponent
 
 func description(of error: Error?) -> String {
-    return error?.localizedDescription.lowercased() ?? "unknown error"
+    return error?.localizedDescription.lowercased() ?? "?"
 }
 
 guard CommandLine.arguments.count > 2,

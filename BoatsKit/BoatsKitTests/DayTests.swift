@@ -9,6 +9,16 @@ class DayTests: XCTestCase {
 }
 
 extension DayTests {
+    func testAbbreviated() {
+        XCTAssertEqual(Day.monday.abbreviated, "Mon")
+        XCTAssertEqual(Day.tuesday.abbreviated, "Tue")
+        XCTAssertEqual(Day.wednesday.abbreviated, "Wed")
+        XCTAssertEqual(Day.thursday.abbreviated, "Thu")
+        XCTAssertEqual(Day.friday.abbreviated, "Fri")
+        XCTAssertEqual(Day.saturday.abbreviated, "Sat")
+        XCTAssertEqual(Day.sunday.abbreviated, "Sun")
+        XCTAssertEqual(Day.holiday.abbreviated, "Hol")
+    }
     
     // MARK: CustomStringConvertible
     func testDescription() {
