@@ -7,39 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C1752691FB8BE0D00D9A9F5 /* PanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1752681FB8BE0D00D9A9F5 /* PanelView.swift */; };
-		5C33B03A1F530D5D0025B1BA /* IndexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */; };
-		5C4C2D0C1F5309F300B6FBE3 /* IndexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */; };
-		5C5FC23C20446026007F9127 /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FC23B20446026007F9127 /* NSFont.swift */; };
-		5C5FC23E20447556007F9127 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FC23D20447556007F9127 /* NSView.swift */; };
-		5C5FC23F2044A8D9007F9127 /* IndexPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7407CA1FC0ADA800A743D1 /* IndexPanelView.swift */; };
-		5C5FC2422044C8A4007F9127 /* PanelInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FC2412044C8A4007F9127 /* PanelInputView.swift */; };
-		5C65951A2045C57200708867 /* StringInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6595192045C57200708867 /* StringInputView.swift */; };
-		5C65951C2045CE3600708867 /* LocalizationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C65951B2045CE3600708867 /* LocalizationInputView.swift */; };
-		5C7105372054AD610020E400 /* SeasonInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7105362054AD610020E400 /* SeasonInputView.swift */; };
-		5C7105392054B3B50020E400 /* DirectionInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7105382054B3B50020E400 /* DirectionInputView.swift */; };
-		5C71053B2054BADF0020E400 /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C71053A2054BADF0020E400 /* LocationInputView.swift */; };
-		5C71053D2054BE1C0020E400 /* ScheduleInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C71053C2054BE1C0020E400 /* ScheduleInputView.swift */; };
 		5C79D1C71F5B317100D19DD9 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */; };
-		5C7B1FE72055AC600084C5D2 /* ProviderInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B1FE62055AC600084C5D2 /* ProviderInputView.swift */; };
 		5C85127A1F51C133006343AF /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; };
 		5C85127B1F51C133006343AF /* BoatsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C85127E1F51C144006343AF /* BoatsWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85127D1F51C144006343AF /* BoatsWeb.framework */; };
 		5C85127F1F51C144006343AF /* BoatsWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85127D1F51C144006343AF /* BoatsWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5CA598F0205031EC00F9054C /* TimeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA598EF205031EC00F9054C /* TimeInputView.swift */; };
-		5CA598F2205037B900F9054C /* ServiceInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA598F1205037B900F9054C /* ServiceInputView.swift */; };
-		5CA598F42050437000F9054C /* CoordinateInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA598F32050437000F9054C /* CoordinateInputView.swift */; };
-		5CAD8A10204EFAF800745C2B /* ProviderPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7F2191FC1EF7D00A69517 /* ProviderPanelView.swift */; };
-		5CAD8A12204F2A0100745C2B /* URIInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAD8A11204F2A0100745C2B /* URIInputView.swift */; };
-		5CAD8A14204F331300745C2B /* URLInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAD8A13204F331300745C2B /* URLInputView.swift */; };
-		5CDB66571FCF9AF100BFE93F /* NSEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDB66561FCF9AF100BFE93F /* NSEdgeInsets.swift */; };
-		5CE8196520508A0F005DBA5E /* DateInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8196420508A0F005DBA5E /* DateInputView.swift */; };
-		5CE8196720508AFA005DBA5E /* DayInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8196620508AFA005DBA5E /* DayInputView.swift */; };
 		5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */; };
 		5CFBB81A1F51C00600BFA5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB8191F51C00600BFA5CF /* Assets.xcassets */; };
 		5CFBB81D1F51C00600BFA5CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB81B1F51C00600BFA5CF /* Main.storyboard */; };
-		5CFBB8291F51C00600BFA5CF /* IndexManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8281F51C00600BFA5CF /* IndexManagerTests.swift */; };
-		5CFC0E401F65812B0062A563 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFC0E3F1F65812B0062A563 /* InputView.swift */; };
+		5CFBB8291F51C00600BFA5CF /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8281F51C00600BFA5CF /* Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,48 +44,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5C1752681FB8BE0D00D9A9F5 /* PanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelView.swift; sourceTree = "<group>"; };
-		5C1F05E61FC3ED22001504AF /* SchedulePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePanelView.swift; sourceTree = "<group>"; };
-		5C1F05E81FC3FCDE001504AF /* DeparturePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturePanelView.swift; sourceTree = "<group>"; };
-		5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManager.swift; sourceTree = "<group>"; };
-		5C5FC23B20446026007F9127 /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
-		5C5FC23D20447556007F9127 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
-		5C5FC2412044C8A4007F9127 /* PanelInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelInputView.swift; sourceTree = "<group>"; };
-		5C6595192045C57200708867 /* StringInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringInputView.swift; sourceTree = "<group>"; };
-		5C65951B2045CE3600708867 /* LocalizationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationInputView.swift; sourceTree = "<group>"; };
-		5C7105362054AD610020E400 /* SeasonInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonInputView.swift; sourceTree = "<group>"; };
-		5C7105382054B3B50020E400 /* DirectionInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionInputView.swift; sourceTree = "<group>"; };
-		5C71053A2054BADF0020E400 /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
-		5C71053C2054BE1C0020E400 /* ScheduleInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInputView.swift; sourceTree = "<group>"; };
-		5C7407CA1FC0ADA800A743D1 /* IndexPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPanelView.swift; sourceTree = "<group>"; };
 		5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
-		5C7B1FE62055AC600084C5D2 /* ProviderInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderInputView.swift; sourceTree = "<group>"; };
-		5C7B48741FC291700098EC70 /* RoutePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePanelView.swift; sourceTree = "<group>"; };
-		5C84E9C81FBB7EA000AF4096 /* DepartureInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureInput.swift; sourceTree = "<group>"; };
-		5C84E9D01FBBB21600AF4096 /* ScheduleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleInput.swift; sourceTree = "<group>"; };
 		5C8512791F51C133006343AF /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C85127D1F51C144006343AF /* BoatsWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8512801F51C203006343AF /* BoatsEditTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsEditTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8512811F51C21F006343AF /* BoatsEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatsEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CA598EF205031EC00F9054C /* TimeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInputView.swift; sourceTree = "<group>"; };
-		5CA598F1205037B900F9054C /* ServiceInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInputView.swift; sourceTree = "<group>"; };
-		5CA598F32050437000F9054C /* CoordinateInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateInputView.swift; sourceTree = "<group>"; };
-		5CA5D28D1FCB909E0086FDC0 /* HolidayPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayPanelView.swift; sourceTree = "<group>"; };
-		5CAD34961FC3D369009C366B /* LocationPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPanelView.swift; sourceTree = "<group>"; };
-		5CAD8A11204F2A0100745C2B /* URIInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URIInputView.swift; sourceTree = "<group>"; };
-		5CAD8A13204F331300745C2B /* URLInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLInputView.swift; sourceTree = "<group>"; };
-		5CC7F2191FC1EF7D00A69517 /* ProviderPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderPanelView.swift; sourceTree = "<group>"; };
-		5CDB66561FCF9AF100BFE93F /* NSEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEdgeInsets.swift; sourceTree = "<group>"; };
-		5CE8196420508A0F005DBA5E /* DateInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInputView.swift; sourceTree = "<group>"; };
-		5CE8196620508AFA005DBA5E /* DayInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInputView.swift; sourceTree = "<group>"; };
 		5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CFBB8191F51C00600BFA5CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CFBB81C1F51C00600BFA5CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CFBB81E1F51C00600BFA5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CFBB8281F51C00600BFA5CF /* IndexManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexManagerTests.swift; sourceTree = "<group>"; };
+		5CFBB8281F51C00600BFA5CF /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		5CFBB82A1F51C00600BFA5CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CFC0E3F1F65812B0062A563 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		5CFC0E4B1F65D5330062A563 /* HolidayInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,37 +77,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C2705101FD4C5010040053A /* PanelView */ = {
-			isa = PBXGroup;
-			children = (
-				5C7407CA1FC0ADA800A743D1 /* IndexPanelView.swift */,
-				5CC7F2191FC1EF7D00A69517 /* ProviderPanelView.swift */,
-			);
-			path = PanelView;
-			sourceTree = "<group>";
-		};
-		5C5FC2402044BBFC007F9127 /* InputView */ = {
-			isa = PBXGroup;
-			children = (
-				5C7B1FE62055AC600084C5D2 /* ProviderInputView.swift */,
-				5CA598F32050437000F9054C /* CoordinateInputView.swift */,
-				5CE8196420508A0F005DBA5E /* DateInputView.swift */,
-				5CE8196620508AFA005DBA5E /* DayInputView.swift */,
-				5C7105382054B3B50020E400 /* DirectionInputView.swift */,
-				5C65951B2045CE3600708867 /* LocalizationInputView.swift */,
-				5C71053A2054BADF0020E400 /* LocationInputView.swift */,
-				5C5FC2412044C8A4007F9127 /* PanelInputView.swift */,
-				5C71053C2054BE1C0020E400 /* ScheduleInputView.swift */,
-				5C7105362054AD610020E400 /* SeasonInputView.swift */,
-				5CA598F1205037B900F9054C /* ServiceInputView.swift */,
-				5C6595192045C57200708867 /* StringInputView.swift */,
-				5CA598EF205031EC00F9054C /* TimeInputView.swift */,
-				5CAD8A11204F2A0100745C2B /* URIInputView.swift */,
-				5CAD8A13204F331300745C2B /* URLInputView.swift */,
-			);
-			path = InputView;
-			sourceTree = "<group>";
-		};
 		5CFBB8091F51C00500BFA5CF = {
 			isa = PBXGroup;
 			children = (
@@ -178,19 +92,10 @@
 		5CFBB8141F51C00600BFA5CF /* BoatsEdit */ = {
 			isa = PBXGroup;
 			children = (
-				5CFC0E3C1F657D790062A563 /* - */,
 				5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */,
 				5CFBB8191F51C00600BFA5CF /* Assets.xcassets */,
-				5C4C2D0B1F5309F300B6FBE3 /* IndexManager.swift */,
 				5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */,
-				5CFC0E3F1F65812B0062A563 /* InputView.swift */,
-				5C5FC2402044BBFC007F9127 /* InputView */,
 				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
-				5CDB66561FCF9AF100BFE93F /* NSEdgeInsets.swift */,
-				5C5FC23B20446026007F9127 /* NSFont.swift */,
-				5C5FC23D20447556007F9127 /* NSView.swift */,
-				5C1752681FB8BE0D00D9A9F5 /* PanelView.swift */,
-				5C2705101FD4C5010040053A /* PanelView */,
 				5CFBB81E1F51C00600BFA5CF /* Info.plist */,
 			);
 			path = BoatsEdit;
@@ -199,25 +104,10 @@
 		5CFBB8271F51C00600BFA5CF /* BoatsEditTests */ = {
 			isa = PBXGroup;
 			children = (
-				5CFBB8281F51C00600BFA5CF /* IndexManagerTests.swift */,
+				5CFBB8281F51C00600BFA5CF /* Tests.swift */,
 				5CFBB82A1F51C00600BFA5CF /* Info.plist */,
 			);
 			path = BoatsEditTests;
-			sourceTree = "<group>";
-		};
-		5CFC0E3C1F657D790062A563 /* - */ = {
-			isa = PBXGroup;
-			children = (
-				5C1F05E81FC3FCDE001504AF /* DeparturePanelView.swift */,
-				5CA5D28D1FCB909E0086FDC0 /* HolidayPanelView.swift */,
-				5CAD34961FC3D369009C366B /* LocationPanelView.swift */,
-				5C7B48741FC291700098EC70 /* RoutePanelView.swift */,
-				5C1F05E61FC3ED22001504AF /* SchedulePanelView.swift */,
-				5C84E9C81FBB7EA000AF4096 /* DepartureInput.swift */,
-				5CFC0E4B1F65D5330062A563 /* HolidayInput.swift */,
-				5C84E9D01FBBB21600AF4096 /* ScheduleInput.swift */,
-			);
-			path = "-";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,31 +242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CAD8A10204EFAF800745C2B /* ProviderPanelView.swift in Sources */,
-				5C5FC23F2044A8D9007F9127 /* IndexPanelView.swift in Sources */,
-				5C5FC2422044C8A4007F9127 /* PanelInputView.swift in Sources */,
-				5C1752691FB8BE0D00D9A9F5 /* PanelView.swift in Sources */,
-				5C7105392054B3B50020E400 /* DirectionInputView.swift in Sources */,
-				5CFC0E401F65812B0062A563 /* InputView.swift in Sources */,
-				5C71053B2054BADF0020E400 /* LocationInputView.swift in Sources */,
-				5CE8196720508AFA005DBA5E /* DayInputView.swift in Sources */,
-				5C7B1FE72055AC600084C5D2 /* ProviderInputView.swift in Sources */,
-				5CA598F2205037B900F9054C /* ServiceInputView.swift in Sources */,
-				5C65951C2045CE3600708867 /* LocalizationInputView.swift in Sources */,
-				5C71053D2054BE1C0020E400 /* ScheduleInputView.swift in Sources */,
-				5CAD8A12204F2A0100745C2B /* URIInputView.swift in Sources */,
-				5C4C2D0C1F5309F300B6FBE3 /* IndexManager.swift in Sources */,
 				5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */,
-				5C7105372054AD610020E400 /* SeasonInputView.swift in Sources */,
-				5C5FC23C20446026007F9127 /* NSFont.swift in Sources */,
-				5CAD8A14204F331300745C2B /* URLInputView.swift in Sources */,
-				5C5FC23E20447556007F9127 /* NSView.swift in Sources */,
 				5C79D1C71F5B317100D19DD9 /* IndexViewController.swift in Sources */,
-				5CE8196520508A0F005DBA5E /* DateInputView.swift in Sources */,
-				5CA598F0205031EC00F9054C /* TimeInputView.swift in Sources */,
-				5C65951A2045C57200708867 /* StringInputView.swift in Sources */,
-				5CDB66571FCF9AF100BFE93F /* NSEdgeInsets.swift in Sources */,
-				5CA598F42050437000F9054C /* CoordinateInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,8 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C33B03A1F530D5D0025B1BA /* IndexManager.swift in Sources */,
-				5CFBB8291F51C00600BFA5CF /* IndexManagerTests.swift in Sources */,
+				5CFBB8291F51C00600BFA5CF /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,7 +398,7 @@
 				INFOPLIST_FILE = BoatsEdit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mac.boats.edit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit;
 				PRODUCT_NAME = BoatsEdit;
 				SWIFT_VERSION = 4.2;
 			};
@@ -549,7 +415,7 @@
 				INFOPLIST_FILE = BoatsEdit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.mac.boats.edit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit;
 				PRODUCT_NAME = BoatsEdit;
 				SWIFT_VERSION = 4.2;
 			};

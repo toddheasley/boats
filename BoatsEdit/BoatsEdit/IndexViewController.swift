@@ -2,18 +2,13 @@ import Cocoa
 import BoatsKit
 import BoatsWeb
 
-class IndexViewController: NSViewController, PanelViewDelegate {
-    private let indexPanelView: IndexPanelView = IndexPanelView()
-    private let providerPanelView: ProviderPanelView = ProviderPanelView()
+class IndexViewController: NSViewController {
     
-    //private let routePanelView: RoutePanelView = RoutePanelView()
-    //private let locationPanelView: LocationPanelView = LocationPanelView()
-    //private let schedulePanelView: SchedulePanelView = SchedulePanelView()
-    //private let holidayPanelView: HolidayPanelView = HolidayPanelView()
-    //private let departurePanelView: DeparturePanelView = DeparturePanelView()
-    
+}
 
-    
+
+
+/*
     private var previewButton: NSToolbarItem? {
         return view.window?.toolbar?.items.last
     }
@@ -203,4 +198,4 @@ extension NSScrollView {
             completion?()
         }
     }
-}
+} */
