@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C79D1C71F5B317100D19DD9 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */; };
+		5C79D1C71F5B317100D19DD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79D1C61F5B317000D19DD9 /* ViewController.swift */; };
+		5C7C2EF121C5776B0075DD7C /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7C2EF021C5776B0075DD7C /* AccessoryView.swift */; };
+		5C7C2EF321C5787B0075DD7C /* NSOpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7C2EF221C5787B0075DD7C /* NSOpenPanel.swift */; };
 		5C85127A1F51C133006343AF /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; };
 		5C85127B1F51C133006343AF /* BoatsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C85127E1F51C144006343AF /* BoatsWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85127D1F51C144006343AF /* BoatsWeb.framework */; };
@@ -44,7 +46,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		5C79D1C61F5B317000D19DD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C7C2EF021C5776B0075DD7C /* AccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
+		5C7C2EF221C5787B0075DD7C /* NSOpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOpenPanel.swift; sourceTree = "<group>"; };
 		5C8512791F51C133006343AF /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C85127D1F51C144006343AF /* BoatsWeb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsWeb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8512801F51C203006343AF /* BoatsEditTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsEditTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,10 +96,12 @@
 		5CFBB8141F51C00600BFA5CF /* BoatsEdit */ = {
 			isa = PBXGroup;
 			children = (
+				5C7C2EF021C5776B0075DD7C /* AccessoryView.swift */,
 				5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */,
 				5CFBB8191F51C00600BFA5CF /* Assets.xcassets */,
-				5C79D1C61F5B317000D19DD9 /* IndexViewController.swift */,
 				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
+				5C7C2EF221C5787B0075DD7C /* NSOpenPanel.swift */,
+				5C79D1C61F5B317000D19DD9 /* ViewController.swift */,
 				5CFBB81E1F51C00600BFA5CF /* Info.plist */,
 			);
 			path = BoatsEdit;
@@ -243,7 +249,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */,
-				5C79D1C71F5B317100D19DD9 /* IndexViewController.swift in Sources */,
+				5C79D1C71F5B317100D19DD9 /* ViewController.swift in Sources */,
+				5C7C2EF121C5776B0075DD7C /* AccessoryView.swift in Sources */,
+				5C7C2EF321C5787B0075DD7C /* NSOpenPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

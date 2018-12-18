@@ -3,96 +3,46 @@ import BoatsKit
 import BoatsWeb
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSOpenSavePanelDelegate {
-    private var hasPanel: Bool = false
-    
-    @IBAction func make(_ sender: AnyObject?) {
-        
-        /*
-        hasPanel = true
-        let panel: NSOpenPanel = NSOpenPanel()
-        panel.delegate = self
-        panel.canChooseDirectories = true
-        panel.canCreateDirectories = true
-        panel.canChooseFiles = false
-        panel.prompt = "Choose Directory"
-        panel.begin { result in
-            self.hasPanel = false
-        } */
-    }
-    
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
     @IBAction func open(_ sender: AnyObject?) {
-        
-        /*
-        hasPanel = true
-        let panel: NSOpenPanel = NSOpenPanel()
-        panel.delegate = self
-        panel.canChooseDirectories = false
-        panel.canCreateDirectories = false
-        panel.canChooseFiles = true
-        panel.prompt = "Open"
         panel.begin { result in
-            self.hasPanel = false
-        } */
+            guard let index: Index = try? self.panel.index() else {
+                return
+            }
+            (self.window?.contentViewController as? ViewController)?.index = index
+            self.window?.setIsVisible(true)
+        }
     }
     
     @IBAction func close(_ sender: AnyObject?) {
-        
-        /*
-        IndexManager.url = nil
-        window?.setIsVisible(false)*/
+        window?.setIsVisible(false)
     }
     
-    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        switch menuItem.tag {
-        case 1:
-            return false // !(window?.isVisible ?? false) && !hasPanel
-        case 2:
-            return false //window?.isVisible ?? false
-        default:
-            return true
-        }
-    }
+    private var panel: NSOpenPanel = .default
+    private var window: NSWindow?
+    private var url: URL?
     
     // MARK: NSApplicationDelegate
-    private var window: NSWindow?
-    
     func applicationWillFinishLaunching(_ notification: Notification) {
-        //window = NSApplication.shared.windows.first
-        //window?.setIsVisible(false)
+        window = NSApplication.shared.windows.last
+        window?.setIsVisible(false)
     }
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        
-        /*
-        try? IndexManager.open()
-        window?.setIsVisible(IndexManager.index != nil)
-        if !(window?.isVisible ?? false) {
-            open(self)
-        } */
+        open(self)
     }
     
-    // MARK: NSOpenSavePanelDelegate
-    func panel(_ sender: Any, shouldEnable url: URL) -> Bool {
-        
-        /*
-        if (sender as AnyObject).canChooseDirectories ?? false {
-            return url.hasDirectoryPath
-        } else {
-            return url.hasDirectoryPath || IndexManager.canOpen(from: url)
-        } */
-        return false
-    }
-    
-    func panel(_ sender: Any, validate url: URL) throws {
-        /*
-        if (sender as AnyObject).canChooseDirectories ?? false {
-            try IndexManager.make(at: url)
-        } else {
-            try IndexManager.open(from: url)
+    // MARK: NSMenuItemValidation
+    func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        switch menuItem.tag {
+        case 1:
+            return !(window?.isVisible ?? true) && !panel.isVisible
+        case 2:
+            return window?.isVisible ?? false
+        case 3:
+            return false
+        default:
+            return false
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.window?.setIsVisible(IndexManager.index != nil)
-        } */
     }
 }
