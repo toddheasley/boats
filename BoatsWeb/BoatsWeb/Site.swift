@@ -1,7 +1,7 @@
 import Foundation
 import BoatsKit
 
-struct Site {
+public struct Site {
     public static let name: String = "Boats"
     public static let appIdentifier: String? = "1152562893"
     
@@ -21,7 +21,7 @@ struct Site {
 
 extension Site: Resource {
     
-    var path: String {
+    public var path: String {
         return index.path
     }
     
@@ -53,7 +53,7 @@ extension Site: Resource {
         try manifest.delete(from: url)
     }
     
-    func data() throws -> Data {
+    public func data() throws -> Data {
         return try index.data()
     }
 }

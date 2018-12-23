@@ -5,8 +5,9 @@ import BoatsWeb
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
     @IBAction func open(_ sender: AnyObject?) {
-        panel.begin { result in
-            guard let index: Index = try? self.panel.index() else {
+        panel.begin { response in
+            guard response == .OK,
+                let index: Index = try? self.panel.index() else {
                 return
             }
             (self.window?.contentViewController as? ViewController)?.index = index

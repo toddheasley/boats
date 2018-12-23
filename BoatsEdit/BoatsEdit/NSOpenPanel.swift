@@ -7,7 +7,6 @@ extension NSOpenPanel {
         panel.accessoryView = AccessoryView(delegate: panel)
         panel.accessoryView?.autoresizingMask = [.width]
         panel.accessoryView?.frame.size.width = panel.frame.size.width
-        panel.isAccessoryViewDisclosed = true
         panel.canCreateDirectories = true
         panel.canChooseDirectories = true
         panel.canChooseFiles = false
@@ -39,7 +38,7 @@ extension NSOpenPanel: NSOpenSavePanelDelegate {
 extension NSOpenPanel: AccessoryViewDelegate {
     
     // MARK: AccessoryViewDelegate
-    func directory(for action: AccessoryView.Action) -> URL? {
-        return self.directoryURL
+    func directoryFailed(error: Error) {
+        NSAlert(error: error).beginSheetModal(for: self, completionHandler: nil)
     }
 }

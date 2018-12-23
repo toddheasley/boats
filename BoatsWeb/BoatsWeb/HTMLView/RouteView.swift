@@ -65,6 +65,10 @@ extension RouteView: HTMLDataSource {
         case "ROUTE_LOCATION":
             return "Depart \(route.location.name)"
         case "TRIP_ORIGIN", "TRIP_DESTINATION":
+            
+            return nil
+            
+            /*
             guard let trip: Timetable.Trip = route.schedule()?.timetables[index[0]].trips[index[1]] else {
                 return nil
             }
@@ -73,7 +77,7 @@ extension RouteView: HTMLDataSource {
             } else if let departure: Departure = trip.destination {
                 return "\(departure.time)"
             }
-            return nil
+            return nil */
         case "HOLIDAYS":
             guard !index.isEmpty,
                 let schedule: Schedule = route.schedule(), !schedule.holidays.isEmpty,
