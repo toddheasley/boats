@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C79D1C71F5B317100D19DD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79D1C61F5B317000D19DD9 /* ViewController.swift */; };
 		5C7C2EF121C5776B0075DD7C /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7C2EF021C5776B0075DD7C /* AccessoryView.swift */; };
 		5C7C2EF321C5787B0075DD7C /* NSOpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7C2EF221C5787B0075DD7C /* NSOpenPanel.swift */; };
 		5C85127A1F51C133006343AF /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8512791F51C133006343AF /* BoatsKit.framework */; };
@@ -16,6 +15,7 @@
 		5C85127F1F51C144006343AF /* BoatsWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85127D1F51C144006343AF /* BoatsWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CA7F08721CE7EF400FCEE00 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7F08621CE7EF400FCEE00 /* UserDefaults.swift */; };
 		5CA7F08821CE7EF400FCEE00 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7F08621CE7EF400FCEE00 /* UserDefaults.swift */; };
+		5CC9F3D521D057000043A3DD /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9F3D421D057000043A3DD /* ProgressIndicator.swift */; };
 		5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */; };
 		5CFBB81A1F51C00600BFA5CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB8191F51C00600BFA5CF /* Assets.xcassets */; };
 		5CFBB81D1F51C00600BFA5CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBB81B1F51C00600BFA5CF /* Main.storyboard */; };
@@ -48,7 +48,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5C79D1C61F5B317000D19DD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5C7C2EF021C5776B0075DD7C /* AccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 		5C7C2EF221C5787B0075DD7C /* NSOpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOpenPanel.swift; sourceTree = "<group>"; };
 		5C8512791F51C133006343AF /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +56,7 @@
 		5C8512811F51C21F006343AF /* BoatsEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatsEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CA7F08421CE733200FCEE00 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5CA7F08621CE7EF400FCEE00 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		5CC9F3D421D057000043A3DD /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgressIndic\U001aator.swift"; sourceTree = "<group>"; };
 		5CFBB8151F51C00600BFA5CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CFBB8191F51C00600BFA5CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CFBB81C1F51C00600BFA5CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,8 +106,8 @@
 				5CFBB8191F51C00600BFA5CF /* Assets.xcassets */,
 				5CFBB81B1F51C00600BFA5CF /* Main.storyboard */,
 				5C7C2EF221C5787B0075DD7C /* NSOpenPanel.swift */,
+				5CC9F3D421D057000043A3DD /* ProgressIndicator.swift */,
 				5CA7F08621CE7EF400FCEE00 /* UserDefaults.swift */,
-				5C79D1C61F5B317000D19DD9 /* ViewController.swift */,
 				5CFBB81E1F51C00600BFA5CF /* Info.plist */,
 			);
 			path = BoatsEdit;
@@ -256,9 +256,9 @@
 			files = (
 				5CFBB8161F51C00600BFA5CF /* AppDelegate.swift in Sources */,
 				5CA7F08721CE7EF400FCEE00 /* UserDefaults.swift in Sources */,
-				5C79D1C71F5B317100D19DD9 /* ViewController.swift in Sources */,
 				5C7C2EF121C5776B0075DD7C /* AccessoryView.swift in Sources */,
 				5C7C2EF321C5787B0075DD7C /* NSOpenPanel.swift in Sources */,
+				5CC9F3D521D057000043A3DD /* ProgressIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

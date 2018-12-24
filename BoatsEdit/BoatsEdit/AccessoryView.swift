@@ -24,7 +24,7 @@ class AccessoryView: NSView {
     
     @objc func toggleWeb() {
         UserDefaults.standard.web = webButton.state
-        guard !isActive,
+        guard !progressIndicator.isAnimating,
             let url: URL = delegate?.directoryURL,
             let index: Index = try? Index(from: url) else {
             return
@@ -45,42 +45,24 @@ class AccessoryView: NSView {
     private var fetchButton: NSButton!
     private var buildButton: NSButton!
     private var webButton: NSButton!
-    private var progressIndicator: NSProgressIndicator!
-    private var successImageView: NSImageView!
-    private var successTextField: NSTextField!
-    private var successView: NSView!
-    
-    private var isActive: Bool = false {
-        didSet {
-            isActive ? progressIndicator.startAnimation(nil) : progressIndicator.stopAnimation(nil)
-        }
-    }
-    
-    private func displaySuccess(action: Action, for interval: TimeInterval = 3.5) {
-        successTextField.stringValue = "\(action.rawValue.capitalized) completed"
-        layout()
-        successView.isHidden = false
-        DispatchQueue.main.asyncAfter(deadline: .now() + max(interval, 0.0)) {
-            self.successView.isHidden = true
-        }
-    }
+    private var progressIndicator: ProgressIndicator!
     
     private func handle(action: Action) {
-        guard !isActive else {
+        guard !progressIndicator.isAnimating else {
             return
         }
-        isActive = true
+        progressIndicator.startAnimating()
         URLSession.shared.index(action: action) { [weak self] index, error in
             do {
-                self?.isActive = false
                 guard let url: URL = self?.delegate?.directoryURL,
                     let index: Index = index else {
                     throw(error ?? NSError(domain: NSURLErrorDomain, code: NSURLErrorBadURL, userInfo: nil))
                 }
                 try (index as Resource).build(to: url)
                 self?.toggleWeb()
-                self?.displaySuccess(action: action)
+                self?.progressIndicator.stopAnimating(success: true)
             } catch {
+                self?.progressIndicator.stopAnimating()
                 self?.delegate?.directoryFailed(error: error)
             }
         }
@@ -104,12 +86,6 @@ class AccessoryView: NSView {
         super.layout()
         
         progressIndicator.frame.origin.x = bounds.size.width - (progressIndicator.frame.size.width + 10.0)
-        
-        successTextField.sizeToFit()
-        successTextField.frame.origin.y = (intrinsicContentSize.height - successTextField.frame.size.height) / 2.0
-        
-        successView.frame.size.width = successTextField.frame.size.width + successImageView.frame.size.width
-        successView.frame.origin.x = bounds.size.width - (successView.frame.size.width + 10.0)
     }
     
     override init(frame frameRect: NSRect) {
@@ -133,29 +109,9 @@ class AccessoryView: NSView {
         webButton.frame.origin.y = (intrinsicContentSize.height - (webButton.frame.size.height + 1.0)) / 2.0
         addSubview(webButton)
         
-        progressIndicator = NSProgressIndicator()
-        progressIndicator.controlSize = .mini
-        progressIndicator.isDisplayedWhenStopped = false
-        progressIndicator.isIndeterminate = true
-        progressIndicator.frame.size.width = 210.0
-        progressIndicator.frame.size.height = 41.0
+        progressIndicator = ProgressIndicator()
+        progressIndicator.frame.size.height = intrinsicContentSize.height
         addSubview(progressIndicator)
-        
-        successImageView = NSImageView(image: NSImage(named: NSImage.menuOnStateTemplateName)!)
-        successImageView.contentTintColor = .secondaryLabelColor
-        successImageView.frame.size.width = 24.0
-        successImageView.frame.size.height = intrinsicContentSize.height
-        
-        successTextField = NSTextField(labelWithString: "")
-        successTextField.textColor = successImageView.contentTintColor
-        successTextField.frame.origin.x = successImageView.frame.size.width
-        
-        successView = NSView()
-        successView.addSubview(successTextField)
-        successView.addSubview(successImageView)
-        successView.frame.size.height = intrinsicContentSize.height
-        successView.isHidden = true
-        addSubview(successView)
     }
     
     required init?(coder decoder: NSCoder) {

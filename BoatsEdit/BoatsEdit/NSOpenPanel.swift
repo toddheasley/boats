@@ -1,5 +1,6 @@
 import Cocoa
 import BoatsKit
+import BoatsWeb
 
 extension NSOpenPanel {
     static var `default`: NSOpenPanel {
@@ -14,12 +15,32 @@ extension NSOpenPanel {
         return panel
     }
     
+    var webURL: URL? {
+        do {
+            try Site(index: try index()).build(to: try temporaryURL())
+            return try temporaryURL(path: "index.html")
+        } catch {
+            return nil
+        }
+    }
+    
     @discardableResult func index() throws -> Index {
         guard let url: URL = directoryURL else {
             throw NSError(domain: NSURLErrorDomain, code: NSURLErrorUnsupportedURL, userInfo: nil)
         }
-        let data: Data = try Data(contentsOf: url.appendingPathComponent("index.json"))
-        return try JSONDecoder().decode(Index.self, from: data)
+        return try Index(from: url)
+    }
+    
+    private func temporaryURL(path: String = "") throws -> URL {
+        var url: URL = FileManager.default.temporaryDirectory.appendingPathComponent("boats")
+        if !FileManager.default.fileExists(atPath: url.path) {
+            try FileManager.default.createDirectory(at: url, withIntermediateDirectories: false, attributes: nil)
+        }
+        url.appendPathComponent(path)
+        guard FileManager.default.fileExists(atPath: url.path) else {
+            throw NSError(domain: NSURLErrorDomain, code: NSURLErrorFileDoesNotExist, userInfo: nil)
+        }
+        return url
     }
 }
 
