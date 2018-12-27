@@ -51,18 +51,17 @@ class AccessoryView: NSView {
         guard !progressIndicator.isAnimating else {
             return
         }
-        progressIndicator.startAnimating()
+        progressIndicator.isAnimating = true
         URLSession.shared.index(action: action) { [weak self] index, error in
             do {
+                self?.progressIndicator.isAnimating = false
                 guard let url: URL = self?.delegate?.directoryURL,
                     let index: Index = index else {
                     throw(error ?? NSError(domain: NSURLErrorDomain, code: NSURLErrorBadURL, userInfo: nil))
                 }
                 try (index as Resource).build(to: url)
                 self?.toggleWeb()
-                self?.progressIndicator.stopAnimating(success: true)
             } catch {
-                self?.progressIndicator.stopAnimating()
                 self?.delegate?.directoryFailed(error: error)
             }
         }
@@ -85,7 +84,7 @@ class AccessoryView: NSView {
     override func layout() {
         super.layout()
         
-        progressIndicator.frame.origin.x = bounds.size.width - (progressIndicator.frame.size.width + 10.0)
+        progressIndicator.frame.origin.x = bounds.size.width - progressIndicator.frame.size.width
     }
     
     override init(frame frameRect: NSRect) {
@@ -110,6 +109,7 @@ class AccessoryView: NSView {
         addSubview(webButton)
         
         progressIndicator = ProgressIndicator()
+        progressIndicator.frame.size.width = progressIndicator.intrinsicContentSize.width + 20.0
         progressIndicator.frame.size.height = intrinsicContentSize.height
         addSubview(progressIndicator)
     }

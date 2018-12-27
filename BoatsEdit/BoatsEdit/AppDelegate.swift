@@ -1,6 +1,4 @@
 import Cocoa
-import BoatsKit
-import BoatsWeb
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {

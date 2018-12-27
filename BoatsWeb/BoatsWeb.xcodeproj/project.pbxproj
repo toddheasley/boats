@@ -217,23 +217,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		5CF357031F40ED7400348203 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5CF357131F40EDD600348203 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		5CF357051F40ED7400348203 /* BoatsWeb */ = {
 			isa = PBXNativeTarget;
@@ -241,7 +224,6 @@
 			buildPhases = (
 				5CF357011F40ED7400348203 /* Sources */,
 				5CF357021F40ED7400348203 /* Frameworks */,
-				5CF357031F40ED7400348203 /* Headers */,
 				5CF357041F40ED7400348203 /* Resources */,
 				5C6B631D1F40EF3900B134DE /* Set Build Number */,
 			);
@@ -260,7 +242,6 @@
 			buildPhases = (
 				5CF357111F40EDD600348203 /* Sources */,
 				5CF357121F40EDD600348203 /* Frameworks */,
-				5CF357131F40EDD600348203 /* Headers */,
 				5CF357141F40EDD600348203 /* Resources */,
 				5C6B631D1F40EF3900B134DE /* Set Build Number */,
 			);

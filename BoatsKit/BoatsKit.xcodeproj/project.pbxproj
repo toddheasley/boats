@@ -709,6 +709,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -716,6 +717,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.cli;
 				PRODUCT_MODULE_NAME = BoatsKit;
 				PRODUCT_NAME = boats;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -730,12 +732,14 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.cli;
 				PRODUCT_MODULE_NAME = BoatsKit;
 				PRODUCT_NAME = boats;
 				SWIFT_VERSION = 4.2;

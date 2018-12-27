@@ -1,21 +1,30 @@
 import Cocoa
 
 class ProgressIndicator: NSView {
-    private(set) var isAnimating: Bool = false
-    
-    func startAnimating() {
-        isAnimating = true
+    var isAnimating: Bool = false {
+        didSet {
+            progressImageView.isHidden = !isAnimating
+            timer?.invalidate()
+            guard isAnimating else {
+                return
+            }
+            timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] timer in
+                if self?.progressImageView.frame.origin.x == 0.0 {
+                    self?.progressImageView.frame.origin.x = -20.0
+                } else {
+                    self?.progressImageView.frame.origin.x += 2.0
+                }
+            }
+        }
     }
     
-    func stopAnimating(success: Bool = false) {
-        isAnimating = false
-    }
-    
-    private var contentView: NSView!
+    private var progressView: NSView!
+    private var progressImageView: NSImageView!
+    private var timer: Timer?
     
     // MARK: NSView
     override var intrinsicContentSize: NSSize {
-        return CGSize(width: 240.0, height: 22.0)
+        return CGSize(width: 240.0, height: 21.0)
     }
     
     override var frame: NSRect {
@@ -30,17 +39,30 @@ class ProgressIndicator: NSView {
     override func layout() {
         super.layout()
         
-        contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
+        progressView.layer?.backgroundColor = NSColor.gray.withAlphaComponent(0.15).cgColor
+        progressView.layer?.borderColor = NSColor.quaternaryLabelColor.withAlphaComponent(NSWorkspace.shared.accessibilityDisplayShouldIncreaseContrast ? 1.0 : 0.2).cgColor
+        progressView.layer?.borderWidth = NSWorkspace.shared.accessibilityDisplayShouldIncreaseContrast ? 0.75 : 0.5
+        progressView.frame.origin.x = (bounds.size.width - progressView.frame.size.width) / 2.0
+        progressView.frame.origin.y = (bounds.size.height - (progressView.frame.size.height + 1.0)) / 2.0
     }
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         
-        contentView = NSView()
-        contentView.autoresizingMask = [.width]
-        contentView.frame.size.width = bounds.size.width
-        contentView.frame.size.height = intrinsicContentSize.height
-        addSubview(contentView)
+        progressView = NSView()
+        progressView.frame.size.width = intrinsicContentSize.width - 2.0
+        progressView.frame.size.height = 13.0
+        progressView.wantsLayer = true
+        progressView.layer?.cornerRadius = 3.5
+        addSubview(progressView)
+        
+        progressImageView = NSImageView(image: .progress)
+        progressImageView.contentTintColor = .controlAccentColor
+        progressImageView.frame.size.width = 340.0
+        progressImageView.frame.size.height = 13.0
+        progressImageView.imageScaling = .scaleProportionallyDown
+        progressImageView.isHidden = true
+        progressView.addSubview(progressImageView)
     }
     
     required init?(coder decoder: NSCoder) {
@@ -48,40 +70,8 @@ class ProgressIndicator: NSView {
     }
 }
 
-/*
-private var successImageView: NSImageView!
-private var successTextField: NSTextField!
-private var successView: NSView!
-
-private func displaySuccess(action: Action, for interval: TimeInterval = 3.5) {
-    successTextField.stringValue = "\(action.rawValue.capitalized) completed"
-    layout()
-    successView.isHidden = false
-    DispatchQueue.main.asyncAfter(deadline: .now() + max(interval, 0.0)) {
-        self.successView.isHidden = true
+extension NSImage {
+    fileprivate static var progress: NSImage {
+        return NSImage(named: NSImage.Name("Progress"))!
     }
 }
- 
- successTextField.sizeToFit()
- successTextField.frame.origin.y = (intrinsicContentSize.height - successTextField.frame.size.height) / 2.0
- 
- successView.frame.size.width = successTextField.frame.size.width + successImageView.frame.size.width
- successView.frame.origin.x = bounds.size.width - (successView.frame.size.width + 10.0)
- 
- successImageView = NSImageView(image: NSImage(named: NSImage.menuOnStateTemplateName)!)
- successImageView.contentTintColor = .secondaryLabelColor
- successImageView.frame.size.width = 24.0
- successImageView.frame.size.height = intrinsicContentSize.height
- 
- successTextField = NSTextField(labelWithString: "")
- successTextField.textColor = successImageView.contentTintColor
- successTextField.frame.origin.x = successImageView.frame.size.width
- 
- successView = NSView()
- successView.addSubview(successTextField)
- successView.addSubview(successImageView)
- successView.frame.size.height = intrinsicContentSize.height
- successView.isHidden = true
- addSubview(successView)
- 
- */
