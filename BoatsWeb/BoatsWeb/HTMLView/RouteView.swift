@@ -21,36 +21,6 @@ extension RouteView: HTMLDataSource {
     // MARK: HTMLDataSource
     func template(of name: String, at index: [Int]) -> String? {
         switch name {
-        
-        /*
-        case "DIRECTION":
-            guard i.count > 1 else {
-                return nil
-            }
-            switch Departure.Direction.all[i[1]] {
-            case .destination:
-                return "From \(route.origin.name)"
-            case .origin:
-                return "To \(route.origin.name)"
-            }
-        case "DEPARTURE_CAR":
-            guard i.count > 2,
-                let schedule: Schedule = route.schedule(),
-                let departures: [Departure] = route.schedule()?.departures(day: schedule.days[i[0]], direction: Departure.Direction.all[i[1]]) else {
-                    return nil
-            }
-            return departures[i[2]].services.contains(.car) ? "\(SVG.car.html)" : ""
-        case "DEPARTURE_TIME":
-            guard i.count > 2,
-                let schedule: Schedule = route.schedule(),
-                let departures: [Departure] = route.schedule()?.departures(day: schedule.days[i[0]], direction: Departure.Direction.all[i[1]]) else {
-                    return nil
-            }
-            return "<span>\(dateFormatter.components(from: departures[i[2]].time).joined(separator: "</span><span>"))</span>" */
-            
-            
-            
-            
         case "ROUTE_NAME":
             return "\(route.name)"
         case "SEASON":
@@ -65,19 +35,18 @@ extension RouteView: HTMLDataSource {
         case "ROUTE_LOCATION":
             return "Depart \(route.location.name)"
         case "TRIP_ORIGIN", "TRIP_DESTINATION":
-            
-            return nil
-            
-            /*
-            guard let trip: Timetable.Trip = route.schedule()?.timetables[index[0]].trips[index[1]] else {
+            guard index.count > 1,
+                let trip: Timetable.Trip = route.schedule()?.timetables[index[0]].trips[index[1]],
+                let departure: Departure = (name == "TRIP_ORIGIN" ? trip.origin : trip.destination) else {
                 return nil
             }
-            if name == "TRIP_ORIGIN", let departure: Departure = trip.origin {
-                return "\(departure.time)"
-            } else if let departure: Departure = trip.destination {
-                return "\(departure.time)"
+            let time: [String] = departure.time.descriptionComponents.map { component in
+                return "<b>\(component)</b>"
             }
-            return nil */
+            let deviations: [String] = departure.deviations.map { deviation in
+                return "<small>\(deviation)</small>"
+            }
+            return "<time>\(time.joined())</time>\(departure.isCarFerry ? " \((try? SVG.car.html()) ?? SVG.car.description)" : "")\(!deviations.isEmpty ? " <span>\(deviations.joined(separator: " "))</span>" : "")"
         case "HOLIDAYS":
             guard !index.isEmpty,
                 let schedule: Schedule = route.schedule(), !schedule.holidays.isEmpty,
@@ -86,10 +55,10 @@ extension RouteView: HTMLDataSource {
             }
             return schedule.holidays.map { holiday in
                 let components: [String] = holiday.description.components(separatedBy: ": ")
-                return components.count == 2 ? "<span><b>\(components.first!)</b> \(components.last!)</span>" : ""
+                return components.count == 2 ? "<small><b>\(components.first!)</b> \(components.last!)</small>" : ""
             }.joined(separator: " ")
         case "MENU":
-            return "<a href=\"\(self.index.path)\">\((try? SVG.menu.html()) ?? SVG.menu.description)</a>"
+            return "<a href=\"\(IndexView(index: self.index).path)\">\((try? SVG.menu.html()) ?? SVG.menu.description)</a>"
         case "INDEX_NAME":
             return "\(self.index.name)"
         case "INDEX_DESCRIPTION":
@@ -102,8 +71,6 @@ extension RouteView: HTMLDataSource {
             return "\(Site.name)"
         case "APP_ID":
             return Site.appIdentifier
-        case "MANIFEST_PATH":
-            return "\(Manifest().path)"
         case "BOOKMARK_PATH":
             return "\(BookmarkIcon().path)"
         case "STYLESHEET_PATH":
