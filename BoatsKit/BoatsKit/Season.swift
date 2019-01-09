@@ -38,7 +38,7 @@ extension Season: HTMLConvertible {
             let name: Name = Name(rawValue: rawValue) else {
             throw(HTML.error(Season.self, from: html))
         }
-        guard let dateInterval: [String] = components[1].components(separatedBy: ":").last?.replacingOccurrences(of: "&#8211;", with: "-").components(separatedBy: "-"), dateInterval.count == 2,
+        guard let dateInterval: [String] = components[1].components(separatedBy: ":").last?.replacingOccurrences(of: "&#8211;", with: "-").replacingOccurrences(of: "–", with: "-").components(separatedBy: "-"), dateInterval.count == 2,
             let start: Date = DateFormatter.shared.date(from: dateInterval[0].trim()),
             let end: Date = DateFormatter.shared.date(from: dateInterval[1].trim()), start < end else {
             throw(HTML.error(Season.self, from: html))

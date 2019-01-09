@@ -46,6 +46,7 @@ extension Schedule: HTMLConvertible {
         let timetables: [Timetable] = try schedule.find("<table[^>]*>(.*?)</table>").map { timetable in
             return try Timetable(from: timetable)
         }
+        
         self.init(season: try Season(from: season), timetables: timetables)
     }
 }

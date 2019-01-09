@@ -1,5 +1,16 @@
+:root {
+    --background: rgb(251, 251, 251);
+    --color: rgb(9, 9, 9);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: rgb(36, 36, 36);
+        --color: rgb(239, 239, 239);
+    }
+}
+
 * {
-    font: 14px -apple-system, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -9,16 +20,89 @@ a {
 }
 
 body {
+    -webkit-text-size-adjust: none;
+    background: var(--background);
+    color: var(--color);
+    font-family: -apple-system, sans-serif;
     margin: 0 auto;
-    max-width: 480px;
-    width: 100%;
+    position: relative;
+    width: 298px;
 }
 
-body > * {
-    ;
+header {
+    margin: 16px auto 48px auto;
+    padding: 0 2px;
+}
+
+header h1 {
+    display: table-cell;
+    font-size: 18px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+header h2 {
+    font-size: 36px;
+    margin-top: 16px;
+}
+
+header h3 {
+    font-size: 15px;
+}
+
+main {
+    margin: 30px auto;
+}
+
+main h1, main h2 {
+    padding: 1px 2px;
+}
+
+main h1 {
+    font-size: 24px;
+}
+
+main h2 {
+    font-size: 15px;
+}
+
+nav {
+    position: absolute;
+    right: 0;
+}
+
+section {
+    border: 2px solid;
+    border-radius: 11px;
+    margin: 32px 0;
+    overflow: hidden;
+}
+
+section h3 {
+    font-size: 18px;
+    padding: 6px;
+}
+
+section h4 {
+    padding: 3px 6px;
+}
+
+section h4 small {
+    display: block;
+}
+
+section p {
+    padding: 8px 6px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+small {
+    font-size: 12px;
 }
 
 svg {
+    fill: var(--color);
     display: inline-block;
     height: 32px;
     vertical-align: middle;
@@ -26,28 +110,75 @@ svg {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    position: relative;
+    right: 2px;
+    top: 2px;
+    width: 298px;
 }
 
 td {
-    border: 1px solid;
-    padding: 6px;
+    border: 2px solid;
+    padding: 4px 0 4px 6px;
+    white-space: nowrap;
+}
+
+td a {
+    display: block;
+    font-size: 21px;
+    position: relative;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 280px;
+}
+
+td a b {
+    display: table-cell;
+    height: 32px;
+    vertical-align: middle;
+}
+
+td a svg {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+td small {
+    background: var(--color);
+    border-radius: 3px;
+    color: var(--background);
+    display: inline-block;
+    font-size: 8px;
+    padding: 1px 0 2px 0;
+    text-align: center;
+    vertical-align: middle;
+    white-space: normal;
+    width: 32px;
 }
 
 th {
+    border: 2px solid;
+    padding: 3px 6px;
     text-align: left;
+}
+
+th small {
+    display: block;
+    width: 134px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 time {
     display: inline-block;
+    font-size: 27px;
+    height: 32px;
     vertical-align: middle;
-    white-space: nowrap;
 }
 
 time b {
     display: inline-block;
-    font-size: 2em;
-    font-weight: bold;
     text-align: center;
     width: 20px;
 }
@@ -55,133 +186,3 @@ time b {
 time b:nth-child(3), time b:last-child {
     width: 10px;
 }
-
-@media (prefers-color-scheme: dark) {
-    
-}
-
-svg, time {
-    background: red;
-}
-
-/*
- 
- 
- header a {
- text-decoration: none;
- }
- 
- header h1 {
- font-size: 34.0;
- font-weight: bold;
- margin-top: 1px;
- }
- 
- header h2 {
- font-size: 1em;
- font-weight: normal;
- }
- 
- hr {
- visibility: hidden;
- }
- 
- main {
- margin-top: 64px;
- }
- 
- main h1 {
- font-size: 19px;
- }
- 
- main h2 {
- font-size: 1em;
- margin: 1px 0;
- }
- 
- main h3 {
- font-size: 1em;
- font-weight: normal;
- }
- 
- main section {
- margin-top: 32px;
- }
- 
- main section h3 {
- font-weight: bold;
- }
- 
- main section p {
- clear: both;
- float: right;
- font-size: 9px;
- font-weight: bold;
- padding: 2px 0 22px 0;
- text-align: right;
- text-transform: uppercase;
- width: 224px;
- }
- 
- main section p b {
- float: left;
- }
- 
- main section p span {
- display: block;
- margin: 1px 0;
- }
- 
- main section table {
- float: left;
- width: 50%;
- }
- 
- main section td {
- text-align: right;
- }
- 
- main section td svg {
- position: relative;
- top: 6px;
- }
- 
- main table a {
- display: block;
- font-weight: bold;
- text-decoration: none;
- }
- 
- main table a b {
- display: block;
- font-size: 19px;
- margin: 6px 0 1px 0;
- }
- 
- main table a span {
- display: block;
- font-weight: normal;
- margin: 1px 0 4px 0;
- }
- 
- main > table {
- margin-bottom: 25px;
- }
- 
- main > table svg {
- float: right;
- margin-top: 14px;
- }
- 
- nav {
- height: 1px;
- margin: 0 11px 0 0;
- }
- 
- nav a {
- display: block;
- float: right;
- margin-top: 4px;
- }
- 
- */

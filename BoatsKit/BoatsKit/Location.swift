@@ -24,7 +24,9 @@ extension Location: Equatable {
 extension Location: CaseIterable {
     
     // MARK: CaseIterable
-    public static var allCases: [Location] {
+    public typealias AllCases = [Location]
+    
+    public static var allCases: AllCases {
         return [.portland, .peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff]
     }
     

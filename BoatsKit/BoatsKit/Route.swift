@@ -47,7 +47,9 @@ extension Route: Equatable {
 extension Route: CaseIterable {
     
     // MARK: CaseIterable
-    public static var allCases: [Route] {
+    public typealias AllCases = [Route]
+    
+    public static var allCases: AllCases {
         return [.peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff]
     }
 

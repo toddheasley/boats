@@ -29,7 +29,9 @@ extension Holiday: Equatable {
 extension Holiday: CaseIterable {
     
     // MARK: CaseIterable
-    public static var allCases: [Holiday] {
+    public typealias AllCases = [Holiday]
+    
+    public static var allCases: AllCases {
         return [.memorial, .independence, .labor, .columbus, .veterans, .thanksgiving, .christmas, .newYears]
     }
 }
