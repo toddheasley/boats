@@ -23,11 +23,6 @@
 		5C1CBB9B21A9BC42001E4DB8 /* Stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = 5C533A9D1F42AE9A00565FCC /* Stylesheet.css */; };
 		5C1CBB9C21A9BC43001E4DB8 /* Stylesheet.css in Resources */ = {isa = PBXBuildFile; fileRef = 5C533A9D1F42AE9A00565FCC /* Stylesheet.css */; };
 		5C1CBB9D21A9BC4C001E4DB8 /* StylesheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFB26151F42A7D60066C80C /* StylesheetTests.swift */; };
-		5C1CBB9E21A9BE1C001E4DB8 /* ScriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28EE391F505A600093080D /* ScriptTests.swift */; };
-		5C1CBB9F21A9BE20001E4DB8 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28EE331F505A1B0093080D /* Script.swift */; };
-		5C1CBBA021A9BE21001E4DB8 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28EE331F505A1B0093080D /* Script.swift */; };
-		5C1CBBA121A9BE25001E4DB8 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 5C28EE361F505A400093080D /* Script.js */; };
-		5C1CBBA221A9BE26001E4DB8 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 5C28EE361F505A400093080D /* Script.js */; };
 		5C1CBBA321A9BF15001E4DB8 /* BookmarkIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6AB8031F429DF3003C7046 /* BookmarkIcon.swift */; };
 		5C1CBBA421A9BF16001E4DB8 /* BookmarkIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6AB8031F429DF3003C7046 /* BookmarkIcon.swift */; };
 		5C1CBBA521A9BF1F001E4DB8 /* BookmarkIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6AB8061F429E7A003C7046 /* BookmarkIconTests.swift */; };
@@ -81,9 +76,6 @@
 		5C1CBB8221A9A293001E4DB8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5C1CBB9321A9B0FB001E4DB8 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		5C1CBBC521AA1B9A001E4DB8 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
-		5C28EE331F505A1B0093080D /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
-		5C28EE361F505A400093080D /* Script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
-		5C28EE391F505A600093080D /* ScriptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTests.swift; sourceTree = "<group>"; };
 		5C382FE21F42B35F00349B0D /* BookmarkIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BookmarkIcon.png; sourceTree = "<group>"; };
 		5C533A9D1F42AE9A00565FCC /* Stylesheet.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Stylesheet.css; sourceTree = "<group>"; };
 		5C53E1811F445F7800B2C89F /* SVG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVG.swift; sourceTree = "<group>"; };
@@ -182,8 +174,6 @@
 				5C9876F51FE5E1ED00BB042C /* HTMLView */,
 				5CE767C41F44DD52003A76EE /* Manifest.swift */,
 				5C1CBBC521AA1B9A001E4DB8 /* Resource.swift */,
-				5C28EE331F505A1B0093080D /* Script.swift */,
-				5C28EE361F505A400093080D /* Script.js */,
 				5C07DB371F5F31F8004C8ACB /* Site.swift */,
 				5CFB26121F42A7760066C80C /* Stylesheet.swift */,
 				5C533A9D1F42AE9A00565FCC /* Stylesheet.css */,
@@ -203,7 +193,6 @@
 				5C6D80CB1FFBA62E00B5F256 /* HTMLTests.html */,
 				5C9F2B231F49C6610047F09D /* ManifestTests.swift */,
 				5C9F2B251F49CA8E0047F09D /* ManifestTests.appcache */,
-				5C28EE391F505A600093080D /* ScriptTests.swift */,
 				5CFB26151F42A7D60066C80C /* StylesheetTests.swift */,
 				5C53E1841F445F8600B2C89F /* SVGTests.swift */,
 				5CC755C81F4A357F00C8FCC5 /* XCTestCase.swift */,
@@ -321,7 +310,6 @@
 			files = (
 				5C1CBB9B21A9BC42001E4DB8 /* Stylesheet.css in Resources */,
 				5C1CBBBC21A9EEB7001E4DB8 /* IndexView.html in Resources */,
-				5C1CBBA121A9BE25001E4DB8 /* Script.js in Resources */,
 				5C85AE202024E1B00088B9A4 /* Car.svg in Resources */,
 				5C1CBBA621A9BF72001E4DB8 /* BookmarkIcon.png in Resources */,
 				5C03DF1F1F43A4F500367ABE /* Menu.svg in Resources */,
@@ -335,7 +323,6 @@
 			files = (
 				5C1CBB9C21A9BC43001E4DB8 /* Stylesheet.css in Resources */,
 				5C1CBBBD21A9EEB8001E4DB8 /* IndexView.html in Resources */,
-				5C1CBBA221A9BE26001E4DB8 /* Script.js in Resources */,
 				5C0F6345202501A100201D68 /* Car.svg in Resources */,
 				5C1CBBA721A9BF73001E4DB8 /* BookmarkIcon.png in Resources */,
 				5C03DF201F43A4F500367ABE /* Menu.svg in Resources */,
@@ -384,7 +371,6 @@
 				5C1CBBC121A9EF27001E4DB8 /* IndexView.swift in Sources */,
 				5C1CBBB321A9CD2B001E4DB8 /* HTMLView.swift in Sources */,
 				5C1CBB8621A9A5FE001E4DB8 /* SVG.swift in Sources */,
-				5C1CBB9F21A9BE20001E4DB8 /* Script.swift in Sources */,
 				5C1CBBC621AA1B9A001E4DB8 /* Resource.swift in Sources */,
 				5C1CBBA321A9BF15001E4DB8 /* BookmarkIcon.swift in Sources */,
 				5C1CBB9421A9B0FB001E4DB8 /* URL.swift in Sources */,
@@ -403,7 +389,6 @@
 				5C1CBBC221A9EF28001E4DB8 /* IndexView.swift in Sources */,
 				5C1CBBB421A9CD2D001E4DB8 /* HTMLView.swift in Sources */,
 				5C1CBB8521A9A5FD001E4DB8 /* SVG.swift in Sources */,
-				5C1CBBA021A9BE21001E4DB8 /* Script.swift in Sources */,
 				5C1CBBC721AA1B9A001E4DB8 /* Resource.swift in Sources */,
 				5C1CBBA421A9BF16001E4DB8 /* BookmarkIcon.swift in Sources */,
 				5C1CBB9521A9B0FB001E4DB8 /* URL.swift in Sources */,
@@ -416,7 +401,6 @@
 			files = (
 				5C1CBBAA21A9C5C6001E4DB8 /* ManifestTests.swift in Sources */,
 				5C1CBBBB21A9E79F001E4DB8 /* HTMLTests.swift in Sources */,
-				5C1CBB9E21A9BE1C001E4DB8 /* ScriptTests.swift in Sources */,
 				5C1CBB9821A9B9A9001E4DB8 /* SVGTests.swift in Sources */,
 				5C1CBBA521A9BF1F001E4DB8 /* BookmarkIconTests.swift in Sources */,
 				5C1CBB9D21A9BC4C001E4DB8 /* StylesheetTests.swift in Sources */,

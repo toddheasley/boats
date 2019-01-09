@@ -76,8 +76,6 @@ extension RouteView: HTMLDataSource {
             return "\(BookmarkIcon().path)"
         case "STYLESHEET_PATH":
             return "\(Stylesheet().path)"
-        case "SCRIPT_PATH":
-            return "\(Script().path)"
         default:
             return nil
         }

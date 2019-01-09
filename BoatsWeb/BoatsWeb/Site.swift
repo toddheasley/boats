@@ -30,12 +30,10 @@ extension Site: Resource {
         var manifest: Manifest = Manifest()
         manifest.paths = [
             BookmarkIcon().path,
-            Script().path,
             Stylesheet().path,
             IndexView(index: index).path
         ]
         try BookmarkIcon().build(to: url)
-        try Script().build(to: url)
         try Stylesheet().build(to: url)
         try IndexView(index: index).build(to: url)
         for route in index.routes {
