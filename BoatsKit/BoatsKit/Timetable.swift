@@ -76,8 +76,9 @@ extension Timetable: HTMLConvertible {
             if trip.contains("PM") {
                 meridiem = "PM"
             }
-            let origin: Departure? = try? Departure(from: "\(meridiem)\(trip.find("<td[^>]class=\"column-2\">(.*?)</td>").first?.trim() ?? "")")
-            let destination:Departure? = try? Departure(from: "\(meridiem)\(trip.find("<td[^>]class=\"column-3\">(.*?)</td>").first?.trim() ?? "")")
+            let start: Int = trip.contains("column-3") ? 2 : 1
+            let origin: Departure? = try? Departure(from: "\(meridiem)\(trip.find("<td[^>]class=\"column-\(start)\">(.*?)</td>").first?.trim() ?? "")")
+            let destination:Departure? = try? Departure(from: "\(meridiem)\(trip.find("<td[^>]class=\"column-\(start + 1)\">(.*?)</td>").first?.trim() ?? "")")
             guard (origin != nil || destination != nil) else {
                 continue
             }
