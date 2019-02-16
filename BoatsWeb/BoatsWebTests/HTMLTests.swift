@@ -46,6 +46,6 @@ extension HTMLTests {
         var html: HTML = HTML(template: template)
         html.dataSource = self
         XCTAssertNoThrow(try html.data())
-        XCTAssertEqual(try? html.data(), try? html.html().data(using: .utf8))
+        XCTAssertEqual(try? html.data(), ((try? html.html().data(using: .utf8)) as Data??))
     }
 }
