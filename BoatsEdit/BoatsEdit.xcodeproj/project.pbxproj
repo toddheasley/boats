@@ -174,7 +174,7 @@
 				TargetAttributes = {
 					5CFBB8111F51C00600BFA5CF = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -184,7 +184,7 @@
 					};
 					5CFBB8231F51C00600BFA5CF = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5CFBB8111F51C00600BFA5CF;
 					};
@@ -416,7 +416,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit;
 				PRODUCT_NAME = BoatsEdit;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -433,7 +433,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit;
 				PRODUCT_NAME = BoatsEdit;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -449,7 +449,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoatsEdit.app/Contents/MacOS/BoatsEdit";
 			};
 			name = Debug;
@@ -466,7 +466,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.edit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoatsEdit.app/Contents/MacOS/BoatsEdit";
 			};
 			name = Release;

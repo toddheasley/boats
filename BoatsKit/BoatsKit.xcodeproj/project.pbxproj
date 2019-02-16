@@ -435,7 +435,7 @@
 					};
 					5C27DEE91F37C8410010B7D8 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					5C33E9891F37FE9F00D6EF27 = {
@@ -465,6 +465,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 5C27DEE01F37C8410010B7D8;
 			productRefGroup = 5C27DEE01F37C8410010B7D8;
@@ -892,7 +893,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -922,7 +923,7 @@
 				PRODUCT_NAME = BoatsKit;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

@@ -25,7 +25,7 @@ extension Timetable: CustomStringConvertible {
     // MARK: CustomStringConvertible
     public var description: String {
         let indices: [Int] = days.map { day in
-            return Day.allCases.index(of: day)!
+            return Day.allCases.firstIndex(of: day)!
         }.sorted()
         var ranges: [[Int]] = []
         var range: [Int] = []
@@ -91,8 +91,8 @@ extension Timetable: HTMLConvertible {
             if dayInterval.count == 2,
                 let start: Day = try? Day(from: dayInterval[0]),
                 let end: Day = try? Day(from: dayInterval[1]),
-                let startIndex: Int = Day.allCases.index(of: start),
-                let endIndex: Int = Day.allCases.index(of: end), startIndex <= endIndex {
+                let startIndex: Int = Day.allCases.firstIndex(of: start),
+                let endIndex: Int = Day.allCases.firstIndex(of: end), startIndex <= endIndex {
                 days.append(contentsOf: Day.allCases[startIndex...endIndex])
             } else if dayGrouping.count == 2,
                 let first: Day = try? Day(from: dayGrouping[0]),

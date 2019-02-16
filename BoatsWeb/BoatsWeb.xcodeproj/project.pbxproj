@@ -275,7 +275,7 @@
 					};
 					5CF357151F40EDD600348203 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					5CFB25FF1F42A1590066C80C = {
@@ -290,6 +290,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 5CF356FC1F40ED7400348203;
 			productRefGroup = 5CF356FC1F40ED7400348203;
@@ -628,7 +629,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -659,7 +660,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
