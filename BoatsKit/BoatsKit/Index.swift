@@ -9,7 +9,7 @@ public struct Index: CustomStringConvertible, Codable {
     public private(set) var routes: [Route]
     public private(set) var uri: String
     
-    init(routes: [Route] = Route.allCases) {
+    public init(routes: [Route] = Route.allCases) {
         self.name = "Casco Bay Lines"
         self.description = "Ferry Schedules"
         self.url = .build

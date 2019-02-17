@@ -1,11 +1,13 @@
 import WatchKit
+import WatchConnectivity
 import BoatsKit
+import BoatsBot
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
     
     // MARK: WKExtensionDelegate
     func applicationDidFinishLaunching() {
-        
+        WCSession.activate()
     }
     
     func applicationDidBecomeActive() {
@@ -16,17 +18,13 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         
     }
     
-    func handle(_ tasks: Set<WKRefreshBackgroundTask>) {
-        for task in tasks {
+    func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
+        for task in backgroundTasks {
             switch task {
-            case is WKApplicationRefreshBackgroundTask:
-                task.setTaskCompletedWithSnapshot(false)
-            case is WKSnapshotRefreshBackgroundTask:
-                (task as? WKSnapshotRefreshBackgroundTask)?.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
-            case is WKWatchConnectivityRefreshBackgroundTask:
-                task.setTaskCompletedWithSnapshot(false)
-            case is WKURLSessionRefreshBackgroundTask:
-                task.setTaskCompletedWithSnapshot(false)
+            case let refreshTask as WKApplicationRefreshBackgroundTask:
+                refreshTask.setTaskCompletedWithSnapshot(true)
+            case let snapshotTask as WKSnapshotRefreshBackgroundTask:
+                snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: .distantFuture, userInfo: nil)
             default:
                 task.setTaskCompletedWithSnapshot(false)
             }

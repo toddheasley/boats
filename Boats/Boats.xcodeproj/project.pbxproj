@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C007BCA2219A4ED00BCCD50 /* BoatsBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C007BC92219A4ED00BCCD50 /* BoatsBot.framework */; };
+		5C007BCB2219A4ED00BCCD50 /* BoatsBot.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C007BC92219A4ED00BCCD50 /* BoatsBot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5C007BCD2219A4FD00BCCD50 /* BoatsBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C007BCC2219A4FD00BCCD50 /* BoatsBot.framework */; };
+		5C007BCE2219A4FD00BCCD50 /* BoatsBot.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C007BCC2219A4FD00BCCD50 /* BoatsBot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C2B4955202A614B005B4775 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4953202A614B005B4775 /* Interface.storyboard */; };
 		5C2B4957202A614C005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4956202A614C005B4775 /* Assets.xcassets */; };
 		5C2B495E202A614C005B4775 /* BoatsWatchExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -83,6 +87,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5C007BCB2219A4ED00BCCD50 /* BoatsBot.framework in Embed Frameworks */,
 				5CC9A661202A5A0700B1B7F5 /* BoatsKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -94,6 +99,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5C007BCE2219A4FD00BCCD50 /* BoatsBot.framework in Embed Frameworks */,
 				5CDEF181202A8E5A00DBB961 /* BoatsKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -102,6 +108,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C007BC92219A4ED00BCCD50 /* BoatsBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C007BCC2219A4FD00BCCD50 /* BoatsBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C007BCF2219A8BF00BCCD50 /* BoatsWatchExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsWatchExtension.entitlements; sourceTree = "<group>"; };
+		5C007BD02219A92B00BCCD50 /* BoatsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoatsKit.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Boats-beasguutqweaegbpiwbnmtbrslsw/Build/Products/Debug-iphoneos/BoatsKit.framework"; sourceTree = "<group>"; };
+		5C007BD12219A94400BCCD50 /* Boats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boats.entitlements; sourceTree = "<group>"; };
+		5C007BD22219C4B500BCCD50 /* BoatsWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsWatch.entitlements; sourceTree = "<group>"; };
 		5C2B4951202A614B005B4775 /* BoatsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2B4954202A614B005B4775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		5C2B4956202A614C005B4775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C007BCD2219A4FD00BCCD50 /* BoatsBot.framework in Frameworks */,
 				5CDEF180202A8E5A00DBB961 /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C007BCA2219A4ED00BCCD50 /* BoatsBot.framework in Frameworks */,
 				5CC9A660202A5A0700B1B7F5 /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +176,7 @@
 			children = (
 				5C2B4953202A614B005B4775 /* Interface.storyboard */,
 				5C2B4956202A614C005B4775 /* Assets.xcassets */,
+				5C007BD22219C4B500BCCD50 /* BoatsWatch.entitlements */,
 				5C2B4958202A614C005B4775 /* Info.plist */,
 			);
 			path = BoatsWatch;
@@ -176,6 +191,7 @@
 				5C2B4962202A614C005B4775 /* InterfaceController.swift */,
 				5C2B4966202A614C005B4775 /* NotificationController.swift */,
 				5C2B496D202A614D005B4775 /* PushNotificationPayload.apns */,
+				5C007BCF2219A8BF00BCCD50 /* BoatsWatchExtension.entitlements */,
 				5C2B496C202A614D005B4775 /* Info.plist */,
 			);
 			path = BoatsWatchExtension;
@@ -188,8 +204,10 @@
 				5C2B4961202A614C005B4775 /* BoatsWatchExtension */,
 				5C2B4952202A614B005B4775 /* BoatsWatch */,
 				5CC9A668202A5ADA00B1B7F5 /* BoatsTests */,
+				5C007BCC2219A4FD00BCCD50 /* BoatsBot.framework */,
 				5CC9A65F202A5A0700B1B7F5 /* BoatsKit.framework */,
 				5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */,
+				5C007BC92219A4ED00BCCD50 /* BoatsBot.framework */,
 				5CC9A65D202A583B00B1B7F5 /* Boats.app */,
 				5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */,
 				5C2B4951202A614B005B4775 /* BoatsWatch.app */,
@@ -207,6 +225,7 @@
 				5C93313E202A56AE00FE7B02 /* Main.storyboard */,
 				5C93313C202A56AE00FE7B02 /* ViewController.swift */,
 				5CDCFC3B22183E7700F7BB91 /* UIColor.swift */,
+				5C007BD12219A94400BCCD50 /* Boats.entitlements */,
 				5C933146202A56AF00FE7B02 /* Info.plist */,
 			);
 			path = Boats;
@@ -215,6 +234,7 @@
 		5CC9A668202A5ADA00B1B7F5 /* BoatsTests */ = {
 			isa = PBXGroup;
 			children = (
+				5C007BD02219A92B00BCCD50 /* BoatsKit.framework */,
 				5CC9A669202A5ADA00B1B7F5 /* BoatsTests.swift */,
 				5CC9A66B202A5ADA00B1B7F5 /* Info.plist */,
 			);
@@ -313,14 +333,41 @@
 					5C2B4950202A614B005B4775 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					5C2B495C202A614C005B4775 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes.watchos.extension = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					5C933136202A56AE00FE7B02 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					5CC9A666202A5ADA00B1B7F5 = {
 						CreatedOnToolsVersion = 9.3;
@@ -524,6 +571,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BoatsWatch/BoatsWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				IBSC_MODULE = BoatsWatchExtension;
@@ -543,6 +591,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BoatsWatch/BoatsWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				IBSC_MODULE = BoatsWatchExtension;
@@ -561,6 +610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = BoatsWatchExtension/BoatsWatchExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsWatchExtension/Info.plist;
@@ -583,6 +633,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = BoatsWatchExtension/BoatsWatchExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsWatchExtension/Info.plist;
@@ -719,6 +770,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Boats/Boats.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = Boats/Info.plist;
@@ -738,6 +790,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Boats/Boats.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = Boats/Info.plist;
