@@ -1,0 +1,879 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C9FAA5F2218EA4B00C71000 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5ED712218D86C0039E6D6 /* UserDefaults.swift */; };
+		5C9FAA602218EA4C00C71000 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5ED712218D86C0039E6D6 /* UserDefaults.swift */; };
+		5C9FAA612218EA4E00C71000 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5ED712218D86C0039E6D6 /* UserDefaults.swift */; };
+		5C9FAA632218EAFA00C71000 /* WCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FAA622218EAF900C71000 /* WCSession.swift */; };
+		5C9FAA642218EAFA00C71000 /* WCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FAA622218EAF900C71000 /* WCSession.swift */; };
+		5C9FAA672218EB7200C71000 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9FAA662218EB7200C71000 /* BoatsKit.framework */; };
+		5C9FAA692218EB7E00C71000 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9FAA682218EB7E00C71000 /* BoatsKit.framework */; };
+		5C9FAA6B2218EB8800C71000 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9FAA6A2218EB8800C71000 /* BoatsKit.framework */; };
+		5C9FAA6D2218EB9700C71000 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9FAA6C2218EB9700C71000 /* BoatsKit.framework */; };
+		5C9FAA702218F50600C71000 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9FAA6F2218F50600C71000 /* BoatsKit.framework */; };
+		5CE5ED722218D86C0039E6D6 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5ED712218D86C0039E6D6 /* UserDefaults.swift */; };
+		5CE5EDA52218E9080039E6D6 /* UserDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5EDA42218E9080039E6D6 /* UserDefaultsTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5C9FAA622218EAF900C71000 /* WCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSession.swift; sourceTree = "<group>"; };
+		5C9FAA662218EB7200C71000 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9FAA682218EB7E00C71000 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9FAA6A2218EB8800C71000 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9FAA6C2218EB9700C71000 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9FAA6F2218F50600C71000 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CDCFC4C2218D5CB00F7BB91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CE5ED6E2218D73C0039E6D6 /* BoatsBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE5ED6F2218D8200039E6D6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5CE5ED712218D86C0039E6D6 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		5CE5ED792218D9710039E6D6 /* BoatsBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE5ED862218E6A30039E6D6 /* BoatsBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE5ED932218E7770039E6D6 /* BoatsBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE5EDA22218E9080039E6D6 /* BoatsBotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsBotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE5EDA42218E9080039E6D6 /* UserDefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTests.swift; sourceTree = "<group>"; };
+		5CE5EDA62218E9080039E6D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CDCFC452218D5CB00F7BB91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9FAA672218EB7200C71000 /* BoatsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED762218D9710039E6D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9FAA692218EB7E00C71000 /* BoatsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED832218E6A30039E6D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9FAA6B2218EB8800C71000 /* BoatsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED902218E7770039E6D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9FAA6D2218EB9700C71000 /* BoatsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED9F2218E9080039E6D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9FAA702218F50600C71000 /* BoatsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C9FAA652218EB7200C71000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C9FAA6F2218F50600C71000 /* BoatsKit.framework */,
+				5C9FAA6C2218EB9700C71000 /* BoatsKit.framework */,
+				5C9FAA6A2218EB8800C71000 /* BoatsKit.framework */,
+				5C9FAA682218EB7E00C71000 /* BoatsKit.framework */,
+				5C9FAA662218EB7200C71000 /* BoatsKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CDCFC3E2218D5CB00F7BB91 = {
+			isa = PBXGroup;
+			children = (
+				5CDCFC4A2218D5CB00F7BB91 /* BoatsBot */,
+				5CE5EDA32218E9080039E6D6 /* BoatsBotTests */,
+				5CE5ED6E2218D73C0039E6D6 /* BoatsBot.framework */,
+				5CE5ED792218D9710039E6D6 /* BoatsBot.framework */,
+				5CE5ED862218E6A30039E6D6 /* BoatsBot.framework */,
+				5CE5ED932218E7770039E6D6 /* BoatsBot.framework */,
+				5CE5EDA22218E9080039E6D6 /* BoatsBotTests.xctest */,
+				5CE5ED6F2218D8200039E6D6 /* README.md */,
+				5C9FAA652218EB7200C71000 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5CDCFC4A2218D5CB00F7BB91 /* BoatsBot */ = {
+			isa = PBXGroup;
+			children = (
+				5CE5ED712218D86C0039E6D6 /* UserDefaults.swift */,
+				5C9FAA622218EAF900C71000 /* WCSession.swift */,
+				5CDCFC4C2218D5CB00F7BB91 /* Info.plist */,
+			);
+			path = BoatsBot;
+			sourceTree = "<group>";
+		};
+		5CE5EDA32218E9080039E6D6 /* BoatsBotTests */ = {
+			isa = PBXGroup;
+			children = (
+				5CE5EDA42218E9080039E6D6 /* UserDefaultsTests.swift */,
+				5CE5EDA62218E9080039E6D6 /* Info.plist */,
+			);
+			path = BoatsBotTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5CDCFC472218D5CB00F7BB91 /* BoatsBot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CDCFC502218D5CB00F7BB91 /* Build configuration list for PBXNativeTarget "BoatsBot" */;
+			buildPhases = (
+				5CDCFC442218D5CB00F7BB91 /* Sources */,
+				5CDCFC452218D5CB00F7BB91 /* Frameworks */,
+				5CDCFC462218D5CB00F7BB91 /* Resources */,
+				5CE5ED732218D9000039E6D6 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsBot;
+			productName = BoatsBot;
+			productReference = 5CE5ED6E2218D73C0039E6D6 /* BoatsBot.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5CE5ED782218D9710039E6D6 /* BoatsBotWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE5ED7E2218D9710039E6D6 /* Build configuration list for PBXNativeTarget "BoatsBotWatch" */;
+			buildPhases = (
+				5CE5ED752218D9710039E6D6 /* Sources */,
+				5CE5ED762218D9710039E6D6 /* Frameworks */,
+				5CE5ED772218D9710039E6D6 /* Resources */,
+				5CE5ED9B2218E8890039E6D6 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsBotWatch;
+			productName = BoatsBotWatch;
+			productReference = 5CE5ED792218D9710039E6D6 /* BoatsBot.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5CE5ED852218E6A30039E6D6 /* BoatsBotTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE5ED8B2218E6A30039E6D6 /* Build configuration list for PBXNativeTarget "BoatsBotTV" */;
+			buildPhases = (
+				5CE5ED822218E6A30039E6D6 /* Sources */,
+				5CE5ED832218E6A30039E6D6 /* Frameworks */,
+				5CE5ED842218E6A30039E6D6 /* Resources */,
+				5CE5ED9C2218E8A80039E6D6 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsBotTV;
+			productName = BoatsBotTV;
+			productReference = 5CE5ED862218E6A30039E6D6 /* BoatsBot.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5CE5ED922218E7770039E6D6 /* BoatsBotMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE5ED982218E7770039E6D6 /* Build configuration list for PBXNativeTarget "BoatsBotMac" */;
+			buildPhases = (
+				5CE5ED8F2218E7770039E6D6 /* Sources */,
+				5CE5ED902218E7770039E6D6 /* Frameworks */,
+				5CE5ED912218E7770039E6D6 /* Resources */,
+				5CE5ED9D2218E8CB0039E6D6 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsBotMac;
+			productName = BoatsBotMac;
+			productReference = 5CE5ED932218E7770039E6D6 /* BoatsBot.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5CE5EDA12218E9080039E6D6 /* BoatsBotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE5EDA72218E9080039E6D6 /* Build configuration list for PBXNativeTarget "BoatsBotTests" */;
+			buildPhases = (
+				5CE5ED9E2218E9080039E6D6 /* Sources */,
+				5CE5ED9F2218E9080039E6D6 /* Frameworks */,
+				5CE5EDA02218E9080039E6D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoatsBotTests;
+			productName = BoatsBotTests;
+			productReference = 5CE5EDA22218E9080039E6D6 /* BoatsBotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CDCFC3F2218D5CB00F7BB91 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = toddheasley;
+				TargetAttributes = {
+					5CDCFC472218D5CB00F7BB91 = {
+						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
+					};
+					5CE5ED782218D9710039E6D6 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					5CE5ED852218E6A30039E6D6 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					5CE5ED922218E7770039E6D6 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					5CE5EDA12218E9080039E6D6 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+				};
+			};
+			buildConfigurationList = 5CDCFC422218D5CB00F7BB91 /* Build configuration list for PBXProject "BoatsBot" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5CDCFC3E2218D5CB00F7BB91;
+			productRefGroup = 5CDCFC3E2218D5CB00F7BB91;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CDCFC472218D5CB00F7BB91 /* BoatsBot */,
+				5CE5ED782218D9710039E6D6 /* BoatsBotWatch */,
+				5CE5ED852218E6A30039E6D6 /* BoatsBotTV */,
+				5CE5ED922218E7770039E6D6 /* BoatsBotMac */,
+				5CE5EDA12218E9080039E6D6 /* BoatsBotTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CDCFC462218D5CB00F7BB91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED772218D9710039E6D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED842218E6A30039E6D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED912218E7770039E6D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5EDA02218E9080039E6D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5CE5ED732218D9000039E6D6 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
+		};
+		5CE5ED9B2218E8890039E6D6 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
+		};
+		5CE5ED9C2218E8A80039E6D6 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
+		};
+		5CE5ED9D2218E8CB0039E6D6 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CDCFC442218D5CB00F7BB91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9FAA632218EAFA00C71000 /* WCSession.swift in Sources */,
+				5CE5ED722218D86C0039E6D6 /* UserDefaults.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED752218D9710039E6D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9FAA642218EAFA00C71000 /* WCSession.swift in Sources */,
+				5C9FAA612218EA4E00C71000 /* UserDefaults.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED822218E6A30039E6D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9FAA602218EA4C00C71000 /* UserDefaults.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED8F2218E7770039E6D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C9FAA5F2218EA4B00C71000 /* UserDefaults.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE5ED9E2218E9080039E6D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE5EDA52218E9080039E6D6 /* UserDefaultsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5CDCFC4E2218D5CB00F7BB91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5CDCFC4F2218D5CB00F7BB91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5CDCFC512218D5CB00F7BB91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BoatsBot/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.bot;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5CDCFC522218D5CB00F7BB91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BoatsBot/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.bot;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5CE5ED7F2218D9710039E6D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsBot/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.bot;
+				PRODUCT_NAME = BoatsBot;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Debug;
+		};
+		5CE5ED802218D9710039E6D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsBot/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.bot;
+				PRODUCT_NAME = BoatsBot;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Release;
+		};
+		5CE5ED8C2218E6A30039E6D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsBot/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.bot;
+				PRODUCT_NAME = BoatsBot;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Debug;
+		};
+		5CE5ED8D2218E6A30039E6D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsBot/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.bot;
+				PRODUCT_NAME = BoatsBot;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Release;
+		};
+		5CE5ED992218E7770039E6D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsBot/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.bot;
+				PRODUCT_NAME = BoatsBot;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5CE5ED9A2218E7770039E6D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/BoatsBot/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.bot;
+				PRODUCT_NAME = BoatsBot;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5CE5EDA82218E9080039E6D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				INFOPLIST_FILE = BoatsBotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.bot.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5CE5EDA92218E9080039E6D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				INFOPLIST_FILE = BoatsBotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.boats.bot.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CDCFC422218D5CB00F7BB91 /* Build configuration list for PBXProject "BoatsBot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CDCFC4E2218D5CB00F7BB91 /* Debug */,
+				5CDCFC4F2218D5CB00F7BB91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CDCFC502218D5CB00F7BB91 /* Build configuration list for PBXNativeTarget "BoatsBot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CDCFC512218D5CB00F7BB91 /* Debug */,
+				5CDCFC522218D5CB00F7BB91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE5ED7E2218D9710039E6D6 /* Build configuration list for PBXNativeTarget "BoatsBotWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE5ED7F2218D9710039E6D6 /* Debug */,
+				5CE5ED802218D9710039E6D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE5ED8B2218E6A30039E6D6 /* Build configuration list for PBXNativeTarget "BoatsBotTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE5ED8C2218E6A30039E6D6 /* Debug */,
+				5CE5ED8D2218E6A30039E6D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE5ED982218E7770039E6D6 /* Build configuration list for PBXNativeTarget "BoatsBotMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE5ED992218E7770039E6D6 /* Debug */,
+				5CE5ED9A2218E7770039E6D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE5EDA72218E9080039E6D6 /* Build configuration list for PBXNativeTarget "BoatsBotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE5EDA82218E9080039E6D6 /* Debug */,
+				5CE5EDA92218E9080039E6D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CDCFC3F2218D5CB00F7BB91 /* Project object */;
+}

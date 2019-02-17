@@ -24,6 +24,8 @@
 		5CC9A660202A5A0700B1B7F5 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC9A65F202A5A0700B1B7F5 /* BoatsKit.framework */; };
 		5CC9A661202A5A0700B1B7F5 /* BoatsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CC9A65F202A5A0700B1B7F5 /* BoatsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CC9A66A202A5ADA00B1B7F5 /* BoatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9A669202A5ADA00B1B7F5 /* BoatsTests.swift */; };
+		5CDCFC3C22183E7700F7BB91 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCFC3B22183E7700F7BB91 /* UIColor.swift */; };
+		5CDCFC3D22183E7700F7BB91 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCFC3B22183E7700F7BB91 /* UIColor.swift */; };
 		5CDEF180202A8E5A00DBB961 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */; };
 		5CDEF181202A8E5A00DBB961 /* BoatsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -118,11 +120,13 @@
 		5C933141202A56AF00FE7B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C933144202A56AF00FE7B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		5C933146202A56AF00FE7B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C9FAA712218F59400C71000 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5CC9A65D202A583B00B1B7F5 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC9A65F202A5A0700B1B7F5 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC9A667202A5ADA00B1B7F5 /* BoatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC9A669202A5ADA00B1B7F5 /* BoatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsTests.swift; sourceTree = "<group>"; };
 		5CC9A66B202A5ADA00B1B7F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CDCFC3B22183E7700F7BB91 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,15 +185,16 @@
 			isa = PBXGroup;
 			children = (
 				5C933139202A56AE00FE7B02 /* Boats */,
-				5C2B4952202A614B005B4775 /* BoatsWatch */,
 				5C2B4961202A614C005B4775 /* BoatsWatchExtension */,
+				5C2B4952202A614B005B4775 /* BoatsWatch */,
 				5CC9A668202A5ADA00B1B7F5 /* BoatsTests */,
 				5CC9A65F202A5A0700B1B7F5 /* BoatsKit.framework */,
 				5CDEF17F202A8E5A00DBB961 /* BoatsKit.framework */,
 				5CC9A65D202A583B00B1B7F5 /* Boats.app */,
-				5C2B4951202A614B005B4775 /* BoatsWatch.app */,
 				5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */,
+				5C2B4951202A614B005B4775 /* BoatsWatch.app */,
 				5CC9A667202A5ADA00B1B7F5 /* BoatsTests.xctest */,
+				5C9FAA712218F59400C71000 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +206,7 @@
 				5C933143202A56AF00FE7B02 /* Launch.storyboard */,
 				5C93313E202A56AE00FE7B02 /* Main.storyboard */,
 				5C93313C202A56AE00FE7B02 /* ViewController.swift */,
+				5CDCFC3B22183E7700F7BB91 /* UIColor.swift */,
 				5C933146202A56AF00FE7B02 /* Info.plist */,
 			);
 			path = Boats;
@@ -337,8 +343,8 @@
 			projectRoot = "";
 			targets = (
 				5C933136202A56AE00FE7B02 /* Boats */,
-				5C2B4950202A614B005B4775 /* BoatsWatch */,
 				5C2B495C202A614C005B4775 /* BoatsWatchExtension */,
+				5C2B4950202A614B005B4775 /* BoatsWatch */,
 				5CC9A666202A5ADA00B1B7F5 /* BoatsTests */,
 			);
 		};
@@ -443,6 +449,7 @@
 				5C2B4969202A614C005B4775 /* ComplicationController.swift in Sources */,
 				5C2B4965202A614C005B4775 /* ExtensionDelegate.swift in Sources */,
 				5C2B4963202A614C005B4775 /* InterfaceController.swift in Sources */,
+				5CDCFC3D22183E7700F7BB91 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C93313D202A56AE00FE7B02 /* ViewController.swift in Sources */,
+				5CDCFC3C22183E7700F7BB91 /* UIColor.swift in Sources */,
 				5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

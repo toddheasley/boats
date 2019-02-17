@@ -8,6 +8,9 @@
       location = "group:BoatsEdit/BoatsEdit.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:BoatsEdit/../BoatsBot/BoatsBot.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:BoatsWeb/BoatsWeb.xcodeproj">
    </FileRef>
    <FileRef
