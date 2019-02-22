@@ -17,7 +17,7 @@ extension URLSession {
 
 extension URLSession {
     func fetch(completion: @escaping (Index?, Error?) -> Void) {
-        dataTask(with: URL(string: "https://toddheasley.github.io/boats/index.json")!) { data, _, error in
+        dataTask(with: URL(string: "file:///Users/toddheasley/Documents/Boats/gh-pages/index.json")!) { data, _, error in
             guard let data: Data = data else {
                 DispatchQueue.main.async {
                     completion(nil, error ?? NSError(domain: NSURLErrorDomain, code: NSURLErrorCannotDecodeContentData, userInfo: nil))

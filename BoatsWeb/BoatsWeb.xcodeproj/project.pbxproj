@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C029613207813EF00FCE626 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C029612207813EF00FCE626 /* BoatsKit.framework */; };
 		5C03DF1F1F43A4F500367ABE /* Menu.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5C03DF1E1F43A4F500367ABE /* Menu.svg */; };
 		5C03DF201F43A4F500367ABE /* Menu.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5C03DF1E1F43A4F500367ABE /* Menu.svg */; };
 		5C0F6345202501A100201D68 /* Car.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5C85AE1F2024E1B00088B9A4 /* Car.svg */; };
@@ -48,10 +47,10 @@
 		5C1CBBC421A9EF70001E4DB8 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C07DB451F5F3F3D004C8ACB /* RouteView.swift */; };
 		5C1CBBC621AA1B9A001E4DB8 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1CBBC521AA1B9A001E4DB8 /* Resource.swift */; };
 		5C1CBBC721AA1B9A001E4DB8 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1CBBC521AA1B9A001E4DB8 /* Resource.swift */; };
-		5C28EE3D1F505D310093080D /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C138C031F40F0C80034CD34 /* BoatsKit.framework */; };
-		5C5CC5091F438C8E00FDC699 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C138C031F40F0C80034CD34 /* BoatsKit.framework */; };
 		5C85AE202024E1B00088B9A4 /* Car.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5C85AE1F2024E1B00088B9A4 /* Car.svg */; };
 		5CC755C91F4A357F00C8FCC5 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC755C81F4A357F00C8FCC5 /* XCTestCase.swift */; };
+		5CD20B152219E917004B64BD /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD20B142219E917004B64BD /* BoatsKit.framework */; };
+		5CD20B172219E91F004B64BD /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD20B162219E91F004B64BD /* BoatsKit.framework */; };
 		5CFB26051F42A1590066C80C /* BoatsWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF3571F1F40EE1200348203 /* BoatsWeb.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,13 +65,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C029612207813EF00FCE626 /* BoatsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoatsKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Boats-beasguutqweaegbpiwbnmtbrslsw/Build/Products/Debug-iphonesimulator/BoatsKit.framework"; sourceTree = "<group>"; };
 		5C03DF1E1F43A4F500367ABE /* Menu.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Menu.svg; sourceTree = "<group>"; };
 		5C07DB371F5F31F8004C8ACB /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		5C07DB3F1F5F37EA004C8ACB /* HTMLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLView.swift; sourceTree = "<group>"; };
 		5C07DB421F5F3F0F004C8ACB /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
 		5C07DB451F5F3F3D004C8ACB /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
-		5C138C031F40F0C80034CD34 /* BoatsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoatsKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Boats-beasguutqweaegbpiwbnmtbrslsw/Build/Products/Debug/BoatsKit.framework"; sourceTree = "<group>"; };
 		5C1CBB8221A9A293001E4DB8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5C1CBB9321A9B0FB001E4DB8 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		5C1CBBC521AA1B9A001E4DB8 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -90,6 +87,8 @@
 		5C9F2B251F49CA8E0047F09D /* ManifestTests.appcache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ManifestTests.appcache; sourceTree = "<group>"; };
 		5CADAD6D1FF7CFB200FC1D11 /* HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTML.swift; sourceTree = "<group>"; };
 		5CC755C81F4A357F00C8FCC5 /* XCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
+		5CD20B142219E917004B64BD /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CD20B162219E91F004B64BD /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDA95541FF9AB30006C81EB /* HTMLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLTests.swift; sourceTree = "<group>"; };
 		5CE767C41F44DD52003A76EE /* Manifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
 		5CF3570A1F40ED7400348203 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C029613207813EF00FCE626 /* BoatsKit.framework in Frameworks */,
+				5CD20B152219E917004B64BD /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C5CC5091F438C8E00FDC699 /* BoatsKit.framework in Frameworks */,
+				5CD20B172219E91F004B64BD /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C28EE3D1F505D310093080D /* BoatsKit.framework in Frameworks */,
 				5CFB26051F42A1590066C80C /* BoatsWeb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,16 +148,24 @@
 			path = HTMLView;
 			sourceTree = "<group>";
 		};
+		5CD20B132219E917004B64BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CD20B162219E91F004B64BD /* BoatsKit.framework */,
+				5CD20B142219E917004B64BD /* BoatsKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5CF356FC1F40ED7400348203 = {
 			isa = PBXGroup;
 			children = (
 				5CF357081F40ED7400348203 /* BoatsWeb */,
 				5CFB26011F42A1590066C80C /* BoatsWebTests */,
-				5C138C031F40F0C80034CD34 /* BoatsKit.framework */,
-				5C029612207813EF00FCE626 /* BoatsKit.framework */,
 				5CF3571E1F40EE1200348203 /* BoatsWeb.framework */,
 				5CF3571F1F40EE1200348203 /* BoatsWeb.framework */,
 				5CFB26001F42A1590066C80C /* BoatsWebTests.xctest */,
+				5CD20B132219E917004B64BD /* Frameworks */,
 				5C1CBB8221A9A293001E4DB8 /* README.md */,
 			);
 			sourceTree = "<group>";

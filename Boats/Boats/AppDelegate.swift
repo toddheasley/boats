@@ -13,12 +13,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WCSession.activate()
         return true
     }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        
-    }
 }

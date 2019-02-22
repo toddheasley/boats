@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C908C592219E86C002F9F11 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C908C582219E86C002F9F11 /* BoatsKit.framework */; };
+		5C908C5B2219E874002F9F11 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C908C5A2219E874002F9F11 /* BoatsKit.framework */; };
+		5C908C5D2219E87C002F9F11 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C908C5C2219E87C002F9F11 /* BoatsKit.framework */; };
+		5C908C5F2219E886002F9F11 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C908C5E2219E886002F9F11 /* BoatsKit.framework */; };
 		5C9FAA5F2218EA4B00C71000 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5ED712218D86C0039E6D6 /* UserDefaults.swift */; };
 		5C9FAA602218EA4C00C71000 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5ED712218D86C0039E6D6 /* UserDefaults.swift */; };
 		5C9FAA612218EA4E00C71000 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE5ED712218D86C0039E6D6 /* UserDefaults.swift */; };
 		5C9FAA632218EAFA00C71000 /* WCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FAA622218EAF900C71000 /* WCSession.swift */; };
 		5C9FAA642218EAFA00C71000 /* WCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FAA622218EAF900C71000 /* WCSession.swift */; };
-		5C9FAA672218EB7200C71000 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9FAA662218EB7200C71000 /* BoatsKit.framework */; };
-		5C9FAA692218EB7E00C71000 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9FAA682218EB7E00C71000 /* BoatsKit.framework */; };
-		5C9FAA6B2218EB8800C71000 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9FAA6A2218EB8800C71000 /* BoatsKit.framework */; };
-		5C9FAA6D2218EB9700C71000 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9FAA6C2218EB9700C71000 /* BoatsKit.framework */; };
-		5C9FAA702218F50600C71000 /* BoatsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9FAA6F2218F50600C71000 /* BoatsKit.framework */; };
 		5C9FAA742218FBC000C71000 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FAA732218FBC000C71000 /* Index.swift */; };
 		5C9FAA752218FBC000C71000 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FAA732218FBC000C71000 /* Index.swift */; };
 		5C9FAA762218FBC000C71000 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FAA732218FBC000C71000 /* Index.swift */; };
@@ -27,12 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C908C582219E86C002F9F11 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C908C5A2219E874002F9F11 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C908C5C2219E87C002F9F11 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C908C5E2219E886002F9F11 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9FAA622218EAF900C71000 /* WCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSession.swift; sourceTree = "<group>"; };
-		5C9FAA662218EB7200C71000 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C9FAA682218EB7E00C71000 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C9FAA6A2218EB8800C71000 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C9FAA6C2218EB9700C71000 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C9FAA6F2218F50600C71000 /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9FAA732218FBC000C71000 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
 		5C9FAA782218FC3F00C71000 /* IndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexTests.swift; sourceTree = "<group>"; };
 		5CDCFC4C2218D5CB00F7BB91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C9FAA672218EB7200C71000 /* BoatsKit.framework in Frameworks */,
+				5C908C592219E86C002F9F11 /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C9FAA692218EB7E00C71000 /* BoatsKit.framework in Frameworks */,
+				5C908C5B2219E874002F9F11 /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C9FAA6B2218EB8800C71000 /* BoatsKit.framework in Frameworks */,
+				5C908C5D2219E87C002F9F11 /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C9FAA6D2218EB9700C71000 /* BoatsKit.framework in Frameworks */,
+				5C908C5F2219E886002F9F11 /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,21 +82,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C9FAA702218F50600C71000 /* BoatsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C9FAA652218EB7200C71000 /* Frameworks */ = {
+		5C908C572219E86C002F9F11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5C9FAA6F2218F50600C71000 /* BoatsKit.framework */,
-				5C9FAA6C2218EB9700C71000 /* BoatsKit.framework */,
-				5C9FAA6A2218EB8800C71000 /* BoatsKit.framework */,
-				5C9FAA682218EB7E00C71000 /* BoatsKit.framework */,
-				5C9FAA662218EB7200C71000 /* BoatsKit.framework */,
+				5C908C5E2219E886002F9F11 /* BoatsKit.framework */,
+				5C908C5C2219E87C002F9F11 /* BoatsKit.framework */,
+				5C908C5A2219E874002F9F11 /* BoatsKit.framework */,
+				5C908C582219E86C002F9F11 /* BoatsKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,8 +109,8 @@
 				5CE5ED862218E6A30039E6D6 /* BoatsBot.framework */,
 				5CE5ED932218E7770039E6D6 /* BoatsBot.framework */,
 				5CE5EDA22218E9080039E6D6 /* BoatsBotTests.xctest */,
+				5C908C572219E86C002F9F11 /* Frameworks */,
 				5CE5ED6F2218D8200039E6D6 /* README.md */,
-				5C9FAA652218EB7200C71000 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
