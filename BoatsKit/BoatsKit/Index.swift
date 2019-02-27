@@ -9,6 +9,15 @@ public struct Index: CustomStringConvertible, Codable {
     public private(set) var routes: [Route]
     public private(set) var uri: String
     
+    public func route(uri: String) -> Route? {
+        for route in routes {
+            if route.uri == uri {
+                return route
+            }
+        }
+        return nil
+    }
+    
     public init(routes: [Route] = Route.allCases) {
         self.name = "Casco Bay Lines"
         self.description = "Ferry Schedules"

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C1BFDE92225B9CE00F2ACA9 /* SeasonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1BFDE82225B9CE00F2ACA9 /* SeasonLabel.swift */; };
+		5C27E3F222222BEC0054E8DE /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C27E3F122222BEC0054E8DE /* CGFloat.swift */; };
+		5C27E3F322222C3B0054E8DE /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C27E3F122222BEC0054E8DE /* CGFloat.swift */; };
 		5C2B4955202A614B005B4775 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4953202A614B005B4775 /* Interface.storyboard */; };
 		5C2B4957202A614C005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4956202A614C005B4775 /* Assets.xcassets */; };
 		5C2B495E202A614C005B4775 /* BoatsWatchExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -25,8 +28,6 @@
 		5C548950221CEB6B0087B547 /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54894E221CEB6B0087B547 /* DepartureView.swift */; };
 		5C548952221D15C90087B547 /* DeviationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548951221D15C90087B547 /* DeviationView.swift */; };
 		5C548953221D15C90087B547 /* DeviationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548951221D15C90087B547 /* DeviationView.swift */; };
-		5C62538F221F468A0043F6E4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62538E221F468A0043F6E4 /* UIView.swift */; };
-		5C625390221F468A0043F6E4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62538E221F468A0043F6E4 /* UIView.swift */; };
 		5C625391221F46930043F6E4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCFC3B22183E7700F7BB91 /* UIColor.swift */; };
 		5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313A202A56AE00FE7B02 /* AppDelegate.swift */; };
 		5C93313D202A56AE00FE7B02 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313C202A56AE00FE7B02 /* IndexViewController.swift */; };
@@ -54,6 +55,9 @@
 		5CD20B472219EF63004B64BD /* BoatsBot.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD20B452219EF63004B64BD /* BoatsBot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CDCFC3C22183E7700F7BB91 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCFC3B22183E7700F7BB91 /* UIColor.swift */; };
 		5CDCFC3D22183E7700F7BB91 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCFC3B22183E7700F7BB91 /* UIColor.swift */; };
+		5CE0F49C222443E6009EE97D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0F49B222443E6009EE97D /* NavigationBar.swift */; };
+		5CE0F4A02224529D009EE97D /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0F49F2224529D009EE97D /* MenuButton.swift */; };
+		5CE0F4A22224644C009EE97D /* Boats.sketch in Resources */ = {isa = PBXBuildFile; fileRef = 5CE0F4A12224644C009EE97D /* Boats.sketch */; };
 		5CEB3BF4221BAAA1007C1F24 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB3BF3221BAAA1007C1F24 /* TimeView.swift */; };
 		5CEB3BF5221BAAA1007C1F24 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB3BF3221BAAA1007C1F24 /* TimeView.swift */; };
 /* End PBXBuildFile section */
@@ -154,6 +158,8 @@
 		5C007BD02219A92B00BCCD50 /* BoatsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoatsKit.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Boats-beasguutqweaegbpiwbnmtbrslsw/Build/Products/Debug-iphoneos/BoatsKit.framework"; sourceTree = "<group>"; };
 		5C007BD12219A94400BCCD50 /* Boats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boats.entitlements; sourceTree = "<group>"; };
 		5C007BD22219C4B500BCCD50 /* BoatsWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsWatch.entitlements; sourceTree = "<group>"; };
+		5C1BFDE82225B9CE00F2ACA9 /* SeasonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonLabel.swift; sourceTree = "<group>"; };
+		5C27E3F122222BEC0054E8DE /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		5C2B4951202A614B005B4775 /* BoatsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2B4954202A614B005B4775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		5C2B4956202A614C005B4775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,7 +177,6 @@
 		5C50A455221F077600A25CD7 /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
 		5C54894E221CEB6B0087B547 /* DepartureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureView.swift; sourceTree = "<group>"; };
 		5C548951221D15C90087B547 /* DeviationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviationView.swift; sourceTree = "<group>"; };
-		5C62538E221F468A0043F6E4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5C93313A202A56AE00FE7B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C93313C202A56AE00FE7B02 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		5C93313F202A56AE00FE7B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -197,6 +202,9 @@
 		5CD20B422219EF57004B64BD /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD20B452219EF63004B64BD /* BoatsBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BoatsBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDCFC3B22183E7700F7BB91 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		5CE0F49B222443E6009EE97D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		5CE0F49F2224529D009EE97D /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		5CE0F4A12224644C009EE97D /* Boats.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = Boats.sketch; sourceTree = "<group>"; };
 		5CEB3BF3221BAAA1007C1F24 /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +276,7 @@
 		5C93312E202A56AE00FE7B02 = {
 			isa = PBXGroup;
 			children = (
+				5CE0F4A12224644C009EE97D /* Boats.sketch */,
 				5C933139202A56AE00FE7B02 /* Boats */,
 				5CD20B222219EBB5004B64BD /* BoatsToday */,
 				5C2B4961202A614C005B4775 /* BoatsWatchExtension */,
@@ -293,17 +302,20 @@
 				5C93313A202A56AE00FE7B02 /* AppDelegate.swift */,
 				5C933141202A56AF00FE7B02 /* Assets.xcassets */,
 				5C50A455221F077600A25CD7 /* CarView.swift */,
+				5C27E3F122222BEC0054E8DE /* CGFloat.swift */,
 				5C54894E221CEB6B0087B547 /* DepartureView.swift */,
 				5C548951221D15C90087B547 /* DeviationView.swift */,
 				5C93313C202A56AE00FE7B02 /* IndexViewController.swift */,
 				5C933143202A56AF00FE7B02 /* Launch.storyboard */,
 				5C93313E202A56AE00FE7B02 /* Main.storyboard */,
+				5CE0F49F2224529D009EE97D /* MenuButton.swift */,
+				5CE0F49B222443E6009EE97D /* NavigationBar.swift */,
 				5CD20B182219EB59004B64BD /* RouteViewController.swift */,
+				5C1BFDE82225B9CE00F2ACA9 /* SeasonLabel.swift */,
 				5C450851221D95D10060F39E /* TimetableView.swift */,
 				5CEB3BF3221BAAA1007C1F24 /* TimeView.swift */,
 				5CDCFC3B22183E7700F7BB91 /* UIColor.swift */,
 				5C50A451221F070B00A25CD7 /* UIImage.swift */,
-				5C62538E221F468A0043F6E4 /* UIView.swift */,
 				5C007BD12219A94400BCCD50 /* Boats.entitlements */,
 				5C933146202A56AF00FE7B02 /* Info.plist */,
 			);
@@ -544,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C933145202A56AF00FE7B02 /* Launch.storyboard in Resources */,
+				5CE0F4A22224644C009EE97D /* Boats.sketch in Resources */,
 				5C933142202A56AF00FE7B02 /* Assets.xcassets in Resources */,
 				5C933140202A56AE00FE7B02 /* Main.storyboard in Resources */,
 			);
@@ -638,14 +651,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C27E3F222222BEC0054E8DE /* CGFloat.swift in Sources */,
 				5C450852221D95D10060F39E /* TimetableView.swift in Sources */,
 				5C50A456221F077600A25CD7 /* CarView.swift in Sources */,
-				5C62538F221F468A0043F6E4 /* UIView.swift in Sources */,
 				5C93313D202A56AE00FE7B02 /* IndexViewController.swift in Sources */,
 				5C54894F221CEB6B0087B547 /* DepartureView.swift in Sources */,
 				5CDCFC3C22183E7700F7BB91 /* UIColor.swift in Sources */,
+				5CE0F49C222443E6009EE97D /* NavigationBar.swift in Sources */,
+				5C1BFDE92225B9CE00F2ACA9 /* SeasonLabel.swift in Sources */,
 				5CEB3BF4221BAAA1007C1F24 /* TimeView.swift in Sources */,
 				5CD20B192219EB59004B64BD /* RouteViewController.swift in Sources */,
+				5CE0F4A02224529D009EE97D /* MenuButton.swift in Sources */,
 				5C50A452221F070B00A25CD7 /* UIImage.swift in Sources */,
 				5C548952221D15C90087B547 /* DeviationView.swift in Sources */,
 				5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */,
@@ -664,10 +680,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C27E3F322222C3B0054E8DE /* CGFloat.swift in Sources */,
 				5C548953221D15C90087B547 /* DeviationView.swift in Sources */,
 				5C50A453221F073E00A25CD7 /* UIImage.swift in Sources */,
 				5CD20B242219EBB5004B64BD /* TodayViewController.swift in Sources */,
-				5C625390221F468A0043F6E4 /* UIView.swift in Sources */,
 				5C548950221CEB6B0087B547 /* DepartureView.swift in Sources */,
 				5C625391221F46930043F6E4 /* UIColor.swift in Sources */,
 				5CEB3BF5221BAAA1007C1F24 /* TimeView.swift in Sources */,

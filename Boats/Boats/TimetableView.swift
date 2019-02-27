@@ -2,62 +2,116 @@ import UIKit
 import BoatsKit
 
 class TimetableView: UIView {
-    var timetable: Timetable? {
+    private(set) var timetable: Timetable!
+    private(set) var origin: Location!
+    private(set) var destination: Location!
+    
+    var contentOffset: CGPoint = .zero {
         didSet {
-            contentView.removeSubviews()
-            descriptionView.text = timetable?.description
-            contentView.addSubview(descriptionView)
-            for trip in timetable?.trips ?? [] {
-                contentView.addSubview(TripView(trip: trip))
-            }
-            layout()
+            setNeedsLayout()
+            layoutIfNeeded()
         }
     }
     
-    convenience init(timetable: Timetable) {
-        self.init(frame: .zero)
+    required init(timetable: Timetable, origin: Location, destination: Location) {
+        super.init(frame: .zero)
         self.timetable = timetable
+        self.origin = origin
+        self.destination = destination
+        
+        contentView.clipsToBounds = true
+        contentView.layer.borderWidth = .borderWidth
+        contentView.layer.cornerRadius = .cornerRadius
+        addSubview(contentView)
+        
+        headerView.clipsToBounds = true
+        headerView.autoresizingMask = [.flexibleWidth]
+        headerView.frame.size.width = bounds.size.width
+        addSubview(headerView)
+        
+        headerContentView.clipsToBounds = true
+        headerContentView.layer.borderWidth = contentView.layer.borderWidth
+        headerContentView.layer.cornerRadius = contentView.layer.cornerRadius
+        headerView.addSubview(headerContentView)
+        
+        descriptionView.text = timetable.description
+        descriptionView.frame.origin.y = contentView.layer.borderWidth
+        descriptionView.frame.size.height = 42.0
+        headerContentView.addSubview(descriptionView)
+        
+        directionView.text.origin = "Depart \(origin.name)"
+        directionView.text.destination = "Depart \(destination.name.replacingOccurrences(of: " Island", with: ""))"
+        directionView.frame.origin.y = (descriptionView.frame.origin.y + descriptionView.frame.size.height) + contentView.layer.borderWidth
+        directionView.frame.size.height = 27.0
+        headerContentView.addSubview(directionView)
+        
+        for trip in timetable.trips {
+            contentView.addSubview(TripView(trip: trip))
+        }
     }
     
     private let contentView: UIView = UIView()
+    private let headerView: UIView = UIView()
+    private let headerContentView: UIView = UIView()
     private let descriptionView: DescriptionView = DescriptionView()
+    private let directionView: DirectionView = DirectionView()
     
     // MARK: UIView
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: contentView.frame.size.width + (.edgeInset * 2.0), height: contentView.frame.size.height + (.edgeInset * 2.0))
+    }
+    
+    override var frame: CGRect {
+        didSet {
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        backgroundColor = .background
+        headerView.backgroundColor = backgroundColor
+        
         contentView.backgroundColor = .color
         contentView.layer.borderColor = contentView.backgroundColor?.cgColor
-        contentView.frame.size.width = bounds.size.width - 20.0
+        contentView.frame.size.width = min(bounds.size.width - (.edgeInset * 2.0), .maxWidth)
         
-        descriptionView.backgroundColor = .background
+        headerContentView.backgroundColor = contentView.backgroundColor
+        headerContentView.layer.borderColor = contentView.layer.borderColor
+        
         descriptionView.frame.size.width = contentView.bounds.size.width
+        directionView.frame.size.width = contentView.bounds.size.width
+        
         for (index, subview) in contentView.subviews.enumerated() {
             guard let subview: TripView = subview as? TripView else {
                 continue
             }
             subview.frame.size.width = contentView.bounds.size.width
             subview.frame.size.height = subview.intrinsicContentSize.height
-            subview.frame.origin.y = (descriptionView.frame.origin.y + descriptionView.frame.size.height) + 1.0 + ((subview.frame.size.height + contentView.layer.borderWidth) * CGFloat(index - 1))
+            subview.frame.origin.y = (directionView.frame.origin.y + directionView.frame.size.height) + contentView.layer.borderWidth + ((subview.frame.size.height + contentView.layer.borderWidth) * CGFloat(index))
         }
+        
         if let last: CGRect = contentView.subviews.last?.frame {
             contentView.frame.size.height = last.origin.y + last.size.height + contentView.layer.borderWidth
         }
         contentView.frame.origin.x = (bounds.size.width - contentView.frame.size.width) / 2.0
         contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
         contentView.isHidden = timetable == nil
+        
+        let height: CGFloat = directionView.frame.origin.y + directionView.frame.size.height + .borderWidth
+        headerView.frame.size.height = min(contentView.frame.origin.y + height + max(contentOffset.y - frame.origin.y, 0.0), (contentView.frame.origin.y + contentView.frame.size.height) - (contentView.subviews.last?.frame.size.height ?? (.cornerRadius * 2.0)))
+        headerView.frame.origin.y = 0.0
+        headerView.isHidden = contentView.isHidden
+        
+        headerContentView.frame.size = contentView.frame.size
+        headerContentView.frame.origin.x = contentView.frame.origin.x
+        headerContentView.frame.origin.y = headerView.frame.size.height - height
     }
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        contentView.clipsToBounds = true
-        contentView.layer.borderWidth = 2.0
-        contentView.layer.cornerRadius = 12.0
-        addSubview(contentView)
-        
-        descriptionView.frame.origin.y = contentView.layer.borderWidth
-        descriptionView.frame.size.height = 44.0
+        fatalError("init(frame:) has not been implemented")
     }
     
     required init?(coder decoder: NSCoder) {
@@ -85,17 +139,18 @@ fileprivate class DescriptionView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        backgroundColor = .background
         label.frame.size.width = bounds.size.width - (label.frame.origin.x * 2.0)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        label.font = .systemFont(ofSize: 24.0, weight: .bold)
+        label.font = .systemFont(ofSize: 21.0, weight: .bold)
         label.numberOfLines = 1
         label.autoresizingMask = [.flexibleHeight]
         label.frame.size.height = bounds.size.height
-        label.frame.origin.x = 8.0
+        label.frame.origin.x = 9.0
         addSubview(label)
     }
     
@@ -105,7 +160,62 @@ fileprivate class DescriptionView: UIView {
 }
 
 fileprivate class DirectionView: UIView {
+    var text: (origin: String?, destination: String?) {
+        set {
+            originLabel.text = newValue.origin
+            destinationLabel.text = newValue.destination
+        }
+        get {
+            return (originLabel.text, destinationLabel.text)
+        }
+    }
     
+    private let contentView: (origin: UIView, destination: UIView) = (UIView(), UIView())
+    private let originLabel: UILabel = UILabel()
+    private let destinationLabel: UILabel = UILabel()
+    
+    // MARK: UIView
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: originLabel.sizeThatFits(.zero).width + destinationLabel.sizeThatFits(.zero).width, height: originLabel.sizeThatFits(.zero).height)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.origin.backgroundColor = .background
+        contentView.origin.frame.size.width = (bounds.size.width / 2.0) - 1.0
+        contentView.origin.frame.size.height = bounds.size.height
+        
+        contentView.destination.backgroundColor = contentView.origin.backgroundColor
+        contentView.destination.frame.size = contentView.origin.frame.size
+        contentView.destination.frame.origin.x = bounds.size.width - contentView.destination.frame.size.width
+        
+        originLabel.frame.size.width = contentView.origin.bounds.size.width - (originLabel.frame.origin.x * 1.5)
+        destinationLabel.frame.size.width = originLabel.frame.size.width
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        addSubview(contentView.origin)
+        addSubview(contentView.destination)
+        
+        originLabel.font = .systemFont(ofSize: 15.0, weight: .bold)
+        originLabel.autoresizingMask = [.flexibleHeight]
+        originLabel.frame.size.height = contentView.origin.bounds.size.height
+        originLabel.frame.origin.x = 9.0
+        contentView.origin.addSubview(originLabel)
+        
+        destinationLabel.font = originLabel.font
+        destinationLabel.autoresizingMask = [.flexibleHeight]
+        destinationLabel.frame.size.height = contentView.destination.bounds.size.height
+        destinationLabel.frame.origin.x = originLabel.frame.origin.x
+        contentView.destination.addSubview(destinationLabel)
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 fileprivate class TripView: UIView {

@@ -1,33 +1,51 @@
 import UIKit
 import BoatsKit
 
-class IndexViewController: UIViewController {
-    private let timetableView: TimetableView = TimetableView()
+class IndexViewController: UIViewController, UIScrollViewDelegate {
+    func refresh() {
+        
+    }
+    
+    private let scrollView: UIScrollView = UIScrollView()
     
     // MARK: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        URLSession.shared.index { index, error in
-            guard let index: Index = index else {
-                return
-            }
-            self.timetableView.timetable = index.routes.first?.schedule()?.timetable()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard presentedViewController == nil,
+            let routeViewController: RouteViewController = RouteViewController(route: "peaks-island") else {
+            return
         }
+        present(routeViewController, animated: animated, completion: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        view.backgroundColor = .background
+        scrollView.scrollIndicatorInsets = view.safeAreaInsets
+        scrollView.contentInset = view.safeAreaInsets
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .background
-        
-        timetableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        timetableView.frame = view.bounds
-        view.addSubview(timetableView)
+        scrollView.delegate = self
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        scrollView.frame = view.bounds
+        scrollView.alwaysBounceVertical = true
+        scrollView.contentSize.height = 6000.0
+        view.addSubview(scrollView)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    // MARK: UIScrollViewDelegate
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
     }
 }

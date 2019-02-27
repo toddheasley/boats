@@ -4,7 +4,8 @@ import BoatsKit
 class CarView: UIView {
     var isCarFerry: Bool = false {
         didSet {
-            layout()
+            setNeedsLayout()
+            layoutIfNeeded()
         }
     }
     
@@ -20,6 +21,8 @@ class CarView: UIView {
         imageView.frame.size.height = bounds.size.height * 0.9
         imageView.frame.origin.x = (bounds.size.width - imageView.frame.size.width) / 2.0
         imageView.frame.origin.y = (bounds.size.height - imageView.frame.size.height) / 2.0
+        
+        accessibilityLabel = isCarFerry ? "car ferry" : nil
     }
     
     override init(frame: CGRect) {

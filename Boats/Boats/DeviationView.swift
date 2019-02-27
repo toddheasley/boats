@@ -4,7 +4,8 @@ import BoatsKit
 class DeviationView: UIView {
     var deviation: Deviation? {
         didSet {
-            layout()
+            setNeedsLayout()
+            layoutIfNeeded()
         }
     }
     
@@ -39,6 +40,8 @@ class DeviationView: UIView {
         contentView.backgroundColor = .color
         label.textColor = .background
         label.text = deviation?.description
+        
+        accessibilityLabel = deviation?.description
     }
     
     override init(frame: CGRect) {

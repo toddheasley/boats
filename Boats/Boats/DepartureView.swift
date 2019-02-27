@@ -4,7 +4,8 @@ import BoatsKit
 class DepartureView: UIView {
     var departure: Departure? {
         didSet {
-            layout()
+            setNeedsLayout()
+            layoutIfNeeded()
         }
     }
     

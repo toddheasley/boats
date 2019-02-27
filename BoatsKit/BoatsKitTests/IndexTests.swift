@@ -2,6 +2,12 @@ import XCTest
 @testable import BoatsKit
 
 class IndexTests: XCTestCase {
+    func testRoute() {
+        XCTAssertEqual(Index().route(uri: "peaks-island"), Index().routes.first)
+        XCTAssertEqual(Index().route(uri: "cliff-island"), Index().routes.last)
+        XCTAssertNil(Index().route(uri: "catalina-island"))
+    }
+    
     func testRoutesInit() {
         XCTAssertEqual(Index().name, "Casco Bay Lines")
         XCTAssertEqual(Index().description, "Ferry Schedules")
