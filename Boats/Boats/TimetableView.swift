@@ -15,6 +15,7 @@ class TimetableView: UIView {
     
     required init(timetable: Timetable, origin: Location, destination: Location) {
         super.init(frame: .zero)
+        
         self.timetable = timetable
         self.origin = origin
         self.destination = destination
@@ -84,13 +85,14 @@ class TimetableView: UIView {
         descriptionView.frame.size.width = contentView.bounds.size.width
         directionView.frame.size.width = contentView.bounds.size.width
         
+        let height: CGFloat = directionView.frame.origin.y + directionView.frame.size.height + .borderWidth
         for (index, subview) in contentView.subviews.enumerated() {
             guard let subview: TripView = subview as? TripView else {
                 continue
             }
             subview.frame.size.width = contentView.bounds.size.width
             subview.frame.size.height = subview.intrinsicContentSize.height
-            subview.frame.origin.y = (directionView.frame.origin.y + directionView.frame.size.height) + contentView.layer.borderWidth + ((subview.frame.size.height + contentView.layer.borderWidth) * CGFloat(index))
+            subview.frame.origin.y = height + ((subview.frame.size.height + contentView.layer.borderWidth) * CGFloat(index))
         }
         
         if let last: CGRect = contentView.subviews.last?.frame {
@@ -100,7 +102,6 @@ class TimetableView: UIView {
         contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
         contentView.isHidden = timetable == nil
         
-        let height: CGFloat = directionView.frame.origin.y + directionView.frame.size.height + .borderWidth
         headerView.frame.size.height = min(contentView.frame.origin.y + height + max(contentOffset.y - frame.origin.y, 0.0), (contentView.frame.origin.y + contentView.frame.size.height) - (contentView.subviews.last?.frame.size.height ?? (.cornerRadius * 2.0)))
         headerView.frame.origin.y = 0.0
         headerView.isHidden = contentView.isHidden
@@ -133,7 +134,7 @@ fileprivate class DescriptionView: UIView {
     
     // MARK: UIView
     override var intrinsicContentSize: CGSize {
-        return label.sizeThatFits(CGSize(width: 1000.0, height: 100.0))
+        return label.sizeThatFits(.zero)
     }
     
     override func layoutSubviews() {
@@ -232,7 +233,7 @@ fileprivate class TripView: UIView {
     private let contentView: (origin: UIView, destination: UIView) = (UIView(), UIView())
     private let originView: DepartureView = DepartureView()
     private let destinationView: DepartureView = DepartureView()
-    private let aspectRatio: CGSize = CGSize(width: 7.2 , height: 1.0)
+    private let aspectRatio: CGSize = CGSize(width: 7.2, height: 1.0)
     
     // MARK: UIView
     override var intrinsicContentSize: CGSize {
@@ -252,7 +253,7 @@ fileprivate class TripView: UIView {
         
         originView.frame.origin.x = 8.0
         originView.frame.size.width = contentView.origin.frame.size.width - (originView.frame.origin.x * 2.0)
-        originView.frame.size.height = contentView.origin.frame.size.height - (originView.frame.origin.y * 2.0)
+        originView.frame.size.height = contentView.origin.frame.size.height
         destinationView.frame = originView.frame
     }
     

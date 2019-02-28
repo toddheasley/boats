@@ -29,6 +29,8 @@
 		5C548952221D15C90087B547 /* DeviationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548951221D15C90087B547 /* DeviationView.swift */; };
 		5C548953221D15C90087B547 /* DeviationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548951221D15C90087B547 /* DeviationView.swift */; };
 		5C625391221F46930043F6E4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCFC3B22183E7700F7BB91 /* UIColor.swift */; };
+		5C71A6BA22284ACC00B82EC4 /* MenuLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C71A6B922284ACC00B82EC4 /* MenuLabel.swift */; };
+		5C71A6BE222861AB00B82EC4 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C71A6BD222861AB00B82EC4 /* IndexView.swift */; };
 		5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313A202A56AE00FE7B02 /* AppDelegate.swift */; };
 		5C93313D202A56AE00FE7B02 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313C202A56AE00FE7B02 /* IndexViewController.swift */; };
 		5C933140202A56AE00FE7B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C93313E202A56AE00FE7B02 /* Main.storyboard */; };
@@ -177,6 +179,8 @@
 		5C50A455221F077600A25CD7 /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
 		5C54894E221CEB6B0087B547 /* DepartureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureView.swift; sourceTree = "<group>"; };
 		5C548951221D15C90087B547 /* DeviationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviationView.swift; sourceTree = "<group>"; };
+		5C71A6B922284ACC00B82EC4 /* MenuLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLabel.swift; sourceTree = "<group>"; };
+		5C71A6BD222861AB00B82EC4 /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
 		5C93313A202A56AE00FE7B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C93313C202A56AE00FE7B02 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		5C93313F202A56AE00FE7B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -306,9 +310,11 @@
 				5C54894E221CEB6B0087B547 /* DepartureView.swift */,
 				5C548951221D15C90087B547 /* DeviationView.swift */,
 				5C93313C202A56AE00FE7B02 /* IndexViewController.swift */,
+				5C71A6BD222861AB00B82EC4 /* IndexView.swift */,
 				5C933143202A56AF00FE7B02 /* Launch.storyboard */,
 				5C93313E202A56AE00FE7B02 /* Main.storyboard */,
 				5CE0F49F2224529D009EE97D /* MenuButton.swift */,
+				5C71A6B922284ACC00B82EC4 /* MenuLabel.swift */,
 				5CE0F49B222443E6009EE97D /* NavigationBar.swift */,
 				5CD20B182219EB59004B64BD /* RouteViewController.swift */,
 				5C1BFDE82225B9CE00F2ACA9 /* SeasonLabel.swift */,
@@ -401,9 +407,9 @@
 				5C933134202A56AE00FE7B02 /* Frameworks */,
 				5C933135202A56AE00FE7B02 /* Resources */,
 				5CC9A662202A5A0700B1B7F5 /* Embed Frameworks */,
-				5C2B4978202A614D005B4775 /* Embed Watch Content */,
 				5CC9A65E202A59CE00B1B7F5 /* Set Build Number */,
 				5CD20B2F2219EBB5004B64BD /* Embed App Extensions */,
+				5C2B4978202A614D005B4775 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -662,7 +668,9 @@
 				5CEB3BF4221BAAA1007C1F24 /* TimeView.swift in Sources */,
 				5CD20B192219EB59004B64BD /* RouteViewController.swift in Sources */,
 				5CE0F4A02224529D009EE97D /* MenuButton.swift in Sources */,
+				5C71A6BA22284ACC00B82EC4 /* MenuLabel.swift in Sources */,
 				5C50A452221F070B00A25CD7 /* UIImage.swift in Sources */,
+				5C71A6BE222861AB00B82EC4 /* IndexView.swift in Sources */,
 				5C548952221D15C90087B547 /* DeviationView.swift in Sources */,
 				5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */,
 			);

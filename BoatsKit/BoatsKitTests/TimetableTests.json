@@ -1,0 +1,302 @@
+{
+    "trips": [
+        {
+            "origin": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 45,
+                    "hour": 5
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 15,
+                    "hour": 6
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 45,
+                    "hour": 6
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 15,
+                    "hour": 7
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 45,
+                    "hour": 7
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 15,
+                    "hour": 8
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 30,
+                    "hour": 9
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 0,
+                    "hour": 10
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 45,
+                    "hour": 10
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 15,
+                    "hour": 11
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 15,
+                    "hour": 12
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 45,
+                    "hour": 12
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 15,
+                    "hour": 14
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 45,
+                    "hour": 14
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 15,
+                    "hour": 15
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 45,
+                    "hour": 15
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 30,
+                    "hour": 16
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 0,
+                    "hour": 17
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 35,
+                    "hour": 17
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [
+                    "car"
+                ],
+                "time": {
+                    "minute": 0,
+                    "hour": 18
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [],
+                "time": {
+                    "minute": 15,
+                    "hour": 19
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [],
+                "time": {
+                    "minute": 45,
+                    "hour": 19
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [],
+                "time": {
+                    "minute": 15,
+                    "hour": 20
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [],
+                "time": {
+                    "minute": 45,
+                    "hour": 20
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [],
+                "time": {
+                    "minute": 15,
+                    "hour": 21
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [],
+                "time": {
+                    "minute": 45,
+                    "hour": 21
+                },
+                "deviations": []
+            }
+        },
+        {
+            "origin": {
+                "services": [],
+                "time": {
+                    "minute": 30,
+                    "hour": 22
+                },
+                "deviations": []
+            },
+            "destination": {
+                "services": [],
+                "time": {
+                    "minute": 55,
+                    "hour": 22
+                },
+                "deviations": []
+            }
+        }
+    ],
+    "days": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday"
+    ]
+}

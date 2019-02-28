@@ -2,6 +2,7 @@ import UIKit
 import BoatsKit
 
 protocol NavigationBarDelegate {
+    func openNavigation(bar: NavigationBar, url: URL)
     func dismissNavigation(bar: NavigationBar)
 }
 
@@ -15,33 +16,56 @@ class NavigationBar: UIView {
         }
     }
     
-    var route: Route? {
+    var canDismiss: Bool = false {
         didSet {
-            seasonLabel.season = route?.schedule()?.season
-            routeLabel.text = route?.name
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+    }
+    
+    var menu: (text: String?, url: URL?) {
+        didSet {
+            menuLabel.text = menu.text
+            menuLabel.url = menu.url
+        }
+    }
+    
+    var season: Season? {
+        set {
+            seasonLabel.season = newValue
+        }
+        get {
+            return seasonLabel.season
         }
     }
     
     var title: String? {
         set {
-            menuLabel.text = newValue
+            titleLabel.text = newValue
         }
         get {
-            return menuLabel.text
+            return titleLabel.text
         }
     }
     
-    @objc func handleMenu() {
-        delegate?.dismissNavigation(bar: self)
+    @objc func handleMenu(_ sender: AnyObject?) {
+        switch sender {
+        case is MenuLabel:
+            if let url: URL = menu.url {
+                delegate?.openNavigation(bar: self, url: url)
+            }
+        default:
+            delegate?.dismissNavigation(bar: self)
+        }
     }
     
     private let backgroundView: UIView = UIView()
     private let backgroundSeparator: UIView = UIView()
     private let contentView: UIView = UIView()
     private let menuButton: MenuButton = MenuButton()
-    private let menuLabel: UILabel = UILabel()
+    private let menuLabel: MenuLabel = MenuLabel()
     private let seasonLabel: SeasonLabel = SeasonLabel()
-    private let routeLabel: UILabel = UILabel()
+    private let titleLabel: UILabel = UILabel()
     
     // MARK: UIView
     override var intrinsicContentSize: CGSize {
@@ -71,8 +95,8 @@ class NavigationBar: UIView {
         contentView.frame.origin.y = max(0.0 - contentOffset.y, bounds.size.height - intrinsicContentSize.height)
         
         menuButton.frame.origin.x = (contentView.frame.origin.x + contentView.frame.size.width + .edgeInset) - menuButton.frame.size.width
+        menuButton.isHidden = !canDismiss
         
-        menuLabel.textColor = .color
         menuLabel.frame.origin.x = 1.0
         menuLabel.frame.size.width = menuButton.frame.origin.x - (menuLabel.frame.origin.x + contentView.frame.origin.x)
         menuLabel.alpha = min(max(1.0 - (contentOffset.y * 0.02), 0.0), 1.0)
@@ -80,9 +104,8 @@ class NavigationBar: UIView {
         seasonLabel.frame.size.width = menuLabel.frame.size.width
         seasonLabel.alpha = menuLabel.alpha
         
-        routeLabel.textColor = menuLabel.textColor
-        routeLabel.frame.origin.x = menuLabel.frame.origin.x
-        routeLabel.frame.size.width = menuLabel.frame.size.width
+        titleLabel.frame.origin.x = menuLabel.frame.origin.x
+        titleLabel.frame.size.width = menuLabel.frame.size.width
     }
     
     override init(frame: CGRect) {
@@ -103,24 +126,23 @@ class NavigationBar: UIView {
         contentView.frame.size.height = intrinsicContentSize.height
         addSubview(contentView)
         
-        menuButton.addTarget(self, action: #selector(handleMenu), for: .touchUpInside)
-        menuButton.frame.size.width = menuButton.intrinsicContentSize.width + .edgeInset
+        menuButton.addTarget(self, action: #selector(handleMenu(_:)), for: .touchUpInside)
+        menuButton.frame.size.width = menuButton.intrinsicContentSize.width + .edgeInset + 4.0
         menuButton.frame.size.height = bounds.size.height
         addSubview(menuButton)
         
-        menuLabel.font = .systemFont(ofSize: 21.0, weight: .bold)
-        menuLabel.frame.origin.y = 6.0
-        menuLabel.frame.size.height = bounds.size.height - menuLabel.frame.origin.y
+        menuLabel.addTarget(self, action: #selector(handleMenu(_:)), for: .touchUpInside)
+        menuLabel.frame.size.height = menuButton.frame.size.height
         contentView.addSubview(menuLabel)
         
         seasonLabel.frame.size.height = seasonLabel.intrinsicContentSize.height
         seasonLabel.frame.origin.y = contentView.bounds.size.height - (bounds.size.height + 20.0)
         contentView.addSubview(seasonLabel)
         
-        routeLabel.font = .systemFont(ofSize: 28.0, weight: .bold)
-        routeLabel.frame.size.height = bounds.size.height
-        routeLabel.frame.origin.y = contentView.bounds.size.height - routeLabel.frame.size.height
-        contentView.addSubview(routeLabel)
+        titleLabel.font = .systemFont(ofSize: 28.0, weight: .bold)
+        titleLabel.frame.size.height = bounds.size.height
+        titleLabel.frame.origin.y = contentView.bounds.size.height - titleLabel.frame.size.height
+        contentView.addSubview(titleLabel)
     }
     
     required init?(coder decoder: NSCoder) {

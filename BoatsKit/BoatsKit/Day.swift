@@ -3,6 +3,11 @@ import Foundation
 public enum Day: String, CaseIterable, Codable {
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday
     
+    public var next: Day {
+        let index: Int = (Day.allCases.firstIndex(of: self) ?? -1) + 1
+        return Day.allCases[index < (Day.allCases.count - 1) ? index : 0]
+    }
+    
     public init(date: Date = Date()) {
         self = DateFormatter.shared.day(from: date)
     }

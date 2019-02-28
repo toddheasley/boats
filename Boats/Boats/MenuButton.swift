@@ -24,6 +24,7 @@ class MenuButton: UIControl {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        imageView.isUserInteractionEnabled = false
         imageView.contentMode = .center
         imageView.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleLeftMargin]
         imageView.frame.size = intrinsicContentSize

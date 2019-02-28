@@ -2,7 +2,26 @@ import XCTest
 @testable import BoatsKit
 
 class TimetableTests: XCTestCase {
-    
+    func testTrips() {
+        guard let data: Data = data(resource: .bundle, type: "json"),
+            let timetable: Timetable = try? JSONDecoder.shared.decode(Timetable.self, from: data) else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(timetable.trips.count, 14)
+        XCTAssertEqual(timetable.trips(from: Time(hour: 5, minute: 44)).count, 14)
+        XCTAssertEqual(timetable.trips(from: Time(hour: 5, minute: 44)).first?.origin?.time, Time(hour: 5, minute: 45))
+        XCTAssertEqual(timetable.trips(from: Time(hour: 5, minute: 45)).count, 14)
+        XCTAssertNil(timetable.trips(from: Time(hour: 5, minute: 45)).first?.origin)
+        XCTAssertEqual(timetable.trips(from: Time(hour: 5, minute: 45)).first?.destination?.time, Time(hour: 6, minute: 15))
+        XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 29)).count, 1)
+        XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 29)).first?.origin?.time, Time(hour: 22, minute: 30))
+        XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 30)).count, 1)
+        XCTAssertNil(timetable.trips(from: Time(hour: 22, minute: 30)).first?.origin)
+        XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 30)).first?.destination?.time, Time(hour: 22, minute: 55))
+        XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 54)).count, 1)
+        XCTAssertTrue(timetable.trips(from: Time(hour: 22, minute: 55)).isEmpty)
+    }
 }
 
 extension TimetableTests {

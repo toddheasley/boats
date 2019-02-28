@@ -1,44 +1,54 @@
 import UIKit
+import SafariServices
 import BoatsKit
+import BoatsBot
 
 class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBarDelegate {
     private(set) var uri: String = Index().routes.first!.uri
     
-    func refresh() {
+    @objc func refresh() {
         URLSession.shared.index { index, _ in
-            guard let index: Index = index,
-                let route: Route = index.route(uri: self.uri) else {
-                return
-            }
-            self.navigationBar.title = index.name
-            self.navigationBar.route = route
-            for timetableView in self.timetableViews {
-                timetableView.removeFromSuperview()
-            }
-            self.timetableViews = []
-            for timetable in route.schedule()?.timetables ?? [] {
-                let timetableView: TimetableView = TimetableView(timetable: timetable, origin: index.location, destination: route.location)
-                self.timetableViews.append(timetableView)
-                self.scrollView.addSubview(timetableView)
-            }
-            self.viewDidLayoutSubviews()
+            self.scrollView.refreshControl?.endRefreshing()
+            self.index = index ?? self.index
         }
     }
     
     convenience init?(route uri: String) {
         self.init()
-        let index: Index = Index()
         guard let route: Route = index.route(uri: uri) else {
             return nil
         }
         self.uri = uri
-        navigationBar.title = index.name
-        navigationBar.route = route
+        navigationBar.menu = (index.name, index.url)
+        navigationBar.season = route.schedule()?.season
+        navigationBar.title = route.name
     }
     
     private let scrollView: UIScrollView = UIScrollView()
     private let navigationBar: NavigationBar = NavigationBar()
     private var timetableViews: [TimetableView] = []
+    
+    private var index: Index = Index() {
+        didSet {
+            navigationBar.menu = (index.name, index.url)
+            guard let route: Route = index.route(uri: self.uri) else {
+                dismiss(animated: true, completion: nil)
+                return
+            }
+            navigationBar.season = route.schedule()?.season
+            navigationBar.title = route.name
+            for timetableView in timetableViews {
+                timetableView.removeFromSuperview()
+            }
+            timetableViews = []
+            for timetable in route.schedule()?.timetables ?? [] {
+                let timetableView: TimetableView = TimetableView(timetable: timetable, origin: index.location, destination: route.location)
+                timetableViews.append(timetableView)
+                scrollView.addSubview(timetableView)
+            }
+            viewDidLayoutSubviews()
+        }
+    }
     
     // MARK: UIViewController
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +66,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         scrollView.scrollIndicatorInsets.bottom = view.safeAreaInsets.bottom
         navigationBar.frame.origin.y = view.safeAreaInsets.top
         
-        var y: CGFloat = navigationBar.frame.origin.y + navigationBar.intrinsicContentSize.height + (.edgeInset * 1.0)
+        var y: CGFloat = navigationBar.frame.origin.y + navigationBar.intrinsicContentSize.height + .edgeInset
         for timetableView in timetableViews {
             timetableView.frame.size.width = scrollView.bounds.size.width
             timetableView.frame.size.height = timetableView.intrinsicContentSize.height
@@ -64,7 +74,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
             y += timetableView.frame.size.height
         }
         scrollView.contentSize.width = scrollView.bounds.size.width
-        scrollView.contentSize.height = max(y + view.safeAreaInsets.bottom, scrollView.bounds.size.height)
+        scrollView.contentSize.height = max(y + max(view.safeAreaInsets.bottom, 8.0), scrollView.bounds.size.height)
     }
     
     override func viewDidLoad() {
@@ -78,9 +88,14 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         view.addSubview(scrollView)
         
         navigationBar.delegate = self
+        navigationBar.canDismiss = true
         navigationBar.autoresizingMask = [.flexibleWidth]
         navigationBar.frame.size.width = view.bounds.size.width
         view.addSubview(navigationBar)
+        
+        let refreshControl: UIRefreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        scrollView.refreshControl = refreshControl
     }
     
     // MARK: UIScrollViewDelegate
@@ -93,7 +108,12 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
     }
     
     // MARK: NavigationBarDelegate
+    func openNavigation(bar: NavigationBar, url: URL) {
+        present(SFSafariViewController(url: url), animated: true, completion: nil)
+    }
+    
     func dismissNavigation(bar: NavigationBar) {
+        index.current = nil
         dismiss(animated: true)
     }
 }

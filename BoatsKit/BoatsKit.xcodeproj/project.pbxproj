@@ -127,6 +127,7 @@
 		5C7D1563219BCA8900683F2C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
 		5C7D1564219BCA8B00683F2C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
 		5C7D1565219BCA8F00683F2C /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C14C7331F3E3164008294ED /* Day.swift */; };
+		5CAFE6CA222709D9009C8DCF /* TimetableTests.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CAFE6C9222709D9009C8DCF /* TimetableTests.json */; };
 		5CC6BD5B1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */; };
 		5CC6BD5C1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */; };
 		5CC6BD5D1F3CF78800CC0322 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */; };
@@ -211,6 +212,7 @@
 		5C7D155B219B9A0900683F2C /* TimeZoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneTests.swift; sourceTree = "<group>"; };
 		5C9A66F61F37F78000A32A3B /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CAF9C8A1F37D07500F8A02B /* BoatsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BoatsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CAFE6C9222709D9009C8DCF /* TimetableTests.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TimetableTests.json; sourceTree = "<group>"; };
 		5CB7645A1F3A9EAD008B05FA /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5CC6BD5A1F3CF78800CC0322 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		5CD0ED8821A3184B00FA7462 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				5C205A30219B83A500549E5A /* TimeTests.json */,
 				5C37EE0621A1E82D00B7250A /* TimetableTests.swift */,
 				5C58E9EA21A4B2E300C12631 /* TimetableTests.html */,
+				5CAFE6C9222709D9009C8DCF /* TimetableTests.json */,
 				5C7D155B219B9A0900683F2C /* TimeZoneTests.swift */,
 				5CD0ED9A21A3547100FA7462 /* URLTests.swift */,
 				5CD0ED8D21A3186B00FA7462 /* URLSessionTests.swift */,
@@ -492,6 +495,7 @@
 				5CCDD8B9219F5D9500A33F0F /* LocationTests.json in Resources */,
 				5C58E9E721A4A33100C12631 /* SeasonTests.html in Resources */,
 				5C58E9EB21A4B2E300C12631 /* TimetableTests.html in Resources */,
+				5CAFE6CA222709D9009C8DCF /* TimetableTests.json in Resources */,
 				5C2D186521A6447B00EF5659 /* DeviationTests.json in Resources */,
 				5C58E9E921A4B1EE00C12631 /* ScheduleTests.html in Resources */,
 			);

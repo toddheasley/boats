@@ -35,7 +35,8 @@ extension DeviationTests {
     
     // MARK: Codable
     func testDecodeInit() {
-        guard let data: Data = data(resource: .bundle, type: "json"), let deviations: [Deviation] = try? JSONDecoder.shared.decode([Deviation].self, from: data), deviations.count == 3 else {
+        guard let data: Data = data(resource: .bundle, type: "json"),
+            let deviations: [Deviation] = try? JSONDecoder.shared.decode([Deviation].self, from: data), deviations.count == 3 else {
             XCTFail()
             return
         }
@@ -45,7 +46,8 @@ extension DeviationTests {
     }
     
     func testEncode() {
-        guard let data: Data = try? JSONEncoder.shared.encode(Deviation.start(Date(timeIntervalSince1970: 1555732800.0))), let deviation: Deviation = try? JSONDecoder.shared.decode(Deviation.self, from: data) else {
+        guard let data: Data = try? JSONEncoder.shared.encode(Deviation.start(Date(timeIntervalSince1970: 1555732800.0))),
+            let deviation: Deviation = try? JSONDecoder.shared.decode(Deviation.self, from: data) else {
             XCTFail()
             return
         }

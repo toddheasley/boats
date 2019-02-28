@@ -14,6 +14,18 @@ public struct Timetable: Codable {
     public private(set) var trips: [Trip]
     public private(set) var days: [Day]
     
+    public func trips(from time: Time = Time()) -> [Trip] {
+        var trips: [Trip] = []
+        for trip in self.trips {
+            if let origin: Departure = trip.origin, origin.time > time {
+                trips.append(trip)
+            } else if let destination: Departure = trip.destination, destination.time > time {
+                trips.append(Trip(origin: nil, destination: destination))
+            }
+        }
+        return trips
+    }
+    
     public init(trips: [Trip], days: [Day]) {
         self.trips = trips
         self.days = days
