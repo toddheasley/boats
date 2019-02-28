@@ -178,7 +178,7 @@ fileprivate class RouteControl: UIControl {
     
     private let label: UILabel = UILabel()
     private let carView: CarView = CarView()
-    private let aspectRatio: CGSize = CGSize(width: 6.4, height: 1.0)
+    private let aspectRatio: CGSize = CGSize(width: 6.5, height: 1.0)
     
     // MARK: UIControl
     override var intrinsicContentSize: CGSize {
@@ -190,12 +190,14 @@ fileprivate class RouteControl: UIControl {
         
         backgroundColor = .background
         
+        label.isUserInteractionEnabled = false
         label.font = .systemFont(ofSize: label.bounds.size.height * 0.9, weight: .bold)
         label.textColor = .color
         label.frame.size.width = bounds.size.width - (label.frame.origin.x * 2.0)
         label.frame.size.height = (label.frame.size.width / 9.12) - .borderWidth
         label.frame.origin.y = (bounds.size.height - label.frame.size.height) / 2.0
         
+        carView.isUserInteractionEnabled = false
         carView.tintColor = label.textColor
         carView.frame.size.width = label.frame.size.height
         carView.frame.size.height = bounds.size.height
