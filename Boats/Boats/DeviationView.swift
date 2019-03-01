@@ -2,6 +2,13 @@ import UIKit
 import BoatsKit
 
 class DeviationView: UIView {
+    var isHighlighted: Bool = false {
+        didSet {
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+    }
+    
     var deviation: Deviation? {
         didSet {
             setNeedsLayout()
@@ -37,8 +44,8 @@ class DeviationView: UIView {
         label.font = .systemFont(ofSize: contentView.bounds.size.height * 0.33)
         label.frame = contentView.bounds
         
-        contentView.backgroundColor = .color
-        label.textColor = .background
+        contentView.backgroundColor = isHighlighted ? .background : .color
+        label.textColor = isHighlighted ? .color : .background
         label.text = deviation?.description
         
         accessibilityLabel = deviation?.description

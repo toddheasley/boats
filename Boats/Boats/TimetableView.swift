@@ -13,6 +13,29 @@ class TimetableView: UIView {
         }
     }
     
+    @discardableResult func highlight(time: Time = Time()) -> CGRect? {
+        clearHighlighted()
+        for subview in contentView.subviews {
+            guard let tripView: TripView = subview as? TripView else {
+                continue
+            }
+            if let departure: Departure = tripView.trip?.origin, departure.time > time {
+                tripView.isHighlighted.origin = true
+                return tripView.frame
+            } else if let departure: Departure = tripView.trip?.destination, departure.time > time {
+                tripView.isHighlighted.destination = true
+                return tripView.frame
+            }
+        }
+        return nil
+    }
+    
+    func clearHighlighted() {
+        for subview in contentView.subviews {
+            (subview as? TripView)?.isHighlighted = (false, false)
+        }
+    }
+    
     required init(timetable: Timetable, origin: Location, destination: Location) {
         super.init(frame: .zero)
         
@@ -222,6 +245,18 @@ fileprivate class DirectionView: UIView {
 fileprivate class TripView: UIView {
     private(set) var trip: Timetable.Trip?
     
+    var isHighlighted: (origin: Bool, destination: Bool) {
+        set {
+            originView.isHighlighted = newValue.origin
+            destinationView.isHighlighted = newValue.destination
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+        get {
+            return (originView.isHighlighted, destinationView.isHighlighted)
+        }
+    }
+    
     convenience init(trip: Timetable.Trip) {
         self.init(frame: .zero)
         self.trip = trip
@@ -243,11 +278,11 @@ fileprivate class TripView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.origin.backgroundColor = .background
+        contentView.origin.backgroundColor = originView.departure != nil && isHighlighted.origin ? nil : .background
         contentView.origin.frame.size.width = (bounds.size.width / 2.0) - 1.0
         contentView.origin.frame.size.height = bounds.size.height
         
-        contentView.destination.backgroundColor = contentView.origin.backgroundColor
+        contentView.destination.backgroundColor = destinationView.departure != nil && isHighlighted.destination ? nil : .background
         contentView.destination.frame.size = contentView.origin.frame.size
         contentView.destination.frame.origin.x = bounds.size.width - contentView.destination.frame.size.width
         

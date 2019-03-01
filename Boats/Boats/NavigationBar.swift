@@ -97,14 +97,15 @@ class NavigationBar: UIView {
         menuButton.frame.origin.x = (contentView.frame.origin.x + contentView.frame.size.width + .edgeInset) - menuButton.frame.size.width
         menuButton.isHidden = !canDismiss
         
-        menuLabel.frame.origin.x = 1.0
-        menuLabel.frame.size.width = menuButton.frame.origin.x - (menuLabel.frame.origin.x + contentView.frame.origin.x)
+        menuLabel.frame.origin.x = 0.0
+        menuLabel.frame.size.width = menuButton.frame.origin.x - contentView.frame.origin.x
+        menuLabel.frame.origin.x = 0.0
         menuLabel.alpha = min(max(1.0 - (contentOffset.y * 0.02), 0.0), 1.0)
         
         seasonLabel.frame.size.width = menuLabel.frame.size.width
         seasonLabel.alpha = menuLabel.alpha
         
-        titleLabel.frame.origin.x = menuLabel.frame.origin.x
+        titleLabel.frame.origin.x = 1.5
         titleLabel.frame.size.width = menuLabel.frame.size.width
     }
     

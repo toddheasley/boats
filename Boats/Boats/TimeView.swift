@@ -2,6 +2,13 @@ import UIKit
 import BoatsKit
 
 class TimeView: UIView {
+    var isHighlighted: Bool = false {
+        didSet {
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+    }
+    
     var time: Time? {
         didSet {
             setNeedsLayout()
@@ -36,7 +43,7 @@ class TimeView: UIView {
         contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
         
         hourLabel.0.font = .monospacedDigitSystemFont(ofSize: contentView.bounds.size.height * 1.1, weight: .bold)
-        hourLabel.0.textColor = .color
+        hourLabel.0.textColor = isHighlighted ? .background : .color
         hourLabel.0.frame.size.width = contentView.bounds.size.width / 5.0
         hourLabel.0.frame.size.height = contentView.bounds.size.height
         

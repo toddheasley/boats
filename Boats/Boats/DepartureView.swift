@@ -2,6 +2,18 @@ import UIKit
 import BoatsKit
 
 class DepartureView: UIView {
+    var isHighlighted: Bool {
+        set {
+            timeView.isHighlighted = newValue
+            deviationView.isHighlighted = newValue
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+        get {
+            return timeView.isHighlighted
+        }
+    }
+    
     var departure: Departure? {
         didSet {
             setNeedsLayout()
@@ -44,6 +56,7 @@ class DepartureView: UIView {
         carView.frame = deviationView.frame
         
         deviationView.deviation = departure?.deviations.first
+        carView.tintColor = isHighlighted ? .background : .color
         carView.isCarFerry = deviationView.deviation == nil && (departure?.isCarFerry ?? false)
         timeView.time = departure?.time
     }

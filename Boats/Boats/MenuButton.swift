@@ -18,7 +18,8 @@ class MenuButton: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        imageView.tintColor = isHighlighted ? .tint : .color
+        imageView.backgroundColor = isHighlighted ? .color : nil
+        imageView.tintColor = isHighlighted ? .background : .color
     }
     
     override init(frame: CGRect) {
@@ -26,6 +27,7 @@ class MenuButton: UIControl {
         
         imageView.isUserInteractionEnabled = false
         imageView.contentMode = .center
+        imageView.layer.cornerRadius = .cornerRadius / 3.0
         imageView.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleLeftMargin]
         imageView.frame.size = intrinsicContentSize
         imageView.frame.origin.x = (bounds.size.width - imageView.frame.size.width) / 2.0

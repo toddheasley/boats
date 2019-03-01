@@ -71,6 +71,8 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         
         scrollView.delegate = self
         scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.refreshControl = RefreshControl()
+        scrollView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         scrollView.frame = view.bounds
         scrollView.alwaysBounceVertical = true
@@ -86,10 +88,6 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         indexView.delegate = self
         indexView.index = index
         scrollView.addSubview(indexView)
-        
-        let refreshControl: UIRefreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        scrollView.refreshControl = refreshControl
     }
     
     // MARK: UIScrollViewDelegate

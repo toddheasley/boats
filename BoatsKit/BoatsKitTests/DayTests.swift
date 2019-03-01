@@ -2,16 +2,6 @@ import XCTest
 @testable import BoatsKit
 
 class DayTests: XCTestCase {
-    func testNext() {
-        XCTAssertEqual(Day.monday.next, .tuesday)
-        XCTAssertEqual(Day.tuesday.next, .wednesday)
-        XCTAssertEqual(Day.wednesday.next, .thursday)
-        XCTAssertEqual(Day.thursday.next, .friday)
-        XCTAssertEqual(Day.friday.next, .saturday)
-        XCTAssertEqual(Day.saturday.next, .sunday)
-        XCTAssertEqual(Day.sunday.next, .monday)
-    }
-    
     func testDateInit() {
         XCTAssertEqual(Day(date: Date(timeIntervalSince1970:  1524196800.0)), .friday)
         XCTAssertEqual(Day(date: Date(timeIntervalSince1970:  1587355200.0)), .monday)

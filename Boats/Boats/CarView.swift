@@ -12,11 +12,22 @@ class CarView: UIView {
     private let imageView: UIImageView = UIImageView(image: .car)
     
     // MARK: UIView
+    override var tintColor: UIColor! {
+        set {
+            super.tintColor = newValue
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+        get {
+            return super.tintColor
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         imageView.isHidden = !isCarFerry
-        imageView.tintColor = .color
+        imageView.tintColor = tintColor
         imageView.frame.size.width = bounds.size.width * 0.9
         imageView.frame.size.height = bounds.size.height * 0.9
         imageView.frame.origin.x = (bounds.size.width - imageView.frame.size.width) / 2.0

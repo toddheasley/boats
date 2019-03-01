@@ -181,6 +181,13 @@ fileprivate class RouteControl: UIControl {
     private let aspectRatio: CGSize = CGSize(width: 6.5, height: 1.0)
     
     // MARK: UIControl
+    override var isHighlighted: Bool {
+        didSet {
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+    }
+    
     override var intrinsicContentSize: CGSize {
         return CGSize(width: frame.size.width, height: frame.size.width / aspectRatio.width)
     }
@@ -188,11 +195,11 @@ fileprivate class RouteControl: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        backgroundColor = .background
+        backgroundColor = isHighlighted ? .color : .background
         
         label.isUserInteractionEnabled = false
         label.font = .systemFont(ofSize: label.bounds.size.height * 0.9, weight: .bold)
-        label.textColor = .color
+        label.textColor = isHighlighted ? .background : .color
         label.frame.size.width = bounds.size.width - (label.frame.origin.x * 2.0)
         label.frame.size.height = (label.frame.size.width / 9.12) - .borderWidth
         label.frame.origin.y = (bounds.size.height - label.frame.size.height) / 2.0

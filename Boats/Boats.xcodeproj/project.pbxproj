@@ -19,6 +19,7 @@
 		5C2B4969202A614C005B4775 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4968202A614C005B4775 /* ComplicationController.swift */; };
 		5C2B496B202A614D005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B496A202A614D005B4775 /* Assets.xcassets */; };
 		5C2B4970202A614D005B4775 /* BoatsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C2B4951202A614B005B4775 /* BoatsWatch.app */; };
+		5C327C932228A612000A95F1 /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C327C922228A612000A95F1 /* RefreshControl.swift */; };
 		5C450852221D95D10060F39E /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C450851221D95D10060F39E /* TimetableView.swift */; };
 		5C50A452221F070B00A25CD7 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50A451221F070B00A25CD7 /* UIImage.swift */; };
 		5C50A453221F073E00A25CD7 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50A451221F070B00A25CD7 /* UIImage.swift */; };
@@ -174,6 +175,7 @@
 		5C2B496A202A614D005B4775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C2B496C202A614D005B4775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C2B496D202A614D005B4775 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		5C327C922228A612000A95F1 /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		5C450851221D95D10060F39E /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		5C50A451221F070B00A25CD7 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5C50A455221F077600A25CD7 /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				5CE0F49F2224529D009EE97D /* MenuButton.swift */,
 				5C71A6B922284ACC00B82EC4 /* MenuLabel.swift */,
 				5CE0F49B222443E6009EE97D /* NavigationBar.swift */,
+				5C327C922228A612000A95F1 /* RefreshControl.swift */,
 				5CD20B182219EB59004B64BD /* RouteViewController.swift */,
 				5C1BFDE82225B9CE00F2ACA9 /* SeasonLabel.swift */,
 				5C450851221D95D10060F39E /* TimetableView.swift */,
@@ -660,6 +663,7 @@
 				5C27E3F222222BEC0054E8DE /* CGFloat.swift in Sources */,
 				5C450852221D95D10060F39E /* TimetableView.swift in Sources */,
 				5C50A456221F077600A25CD7 /* CarView.swift in Sources */,
+				5C327C932228A612000A95F1 /* RefreshControl.swift in Sources */,
 				5C93313D202A56AE00FE7B02 /* IndexViewController.swift in Sources */,
 				5C54894F221CEB6B0087B547 /* DepartureView.swift in Sources */,
 				5CDCFC3C22183E7700F7BB91 /* UIColor.swift in Sources */,

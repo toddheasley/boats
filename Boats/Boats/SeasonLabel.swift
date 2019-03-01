@@ -46,7 +46,7 @@ class SeasonLabel: UIView {
         super.init(frame: frame)
         
         contentView.clipsToBounds = true
-        contentView.layer.cornerRadius = 5.5
+        contentView.layer.cornerRadius = .cornerRadius / 3.0
         contentView.frame.size.height = 25.0
         addSubview(contentView)
         

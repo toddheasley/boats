@@ -38,15 +38,19 @@ class MenuLabel: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
-        
-        label.textColor = isHighlighted ? .tint : .color
+        label.textColor = isHighlighted ? .background : .color
         label.frame.size.width = label.sizeThatFits(contentView.bounds.size).width
         
+        contentView.backgroundColor = isHighlighted ? .color : nil
+        contentView.frame.size.width = min(label.frame.size.width + (label.frame.origin.x * 2.0), bounds.size.width)
+        contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
+        
         indicator.backgroundColor = label.textColor
-        indicator.frame.origin.x = 1.0
-        indicator.frame.size.width = label.frame.size.width - (indicator.frame.origin.x * 2.0)
-        indicator.isHidden = url == nil
+        indicator.frame.origin.x = label.frame.origin.x + 1.0
+        indicator.frame.size.width = label.frame.size.width - 2.0
+        indicator.isHidden = url == nil || isHighlighted
+        
+        
     }
     
     override init(frame: CGRect) {
@@ -54,14 +58,15 @@ class MenuLabel: UIControl {
         
         contentView.isUserInteractionEnabled = false
         contentView.clipsToBounds = false
-        contentView.autoresizingMask = [.flexibleWidth]
-        contentView.frame.size.width = bounds.size.width
+        contentView.layer.cornerRadius = .cornerRadius / 3.0
+        contentView.frame.origin.x = -3.0
         contentView.frame.size.height = intrinsicContentSize.height
         addSubview(contentView)
         
-        label.font = .systemFont(ofSize: 21.0, weight: .bold)
+        label.font = .systemFont(ofSize: 19.0, weight: .bold)
         label.numberOfLines = 1
         label.frame.size.height = contentView.bounds.size.height
+        label.frame.origin.x = 6.0
         contentView.addSubview(label)
         
         indicator.frame.size.height = .borderWidth

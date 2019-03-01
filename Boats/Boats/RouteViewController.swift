@@ -10,6 +10,9 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         URLSession.shared.index { index, _ in
             self.scrollView.refreshControl?.endRefreshing()
             self.index = index ?? self.index
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                self.scrollToHighlighted(animated: true)
+            }
         }
     }
     
@@ -50,6 +53,40 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         }
     }
     
+    private func scrollToHighlighted(animated: Bool = false) {
+        guard var rect: CGRect = highlight() else {
+            return
+        }
+        rect.origin.y -= ((scrollView.bounds.size.height - rect.size.height) / 2.0) - view.safeAreaInsets.bottom
+        rect.size.height = scrollView.bounds.size.height
+        scrollView.scrollRectToVisible(rect, animated: true)
+    }
+    
+    @discardableResult private func highlight(date: Date = Date()) -> CGRect? {
+        clearHighlighted()
+        guard let timetable: Timetable = index.route(uri: uri)?.schedule()?.timetable(for: Day(date: date)) else {
+            return nil
+        }
+        for timetableView in timetableViews {
+            guard timetableView.timetable.days == timetable.days else {
+                continue
+            }
+            if var rect: CGRect = timetableView.highlight(time: Time(date: date)) {
+                rect.origin.y += timetableView.frame.origin.y
+                return rect
+            } else if let rect: CGRect = highlight(date: Calendar.current.startOfDay(for: Date(timeInterval: 86400.0, since: date))) {
+                return rect
+            }
+        }
+        return nil
+    }
+    
+    private func clearHighlighted() {
+        for timetableView in timetableViews {
+            timetableView.clearHighlighted()
+        }
+    }
+    
     // MARK: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -75,6 +112,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         }
         scrollView.contentSize.width = scrollView.bounds.size.width
         scrollView.contentSize.height = max(y + max(view.safeAreaInsets.bottom, 8.0), scrollView.bounds.size.height)
+        highlight()
     }
     
     override func viewDidLoad() {
@@ -82,6 +120,8 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         
         scrollView.delegate = self
         scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.refreshControl = RefreshControl()
+        scrollView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         scrollView.frame = view.bounds
         scrollView.alwaysBounceVertical = true
@@ -92,10 +132,6 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         navigationBar.autoresizingMask = [.flexibleWidth]
         navigationBar.frame.size.width = view.bounds.size.width
         view.addSubview(navigationBar)
-        
-        let refreshControl: UIRefreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        scrollView.refreshControl = refreshControl
     }
     
     // MARK: UIScrollViewDelegate
