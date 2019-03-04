@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5C1BFDE92225B9CE00F2ACA9 /* SeasonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1BFDE82225B9CE00F2ACA9 /* SeasonLabel.swift */; };
+		5C21B6AB222C5D200016C43E /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21B6AA222C5D200016C43E /* TimetableView.swift */; };
+		5C21B6AD222C5E5D0016C43E /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21B6AC222C5E5D0016C43E /* CGFloat.swift */; };
+		5C21B6B4222DA53E0016C43E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21B6B3222DA53E0016C43E /* UIColor.swift */; };
 		5C27E3F222222BEC0054E8DE /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C27E3F122222BEC0054E8DE /* CGFloat.swift */; };
-		5C27E3F322222C3B0054E8DE /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C27E3F122222BEC0054E8DE /* CGFloat.swift */; };
 		5C2B4955202A614B005B4775 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4953202A614B005B4775 /* Interface.storyboard */; };
 		5C2B4957202A614C005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B4956202A614C005B4775 /* Assets.xcassets */; };
 		5C2B495E202A614C005B4775 /* BoatsWatchExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -29,7 +31,6 @@
 		5C548950221CEB6B0087B547 /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C54894E221CEB6B0087B547 /* DepartureView.swift */; };
 		5C548952221D15C90087B547 /* DeviationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548951221D15C90087B547 /* DeviationView.swift */; };
 		5C548953221D15C90087B547 /* DeviationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548951221D15C90087B547 /* DeviationView.swift */; };
-		5C625391221F46930043F6E4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCFC3B22183E7700F7BB91 /* UIColor.swift */; };
 		5C71A6BA22284ACC00B82EC4 /* MenuLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C71A6B922284ACC00B82EC4 /* MenuLabel.swift */; };
 		5C71A6BE222861AB00B82EC4 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C71A6BD222861AB00B82EC4 /* IndexView.swift */; };
 		5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313A202A56AE00FE7B02 /* AppDelegate.swift */; };
@@ -57,7 +58,6 @@
 		5CD20B462219EF63004B64BD /* BoatsBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD20B452219EF63004B64BD /* BoatsBot.framework */; };
 		5CD20B472219EF63004B64BD /* BoatsBot.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD20B452219EF63004B64BD /* BoatsBot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CDCFC3C22183E7700F7BB91 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCFC3B22183E7700F7BB91 /* UIColor.swift */; };
-		5CDCFC3D22183E7700F7BB91 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCFC3B22183E7700F7BB91 /* UIColor.swift */; };
 		5CE0F49C222443E6009EE97D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0F49B222443E6009EE97D /* NavigationBar.swift */; };
 		5CE0F4A02224529D009EE97D /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE0F49F2224529D009EE97D /* MenuButton.swift */; };
 		5CE0F4A22224644C009EE97D /* Boats.sketch in Resources */ = {isa = PBXBuildFile; fileRef = 5CE0F4A12224644C009EE97D /* Boats.sketch */; };
@@ -162,6 +162,10 @@
 		5C007BD12219A94400BCCD50 /* Boats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boats.entitlements; sourceTree = "<group>"; };
 		5C007BD22219C4B500BCCD50 /* BoatsWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsWatch.entitlements; sourceTree = "<group>"; };
 		5C1BFDE82225B9CE00F2ACA9 /* SeasonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonLabel.swift; sourceTree = "<group>"; };
+		5C21B6A9222C1AFC0016C43E /* BoatsToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsToday.entitlements; sourceTree = "<group>"; };
+		5C21B6AA222C5D200016C43E /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
+		5C21B6AC222C5E5D0016C43E /* CGFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		5C21B6B3222DA53E0016C43E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5C27E3F122222BEC0054E8DE /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		5C2B4951202A614B005B4775 /* BoatsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2B4954202A614B005B4775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -355,8 +359,12 @@
 		5CD20B222219EBB5004B64BD /* BoatsToday */ = {
 			isa = PBXGroup;
 			children = (
+				5C21B6AC222C5E5D0016C43E /* CGFloat.swift */,
+				5C21B6AA222C5D200016C43E /* TimetableView.swift */,
 				5CD20B232219EBB5004B64BD /* TodayViewController.swift */,
 				5CD20B252219EBB5004B64BD /* Today.storyboard */,
+				5C21B6B3222DA53E0016C43E /* UIColor.swift */,
+				5C21B6A9222C1AFC0016C43E /* BoatsToday.entitlements */,
 				5CD20B282219EBB5004B64BD /* Info.plist */,
 			);
 			path = BoatsToday;
@@ -516,6 +524,11 @@
 					};
 					5CD20B1D2219EBB5004B64BD = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -652,7 +665,6 @@
 				5C2B4965202A614C005B4775 /* ExtensionDelegate.swift in Sources */,
 				5CC2C4CF221FD8A60031A3FE /* UIImage.swift in Sources */,
 				5C2B4963202A614C005B4775 /* InterfaceController.swift in Sources */,
-				5CDCFC3D22183E7700F7BB91 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,14 +704,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C27E3F322222C3B0054E8DE /* CGFloat.swift in Sources */,
+				5C21B6AD222C5E5D0016C43E /* CGFloat.swift in Sources */,
 				5C548953221D15C90087B547 /* DeviationView.swift in Sources */,
 				5C50A453221F073E00A25CD7 /* UIImage.swift in Sources */,
 				5CD20B242219EBB5004B64BD /* TodayViewController.swift in Sources */,
 				5C548950221CEB6B0087B547 /* DepartureView.swift in Sources */,
-				5C625391221F46930043F6E4 /* UIColor.swift in Sources */,
 				5CEB3BF5221BAAA1007C1F24 /* TimeView.swift in Sources */,
+				5C21B6AB222C5D200016C43E /* TimetableView.swift in Sources */,
 				5C50A457221F077600A25CD7 /* CarView.swift in Sources */,
+				5C21B6B4222DA53E0016C43E /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1050,6 +1063,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_ENTITLEMENTS = BoatsToday/BoatsToday.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsToday/Info.plist;
@@ -1073,6 +1087,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_ENTITLEMENTS = BoatsToday/BoatsToday.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = BoatsToday/Info.plist;

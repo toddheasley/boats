@@ -10,9 +10,6 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         URLSession.shared.index { index, _ in
             self.scrollView.refreshControl?.endRefreshing()
             self.index = index ?? self.index
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                self.scrollToHighlighted(animated: true)
-            }
         }
     }
     
@@ -57,7 +54,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         guard var rect: CGRect = highlight() else {
             return
         }
-        rect.origin.y -= ((scrollView.bounds.size.height - rect.size.height) / 2.0) - view.safeAreaInsets.bottom
+        rect.origin.y -= ((scrollView.bounds.size.height - rect.size.height) / 2.0) - (view.safeAreaInsets.bottom * 0.5)
         rect.size.height = scrollView.bounds.size.height
         scrollView.scrollRectToVisible(rect, animated: true)
     }

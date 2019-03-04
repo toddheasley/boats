@@ -99,7 +99,7 @@ class TimetableView: UIView {
         headerView.backgroundColor = backgroundColor
         
         contentView.backgroundColor = .color
-        contentView.layer.borderColor = contentView.backgroundColor?.cgColor
+        contentView.layer.borderColor = .color
         contentView.frame.size.width = min(bounds.size.width - (.edgeInset * 2.0), .maxWidth)
         
         headerContentView.backgroundColor = contentView.backgroundColor

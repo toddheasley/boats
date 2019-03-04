@@ -10,14 +10,12 @@ class IndexView: UIView {
     
     var index: Index = Index() {
         didSet {
-            for routeControl in routeControls {
-                routeControl.removeFromSuperview()
+            for subview in contentView.subviews {
+                subview.removeFromSuperview()
             }
-            routeControls = []
             for route in index.routes {
                 let routeControl: RouteControl = RouteControl(route: route)
                 routeControl.addTarget(self, action: #selector(handleRoute(_:)), for: .touchUpInside)
-                routeControls.append(routeControl)
                 contentView.addSubview(routeControl)
             }
             setNeedsLayout()
@@ -43,7 +41,6 @@ class IndexView: UIView {
     private let headerView: UIView = UIView()
     private let headerContentView: UIView = UIView()
     private let descriptionView: DescriptionView = DescriptionView()
-    private var routeControls: [RouteControl] = []
     
     // MARK: UIView
     override var intrinsicContentSize: CGSize {
@@ -64,7 +61,7 @@ class IndexView: UIView {
         headerView.backgroundColor = backgroundColor
         
         contentView.backgroundColor = .color
-        contentView.layer.borderColor = contentView.backgroundColor?.cgColor
+        contentView.layer.borderColor = .color
         contentView.frame.size.width = min(bounds.size.width - (.edgeInset * 2.0), .maxWidth)
         
         headerContentView.backgroundColor = contentView.backgroundColor
