@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch" id="uk3-zd-etQ">
-                                <rect key="frame" x="0.0" y="398" width="375" height="15"/>
+                                <rect key="frame" x="0.0" y="401" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -31,6 +31,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Launch" width="1366" height="15"/>
+        <image name="Launch" width="4098" height="180"/>
     </resources>
 </document>
