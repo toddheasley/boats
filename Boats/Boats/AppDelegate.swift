@@ -15,10 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        
+        (window?.rootViewController as? IndexViewController)?.refresh()
     }
 }

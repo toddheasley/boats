@@ -23,16 +23,22 @@ class SeasonLabel: UIView {
         return contentView.frame.size
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func updateAppearance() {
+        super.updateAppearance()
         
         nameLabel.backgroundColor = .color
         nameLabel.textColor = .background
-        nameLabel.text = season?.name.description
-        nameLabel.frame.size.width = nameLabel.sizeThatFits(.zero).width + (.edgeInset * 2.0)
         
         dateLabel.backgroundColor = nameLabel.backgroundColor
         dateLabel.textColor = nameLabel.textColor
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        nameLabel.text = season?.name.description
+        nameLabel.frame.size.width = nameLabel.sizeThatFits(.zero).width + (.edgeInset * 2.0)
+        
         dateLabel.text = season?.description.components(separatedBy: ": ").last
         dateLabel.frame.size.width = dateLabel.sizeThatFits(.zero).width + (.edgeInset * 2.0)
         dateLabel.frame.origin.x = nameLabel.frame.size.width + .borderWidth

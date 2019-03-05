@@ -16,6 +16,13 @@ class NavigationBar: UIView {
         }
     }
     
+    var showAppearance: Bool = false {
+        didSet {
+            setNeedsLayout()
+            layoutIfNeeded()
+        }
+    }
+    
     var canDismiss: Bool = false {
         didSet {
             setNeedsLayout()
@@ -64,10 +71,15 @@ class NavigationBar: UIView {
     private let contentView: UIView = UIView()
     private let menuButton: MenuButton = MenuButton()
     private let menuLabel: MenuLabel = MenuLabel()
+    private let appearanceControl: AppearanceControl = AppearanceControl()
     private let seasonLabel: SeasonLabel = SeasonLabel()
     private let titleLabel: UILabel = UILabel()
     
     // MARK: UIView
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        return super.hitTest(point, with: event) ?? (backgroundView.alpha > 0.0 ? nil : contentView.hitTest(point, with: event))
+    }
+    
     override var intrinsicContentSize: CGSize {
         return CGSize(width: 0.0, height: 172.0)
     }
@@ -81,14 +93,20 @@ class NavigationBar: UIView {
         }
     }
     
+    override func updateAppearance() {
+        super.updateAppearance()
+        
+        backgroundView.backgroundColor = .background
+        backgroundSeparator.backgroundColor = .color
+        titleLabel.textColor = .color
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        backgroundView.backgroundColor = .background
         backgroundView.frame.size.height = frame.origin.y + frame.size.height
         backgroundView.frame.origin.y = 0.0 - frame.origin.y
         backgroundView.alpha = min(max((contentOffset.y + frame.size.height - intrinsicContentSize.height) * 0.05, 0.0), 1.0)
-        backgroundSeparator.backgroundColor = .color
         
         contentView.frame.size.width = min(bounds.size.width - (.edgeInset * 2.0), .maxWidth)
         contentView.frame.origin.x = (bounds.size.width - contentView.frame.size.width) / 2.0
@@ -102,8 +120,13 @@ class NavigationBar: UIView {
         menuLabel.frame.origin.x = 0.0
         menuLabel.alpha = min(max(1.0 - (contentOffset.y * 0.02), 0.0), 1.0)
         
+        appearanceControl.frame.size.width = menuLabel.frame.size.width
+        appearanceControl.alpha = menuLabel.alpha
+        appearanceControl.isHidden = !showAppearance || season != nil
+        
         seasonLabel.frame.size.width = menuLabel.frame.size.width
         seasonLabel.alpha = menuLabel.alpha
+        seasonLabel.isHidden = !appearanceControl.isHidden
         
         titleLabel.frame.origin.x = 1.5
         titleLabel.frame.size.width = menuLabel.frame.size.width
@@ -136,8 +159,12 @@ class NavigationBar: UIView {
         menuLabel.frame.size.height = menuButton.frame.size.height
         contentView.addSubview(menuLabel)
         
+        appearanceControl.frame.size.height = appearanceControl.intrinsicContentSize.height
+        appearanceControl.frame.origin.y = contentView.bounds.size.height - (bounds.size.height + 20.0)
+        contentView.addSubview(appearanceControl)
+        
         seasonLabel.frame.size.height = seasonLabel.intrinsicContentSize.height
-        seasonLabel.frame.origin.y = contentView.bounds.size.height - (bounds.size.height + 20.0)
+        seasonLabel.frame.origin.y = appearanceControl.frame.origin.y
         contentView.addSubview(seasonLabel)
         
         titleLabel.font = .systemFont(ofSize: 28.0, weight: .bold)

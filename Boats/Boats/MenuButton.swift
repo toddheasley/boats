@@ -6,8 +6,7 @@ class MenuButton: UIControl {
     // MARK: UIControl
     override var isHighlighted: Bool {
         didSet {
-            setNeedsLayout()
-            layoutIfNeeded()
+            updateAppearance()
         }
     }
     
@@ -15,8 +14,8 @@ class MenuButton: UIControl {
         return CGSize(width: 42.0, height: 28.0)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func updateAppearance() {
+        super.updateAppearance()
         
         imageView.backgroundColor = isHighlighted ? .color : nil
         imageView.tintColor = isHighlighted ? .background : .color

@@ -26,8 +26,7 @@ class MenuLabel: UIControl {
     // MARK: UIControl
     override var isHighlighted: Bool {
         didSet {
-            setNeedsLayout()
-            layoutIfNeeded()
+            updateAppearance()
         }
     }
     
@@ -35,22 +34,25 @@ class MenuLabel: UIControl {
         return CGSize(width: label.frame.size.width, height: 28.0)
     }
     
+    override func updateAppearance() {
+        super.updateAppearance()
+        
+        label.textColor = isHighlighted ? .background : .color
+        contentView.backgroundColor = isHighlighted ? .color : nil
+        indicator.backgroundColor = label.textColor
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        label.textColor = isHighlighted ? .background : .color
         label.frame.size.width = label.sizeThatFits(contentView.bounds.size).width
         
-        contentView.backgroundColor = isHighlighted ? .color : nil
         contentView.frame.size.width = min(label.frame.size.width + (label.frame.origin.x * 2.0), bounds.size.width)
         contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
         
-        indicator.backgroundColor = label.textColor
         indicator.frame.origin.x = label.frame.origin.x + 1.0
         indicator.frame.size.width = label.frame.size.width - 2.0
         indicator.isHidden = url == nil || isHighlighted
-        
-        
     }
     
     override init(frame: CGRect) {

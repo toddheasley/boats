@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C19D3EB222DBA0600097FEE /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C19D3EA222DBA0600097FEE /* Appearance.swift */; };
+		5C19D3ED222DC44500097FEE /* AppearanceControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C19D3EC222DC44500097FEE /* AppearanceControl.swift */; };
 		5C1BFDE92225B9CE00F2ACA9 /* SeasonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1BFDE82225B9CE00F2ACA9 /* SeasonLabel.swift */; };
 		5C21B6AB222C5D200016C43E /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21B6AA222C5D200016C43E /* TimetableView.swift */; };
 		5C21B6AD222C5E5D0016C43E /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C21B6AC222C5E5D0016C43E /* CGFloat.swift */; };
@@ -41,7 +43,11 @@
 		5CC2C4CD221FD8930031A3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C933141202A56AF00FE7B02 /* Assets.xcassets */; };
 		5CC2C4CE221FD8950031A3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C933141202A56AF00FE7B02 /* Assets.xcassets */; };
 		5CC2C4CF221FD8A60031A3FE /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50A451221F070B00A25CD7 /* UIImage.swift */; };
-		5CC9A66A202A5ADA00B1B7F5 /* BoatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9A669202A5ADA00B1B7F5 /* BoatsTests.swift */; };
+		5CC9A66A202A5ADA00B1B7F5 /* AppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9A669202A5ADA00B1B7F5 /* AppearanceTests.swift */; };
+		5CCF18EF222DCDE00009809A /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C19D3EA222DBA0600097FEE /* Appearance.swift */; };
+		5CCF18F1222DF1CA0009809A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCF18F0222DF1CA0009809A /* UIViewController.swift */; };
+		5CCF18F6222DFC580009809A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCF18F5222DFC580009809A /* UIView.swift */; };
+		5CCF18F7222E0B260009809A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCF18F5222DFC580009809A /* UIView.swift */; };
 		5CD20B192219EB59004B64BD /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD20B182219EB59004B64BD /* RouteViewController.swift */; };
 		5CD20B212219EBB5004B64BD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD20B202219EBB5004B64BD /* NotificationCenter.framework */; };
 		5CD20B242219EBB5004B64BD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD20B232219EBB5004B64BD /* TodayViewController.swift */; };
@@ -158,9 +164,10 @@
 
 /* Begin PBXFileReference section */
 		5C007BCF2219A8BF00BCCD50 /* BoatsWatchExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsWatchExtension.entitlements; sourceTree = "<group>"; };
-		5C007BD02219A92B00BCCD50 /* BoatsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoatsKit.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/Boats-beasguutqweaegbpiwbnmtbrslsw/Build/Products/Debug-iphoneos/BoatsKit.framework"; sourceTree = "<group>"; };
 		5C007BD12219A94400BCCD50 /* Boats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boats.entitlements; sourceTree = "<group>"; };
 		5C007BD22219C4B500BCCD50 /* BoatsWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsWatch.entitlements; sourceTree = "<group>"; };
+		5C19D3EA222DBA0600097FEE /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		5C19D3EC222DC44500097FEE /* AppearanceControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceControl.swift; sourceTree = "<group>"; };
 		5C1BFDE82225B9CE00F2ACA9 /* SeasonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonLabel.swift; sourceTree = "<group>"; };
 		5C21B6A9222C1AFC0016C43E /* BoatsToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoatsToday.entitlements; sourceTree = "<group>"; };
 		5C21B6AA222C5D200016C43E /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
@@ -196,8 +203,10 @@
 		5C9FAA712218F59400C71000 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5CC9A65D202A583B00B1B7F5 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC9A667202A5ADA00B1B7F5 /* BoatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CC9A669202A5ADA00B1B7F5 /* BoatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsTests.swift; sourceTree = "<group>"; };
+		5CC9A669202A5ADA00B1B7F5 /* AppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceTests.swift; sourceTree = "<group>"; };
 		5CC9A66B202A5ADA00B1B7F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CCF18F0222DF1CA0009809A /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		5CCF18F5222DFC580009809A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5CD20B182219EB59004B64BD /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		5CD20B1E2219EBB5004B64BD /* BoatsToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BoatsToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD20B202219EBB5004B64BD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -310,6 +319,8 @@
 			isa = PBXGroup;
 			children = (
 				5C93313A202A56AE00FE7B02 /* AppDelegate.swift */,
+				5C19D3EC222DC44500097FEE /* AppearanceControl.swift */,
+				5C19D3EA222DBA0600097FEE /* Appearance.swift */,
 				5C933141202A56AF00FE7B02 /* Assets.xcassets */,
 				5C50A455221F077600A25CD7 /* CarView.swift */,
 				5C27E3F122222BEC0054E8DE /* CGFloat.swift */,
@@ -329,6 +340,8 @@
 				5CEB3BF3221BAAA1007C1F24 /* TimeView.swift */,
 				5CDCFC3B22183E7700F7BB91 /* UIColor.swift */,
 				5C50A451221F070B00A25CD7 /* UIImage.swift */,
+				5CCF18F0222DF1CA0009809A /* UIViewController.swift */,
+				5CCF18F5222DFC580009809A /* UIView.swift */,
 				5C007BD12219A94400BCCD50 /* Boats.entitlements */,
 				5C933146202A56AF00FE7B02 /* Info.plist */,
 			);
@@ -338,8 +351,7 @@
 		5CC9A668202A5ADA00B1B7F5 /* BoatsTests */ = {
 			isa = PBXGroup;
 			children = (
-				5C007BD02219A92B00BCCD50 /* BoatsKit.framework */,
-				5CC9A669202A5ADA00B1B7F5 /* BoatsTests.swift */,
+				5CC9A669202A5ADA00B1B7F5 /* AppearanceTests.swift */,
 				5CC9A66B202A5ADA00B1B7F5 /* Info.plist */,
 			);
 			path = BoatsTests;
@@ -673,17 +685,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C27E3F222222BEC0054E8DE /* CGFloat.swift in Sources */,
+				5C19D3EB222DBA0600097FEE /* Appearance.swift in Sources */,
 				5C450852221D95D10060F39E /* TimetableView.swift in Sources */,
 				5C50A456221F077600A25CD7 /* CarView.swift in Sources */,
 				5C327C932228A612000A95F1 /* RefreshControl.swift in Sources */,
 				5C93313D202A56AE00FE7B02 /* IndexViewController.swift in Sources */,
+				5C19D3ED222DC44500097FEE /* AppearanceControl.swift in Sources */,
 				5C54894F221CEB6B0087B547 /* DepartureView.swift in Sources */,
 				5CDCFC3C22183E7700F7BB91 /* UIColor.swift in Sources */,
 				5CE0F49C222443E6009EE97D /* NavigationBar.swift in Sources */,
+				5CCF18F6222DFC580009809A /* UIView.swift in Sources */,
 				5C1BFDE92225B9CE00F2ACA9 /* SeasonLabel.swift in Sources */,
 				5CEB3BF4221BAAA1007C1F24 /* TimeView.swift in Sources */,
 				5CD20B192219EB59004B64BD /* RouteViewController.swift in Sources */,
 				5CE0F4A02224529D009EE97D /* MenuButton.swift in Sources */,
+				5CCF18F1222DF1CA0009809A /* UIViewController.swift in Sources */,
 				5C71A6BA22284ACC00B82EC4 /* MenuLabel.swift in Sources */,
 				5C50A452221F070B00A25CD7 /* UIImage.swift in Sources */,
 				5C71A6BE222861AB00B82EC4 /* IndexView.swift in Sources */,
@@ -696,7 +712,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CC9A66A202A5ADA00B1B7F5 /* BoatsTests.swift in Sources */,
+				5CC9A66A202A5ADA00B1B7F5 /* AppearanceTests.swift in Sources */,
+				5CCF18EF222DCDE00009809A /* Appearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +721,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CCF18F7222E0B260009809A /* UIView.swift in Sources */,
 				5C21B6AD222C5E5D0016C43E /* CGFloat.swift in Sources */,
 				5C548953221D15C90087B547 /* DeviationView.swift in Sources */,
 				5C50A453221F073E00A25CD7 /* UIImage.swift in Sources */,

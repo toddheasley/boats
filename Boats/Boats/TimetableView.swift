@@ -72,6 +72,8 @@ class TimetableView: UIView {
         for trip in timetable.trips {
             contentView.addSubview(TripView(trip: trip))
         }
+        
+        updateAppearance()
     }
     
     private let contentView: UIView = UIView()
@@ -92,18 +94,23 @@ class TimetableView: UIView {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func updateAppearance() {
+        super.updateAppearance()
         
         backgroundColor = .background
         headerView.backgroundColor = backgroundColor
         
         contentView.backgroundColor = .color
         contentView.layer.borderColor = .color
-        contentView.frame.size.width = min(bounds.size.width - (.edgeInset * 2.0), .maxWidth)
         
         headerContentView.backgroundColor = contentView.backgroundColor
         headerContentView.layer.borderColor = contentView.layer.borderColor
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.frame.size.width = min(bounds.size.width - (.edgeInset * 2.0), .maxWidth)
         
         descriptionView.frame.size.width = contentView.bounds.size.width
         directionView.frame.size.width = contentView.bounds.size.width
@@ -160,10 +167,16 @@ fileprivate class DescriptionView: UIView {
         return label.sizeThatFits(.zero)
     }
     
+    override func updateAppearance() {
+        super.updateAppearance()
+        
+        backgroundColor = .background
+        label.textColor = .color
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        backgroundColor = .background
         label.frame.size.width = bounds.size.width - (label.frame.origin.x * 2.0)
     }
     
@@ -203,14 +216,21 @@ fileprivate class DirectionView: UIView {
         return CGSize(width: originLabel.sizeThatFits(.zero).width + destinationLabel.sizeThatFits(.zero).width, height: originLabel.sizeThatFits(.zero).height)
     }
     
+    override func updateAppearance() {
+        super.updateAppearance()
+        
+        contentView.origin.backgroundColor = .background
+        contentView.destination.backgroundColor = .background
+        originLabel.textColor = .color
+        destinationLabel.textColor = .color
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.origin.backgroundColor = .background
         contentView.origin.frame.size.width = (bounds.size.width / 2.0) - 1.0
         contentView.origin.frame.size.height = bounds.size.height
         
-        contentView.destination.backgroundColor = contentView.origin.backgroundColor
         contentView.destination.frame.size = contentView.origin.frame.size
         contentView.destination.frame.origin.x = bounds.size.width - contentView.destination.frame.size.width
         
@@ -249,8 +269,7 @@ fileprivate class TripView: UIView {
         set {
             originView.isHighlighted = newValue.origin
             destinationView.isHighlighted = newValue.destination
-            setNeedsLayout()
-            layoutIfNeeded()
+            updateAppearance()
         }
         get {
             return (originView.isHighlighted, destinationView.isHighlighted)
@@ -275,14 +294,19 @@ fileprivate class TripView: UIView {
         return CGSize(width: frame.size.width, height: frame.size.width / aspectRatio.width)
     }
     
+    override func updateAppearance() {
+        super.updateAppearance()
+        
+        contentView.origin.backgroundColor = originView.departure != nil && isHighlighted.origin ? .clear : .background
+        contentView.destination.backgroundColor = destinationView.departure != nil && isHighlighted.destination ? .clear : .background
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.origin.backgroundColor = originView.departure != nil && isHighlighted.origin ? nil : .background
         contentView.origin.frame.size.width = (bounds.size.width / 2.0) - 1.0
         contentView.origin.frame.size.height = bounds.size.height
         
-        contentView.destination.backgroundColor = destinationView.departure != nil && isHighlighted.destination ? nil : .background
         contentView.destination.frame.size = contentView.origin.frame.size
         contentView.destination.frame.origin.x = bounds.size.width - contentView.destination.frame.size.width
         

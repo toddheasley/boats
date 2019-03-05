@@ -2,11 +2,21 @@ import UIKit
 
 extension UIColor {
     static var background: UIColor {
-        return .white
+        switch Appearance.current {
+        case .light:
+            return UIColor(white: 1.0, alpha: 1.0)
+        default:
+            return UIColor(white: 0.0, alpha: 1.0)
+        }
     }
     
     static var color: UIColor {
-        return .black
+        switch Appearance.current {
+        case .light:
+            return UIColor(white: 0.0, alpha: 1.0)
+        default:
+            return UIColor(white: 1.0, alpha: 1.0)
+        }
     }
 }
 

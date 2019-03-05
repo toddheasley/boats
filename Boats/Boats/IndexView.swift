@@ -18,6 +18,7 @@ class IndexView: UIView {
                 routeControl.addTarget(self, action: #selector(handleRoute(_:)), for: .touchUpInside)
                 contentView.addSubview(routeControl)
             }
+            updateAppearance()
             setNeedsLayout()
             layoutIfNeeded()
         }
@@ -54,18 +55,23 @@ class IndexView: UIView {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func updateAppearance() {
+        super.updateAppearance()
         
         backgroundColor = .background
         headerView.backgroundColor = backgroundColor
         
         contentView.backgroundColor = .color
         contentView.layer.borderColor = .color
-        contentView.frame.size.width = min(bounds.size.width - (.edgeInset * 2.0), .maxWidth)
         
         headerContentView.backgroundColor = contentView.backgroundColor
         headerContentView.layer.borderColor = contentView.layer.borderColor
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.frame.size.width = min(bounds.size.width - (.edgeInset * 2.0), .maxWidth)
         
         descriptionView.frame.size.width = contentView.bounds.size.width
         
@@ -141,10 +147,16 @@ fileprivate class DescriptionView: UIView {
         return label.sizeThatFits(.zero)
     }
     
+    override func updateAppearance() {
+        super.updateAppearance()
+        
+        backgroundColor = .background
+        label.textColor = .color
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        backgroundColor = .background
         label.frame.size.width = bounds.size.width - (label.frame.origin.x * 2.0)
     }
     
@@ -180,8 +192,7 @@ fileprivate class RouteControl: UIControl {
     // MARK: UIControl
     override var isHighlighted: Bool {
         didSet {
-            setNeedsLayout()
-            layoutIfNeeded()
+            updateAppearance()
         }
     }
     
@@ -189,20 +200,24 @@ fileprivate class RouteControl: UIControl {
         return CGSize(width: frame.size.width, height: frame.size.width / aspectRatio.width)
     }
     
+    override func updateAppearance() {
+        super.updateAppearance()
+        
+        backgroundColor = isHighlighted ? .color : .background
+        label.textColor = isHighlighted ? .background : .color
+        carView.tintColor = label.textColor
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        backgroundColor = isHighlighted ? .color : .background
-        
         label.isUserInteractionEnabled = false
         label.font = .systemFont(ofSize: label.bounds.size.height * 0.9, weight: .bold)
-        label.textColor = isHighlighted ? .background : .color
         label.frame.size.width = bounds.size.width - (label.frame.origin.x * 2.0)
         label.frame.size.height = (label.frame.size.width / 9.12) - .borderWidth
         label.frame.origin.y = (bounds.size.height - label.frame.size.height) / 2.0
         
         carView.isUserInteractionEnabled = false
-        carView.tintColor = label.textColor
         carView.frame.size.width = label.frame.size.height
         carView.frame.size.height = bounds.size.height
         carView.frame.origin.x = bounds.size.width - (carView.frame.size.width + label.frame.origin.x)

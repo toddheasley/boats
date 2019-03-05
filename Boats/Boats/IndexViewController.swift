@@ -5,6 +5,7 @@ import BoatsBot
 
 class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBarDelegate, IndexViewDelegate {
     @objc func refresh() {
+        (presentedViewController as? RouteViewController)?.refresh()
         URLSession.shared.index { index, _ in
             self.scrollView.refreshControl?.endRefreshing()
             self.index = index ?? self.index
@@ -37,22 +38,20 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
     }
     
     // MARK: UIViewController
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        refresh()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         open(route: index.current)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewDidChangeAppearance() {
+        super.viewDidChangeAppearance()
         
         view.backgroundColor = .background
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         scrollView.scrollIndicatorInsets.top = view.safeAreaInsets.top + navigationBar.frame.size.height
         scrollView.scrollIndicatorInsets.bottom = view.safeAreaInsets.bottom
@@ -81,6 +80,7 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         navigationBar.menu = (index.name, index.url)
         navigationBar.title = index.description
         navigationBar.delegate = self
+        navigationBar.showAppearance = true
         navigationBar.autoresizingMask = [.flexibleWidth]
         navigationBar.frame.size.width = view.bounds.size.width
         view.addSubview(navigationBar)
@@ -88,6 +88,9 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         indexView.delegate = self
         indexView.index = index
         scrollView.addSubview(indexView)
+        
+        setNeedsAppearanceUpdates()
+        refresh()
     }
     
     // MARK: UIScrollViewDelegate

@@ -85,16 +85,14 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
     }
     
     // MARK: UIViewController
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidChangeAppearance() {
+        super.viewDidChangeAppearance()
         
-        refresh()
+        view.backgroundColor = .background
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        view.backgroundColor = .background
         
         scrollView.scrollIndicatorInsets.top = view.safeAreaInsets.top + navigationBar.frame.size.height
         scrollView.scrollIndicatorInsets.bottom = view.safeAreaInsets.bottom
@@ -129,6 +127,9 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         navigationBar.autoresizingMask = [.flexibleWidth]
         navigationBar.frame.size.width = view.bounds.size.width
         view.addSubview(navigationBar)
+        
+        setNeedsAppearanceUpdates()
+        refresh()
     }
     
     // MARK: UIScrollViewDelegate

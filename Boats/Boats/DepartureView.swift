@@ -6,8 +6,7 @@ class DepartureView: UIView {
         set {
             timeView.isHighlighted = newValue
             deviationView.isHighlighted = newValue
-            setNeedsLayout()
-            layoutIfNeeded()
+            updateAppearance()
         }
         get {
             return timeView.isHighlighted
@@ -33,6 +32,12 @@ class DepartureView: UIView {
     private let carView: CarView = CarView()
     
     // MARK: UIView
+    override func updateAppearance() {
+        super.updateAppearance()
+        
+        carView.tintColor = isHighlighted ? .background : .color
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -56,7 +61,6 @@ class DepartureView: UIView {
         carView.frame = deviationView.frame
         
         deviationView.deviation = departure?.deviations.first
-        carView.tintColor = isHighlighted ? .background : .color
         carView.isCarFerry = deviationView.deviation == nil && (departure?.isCarFerry ?? false)
         timeView.time = departure?.time
     }

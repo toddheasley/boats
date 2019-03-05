@@ -4,8 +4,7 @@ import BoatsKit
 class TimeView: UIView {
     var isHighlighted: Bool = false {
         didSet {
-            setNeedsLayout()
-            layoutIfNeeded()
+            updateAppearance()
         }
     }
     
@@ -29,6 +28,17 @@ class TimeView: UIView {
     private let aspectRatio: CGSize = CGSize(width: 3.56, height: 1.0)
     
     // MARK: UIView
+    override func updateAppearance() {
+        super.updateAppearance()
+        
+        hourLabel.0.textColor = isHighlighted ? .background : .color
+        hourLabel.1.textColor = hourLabel.0.textColor
+        separatorLabel.textColor = hourLabel.0.textColor
+        minuteLabel.0.textColor = hourLabel.0.textColor
+        minuteLabel.1.textColor = hourLabel.0.textColor
+        periodLabel.textColor = hourLabel.0.textColor
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -43,33 +53,27 @@ class TimeView: UIView {
         contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
         
         hourLabel.0.font = .monospacedDigitSystemFont(ofSize: contentView.bounds.size.height * 1.1, weight: .bold)
-        hourLabel.0.textColor = isHighlighted ? .background : .color
         hourLabel.0.frame.size.width = contentView.bounds.size.width / 5.0
         hourLabel.0.frame.size.height = contentView.bounds.size.height
         
         hourLabel.1.font = hourLabel.0.font
-        hourLabel.1.textColor = hourLabel.0.textColor
         hourLabel.1.frame.size = hourLabel.0.frame.size
         hourLabel.1.frame.origin.x = hourLabel.0.frame.size.width
         
         separatorLabel.font = hourLabel.0.font
-        separatorLabel.textColor = hourLabel.0.textColor
         separatorLabel.frame.size.width = hourLabel.0.frame.size.width / 2.0
         separatorLabel.frame.size.height = hourLabel.0.frame.size.height
         separatorLabel.frame.origin.x = hourLabel.1.frame.origin.x + hourLabel.1.frame.size.width
         
         minuteLabel.0.font = hourLabel.0.font
-        minuteLabel.0.textColor = hourLabel.0.textColor
         minuteLabel.0.frame.size = hourLabel.0.frame.size
         minuteLabel.0.frame.origin.x = separatorLabel.frame.origin.x + separatorLabel.frame.size.width
         
         minuteLabel.1.font = hourLabel.0.font
-        minuteLabel.1.textColor = hourLabel.0.textColor
         minuteLabel.1.frame.size = hourLabel.0.frame.size
         minuteLabel.1.frame.origin.x = minuteLabel.0.frame.origin.x + minuteLabel.0.frame.size.width
         
         periodLabel.font = hourLabel.0.font
-        periodLabel.textColor = hourLabel.0.textColor
         periodLabel.frame.size = separatorLabel.frame.size
         periodLabel.frame.origin.x = contentView.bounds.size.width - periodLabel.frame.size.width
         

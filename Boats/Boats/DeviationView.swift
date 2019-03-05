@@ -4,8 +4,7 @@ import BoatsKit
 class DeviationView: UIView {
     var isHighlighted: Bool = false {
         didSet {
-            setNeedsLayout()
-            layoutIfNeeded()
+            updateAppearance()
         }
     }
     
@@ -26,6 +25,14 @@ class DeviationView: UIView {
     private let label: UILabel = UILabel()
     
     // MARK: UIView
+    override func updateAppearance() {
+        super.updateAppearance()
+        
+        contentView.backgroundColor = isHighlighted ? .background : .color
+        label.textColor = isHighlighted ? .color : .background
+        label.text = deviation?.description
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -43,10 +50,6 @@ class DeviationView: UIView {
         
         label.font = .systemFont(ofSize: contentView.bounds.size.height * 0.33)
         label.frame = contentView.bounds
-        
-        contentView.backgroundColor = isHighlighted ? .background : .color
-        label.textColor = isHighlighted ? .color : .background
-        label.text = deviation?.description
         
         accessibilityLabel = deviation?.description
     }
