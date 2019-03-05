@@ -63,6 +63,7 @@ class DepartureView: UIView {
         deviationView.deviation = departure?.deviations.first
         carView.isCarFerry = deviationView.deviation == nil && (departure?.isCarFerry ?? false)
         timeView.time = departure?.time
+        updateAppearance()
     }
     
     override init(frame: CGRect) {

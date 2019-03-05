@@ -27,6 +27,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
     private let scrollView: UIScrollView = UIScrollView()
     private let navigationBar: NavigationBar = NavigationBar()
     private var timetableViews: [TimetableView] = []
+    private var timer: Timer?
     
     private var index: Index = Index() {
         didSet {
@@ -47,16 +48,20 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
                 scrollView.addSubview(timetableView)
             }
             viewDidLayoutSubviews()
+            scrollToHighlighted(animated: true)
         }
     }
     
     private func scrollToHighlighted(animated: Bool = false) {
+        scrollViewDidScroll(scrollView)
         guard var rect: CGRect = highlight() else {
             return
         }
         rect.origin.y -= ((scrollView.bounds.size.height - rect.size.height) / 2.0) - (view.safeAreaInsets.bottom * 0.5)
         rect.size.height = scrollView.bounds.size.height
-        scrollView.scrollRectToVisible(rect, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + (animated ? 0.25 : 0.0)) {
+            self.scrollView.scrollRectToVisible(rect, animated: animated)
+        }
     }
     
     @discardableResult private func highlight(date: Date = Date()) -> CGRect? {
@@ -85,6 +90,10 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
     }
     
     // MARK: UIViewController
+    public override var preferredStatusBarStyle : UIStatusBarStyle {
+        return Appearance.current == .dark ? .lightContent : .default
+    }
+    
     override func viewDidChangeAppearance() {
         super.viewDidChangeAppearance()
         
@@ -108,6 +117,15 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         scrollView.contentSize.width = scrollView.bounds.size.width
         scrollView.contentSize.height = max(y + max(view.safeAreaInsets.bottom, 8.0), scrollView.bounds.size.height)
         highlight()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        timer?.invalidate()
+        timer = .scheduledTimer(withTimeInterval: 30.0, repeats: true) { _ in
+            self.highlight()
+        }
     }
     
     override func viewDidLoad() {
