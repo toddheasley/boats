@@ -120,7 +120,7 @@ class NavigationBar: UIView {
         menuLabel.frame.origin.x = 0.0
         menuLabel.alpha = min(max(1.0 - (contentOffset.y * 0.02), 0.0), 1.0)
         
-        appearanceControl.frame.size.width = menuLabel.frame.size.width
+        appearanceControl.frame.size.width = contentView.bounds.size.width
         appearanceControl.alpha = menuLabel.alpha
         appearanceControl.isHidden = !showAppearance || season != nil
         

@@ -21,6 +21,10 @@ enum Appearance: String, CaseIterable {
             return shared
         }
     }
+    
+    static var isDark: Bool {
+        return current == .dark
+    }
 }
 
 extension Appearance: CustomStringConvertible {

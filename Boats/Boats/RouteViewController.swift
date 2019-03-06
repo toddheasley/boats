@@ -59,6 +59,9 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         }
         rect.origin.y -= ((scrollView.bounds.size.height - rect.size.height) / 2.0) - (view.safeAreaInsets.bottom * 0.5)
         rect.size.height = scrollView.bounds.size.height
+        if rect.origin.y < navigationBar.intrinsicContentSize.height {
+            rect.origin.y = 0.0
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + (animated ? 0.25 : 0.0)) {
             self.scrollView.scrollRectToVisible(rect, animated: animated)
         }
@@ -91,7 +94,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
     
     // MARK: UIViewController
     public override var preferredStatusBarStyle : UIStatusBarStyle {
-        return Appearance.current == .dark ? .lightContent : .default
+        return Appearance.isDark ? .lightContent : .default
     }
     
     override func viewDidChangeAppearance() {

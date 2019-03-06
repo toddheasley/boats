@@ -39,7 +39,7 @@ class MenuLabel: UIControl {
         
         label.textColor = isHighlighted ? .background : .color
         contentView.backgroundColor = isHighlighted ? .color : nil
-        indicator.backgroundColor = label.textColor
+        indicator.backgroundColor = url == nil || isHighlighted ? .clear : label.textColor
     }
     
     override func layoutSubviews() {
@@ -52,7 +52,6 @@ class MenuLabel: UIControl {
         
         indicator.frame.origin.x = label.frame.origin.x + 1.0
         indicator.frame.size.width = label.frame.size.width - 2.0
-        indicator.isHidden = url == nil || isHighlighted
     }
     
     override init(frame: CGRect) {

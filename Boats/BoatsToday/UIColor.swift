@@ -2,7 +2,7 @@ import UIKit
 
 extension UIColor {
     static var background: UIColor {
-        return UIColor(white: 0.98, alpha: 0.54)
+        return UIColor(white: 0.89, alpha: 1.0)
     }
     
     static var color: UIColor {

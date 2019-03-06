@@ -52,7 +52,7 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
     
     // MARK: UIViewController
     public override var preferredStatusBarStyle : UIStatusBarStyle {
-        return Appearance.current == .dark ? .lightContent : .default
+        return Appearance.isDark ? .lightContent : .default
     }
     
     override func viewDidAppear(_ animated: Bool) {
