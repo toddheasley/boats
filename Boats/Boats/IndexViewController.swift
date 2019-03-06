@@ -3,7 +3,7 @@ import SafariServices
 import BoatsKit
 import BoatsBot
 
-class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBarDelegate, IndexViewDelegate {
+class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBarDelegate, IndexViewDelegate, RoutePresentationDelegate {
     @objc func refresh() {
         (presentedViewController as? RouteViewController)?.refresh()
         URLSession.shared.index { index, _ in
@@ -21,6 +21,7 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
             return
         }
         index.current = route
+        routeViewController.transitioningDelegate = self
         present(routeViewController, animated: animated, completion: nil)
     }
     
@@ -34,7 +35,19 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
             navigationBar.title = index.description
             indexView.index = index
             viewDidLayoutSubviews()
+            highlight(route: index.current)
         }
+    }
+    
+    @discardableResult private func highlight(route: Route? = nil) -> CGRect? {
+        var highlight: CGRect? = indexView.highlight(route: route)
+        highlight?.origin.x += indexView.frame.origin.x
+        highlight?.origin.y += indexView.frame.origin.y
+        return highlight
+    }
+    
+    private func clearHighlighted() {
+        indexView.clearHighlighted()
     }
     
     // MARK: UIViewController
@@ -46,6 +59,7 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         super.viewDidAppear(animated)
         
         open(route: index.current)
+        clearHighlighted()
     }
     
     override func viewDidChangeAppearance() {
@@ -115,5 +129,20 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
     // MARK: IndexViewDelegate
     func openIndex(view: IndexView, route: Route) {
         open(route: route, animated: true)
+    }
+    
+    // MARK: RoutePresentationDelegate
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return RoutePresentationController()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return RoutePresentationController()
+    }
+    
+    func animationOrigin() -> CGRect? {
+        var origin: CGRect? = highlight(route: index.current)
+        origin?.origin.y -= scrollView.contentOffset.y
+        return origin
     }
 }

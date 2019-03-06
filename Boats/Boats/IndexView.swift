@@ -31,6 +31,40 @@ class IndexView: UIView {
         }
     }
     
+    var highlighted: Route? {
+        for subview in contentView.subviews {
+            guard (subview as? RouteControl)?.isHighlighted ?? false else {
+                continue
+            }
+            return (subview as? RouteControl)?.route
+        }
+        return nil
+    }
+    
+    @discardableResult func highlight(route: Route? = nil) -> CGRect? {
+        guard let route: Route = route ?? highlighted else {
+            return nil
+        }
+        clearHighlighted()
+        for subview in contentView.subviews {
+            guard let routeControl: RouteControl = subview as? RouteControl, routeControl.route == route else {
+                continue
+            }
+            routeControl.isHighlighted = true
+            var frame: CGRect = routeControl.frame
+            frame.origin.x += contentView.frame.origin.x
+            frame.origin.y += contentView.frame.origin.y
+            return frame
+        }
+        return nil
+    }
+    
+    func clearHighlighted() {
+        for subview in contentView.subviews {
+            (subview as? RouteControl)?.isHighlighted = false
+        }
+    }
+    
     @objc func handleRoute(_ sender: AnyObject?) {
         guard let route: Route = (sender as? RouteControl)?.route else {
             return
@@ -92,7 +126,9 @@ class IndexView: UIView {
         contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
         contentView.isHidden = index.routes.isEmpty
         
-        headerView.frame.size.height = min(contentView.frame.origin.y + height + max(contentOffset.y - frame.origin.y, 0.0), (contentView.frame.origin.y + contentView.frame.size.height) - (contentView.subviews.last?.frame.size.height ?? (.cornerRadius * 2.0)))
+        let a: CGFloat = contentView.frame.origin.y + height + max(contentOffset.y - frame.origin.y, 0.0)
+        let b: CGFloat = (contentView.frame.origin.y + contentView.frame.size.height) - (contentView.subviews.last?.frame.size.height ?? (.cornerRadius * 2.0))
+        headerView.frame.size.height = min(a, b)
         headerView.frame.origin.y = 0.0
         headerView.isHidden = contentView.isHidden
         

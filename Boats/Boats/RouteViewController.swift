@@ -131,6 +131,8 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        modalPresentationStyle = .custom
+        
         scrollView.delegate = self
         scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.refreshControl = RefreshControl()

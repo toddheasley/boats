@@ -6,6 +6,6 @@ extension UIColor {
     }
     
     static var color: UIColor {
-        return UIColor(white: 0.0, alpha: 0.76)
+        return UIColor(white: 0.0, alpha: 0.81)
     }
 }

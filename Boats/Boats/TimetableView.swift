@@ -132,7 +132,9 @@ class TimetableView: UIView {
         contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
         contentView.isHidden = timetable == nil
         
-        headerView.frame.size.height = min(contentView.frame.origin.y + height + max(contentOffset.y - frame.origin.y, 0.0), (contentView.frame.origin.y + contentView.frame.size.height) - (contentView.subviews.last?.frame.size.height ?? (.cornerRadius * 2.0)))
+        let a: CGFloat = contentView.frame.origin.y + height + max(contentOffset.y - frame.origin.y, 0.0)
+        let b: CGFloat = (contentView.frame.origin.y + contentView.frame.size.height) - (contentView.subviews.last?.frame.size.height ?? (.cornerRadius * 2.0))
+        headerView.frame.size.height = min(a, b)
         headerView.frame.origin.y = 0.0
         headerView.isHidden = contentView.isHidden
         

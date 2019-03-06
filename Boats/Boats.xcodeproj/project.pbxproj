@@ -40,6 +40,7 @@
 		5C933140202A56AE00FE7B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C93313E202A56AE00FE7B02 /* Main.storyboard */; };
 		5C933142202A56AF00FE7B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C933141202A56AF00FE7B02 /* Assets.xcassets */; };
 		5C933145202A56AF00FE7B02 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C933143202A56AF00FE7B02 /* Launch.storyboard */; };
+		5CACFA65222ECBC2003C3C37 /* RoutePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CACFA64222ECBC2003C3C37 /* RoutePresentationController.swift */; };
 		5CC2C4CD221FD8930031A3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C933141202A56AF00FE7B02 /* Assets.xcassets */; };
 		5CC2C4CE221FD8950031A3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C933141202A56AF00FE7B02 /* Assets.xcassets */; };
 		5CC2C4CF221FD8A60031A3FE /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50A451221F070B00A25CD7 /* UIImage.swift */; };
@@ -201,6 +202,7 @@
 		5C933144202A56AF00FE7B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		5C933146202A56AF00FE7B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C9FAA712218F59400C71000 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5CACFA64222ECBC2003C3C37 /* RoutePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePresentationController.swift; sourceTree = "<group>"; };
 		5CC9A65D202A583B00B1B7F5 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC9A667202A5ADA00B1B7F5 /* BoatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC9A669202A5ADA00B1B7F5 /* AppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceTests.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				5C71A6B922284ACC00B82EC4 /* MenuLabel.swift */,
 				5CE0F49B222443E6009EE97D /* NavigationBar.swift */,
 				5C327C922228A612000A95F1 /* RefreshControl.swift */,
+				5CACFA64222ECBC2003C3C37 /* RoutePresentationController.swift */,
 				5CD20B182219EB59004B64BD /* RouteViewController.swift */,
 				5C1BFDE82225B9CE00F2ACA9 /* SeasonLabel.swift */,
 				5C450851221D95D10060F39E /* TimetableView.swift */,
@@ -693,6 +696,7 @@
 				5C19D3ED222DC44500097FEE /* AppearanceControl.swift in Sources */,
 				5C54894F221CEB6B0087B547 /* DepartureView.swift in Sources */,
 				5CDCFC3C22183E7700F7BB91 /* UIColor.swift in Sources */,
+				5CACFA65222ECBC2003C3C37 /* RoutePresentationController.swift in Sources */,
 				5CE0F49C222443E6009EE97D /* NavigationBar.swift in Sources */,
 				5CCF18F6222DFC580009809A /* UIView.swift in Sources */,
 				5C1BFDE92225B9CE00F2ACA9 /* SeasonLabel.swift in Sources */,
