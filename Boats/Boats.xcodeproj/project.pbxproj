@@ -19,7 +19,6 @@
 		5C2B495E202A614C005B4775 /* BoatsWatchExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5C2B495D202A614C005B4775 /* BoatsWatchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C2B4963202A614C005B4775 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4962202A614C005B4775 /* InterfaceController.swift */; };
 		5C2B4965202A614C005B4775 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4964202A614C005B4775 /* ExtensionDelegate.swift */; };
-		5C2B4967202A614C005B4775 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4966202A614C005B4775 /* NotificationController.swift */; };
 		5C2B4969202A614C005B4775 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4968202A614C005B4775 /* ComplicationController.swift */; };
 		5C2B496B202A614D005B4775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2B496A202A614D005B4775 /* Assets.xcassets */; };
 		5C2B4970202A614D005B4775 /* BoatsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C2B4951202A614B005B4775 /* BoatsWatch.app */; };
@@ -35,6 +34,10 @@
 		5C548953221D15C90087B547 /* DeviationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C548951221D15C90087B547 /* DeviationView.swift */; };
 		5C71A6BA22284ACC00B82EC4 /* MenuLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C71A6B922284ACC00B82EC4 /* MenuLabel.swift */; };
 		5C71A6BE222861AB00B82EC4 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C71A6BD222861AB00B82EC4 /* IndexView.swift */; };
+		5C79A23422306A3E0009D598 /* CLKComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79A23322306A3E0009D598 /* CLKComplication.swift */; };
+		5C79A2352230711D0009D598 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4966202A614C005B4775 /* NotificationController.swift */; };
+		5C79A23722308C4F0009D598 /* TimetableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79A23622308C4F0009D598 /* TimetableController.swift */; };
+		5C79A2392230D3C90009D598 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79A2382230D3C90009D598 /* UIColor.swift */; };
 		5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313A202A56AE00FE7B02 /* AppDelegate.swift */; };
 		5C93313D202A56AE00FE7B02 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313C202A56AE00FE7B02 /* IndexViewController.swift */; };
 		5C933140202A56AE00FE7B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C93313E202A56AE00FE7B02 /* Main.storyboard */; };
@@ -186,7 +189,6 @@
 		5C2B4968202A614C005B4775 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		5C2B496A202A614D005B4775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C2B496C202A614D005B4775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C2B496D202A614D005B4775 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		5C327C922228A612000A95F1 /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		5C450851221D95D10060F39E /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		5C50A451221F070B00A25CD7 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -195,6 +197,9 @@
 		5C548951221D15C90087B547 /* DeviationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviationView.swift; sourceTree = "<group>"; };
 		5C71A6B922284ACC00B82EC4 /* MenuLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLabel.swift; sourceTree = "<group>"; };
 		5C71A6BD222861AB00B82EC4 /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
+		5C79A23322306A3E0009D598 /* CLKComplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLKComplication.swift; sourceTree = "<group>"; };
+		5C79A23622308C4F0009D598 /* TimetableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableController.swift; sourceTree = "<group>"; };
+		5C79A2382230D3C90009D598 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5C93313A202A56AE00FE7B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C93313C202A56AE00FE7B02 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		5C93313F202A56AE00FE7B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -283,11 +288,13 @@
 			isa = PBXGroup;
 			children = (
 				5C2B496A202A614D005B4775 /* Assets.xcassets */,
+				5C79A23322306A3E0009D598 /* CLKComplication.swift */,
 				5C2B4968202A614C005B4775 /* ComplicationController.swift */,
 				5C2B4964202A614C005B4775 /* ExtensionDelegate.swift */,
 				5C2B4962202A614C005B4775 /* InterfaceController.swift */,
 				5C2B4966202A614C005B4775 /* NotificationController.swift */,
-				5C2B496D202A614D005B4775 /* PushNotificationPayload.apns */,
+				5C79A23622308C4F0009D598 /* TimetableController.swift */,
+				5C79A2382230D3C90009D598 /* UIColor.swift */,
 				5C007BCF2219A8BF00BCCD50 /* BoatsWatchExtension.entitlements */,
 				5C2B496C202A614D005B4775 /* Info.plist */,
 			);
@@ -675,10 +682,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C2B4967202A614C005B4775 /* NotificationController.swift in Sources */,
+				5C79A2352230711D0009D598 /* NotificationController.swift in Sources */,
 				5C2B4969202A614C005B4775 /* ComplicationController.swift in Sources */,
+				5C79A23422306A3E0009D598 /* CLKComplication.swift in Sources */,
 				5C2B4965202A614C005B4775 /* ExtensionDelegate.swift in Sources */,
 				5CC2C4CF221FD8A60031A3FE /* UIImage.swift in Sources */,
+				5C79A2392230D3C90009D598 /* UIColor.swift in Sources */,
+				5C79A23722308C4F0009D598 /* TimetableController.swift in Sources */,
 				5C2B4963202A614C005B4775 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -809,7 +819,7 @@
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				IBSC_MODULE = BoatsWatchExtension;
 				INFOPLIST_FILE = BoatsWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -829,7 +839,7 @@
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				IBSC_MODULE = BoatsWatchExtension;
 				INFOPLIST_FILE = BoatsWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -852,7 +862,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -875,7 +885,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

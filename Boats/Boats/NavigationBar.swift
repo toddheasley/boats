@@ -62,7 +62,7 @@ class NavigationBar: UIView {
                 delegate?.openNavigation(bar: self, url: url)
             }
         default:
-            delegate?.dismissNavigation(bar: self)
+            self.delegate?.dismissNavigation(bar: self)
         }
     }
     
@@ -150,7 +150,7 @@ class NavigationBar: UIView {
         contentView.frame.size.height = intrinsicContentSize.height
         addSubview(contentView)
         
-        menuButton.addTarget(self, action: #selector(handleMenu(_:)), for: .touchUpInside)
+        menuButton.addTarget(self, action: #selector(handleMenu(_:)), for: .touchDown)
         menuButton.frame.size.width = menuButton.intrinsicContentSize.width + .edgeInset + 4.0
         menuButton.frame.size.height = bounds.size.height
         addSubview(menuButton)

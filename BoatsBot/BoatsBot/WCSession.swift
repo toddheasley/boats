@@ -37,12 +37,19 @@ extension WCSession: WCSessionDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     #elseif os(watchOS)
+    public static let applicationContextDidChangeNotification: Notification.Name = Notification.Name("applicationContextDidChange")
+    
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        Index.context = session.receivedApplicationContext
+        update(context: session.receivedApplicationContext)
     }
     
-    public func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        Index.context = session.receivedApplicationContext
+    public func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
+        update(context: session.receivedApplicationContext)
+    }
+    
+    private func update(context: [String: Any]) {
+        Index.context = context
+        NotificationCenter.default.post(name: WCSession.applicationContextDidChangeNotification, object: nil)
     }
     #endif
 }

@@ -5,7 +5,7 @@ protocol RoutePresentationDelegate: UIViewControllerTransitioningDelegate {
 }
 
 class RoutePresentationController: NSObject, UIViewControllerAnimatedTransitioning {
-    private let duration: TimeInterval = 1.0
+    private let duration: TimeInterval = 0.75
     
     private func present(_ routeViewController: RouteViewController, from viewController: UIViewController, with context: UIViewControllerContextTransitioning) {
         context.containerView.backgroundColor = viewController.view.backgroundColor
@@ -53,8 +53,8 @@ class RoutePresentationController: NSObject, UIViewControllerAnimatedTransitioni
             view.alpha = 0.0
         }, completion: { _ in
             view.removeFromSuperview()
-            routeViewController.view.removeFromSuperview()
             routeViewController.view.layer.transform = CATransform3DIdentity
+            routeViewController.view.removeFromSuperview()
             context.completeTransition(true)
         })
     }

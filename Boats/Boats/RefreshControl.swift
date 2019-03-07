@@ -1,33 +1,32 @@
 import UIKit
 
 class RefreshControl: UIRefreshControl {
+    var contentInset: UIEdgeInsets {
+        set {
+            if newValue.top != y  {
+                y = newValue.top
+            }
+        }
+        get {
+            return UIEdgeInsets(top: y, left: 0.0, bottom: 0.0, right: 0.0)
+        }
+    }
+    
+    private var y: CGFloat = 0.0
     
     // MARK: UIRefreshControl
-    override func endRefreshing() {
-        super.endRefreshing()
+    override var frame: CGRect {
+        set {
+            super.frame = CGRect(x: newValue.origin.x, y: newValue.origin.y + y, width: newValue.size.width, height: newValue.size.height)
+        }
+        get {
+            return super.frame
+        }
     }
     
     override func updateAppearance() {
         super.updateAppearance()
         
-        
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        subviews.first?.isHidden = true
-        
-        // trigger height ~200.0
-    }
-    
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
-        
-        
-    }
-    
-    required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        tintColor = .color
     }
 }

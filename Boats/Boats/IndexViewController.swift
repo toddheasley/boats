@@ -55,17 +55,16 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         return Appearance.isDark ? .lightContent : .default
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        open(route: index.current)
-        clearHighlighted()
-    }
-    
     override func viewDidChangeAppearance() {
         super.viewDidChangeAppearance()
         
         view.backgroundColor = .background
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        
+        (scrollView.refreshControl as? RefreshControl)?.contentInset.top = view.safeAreaInsets.top
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,6 +80,13 @@ class IndexViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         
         scrollView.contentSize.width = scrollView.bounds.size.width
         scrollView.contentSize.height = max((indexView.frame.origin.y + indexView.frame.size.height) + max(view.safeAreaInsets.bottom, 8.0), scrollView.bounds.size.height)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        open(route: index.current)
+        clearHighlighted()
     }
     
     override func viewDidLoad() {

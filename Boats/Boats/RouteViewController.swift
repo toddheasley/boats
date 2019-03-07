@@ -103,6 +103,12 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
         view.backgroundColor = .background
     }
     
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        
+        (scrollView.refreshControl as? RefreshControl)?.contentInset.top = view.safeAreaInsets.top
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -170,7 +176,7 @@ class RouteViewController: UIViewController, UIScrollViewDelegate, NavigationBar
     }
     
     func dismissNavigation(bar: NavigationBar) {
-        index.current = nil
         dismiss(animated: true)
+        index.current = nil
     }
 }

@@ -72,7 +72,6 @@ class TimetableView: UIView {
         for trip in timetable.trips {
             contentView.addSubview(TripView(trip: trip))
         }
-        
         updateAppearance()
     }
     
