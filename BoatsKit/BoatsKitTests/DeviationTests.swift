@@ -6,6 +6,16 @@ class DeviationTests: XCTestCase {
 }
 
 extension DeviationTests {
+    func testDateDescription() {
+        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)).description(relativeTo: Date(timeIntervalSince1970: 1555732799.0)), "starts 4/20")
+        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)).description(relativeTo: Date(timeIntervalSince1970: 1555732800.0)), "started 4/20")
+        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)).description(), "starts 4/20")
+        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)).description(relativeTo: Date(timeIntervalSince1970: 1555819199.0)), "ends 4/20")
+        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)).description(relativeTo: Date(timeIntervalSince1970: 1555819200.0)), "ended 4/20")
+        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)).description(), "ends 4/20")
+        XCTAssertEqual(Deviation.holiday.description(relativeTo: Date()), "except holiday")
+        XCTAssertEqual(Deviation.holiday.description(), "except holiday")
+    }
     
     // MARK: CustomStringConvertible
     func testDescription() {

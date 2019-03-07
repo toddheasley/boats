@@ -5,18 +5,21 @@ public enum Deviation {
 }
 
 extension Deviation: CustomStringConvertible {
-    
-    // MARK: CustomStringConvertible
-    public var description: String {
+    public func description(relativeTo date: Date = Date(timeIntervalSince1970: 0.0)) -> String {
         DateFormatter.shared.dateFormat = "M/d"
         switch self {
-        case .start(let date):
-            return "starts \(DateFormatter.shared.string(from: date))"
-        case .end(let date):
-            return "ends \(DateFormatter.shared.string(from: date))"
+        case .start(let start):
+            return "\(start > date ? "starts" : "started") \(DateFormatter.shared.string(from: start))"
+        case .end(let end):
+            return "\(Date(timeInterval: 86400.0, since: end) > date ? "ends" : "ended") \(DateFormatter.shared.string(from: end))"
         case .holiday:
             return "except holiday"
         }
+    }
+    
+    // MARK: CustomStringConvertible
+    public var description: String {
+        return description()
     }
 }
 

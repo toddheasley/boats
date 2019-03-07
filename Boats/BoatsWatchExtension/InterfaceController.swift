@@ -42,11 +42,15 @@ class InterfaceController: WKInterfaceController {
                 controller.setHighlighted(index == 0)
             }
         } else {
-            table.setNumberOfRows(0, withRowType: "Timetable")
+            table.setNumberOfRows(1, withRowType: "Empty")
         }
     }
     
     // MARK: WKInterfaceController
+    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+        (WKExtension.shared().delegate as? ExtensionDelegate)?.refresh()
+    }
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         update()

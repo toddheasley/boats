@@ -14,11 +14,12 @@ class TimetableController: NSObject {
         minute1Label.setTextColor(color)
         minute2Label.setTextColor(color)
         periodLabel.setTextColor(color)
+        deviationLabel.setTextColor(color)
         carImage.setTintColor(color)
     }
     
     func setDay(_ day: Day? = nil) {
-        dayLabel.setText(day != nil ? "\(day!.abbreviated.prefix(2))" : nil)
+        dayLabel.setText(day?.abbreviated)
         setHighlighted(isHighlighted)
     }
     
@@ -31,6 +32,8 @@ class TimetableController: NSObject {
         minute2Label.setText(components?[4])
         periodLabel.setText(components?[5])
         carImage.setImage(departure?.isCarFerry ?? false ? .car : nil)
+        deviationGroup.setHidden(departure?.deviations.isEmpty ?? true)
+        deviationLabel.setText(departure?.deviations.first?.description(relativeTo: Date()))
         setHighlighted(isHighlighted)
     }
     
@@ -49,6 +52,8 @@ class TimetableController: NSObject {
     @IBOutlet weak var minute2Label: WKInterfaceLabel!
     @IBOutlet weak var periodLabel: WKInterfaceLabel!
     @IBOutlet weak var carImage: WKInterfaceImage!
+    @IBOutlet weak var deviationGroup: WKInterfaceGroup!
+    @IBOutlet weak var deviationLabel: WKInterfaceLabel!
     
     private var isHighlighted: Bool = false
 }
