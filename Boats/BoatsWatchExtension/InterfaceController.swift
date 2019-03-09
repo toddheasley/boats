@@ -15,30 +15,19 @@ class InterfaceController: WKInterfaceController {
     
     @IBOutlet weak var table: WKInterfaceTable!
     
-    private let maxDepartures: Int = 3
+    private let maxComplications: Int = 3
     
     private func update() {
         setTitle(route.name)
-        if let timetables: [Timetable] = route.schedule()?.current(), !timetables.isEmpty {
-            var departures: [(day: Day, departure: Departure, location: Location)] = []
-            for timetable in timetables {
-                for trip in timetable.trips {
-                    if departures.count < maxDepartures, let departure: Departure = trip.origin {
-                        departures.append((timetable.days.first!, departure, index.location))
-                    }
-                    if departures.count < maxDepartures, let departure: Departure = trip.destination {
-                        departures.append((timetable.days.first!, departure, route.location))
-                    }
-                }
-            }
-            table.setNumberOfRows(departures.count, withRowType: "Timetable")
-            for (index, departure) in departures.enumerated() {
+        let complications: [Complication] = index.complications()
+        if !complications.isEmpty {
+            table.setNumberOfRows(complications.count, withRowType: "Timetable")
+            table.scrollToRow(at: 0)
+            for (index, complication) in complications.enumerated() {
                 guard let controller: TimetableController = table.rowController(at: index) as? TimetableController else {
                     continue
                 }
-                controller.setDay(departure.day)
-                controller.setLocation(departure.location)
-                controller.setDeparture(departure.departure)
+                controller.setComplication(complication)
                 controller.setHighlighted(index == 0)
             }
         } else {

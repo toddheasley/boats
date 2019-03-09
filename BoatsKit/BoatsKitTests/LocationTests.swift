@@ -3,6 +3,17 @@ import CoreLocation
 @testable import BoatsKit
 
 class LocationTests: XCTestCase {
+    func testAbbreviated() {
+        XCTAssertEqual(Location.portland.abbreviated, "Portland")
+        XCTAssertEqual(Location.peaks.abbreviated, "Peaks")
+        XCTAssertEqual(Location.littleDiamond.abbreviated, "Little Diamond")
+        XCTAssertEqual(Location.greatDiamond.abbreviated, "Great Diamond")
+        XCTAssertEqual(Location.diamondCove.abbreviated, "Diamond Cove")
+        XCTAssertEqual(Location.long.abbreviated, "Long")
+        XCTAssertEqual(Location.chebeague.abbreviated, "Chebeague")
+        XCTAssertEqual(Location.cliff.abbreviated, "Cliff")
+        XCTAssertEqual(Location.bailey.abbreviated, "Bailey")
+    }
     
     // MARK: Codable
     func testDecodeInit() {

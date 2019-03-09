@@ -6,6 +6,10 @@ public struct Location: CustomStringConvertible, Codable {
     public private(set) var name: String
     public private(set) var description: String
     
+    public var abbreviated: String {
+        return name.replacingOccurrences(of: " Island", with: "")
+    }
+    
     init(coordinate: CLLocationCoordinate2D, name: String, description: String) {
         self.coordinate = coordinate
         self.name = name

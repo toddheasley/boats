@@ -2,25 +2,23 @@ import XCTest
 @testable import BoatsKit
 
 class DeviationTests: XCTestCase {
-    
+    func testIsExpired() {
+        XCTAssertFalse(Deviation.start(Date(timeIntervalSince1970: 4080340800.0)).isExpired)
+        XCTAssertTrue(Deviation.start(Date(timeIntervalSince1970: 1524196800.0)).isExpired)
+        XCTAssertFalse(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)).isExpired)
+        XCTAssertTrue(Deviation.end(Date(timeIntervalSince1970: 1524196800.0)).isExpired)
+        XCTAssertFalse(Deviation.holiday.isExpired)
+    }
 }
 
 extension DeviationTests {
-    func testDateDescription() {
-        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)).description(relativeTo: Date(timeIntervalSince1970: 1555732799.0)), "starts 4/20")
-        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)).description(relativeTo: Date(timeIntervalSince1970: 1555732800.0)), "started 4/20")
-        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)).description(), "starts 4/20")
-        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)).description(relativeTo: Date(timeIntervalSince1970: 1555819199.0)), "ends 4/20")
-        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)).description(relativeTo: Date(timeIntervalSince1970: 1555819200.0)), "ended 4/20")
-        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)).description(), "ends 4/20")
-        XCTAssertEqual(Deviation.holiday.description(relativeTo: Date()), "except holiday")
-        XCTAssertEqual(Deviation.holiday.description(), "except holiday")
-    }
     
     // MARK: CustomStringConvertible
     func testDescription() {
-        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)).description, "starts 4/20")
-        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)).description, "ends 4/20")
+        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 4080340800.0)).description, "starts 4/20")
+        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1524196800.0)).description, "started 4/20")
+        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)).description, "ends 4/20")
+        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1524196800.0)).description, "ended 4/20")
         XCTAssertEqual(Deviation.holiday.description, "except holiday")
     }
 }
@@ -29,13 +27,11 @@ extension DeviationTests {
     
     // MARK: Equatable
     func testEqual() {
-        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)), .start(Date(timeIntervalSince1970: 1555732800.0)))
-        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)), .start(Date(timeIntervalSince1970: 1524196800.0)))
-        XCTAssertNotEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)), .start(Date(timeIntervalSince1970: 1546318800.0)))
-        XCTAssertNotEqual(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)), .end(Date(timeIntervalSince1970: 1555732800.0)))
-        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)), .end(Date(timeIntervalSince1970: 1555732800.0)))
-        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)), .end(Date(timeIntervalSince1970: 1524196800.0)))
-        XCTAssertNotEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)), .end(Date(timeIntervalSince1970: 1546318800.0)))
+        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 4080340800.0)), Deviation.start(Date(timeIntervalSince1970: 4080340800.0)))
+        XCTAssertNotEqual(Deviation.start(Date(timeIntervalSince1970: 4080340800.0)), Deviation.start(Date(timeIntervalSince1970: 1524196800.0)))
+        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)), Deviation.end(Date(timeIntervalSince1970: 4080340800.0)))
+        XCTAssertNotEqual(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)), Deviation.end(Date(timeIntervalSince1970: 1524196800.0)))
+        XCTAssertNotEqual(Deviation.start(Date(timeIntervalSince1970: 4080340800.0)), Deviation.end(Date(timeIntervalSince1970: 4080340800.0)))
         XCTAssertNotEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)), .holiday)
         XCTAssertEqual(Deviation.holiday, .holiday)
     }

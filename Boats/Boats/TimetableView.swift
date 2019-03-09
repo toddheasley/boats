@@ -63,8 +63,8 @@ class TimetableView: UIView {
         descriptionView.frame.size.height = 42.0
         headerContentView.addSubview(descriptionView)
         
-        directionView.text.origin = "Depart \(origin.name)"
-        directionView.text.destination = "Depart \(destination.name.replacingOccurrences(of: " Island", with: ""))"
+        directionView.text.origin = "Depart \(origin.abbreviated)"
+        directionView.text.destination = "Depart \(destination.abbreviated)"
         directionView.frame.origin.y = (descriptionView.frame.origin.y + descriptionView.frame.size.height) + contentView.layer.borderWidth
         directionView.frame.size.height = 27.0
         headerContentView.addSubview(directionView)

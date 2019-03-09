@@ -17,7 +17,7 @@
                         <table alignment="left" spacing="8" id="qQm-Hu-oS8">
                             <items>
                                 <tableRow identifier="Timetable" selectable="NO" id="IVO-5V-Q8O" customClass="TimetableController" customModule="BoatsWatchExtension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="4" spacing="0.0" id="ez9-7N-3vJ">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="6" spacing="0.0" id="ez9-7N-3vJ">
                                         <items>
                                             <group width="1" alignment="left" radius="0.0" spacing="0.0" id="nuW-si-AjY">
                                                 <items>
@@ -25,7 +25,7 @@
                                                         <fontDescription key="font" type="system" weight="semibold" pointSize="12"/>
                                                     </label>
                                                 </items>
-                                                <edgeInsets key="margins" left="5" right="5" top="4" bottom="4"/>
+                                                <edgeInsets key="margins" left="5" right="5" top="5" bottom="5"/>
                                             </group>
                                             <group width="1" height="2" alignment="left" radius="0.0" spacing="0.0" id="2aP-0S-OlT">
                                                 <color key="backgroundColor" white="0.040000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,37 +39,51 @@
                                                                 <fontDescription key="font" type="system" weight="semibold" pointSize="17"/>
                                                             </label>
                                                         </items>
-                                                        <edgeInsets key="margins" left="5" right="2" top="1" bottom="1"/>
+                                                        <edgeInsets key="margins" left="5" right="2" top="2" bottom="2"/>
                                                     </group>
                                                     <group width="2" height="1" alignment="center" verticalAlignment="center" radius="0.0" spacing="0.0" id="aHZ-Be-gNi">
                                                         <color key="backgroundColor" white="0.040000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                                     </group>
-                                                    <group alignment="right" verticalAlignment="center" radius="0.0" spacing="0.0" id="g1z-5P-fAd">
+                                                    <group alignment="right" verticalAlignment="center" layout="overlap" radius="0.0" spacing="0.0" id="g1z-5P-fAd">
                                                         <items>
-                                                            <label width="13" alignment="left" verticalAlignment="center" text="0" textAlignment="center" id="PZj-CI-DkC">
-                                                                <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
-                                                            </label>
-                                                            <label width="13" alignment="left" verticalAlignment="center" text="0" textAlignment="center" id="wLc-sy-jQ0">
-                                                                <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
-                                                            </label>
-                                                            <label width="6" alignment="left" verticalAlignment="center" text=":" textAlignment="center" id="0Qx-Hh-JIw">
-                                                                <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
-                                                            </label>
-                                                            <label width="13" alignment="left" verticalAlignment="center" text="0" textAlignment="center" id="OGr-cx-Epg">
-                                                                <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
-                                                            </label>
-                                                            <label width="13" alignment="left" verticalAlignment="center" text="0" textAlignment="center" id="aWU-uz-lAZ">
-                                                                <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
-                                                            </label>
-                                                            <label width="7" alignment="left" verticalAlignment="center" text="." textAlignment="center" id="p3b-1z-ZUR">
-                                                                <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
-                                                            </label>
-                                                            <imageView width="18" height="16" alignment="center" verticalAlignment="center" image="Car" contentMode="scaleAspectFit" id="dO1-8X-nGf">
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </imageView>
+                                                            <group width="1" alignment="center" verticalAlignment="center" layout="vertical" radius="0.0" spacing="0.0" id="LjX-Xk-YkD">
+                                                                <items>
+                                                                    <group width="0.69999999999999996" widthAdjustment="2" height="2" alignment="left" verticalAlignment="center" hidden="YES" layout="overlap" radius="1" spacing="0.0" id="6rI-Bd-ozy">
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                                                    </group>
+                                                                </items>
+                                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                                            </group>
+                                                            <group alignment="center" verticalAlignment="center" radius="0.0" spacing="0.0" id="J36-fg-azA">
+                                                                <items>
+                                                                    <label width="13" alignment="left" verticalAlignment="center" text="0" textAlignment="center" id="PZj-CI-DkC">
+                                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
+                                                                    </label>
+                                                                    <label width="13" alignment="left" verticalAlignment="center" text="0" textAlignment="center" id="wLc-sy-jQ0">
+                                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
+                                                                    </label>
+                                                                    <label width="6" alignment="left" verticalAlignment="center" text=":" textAlignment="center" id="0Qx-Hh-JIw">
+                                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
+                                                                    </label>
+                                                                    <label width="13" alignment="left" verticalAlignment="center" text="0" textAlignment="center" id="OGr-cx-Epg">
+                                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
+                                                                    </label>
+                                                                    <label width="13" alignment="left" verticalAlignment="center" text="0" textAlignment="center" id="aWU-uz-lAZ">
+                                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
+                                                                    </label>
+                                                                    <label width="7" alignment="left" verticalAlignment="center" text="." textAlignment="center" id="p3b-1z-ZUR">
+                                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
+                                                                    </label>
+                                                                    <imageView width="18" height="16" alignment="center" verticalAlignment="center" image="Car" contentMode="scaleAspectFit" id="dO1-8X-nGf">
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </imageView>
+                                                                </items>
+                                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                                            </group>
                                                         </items>
-                                                        <edgeInsets key="margins" left="2" right="5" top="1" bottom="1"/>
+                                                        <edgeInsets key="margins" left="1" right="4" top="1" bottom="1"/>
                                                     </group>
                                                 </items>
                                                 <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
@@ -82,11 +96,11 @@
                                                     </group>
                                                     <group width="1" alignment="left" radius="0.0" spacing="0.0" id="DSh-Af-JWt">
                                                         <items>
-                                                            <label alignment="left" text="except holiday" textAlignment="left" id="5bl-bM-d1y">
+                                                            <label alignment="left" verticalAlignment="center" text="except holiday" textAlignment="left" id="5bl-bM-d1y">
                                                                 <fontDescription key="font" type="system" weight="semibold" pointSize="10"/>
                                                             </label>
                                                         </items>
-                                                        <edgeInsets key="margins" left="5" right="5" top="4" bottom="4"/>
+                                                        <edgeInsets key="margins" left="5" right="5" top="5" bottom="5"/>
                                                     </group>
                                                 </items>
                                                 <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
@@ -107,6 +121,7 @@
                                         <outlet property="minute2Label" destination="aWU-uz-lAZ" id="8LV-yq-uKP"/>
                                         <outlet property="periodLabel" destination="p3b-1z-ZUR" id="wgR-0u-DLw"/>
                                         <outlet property="separatorLabel" destination="0Qx-Hh-JIw" id="AsD-nN-sgN"/>
+                                        <outlet property="strikeGroup" destination="6rI-Bd-ozy" id="ceC-U0-vpz"/>
                                     </connections>
                                 </tableRow>
                                 <tableRow identifier="Empty" id="EuL-r1-9mr" customClass="EmptyController" customModule="BoatsWatchExtension">

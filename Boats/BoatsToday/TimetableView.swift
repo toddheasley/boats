@@ -1,10 +1,9 @@
 import UIKit
 import BoatsKit
+import BoatsBot
 
 class TimetableView: UIView {
-    private(set) var day: Day!
-    private(set) var departure: Departure!
-    private(set) var location: Location!
+    private(set) var complication: Complication!
     
     var isHighlighted: Bool {
         set {
@@ -17,12 +16,10 @@ class TimetableView: UIView {
         }
     }
     
-    required init(day: Day, departure: Departure, location: Location) {
+    required init(complication: Complication) {
         super.init(frame: .zero)
         
-        self.day = day
-        self.departure = departure
-        self.location = location
+        self.complication = complication
         
         contentView.clipsToBounds = true
         contentView.layer.borderColor = UIColor.color.cgColor
@@ -38,7 +35,7 @@ class TimetableView: UIView {
         contentView.addSubview(background.location)
         
         locationLabel.font = .systemFont(ofSize: 16.0, weight: .bold)
-        locationLabel.text = "Depart \(location.name)"
+        locationLabel.text = "Depart \(complication.origin.abbreviated)"
         locationLabel.frame.origin.x = .edgeInset
         locationLabel.frame.origin.y = 2.0
         locationLabel.frame.size.height = background.location.bounds.size.height - locationLabel.frame.origin.y
@@ -62,12 +59,12 @@ class TimetableView: UIView {
         contentView.addSubview(background.day)
         
         dayLabel.font = .systemFont(ofSize: 40.0, weight: .bold)
-        dayLabel.text = day.abbreviated
+        dayLabel.text = complication.day.abbreviated
         dayLabel.frame.size.height = background.day.frame.size.height
         dayLabel.frame.origin.x = locationLabel.frame.origin.x
         background.day.addSubview(dayLabel)
         
-        departureView.departure = departure
+        departureView.departure = complication.departure
         departureView.frame.size.width = 168.0
         departureView.frame.size.height = separator.vertical.frame.size.height
         departureView.frame.origin.x = .edgeInset

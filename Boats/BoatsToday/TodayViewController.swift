@@ -18,15 +18,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             for subview in contentView.subviews {
                 subview.removeFromSuperview()
             }
-            for timetable in route.schedule()?.current() ?? [] {
-                for trip in timetable.trips {
-                    if contentView.subviews.count < maxDepartures, let departure: Departure = trip.origin {
-                        contentView.addSubview(TimetableView(day: timetable.days.first!, departure: departure, location: index.location))
-                    }
-                    if contentView.subviews.count < maxDepartures, let departure: Departure = trip.destination {
-                        contentView.addSubview(TimetableView(day: timetable.days.first!, departure: departure, location: route.location))
-                    }
-                }
+            for complication in index.complications(limit: 3) {
+                contentView.addSubview(TimetableView(complication: complication))
             }
             (contentView.subviews.first as? TimetableView)?.isHighlighted = true
             viewDidLayoutSubviews()

@@ -36,7 +36,16 @@ class DeviationView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.isHidden = deviation == nil
+        if let deviation: Deviation = deviation {
+            switch deviation {
+            case .start:
+                contentView.isHidden = deviation.isExpired
+            default:
+                contentView.isHidden = false
+            }
+        } else {
+            contentView.isHidden = true
+        }
         if frame.size.width / frame.size.height > aspectRatio.width {
             contentView.frame.size.height = frame.size.height * 0.9
             contentView.frame.size.width = contentView.frame.size.height * aspectRatio.width

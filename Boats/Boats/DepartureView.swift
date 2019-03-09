@@ -27,6 +27,7 @@ class DepartureView: UIView {
     
     private let aspectRatio: CGSize = CGSize(width: 4.56, height: 1.0)
     private let contentView: UIView = UIView()
+    private let strikeView: UIView = UIView()
     private let timeView: TimeView = TimeView()
     private let deviationView: DeviationView = DeviationView()
     private let carView: CarView = CarView()
@@ -35,7 +36,8 @@ class DepartureView: UIView {
     override func updateAppearance() {
         super.updateAppearance()
         
-        carView.tintColor = isHighlighted ? .background : .color
+        strikeView.backgroundColor = isHighlighted ? .background : .color
+        carView.tintColor = strikeView.backgroundColor
     }
     
     override func layoutSubviews() {
@@ -58,11 +60,26 @@ class DepartureView: UIView {
         timeView.frame.size.height = deviationView.frame.size.height
         timeView.frame.size.width = deviationView.frame.origin.x
         
+        strikeView.frame.size.width = timeView.frame.size.width * 0.9
+        strikeView.frame.size.height = max(timeView.frame.size.height * 0.25, 2.0)
+        strikeView.frame.origin.x = timeView.frame.origin.x + ((timeView.frame.size.width - strikeView.frame.size.width) / 4.0)
+        strikeView.frame.origin.y = timeView.frame.origin.y + ((timeView.frame.size.height - strikeView.frame.size.height) / 1.8)
+        
         carView.frame = deviationView.frame
         
         deviationView.deviation = departure?.deviations.first
         carView.isCarFerry = deviationView.deviation == nil && (departure?.isCarFerry ?? false)
         timeView.time = departure?.time
+        
+        strikeView.isHidden = true
+        if let deviation: Deviation = departure?.deviations.first {
+            switch deviation {
+            case .end:
+                strikeView.isHidden = !deviation.isExpired
+            default:
+                break
+            }
+        }
         updateAppearance()
     }
     
@@ -75,6 +92,10 @@ class DepartureView: UIView {
         contentView.addSubview(timeView)
         contentView.addSubview(deviationView)
         contentView.addSubview(carView)
+        
+        strikeView.isHidden = true
+        strikeView.layer.cornerRadius = 1.5
+        contentView.addSubview(strikeView)
     }
     
     required init?(coder decoder: NSCoder) {

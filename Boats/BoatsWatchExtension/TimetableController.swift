@@ -1,5 +1,6 @@
 import WatchKit
 import BoatsKit
+import BoatsBot
 
 class TimetableController: NSObject {
     func setHighlighted(_ highlighted: Bool = false) {
@@ -16,29 +17,32 @@ class TimetableController: NSObject {
         periodLabel.setTextColor(color)
         deviationLabel.setTextColor(color)
         carImage.setTintColor(color)
+        strikeGroup.setBackgroundColor(color)
     }
     
-    func setDay(_ day: Day? = nil) {
-        dayLabel.setText(day?.abbreviated)
-        setHighlighted(isHighlighted)
-    }
-    
-    func setDeparture(_ departure: Departure? = nil) {
-        let components: [String]? = departure?.time.descriptionComponents
+    func setComplication(_ complication: Complication?) {
+        dayLabel.setText(complication?.day.abbreviated)
+        let components: [String]? = complication?.departure.time.descriptionComponents
         hour1Label.setText(components?[0])
         hour2Label.setText(components?[1])
         separatorLabel.setText(components?[2])
         minute1Label.setText(components?[3])
         minute2Label.setText(components?[4])
         periodLabel.setText(components?[5])
-        carImage.setImage(departure?.isCarFerry ?? false ? .car : nil)
-        deviationGroup.setHidden(departure?.deviations.isEmpty ?? true)
-        deviationLabel.setText(departure?.deviations.first?.description(relativeTo: Date()))
-        setHighlighted(isHighlighted)
-    }
-    
-    func setLocation(_ location: Location? = nil) {
-        locationLabel.setText(location != nil ? "Depart \(location!.name.replacingOccurrences(of: " Island", with: ""))" : nil)
+        carImage.setImage(complication?.departure.isCarFerry ?? false ? .car : nil)
+        deviationGroup.setHidden(complication?.departure.deviations.isEmpty ?? true)
+        deviationLabel.setText(complication?.departure.deviations.first?.description)
+        locationLabel.setText(complication != nil ? "Depart \(complication!.origin.abbreviated)" : nil)
+        if let deviation: Deviation = complication?.departure.deviations.first {
+            switch deviation {
+            case .end:
+                strikeGroup.setHidden(!deviation.isExpired)
+            default:
+                strikeGroup.setHidden(true)
+            }
+        } else {
+            strikeGroup.setHidden(true)
+        }
         setHighlighted(isHighlighted)
     }
     
@@ -54,6 +58,7 @@ class TimetableController: NSObject {
     @IBOutlet weak var carImage: WKInterfaceImage!
     @IBOutlet weak var deviationGroup: WKInterfaceGroup!
     @IBOutlet weak var deviationLabel: WKInterfaceLabel!
+    @IBOutlet weak var strikeGroup: WKInterfaceGroup!
     
     private var isHighlighted: Bool = false
 }

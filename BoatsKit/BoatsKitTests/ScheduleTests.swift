@@ -7,10 +7,6 @@ class ScheduleTests: XCTestCase {
         XCTAssertEqual(Schedule(season: Season(name: .winter, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1539057600), end: Date(timeIntervalSince1970: 1546664399.9))), timetables: []).isExpired, Date() > Date(timeIntervalSince1970: 1546664399.9))
     }
     
-    func testCurrent() {
-        
-    }
-    
     func testTimetable() {
         let schedule: Schedule = Schedule(season: Season(name: .summer, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1529121600.0), end: Date(timeIntervalSince1970: 1536033599.9))), timetables: [
             Timetable(trips: [Timetable.Trip()], days: [.monday, .tuesday, .wednesday, .thursday]),

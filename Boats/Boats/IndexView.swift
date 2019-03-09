@@ -249,6 +249,7 @@ fileprivate class RouteControl: UIControl {
         
         label.isUserInteractionEnabled = false
         label.font = .systemFont(ofSize: label.bounds.size.height * 0.9, weight: .bold)
+        print("*** \(label.font.pointSize)")
         label.frame.size.width = bounds.size.width - (label.frame.origin.x * 2.0)
         label.frame.size.height = (label.frame.size.width / 9.12) - .borderWidth
         label.frame.origin.y = (bounds.size.height - label.frame.size.height) / 2.0
@@ -267,7 +268,6 @@ fileprivate class RouteControl: UIControl {
         addSubview(carView)
         
         label.numberOfLines = 1
-        label.autoresizingMask = [.flexibleHeight]
         label.frame.origin.x = 9.0
         addSubview(label)
     }
