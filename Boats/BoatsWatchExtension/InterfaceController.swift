@@ -9,16 +9,12 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    var route: Route {
-        return index.current ?? index.routes.first!
-    }
-    
     @IBOutlet weak var table: WKInterfaceTable!
     
     private let maxComplications: Int = 3
     
     private func update() {
-        setTitle(route.name)
+        setTitle(index.route?.name)
         let complications: [Complication] = index.complications()
         if !complications.isEmpty {
             table.setNumberOfRows(complications.count, withRowType: "Timetable")
@@ -27,8 +23,7 @@ class InterfaceController: WKInterfaceController {
                 guard let controller: TimetableController = table.rowController(at: index) as? TimetableController else {
                     continue
                 }
-                controller.setComplication(complication)
-                controller.setHighlighted(index == 0)
+                controller.setComplication(complication, highlighted: index == 0)
             }
         } else {
             table.setNumberOfRows(1, withRowType: "Empty")

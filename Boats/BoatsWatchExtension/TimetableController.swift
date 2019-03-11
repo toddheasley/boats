@@ -20,7 +20,7 @@ class TimetableController: NSObject {
         strikeGroup.setBackgroundColor(color)
     }
     
-    func setComplication(_ complication: Complication?) {
+    func setComplication(_ complication: Complication?, highlighted: Bool = false) {
         dayLabel.setText(complication?.day.abbreviated)
         let components: [String]? = complication?.departure.time.descriptionComponents
         hour1Label.setText(components?[0])
@@ -43,7 +43,7 @@ class TimetableController: NSObject {
         } else {
             strikeGroup.setHidden(true)
         }
-        setHighlighted(isHighlighted)
+        setHighlighted(highlighted)
     }
     
     @IBOutlet weak var backgroundGroup: WKInterfaceGroup!

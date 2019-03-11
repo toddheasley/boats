@@ -26,10 +26,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    private var route: Route {
-        return index.current ?? index.routes.first!
-    }
-    
     // MARK: UIViewController
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

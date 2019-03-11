@@ -38,6 +38,7 @@
 		5C79A2352230711D0009D598 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2B4966202A614C005B4775 /* NotificationController.swift */; };
 		5C79A23722308C4F0009D598 /* TimetableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79A23622308C4F0009D598 /* TimetableController.swift */; };
 		5C79A2392230D3C90009D598 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C79A2382230D3C90009D598 /* UIColor.swift */; };
+		5C7E02322234527100DC6F8A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E02312234527100DC6F8A /* UIImage.swift */; };
 		5C93313B202A56AE00FE7B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313A202A56AE00FE7B02 /* AppDelegate.swift */; };
 		5C93313D202A56AE00FE7B02 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93313C202A56AE00FE7B02 /* IndexViewController.swift */; };
 		5C933140202A56AE00FE7B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C93313E202A56AE00FE7B02 /* Main.storyboard */; };
@@ -48,7 +49,6 @@
 		5C940D452231836E007B3B30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C933141202A56AF00FE7B02 /* Assets.xcassets */; };
 		5C940D4622318375007B3B30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C933141202A56AF00FE7B02 /* Assets.xcassets */; };
 		5CACFA65222ECBC2003C3C37 /* RoutePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CACFA64222ECBC2003C3C37 /* RoutePresentationController.swift */; };
-		5CC2C4CF221FD8A60031A3FE /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50A451221F070B00A25CD7 /* UIImage.swift */; };
 		5CC9A66A202A5ADA00B1B7F5 /* AppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC9A669202A5ADA00B1B7F5 /* AppearanceTests.swift */; };
 		5CCF18EF222DCDE00009809A /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C19D3EA222DBA0600097FEE /* Appearance.swift */; };
 		5CCF18F1222DF1CA0009809A /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCF18F0222DF1CA0009809A /* UIViewController.swift */; };
@@ -202,6 +202,7 @@
 		5C79A23322306A3E0009D598 /* CLKComplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLKComplication.swift; sourceTree = "<group>"; };
 		5C79A23622308C4F0009D598 /* TimetableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableController.swift; sourceTree = "<group>"; };
 		5C79A2382230D3C90009D598 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		5C7E02312234527100DC6F8A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5C93313A202A56AE00FE7B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C93313C202A56AE00FE7B02 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		5C93313F202A56AE00FE7B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -299,6 +300,7 @@
 				5C2B4966202A614C005B4775 /* NotificationController.swift */,
 				5C79A23622308C4F0009D598 /* TimetableController.swift */,
 				5C79A2382230D3C90009D598 /* UIColor.swift */,
+				5C7E02312234527100DC6F8A /* UIImage.swift */,
 				5C007BCF2219A8BF00BCCD50 /* BoatsWatchExtension.entitlements */,
 				5C2B496C202A614D005B4775 /* Info.plist */,
 			);
@@ -688,10 +690,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C79A2352230711D0009D598 /* NotificationController.swift in Sources */,
+				5C7E02322234527100DC6F8A /* UIImage.swift in Sources */,
 				5C2B4969202A614C005B4775 /* ComplicationController.swift in Sources */,
 				5C79A23422306A3E0009D598 /* CLKComplication.swift in Sources */,
 				5C2B4965202A614C005B4775 /* ExtensionDelegate.swift in Sources */,
-				5CC2C4CF221FD8A60031A3FE /* UIImage.swift in Sources */,
 				5C79A2392230D3C90009D598 /* UIColor.swift in Sources */,
 				5C940D43223152E5007B3B30 /* EmptyController.swift in Sources */,
 				5C79A23722308C4F0009D598 /* TimetableController.swift in Sources */,

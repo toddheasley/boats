@@ -2,6 +2,10 @@ import Foundation
 import BoatsKit
 
 extension Index {
+    public var route: Route? {
+        return current ?? routes.first
+    }
+    
     public var current: Route? {
         set {
             UserDefaults.shared.set(data: newValue?.uri.data(using: .utf8), for: Key.current)
@@ -39,13 +43,18 @@ extension Index {
 }
 
 extension Index {
-    public func complications(from date: Date = Date(), limit: Int = 100) -> [Complication] {
+    public func complications(from date: Date = Date(), limit: Int = 100, filter: Bool = false) -> [Complication] {
         guard limit > 0 else {
             return []
         }
         var complications: [Complication] = self.complications(date)
         if complications.count < limit {
             complications.append(contentsOf: self.complications(Calendar.current.startOfDay(for: Date(timeInterval: 129600.0, since: Calendar.current.startOfDay(for: date)))))
+        }
+        if filter {
+            complications = complications.filter { complication in
+                return !complication.isExpired
+            }
         }
         if complications.count > limit {
             complications = Array(complications[0..<limit])

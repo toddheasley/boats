@@ -7,6 +7,16 @@ class IndexTests: XCTestCase {
 }
 
 extension IndexTests {
+    func testRoute() {
+        var index: Index = Index()
+        index.current = .chebeague
+        XCTAssertNotNil(index.route)
+        XCTAssertEqual(index.route, .chebeague)
+        index.current = nil
+        XCTAssertNotNil(index.route)
+        XCTAssertEqual(index.route, index.routes.first)
+    }
+    
     func testCurrent() {
         var index: Index = Index()
         index.current = index.routes.last
