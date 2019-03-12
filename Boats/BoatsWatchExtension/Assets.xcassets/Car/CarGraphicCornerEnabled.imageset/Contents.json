@@ -7,7 +7,7 @@
     },
     {
       "idiom" : "watch",
-      "filename" : "Car-12@2x.png",
+      "filename" : "Car-20@2x.png",
       "screen-width" : ">161",
       "scale" : "2x"
     },
@@ -18,7 +18,7 @@
     },
     {
       "idiom" : "watch",
-      "filename" : "Car-14@2x.png",
+      "filename" : "Car-22@2x.png",
       "screen-width" : ">183",
       "scale" : "2x"
     }
@@ -26,8 +26,5 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
-  },
-  "properties" : {
-    "template-rendering-intent" : "original"
   }
 }

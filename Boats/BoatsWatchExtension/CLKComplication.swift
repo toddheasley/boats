@@ -3,63 +3,92 @@ import BoatsKit
 import BoatsBot
 
 extension CLKComplication {
-    func template(complications: [Complication] = [.template]) -> CLKComplicationTemplate? {
+    func template(complications: [Complication] = .template) -> CLKComplicationTemplate? {
         switch self.family {
         case .graphicBezel:
-            guard let complication: Complication = complications.first, !complication.isExpired,
-                let image: UIImage = .car(family: .graphicCircular) else {
+            guard let complication: Complication = complications.first,
+                let image: UIImage = .car(family: .graphicCircular, enabled: complication.departure.isCarFerry) else {
                 return nil
             }
+            let circularTemplate: CLKComplicationTemplateGraphicCircularImage = CLKComplicationTemplateGraphicCircularImage()
+            circularTemplate.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
             let template: CLKComplicationTemplateGraphicBezelCircularText = CLKComplicationTemplateGraphicBezelCircularText()
-            template.textProvider = CLKSimpleTextProvider(text: "Depart \(complication.origin.abbreviated) \(complication.day.abbreviated) \(complication.departure.time)", shortText: "Dep. \(complication.origin.abbreviated) \(complication.departure.time)")
-            template.circularTemplate = CLKComplicationTemplateGraphicCircularImage()
-            (template.circularTemplate as? CLKComplicationTemplateGraphicCircularImage)?.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
+            template.textProvider = CLKSimpleTextProvider(text: "\(complication.departure.time) dep \(complication.origin.abbreviated)")
+            template.circularTemplate = circularTemplate
             return template
         case .graphicCorner:
-            guard let complication: Complication = complications.first, !complication.isExpired else {
+            guard let complication: Complication = complications.first,
+                let image: UIImage = .car(family: .graphicCorner, enabled: complication.departure.isCarFerry) else {
                 return nil
             }
             let template: CLKComplicationTemplateGraphicCornerTextImage = CLKComplicationTemplateGraphicCornerTextImage()
-            if complication.departure.isCarFerry,
-                let image: UIImage = .car(family: .utilitarianLarge) {
-                template.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
-            }
-            template.textProvider = CLKSimpleTextProvider(text: "Depart \(complication.origin.abbreviated) \(complication.departure.time)")
+            template.textProvider = CLKSimpleTextProvider(text: "\(complication.departure.time) dep \(complication.origin.abbreviated)")
+            template.imageProvider = CLKFullColorImageProvider(fullColorImage: image)
             return template
         case .graphicRectangular:
-            guard !complications.isEmpty,
-                let image: UIImage = .car(family: .graphicRectangular) else {
+            guard let complication: Complication = complications.first,
+                let image: UIImage = .car(family: .graphicRectangular, enabled: complication.departure.isCarFerry) else {
                 return nil
             }
             let template: CLKComplicationTemplateGraphicRectangularStandardBody = CLKComplicationTemplateGraphicRectangularStandardBody()
-            template.headerImageProvider = CLKFullColorImageProvider(fullColorImage: image)
-            template.headerTextProvider = CLKSimpleTextProvider(text: "Header Text")
-            template.body1TextProvider = CLKSimpleTextProvider(text: "Body text")
-            
-            
-            // image | text
-            // text
-            // text
-            
+            template.headerTextProvider = CLKSimpleTextProvider(text: "\(complication.departure.time) \(complication.origin.abbreviated)")
+            if complication.departure.isCarFerry {
+                template.headerImageProvider = CLKFullColorImageProvider(fullColorImage: image)
+            }
+            if complications.count > 1 {
+                template.body1TextProvider = CLKSimpleTextProvider(text: "\(complications[1].departure.time) \(complications[1].origin.abbreviated)")
+            } else {
+                template.body1TextProvider = CLKSimpleTextProvider(text: "")
+            }
+            if complications.count > 2 {
+                template.body2TextProvider = CLKSimpleTextProvider(text: "\(complications[2].departure.time) \(complications[2].origin.abbreviated)")
+            }
             return template
         case .modularLarge:
-            let template: CLKComplicationTemplateModularLargeColumns = CLKComplicationTemplateModularLargeColumns()
-            
-            // car | time | location
-            // car | time | location
-            // car | time | location
-            
-            return nil // template
-        case .utilitarianLarge:
-            guard let complication: Complication = complications.first, !complication.isExpired else {
+            guard let complication: Complication = complications.first,
+                let image: UIImage = .car(family: .modularLarge, enabled: complication.departure.isCarFerry) else {
                 return nil
             }
+            let template: CLKComplicationTemplateModularLargeColumns = CLKComplicationTemplateModularLargeColumns()
+            template.column2Alignment = .left
+            if complication.departure.isCarFerry {
+                template.row1ImageProvider = CLKImageProvider(onePieceImage: image)
+            }
+            template.row1Column1TextProvider = CLKSimpleTextProvider(text: "\(complication.departure.time)")
+            template.row1Column2TextProvider = CLKSimpleTextProvider(text: "\(complication.origin.abbreviated)")
+            if complications.count > 1,
+                let image: UIImage = .car(family: family, enabled: complications[1].departure.isCarFerry) {
+                if complications[1].departure.isCarFerry {
+                    template.row2ImageProvider = CLKImageProvider(onePieceImage: image)
+                }
+                template.row2Column1TextProvider = CLKSimpleTextProvider(text: "\(complications[1].departure.time)")
+                template.row2Column2TextProvider = CLKSimpleTextProvider(text: "\(complications[1].origin.abbreviated)")
+            } else {
+                template.row2Column1TextProvider = CLKSimpleTextProvider(text: "")
+                template.row2Column2TextProvider = CLKSimpleTextProvider(text: "")
+            }
+            if complications.count > 2,
+                let image: UIImage = .car(family: family, enabled: complications[2].departure.isCarFerry) {
+                if complications[2].departure.isCarFerry {
+                    template.row3ImageProvider = CLKImageProvider(onePieceImage: image)
+                }
+                template.row3Column1TextProvider = CLKSimpleTextProvider(text: "\(complications[2].departure.time)")
+                template.row3Column2TextProvider = CLKSimpleTextProvider(text: "\(complications[2].origin.abbreviated)")
+            } else {
+                template.row3Column1TextProvider = CLKSimpleTextProvider(text: "")
+                template.row3Column2TextProvider = CLKSimpleTextProvider(text: "")
+            }
+            return template
+        case .utilitarianLarge:
+            guard let complication: Complication = complications.first,
+                let image: UIImage = .car(family: .utilitarianLarge, enabled: complication.departure.isCarFerry) else {
+                    return nil
+            }
             let template: CLKComplicationTemplateUtilitarianLargeFlat = CLKComplicationTemplateUtilitarianLargeFlat()
-            if complication.departure.isCarFerry,
-                let image: UIImage = .car(family: .utilitarianLarge) {
+            template.textProvider = CLKSimpleTextProvider(text: "\(complication.departure.time) dep \(complication.origin.abbreviated)")
+            if complication.departure.isCarFerry {
                 template.imageProvider = CLKImageProvider(onePieceImage: image)
             }
-            template.textProvider = CLKSimpleTextProvider(text: "Depart \(complication.origin.abbreviated) \(complication.departure.time)")
             return template
         default:
             return nil
@@ -68,7 +97,9 @@ extension CLKComplication {
 }
 
 extension Complication {
-    fileprivate static var template: Complication {
-        return Complication(day: .monday, departure: Departure(time: Time(hour: 16, minute: 20), deviations: [], services: [.car]), destination: Location.peaks, origin: Location.portland)
+    fileprivate static var template: [Complication] {
+        return [
+            Complication(day: .monday, departure: Departure(time: Time(hour: 16, minute: 20), deviations: [], services: [.car]), destination: Location.peaks, origin: Location.portland)
+        ]
     }
 }
