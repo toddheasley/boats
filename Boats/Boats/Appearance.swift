@@ -16,7 +16,7 @@ enum Appearance: String, CaseIterable {
     static var current: Appearance {
         switch shared {
         case .auto:
-            return UIScreen.main.brightness > 0.6 ? .light : .dark
+            return UIScreen.main.brightness > 0.5 ? .light : .dark
         default:
             return shared
         }

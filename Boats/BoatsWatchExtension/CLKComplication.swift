@@ -3,7 +3,7 @@ import BoatsKit
 import BoatsBot
 
 extension CLKComplication {
-    func template(complications: [Complication] = .template) -> CLKComplicationTemplate? {
+    func template(complications: [Complication] = Complication.template) -> CLKComplicationTemplate? {
         switch self.family {
         case .graphicBezel:
             guard let complication: Complication = complications.first,
@@ -99,7 +99,9 @@ extension CLKComplication {
 extension Complication {
     fileprivate static var template: [Complication] {
         return [
-            Complication(day: .monday, departure: Departure(time: Time(hour: 16, minute: 20), deviations: [], services: [.car]), destination: Location.peaks, origin: Location.portland)
+            Complication(day: .monday, departure: Departure(time: Time(hour: 16, minute: 30), deviations: [], services: [.car]), destination: Location.peaks, origin: Location.portland),
+            Complication(day: .monday, departure: Departure(time: Time(hour: 17, minute: 0), deviations: [], services: [.car]), destination: Location.portland, origin: Location.peaks),
+            Complication(day: .monday, departure: Departure(time: Time(hour: 17, minute: 35), deviations: [], services: [.car]), destination: Location.peaks, origin: Location.portland)
         ]
     }
 }
