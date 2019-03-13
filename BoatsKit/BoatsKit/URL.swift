@@ -3,10 +3,8 @@ import Foundation
 extension URL {
     public init(directory path: String) throws {
         let url: URL = URL(fileURLWithPath: path)
-        var isDirectory: ObjCBool = false
         guard url.hasDirectoryPath,
-            FileManager.default.fileExists(atPath: url.path, isDirectory: &isDirectory),
-            isDirectory.boolValue else {
+            FileManager.default.fileExists(atPath: url.path) else {
             throw(NSError(domain: NSURLErrorDomain, code: NSURLErrorBadURL))
         }
         self = url

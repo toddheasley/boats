@@ -26,11 +26,9 @@ extension IndexView: HTMLDataSource {
             let route: Route = self.index.routes[index[0]]
             return "<a href=\"\(RouteView(route: route, index: self.index).path)\"><b>\(route.name)</b>\(route.services.contains(.car) ? " \((try? SVG.car.html()) ?? SVG.car.description)" : "")</a>"
         case "INDEX_NAME":
-            return "\(self.index.name)"
+            return "<a href=\"\(self.index.url.absoluteString)\">\(self.index.name)</a>"
         case "INDEX_DESCRIPTION":
             return "\(self.index.description)"
-        case "INDEX_URL":
-            return "<a href=\"\(self.index.url.absoluteString)\">\(self.index.url.host ?? self.index.url.absoluteString)</a>"
         case "TITLE", "NAME":
             return "\(Site.name)"
         case "APP_ID":

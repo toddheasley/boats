@@ -1,12 +1,12 @@
 :root {
-    --background: rgb(251, 251, 251);
-    --color: rgb(9, 9, 9);
+    --background: rgb(204, 204, 204);
+    --color: rgb(25, 25, 25);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: rgb(36, 36, 36);
-        --color: rgb(239, 239, 239);
+        --background: rgb(25, 25, 25);
+        --color: rgb(204, 204, 204);
     }
 }
 
@@ -24,77 +24,65 @@ body {
     background: var(--background);
     color: var(--color);
     font-family: -apple-system, sans-serif;
-    margin: 0 auto;
+    margin: 16px auto 32px auto;
     position: relative;
     width: 298px;
 }
 
+h1 {
+    padding: 0 1px;
+}
+
 header {
-    margin: 16px auto 48px auto;
-    padding: 0 2px;
+    margin: 0 auto 32px auto;
 }
 
 header h1 {
-    display: table-cell;
-    font-size: 18px;
-    height: 32px;
-    vertical-align: middle;
-}
-
-header h2 {
-    font-size: 36px;
-    margin-top: 16px;
-}
-
-header h3 {
-    font-size: 15px;
+    font-size: 16px;
 }
 
 main {
-    margin: 30px auto;
-}
-
-main h1, main h2 {
-    padding: 1px 2px;
+    margin: 0 auto;
 }
 
 main h1 {
     font-size: 24px;
+    margin-bottom: 24px;
 }
 
 main h2 {
-    font-size: 15px;
+    height: 32px;
+}
+
+main h2 small {
+    background: var(--color);
+    border-radius: 4px;
+    color: var(--background);
+    display: inline-block;
+    font-size: 12px;
+    padding: 2px 6px;
 }
 
 nav {
     position: absolute;
-    right: 0;
+    right: -3px;
+    top: -7px;
 }
 
 section {
     border: 2px solid;
     border-radius: 11px;
-    margin: 32px 0;
+    margin: 16px 0;
     overflow: hidden;
 }
 
 section h3 {
-    font-size: 18px;
-    padding: 6px;
+    font-size: 16px;
+    padding: 5px 6px;
 }
 
-section h4 {
-    padding: 3px 6px;
-}
-
-section h4 small {
+section h3 small {
     display: block;
-}
-
-section p {
-    padding: 8px 6px;
-    font-size: 10px;
-    font-weight: bold;
 }
 
 small {
@@ -124,7 +112,7 @@ td {
 
 td a {
     display: block;
-    font-size: 21px;
+    font-size: 24px;
     position: relative;
     text-decoration: none;
     vertical-align: middle;
@@ -149,6 +137,7 @@ td small {
     color: var(--background);
     display: inline-block;
     font-size: 8px;
+    overflow: hidden;
     padding: 1px 0 2px 0;
     text-align: center;
     vertical-align: middle;
@@ -158,7 +147,7 @@ td small {
 
 th {
     border: 2px solid;
-    padding: 3px 6px;
+    padding: 6px;
     text-align: left;
 }
 

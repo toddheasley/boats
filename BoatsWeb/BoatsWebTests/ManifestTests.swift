@@ -14,7 +14,6 @@ extension ManifestTests {
         }
         XCTAssertNoThrow(try data.write(to: try URL(directory: NSTemporaryDirectory()).appendingPathComponent(Manifest().path)))
         XCTAssertNoThrow(try Manifest(url: try URL(directory: NSTemporaryDirectory())))
-        
     }
     
     func testDataInit() {

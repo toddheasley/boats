@@ -24,7 +24,7 @@ extension RouteView: HTMLDataSource {
         case "ROUTE_NAME":
             return "\(route.name)"
         case "SEASON":
-            return route.schedule()?.season.description ?? "Schedule unavailable"
+            return route.schedule()?.season.description ?? "Schedule Unavailable"
         case "DAYS":
             guard !index.isEmpty,
                 let schedule: Schedule = route.schedule() else {
@@ -32,9 +32,9 @@ extension RouteView: HTMLDataSource {
             }
             return schedule.timetables[index[0]].description.replacingOccurrences(of: "\(Day.holiday.abbreviated)", with: !schedule.holidays.isEmpty ? "\(Day.holiday.abbreviated)*" : "\(Day.holiday.abbreviated)")
         case "INDEX_LOCATION":
-            return "<small>Depart \(self.index.location.name)</small>"
+            return "<small>Depart \(self.index.location.abbreviated)</small>"
         case "ROUTE_LOCATION":
-            return "<small>Depart \(route.location.name)</small>"
+            return "<small>Depart \(route.location.abbreviated)</small>"
         case "TRIP_ORIGIN", "TRIP_DESTINATION":
             guard index.count > 1,
                 let trip: Timetable.Trip = route.schedule()?.timetables[index[0]].trips[index[1]],
@@ -51,21 +51,12 @@ extension RouteView: HTMLDataSource {
             } else {
                 return "<time>\(time)</time>"
             }
-        case "HOLIDAYS":
-            guard !index.isEmpty,
-                let schedule: Schedule = route.schedule(), !schedule.holidays.isEmpty,
-                schedule.timetables[index[0]].days.contains(.holiday) else {
-                return nil
-            }
-            return "* \(schedule.holidays.map { $0.name }.joined(separator: "/"))"
         case "MENU":
             return "<a href=\"\(IndexView(index: self.index).path)\">\((try? SVG.menu.html()) ?? SVG.menu.description)</a>"
         case "INDEX_NAME":
-            return "\(self.index.name)"
+            return "<a href=\"\(self.index.url.absoluteString)\">\(self.index.name)</a>"
         case "INDEX_DESCRIPTION":
             return "\(self.index.description)"
-        case "INDEX_URL":
-            return "<a href=\"\(self.index.url.absoluteString)\">\(self.index.url.host ?? self.index.url.absoluteString)</a>"
         case "TITLE":
             return "\(route.name) - \(Site.name)"
         case "NAME":
