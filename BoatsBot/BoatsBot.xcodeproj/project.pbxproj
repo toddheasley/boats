@@ -92,13 +92,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5CE5ED9F2218E9080039E6D6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -162,8 +155,6 @@
 			buildPhases = (
 				5CDCFC442218D5CB00F7BB91 /* Sources */,
 				5CDCFC452218D5CB00F7BB91 /* Frameworks */,
-				5CDCFC462218D5CB00F7BB91 /* Resources */,
-				5CE5ED732218D9000039E6D6 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -180,8 +171,6 @@
 			buildPhases = (
 				5CE5ED752218D9710039E6D6 /* Sources */,
 				5CE5ED762218D9710039E6D6 /* Frameworks */,
-				5CE5ED772218D9710039E6D6 /* Resources */,
-				5CE5ED9B2218E8890039E6D6 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -198,8 +187,6 @@
 			buildPhases = (
 				5CE5ED822218E6A30039E6D6 /* Sources */,
 				5CE5ED832218E6A30039E6D6 /* Frameworks */,
-				5CE5ED842218E6A30039E6D6 /* Resources */,
-				5CE5ED9C2218E8A80039E6D6 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -216,8 +203,6 @@
 			buildPhases = (
 				5CE5ED8F2218E7770039E6D6 /* Sources */,
 				5CE5ED902218E7770039E6D6 /* Frameworks */,
-				5CE5ED912218E7770039E6D6 /* Resources */,
-				5CE5ED9D2218E8CB0039E6D6 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -233,8 +218,6 @@
 			buildConfigurationList = 5CE5EDA72218E9080039E6D6 /* Build configuration list for PBXNativeTarget "BoatsBotTests" */;
 			buildPhases = (
 				5CE5ED9E2218E9080039E6D6 /* Sources */,
-				5CE5ED9F2218E9080039E6D6 /* Frameworks */,
-				5CE5EDA02218E9080039E6D6 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -294,119 +277,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		5CDCFC462218D5CB00F7BB91 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5CE5ED772218D9710039E6D6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5CE5ED842218E6A30039E6D6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5CE5ED912218E7770039E6D6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5CE5EDA02218E9080039E6D6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5CE5ED732218D9000039E6D6 /* Set Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Set Build Number";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
-		};
-		5CE5ED9B2218E8890039E6D6 /* Set Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Set Build Number";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
-		};
-		5CE5ED9C2218E8A80039E6D6 /* Set Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Set Build Number";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
-		};
-		5CE5ED9D2218E8CB0039E6D6 /* Set Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Set Build Number";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5CDCFC442218D5CB00F7BB91 /* Sources */ = {

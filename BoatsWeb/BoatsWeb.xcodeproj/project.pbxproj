@@ -217,7 +217,6 @@
 				5CF357011F40ED7400348203 /* Sources */,
 				5CF357021F40ED7400348203 /* Frameworks */,
 				5CF357041F40ED7400348203 /* Resources */,
-				5C6B631D1F40EF3900B134DE /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -235,7 +234,6 @@
 				5CF357111F40EDD600348203 /* Sources */,
 				5CF357121F40EDD600348203 /* Frameworks */,
 				5CF357141F40EDD600348203 /* Resources */,
-				5C6B631D1F40EF3900B134DE /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -347,23 +345,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5C6B631D1F40EF3900B134DE /* Set Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Set Build Number";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "git=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5CF357011F40ED7400348203 /* Sources */ = {
