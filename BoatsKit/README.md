@@ -2,7 +2,7 @@
 
 `BoatsKit` is a Cocoa framework for macOS, iOS, watchOS and tvOS. It provides the complete [Casco Bay Lines](https://cascobaylines.com) ferry schedule as a modeled Swift interface and includes the following:
 
-* Generating new schedules automatically by crawling [cascobaylines.com](https://cascobaylines.com)
+* Generating schedules automatically by crawling [cascobaylines.com](https://cascobaylines.com)
 * Fetching the current schedule remotely from GitHub
 * Organizing schedule data into understandable models
 * Querying timetables and departures by `Date` 
