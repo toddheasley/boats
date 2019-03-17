@@ -26,7 +26,7 @@ The iOS and watchOS apps are made of very thin layers of stock `UIKit` and `Watc
 
 [`BoatsBot`](BoatsBot) handles data persistence and inter-app and inter-extension communication -- and lays the groundwork for Boats to get a lot smarter in future releases with the addition of location-aware features or notifications.
 
-Schedule data is provided by the [`BoatsKit`](BoatsKit) framework, which is the foundation for a new modular backend. The recent [cascobaylines.com](https://cascobaylines.com) redesign made scraping possible, so `BoatsKit` also generates its own schedules.
+Schedule data is provided by the [`BoatsKit`](BoatsKit) framework, which is the foundation for the new modular backend. The recent [cascobaylines.com](https://cascobaylines.com) redesign made scraping possible, so `BoatsKit` also generates its own schedules.
 
 `BoatsKit` is a huge step forward, but is not yet the self-updating, no-touch data source of my dreams. Currently, the process of generating schedule updates is implemented as an included macOS utility, [BoatsEdit.](BoatsEdit)
 
