@@ -11,6 +11,6 @@ extension UserDefaults {
     }
     
     private var key: String {
-        return "\(Bundle.main.bundleIdentifier!).web"
+        return "web"
     }
 }

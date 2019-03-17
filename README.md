@@ -1,20 +1,31 @@
 # Boats
 
-Boats is an iOS app for finding the next ferry to and from Peaks Island, Little Diamond Island, Great Diamond Island, Diamond Cove, Chebeague Island, Long Island and Cliff Island.
+Boats is an app for iPhone, iPad and Apple Watch that presents the complete [Casco Bay Lines](https://cascobaylines.com) ferry schedule for Peaks Island, Little Diamond Island, Great Diamond Island, Diamond Cove, Long Island, Chebeague Island and Cliff Island in a streamlined, glanceable format.
+
+![](Boats.png)
+
+Boats 3 has a beautiful new design featuring:
+
+* High contrast and large, bold type
+* Complete coverage for holidays and other schedule deviations, such as departures that start or end mid-season
+* User-settable light and dark modes, in addition to automatic mode that toggles based on screen brightness
+* All new watch complications for Infograph, Infograph Modular, Utility and Modular faces
+* Today View
 
 [![Download on the App Store](App.svg)](https://itunes.apple.com/app/id1152562893)
 
+## Boats on the Web
 
-## BoatsEdit
+## Architecture
+
+Schedule data in Boats 3 is provided by the included [BoatsKit](../BoatsKit) framework, which is the foundation for a new modular backend. The recent [cascobaylines.com](https://cascobaylines.com) redesign made scraping _just_ possible, so `BoatsKit` also generates its own schedules.
+
+`BoatsKit` is a huge step forward, but is not yet the self-updating, no-touch data source of my dreams. Currently, the process of generating schedule updates is implemented as an included macOS utility, [BoatsEdit.](../BoatsEdit)
 
 
-## `BoatsBot`
 
-## `BoatsWeb`
 
-## `BoatsKit`
 
-Behind the scenes, Tanktop uses the included [`TankUtility`](TankUtility) framework, a lightweight Cocoa wrapper for the [Tank Utility API.](http://apidocs.tankutility.com)
 
 ## Requirements
 
