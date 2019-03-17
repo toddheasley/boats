@@ -18,7 +18,7 @@ Boats 3 has a beautiful new design featuring:
 
 Boats schedules are now also available on the web, with the same large type and mobile-friendly formatting:
 
-[__cascobay.boats__](https://cascobay.boats)
+[__cascobay.boats__](https://toddheasley.github.io/boats)
 
 ## Architecture
 
