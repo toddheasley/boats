@@ -12,7 +12,7 @@ Boats 3 has a beautiful new design featuring:
 * All new watch complications for Infograph, Infograph Modular, Utility and Modular faces
 * Today View
 
-[![Download on the App Store](App.svg)](https://itunes.apple.com/app/id1152562893)
+[![Download on the App Store](Boats/App.svg)](https://itunes.apple.com/app/id1152562893)
 
 ## Web Schedules
 
@@ -24,9 +24,9 @@ Boats schedules are now also available on the web, with the same large type and 
 
 The iOS and watchOS apps are made of very thin layers of stock `UIKit` and `WatchKit`, backed by shared frameworks that do all of the heavy lifting.
 
-[`BoatsBot`](BoatsBot) handles data-persistence and inter-app and inter-extension communication -- and lays the groundwork for Boats to get a lot smarter in future releases with the addition of location-aware features or notifications.
+[`BoatsBot`](BoatsBot) handles data persistence and inter-app and inter-extension communication -- and lays the groundwork for Boats to get a lot smarter in future releases with the addition of location-aware features or notifications.
 
-Schedule data in Boats 3 is provided by the [`BoatsKit`](BoatsKit) framework, which is the foundation for a new modular backend. The recent [cascobaylines.com](https://cascobaylines.com) redesign made scraping _just_ possible, so `BoatsKit` also generates its own schedules.
+Schedule data is provided by the [`BoatsKit`](BoatsKit) framework, which is the foundation for a new modular backend. The recent [cascobaylines.com](https://cascobaylines.com) redesign made scraping possible, so `BoatsKit` also generates its own schedules.
 
 `BoatsKit` is a huge step forward, but is not yet the self-updating, no-touch data source of my dreams. Currently, the process of generating schedule updates is implemented as an included macOS utility, [BoatsEdit.](BoatsEdit)
 

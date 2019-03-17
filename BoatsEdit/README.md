@@ -12,7 +12,7 @@ BoatsEdit is a macOS utility that streamlines the process of updating Casco Bay 
 
 BoatsEdit is a glorified instance of `NSOpenPanel` that marshals the [`BoatsKit`](../BoatsKit) and [`BoatsWeb`](../BoatsWeb) frameworks.
 
-Using `AppKit` is overkill for, effectively, two buttons that can be automated away. BoatsEdit will be replaced by a `--web` flag for the [`boats` CLI](../BoatsKit) as soon as I find the most elegant way to bake the external HTML templates, SVGs, images and CSS required by `BoatsWeb` into the compiled CLI executable; even as a stopgap, linking the frameworks and/or resources is just too fiddly for my taste.
+Using `AppKit` is overkill for, effectively, two buttons that I plan to automate away. BoatsEdit is a stopgap and will be replaced by a `--web` flag for the [`boats`](../BoatsKit) command line interface, pending work to bake the external HTML templates, SVGs and CSS required by `BoatsWeb` into the compiled CLI executable; for now, bundling everything into a Mac app was less fiddly than linking frameworks and resources.
 
 ## Requirements
 

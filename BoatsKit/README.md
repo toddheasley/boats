@@ -5,7 +5,7 @@
 * Generating schedules automatically by crawling [cascobaylines.com](https://cascobaylines.com)
 * Fetching the current schedule remotely from GitHub
 * Organizing schedule data into understandable models
-* Querying timetables and departures by `Date` 
+* `Date`-based querying of timetables and departures 
 
 ## Example Usage
 
@@ -26,7 +26,7 @@ URLSession.shared.index(action: .fetch) { index, error in
 
 ```
 
-The default `action:` value is `fetch`, which remotely loads a pre-built, static JSON file (from this repo); specifying `build` generates a new `Index` by scraping [cascobaylines.com](https://cascobaylines.com) directly.
+The default `action:` value is `fetch`, which remotely loads a pre-built, static [JSON file](https://toddheasley.github.io/boats/index.json); specifying `build` generates a new `Index` by scraping [cascobaylines.com](https://cascobaylines.com) directly.
 
 To use `BoatsKit` as a freestanding Mac command line utility, archive the Xcode target `BoatsKitCLI` and run the resulting `boats` executable:
 
