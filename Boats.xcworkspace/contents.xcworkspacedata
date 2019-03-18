@@ -2,9 +2,27 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Boats.xcodeproj">
+      location = "group:Boats/Boats.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BoatsEdit/BoatsEdit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BoatsEdit/../BoatsBot/BoatsBot.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BoatsWeb/BoatsWeb.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BoatsKit/BoatsKit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:README.md">
+   </FileRef>
+   <FileRef
+      location = "group:PRIVACY.md">
+   </FileRef>
+   <FileRef
+      location = "group:App.svg">
    </FileRef>
 </Workspace>
