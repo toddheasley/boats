@@ -850,7 +850,7 @@
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				IBSC_MODULE = BoatsWatchExtension;
 				INFOPLIST_FILE = BoatsWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -870,7 +870,7 @@
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				IBSC_MODULE = BoatsWatchExtension;
 				INFOPLIST_FILE = BoatsWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -893,7 +893,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -916,7 +916,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
