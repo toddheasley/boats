@@ -17,9 +17,6 @@ extension URLSession {
 
 extension URLSession {
     func fetch(completion: @escaping (Index?, Error?) -> Void) {
-        
-        print(URL.fetch)
-        
         dataTask(with: .fetch) { data, _, error in
             guard let data: Data = data else {
                 DispatchQueue.main.async {

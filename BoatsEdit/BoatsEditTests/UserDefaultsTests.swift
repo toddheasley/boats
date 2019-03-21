@@ -3,7 +3,7 @@ import XCTest
 
 class UserDefaultsTests: XCTestCase {
     func testWeb() {
-        UserDefaults.standard.set(true, forKey: "com.toddheasley.boats.edit.web")
+        UserDefaults.standard.set(true, forKey: "web")
         XCTAssertEqual(UserDefaults.standard.web, .on)
         UserDefaults.standard.web = .mixed
         XCTAssertEqual(UserDefaults.standard.web, .off)
@@ -11,6 +11,6 @@ class UserDefaultsTests: XCTestCase {
         XCTAssertEqual(UserDefaults.standard.web, .on)
         UserDefaults.standard.web = .off
         XCTAssertEqual(UserDefaults.standard.web, .off)
-        UserDefaults.standard.removeObject(forKey: "com.toddheasley.boats.edit.web")
+        UserDefaults.standard.removeObject(forKey: "web")
     }
 }
