@@ -22,7 +22,7 @@ Boats schedules are now also available on the web, with the same large type and 
 
 ## Architecture
 
-The iOS and watchOS apps are made of very thin layers of stock `UIKit` and `WatchKit`, backed by shared frameworks that do all of the heavy lifting.
+The iOS and watchOS apps are made of thin layers of stock `UIKit` and `WatchKit`, backed by shared frameworks that do all of the heavy lifting.
 
 [`BoatsBot`](BoatsBot) handles data persistence and inter-app and inter-extension communication -- and lays the groundwork for Boats to get a lot smarter in future releases with the addition of location-aware features or notifications.
 
