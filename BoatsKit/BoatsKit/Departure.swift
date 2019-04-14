@@ -33,14 +33,24 @@ extension Departure: HTMLConvertible {
     
     // MARK: HTMLConvertible
     init(from html: String) throws {
-        DateFormatter.shared.dateFormat = "M/d"
+        var html: String = html.lowercased()
+        html = html.replacingOccurrences(of: "(", with: "")
+        html = html.replacingOccurrences(of: ")", with: "")
+        html = html.replacingOccurrences(of: "sat only", with: "so")
+        html = html.replacingOccurrences(of: "**", with: "")
         let components: [String] = html.trim().components(separatedBy: " ")
         var deviations: [Deviation] = []
-        if components.contains("starts"), let date: Date = DateFormatter.shared.date(from: components.last ?? "") {
+        if components.contains("starts"), let date: Date = DateFormatter.shared.date(html: components.last) {
             deviations.append(.start(date))
         }
-        if components.contains("ends"), let date: Date = DateFormatter.shared.date(from: components.last ?? "") {
+        if components.contains("ends"), let date: Date = DateFormatter.shared.date(html: components.last) {
             deviations.append(.end(date))
+        }
+        if components.contains("fo") {
+            deviations.append(.only(.friday))
+        }
+        if components.contains("so") {
+            deviations.append(.only(.saturday))
         }
         if components.contains("xh") {
             deviations.append(.holiday)

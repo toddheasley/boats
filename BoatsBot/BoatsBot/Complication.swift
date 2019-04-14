@@ -21,6 +21,8 @@ public struct Complication {
             return !deviation.isExpired
         case .end:
             return deviation.isExpired
+        case .only(let only):
+            return day != only
         case .holiday:
             return day == .holiday
         }

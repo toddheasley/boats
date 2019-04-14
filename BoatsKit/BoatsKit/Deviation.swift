@@ -1,7 +1,7 @@
 import Foundation
 
 public enum Deviation {
-    case start(Date), end(Date), holiday
+    case start(Date), end(Date), only(Day), holiday
     
     public var isExpired: Bool {
         switch self {
@@ -9,7 +9,7 @@ public enum Deviation {
             return Date() > date
         case .end(let date):
             return Date() > Date(timeInterval: 86400.0, since: date)
-        case .holiday:
+        case .only, .holiday:
             return false
         }
     }
@@ -25,6 +25,8 @@ extension Deviation: CustomStringConvertible {
             return "\(isExpired ? "started" : "starts") \(DateFormatter.shared.string(from: date))"
         case .end(let date):
             return "\(isExpired ? "ended" : "ends") \(DateFormatter.shared.string(from: date))"
+        case .only(let day):
+            return "\(day.abbreviated.lowercased()) only"
         case .holiday:
             return "except holiday"
         }
@@ -50,6 +52,8 @@ extension Deviation: Codable {
             self = .start(try container.decode(Date.self, forKey: .date))
         case "end":
             self = .end(try container.decode(Date.self, forKey: .date))
+        case "only":
+            self = .only(try container.decode(Day.self, forKey: .day))
         case "holiday":
             self = .holiday
         default:
@@ -67,12 +71,15 @@ extension Deviation: Codable {
         case .end(let date):
             try container.encode("end", forKey: .case)
             try container.encode(date, forKey: .date)
+        case .only(let day):
+            try container.encode("only", forKey: .case)
+            try container.encode(day, forKey: .day)
         case .holiday:
             try container.encode("holiday", forKey: .case)
         }
     }
     
     private enum Key: CodingKey {
-        case `case`, date
+        case `case`, date, day
     }
 }

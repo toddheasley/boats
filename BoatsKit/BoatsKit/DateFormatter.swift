@@ -63,6 +63,23 @@ extension DateFormatter {
         return next
     }
     
+    func date(near date: Date = Date(), html: String?) -> Date? {
+        guard let html: String = html else {
+            return nil
+        }
+        let dateInterval: DateInterval = DateInterval(start: Date(timeInterval: -15778800.0, since: date), duration: 31557600.0)
+        dateFormat = "yyyy"
+        let years: [String] = [string(from: dateInterval.start), string(from: dateInterval.end)]
+        dateFormat = "M/d/yyyy"
+        for year in years {
+            guard let htmlDate: Date = self.date(from: "\(html)/\(year)"), dateInterval.contains(htmlDate) else {
+                continue
+            }
+            return htmlDate
+        }
+        return nil
+    }
+    
     func day(from date: Date) -> Day {
         let date: Date = DateFormatter.calendar.startOfDay(for: date)
         for holiday in Holiday.allCases {

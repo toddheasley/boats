@@ -30,7 +30,7 @@ extension RouteView: HTMLDataSource {
                 let schedule: Schedule = route.schedule() else {
                 return nil
             }
-            return schedule.timetables[index[0]].description.replacingOccurrences(of: "\(Day.holiday.abbreviated)", with: !schedule.holidays.isEmpty ? "\(Day.holiday.abbreviated)*" : "\(Day.holiday.abbreviated)")
+            return schedule.timetables[index[0]].description
         case "INDEX_LOCATION":
             return "<small>Depart \(self.index.location.abbreviated)</small>"
         case "ROUTE_LOCATION":
@@ -44,8 +44,8 @@ extension RouteView: HTMLDataSource {
             let time: String = departure.time.descriptionComponents.map { component in
                 return "<b>\(component)</b>"
             }.joined()
-            if !departure.deviations.isEmpty {
-                return "<time>\(time)</time> <small>\(departure.deviations.first!.description)</small>"
+            if let deviation: Deviation = departure.deviations.first {
+                return "<time>\(time)</time> <small>\(deviation.description.replacingOccurrences(of: " ", with: "<br>"))</small>"
             } else if departure.isCarFerry {
                 return "<time>\(time)</time> \((try? SVG.car.html()) ?? SVG.car.description)"
             } else {

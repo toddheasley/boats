@@ -5,8 +5,13 @@ class DeviationTests: XCTestCase {
     func testIsExpired() {
         XCTAssertFalse(Deviation.start(Date(timeIntervalSince1970: 4080340800.0)).isExpired)
         XCTAssertTrue(Deviation.start(Date(timeIntervalSince1970: 1524196800.0)).isExpired)
+        XCTAssertFalse(Deviation.start(Date(timeIntervalSinceNow: 1.0)).isExpired)
+        XCTAssertTrue(Deviation.start(Date(timeIntervalSinceNow: -1.0)).isExpired)
+        XCTAssertFalse(Deviation.end(Date()).isExpired)
+        XCTAssertTrue(Deviation.end(Date(timeIntervalSinceNow: -86401.0)).isExpired)
         XCTAssertFalse(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)).isExpired)
         XCTAssertTrue(Deviation.end(Date(timeIntervalSince1970: 1524196800.0)).isExpired)
+        XCTAssertFalse(Deviation.only(Day()).isExpired)
         XCTAssertFalse(Deviation.holiday.isExpired)
     }
 }
@@ -42,13 +47,14 @@ extension DeviationTests {
     // MARK: Codable
     func testDecodeInit() {
         guard let data: Data = data(resource: .bundle, type: "json"),
-            let deviations: [Deviation] = try? JSONDecoder.shared.decode([Deviation].self, from: data), deviations.count == 3 else {
+            let deviations: [Deviation] = try? JSONDecoder.shared.decode([Deviation].self, from: data), deviations.count == 4 else {
             XCTFail()
             return
         }
         XCTAssertEqual(deviations[0], .start(Date(timeIntervalSince1970: 1555732800.0)))
         XCTAssertEqual(deviations[1], .end(Date(timeIntervalSince1970: 1555732800.0)))
-        XCTAssertEqual(deviations[2], .holiday)
+        XCTAssertEqual(deviations[2], .only(.friday))
+        XCTAssertEqual(deviations[3], .holiday)
     }
     
     func testEncode() {
