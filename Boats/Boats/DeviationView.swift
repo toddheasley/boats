@@ -30,7 +30,7 @@ class DeviationView: UIView {
         
         contentView.backgroundColor = isHighlighted ? .background : .color
         label.textColor = isHighlighted ? .color : .background
-        label.text = deviation?.description
+        label.text = deviation?.description.replacingOccurrences(of: " ", with: "\n")
     }
     
     override func layoutSubviews() {
