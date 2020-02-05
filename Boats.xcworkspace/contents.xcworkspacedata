@@ -5,24 +5,18 @@
       location = "group:Boats/Boats.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:BoatsEdit/BoatsEdit.xcodeproj">
+      location = "group:BoatsBot">
    </FileRef>
    <FileRef
-      location = "group:BoatsEdit/../BoatsBot/BoatsBot.xcodeproj">
+      location = "group:BoatsWeb">
    </FileRef>
    <FileRef
-      location = "group:BoatsWeb/BoatsWeb.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:BoatsKit/BoatsKit.xcodeproj">
+      location = "group:BoatsKit">
    </FileRef>
    <FileRef
       location = "group:README.md">
    </FileRef>
    <FileRef
       location = "group:PRIVACY.md">
-   </FileRef>
-   <FileRef
-      location = "group:App.svg">
    </FileRef>
 </Workspace>

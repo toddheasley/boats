@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.68" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc" pageOrientation="vertical">
-    <device id="watch38" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc" pageOrientation="vertical">
+    <device id="watch38"/>
     <dependencies>
-        <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -47,15 +44,6 @@
                                                     </group>
                                                     <group alignment="right" verticalAlignment="center" layout="overlap" radius="0.0" spacing="0.0" id="g1z-5P-fAd">
                                                         <items>
-                                                            <group width="1" alignment="center" verticalAlignment="center" layout="vertical" radius="0.0" spacing="0.0" id="LjX-Xk-YkD">
-                                                                <items>
-                                                                    <group width="0.69999999999999996" widthAdjustment="2" height="2" alignment="left" verticalAlignment="center" hidden="YES" layout="overlap" radius="1" spacing="0.0" id="6rI-Bd-ozy">
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                                                                    </group>
-                                                                </items>
-                                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                                                            </group>
                                                             <group alignment="center" verticalAlignment="center" radius="0.0" spacing="0.0" id="J36-fg-azA">
                                                                 <items>
                                                                     <label width="13" alignment="left" verticalAlignment="center" text="0" textAlignment="center" id="PZj-CI-DkC">
@@ -76,9 +64,18 @@
                                                                     <label width="7" alignment="left" verticalAlignment="center" text="." textAlignment="center" id="p3b-1z-ZUR">
                                                                         <fontDescription key="font" type="system" weight="semibold" pointSize="19"/>
                                                                     </label>
-                                                                    <imageView width="18" height="16" alignment="center" verticalAlignment="center" image="Car" contentMode="scaleAspectFit" id="dO1-8X-nGf">
+                                                                    <imageView width="18" height="20" alignment="center" verticalAlignment="bottom" image="car.fill" catalog="system" contentMode="scaleAspectFit" id="dO1-8X-nGf">
                                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
+                                                                </items>
+                                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                                            </group>
+                                                            <group width="1" alignment="center" verticalAlignment="center" layout="vertical" radius="0.0" spacing="0.0" id="LjX-Xk-YkD">
+                                                                <items>
+                                                                    <group width="0.69999999999999996" widthAdjustment="2" height="16" alignment="left" verticalAlignment="center" hidden="YES" layout="overlap" radius="1" spacing="0.0" id="6rI-Bd-ozy">
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                                                    </group>
                                                                 </items>
                                                                 <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                                             </group>
@@ -128,7 +125,6 @@
                                     <group key="rootItem" width="1" height="1" alignment="left" radius="1" spacing="0.0" id="4e9-hJ-PTq">
                                         <items>
                                             <label width="1" height="0.90000000000000002" alignment="left" text="Schedule Unavailable" textAlignment="left" numberOfLines="2" id="3nm-AI-HMN">
-                                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 <fontDescription key="font" type="system" weight="semibold" pointSize="24"/>
                                             </label>
                                         </items>
@@ -144,34 +140,14 @@
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="4" bottom="0.0"/>
                     <connections>
-                        <outlet property="table" destination="qQm-Hu-oS8" id="OVD-zD-CRH"/>
+                        <outlet property="table" destination="qQm-Hu-oS8" id="SpS-6r-m4K"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
-        </scene>
-        <!--Static Notification Interface Controller-->
-        <scene sceneID="AEw-b0-oYE">
-            <objects>
-                <notificationController id="YCC-NB-fut">
-                    <items>
-                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
-                    </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
-                    <connections>
-                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
-                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
-                    </connections>
-                </notificationController>
-            </objects>
-            <point key="canvasLocation" x="220" y="643"/>
-        </scene>
-        <!--Notification Controller-->
-        <scene sceneID="ZPc-GJ-vnh">
-            <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="BoatsWatch" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="220" y="290"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="car.fill" catalog="system" width="64" height="46"/>
+    </resources>
 </document>

@@ -6,7 +6,9 @@ class DepartureView: UIView {
         set {
             timeView.isHighlighted = newValue
             deviationView.isHighlighted = newValue
-            updateAppearance()
+            carView.isHighlighted = newValue
+            setNeedsLayout()
+            layoutIfNeeded()
         }
         get {
             return timeView.isHighlighted
@@ -25,6 +27,10 @@ class DepartureView: UIView {
         self.departure = departure
     }
     
+    required init?(coder decoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private let aspectRatio: CGSize = CGSize(width: 4.56, height: 1.0)
     private let contentView: UIView = UIView()
     private let strikeView: UIView = UIView()
@@ -33,11 +39,13 @@ class DepartureView: UIView {
     private let carView: CarView = CarView()
     
     // MARK: UIView
-    override func updateAppearance() {
-        super.updateAppearance()
-        
-        strikeView.backgroundColor = isHighlighted ? .background : .color
-        carView.tintColor = strikeView.backgroundColor
+    override var accessibilityLabel: String? {
+        set {
+            super.accessibilityLabel = newValue
+        }
+        get {
+            return super.accessibilityLabel ?? departure?.description
+        }
     }
     
     override func layoutSubviews() {
@@ -61,7 +69,7 @@ class DepartureView: UIView {
         timeView.frame.size.width = deviationView.frame.origin.x
         
         strikeView.frame.size.width = timeView.frame.size.width * 0.9
-        strikeView.frame.size.height = max(timeView.frame.size.height * 0.25, 2.0)
+        strikeView.frame.size.height = max(timeView.frame.size.height * 0.4, 2.0)
         strikeView.frame.origin.x = timeView.frame.origin.x + ((timeView.frame.size.width - strikeView.frame.size.width) / 4.0)
         strikeView.frame.origin.y = timeView.frame.origin.y + ((timeView.frame.size.height - strikeView.frame.size.height) / 1.8)
         
@@ -80,7 +88,6 @@ class DepartureView: UIView {
                 break
             }
         }
-        updateAppearance()
     }
     
     override init(frame: CGRect) {
@@ -94,11 +101,7 @@ class DepartureView: UIView {
         contentView.addSubview(carView)
         
         strikeView.isHidden = true
-        strikeView.layer.cornerRadius = 1.5
+        strikeView.backgroundColor = .foreground
         contentView.addSubview(strikeView)
-    }
-    
-    required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

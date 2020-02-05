@@ -1,32 +1,42 @@
 import UIKit
 
-class RefreshControl: UIRefreshControl {
-    var contentInset: UIEdgeInsets {
+class RefreshControl: UIControl {
+    var isRefreshing: Bool {
         set {
-            if newValue.top != y  {
-                y = newValue.top
+            guard isAnimating != newValue else {
+                return
+            }
+            isAnimating = newValue
+            if isAnimating {
+                feedbackGenerator?.impactOccurred()
+                sendActions(for: .valueChanged)
             }
         }
         get {
-            return UIEdgeInsets(top: y, left: 0.0, bottom: 0.0, right: 0.0)
+            return isAnimating
         }
     }
     
-    private var y: CGFloat = 0.0
-    
-    // MARK: UIRefreshControl
-    override var frame: CGRect {
-        set {
-            super.frame = CGRect(x: newValue.origin.x, y: newValue.origin.y + y, width: newValue.size.width, height: newValue.size.height)
-        }
-        get {
-            return super.frame
+    var contentOffset: CGPoint = .zero {
+        didSet {
+            if canRefresh, progress == 1.0 {
+                canRefresh = false
+                isRefreshing = true
+            } else if progress > 0.0, feedbackGenerator == nil {
+                feedbackGenerator = UIImpactFeedbackGenerator()
+                feedbackGenerator?.prepare()
+            } else if progress == 0.0 {
+                feedbackGenerator = nil
+                canRefresh = true
+            }
         }
     }
     
-    override func updateAppearance() {
-        super.updateAppearance()
-        
-        tintColor = .color
+    private var feedbackGenerator: UIImpactFeedbackGenerator?
+    private var isAnimating: Bool = false
+    private var canRefresh: Bool = false
+    
+    private var progress: CGFloat {
+        return min(max(contentOffset.y / -88.0, 0.0), 1.0)
     }
 }

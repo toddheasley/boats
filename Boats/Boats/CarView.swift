@@ -2,38 +2,46 @@ import UIKit
 import BoatsKit
 
 class CarView: UIView {
-    var isCarFerry: Bool = false {
+    var isHighlighted: Bool = false {
         didSet {
             setNeedsLayout()
             layoutIfNeeded()
         }
     }
     
+    var isCarFerry: Bool {
+        set {
+            imageView.isHidden = !newValue
+        }
+        get {
+            return !imageView.isHidden
+        }
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private let imageView: UIImageView = UIImageView(image: .car)
     
     // MARK: UIView
-    override var tintColor: UIColor! {
+    override var accessibilityLabel: String? {
         set {
-            super.tintColor = newValue
-            setNeedsLayout()
-            layoutIfNeeded()
+            super.accessibilityLabel = newValue
         }
         get {
-            return super.tintColor
+            return super.accessibilityLabel ?? (isCarFerry ? Service.car.description : nil)
         }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        imageView.isHidden = !isCarFerry
-        imageView.tintColor = tintColor
-        imageView.frame.size.width = bounds.size.width * 0.9
-        imageView.frame.size.height = bounds.size.height * 0.9
+        imageView.frame.size.width = min(bounds.size.width, bounds.size.height)
+        imageView.frame.size.height = imageView.frame.size.width
         imageView.frame.origin.x = (bounds.size.width - imageView.frame.size.width) / 2.0
-        imageView.frame.origin.y = (bounds.size.height - imageView.frame.size.height) / 2.0
-        
-        accessibilityLabel = isCarFerry ? "car ferry" : nil
+        imageView.frame.origin.y = ((bounds.size.height - imageView.frame.size.height) / 2.0) + (imageView.frame.size.height * 0.05)
+        imageView.tintColor = .label(highlighted: isHighlighted)
     }
     
     override init(frame: CGRect) {
@@ -41,9 +49,5 @@ class CarView: UIView {
         
         imageView.contentMode = .scaleAspectFit
         addSubview(imageView)
-    }
-    
-    required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

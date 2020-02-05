@@ -4,7 +4,8 @@ import BoatsKit
 class DeviationView: UIView {
     var isHighlighted: Bool = false {
         didSet {
-            updateAppearance()
+            setNeedsLayout()
+            layoutIfNeeded()
         }
     }
     
@@ -20,17 +21,22 @@ class DeviationView: UIView {
         self.deviation = deviation
     }
     
+    required init?(coder decoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private let aspectRatio: CGSize = CGSize(width: 1.2, height: 1.0)
     private let contentView: UIView = UIView()
     private let label: UILabel = UILabel()
     
     // MARK: UIView
-    override func updateAppearance() {
-        super.updateAppearance()
-        
-        contentView.backgroundColor = isHighlighted ? .background : .color
-        label.textColor = isHighlighted ? .color : .background
-        label.text = deviation?.description.replacingOccurrences(of: " ", with: "\n")
+    override var accessibilityLabel: String? {
+        set {
+            super.accessibilityLabel = newValue
+        }
+        get {
+            return super.accessibilityLabel ?? deviation?.description
+        }
     }
     
     override func layoutSubviews() {
@@ -55,26 +61,24 @@ class DeviationView: UIView {
         }
         contentView.frame.origin.x = (bounds.size.width - contentView.frame.size.width) / 2.0
         contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 1.9
-        contentView.layer.cornerRadius = contentView.frame.size.width * 0.1
+        contentView.layer.cornerRadius = contentView.bounds.size.height * 0.15
+        contentView.backgroundColor = isHighlighted ? .background : .foreground
         
-        label.font = .systemFont(ofSize: contentView.bounds.size.height * 0.33)
+        label.font = .systemFont(ofSize: contentView.bounds.size.height * 0.28, weight: .semibold)
+        label.textColor = .label(highlighted: !isHighlighted)
+        label.text = deviation?.description.replacingOccurrences(of: " ", with: "\n")
         label.frame = contentView.bounds
-        
-        accessibilityLabel = deviation?.description
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         contentView.clipsToBounds = true
+        contentView.layer.cornerCurve = .continuous
         addSubview(contentView)
         
         label.textAlignment = .center
         label.numberOfLines = 2
         contentView.addSubview(label)
-    }
-    
-    required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

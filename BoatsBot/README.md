@@ -1,10 +1,9 @@
 # `BoatsBot`
 
-`BoatsBot` is a Cocoa framework for macOS, iOS, watchOS and tvOS. It extends the functionality of [`BoatsKit`](../BoatsKit) to include:
+`BoatsBot` is a Swift package for macOS, iOS, watchOS and tvOS. It extends the functionality of [`BoatsKit`](../BoatsKit) to include:
 
-* Syncing application state between iPhone and Apple Watch using `WCSession`
-* Persisting application state across devices and platforms via [iCloud](https://developer.apple.com/icloud/)
+* Persisting application state across application launches
 
 ## Requirements
 
-`BoatsBot` is written in [Swift 5](https://docs.swift.org/swift-book) and requires [Xcode](https://developer.apple.com/xcode) 10.2 or newer to build.
+Supports apps targeting [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad)/[tvOS ](https://developer.apple.com/tvos) 13, as well as [watchOS](https://developer.apple.com/watchos) 6 and [macOS](https://developer.apple.com/macos) 10.15 Catalina. Written in [Swift](https://developer.apple.com/documentation/swift) 5.1 using the [Foundation](https://developer.apple.com/documentation/foundation) framework and requires [Xcode](https://developer.apple.com/xcode) 11 or newer to build.

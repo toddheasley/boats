@@ -1,11 +1,11 @@
 import UIKit
 
 extension UIImage {
-    static var menu: UIImage? {
-        return UIImage(named: "Menu")
+    static var list: UIImage {
+        return UIImage(systemName: "list.dash")!
     }
     
-    static var car: UIImage? {
-        return UIImage(named: "Car")
+    static var car: UIImage {
+        return UIImage(systemName: "car.fill")!
     }
 }

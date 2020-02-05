@@ -1,11 +1,21 @@
 import WatchKit
 
 extension UIColor {
-    static func background(highlighted: Bool = false) -> UIColor {
-        return highlighted ? UIColor(white: 0.72, alpha: 1.0) : UIColor(white: 0.15, alpha: 1.0)
+    static func foreground(highlighted: Bool = false) -> UIColor {
+        switch highlighted {
+        case true:
+            return UIColor(white: 1.0, alpha: 1.0)
+        default:
+            return UIColor(white: 0.15, alpha: 1.0)
+        }
     }
     
-    static func color(highlighted: Bool = false) -> UIColor {
-        return highlighted ? UIColor(white: 0.1, alpha: 1.0) : UIColor(white: 0.81, alpha: 1.0)
+    static func label(highlighted: Bool = false) -> UIColor {
+        switch highlighted {
+        case true:
+            return UIColor(white: 0.0, alpha: 1.0)
+        default:
+            return UIColor(white: 1.0, alpha: 1.0)
+        }
     }
 }

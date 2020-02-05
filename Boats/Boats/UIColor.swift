@@ -1,31 +1,47 @@
 import UIKit
 
 extension UIColor {
-    static var background: UIColor {
-        switch Appearance.current {
-        case .light:
-            return UIColor(white: 0.72, alpha: 1.0)
+    static var background: UIColor = UIColor { traitCollection -> UIColor in
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            #if targetEnvironment(macCatalyst)
+            return .secondarySystemBackground
+            #else
+            return .tertiarySystemBackground
+            #endif
         default:
-            return UIColor(white: 0.04, alpha: 1.0)
+            #if targetEnvironment(macCatalyst)
+            return UIColor(white: 0.91, alpha: 1.0)
+            #else
+            return UIColor(white: 0.97, alpha: 1.0)
+            #endif
         }
     }
     
-    static var color: UIColor {
-        switch Appearance.current {
-        case .light:
-            return UIColor(white: 0.1, alpha: 1.0)
+    static var foreground: UIColor = UIColor { traitCollection -> UIColor in
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            return UIColor(white: 0.0, alpha: 1.0)
         default:
-            return UIColor(white: 0.81, alpha: 1.0)
+            return  .label
         }
     }
-}
-
-extension CGColor {
-    static var background: CGColor {
-        return UIColor.background.cgColor
+    
+    static func label(highlighted: Bool) -> UIColor {
+        switch highlighted {
+        case true:
+            return .highlightedLabel
+        default:
+            return .label
+        }
     }
     
-    static var color: CGColor {
-        return UIColor.color.cgColor
+    private static var highlightedLabel: UIColor = UIColor { traitCollection -> UIColor in
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            return .label
+        default:
+            return .background
+        }
     }
 }

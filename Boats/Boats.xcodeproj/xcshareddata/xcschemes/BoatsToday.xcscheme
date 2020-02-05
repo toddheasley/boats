@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1120"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5CD20B1D2219EBB5004B64BD"
+               BlueprintIdentifier = "5CCA45EF22D235D50019DE59"
                BuildableName = "BoatsToday.appex"
                BlueprintName = "BoatsToday"
                ReferencedContainer = "container:Boats.xcodeproj">
@@ -29,7 +29,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C933136202A56AE00FE7B02"
+               BlueprintIdentifier = "5CED07AC22B7F47200CAE664"
                BuildableName = "Boats.app"
                BlueprintName = "Boats"
                ReferencedContainer = "container:Boats.xcodeproj">
@@ -44,41 +44,39 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5CD20B1D2219EBB5004B64BD"
-            BuildableName = "BoatsToday.appex"
-            BlueprintName = "BoatsToday"
-            ReferencedContainer = "container:Boats.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
+      askForAppToLaunch = "Yes"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C933136202A56AE00FE7B02"
+            BlueprintIdentifier = "5CCA45EF22D235D50019DE59"
+            BuildableName = "BoatsToday.appex"
+            BlueprintName = "BoatsToday"
+            ReferencedContainer = "container:Boats.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5CED07AC22B7F47200CAE664"
             BuildableName = "Boats.app"
             BlueprintName = "Boats"
             ReferencedContainer = "container:Boats.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -91,7 +89,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C933136202A56AE00FE7B02"
+            BlueprintIdentifier = "5CED07AC22B7F47200CAE664"
             BuildableName = "Boats.app"
             BlueprintName = "Boats"
             ReferencedContainer = "container:Boats.xcodeproj">

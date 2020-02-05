@@ -3,10 +3,24 @@ import BoatsKit
 import BoatsBot
 
 class TimetableController: NSObject {
+    @IBOutlet weak var backgroundGroup: WKInterfaceGroup!
+    @IBOutlet weak var dayLabel: WKInterfaceLabel!
+    @IBOutlet weak var locationLabel: WKInterfaceLabel!
+    @IBOutlet weak var hour1Label: WKInterfaceLabel!
+    @IBOutlet weak var hour2Label: WKInterfaceLabel!
+    @IBOutlet weak var separatorLabel: WKInterfaceLabel!
+    @IBOutlet weak var minute1Label: WKInterfaceLabel!
+    @IBOutlet weak var minute2Label: WKInterfaceLabel!
+    @IBOutlet weak var periodLabel: WKInterfaceLabel!
+    @IBOutlet weak var carImage: WKInterfaceImage!
+    @IBOutlet weak var deviationGroup: WKInterfaceGroup!
+    @IBOutlet weak var deviationLabel: WKInterfaceLabel!
+    @IBOutlet weak var strikeGroup: WKInterfaceGroup!
+    
     func setHighlighted(_ highlighted: Bool = false) {
         isHighlighted = highlighted
-        let color: UIColor = .color(highlighted: isHighlighted)
-        backgroundGroup.setBackgroundColor(.background(highlighted: isHighlighted))
+        let color: UIColor = .label(highlighted: isHighlighted)
+        backgroundGroup.setBackgroundColor(.foreground(highlighted: isHighlighted))
         dayLabel.setTextColor(color)
         locationLabel.setTextColor(color)
         hour1Label.setTextColor(color)
@@ -17,7 +31,7 @@ class TimetableController: NSObject {
         periodLabel.setTextColor(color)
         deviationLabel.setTextColor(color)
         carImage.setTintColor(color)
-        strikeGroup.setBackgroundColor(color)
+        strikeGroup.setBackgroundColor(.black)
     }
     
     func setComplication(_ complication: Complication?, highlighted: Bool = false) {
@@ -32,7 +46,8 @@ class TimetableController: NSObject {
         carImage.setImage(complication?.departure.isCarFerry ?? false ? .car : nil)
         deviationGroup.setHidden(complication?.departure.deviations.isEmpty ?? true)
         deviationLabel.setText(complication?.departure.deviations.first?.description)
-        locationLabel.setText(complication != nil ? "Depart \(complication!.origin.abbreviated)" : nil)
+        //locationLabel.setText(complication != nil ? "Depart \(complication!.origin.abbreviated) / \(complication!.destination.abbreviated)" : nil)
+        
         if let deviation: Deviation = complication?.departure.deviations.first {
             switch deviation {
             case .end:
@@ -45,20 +60,6 @@ class TimetableController: NSObject {
         }
         setHighlighted(highlighted)
     }
-    
-    @IBOutlet weak var backgroundGroup: WKInterfaceGroup!
-    @IBOutlet weak var dayLabel: WKInterfaceLabel!
-    @IBOutlet weak var locationLabel: WKInterfaceLabel!
-    @IBOutlet weak var hour1Label: WKInterfaceLabel!
-    @IBOutlet weak var hour2Label: WKInterfaceLabel!
-    @IBOutlet weak var separatorLabel: WKInterfaceLabel!
-    @IBOutlet weak var minute1Label: WKInterfaceLabel!
-    @IBOutlet weak var minute2Label: WKInterfaceLabel!
-    @IBOutlet weak var periodLabel: WKInterfaceLabel!
-    @IBOutlet weak var carImage: WKInterfaceImage!
-    @IBOutlet weak var deviationGroup: WKInterfaceGroup!
-    @IBOutlet weak var deviationLabel: WKInterfaceLabel!
-    @IBOutlet weak var strikeGroup: WKInterfaceGroup!
     
     private var isHighlighted: Bool = false
 }
