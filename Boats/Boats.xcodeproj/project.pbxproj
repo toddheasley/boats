@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5C02AD9D23B43A7C00824250 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C02AD9C23B43A7C00824250 /* TimetableView.swift */; };
+		5C26333623F8358B00F9A16D /* CLKComplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26333523F8358B00F9A16D /* CLKComplication.swift */; };
+		5C26333B23F8808A00F9A16D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26333A23F8808A00F9A16D /* UIImage.swift */; };
 		5C357C4C23EA2B4600914B7A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C357C4A23EA2B4600914B7A /* Interface.storyboard */; };
 		5C357C4E23EA2B4700914B7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C357C4D23EA2B4700914B7A /* Assets.xcassets */; };
 		5C357C5523EA2B4700914B7A /* BoatsWatchExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5C357C5423EA2B4700914B7A /* BoatsWatchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -15,7 +17,7 @@
 		5C357C5C23EA2B4700914B7A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C357C5B23EA2B4700914B7A /* ExtensionDelegate.swift */; };
 		5C357C5E23EA2B4700914B7A /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C357C5D23EA2B4700914B7A /* ComplicationController.swift */; };
 		5C357C6023EA2B4800914B7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C357C5F23EA2B4800914B7A /* Assets.xcassets */; };
-		5C357C6423EA2B4800914B7A /* BoatsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C357C4823EA2B4600914B7A /* BoatsWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5C357C6423EA2B4800914B7A /* BoatsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C357C4823EA2B4600914B7A /* BoatsWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5C3B7EA223B5078600C0A36D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3B7EA123B5078600C0A36D /* MainView.swift */; };
 		5C4B100722B7F6BF009DC20C /* BoatsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5C4B100622B7F6BF009DC20C /* BoatsKit */; };
 		5C4B100922B7F6C3009DC20C /* BoatsBot in Frameworks */ = {isa = PBXBuildFile; productRef = 5C4B100822B7F6C3009DC20C /* BoatsBot */; };
@@ -61,7 +63,6 @@
 		5CE137FB23EA32EE006645FF /* TimetableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE137FA23EA32EE006645FF /* TimetableController.swift */; };
 		5CE137FC23EA3304006645FF /* WCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E4B023D6407800C0D9CE /* WCSession.swift */; };
 		5CE1380423EA3466006645FF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE1380323EA3466006645FF /* UIColor.swift */; };
-		5CE1380523EA3499006645FF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7CA84223B01F810099F14E /* UIImage.swift */; };
 		5CED07B122B7F47200CAE664 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED07B022B7F47200CAE664 /* AppDelegate.swift */; };
 		5CED07B322B7F47200CAE664 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED07B222B7F47200CAE664 /* SceneDelegate.swift */; };
 		5CED07B822B7F47200CAE664 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CED07B622B7F47200CAE664 /* Main.storyboard */; };
@@ -142,6 +143,8 @@
 
 /* Begin PBXFileReference section */
 		5C02AD9C23B43A7C00824250 /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
+		5C26333523F8358B00F9A16D /* CLKComplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLKComplication.swift; sourceTree = "<group>"; };
+		5C26333A23F8808A00F9A16D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5C28B17F22BC6C310075B41A /* Boats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Boats.entitlements; sourceTree = "<group>"; };
 		5C357C4823EA2B4600914B7A /* BoatsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoatsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C357C4B23EA2B4600914B7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 		5C4B100E22B7F70A009DC20C /* boats */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = boats; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C4B101022B7F70A009DC20C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5C50E4B023D6407800C0D9CE /* WCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSession.swift; sourceTree = "<group>"; };
+		5C6FDF8223F971A700687F99 /* Boats.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = Boats.sketch; sourceTree = "<group>"; };
 		5C7CA83C23AFC90A0099F14E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5C7CA84023AFD27B0099F14E /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		5C7CA84223B01F810099F14E /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -242,8 +246,8 @@
 		5C357C4923EA2B4600914B7A /* BoatsWatch */ = {
 			isa = PBXGroup;
 			children = (
-				5C357C4A23EA2B4600914B7A /* Interface.storyboard */,
 				5C357C4D23EA2B4700914B7A /* Assets.xcassets */,
+				5C357C4A23EA2B4600914B7A /* Interface.storyboard */,
 				5C357C4F23EA2B4700914B7A /* Info.plist */,
 			);
 			path = BoatsWatch;
@@ -253,12 +257,14 @@
 			isa = PBXGroup;
 			children = (
 				5CE1380623EA5771006645FF /* BoatsWatchExtension.entitlements */,
+				5C357C5F23EA2B4800914B7A /* Assets.xcassets */,
+				5C26333523F8358B00F9A16D /* CLKComplication.swift */,
 				5C357C5D23EA2B4700914B7A /* ComplicationController.swift */,
 				5C357C5B23EA2B4700914B7A /* ExtensionDelegate.swift */,
 				5C357C5923EA2B4700914B7A /* InterfaceController.swift */,
 				5CE137FA23EA32EE006645FF /* TimetableController.swift */,
 				5CE1380323EA3466006645FF /* UIColor.swift */,
-				5C357C5F23EA2B4800914B7A /* Assets.xcassets */,
+				5C26333A23F8808A00F9A16D /* UIImage.swift */,
 				5C357C6123EA2B4800914B7A /* Info.plist */,
 			);
 			path = BoatsWatchExtension;
@@ -297,6 +303,7 @@
 		5CED07A422B7F47200CAE664 = {
 			isa = PBXGroup;
 			children = (
+				5C6FDF8223F971A700687F99 /* Boats.sketch */,
 				5CED07AF22B7F47200CAE664 /* Boats */,
 				5CCA45F322D235D50019DE59 /* BoatsToday */,
 				5C357C4923EA2B4600914B7A /* BoatsWatch */,
@@ -640,9 +647,10 @@
 				5CE1380423EA3466006645FF /* UIColor.swift in Sources */,
 				5CE137FC23EA3304006645FF /* WCSession.swift in Sources */,
 				5C357C5A23EA2B4700914B7A /* InterfaceController.swift in Sources */,
+				5C26333623F8358B00F9A16D /* CLKComplication.swift in Sources */,
 				5C357C5E23EA2B4700914B7A /* ComplicationController.swift in Sources */,
+				5C26333B23F8808A00F9A16D /* UIImage.swift in Sources */,
 				5CE137FB23EA32EE006645FF /* TimetableController.swift in Sources */,
-				5CE1380523EA3499006645FF /* UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +721,7 @@
 		};
 		5C357C6323EA2B4800914B7A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 5C357C4723EA2B4600914B7A /* BoatsWatch */;
 			targetProxy = 5C357C6223EA2B4800914B7A /* PBXContainerItemProxy */;
 		};
@@ -897,6 +906,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -919,6 +929,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1049,6 +1060,7 @@
 				CODE_SIGN_ENTITLEMENTS = Boats/Boats.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = Boats/Info.plist;
@@ -1059,6 +1071,7 @@
 				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1075,6 +1088,7 @@
 				CODE_SIGN_ENTITLEMENTS = Boats/Boats.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				INFOPLIST_FILE = Boats/Info.plist;
@@ -1085,6 +1099,7 @@
 				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

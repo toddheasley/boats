@@ -1,7 +1,6 @@
 import Foundation
 import WatchConnectivity
 
-
 extension WCSession {
     static var available: WCSession? {
         guard WCSession.isSupported(), WCSession.default.activationState == .activated else {

@@ -27,4 +27,11 @@ public struct Complication {
             return day == .holiday
         }
     }
+    
+    public init(day: Day, departure: Departure, destination: Location, origin: Location) {
+        self.day = day
+        self.departure = departure
+        self.destination = destination
+        self.origin = origin
+    }
 }

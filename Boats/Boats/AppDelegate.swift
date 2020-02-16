@@ -1,6 +1,5 @@
 import UIKit
 import WatchConnectivity
-import BoatsBot
 import BoatsKit
 
 @UIApplicationMain
