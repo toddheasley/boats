@@ -42,12 +42,12 @@ extension RouteView: HTMLDataSource {
             if let deviation: Deviation = departure.deviations.first {
                 return "<time>\(time)</time> <small>\(deviation.description.replacingOccurrences(of: " ", with: "<br>"))</small>"
             } else if departure.isCarFerry {
-                return "<time>\(time)</time> \((try? SVG.car.html()) ?? SVG.car.description)"
+                return "<time>\(time)</time> &#128664;"
             } else {
                 return "<time>\(time)</time>"
             }
         case "MENU":
-            return "<a href=\"\(IndexView(index: self.index).path)\">\((try? SVG.menu.html()) ?? SVG.menu.description)</a>"
+            return "<a href=\"\(IndexView(index: self.index).path)\">&#127968;</a>"
         case "INDEX_NAME":
             return "<a href=\"\(self.index.url.absoluteString)\">\(self.index.name)</a>"
         case "INDEX_DESCRIPTION":
@@ -58,7 +58,7 @@ extension RouteView: HTMLDataSource {
             return Site.name
         case "APP_ID":
             return Site.appIdentifier
-        case "BOOKMARK_PATH":
+        case "BOOKMARKICON_PATH":
             return BookmarkIcon().path
         case "STYLESHEET_PATH":
             return Stylesheet().path
@@ -96,7 +96,7 @@ private let HTML_Data: Data = """
 <!-- APP_ID? -->
         <meta name="apple-itunes-app" content="app-id=<!-- APP_ID -->">
 <!-- ?APP_ID -->
-        <link rel="apple-touch-icon" href="<!-- BOOKMARK_PATH -->">
+        <link rel="apple-touch-icon" href="<!-- BOOKMARKICON_PATH -->">
         <link rel="stylesheet" href="<!-- STYLESHEET_PATH -->">
     </head>
     <body>
@@ -105,8 +105,8 @@ private let HTML_Data: Data = """
             <h1><!-- INDEX_NAME --></h1>
         </header>
         <main>
-            <h2><small><!-- SEASON --></small></h2>
             <h1><!-- ROUTE_NAME --></h1>
+            <h2><small><!-- SEASON --></small></h2>
 <!-- TIMETABLE[ -->
             <section>
                 <h3><!-- DAYS --></h3>

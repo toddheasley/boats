@@ -19,14 +19,14 @@ extension Stylesheet: Resource {
 
 private let Stylesheet_Data: Data = """
 :root {
-    --background: rgb(204, 204, 204);
+    --background: rgb(251, 251, 251);
     --color: rgb(25, 25, 25);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --background: rgb(25, 25, 25);
-        --color: rgb(204, 204, 204);
+        --color: rgb(251, 251, 251);
     }
 }
 
@@ -43,31 +43,22 @@ body {
     -webkit-text-size-adjust: none;
     background: var(--background);
     color: var(--color);
+    filter: grayscale(100%);
     font-family: -apple-system, sans-serif;
-    margin: 16px auto 32px auto;
+    font-size: 16px;
+    margin: 1em auto;
     position: relative;
     width: 298px;
 }
 
-h1 {
-    padding: 0 1px;
-}
-
-header {
-    margin: 0 auto 32px auto;
-}
-
 header h1 {
-    font-size: 16px;
-}
-
-main {
-    margin: 0 auto;
+    font-size: 1em;
+    margin: 1em 2px;
 }
 
 main h1 {
     font-size: 24px;
-    margin-bottom: 24px;
+    margin: 2px;
 }
 
 main h2 {
@@ -76,7 +67,7 @@ main h2 {
 
 main h2 small {
     background: var(--color);
-    border-radius: 4px;
+    border-style: outset;
     color: var(--background);
     display: inline-block;
     font-size: 12px;
@@ -85,20 +76,23 @@ main h2 small {
 
 nav {
     position: absolute;
-    right: -3px;
-    top: -7px;
+    right: 2px;
+    top: 0px;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
 }
 
 section {
-    border: 2px solid;
-    border-radius: 11px;
-    margin: 16px 0;
-    overflow: hidden;
+    border-style: outset;
+    margin: 1em 0;
 }
 
 section h3 {
-    font-size: 16px;
-    padding: 5px 6px;
+    font-size: 1em;
+    padding: 2px 6px;
 }
 
 section h3 small {
@@ -109,66 +103,50 @@ small {
     font-size: 12px;
 }
 
-svg {
-    fill: var(--color);
-    display: inline-block;
-    height: 32px;
-    vertical-align: middle;
+table {
+    width: 100%;
 }
 
-table {
-    border-collapse: collapse;
-    position: relative;
-    right: 2px;
-    top: 2px;
-    width: 298px;
+td, th {
+    border-style: inset;
 }
 
 td {
-    border: 2px solid;
-    padding: 4px 0 4px 6px;
     white-space: nowrap;
 }
 
 td a {
     display: block;
-    font-size: 24px;
+    padding: 3px 2px;
     position: relative;
     text-decoration: none;
     vertical-align: middle;
-    width: 280px;
 }
 
 td a b {
-    display: table-cell;
+    font-size: 24px;
     height: 32px;
+    margin-right: 2px;
     vertical-align: middle;
-}
-
-td a svg {
-    position: absolute;
-    right: 0;
-    top: 0;
 }
 
 td small {
     background: var(--color);
-    border-radius: 3px;
+    border-radius: 1px;
     color: var(--background);
     display: inline-block;
     font-size: 8px;
     overflow: hidden;
-    padding: 1px 0 2px 0;
+    padding: 1px;
     text-align: center;
     vertical-align: middle;
     white-space: normal;
-    width: 32px;
+    width: 29px;
 }
 
 th {
-    border: 2px solid;
-    padding: 6px;
     text-align: left;
+    padding: 2px;
 }
 
 th small {

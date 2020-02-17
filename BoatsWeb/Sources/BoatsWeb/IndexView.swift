@@ -20,16 +20,16 @@ extension IndexView: HTMLDataSource {
                 return nil
             }
             let route: Route = self.index.routes[index[0]]
-            return "<a href=\"\(RouteView(route: route, index: self.index).path)\"><b>\(route.name)</b>\(route.services.contains(.car) ? " \((try? SVG.car.html()) ?? SVG.car.description)" : "")</a>"
+            return "<a href=\"\(RouteView(route: route, index: self.index).path)\"><b>\(route.name)</b>\(route.services.contains(.car) ? " &#128664;" : "")</a>"
         case "INDEX_NAME":
             return "<a href=\"\(self.index.url.absoluteString)\">\(self.index.name)</a>"
         case "INDEX_DESCRIPTION":
-            return "\(index)"
+            return "\(self.index)"
         case "TITLE", "NAME":
             return Site.name
         case "APP_ID":
             return Site.appIdentifier
-        case "BOOKMARK_PATH":
+        case "BOOKMARKICON_PATH":
             return BookmarkIcon().path
         case "STYLESHEET_PATH":
             return Stylesheet().path
@@ -65,7 +65,7 @@ private let HTML_Data: Data = """
 <!-- APP_ID? -->
         <meta name="apple-itunes-app" content="app-id=<!-- APP_ID -->">
 <!-- ?APP_ID -->
-        <link rel="apple-touch-icon" href="<!-- BOOKMARK_PATH -->">
+        <link rel="apple-touch-icon" href="<!-- BOOKMARKICON_PATH -->">
         <link rel="stylesheet" href="<!-- STYLESHEET_PATH -->">
     </head>
     <body>
@@ -74,7 +74,6 @@ private let HTML_Data: Data = """
             <h1><!-- INDEX_NAME --></h1>
         </header>
         <main>
-            <h2></h2>
             <h1><!-- INDEX_DESCRIPTION --></h1>
             <section>
                 <h3>Routes</h3>
