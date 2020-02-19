@@ -19,14 +19,14 @@ extension Stylesheet: Resource {
 
 private let Stylesheet_Data: Data = """
 :root {
-    --background: rgb(251, 251, 251);
+    --background: rgb(233, 233, 233);
     --color: rgb(25, 25, 25);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --background: rgb(25, 25, 25);
-        --color: rgb(251, 251, 251);
+        --color: rgb(233, 233, 233);
     }
 }
 
@@ -67,11 +67,11 @@ main h2 {
 
 main h2 small {
     background: var(--color);
-    border-style: outset;
+    border-radius: 1px;
     color: var(--background);
     display: inline-block;
     font-size: 12px;
-    padding: 2px 6px;
+    padding: 2px 5px;
 }
 
 nav {

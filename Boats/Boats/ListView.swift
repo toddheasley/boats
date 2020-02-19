@@ -144,7 +144,7 @@ fileprivate class DescriptionView: UIView {
         
         label.frame.size.width = bounds.size.width - (label.frame.origin.x * 2.0)
         
-        backgroundColor = .background
+        backgroundColor = .background(highlighted: true)
         label.textColor = .label
     }
     
@@ -196,7 +196,7 @@ fileprivate class RouteControl: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        backgroundColor = isHighlighted ? .foreground : .background
+        backgroundColor = isHighlighted ? .foreground : .background(highlighted: true)
         
         label.isUserInteractionEnabled = false
         label.font = .systemFont(ofSize: label.bounds.size.height * 0.9, weight: .bold)

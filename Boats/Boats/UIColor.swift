@@ -1,13 +1,22 @@
 import UIKit
 
 extension UIColor {
+    static var foreground: UIColor = UIColor { traitCollection -> UIColor in
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            return background
+        default:
+            return label
+        }
+    }
+    
     static var background: UIColor = UIColor { traitCollection -> UIColor in
         switch traitCollection.userInterfaceStyle {
         case .dark:
             #if targetEnvironment(macCatalyst)
-            return .secondarySystemBackground
+            return systemBackground
             #else
-            return .tertiarySystemBackground
+            return UIColor(white: 0.03, alpha: 1.0)
             #endif
         default:
             #if targetEnvironment(macCatalyst)
@@ -18,30 +27,43 @@ extension UIColor {
         }
     }
     
-    static var foreground: UIColor = UIColor { traitCollection -> UIColor in
-        switch traitCollection.userInterfaceStyle {
-        case .dark:
-            return UIColor(white: 0.0, alpha: 1.0)
+    static func background(highlighted: Bool) -> UIColor {
+        switch highlighted {
+        case true:
+            return highlightedBackground
         default:
-            return  .label
+            return background
         }
     }
     
     static func label(highlighted: Bool) -> UIColor {
         switch highlighted {
         case true:
-            return .highlightedLabel
+            return highlightedLabel
         default:
-            return .label
+            return label
+        }
+    }
+    
+    private static var highlightedBackground: UIColor = UIColor { traitCollection -> UIColor in
+        switch traitCollection.userInterfaceStyle {
+        case .dark:
+            #if targetEnvironment(macCatalyst)
+            return UIColor(white: 0.16, alpha: 1.0)
+            #else
+            return UIColor(white: 0.1, alpha: 1.0)
+            #endif
+        default:
+            return background
         }
     }
     
     private static var highlightedLabel: UIColor = UIColor { traitCollection -> UIColor in
         switch traitCollection.userInterfaceStyle {
         case .dark:
-            return .label
+            return label
         default:
-            return .background
+            return background
         }
     }
 }

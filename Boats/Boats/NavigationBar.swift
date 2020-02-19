@@ -95,7 +95,7 @@ class NavigationBar: UIView {
         
         clipsToBounds = false
         
-        backgroundView.backgroundColor = .background
+        backgroundView.backgroundColor = .background(highlighted: true)
         backgroundView.autoresizingMask = [.flexibleWidth]
         backgroundView.frame.size.width = bounds.size.width
         addSubview(backgroundView)

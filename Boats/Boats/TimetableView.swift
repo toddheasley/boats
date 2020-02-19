@@ -175,7 +175,7 @@ fileprivate class DescriptionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .background
+        backgroundColor = .background(highlighted: true)
         
         label.font = .systemFont(ofSize: 21.0, weight: .bold)
         label.textColor = .label
@@ -226,9 +226,9 @@ fileprivate class DirectionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.origin.backgroundColor = .background
+        contentView.origin.backgroundColor = .background(highlighted: true)
         addSubview(contentView.origin)
-        contentView.destination.backgroundColor = .background
+        contentView.destination.backgroundColor = contentView.origin.backgroundColor
         addSubview(contentView.destination)
         
         originLabel.font = .systemFont(ofSize: 15.0, weight: .bold)
@@ -297,8 +297,8 @@ fileprivate class TripView: UIView {
         originView.frame.size.height = contentView.origin.frame.size.height
         destinationView.frame = originView.frame
         
-        contentView.origin.backgroundColor = (originView.departure != nil && isHighlighted.origin) ? nil : .background
-        contentView.destination.backgroundColor = (destinationView.departure != nil && isHighlighted.destination) ? nil : .background
+        contentView.origin.backgroundColor = (originView.departure != nil && isHighlighted.origin) ? nil : .background(highlighted: true)
+        contentView.destination.backgroundColor = (destinationView.departure != nil && isHighlighted.destination) ? nil : .background(highlighted: true)
     }
     
     override init(frame: CGRect) {

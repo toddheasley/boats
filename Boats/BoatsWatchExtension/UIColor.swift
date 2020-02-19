@@ -6,7 +6,7 @@ extension UIColor {
         case true:
             return UIColor(white: 1.0, alpha: 1.0)
         default:
-            return UIColor(white: 0.15, alpha: 1.0)
+            return UIColor(white: 0.1, alpha: 1.0)
         }
     }
     
