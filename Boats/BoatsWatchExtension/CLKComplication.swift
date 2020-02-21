@@ -68,7 +68,7 @@ extension CLKComplicationTemplateGraphicCornerTextImage {
         }
         self.init()
         textProvider = CLKSimpleTextProvider(text: "\(complication.departure.time) dep \(complication.origin.abbreviated)")
-        let image: UIImage = .car(scale: 0.76, on: !complication.departure.isCarFerry)
+        let image: UIImage = .car(scale: 0.76, on: complication.departure.isCarFerry)
         imageProvider = CLKFullColorImageProvider(fullColorImage: image, tintedImageProvider: CLKImageProvider(onePieceImage: image.withRenderingMode(.alwaysTemplate)))
     }
 }
@@ -81,7 +81,7 @@ extension CLKComplicationTemplateGraphicBezelCircularText {
         self.init()
         textProvider = CLKSimpleTextProvider(text: "\(complication.departure.time) dep \(complication.origin.abbreviated)")
         let template: CLKComplicationTemplateGraphicCircularImage = CLKComplicationTemplateGraphicCircularImage()
-        let image: UIImage = .car(scale: 1.32, on: !complication.departure.isCarFerry)
+        let image: UIImage = .car(scale: 1.32, on: complication.departure.isCarFerry)
         template.imageProvider = CLKFullColorImageProvider(fullColorImage: image, tintedImageProvider: CLKImageProvider(onePieceImage: image.withRenderingMode(.alwaysTemplate)))
         circularTemplate = template
     }
@@ -94,7 +94,7 @@ extension CLKComplicationTemplateGraphicRectangularStandardBody {
         }
         self.init()
         headerTextProvider = CLKSimpleTextProvider(text: "\(complication.departure.time) \(complication.origin.abbreviated)")
-        if !complication.departure.isCarFerry {
+        if complication.departure.isCarFerry {
             let image: UIImage = .car(scale: 0.68)
             headerImageProvider = CLKFullColorImageProvider(fullColorImage: image, tintedImageProvider: CLKImageProvider(onePieceImage: image.withRenderingMode(.alwaysTemplate)))
         }

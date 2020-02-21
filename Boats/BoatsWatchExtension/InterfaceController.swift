@@ -23,7 +23,4 @@ class InterfaceController: WKInterfaceController {
             }
         }
     }
-    
-    // MARK: WKInterfaceController
-    
 }

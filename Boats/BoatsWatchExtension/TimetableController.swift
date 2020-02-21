@@ -46,7 +46,7 @@ class TimetableController: NSObject {
         carImage.setImage(complication?.departure.isCarFerry ?? false ? .car : nil)
         deviationGroup.setHidden(complication?.departure.deviations.isEmpty ?? true)
         deviationLabel.setText(complication?.departure.deviations.first?.description)
-        //locationLabel.setText(complication != nil ? "Depart \(complication!.origin.abbreviated) / \(complication!.destination.abbreviated)" : nil)
+        locationLabel.setText(complication != nil ? "Depart \(complication!.origin.abbreviated)" : nil)
         
         if let deviation: Deviation = complication?.departure.deviations.first {
             switch deviation {

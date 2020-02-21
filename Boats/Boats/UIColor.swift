@@ -6,7 +6,11 @@ extension UIColor {
         case .dark:
             return background
         default:
+            #if targetEnvironment(macCatalyst)
+            return UIColor(white: 0.15, alpha: 1.0)
+            #else
             return label
+            #endif
         }
     }
     
