@@ -43,7 +43,7 @@ class TimetableController: NSObject {
         minute1Label.setText(components?[3])
         minute2Label.setText(components?[4])
         periodLabel.setText(components?[5])
-        carImage.setImage(complication?.departure.isCarFerry ?? false ? .car : nil)
+        carImage.setImage(complication?.departure.isCarFerry ?? false ? .car() : nil)
         deviationGroup.setHidden(complication?.departure.deviations.isEmpty ?? true)
         deviationLabel.setText(complication?.departure.deviations.first?.description)
         locationLabel.setText(complication != nil ? "Depart \(complication!.origin.abbreviated)" : nil)
