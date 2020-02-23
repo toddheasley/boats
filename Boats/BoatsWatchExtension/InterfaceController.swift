@@ -23,4 +23,11 @@ class InterfaceController: WKInterfaceController {
             }
         }
     }
+    
+    // MARK: WKInterfaceController
+    override func willActivate() {
+        super.willActivate()
+        
+        index = nil ?? index
+    }
 }

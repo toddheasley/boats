@@ -27,6 +27,7 @@ class RefreshControl: UIControl {
                 feedbackGenerator?.prepare()
             } else if progress == 0.0 {
                 feedbackGenerator = nil
+                isRefreshing = false
                 canRefresh = true
             }
         }

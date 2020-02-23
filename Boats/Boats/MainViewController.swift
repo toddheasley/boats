@@ -54,11 +54,13 @@ class MainViewController: UIViewController, MainViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        routeView.index = Index()
         routeView.delegate = self
         routeView.autoresizingMask = [.flexibleHeight]
         routeView.frame.size.height = view.bounds.size.height
         view.addSubview(routeView)
         
+        indexView.index = Index()
         indexView.delegate = self
         indexView.autoresizingMask = [.flexibleHeight]
         indexView.frame.size.width = UIView.maximumContentWidth / 2.0

@@ -61,6 +61,7 @@ class MainView: UIView, UIScrollViewDelegate {
         
         scrollView.delegate = self
         scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.alwaysBounceVertical = true
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         scrollView.frame = bounds
         addSubview(scrollView)

@@ -26,6 +26,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         extensionContext?.widgetLargestAvailableDisplayMode = .compact
         
+        todayView.index = Index()
         todayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         todayView.frame = view.bounds
         view.addSubview(todayView)

@@ -122,14 +122,14 @@
                                     </connections>
                                 </tableRow>
                                 <tableRow identifier="Empty" id="EuL-r1-9mr" customClass="EmptyController" customModule="BoatsWatchExtension">
-                                    <group key="rootItem" width="1" height="1" alignment="left" radius="1" spacing="0.0" id="4e9-hJ-PTq">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" radius="1" spacing="0.0" id="4e9-hJ-PTq">
                                         <items>
-                                            <label width="1" height="0.90000000000000002" alignment="left" text="Schedule Unavailable" textAlignment="left" numberOfLines="2" id="3nm-AI-HMN">
-                                                <fontDescription key="font" type="system" weight="semibold" pointSize="24"/>
+                                            <label width="1" alignment="left" verticalAlignment="center" text="Schedule Unavailable" textAlignment="left" numberOfLines="2" id="3nm-AI-HMN">
+                                                <fontDescription key="font" type="system" weight="semibold" pointSize="21"/>
                                             </label>
                                         </items>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                        <edgeInsets key="margins" left="0.0" right="0.0" top="8" bottom="8"/>
                                     </group>
                                     <connections>
                                         <outlet property="label" destination="3nm-AI-HMN" id="oeK-cw-M5k"/>

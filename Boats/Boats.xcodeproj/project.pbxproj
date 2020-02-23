@@ -25,6 +25,8 @@
 		5C4B101622B7F769009DC20C /* BoatsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5C4B101522B7F769009DC20C /* BoatsKit */; };
 		5C4B101822B7F769009DC20C /* BoatsWeb in Frameworks */ = {isa = PBXBuildFile; productRef = 5C4B101722B7F769009DC20C /* BoatsWeb */; };
 		5C50E4B123D6407800C0D9CE /* WCSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E4B023D6407800C0D9CE /* WCSession.swift */; };
+		5C6219FA2402D17300F4EC13 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6219F92402D17300F4EC13 /* EmptyView.swift */; };
+		5C6219FB2402D17300F4EC13 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6219F92402D17300F4EC13 /* EmptyView.swift */; };
 		5C7CA83D23AFC90A0099F14E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7CA83C23AFC90A0099F14E /* MainViewController.swift */; };
 		5C7CA84123AFD27B0099F14E /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7CA84023AFD27B0099F14E /* IndexViewController.swift */; };
 		5C7CA84323B01F810099F14E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7CA84223B01F810099F14E /* UIImage.swift */; };
@@ -160,6 +162,7 @@
 		5C4B100E22B7F70A009DC20C /* boats */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = boats; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C4B101022B7F70A009DC20C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5C50E4B023D6407800C0D9CE /* WCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSession.swift; sourceTree = "<group>"; };
+		5C6219F92402D17300F4EC13 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		5C6FDF8223F971A700687F99 /* Boats.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = Boats.sketch; sourceTree = "<group>"; };
 		5C7CA83C23AFC90A0099F14E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5C7CA84023AFD27B0099F14E /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +339,7 @@
 				5CD52AA623B197D200A55963 /* DeviationView.swift */,
 				5CD52AA823B1A21E00A55963 /* DepartureView.swift */,
 				5CC34F5B23CBC44B000C4702 /* DismissControl.swift */,
+				5C6219F92402D17300F4EC13 /* EmptyView.swift */,
 				5C7CA84023AFD27B0099F14E /* IndexViewController.swift */,
 				5CB7FC9D23B277A40004C197 /* IndexView.swift */,
 				5CED07BB22B7F47300CAE664 /* Launch.storyboard */,
@@ -669,6 +673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C7CB1C723E7253A00F80C92 /* TodayView.swift in Sources */,
+				5C6219FB2402D17300F4EC13 /* EmptyView.swift in Sources */,
 				5C7CB1CE23E7598100F80C92 /* CarView.swift in Sources */,
 				5C7CB1CD23E7592600F80C92 /* TimeView.swift in Sources */,
 				5C7CB1CA23E7590600F80C92 /* DepartureView.swift in Sources */,
@@ -697,6 +702,7 @@
 				5CB7FC9C23B2774C0004C197 /* RouteView.swift in Sources */,
 				5C7CA84323B01F810099F14E /* UIImage.swift in Sources */,
 				5CAB8EB723BE4D1800B97694 /* NavigationBar.swift in Sources */,
+				5C6219FA2402D17300F4EC13 /* EmptyView.swift in Sources */,
 				5CD52AA523B15F7900A55963 /* TimeView.swift in Sources */,
 				5CDED58123B6B98A000D9658 /* ListView.swift in Sources */,
 				5C9EE22323B301110029AA64 /* LinkControl.swift in Sources */,

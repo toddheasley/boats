@@ -18,6 +18,7 @@ class RouteView: MainView, NavigationBarDelegate {
     private let navigationBar: NavigationBar = NavigationBar()
     private let seasonLabel: SeasonLabel = SeasonLabel()
     private var timetableViews: [TimetableView] = []
+    private let emptyView: EmptyView = EmptyView()
     
     private func scrollToHighlighted(animated: Bool = false) {
         guard !scrollView.isTracking else {
@@ -71,6 +72,7 @@ class RouteView: MainView, NavigationBarDelegate {
             for timetableView in timetableViews {
                 timetableView.removeFromSuperview()
             }
+            emptyView.removeFromSuperview()
             timetableViews = []
             if let route: Route = index.route,
                 let schedule: Schedule = route.schedule() {
@@ -81,6 +83,8 @@ class RouteView: MainView, NavigationBarDelegate {
                     timetableViews.append(timetableView)
                     contentView.addSubview(timetableView)
                 }
+            } else {
+                contentView.addSubview(emptyView)
             }
             setNeedsLayout()
             layoutIfNeeded()
@@ -93,6 +97,7 @@ class RouteView: MainView, NavigationBarDelegate {
         navigationBar.isHidden = isNavigationBarHidden
         
         var contentRect: CGRect = self.contentRect
+        seasonLabel.frame.size.width = contentView.bounds.size.width
         seasonLabel.frame.origin.y = isNavigationBarHidden ? contentSpace : navigationBar.intrinsicContentSize.height + (contentSpace * 0.5)
         contentRect.size.height = (seasonLabel.frame.origin.y + seasonLabel.frame.size.height)
         for timetableView in timetableViews {
@@ -102,8 +107,10 @@ class RouteView: MainView, NavigationBarDelegate {
             timetableView.frame.origin.y = contentRect.size.height + contentSpace
             contentRect.size.height = timetableView.frame.origin.y + timetableView.frame.size.height
         }
+        emptyView.frame.size.width = contentView.bounds.size.width
+        emptyView.frame.origin.y = seasonLabel.frame.origin.y
+        contentRect.size.height = max(emptyView.frame.origin.y + emptyView.frame.size.height, contentRect.size.height)
         contentView.frame = contentRect
-        
         super.layoutSubviews()
         
         highlight()
@@ -132,9 +139,9 @@ class RouteView: MainView, NavigationBarDelegate {
         navigationBar.frame.size.width = bounds.size.width
         addSubview(navigationBar)
         
-        seasonLabel.autoresizingMask = [.flexibleWidth]
-        seasonLabel.frame.size.width = contentView.bounds.size.width
         seasonLabel.frame.size.height = seasonLabel.intrinsicContentSize.height
+        
+        emptyView.frame.size.height = emptyView.intrinsicContentSize.height * 2.0
     }
     
     // MARK: NavigationBarDelegate

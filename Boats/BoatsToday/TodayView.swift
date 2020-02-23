@@ -7,12 +7,14 @@ class TodayView: UIView {
     var index: Index = Index() {
         didSet {
             if let complication: Complication = index.complications(limit: 1, filter: true).first {
+                emptyView.isHidden = true
                 departureView.departure = complication.departure
                 dayLabel.text = complication.day.abbreviated
                 locationLabel.text = "Depart \(complication.origin.abbreviated) to \(complication.destination.abbreviated)"
                 contentView.isHidden = false
             } else {
                 contentView.isHidden = true
+                emptyView.isHidden = false
                 departureView.departure = nil
                 dayLabel.text = nil
                 locationLabel.text = nil
@@ -31,6 +33,7 @@ class TodayView: UIView {
     private let dayLabel: UILabel = UILabel()
     private let locationBackground: UIView = UIView()
     private let locationLabel: UILabel = UILabel()
+    private let emptyView: EmptyView = EmptyView()
     
     // MARK: UIView
     override func layoutSubviews() {
@@ -44,6 +47,9 @@ class TodayView: UIView {
         
         locationLabel.textColor = dayLabel.textColor
         locationLabel.frame.size.width = locationBackground.bounds.size.width - (locationLabel.frame.origin.x * 2.0)
+        
+        emptyView.frame.size.width = bounds.size.width - (emptyView.frame.origin.x * 2.0)
+        emptyView.frame.size.height = bounds.size.height * 0.7
     }
         
     override init(frame: CGRect) {
@@ -95,5 +101,8 @@ class TodayView: UIView {
         locationLabel.frame.size.height = locationBackground.bounds.size.height - locationLabel.frame.origin.y
         locationLabel.frame.origin.x = dayLabel.frame.origin.x
         locationBackground.addSubview(locationLabel)
+        
+        emptyView.frame.origin.x = departureView.frame.origin.x
+        addSubview(emptyView)
     }
 }
