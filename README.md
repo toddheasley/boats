@@ -4,10 +4,11 @@ Boats is an app for iPhone, iPad and Apple Watch that presents the complete [Cas
 
 ![](Boats/Boats.png)
 
-New in Boats 4:
+Boats 4 streamlines the high-contrast, large-type visual design from version 3 and includes a handful of major improvements:
 
 * Seamless offline schedule viewing
-* New dark mode design
+* Complete coverage for holidays and other schedule deviations, such as departures that start or end mid-season
+* System-level dark mode with a subtle, new appearance
 * VoiceOver support
 
 [![Download on the App Store](Boats/AppStore.svg)](https://itunes.apple.com/app/id1152562893)
