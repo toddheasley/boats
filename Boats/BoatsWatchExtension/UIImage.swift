@@ -10,7 +10,9 @@ extension UIImage {
             return self
         }
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        defer { UIGraphicsEndImageContext() }
+        defer {
+            UIGraphicsEndImageContext()
+        }
         color.set()
         withRenderingMode(.alwaysTemplate).draw(in: CGRect(origin: .zero, size: size))
         return UIGraphicsGetImageFromCurrentImageContext()!
