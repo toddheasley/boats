@@ -49,8 +49,6 @@ class SeasonLabel: UIView {
         contentView.frame.size.width = dateLabel.frame.origin.x + dateLabel.frame.size.width
         contentView.frame.origin.y = (bounds.size.height - contentView.frame.size.height) / 2.0
         contentView.isHidden = season == nil
-        
-        
     }
     
     override init(frame: CGRect) {

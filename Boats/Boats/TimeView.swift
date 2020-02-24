@@ -33,15 +33,6 @@ class TimeView: UIView {
     private let periodLabel: UILabel = UILabel()
     
     // MARK: UIView
-    override var accessibilityLabel: String? {
-        set {
-            super.accessibilityLabel = newValue
-        }
-        get {
-            return super.accessibilityLabel ?? time?.description
-        }
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         

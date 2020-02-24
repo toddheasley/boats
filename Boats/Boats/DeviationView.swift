@@ -30,15 +30,6 @@ class DeviationView: UIView {
     private let label: UILabel = UILabel()
     
     // MARK: UIView
-    override var accessibilityLabel: String? {
-        set {
-            super.accessibilityLabel = newValue
-        }
-        get {
-            return super.accessibilityLabel ?? deviation?.description
-        }
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         

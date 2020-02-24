@@ -8,15 +8,6 @@ class ListControl: NavigationControl {
     private let imageView: UIImageView = UIImageView(image: .list)
     
     // MARK: NavigationControl
-    override var accessibilityLabel: String? {
-        set {
-            super.accessibilityLabel = newValue
-        }
-        get {
-            return super.accessibilityLabel ?? "open routes list"
-        }
-    }
-    
     override var intrinsicContentSize: CGSize {
         return CGSize(width: 31.0, height: 44.0)
     }

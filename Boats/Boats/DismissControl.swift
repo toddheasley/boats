@@ -8,15 +8,6 @@ class DismissControl: NavigationControl {
     private let indicatorView: UIView = UIView()
     
     // MARK: NavigationControl
-    override var accessibilityLabel: String? {
-        set {
-            super.accessibilityLabel = newValue
-        }
-        get {
-            return super.accessibilityLabel ?? "dismiss routes list"
-        }
-    }
-    
     override var intrinsicContentSize: CGSize {
         return CGSize(width: 44.0, height: super.intrinsicContentSize.height)
     }

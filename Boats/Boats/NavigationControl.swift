@@ -39,8 +39,6 @@ class NavigationControl: UIControl {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        accessibilityTraits = .button
-        
         contentView.clipsToBounds = true
         contentView.isUserInteractionEnabled = false
         contentView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin]

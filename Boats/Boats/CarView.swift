@@ -25,15 +25,6 @@ class CarView: UIView {
     private let imageView: UIImageView = UIImageView(image: .car)
     
     // MARK: UIView
-    override var accessibilityLabel: String? {
-        set {
-            super.accessibilityLabel = newValue
-        }
-        get {
-            return super.accessibilityLabel ?? (isCarFerry ? Service.car.description : nil)
-        }
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         

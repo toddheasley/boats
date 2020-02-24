@@ -9,7 +9,6 @@ Boats 4 streamlines the high-contrast, large-type visual design from version 3 a
 * Seamless offline schedule viewing
 * Complete coverage for holidays and other schedule deviations, such as departures that start or end mid-season
 * System-level dark mode with a subtle, new appearance
-* VoiceOver support
 
 [![Download on the App Store](Boats/AppStore.svg)](https://itunes.apple.com/app/id1152562893)
 

@@ -17,15 +17,6 @@ class TitleLabel: UIView {
     private let label: UILabel = UILabel()
     
     // MARK: UIView
-    override var accessibilityLabel: String? {
-        set {
-            super.accessibilityLabel = newValue
-        }
-        get {
-            return super.accessibilityLabel ?? label.text
-        }
-    }
-    
     override var intrinsicContentSize: CGSize {
         let width: CGFloat = label.sizeThatFits(.zero).width
         return CGSize(width: width > 0.0 ? width + (label.frame.origin.x * 2.0) : 0.0, height: 44.0)
@@ -41,7 +32,6 @@ class TitleLabel: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        accessibilityTraits = .staticText
         clipsToBounds = false
         
         label.font = .systemFont(ofSize: 32.0, weight: .bold)

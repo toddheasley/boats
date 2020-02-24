@@ -39,15 +39,6 @@ class DepartureView: UIView {
     private let carView: CarView = CarView()
     
     // MARK: UIView
-    override var accessibilityLabel: String? {
-        set {
-            super.accessibilityLabel = newValue
-        }
-        get {
-            return super.accessibilityLabel ?? departure?.description
-        }
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         

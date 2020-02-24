@@ -33,24 +33,6 @@ class LinkControl: NavigationControl {
     private let label: UILabel = UILabel()
     
     // MARK: NavigationControl
-    override var accessibilityLabel: String? {
-        set {
-            super.accessibilityLabel = newValue
-        }
-        get {
-            return super.accessibilityLabel ?? text
-        }
-    }
-    
-    override var accessibilityHint: String? {
-        set {
-            super.accessibilityHint = newValue
-        }
-        get {
-            return super.accessibilityHint ?? url?.host
-        }
-    }
-    
     override var isHighlighted: Bool {
         didSet {
             setNeedsLayout()
@@ -65,8 +47,6 @@ class LinkControl: NavigationControl {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        accessibilityTraits = url != nil ? .link : .staticText
         
         label.frame.size.width = label.sizeThatFits(.zero).width
         
