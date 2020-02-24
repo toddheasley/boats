@@ -14,18 +14,17 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: CLKComplicationDataSource
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         let date: Date = Date()
-        guard let template: CLKComplicationTemplate = complication.template(complications: ComplicationController.index.complications(from: date, limit: 3, filter: true)) else {
+        if let template: CLKComplicationTemplate = complication.template(complications: ComplicationController.index.complications(from: date, limit: 3, filter: true)) {
+            handler(CLKComplicationTimelineEntry(date: date, complicationTemplate: template))
+        } else {
             handler(nil)
-            return
         }
-        handler(CLKComplicationTimelineEntry(date: date, complicationTemplate: template))
     }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
         let complications: [Complication] = ComplicationController.index.complications(from: date, filter: true)
-        let limit: Int = min(complications.count - 2, limit)
         var entries: [CLKComplicationTimelineEntry] = []
-        for index in 0..<limit {
+        for index in 0..<(min(complications.count - 2, limit)) {
             guard let date: Date = (index > 0 ? complications[index - 1].date : Date(timeInterval: 61.0, since: date)),
                 let template: CLKComplicationTemplate = complication.template(complications: Array(complications[index...(index + 2)])) else {
                 continue

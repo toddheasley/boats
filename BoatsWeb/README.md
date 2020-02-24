@@ -1,12 +1,17 @@
 # `BoatsWeb`
 
-`BoatsWeb` is a Cocoa framework for macOS and iOS. It extends the functionality of [`BoatsKit`](../BoatsKit) to include:
+`BoatsWeb` is a Swift package for macOS and iOS. It extends the functionality of [`BoatsKit`](../BoatsKit) to include:
 
 * Generating static web pages from schedule data
+
+## Requirements
+
+Supports apps targeting [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad) and [macOS](https://developer.apple.com/macos) 10.15 Catalina. Written in [Swift](https://developer.apple.com/documentation/swift) 5.1 using the [Foundation](https://developer.apple.com/documentation/foundation) framework and requires [Xcode](https://developer.apple.com/xcode) 11 or newer to build.
 
 ## Example Usage
 
 ```swift
+import Foundation
 import BoatsKit
 import BoatsWeb
 
@@ -16,11 +21,4 @@ do {
 } catch {
     print(error)
 }
-
 ```
-
-Example code for macOS can be found in the [BoatsEdit](../BoatsEdit) Xcode project that's workspace-adjacent to this one.
-
-## Requirements
-
-`BoatsWeb` is written in [Swift 5](https://docs.swift.org/swift-book) and requires [Xcode](https://developer.apple.com/xcode) 10.2 or newer to build.

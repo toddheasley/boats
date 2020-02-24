@@ -3,48 +3,31 @@ import BoatsKit
 import BoatsBot
 
 class InterfaceController: WKInterfaceController {
-    var index: Index = Index() {
-        didSet {
-            update()
-        }
-    }
-    
     @IBOutlet weak var table: WKInterfaceTable!
     
-    private let maxComplications: Int = 3
-    
-    private func update() {
-        setTitle(index.route?.name)
-        let complications: [Complication] = index.complications()
-        if !complications.isEmpty {
-            table.setNumberOfRows(complications.count, withRowType: "Timetable")
-            table.scrollToRow(at: 0)
-            for (index, complication) in complications.enumerated() {
-                guard let controller: TimetableController = table.rowController(at: index) as? TimetableController else {
-                    continue
+    var index: Index = Index() {
+        didSet {
+            setTitle(index.route?.name)
+            let complications: [Complication] = index.complications()
+            if !complications.isEmpty {
+                table.setNumberOfRows(complications.count, withRowType: "Timetable")
+                table.scrollToRow(at: 0)
+                for (index, complication) in complications.enumerated() {
+                    guard let controller: TimetableController = table.rowController(at: index) as? TimetableController else {
+                        continue
+                    }
+                    controller.setComplication(complication, highlighted: index == 0)
                 }
-                controller.setComplication(complication, highlighted: index == 0)
+            } else {
+                table.setNumberOfRows(1, withRowType: "Empty")
             }
-        } else {
-            table.setNumberOfRows(1, withRowType: "Empty")
         }
     }
     
     // MARK: WKInterfaceController
-    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
-        (WKExtension.shared().delegate as? ExtensionDelegate)?.refresh()
-    }
-    
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        update()
-    }
-    
     override func willActivate() {
         super.willActivate()
-    }
-    
-    override func didDeactivate() {
-        super.didDeactivate()
+        
+        index = nil ?? index
     }
 }

@@ -4,61 +4,32 @@ import BoatsKit
 import BoatsBot
 
 class TodayViewController: UIViewController, NCWidgetProviding {
+    private(set) var index: Index {
+        set {
+            todayView.index = newValue
+        }
+        get {
+            return todayView.index
+        }
+    }
+    
     @objc func handleOpen() {
         extensionContext?.open(URL(string: "boats://")!, completionHandler: nil)
     }
     
-    private let emptyLabel: UILabel = UILabel()
-    private let contentView: UIView = UIView()
+    private let todayView: TodayView = TodayView()
     private let openControl: UIControl = UIControl()
-    private let maxDepartures: Int = 3
-    
-    private var index: Index = Index() {
-        didSet {
-            for subview in contentView.subviews {
-                subview.removeFromSuperview()
-            }
-            for complication in index.complications(limit: 3) {
-                contentView.addSubview(TimetableView(complication: complication))
-            }
-            (contentView.subviews.first as? TimetableView)?.isHighlighted = true
-            viewDidLayoutSubviews()
-        }
-    }
     
     // MARK: UIViewController
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        emptyLabel.isHidden = !contentView.subviews.isEmpty
-        var y: CGFloat = 0.0
-        for subview in contentView.subviews {
-            subview.frame.size.width = contentView.bounds.size.width
-            subview.frame.size.height = subview.intrinsicContentSize.height
-            subview.frame.origin.y = y
-            subview.alpha = y < view.bounds.size.height ? 1.0 : 0.0
-            y += subview.frame.size.height
-        }
-        contentView.frame.size.height = y
-        extensionContext?.widgetLargestAvailableDisplayMode = contentView.subviews.count > 1 ? .expanded : .compact
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.extensionContext?.widgetLargestAvailableDisplayMode = .compact
+        extensionContext?.widgetLargestAvailableDisplayMode = .compact
         
-        emptyLabel.font = .systemFont(ofSize: 21.0, weight: .semibold)
-        emptyLabel.text = "Schedule Unavailable"
-        emptyLabel.textAlignment = .center
-        emptyLabel.textColor = .color
-        emptyLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        emptyLabel.frame = view.bounds
-        view.addSubview(emptyLabel)
-        
-        contentView.autoresizingMask = [.flexibleWidth]
-        contentView.frame.size.width = view.bounds.size.width
-        view.addSubview(contentView)
+        todayView.index = Index()
+        todayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        todayView.frame = view.bounds
+        view.addSubview(todayView)
         
         openControl.addTarget(self, action: #selector(handleOpen), for: .touchUpInside)
         openControl.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -68,19 +39,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     // MARK: NCWidgetProviding
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        emptyLabel.isHidden = true
-        URLSession.shared.index { index, error in
-            self.index = index ?? Index()
+        URLSession.shared.index { [weak self] index, error in
+            self?.index = index ?? self!.index
             completionHandler(index != nil ? .newData : .noData)
-        }
-    }
-    
-    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        switch activeDisplayMode {
-        case .expanded:
-            preferredContentSize = CGSize(width: maxSize.width, height: contentView.bounds.size.height)
-        default:
-            preferredContentSize = maxSize
         }
     }
 }

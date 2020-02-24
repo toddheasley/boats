@@ -3,9 +3,9 @@ import WatchConnectivity
 import BoatsKit
 import BoatsBot
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
-    func refresh(completion: ((Error?) -> Void)? = nil) {
-        URLSession.shared.index { index, error in
+class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
+    func refresh(cache timeInterval: TimeInterval = 30.0, completion: ((Error?) -> Void)? = nil) {
+        URLSession.shared.index(cache: timeInterval) { index, error in
             if let index: Index = index {
                 (WKExtension.shared().rootInterfaceController as? InterfaceController)?.index = index
                 ComplicationController.index = index
@@ -18,8 +18,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     
     // MARK: WKExtensionDelegate
     func applicationDidFinishLaunching() {
-        WCSession.activate()
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: WCSession.applicationContextDidChangeNotification, object: nil)
+        WCSession.activate(delegate: self)
     }
     
     func applicationDidBecomeActive() {
@@ -39,5 +38,14 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
                 task.setTaskCompletedWithSnapshot(false)
             }
         }
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        Index.context = session.receivedApplicationContext
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        Index.context = applicationContext
+        refresh()
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1130"
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C2B4950202A614B005B4775"
+               BlueprintIdentifier = "5C357C4723EA2B4600914B7A"
                BuildableName = "BoatsWatch.app"
                BlueprintName = "BoatsWatch"
                ReferencedContainer = "container:Boats.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C933136202A56AE00FE7B02"
+               BlueprintIdentifier = "5CED07AC22B7F47200CAE664"
                BuildableName = "Boats.app"
                BlueprintName = "Boats"
                ReferencedContainer = "container:Boats.xcodeproj">
@@ -43,17 +43,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C2B4950202A614B005B4775"
-            BuildableName = "BoatsWatch.app"
-            BlueprintName = "BoatsWatch"
-            ReferencedContainer = "container:Boats.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -72,23 +61,12 @@
          RemotePath = "/Boats">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C2B4950202A614B005B4775"
+            BlueprintIdentifier = "5C357C4723EA2B4600914B7A"
             BuildableName = "BoatsWatch.app"
             BlueprintName = "BoatsWatch"
             ReferencedContainer = "container:Boats.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C2B4950202A614B005B4775"
-            BuildableName = "BoatsWatch.app"
-            BlueprintName = "BoatsWatch"
-            ReferencedContainer = "container:Boats.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -103,7 +81,7 @@
          RemotePath = "/Boats">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C2B4950202A614B005B4775"
+            BlueprintIdentifier = "5C357C4723EA2B4600914B7A"
             BuildableName = "BoatsWatch.app"
             BlueprintName = "BoatsWatch"
             ReferencedContainer = "container:Boats.xcodeproj">
@@ -112,7 +90,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C2B4950202A614B005B4775"
+            BlueprintIdentifier = "5C357C4723EA2B4600914B7A"
             BuildableName = "BoatsWatch.app"
             BlueprintName = "BoatsWatch"
             ReferencedContainer = "container:Boats.xcodeproj">
