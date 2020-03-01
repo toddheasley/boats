@@ -27,7 +27,10 @@ extension Season: HTMLConvertible {
     // MARK: HTMLConvertible
     init(from html: String) throws {
         DateFormatter.shared.dateFormat = "MMM d, yyyy"
-        let components: [String] = html.stripHTML().components(separatedBy: "\n")
+        let components: [String] = html.stripHTML().components(separatedBy: "\n").compactMap { component in
+            let component: String = component.trimmingCharacters(in: .whitespacesAndNewlines)
+            return !component.isEmpty ? component : nil
+        }
         guard components.count > 1,
             let rawValue: String = components[0].components(separatedBy: ":").last?.trim().components(separatedBy: " ").first?.lowercased(),
             let name: Name = Name(rawValue: rawValue) else {
