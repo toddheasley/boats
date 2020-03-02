@@ -51,6 +51,8 @@
 		5CB7FCA223B28FF70004C197 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB7FCA123B28FF70004C197 /* UIView.swift */; };
 		5CC34F5C23CBC44B000C4702 /* DismissControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC34F5B23CBC44B000C4702 /* DismissControl.swift */; };
 		5CC34F5E23CC116F000C4702 /* NavigationControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC34F5D23CC116F000C4702 /* NavigationControl.swift */; };
+		5CC7858B240C5183008BFACE /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 5CC7858A240C5183008BFACE /* ArgumentParser */; };
+		5CC7858D240C5260008BFACE /* BoatsCLI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC7858C240C5260008BFACE /* BoatsCLI.swift */; };
 		5CCA45F222D235D50019DE59 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CCA45F122D235D50019DE59 /* NotificationCenter.framework */; };
 		5CCA45F522D235D50019DE59 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCA45F422D235D50019DE59 /* TodayViewController.swift */; };
 		5CCA45F822D235D50019DE59 /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CCA45F622D235D50019DE59 /* Today.storyboard */; };
@@ -70,7 +72,6 @@
 		5CED07B822B7F47200CAE664 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CED07B622B7F47200CAE664 /* Main.storyboard */; };
 		5CED07BA22B7F47300CAE664 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CED07B922B7F47300CAE664 /* Assets.xcassets */; };
 		5CED07BD22B7F47300CAE664 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CED07BB22B7F47300CAE664 /* Launch.storyboard */; };
-		5CED51E922BB22EB006D6BAD /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED51E822BB22EB006D6BAD /* CommandLine.swift */; };
 		5CED51EB22BB272A006D6BAD /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED51EA22BB272A006D6BAD /* Bundle.swift */; };
 /* End PBXBuildFile section */
 
@@ -159,7 +160,7 @@
 		5C357C5F23EA2B4800914B7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C357C6123EA2B4800914B7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C3B7EA123B5078600C0A36D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		5C4B100E22B7F70A009DC20C /* boats */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = boats; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C4B100E22B7F70A009DC20C /* boats-cli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "boats-cli"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C4B101022B7F70A009DC20C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5C50E4B023D6407800C0D9CE /* WCSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSession.swift; sourceTree = "<group>"; };
 		5C6219F92402D17300F4EC13 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 		5CB7FCA123B28FF70004C197 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5CC34F5B23CBC44B000C4702 /* DismissControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissControl.swift; sourceTree = "<group>"; };
 		5CC34F5D23CC116F000C4702 /* NavigationControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControl.swift; sourceTree = "<group>"; };
+		5CC7858C240C5260008BFACE /* BoatsCLI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoatsCLI.swift; sourceTree = "<group>"; };
 		5CCA45F022D235D50019DE59 /* BoatsToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BoatsToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCA45F122D235D50019DE59 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		5CCA45F422D235D50019DE59 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -201,7 +203,6 @@
 		5CED07B922B7F47300CAE664 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CED07BC22B7F47300CAE664 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		5CED07BE22B7F47300CAE664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CED51E822BB22EB006D6BAD /* CommandLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandLine.swift; sourceTree = "<group>"; };
 		5CED51EA22BB272A006D6BAD /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC7858B240C5183008BFACE /* ArgumentParser in Frameworks */,
 				5C4B101622B7F769009DC20C /* BoatsKit in Frameworks */,
 				5C4B101822B7F769009DC20C /* BoatsWeb in Frameworks */,
 			);
@@ -285,7 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				5CED51EA22BB272A006D6BAD /* Bundle.swift */,
-				5CED51E822BB22EB006D6BAD /* CommandLine.swift */,
+				5CC7858C240C5260008BFACE /* BoatsCLI.swift */,
 				5C4B101022B7F70A009DC20C /* main.swift */,
 			);
 			path = BoatsCLI;
@@ -321,7 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				5CED07AD22B7F47200CAE664 /* Boats.app */,
-				5C4B100E22B7F70A009DC20C /* boats */,
+				5C4B100E22B7F70A009DC20C /* boats-cli */,
 				5CCA45F022D235D50019DE59 /* BoatsToday.appex */,
 				5C357C4823EA2B4600914B7A /* BoatsWatch.app */,
 				5C357C5423EA2B4700914B7A /* BoatsWatchExtension.appex */,
@@ -426,9 +428,10 @@
 			packageProductDependencies = (
 				5C4B101522B7F769009DC20C /* BoatsKit */,
 				5C4B101722B7F769009DC20C /* BoatsWeb */,
+				5CC7858A240C5183008BFACE /* ArgumentParser */,
 			);
 			productName = BoatsCLI;
-			productReference = 5C4B100E22B7F70A009DC20C /* boats */;
+			productReference = 5C4B100E22B7F70A009DC20C /* boats-cli */;
 			productType = "com.apple.product-type.tool";
 		};
 		5CCA45EF22D235D50019DE59 /* BoatsToday */ = {
@@ -516,6 +519,9 @@
 				Base,
 			);
 			mainGroup = 5CED07A422B7F47200CAE664;
+			packageReferences = (
+				5CC78589240C5183008BFACE /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = 5CED07AE22B7F47200CAE664 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -664,7 +670,7 @@
 			files = (
 				5C4B101122B7F70A009DC20C /* main.swift in Sources */,
 				5CED51EB22BB272A006D6BAD /* Bundle.swift in Sources */,
-				5CED51E922BB22EB006D6BAD /* CommandLine.swift in Sources */,
+				5CC7858D240C5260008BFACE /* BoatsCLI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -875,7 +881,7 @@
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_NAME = boats;
+				PRODUCT_NAME = "boats-cli";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -889,7 +895,7 @@
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_NAME = boats;
+				PRODUCT_NAME = "boats-cli";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1179,6 +1185,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		5CC78589240C5183008BFACE /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		5C4B100622B7F6BF009DC20C /* BoatsKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1203,6 +1220,11 @@
 		5C834A0222FFCD7500D0ADBB /* BoatsBot */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BoatsBot;
+		};
+		5CC7858A240C5183008BFACE /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CC78589240C5183008BFACE /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
 		};
 		5CE137F623EA32B3006645FF /* BoatsBot */ = {
 			isa = XCSwiftPackageProductDependency;
