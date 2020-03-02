@@ -4,8 +4,6 @@ import BoatsKit
 import BoatsWeb
 
 struct BoatsCLI: ParsableCommand {
-    static var configuration: CommandConfiguration = CommandConfiguration(abstract: Bundle.main.executableName)
-    
     @Argument(help: "Actions: [\(URLSession.Action.allCases.map { $0.rawValue }.joined(separator: ", "))]")
     var action: URLSession.Action
     
@@ -21,6 +19,8 @@ struct BoatsCLI: ParsableCommand {
     }
     
     // MARK: ParsableCommand
+    static var configuration: CommandConfiguration = CommandConfiguration(abstract: Bundle.main.executableName)
+    
     func run() throws {
         let runLoop: CFRunLoop = CFRunLoopGetCurrent()
         URLSession.shared.index(action: action) { index, error in
