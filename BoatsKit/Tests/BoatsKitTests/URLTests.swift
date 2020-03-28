@@ -26,6 +26,14 @@ extension URLTests {
 }
 
 extension URLTests {
+    func testDebug() {
+        XCTAssertEqual(URL.debug("https://s3.amazonaws.com/boats/index.json")?.absoluteString, "https://s3.amazonaws.com/boats/index.json")
+        XCTAssertEqual(URL.debug("https://s3.amazonaws.com/boats/")?.absoluteString, "https://s3.amazonaws.com/boats/index.json")
+        XCTAssertEqual(URL.debug("https://s3.amazonaws.com/boats")?.absoluteString, "https://s3.amazonaws.com/boats/index.json")
+        XCTAssertEqual(URL.debug("file:///Users/toddheasley/Documents/Boats/boats-web")?.absoluteString, "file:///Users/toddheasley/Documents/Boats/boats-web/index.json")
+        XCTAssertEqual(URL.debug("/Users/toddheasley/Documents/Boats/boats-web")?.absoluteString, "file:///Users/toddheasley/Documents/Boats/boats-web/index.json")
+    }
+    
     func testSchedule() {
         XCTAssertEqual(URL.schedule(for: .peaks, season: .spring), URL(string: "https://www.cascobaylines.com/schedules/peaks-island-schedule/spring"))
         XCTAssertEqual(URL.schedule(for: .littleDiamond, season: .summer), URL(string: "https://www.cascobaylines.com/schedules/little-diamond-island-schedule/summer"))
