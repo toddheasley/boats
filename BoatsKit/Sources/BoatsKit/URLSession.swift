@@ -1,8 +1,53 @@
 import Foundation
 
 extension URLSession {
-    public enum Action: String, CaseIterable {
-        case fetch, build
+    public enum Action: CaseIterable, RawRepresentable, Equatable, CustomStringConvertible {
+        case fetch, build, debug(URL)
+        
+        public init?(_ string: String) {
+            guard let url: URL = .debug(string) else {
+                return nil
+            }
+            self = .debug(url)
+        }
+        
+        // MARK: CaseIterable
+        public static let allCases: [URLSession.Action]  = [.fetch, .build, .debug(.fetch)]
+        
+        // MARK: RawRepresentable
+        public var rawValue: String {
+            switch self {
+            case .fetch:
+                return "fetch"
+            case .build:
+                return "build"
+            case .debug(let url):
+                return "debug \(url.absoluteString)"
+            }
+        }
+        
+        public init?(rawValue: String) {
+            let rawValue: [String] = rawValue.components(separatedBy: " ")
+            switch rawValue.first {
+            case "fetch":
+                self = .fetch
+            case "build":
+                self = .build
+            case "debug":
+                guard rawValue.count == 2,
+                    let url: URL = .debug(rawValue[1]) else {
+                    fallthrough
+                }
+                self = .debug(url)
+            default:
+                return nil
+            }
+        }
+        
+        // MARK: CustomStringConvertible
+        public var description: String {
+            return rawValue
+        }
     }
     
     public func index(action: Action, completion: @escaping (Index?, Error?) -> Void) {
@@ -11,30 +56,15 @@ extension URLSession {
             fetch(completion: completion)
         case .build:
             build(completion: completion)
+        case .debug(let url):
+            debug(url: url, completion: completion)
         }
     }
 }
 
 extension URLSession {
     func fetch(completion: @escaping (Index?, Error?) -> Void) {
-        dataTask(with: .fetch) { data, _, error in
-            guard let data: Data = data else {
-                DispatchQueue.main.async {
-                    completion(nil, error ?? NSError(domain: NSURLErrorDomain, code: NSURLErrorCannotDecodeContentData, userInfo: nil))
-                }
-                return
-            }
-            do {
-                let index: Index = try JSONDecoder.shared.decode(Index.self, from: data)
-                DispatchQueue.main.async {
-                    completion(index, nil)
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
-            }
-        }.resume()
+        debug(url: .fetch, completion: completion)
     }
     
     func build(completion: @escaping (Index?, Error?) -> Void) {
@@ -90,5 +120,41 @@ extension URLSession {
                 completion(nil, error)
             }
         }.resume()
+    }
+    
+    func debug(url: URL, completion: @escaping (Index?, Error?) -> Void) {
+        func handle(data: Data?, error: Error?, completion: @escaping (Index?, Error?) -> Void) {
+            guard let data: Data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error ?? URLError(.cannotDecodeContentData))
+                }
+                return
+            }
+            do {
+                let index: Index = try JSONDecoder.shared.decode(Index.self, from: data)
+                DispatchQueue.main.async {
+                    completion(index, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }
+        
+        if url.isFileURL {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                do {
+                    let data: Data = try Data(contentsOf: url)
+                    handle(data: data, error: nil, completion: completion)
+                } catch {
+                    handle(data: nil, error: error, completion: completion)
+                }
+            }
+        } else {
+            dataTask(with: url) { data, _, error in
+                handle(data: data, error: error, completion: completion)
+            }.resume()
+        }
     }
 }
