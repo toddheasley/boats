@@ -4,6 +4,13 @@ extension URLSession {
     public enum Action: CaseIterable, RawRepresentable, Equatable, CustomStringConvertible {
         case fetch, build, debug(URL)
         
+        public init?(_ string: String) {
+            guard let url: URL = .debug(string) else {
+                return nil
+            }
+            self = .debug(url)
+        }
+        
         // MARK: CaseIterable
         public static let allCases: [URLSession.Action]  = [.fetch, .build, .debug(.fetch)]
         
@@ -134,6 +141,7 @@ extension URLSession {
                 }
             }
         }
+        
         if url.isFileURL {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 do {

@@ -18,14 +18,19 @@ class MainViewController: UIViewController, MainViewDelegate {
         refresh(cache: 0.0)
     }
     
+    @IBAction func debug() {
+        guard let action: URLSession.Action = URLSession.Action("/Users/toddheasley/Documents/Boats/boats-web") else {
+            return
+        }
+        URLSession.shared.index(action: action) { index, _ in
+            self.index = index ?? self.index
+        }
+        
+    }
+    
     func refresh(cache timeInterval: TimeInterval = 30.0) {
-        URLSession.shared.index(cache: timeInterval) { index, error in
-            guard let index: Index = index else {
-                return
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
-                self.index = index
-            }
+        URLSession.shared.index(cache: timeInterval) { index, _ in
+            self.index = index ?? self.index
         }
     }
     
@@ -66,6 +71,10 @@ class MainViewController: UIViewController, MainViewDelegate {
         indexView.frame.size.width = UIView.maximumContentWidth / 2.0
         indexView.frame.size.height = view.bounds.size.height
         view.addSubview(indexView)
+        
+        #if targetEnvironment(macCatalyst)
+        addKeyCommand(UIKeyCommand(input: "d", modifierFlags: .command, action: #selector(debug)))
+        #endif
     }
     
     // MARK: MainViewDelegate
