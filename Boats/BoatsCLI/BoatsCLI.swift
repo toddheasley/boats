@@ -4,30 +4,25 @@ import BoatsKit
 import BoatsWeb
 
 struct BoatsCLI: ParsableCommand {
-    @Argument(help: "Actions: [\(URLSession.Action.allCases.map { $0.rawValue }.joined(separator: ", "))]")
+    @Argument(help: "Specify an action: \(URLSession.Action.allCases.map { $0.rawValue.components(separatedBy: " ")[0] }.joined(separator: ", "))")
     var action: URLSession.Action
     
     @Flag(name: .shortAndLong, help: "Generate static web files.")
     var web: Bool
     
-    private func print(result: String, discussion: [String] = []) {
-        var result: String = "RESULT: \(Bundle.main.executableName) \(action.rawValue) \(result)"
-        if !discussion.isEmpty {
-            result += "\n\n\(discussion.joined(separator: "\n"))\n"
-        }
-        Swift.print(result)
-    }
-    
     // MARK: ParsableCommand
-    static var configuration: CommandConfiguration = CommandConfiguration(abstract: Bundle.main.executableName)
+    static var configuration: CommandConfiguration = CommandConfiguration(abstract: "Update Boats schedules.")
     
     func run() throws {
         let runLoop: CFRunLoop = CFRunLoopGetCurrent()
+        defer {
+            CFRunLoopRun()
+        }
         URLSession.shared.index(action: action) { index, error in
             CFRunLoopStop(runLoop)
             do {
                 guard let index: Index = index else {
-                    throw(error ?? NSError(domain: "", code: 0, userInfo: nil))
+                    throw(error ?? URLError(.badURL))
                 }
                 try index.build(to: Bundle.main.bundleURL)
                 try? Site(index: index).delete(from: Bundle.main.bundleURL)
@@ -44,15 +39,22 @@ struct BoatsCLI: ParsableCommand {
                     discussion.append("")
                 }
                 discussion.append("WEB: \(self.web ? "Files generated." : "Files not generated.")")
-                self.print(result: "completed", discussion: discussion)
+                discussion.append("")
+                print(discussion.joined(separator: "\n"))
             } catch {
-                self.print(result: "failed", discussion: ["ERROR: \(error)"])
+                print("ERROR: \(error.localizedDescription)")
             }
         }
-        CFRunLoopRun()
     }
 }
 
 extension URLSession.Action: ExpressibleByArgument {
     
+    // MARK: ExpressibleByArgument
+    public init?(argument: String) {
+        guard let action: Self = Self(rawValue: "\(argument) \(Bundle.main.bundlePath)") ?? Self(rawValue: argument) else {
+            return nil
+        }
+        self = action
+    }
 }
