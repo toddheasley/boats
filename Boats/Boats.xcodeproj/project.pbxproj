@@ -152,6 +152,7 @@
 		5C9EE22423B307B70029AA64 /* SeasonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonLabel.swift; sourceTree = "<group>"; };
 		5C9EE22623B409410029AA64 /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		5CA78CD623CCC1B3007981B2 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		5CAA34C824FBF48D00E7284E /* boats-cli.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "boats-cli.entitlements"; sourceTree = "<group>"; };
 		5CAB8EB623BE4D1800B97694 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		5CB7FC9B23B2774C0004C197 /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 		5CB7FC9D23B277A40004C197 /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
@@ -248,6 +249,7 @@
 		5C4B100F22B7F70A009DC20C /* BoatsCLI */ = {
 			isa = PBXGroup;
 			children = (
+				5CAA34C824FBF48D00E7284E /* boats-cli.entitlements */,
 				5CED51EA22BB272A006D6BAD /* Bundle.swift */,
 				5CC7858C240C5260008BFACE /* BoatsCLI.swift */,
 				5C4B101022B7F70A009DC20C /* main.swift */,
@@ -741,6 +743,7 @@
 		5C4B101322B7F70A009DC20C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "BoatsCLI/boats-cli.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
@@ -755,6 +758,7 @@
 		5C4B101422B7F70A009DC20C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "BoatsCLI/boats-cli.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
@@ -1005,7 +1009,7 @@
 			repositoryURL = "https://github.com/apple/swift-argument-parser";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
+				minimumVersion = 0.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

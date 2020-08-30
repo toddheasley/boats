@@ -8,7 +8,7 @@ struct BoatsCLI: ParsableCommand {
     var action: URLSession.Action
     
     @Flag(name: .shortAndLong, help: "Generate static web files.")
-    var web: Bool
+    var web: Bool = false
     
     // MARK: ParsableCommand
     static var configuration: CommandConfiguration = CommandConfiguration(abstract: "Update Boats schedules.")
