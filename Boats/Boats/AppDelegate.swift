@@ -10,7 +10,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     // MARK: UIApplicationDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
         NotificationCenter.default.addObserver(self, selector: #selector(handleContext(notification:)), name: Index.contextDidChangeNotification, object: nil)
         WCSession.activate(delegate: self)
         return true
