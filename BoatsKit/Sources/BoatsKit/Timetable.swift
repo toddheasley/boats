@@ -74,7 +74,7 @@ extension Timetable: HTMLConvertible {
     // MARK: HTMLConvertible
     init(from html: String) throws {
         guard let components: [String] = html.find("<tbody>(.*?)</tbody").first?.find("<tr[^>]*>(.*?)</tr>"), components.count > 1,
-            let dayComponents: [String] = html.find("<thead>(.*?)</thead>").first?.replacingOccurrences(of: "&nbsp;", with: "").stripHTML().components(separatedBy: "/") else {
+              let dayComponents: [String] = html.find("<thead>(.*?)</thead>").first?.replacingOccurrences(of: "&nbsp;", with: "").stripHTML().components(separatedBy: "/") else {
             throw(HTML.error(Timetable.self, from: html))
         }
         var trips: [Trip] = []
@@ -109,6 +109,6 @@ extension Timetable: HTMLConvertible {
                 days.append(day)
             }
         }
-        self.init(trips: trips, days: days)
+        self.init(trips: trips, days: !days.isEmpty ? days : [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday])
     }
 }

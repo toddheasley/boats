@@ -76,11 +76,11 @@ extension URLSessionTests {
             expectation(description: "peaks"),
             expectation(description: "cliff")
         ]
-        URLSession.shared.build(schedule: .schedule(for: .peaks, season: .spring)) { schedule, error in
+        URLSession.shared.build(schedule: .schedule(for: .peaks, season: .winter)) { schedule, error in
             XCTAssertNotNil(schedule)
             expectations[0].fulfill()
         }
-        URLSession.shared.build(schedule: .schedule(for: .cliff, season: .summer)) { schedule, error in
+        URLSession.shared.build(schedule: .schedule(for: .cliff, season: .winter)) { schedule, error in
             XCTAssertNotNil(schedule)
             expectations[1].fulfill()
         }

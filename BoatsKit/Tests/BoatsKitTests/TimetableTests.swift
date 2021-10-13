@@ -29,8 +29,8 @@ extension TimetableTests {
     func testDescription() {
         XCTAssertEqual(Timetable(trips: [], days: [.monday, .tuesday, .wednesday, .thursday]).description, "Mon-Thu")
         XCTAssertEqual(Timetable(trips: [], days: [.monday, .tuesday, .wednesday, .holiday]).description, "Mon-Wed/Hol")
-        XCTAssertEqual(Timetable(trips: [], days: [.friday, .saturday, .sunday, .holiday]).description, "Fri-Sun/Hol")
-        XCTAssertEqual(Timetable(trips: [], days: [.saturday, .sunday, .holiday]).description, "Sat/Sun/Hol")
+        XCTAssertEqual(Timetable(trips: [], days: [.thursday, .friday, .saturday, .holiday]).description, "Thu-Sat/Hol")
+        XCTAssertEqual(Timetable(trips: [], days: [.saturday, .sunday, .holiday]).description, "Sun/Sat/Hol")
         XCTAssertEqual(Timetable(trips: [], days: [.tuesday, .thursday, .friday]).description, "Tue/Thu/Fri")
         XCTAssertEqual(Timetable(trips: [], days: [.sunday, .holiday]).description, "Sun/Hol")
     }

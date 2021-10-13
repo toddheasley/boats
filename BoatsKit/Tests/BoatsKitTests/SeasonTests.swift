@@ -40,19 +40,70 @@ extension SeasonTests {
 }
 
 private let HTML_Data: Data = """
-<p style="text-align: center;"><span style="font-size: large;"> <strong><strong>Currently Displaying:</strong> </strong><em>Spring Schedule</em><strong><strong><br />
-    <strong>Effective: </strong></strong></strong><span style="line-height: 1.5em;">April 14, 2018 &#8211; June 15, 2018<br />
-        <strong>FO = Friday Only</strong><br />
-    </span></span></p>
-<p style="text-align: center;"><span style="font-size: large;"><strong><strong><strong>Currently Displaying:</strong> </strong></strong><em>Summer Schedule</em><strong><strong><br />
-    <strong>Effective: </strong></strong></strong>June 16, 2018 &#8211; September 3, 2018<br />
-</span><span style="line-height: 1.5em;"><strong>KEY: </strong><strong>fo</strong> = Friday only; <strong>xh</strong> = except holidays</span></p>
+<p style="text-align: center;">
+    <strong>Currently Displaying:</strong>
+     Spring Schedule
+    <br/>
+    <strong>Effective: </strong>
+    April 14, 2018 &#8211; June 15, 2018
+    <br/>
+    <strong>
+        KEY:
+        <em> cf</em>
+    </strong>
+    <em> = car ferry (transports cars and passengers)</em>
+</p>
 
-<p style="text-align: center;"><span style="font-size: large;"><strong><strong><strong>Currently Displaying:</strong> </strong></strong><em>Fall Schedule</em><strong><strong><br />
-    <strong>Effective: </strong></strong></strong>September 4, 2018 &#8211; October 8, 2018<br />
-</span><span style="line-height: 1.5em;"><strong>KEY: </strong><strong>xh</strong> = except holidays</span></p>
+<p style="text-align: center;">
+    <strong>Currently Displaying:</strong>
+     Summer Schedule
+    <br/>
+    <strong>Effective: </strong>
+    June 16, 2018 &#8211; September 3, 2018
+    <br/>
+    <strong>
+        KEY:
+        <em> XF</em>
+    </strong>
+    <em>
+         = Except Friday,
+        <strong>FO</strong>
+         = Friday Only
+    </em>
+</p>
 
-<p style="text-align: center;"><span style="font-size: large;"><strong>Currently Displaying:</strong> Winter Schedule </span><br />
-<span style="font-size: large;"><strong>Effective: </strong>October 9, 2018 &#8211; January 4, 2019</span><br />
-<strong>KEY:</strong><em><strong> cf</strong> = car ferry (transports cars and passengers)</em></p>
+<p style="text-align: center;">
+    <strong>Currently Displaying:</strong>
+     Fall Schedule
+    <br/>
+    <strong>Effective: </strong>
+    September 4, 2018 &#8211; October 8, 2018
+    <br/>
+    <strong>
+        KEY:
+        <em> XF</em>
+    </strong>
+    <em>
+         = Except Friday,
+        <strong>FO</strong>
+         = Friday Only
+    </em>
+</p>
+<p style="text-align: center;">
+    <strong>Currently Displaying:</strong>
+     Winter Schedule
+    <br/>
+    <strong>Effective: </strong>
+    October 9, 2018 &#8211; January 4, 2019
+    <br/>
+    <strong>
+        KEY:
+        <em> XF</em>
+    </strong>
+    <em>
+         = Except Friday,
+        <strong>FO</strong>
+         = Friday Only
+    </em>
+</p>
 """.data(using: .utf8)!

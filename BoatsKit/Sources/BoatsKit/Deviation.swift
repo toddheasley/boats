@@ -1,7 +1,7 @@
 import Foundation
 
 public enum Deviation {
-    case start(Date), end(Date), only(Day), holiday
+    case start(Date), end(Date), except(Day), only(Day)
     
     public var isExpired: Bool {
         switch self {
@@ -9,7 +9,7 @@ public enum Deviation {
             return Date() > date
         case .end(let date):
             return Date() > Date(timeInterval: 86400.0, since: date)
-        case .only, .holiday:
+        case .except, .only:
             return false
         }
     }
@@ -25,10 +25,10 @@ extension Deviation: CustomStringConvertible {
             return "\(isExpired ? "started" : "starts") \(DateFormatter.shared.string(from: date))"
         case .end(let date):
             return "\(isExpired ? "ended" : "ends") \(DateFormatter.shared.string(from: date))"
+        case .except(let day):
+            return "except \(day.abbreviated.lowercased())"
         case .only(let day):
             return "\(day.abbreviated.lowercased()) only"
-        case .holiday:
-            return "except holiday"
         }
     }
 }
@@ -52,10 +52,10 @@ extension Deviation: Codable {
             self = .start(try container.decode(Date.self, forKey: .date))
         case "end":
             self = .end(try container.decode(Date.self, forKey: .date))
+        case "except":
+            self = .except(try container.decode(Day.self, forKey: .day))
         case "only":
             self = .only(try container.decode(Day.self, forKey: .day))
-        case "holiday":
-            self = .holiday
         default:
             throw(DecodingError.dataCorruptedError(forKey: .case, in: container, debugDescription: "\(`case`)"))
         }
@@ -71,11 +71,12 @@ extension Deviation: Codable {
         case .end(let date):
             try container.encode("end", forKey: .case)
             try container.encode(date, forKey: .date)
+        case .except(let day):
+            try container.encode("except", forKey: .case)
+            try container.encode(day, forKey: .day)
         case .only(let day):
             try container.encode("only", forKey: .case)
             try container.encode(day, forKey: .day)
-        case .holiday:
-            try container.encode("holiday", forKey: .case)
         }
     }
     

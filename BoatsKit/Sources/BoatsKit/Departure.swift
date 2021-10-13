@@ -47,14 +47,17 @@ extension Departure: HTMLConvertible {
         if components.contains("ends"), let date: Date = DateFormatter.shared.date(html: components.last) {
             deviations.append(.end(date))
         }
+        if components.contains("xh") {
+            deviations.append(.except(.holiday))
+        }
+        if components.contains("xf") {
+            deviations.append(.except(.friday))
+        }
         if components.contains("fo") {
             deviations.append(.only(.friday))
         }
         if components.contains("so") {
             deviations.append(.only(.saturday))
-        }
-        if components.contains("xh") {
-            deviations.append(.holiday)
         }
         self.init(time: try Time(from: components[0]), deviations: deviations, services: html.contains("cf") ? [.car] : [])
     }

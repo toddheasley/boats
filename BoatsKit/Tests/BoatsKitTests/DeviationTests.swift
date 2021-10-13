@@ -11,8 +11,8 @@ class DeviationTests: XCTestCase {
         XCTAssertTrue(Deviation.end(Date(timeIntervalSinceNow: -86401.0)).isExpired)
         XCTAssertFalse(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)).isExpired)
         XCTAssertTrue(Deviation.end(Date(timeIntervalSince1970: 1524196800.0)).isExpired)
+        XCTAssertFalse(Deviation.except(.holiday).isExpired)
         XCTAssertFalse(Deviation.only(Day()).isExpired)
-        XCTAssertFalse(Deviation.holiday.isExpired)
     }
 }
 
@@ -24,7 +24,7 @@ extension DeviationTests {
         XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1524196800.0)).description, "started 4/20")
         XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)).description, "ends 4/20")
         XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1524196800.0)).description, "ended 4/20")
-        XCTAssertEqual(Deviation.holiday.description, "except holiday")
+        XCTAssertEqual(Deviation.except(.holiday).description, "except hol")
     }
 }
 
@@ -37,8 +37,8 @@ extension DeviationTests {
         XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)), Deviation.end(Date(timeIntervalSince1970: 4080340800.0)))
         XCTAssertNotEqual(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)), Deviation.end(Date(timeIntervalSince1970: 1524196800.0)))
         XCTAssertNotEqual(Deviation.start(Date(timeIntervalSince1970: 4080340800.0)), Deviation.end(Date(timeIntervalSince1970: 4080340800.0)))
-        XCTAssertNotEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)), .holiday)
-        XCTAssertEqual(Deviation.holiday, .holiday)
+        XCTAssertNotEqual(Deviation.end(Date(timeIntervalSince1970: 1555732800.0)), .except(.holiday))
+        XCTAssertEqual(Deviation.except(.holiday), .except(.holiday))
     }
 }
 
@@ -52,8 +52,8 @@ extension DeviationTests {
         }
         XCTAssertEqual(deviations[0], .start(Date(timeIntervalSince1970: 1555732800.0)))
         XCTAssertEqual(deviations[1], .end(Date(timeIntervalSince1970: 1555732800.0)))
-        XCTAssertEqual(deviations[2], .only(.friday))
-        XCTAssertEqual(deviations[3], .holiday)
+        XCTAssertEqual(deviations[2], .except(.holiday))
+        XCTAssertEqual(deviations[3], .only(.friday))
     }
     
     func testEncode() {
@@ -77,11 +77,12 @@ private let JSON_Data: Data = """
         "date": 1555732800.0
     },
     {
-        "case": "only",
-        "day": "friday"
+        "case": "except",
+        "day": "holiday"
     },
     {
-        "case": "holiday",
+        "case": "only",
+        "day": "friday"
     }
 ]
 """.data(using: .utf8)!

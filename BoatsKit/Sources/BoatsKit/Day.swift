@@ -1,7 +1,7 @@
 import Foundation
 
 public enum Day: String, CaseIterable, Codable {
-    case monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday
+    case sunday, monday, tuesday, wednesday, thursday, friday, saturday, holiday
     
     public init(date: Date = Date()) {
         self = DateFormatter.shared.day(from: date)
