@@ -39,7 +39,9 @@ extension Holiday: CaseIterable {
 extension Holiday {
     public static var memorial: Holiday {
         return Holiday(name: "Memorial Day", date: DateFormatter.shared.next(in: [
-            (2022, 5, 30)
+            (2022, 5, 30),
+            (2023, 5, 29),
+            (2024, 5, 27)
         ]))
     }
     
@@ -49,13 +51,17 @@ extension Holiday {
     
     public static var labor: Holiday {
         return Holiday(name: "Labor Day", date: DateFormatter.shared.next(in: [
-            (2022, 10, 5)
+            (2022, 9, 5),
+            (2023, 9, 4),
+            (2024, 9, 2)
         ]))
     }
     
     public static var columbus: Holiday {
         return Holiday(name: "Columbus Day", date: DateFormatter.shared.next(in: [
-            (2022, 10, 10)
+            (2022, 10, 10),
+            (2023, 10, 9),
+            (2024, 10, 14)
         ]))
     }
     
@@ -65,7 +71,9 @@ extension Holiday {
     
     public static var thanksgiving: Holiday {
         return Holiday(name: "Thanksgiving", date: DateFormatter.shared.next(in: [
-            (2022, 11, 24)
+            (2022, 11, 24),
+            (2023, 11, 23),
+            (2024, 11, 28)
         ]))
     }
     

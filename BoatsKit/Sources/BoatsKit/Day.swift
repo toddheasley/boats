@@ -3,6 +3,12 @@ import Foundation
 public enum Day: String, CaseIterable, Codable {
     case sunday, monday, tuesday, wednesday, thursday, friday, saturday, holiday
     
+    public static func week(beginning day: Self = Self()) -> [Self] {
+        let week: [Self] = Array(allCases[0...6] + allCases[0...6])
+        let index: Int = week.firstIndex(of: day != .holiday ? day : Self())!
+        return Array(week[index...(index + 6)])
+    }
+    
     public init(date: Date = Date()) {
         self = DateFormatter.shared.day(from: date)
     }

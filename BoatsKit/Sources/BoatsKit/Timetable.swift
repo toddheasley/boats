@@ -96,11 +96,10 @@ extension Timetable: HTMLConvertible {
             let dayInterval: [String] = dayComponent.components(separatedBy: "-")
             let dayGrouping: [String] = dayComponent.components(separatedBy: "&amp;")
             if dayInterval.count == 2,
-                let start: Day = try? Day(from: dayInterval[0]),
-                let end: Day = try? Day(from: dayInterval[1]),
-                let startIndex: Int = Day.allCases.firstIndex(of: start),
-                let endIndex: Int = Day.allCases.firstIndex(of: end), startIndex <= endIndex {
-                days.append(contentsOf: Day.allCases[startIndex...endIndex])
+                let beginning: Day = try? Day(from: dayInterval[0]), beginning != .holiday,
+                let ending: Day = try? Day(from: dayInterval[1]), ending != .holiday {
+                let week: [Day] = Day.week(beginning: beginning)
+                days.append(contentsOf: week[0...(week.firstIndex(of: ending)!)])
             } else if dayGrouping.count == 2,
                 let first: Day = try? Day(from: dayGrouping[0]),
                 let last: Day = try? Day(from: dayGrouping[1]) {

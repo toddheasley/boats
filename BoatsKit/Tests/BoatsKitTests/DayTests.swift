@@ -2,6 +2,18 @@ import XCTest
 @testable import BoatsKit
 
 class DayTests: XCTestCase {
+    func testWeek() {
+        XCTAssertEqual(Day.week(beginning: .sunday), [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday])
+        XCTAssertEqual(Day.week(beginning: .monday), [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday])
+        XCTAssertEqual(Day.week(beginning: .tuesday), [.tuesday, .wednesday, .thursday, .friday, .saturday, .sunday, .monday])
+        XCTAssertEqual(Day.week(beginning: .wednesday), [.wednesday, .thursday, .friday, .saturday, .sunday, .monday, .tuesday])
+        XCTAssertEqual(Day.week(beginning: .thursday), [.thursday, .friday, .saturday, .sunday, .monday, .tuesday, .wednesday])
+        XCTAssertEqual(Day.week(beginning: .friday), [.friday, .saturday, .sunday, .monday, .tuesday, .wednesday, .thursday])
+        XCTAssertEqual(Day.week(beginning: .saturday), [.saturday, .sunday, .monday, .tuesday, .wednesday, .thursday, .friday])
+        XCTAssertEqual(Day.week(beginning: .holiday).first, Day())
+        XCTAssertEqual(Day.week().first, Day())
+    }
+    
     func testDateInit() {
         XCTAssertEqual(Day(date: Date(timeIntervalSince1970:  1524196800.0)), .friday)
         XCTAssertEqual(Day(date: Date(timeIntervalSince1970:  1587355200.0)), .monday)
