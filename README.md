@@ -14,8 +14,6 @@ Boats 4 streamlines the high-contrast, large-type visual design from version 3 a
 
 ## Boats for Mac
 
-Via the "magic" of [Catalyst](https://developer.apple.com/mac-catalyst/)
-
 ![](Boats/BoatsMac.png)
 
 [![Download on the App Store](Boats/MacAppStore.svg)](https://itunes.apple.com/app/id1499291566)
