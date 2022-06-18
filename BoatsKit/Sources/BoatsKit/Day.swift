@@ -1,7 +1,7 @@
 import Foundation
 
 public enum Day: String, CaseIterable, Codable {
-    case sunday, monday, tuesday, wednesday, thursday, friday, saturday, holiday
+    case monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday
     
     public static func week(beginning day: Self = Self()) -> [Self] {
         let week: [Self] = Array(allCases[0...6] + allCases[0...6])
