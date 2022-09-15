@@ -12,12 +12,6 @@ Boats 4 streamlines the high-contrast, large-type visual design from version 3 a
 
 [![Download on the App Store](Boats/AppStore.svg)](https://itunes.apple.com/app/id1152562893)
 
-## Boats for Mac
-
-![](Boats/BoatsMac.png)
-
-[![Download on the App Store](Boats/MacAppStore.svg)](https://itunes.apple.com/app/id1499291566)
-
 ## Web Schedules
 
 Boats schedules are now also [__available on the web__](https://toddheasley.github.io/boats), with the same large type and mobile-friendly formatting.
