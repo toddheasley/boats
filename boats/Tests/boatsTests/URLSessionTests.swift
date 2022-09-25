@@ -6,25 +6,15 @@ class URLSessionTests: XCTestCase {
 }
 
 extension URLSessionTests {
-    func testActionAllCases() {
-        XCTAssertEqual(URLSession.Action.allCases, [.fetch, .build, .debug(.fetch)])
-    }
-    
-    func testActionRawValue() {
-        XCTAssertEqual(URLSession.Action(rawValue: "fetch"), .fetch)
-        XCTAssertEqual(URLSession.Action(rawValue: "build"), .build)
-        XCTAssertEqual(URLSession.Action(rawValue: "debug file:///Documents/Boats/boats-web"), .debug(URL(fileURLWithPath: "/Documents/Boats/boats-web/index.json")))
-    }
-    
     func testIndex() {
         let expectations: [XCTestExpectation] = [
             expectation(description: "fetch"),
             expectation(description: "build")
         ]
-        URLSession.shared.index(action: .fetch) { index, error in
+        URLSession.shared.index(.fetch) { index, error in
             expectations[0].fulfill()
         }
-        URLSession.shared.index(action: .build) { index, error in
+        URLSession.shared.index(.build) { index, error in
             expectations[1].fulfill()
         }
         waitForExpectations(timeout: 10.0, handler: nil)

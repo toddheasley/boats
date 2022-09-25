@@ -1,7 +1,7 @@
 import Foundation
 
 extension URLSession {
-    public enum Action: CaseIterable, RawRepresentable, Equatable, CustomStringConvertible {
+    public enum Action: Equatable, RawRepresentable, CustomStringConvertible {
         case fetch, build, debug(URL)
         
         public init?(_ string: String) {
@@ -10,9 +10,6 @@ extension URLSession {
             }
             self = .debug(url)
         }
-        
-        // MARK: CaseIterable
-        public static let allCases: [Self]  = [.fetch, .build, .debug(.fetch)]
         
         // MARK: RawRepresentable
         public var rawValue: String {
@@ -35,7 +32,7 @@ extension URLSession {
                 self = .build
             case "debug":
                 guard rawValue.count == 2,
-                    let url: URL = .debug(rawValue[1]) else {
+                      let url: URL = .debug(rawValue[1]), url.isFileURL else {
                     fallthrough
                 }
                 self = .debug(url)
@@ -50,7 +47,19 @@ extension URLSession {
         }
     }
     
-    public func index(action: Action, completion: @escaping (Index?, Error?) -> Void) {
+    public func index(_ action: Action = .fetch) async throws -> Index {
+        try await withCheckedThrowingContinuation { continuation in
+            index(action) { index, error in
+                if let index {
+                    continuation.resume(returning: index)
+                } else {
+                    continuation.resume(throwing: error ?? URLError(.unsupportedURL))
+                }
+            }
+        }
+    }
+    
+    public func index(_ action: Action, completion: @escaping (Index?, Error?) -> Void) {
         switch action {
         case .fetch:
             fetch(completion: completion)
@@ -125,20 +134,14 @@ extension URLSession {
     func debug(url: URL, completion: @escaping (Index?, Error?) -> Void) {
         func handle(data: Data?, error: Error?, completion: @escaping (Index?, Error?) -> Void) {
             guard let data: Data = data else {
-                DispatchQueue.main.async {
-                    completion(nil, error ?? URLError(.cannotDecodeContentData))
-                }
+                completion(nil, error ?? URLError(.cannotDecodeContentData))
                 return
             }
             do {
                 let index: Index = try JSONDecoder.shared.decode(Index.self, from: data)
-                DispatchQueue.main.async {
-                    completion(index, nil)
-                }
+                completion(index, nil)
             } catch {
-                DispatchQueue.main.async {
-                    completion(nil, error)
-                }
+                completion(nil, error)
             }
         }
         
@@ -153,7 +156,9 @@ extension URLSession {
             }
         } else {
             dataTask(with: url) { data, _, error in
-                handle(data: data, error: error, completion: completion)
+                DispatchQueue.main.async {
+                    handle(data: data, error: error, completion: completion)
+                }
             }.resume()
         }
     }

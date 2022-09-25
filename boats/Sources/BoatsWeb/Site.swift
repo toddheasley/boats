@@ -15,7 +15,7 @@ public struct Site: CustomStringConvertible {
     
     public let index: Index
     
-    public init(index: Index) {
+    public init(_ index: Index = Index()) {
         self.index = index
     }
     
