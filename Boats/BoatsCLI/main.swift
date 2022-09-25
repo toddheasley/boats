@@ -1,1 +1,0 @@
-BoatsCLI.main()
