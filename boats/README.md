@@ -16,7 +16,7 @@ Written in [Swift](https://developer.apple.com/documentation/swift) 5.7 using [F
 
 Fetch, build and debug Boats schedules and web pages using a scriptable command-line interface.
 
-![](docs/boats-cli.png)
+![](../docs/boats-cli.png)
 
 ### Example Usage
 
@@ -42,7 +42,7 @@ Optionally generate static web pages by appending `--web` flag to any command.
 
 ## `BoatsWeb`
 
-![](docs/boats-web.png)
+![](../docs/boats-web.png)
 
 `BoatsWeb` extends the functionality of `Boats` to include:
 
