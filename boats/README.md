@@ -2,11 +2,11 @@
 
 A collection of libraries that build and drive Boats apps and web pages
 
-## Requirements
+### Requirements
 
 Written in [Swift](https://developer.apple.com/documentation/swift) 5.7 using [Foundation](https://developer.apple.com/documentation/foundation) and [Core Location.](https://developer.apple.com/documentation/corelocation) Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser) Requires [Xcode](https://developer.apple.com/xcode) 14 or newer to build.
 
-### Platform Targets
+#### Platform Targets
 
 * [macOS](https://developer.apple.com/macos) 13 Ventura
 * [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad)/[tvOS ](https://developer.apple.com/tvos) 16
