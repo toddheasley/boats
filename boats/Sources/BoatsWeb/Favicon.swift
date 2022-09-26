@@ -7,9 +7,10 @@ struct Favicon: Resource {
     public let path: String = "favicon.ico"
     
     public func data() throws -> Data {
-        guard let url: URL = Bundle.module.url(forResource: "Favicon", withExtension: "png") else {
-            throw URLError(.fileDoesNotExist)
-        }
-        return try Data(contentsOf: url)
+        return Favicon_Data
     }
 }
+
+private let Favicon_Data: Data = Data(base64Encoded: """
+iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAQKADAAQAAAABAAAAQAAAAABlmWCKAAAAX0lEQVR4Ae3QAQ0AAADCoPdPbQ43iEBhwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMvA8MQEAAARZBmOsAAAAASUVORK5CYII=
+""")!

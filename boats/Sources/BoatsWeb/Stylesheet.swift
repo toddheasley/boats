@@ -4,9 +4,7 @@ import Boats
 struct Stylesheet: Resource {
     
     // MARK: Resource
-    public var path: String {
-        return "stylesheet.css"
-    }
+    public let path: String = "stylesheet.css"
     
     public func data() throws -> Data {
         return Stylesheet_Data

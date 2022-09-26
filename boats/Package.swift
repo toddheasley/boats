@@ -34,10 +34,6 @@ let package = Package(name: "boats", platforms: [
         ]),
         .target(name: "BoatsWeb", dependencies: [
             "Boats"
-        ], resources: [
-            .copy("ShareImage.png"),
-            .copy("BookmarkIcon.png"),
-            .copy("Favicon.png")
         ]),
         .target(name: "Boats", dependencies: [])
     ])

@@ -7,9 +7,10 @@ struct BookmarkIcon: Resource {
     public let path: String = "apple-touch-icon.png"
     
     public func data() throws -> Data {
-        guard let url: URL = Bundle.module.url(forResource: "BookmarkIcon", withExtension: "png") else {
-            throw URLError(.fileDoesNotExist)
-        }
-        return try Data(contentsOf: url)
+        return BookmarkIcon_Data
     }
 }
+
+private let BookmarkIcon_Data: Data = Data(base64Encoded: """
+iVBORw0KGgoAAAANSUhEUgAAAJgAAACYCAIAAACXoLd2AAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAmKADAAQAAAABAAAAmAAAAADKlyztAAACF0lEQVR4Ae3TAQ0AIAzEQMC/5xFk0NwctN3vmVnufwPnfwQEz4CQkT8QUsiIgQiGRQoZMRDBsEghIwYiGBYpZMRABMMihYwYiGBYpJARAxEMixQyYiCCYZFCRgxEMCxSyIiBCIZFChkxEMGwSCEjBiIYFilkxEAEwyKFjBiIYFikkBEDEQyLFDJiIIJhkUJGDEQwLFLIiIEIhkUKGTEQwbBIISMGIhgWKWTEQATDIoWMGIhgWKSQEQMRDIsUMmIggmGRQkYMRDAsUsiIgQiGRQoZMRDBsEghIwYiGBYpZMRABMMihYwYiGBYpJARAxEMixQyYiCCYZFCRgxEMCxSyIiBCIZFChkxEMGwSCEjBiIYFilkxEAEwyKFjBiIYFikkBEDEQyLFDJiIIJhkUJGDEQwLFLIiIEIhkUKGTEQwbBIISMGIhgWKWTEQATDIoWMGIhgWKSQEQMRDIsUMmIggmGRQkYMRDAsUsiIgQiGRQoZMRDBsEghIwYiGBYpZMRABMMihYwYiGBYpJARAxEMixQyYiCCYZFCRgxEMCxSyIiBCIZFChkxEMGwSCEjBiIYFilkxEAEwyKFjBiIYFikkBEDEQyLFDJiIIJhkUJGDEQwLFLIiIEIhkUKGTEQwbBIISMGIhgWKWTEQATDIoWMGIhgWKSQEQMRDIsUMmIggmGRQkYMRDAsUsiIgQiGRQoZMRDBsMhIyAs4mQQtk2G1gAAAAABJRU5ErkJggg==
+""")!
