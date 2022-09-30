@@ -10,8 +10,8 @@ class RouteTests: XCTestCase {
     func testSchedule() {
         let date: Date = Date()
         var route: Route = Route.peaks
-        route.append(schedule: Schedule(season: Season(name: .summer, dateInterval: DateInterval(start: Date(timeInterval: -60.0, since: date), end: Date(timeInterval: 60.0, since: date))), timetables: []))
-        route.append(schedule: Schedule(season: Season(name: .fall, dateInterval: DateInterval(start: Date(timeInterval: 60.0, since: date), end: Date(timeInterval: 90.0, since: date))), timetables: []))
+        route.include(schedule: Schedule(season: Season(name: .summer, dateInterval: DateInterval(start: Date(timeInterval: -60.0, since: date), end: Date(timeInterval: 60.0, since: date))), timetables: []))
+        route.include(schedule: Schedule(season: Season(name: .fall, dateInterval: DateInterval(start: Date(timeInterval: 60.0, since: date), end: Date(timeInterval: 90.0, since: date))), timetables: []))
         XCTAssertEqual(route.schedules.count, 2)
         XCTAssertEqual(route.schedule(for: date)?.season.name, .summer)
         XCTAssertEqual(route.schedule()?.season.name, .summer)
@@ -20,15 +20,15 @@ class RouteTests: XCTestCase {
         XCTAssertNil(route.schedule(for: Date(timeInterval: -61.0, since: date)))
     }
     
-    func testScheduleAppend() {
+    func testScheduleInsert() {
         let date: Date = Date()
         var route: Route = Route.peaks
         XCTAssertTrue(route.schedules.isEmpty)
-        XCTAssertFalse(route.append(schedule: Schedule(season: Season(name: .spring, dateInterval: DateInterval(start: Date(timeInterval: 0.0, since: date), end: Date(timeInterval: 0.0, since: date))), timetables: [])))
+        XCTAssertFalse(route.include(schedule: Schedule(season: Season(name: .spring, dateInterval: DateInterval(start: Date(timeInterval: 0.0, since: date), end: Date(timeInterval: 0.0, since: date))), timetables: [])))
         XCTAssertTrue(route.schedules.isEmpty)
-        XCTAssertTrue(route.append(schedule: Schedule(season: Season(name: .summer, dateInterval: DateInterval(start: Date(timeInterval: -60.0, since: date), end: Date(timeInterval: 60.0, since: date))), timetables: [])))
+        XCTAssertTrue(route.include(schedule: Schedule(season: Season(name: .summer, dateInterval: DateInterval(start: Date(timeInterval: -60.0, since: date), end: Date(timeInterval: 60.0, since: date))), timetables: [])))
         XCTAssertEqual(route.schedules.count, 1)
-        XCTAssertTrue(route.append(schedule: Schedule(season: Season(name: .fall, dateInterval: DateInterval(start: Date(timeInterval: 60.0, since: date), end: Date(timeInterval: 90.0, since: date))), timetables: [])))
+        XCTAssertTrue(route.include(schedule: Schedule(season: Season(name: .fall, dateInterval: DateInterval(start: Date(timeInterval: 60.0, since: date), end: Date(timeInterval: 90.0, since: date))), timetables: [])))
         XCTAssertEqual(route.schedules.count, 2)
     }
 }

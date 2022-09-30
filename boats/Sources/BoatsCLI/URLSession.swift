@@ -3,6 +3,9 @@ import ArgumentParser
 import Boats
 
 extension URLSession.Action: ExpressibleByArgument {
+    var argument: String {
+        return rawValue.components(separatedBy: " ").first!
+    }
     
     // MARK: ExpressibleByArgument
     public init?(argument: String) {

@@ -21,11 +21,12 @@ public struct Route: Codable {
         return nil
     }
     
-    @discardableResult public mutating func append(schedule: Schedule) -> Bool {
+    @discardableResult public mutating func include(schedule: Schedule) -> Bool {
         guard schedule.season.dateInterval.end > Date() else {
             return false
         }
         schedules.append(schedule)
+        schedules = schedules.sorted()
         return true
     }
     

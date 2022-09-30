@@ -30,6 +30,18 @@ public struct Schedule: Codable {
     }
 }
 
+extension Schedule: Comparable {
+    
+    // MARK: Comparable
+    public static func ==(lhs: Self, rhs: Self) -> Bool {
+        return lhs.season.dateInterval == rhs.season.dateInterval
+    }
+    
+    public static func <(lhs: Self, rhs: Self) -> Bool {
+        return lhs.season.dateInterval.start < rhs.season.dateInterval.start
+    }
+}
+
 extension Schedule: HTMLConvertible {
     
     // MARK: HTMLConvertible

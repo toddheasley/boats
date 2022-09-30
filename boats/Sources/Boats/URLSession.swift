@@ -4,6 +4,17 @@ extension URLSession {
     public enum Action: Equatable, RawRepresentable, CustomStringConvertible {
         case fetch, build, debug(URL)
         
+        public var url: URL {
+            switch self {
+            case .fetch:
+                return .fetch
+            case .build:
+                return .build
+            case .debug(let url):
+                return url
+            }
+        }
+        
         public init?(_ string: String) {
             guard let url: URL = .debug(string) else {
                 return nil
@@ -104,7 +115,7 @@ extension URLSession {
             build(schedule: .schedule(for: route, season: season)) { schedule, error in
                 queue -= 1
                 if let schedule: Schedule = schedule {
-                    route.append(schedule: schedule)
+                    route.include(schedule: schedule)
                 }
                 if let error: Error = error {
                     errors.append(error)

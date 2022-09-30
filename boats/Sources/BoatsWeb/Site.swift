@@ -34,7 +34,7 @@ public struct Site: CustomStringConvertible {
 
 extension Site: Resource {
     public var path: String {
-        return index.path
+        return IndexView(index).path
     }
     
     public func build(to url: URL) throws {
