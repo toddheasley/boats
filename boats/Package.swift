@@ -29,10 +29,10 @@ let package = Package(name: "boats", platforms: [
             "BoatsWeb",
             "Boats"
         ]),
-        .testTarget(name: "BoatsTests", dependencies: [
+        .target(name: "BoatsWeb", dependencies: [
             "Boats"
         ]),
-        .target(name: "BoatsWeb", dependencies: [
+        .testTarget(name: "BoatsTests", dependencies: [
             "Boats"
         ]),
         .target(name: "Boats", dependencies: [])

@@ -32,13 +32,11 @@ Scrape new schedule data from [cascobaylines.com](https://cascobaylines.com) dir
 ./boats-cli build
 ```
 
-Rebuild existing local schedule data:
+Rebuild existing local schedule data and generate static web pages:
 
 ```zsh
 ./boats-cli debug -w
 ```
-
-Optionally generate static web pages by appending `--web` flag to any command.
 
 ## `BoatsWeb`
 
@@ -62,7 +60,7 @@ try Site(index).build(to: FileManager.default.temporaryDirectory)
 
 `Boats` provides the complete Casco Bay Lines ferry schedule as a modeled interface that handles:
 
-* Generating schedules automatically by crawling [cascobaylines.com](https://cascobaylines.com)
+* Generating schedules automatically by crawling [cascobaylines.com](https://www.cascobaylines.com)
 * Fetching the current schedule remotely from GitHub
 * `Date`-based querying of timetables and departures
 

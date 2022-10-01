@@ -150,6 +150,7 @@ extension URLSession {
             }
             do {
                 let index: Index = try JSONDecoder.shared.decode(Index.self, from: data)
+                UserDefaults.standard.setValue(data, forKey: "index")
                 completion(index, nil)
             } catch {
                 completion(nil, error)
@@ -167,6 +168,7 @@ extension URLSession {
             }
         } else {
             dataTask(with: url) { data, _, error in
+                let data: Data? = data ?? UserDefaults.standard.data(forKey: "index")
                 DispatchQueue.main.async {
                     handle(data: data, error: error, completion: completion)
                 }
