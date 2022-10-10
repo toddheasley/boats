@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Holiday: Codable {
+public struct Holiday: Codable, StringConvertible {
     public let name: String
     public let date: Date
     
@@ -8,11 +8,19 @@ public struct Holiday: Codable {
         self.name = name
         self.date = date
     }
-}
-
-extension Holiday: CustomStringConvertible {
     
-    // MARK: CustomStringConvertible
+    // MARK: StringConvertible
+    public func description(_ format: String.Format) -> String {
+        switch format {
+        case .title, .sentence:
+            return "\(name): \(DateFormatter.shared.description(from: date))"
+        case .abbreviated:
+            return DateFormatter.shared.description(from: date)
+        case .compact:
+            DateFormatter.shared.dateFormat = "M/d"
+            return DateFormatter.shared.string(from: date)
+        }
+    }
     public var description: String {
         return "\(name): \(DateFormatter.shared.description(from: date))"
     }

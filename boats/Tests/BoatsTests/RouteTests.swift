@@ -2,11 +2,6 @@ import XCTest
 @testable import Boats
 
 class RouteTests: XCTestCase {
-    func testName() {
-        XCTAssertEqual(Route.peaks.name, "Peaks Island")
-        XCTAssertEqual(Route.cliff.name, "Cliff Island")
-    }
-    
     func testSchedule() {
         let date: Date = Date()
         var route: Route = Route.peaks
@@ -30,6 +25,17 @@ class RouteTests: XCTestCase {
         XCTAssertEqual(route.schedules.count, 1)
         XCTAssertTrue(route.include(schedule: Schedule(season: Season(name: .fall, dateInterval: DateInterval(start: Date(timeInterval: 60.0, since: date), end: Date(timeInterval: 90.0, since: date))), timetables: [])))
         XCTAssertEqual(route.schedules.count, 2)
+    }
+    
+    // MARK: StringConvertible
+    func testDescription() {
+        XCTAssertEqual(Route.peaks.description(.title), "Peaks Island")
+        XCTAssertEqual(Route.peaks.description(.abbreviated), "Peaks")
+        XCTAssertEqual(Route.peaks.description, "Peaks Island")
+        XCTAssertEqual(Route.greatDiamond.description(.sentence), "Great Diamond Island")
+        XCTAssertEqual(Route.greatDiamond.description(.compact), "Great Diamond")
+        XCTAssertEqual(Route.diamondCove.description(.title), "Diamond Cove")
+        XCTAssertEqual(Route.diamondCove.description(.abbreviated), "Diamond Cove")
     }
 }
 

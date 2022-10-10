@@ -6,15 +6,12 @@ class DepartureTests: XCTestCase {
         XCTAssertTrue(Departure(Time(hour: 16, minute: 20), services: [.car]).isCarFerry)
         XCTAssertFalse(Departure(Time(hour: 16, minute: 20)).isCarFerry)
     }
-}
-
-extension DepartureTests {
     
     // MARK: CustomStringConvertible
     func testDescription() {
         DateFormatter.clockFormat = .twelveHour
-        XCTAssertEqual(Departure(Time(hour: 4, minute: 20), deviations: [.start(Date(timeIntervalSince1970: 1540958400.0)), .except(.holiday)]).description, "4:20 started 10/31, except hol")
-        XCTAssertEqual(Departure(Time(hour: 16, minute: 20), deviations: [.end(Date(timeIntervalSince1970: 1540958400.0))], services: [.car]).description, "4:20. ended 10/31, car")
+        XCTAssertEqual(Departure(Time(hour: 4, minute: 20), deviations: [.start(Date(timeIntervalSince1970: 1540958400.0)), .except(.holiday)]).description, "4:20 started 10/31 except hol")
+        XCTAssertEqual(Departure(Time(hour: 16, minute: 20), deviations: [.end(Date(timeIntervalSince1970: 1540958400.0))], services: [.car]).description, "4:20. ended 10/31 car")
         XCTAssertEqual(Departure(Time(hour: 16, minute: 20), services: [.car]).description, "4:20. car")
         XCTAssertEqual(Departure(Time(hour: 16, minute: 20)).description, "4:20.")
         DateFormatter.clockFormat = .system

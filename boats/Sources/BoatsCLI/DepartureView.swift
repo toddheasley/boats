@@ -1,4 +1,3 @@
-import Foundation
 import Boats
 
 struct DepartureView: TextView {
@@ -14,19 +13,12 @@ struct DepartureView: TextView {
             return []
         }
         var text: [Text] = []
-        text.append(TimeView(departure.time).description)
+        text.append(departure.time.components(empty: " ").joined())
         if departure.isCarFerry {
             text.append("cf")
         }
         for deviation in departure.deviations {
-            switch deviation {
-            case .except(let day):
-                text.append("x\(day.rawValue.first!)")
-            case .only(let day):
-                text.append("\(day.rawValue.first!)o")
-            default:
-                break
-            }
+            text.append(deviation.description(.compact))
         }
         return [
             text.joined(separator: " ")

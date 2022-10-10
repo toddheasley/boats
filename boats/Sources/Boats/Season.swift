@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Season: Codable {
+public struct Season: Codable, StringConvertible {
     public enum Name: String, CaseIterable, Codable, CustomStringConvertible {
         case spring, summer, fall, winter
         
@@ -12,13 +12,17 @@ public struct Season: Codable {
     
     public let name: Name
     public let dateInterval: DateInterval
-}
-
-extension Season: CustomStringConvertible {
     
-    // MARK: CustomStringConvertible
-    public var description: String {
-        return "\(name): \(DateFormatter.shared.description(from: dateInterval))"
+    // MARK: StringConvertible
+    public func description(_ format: String.Format) -> String {
+        switch format {
+        case .title, .sentence:
+            return "\(name): \(DateFormatter.shared.description(from: dateInterval))"
+        case .abbreviated:
+            return name.description
+        case .compact:
+            return name.rawValue
+        }
     }
 }
 

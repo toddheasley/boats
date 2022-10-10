@@ -3,14 +3,12 @@ import XCTest
 
 class HolidayTests: XCTestCase {
     
-}
-
-extension HolidayTests {
-    
-    // MARK: CustomStringConvertible
+    // MARK: StringConvertible
     func testDescription() {
-        XCTAssertEqual(Holiday.independence.description, "Independence Day: Jul 4")
+        XCTAssertEqual(Holiday.independence.description(.sentence), "Independence Day: Jul 4")
+        XCTAssertEqual(Holiday.independence.description(.abbreviated), "Jul 4")
         XCTAssertEqual(Holiday.christmas.description, "Christmas Day: Dec 25")
+        XCTAssertEqual(Holiday.christmas.description(.compact), "12/25")
         XCTAssertEqual(Holiday.newYears.description, "New Year's Day: Jan 1")
     }
 }

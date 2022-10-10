@@ -23,9 +23,7 @@ extension URLTests {
         XCTAssertFalse(FileManager.default.fileExists(atPath: url.path))
         XCTAssertNoThrow(try url.delete())
     }
-}
-
-extension URLTests {
+    
     func testDebug() {
         XCTAssertEqual(URL.debug("https://s3.amazonaws.com/boats/index.json")?.absoluteString, "https://s3.amazonaws.com/boats/index.json")
         XCTAssertEqual(URL.debug("https://s3.amazonaws.com/boats/")?.absoluteString, "https://s3.amazonaws.com/boats/index.json")

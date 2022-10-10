@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Deviation {
+public enum Deviation: StringConvertible {
     case start(Date), end(Date), except(Day), only(Day)
     
     public var isExpired: Bool {
@@ -13,22 +13,39 @@ public enum Deviation {
             return false
         }
     }
-}
-
-extension Deviation: CustomStringConvertible {
     
-    // MARK: CustomStringConvertible
-    public var description: String {
+    // MARK: StringConvertible
+    public func description(_ format: String.Format) -> String {
         DateFormatter.shared.dateFormat = "M/d"
         switch self {
         case .start(let date):
-            return "\(isExpired ? "started" : "starts") \(DateFormatter.shared.string(from: date))"
+            switch format {
+            case .compact:
+                return "+\(DateFormatter.shared.string(from: date))"
+            default:
+                return "\(isExpired ? "started" : "starts") \(DateFormatter.shared.string(from: date))"
+            }
         case .end(let date):
-            return "\(isExpired ? "ended" : "ends") \(DateFormatter.shared.string(from: date))"
+            switch format {
+            case .compact:
+                return "x\(DateFormatter.shared.string(from: date))"
+            default:
+                return "\(isExpired ? "ended" : "ends") \(DateFormatter.shared.string(from: date))"
+            }
         case .except(let day):
-            return "except \(day.abbreviated.lowercased())"
+            switch format {
+            case .compact:
+                return "x\(day.description(.compact).first!)"
+            default:
+                return "except \(day.description(.compact))"
+            }
         case .only(let day):
-            return "\(day.abbreviated.lowercased()) only"
+            switch format {
+            case .compact:
+                return "\(day.description(.compact).first!)o"
+            default:
+                return "\(day.description(.compact)) only"
+            }
         }
     }
 }

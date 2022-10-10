@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Day: String, CaseIterable, Codable {
+public enum Day: String, CaseIterable, Codable, StringConvertible {
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday
     
     public static func week(beginning day: Self = Self()) -> [Self] {
@@ -12,16 +12,17 @@ public enum Day: String, CaseIterable, Codable {
     public init(_ date: Date = Date()) {
         self = DateFormatter.shared.day(from: date)
     }
-}
-
-extension Day: CustomStringConvertible {
-    public var abbreviated: String {
-        return "\(description[...rawValue.index(rawValue.startIndex, offsetBy: 2)])"
-    }
     
-    // MARK: CustomStringConvertible
-    public var description: String {
-        return rawValue.capitalized
+    // MARK: StringConvertible
+    public func description(_ format: String.Format) -> String {
+        switch format {
+        case .title, .sentence:
+            return rawValue.capitalized
+        case .abbreviated:
+            return "\(rawValue.capitalized.prefix(3))"
+        case .compact:
+            return "\(rawValue.prefix(3))"
+        }
     }
 }
 
@@ -33,7 +34,7 @@ extension Day: HTMLConvertible {
         guard html.count > 1 else {
             throw HTML.error(Self.self, from: html)
         }        
-        switch html[..<html.index(html.startIndex, offsetBy: 2)]{
+        switch html.prefix(2){
         case "mo":
             self = .monday
         case "tu":

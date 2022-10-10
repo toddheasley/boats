@@ -1,5 +1,3 @@
-import Foundation
-
 protocol TextView: CustomStringConvertible {
     var text: [Text] {
         get

@@ -14,17 +14,18 @@ class DeviationTests: XCTestCase {
         XCTAssertFalse(Deviation.except(.holiday).isExpired)
         XCTAssertFalse(Deviation.only(Day()).isExpired)
     }
-}
-
-extension DeviationTests {
     
     // MARK: CustomStringConvertible
     func testDescription() {
-        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 4080340800.0)).description, "starts 4/20")
+        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 4080340800.0)).description(.title), "starts 4/20")
+        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 4080340800.0)).description(.compact), "+4/20")
         XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1524196800.0)).description, "started 4/20")
-        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)).description, "ends 4/20")
+        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 4080340800.0)).description(.sentence), "ends 4/20")
+        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1524196800.0)).description(.compact), "x4/20")
         XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1524196800.0)).description, "ended 4/20")
-        XCTAssertEqual(Deviation.except(.holiday).description, "except hol")
+        XCTAssertEqual(Deviation.except(.holiday).description(.abbreviated), "except hol")
+        XCTAssertEqual(Deviation.except(.holiday).description(.compact), "xh")
+        XCTAssertEqual(Deviation.only(.friday).description(.compact), "fo")
         XCTAssertEqual(Deviation.only(.friday).description, "fri only")
     }
 }

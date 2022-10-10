@@ -1,10 +1,5 @@
-import Foundation
-
-public enum Service: String, Codable, CaseIterable {
+public enum Service: String, Codable, CaseIterable, CustomStringConvertible {
     case car, bicycle, freight, wheelchair, dog
-}
-
-extension Service: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {

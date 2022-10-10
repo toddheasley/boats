@@ -9,6 +9,6 @@ class FaviconTests: XCTestCase {
     }
     
     func testData() throws {
-        XCTAssertTrue(try Favicon().data().count > 0)
+        XCTAssertEqual(try Favicon().data().count, 1226, accuracy: 1)
     }
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Departure: Codable {
+public struct Departure: Codable, CustomStringConvertible {
     public let time: Time
     public let deviations: [Deviation]
     public let services: [Service]
@@ -14,9 +14,6 @@ public struct Departure: Codable {
         self.deviations = deviations
         self.services = services
     }
-}
-
-extension Departure: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
@@ -24,7 +21,7 @@ extension Departure: CustomStringConvertible {
             return deviation.description
         } + services.map { service in
             return service.description
-        }).joined(separator: ", ")
+        }).joined(separator: " ")
         return "\(time) \(string)".trim()
     }
 }

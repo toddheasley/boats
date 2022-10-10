@@ -1,6 +1,4 @@
-import Foundation
-
-public struct Timetable: Codable {
+public struct Timetable: Codable, CustomStringConvertible {
     public struct Trip: Codable {
         public let origin: Departure?
         public let destination: Departure?
@@ -25,9 +23,6 @@ public struct Timetable: Codable {
         }
         return trips
     }
-}
-
-extension Timetable: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
@@ -60,9 +55,9 @@ extension Timetable: CustomStringConvertible {
         var strings: [String] = []
         for range in ranges {
             if range.count > 1 {
-                strings.append("\(Day.allCases[range.first!].abbreviated)-\(Day.allCases[range.last!].abbreviated)")
+                strings.append("\(Day.allCases[range.first!].description(.abbreviated))-\(Day.allCases[range.last!].description(.abbreviated))")
             } else {
-                strings.append("\(Day.allCases[range.first!].abbreviated)")
+                strings.append("\(Day.allCases[range.first!].description(.abbreviated))")
             }
         }
         return strings.joined(separator: "/")

@@ -9,6 +9,6 @@ class BookmarkIconTests: XCTestCase {
     }
     
     func testData() throws {
-        XCTAssertTrue(try BookmarkIcon().data().count > 0)
+        XCTAssertEqual(try BookmarkIcon().data().count, 3128, accuracy: 1)
     }
 }

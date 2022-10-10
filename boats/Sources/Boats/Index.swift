@@ -1,4 +1,3 @@
-import Foundation
 import CoreLocation
 
 public struct Index: Codable, CustomStringConvertible {
@@ -8,13 +7,13 @@ public struct Index: Codable, CustomStringConvertible {
     public let routes: [Route]
     public let url: URL
     
-    public func route(uri: String) -> Route? {
-        for route in routes {
-            if route.uri == uri {
-                return route
-            }
-        }
-        return nil
+    public var route: Route? {
+        set { UserDefaults.standard.set(newValue?.uri, forKey: "route") }
+        get { route(uri: UserDefaults.standard.string(forKey: "route")) ?? routes.first }
+    }
+    
+    public func route(uri: String?) -> Route? {
+        return routes.first { $0.uri == uri }
     }
     
     public init(routes: [Route] = Route.allCases) {

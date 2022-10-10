@@ -19,9 +19,7 @@ extension URL {
         }
         try FileManager.default.removeItem(at: self)
     }
-}
-
-extension URL {
+    
     static let fetch: Self = Self(string: "https://toddheasley.github.io/boats/index.json")!
     static let build: Self = Self(string: "https://www.cascobaylines.com")!
     

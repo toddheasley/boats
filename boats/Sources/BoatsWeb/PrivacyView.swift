@@ -1,7 +1,7 @@
-import Foundation
 import Boats
 
 struct PrivacyView: HTMLView {
+    let title: String = "Privacy"
     let index: Index
     
     init(_ index: Index = Index()) {
@@ -10,21 +10,11 @@ struct PrivacyView: HTMLView {
     
     // MARK: HTMLView
     var html: [HTML] {
-        return [
-            HTML.head(index, title: "Privacy"),
-            .main(index)
-        ]
+        var html: [HTML] = HTML.head(index, title: title)
+        html.append("<h1>\(title)</h1>")
+        html.append("<p></p>")
+        return html
     }
     
     let uri: String = "privacy"
-}
-
-extension HTML {
-    fileprivate static func main(_ index: Boats.Index) -> Self {
-        var html: [Self] = []
-        html.append("<main>")
-        html.append("    <h1>Privacy</h1>")
-        html.append("</main>")
-        return html.joined(separator: "\n")
-    }
 }

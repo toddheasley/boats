@@ -54,7 +54,7 @@ extension URLSession {
         
         // MARK: CustomStringConvertible
         public var description: String {
-            return rawValue
+            return rawValue.components(separatedBy: " ").first!
         }
     }
     
@@ -80,9 +80,7 @@ extension URLSession {
             debug(url: url, completion: completion)
         }
     }
-}
-
-extension URLSession {
+    
     func fetch(completion: @escaping (Index?, Error?) -> Void) {
         debug(url: .fetch, completion: completion)
     }

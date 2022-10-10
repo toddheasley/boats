@@ -2,18 +2,45 @@ import XCTest
 @testable import Boats
 
 class TimeTests: XCTestCase {
-    func testComponents() {
-        XCTAssertEqual(Time(interval: 86340.0).components.hour, 23)
-        XCTAssertEqual(Time(interval: 86340.0).components.minute, 59)
-        XCTAssertEqual(Time(interval: 53100.0).components.hour, 14)
-        XCTAssertEqual(Time(interval: 53100.0).components.minute, 45)
-        XCTAssertEqual(Time(interval: 21900.0).components.hour, 6)
-        XCTAssertEqual(Time(interval: 21900.0).components.minute, 5)
-        XCTAssertEqual(Time(interval: 0.0).components.hour, 0)
-        XCTAssertEqual(Time(interval: 0.0).components.minute, 0)
+    func testMinute() {
+        XCTAssertEqual(Time(interval: 86340.0).minute, 59)
+        XCTAssertEqual(Time(interval: 53100.0).minute, 45)
+        XCTAssertEqual(Time(interval: 21900.0).minute, 5)
+        XCTAssertEqual(Time(interval: 0.0).minute, 0)
     }
     
-    func testComponentsInit() {
+    func testHour() {
+        XCTAssertEqual(Time(interval: 86340.0).hour, 23)
+        XCTAssertEqual(Time(interval: 53100.0).hour, 14)
+        XCTAssertEqual(Time(interval: 21900.0).hour, 6)
+        XCTAssertEqual(Time(interval: 0.0).hour, 0)
+    }
+    
+    func testComponents() {
+        DateFormatter.clockFormat = .twelveHour
+        XCTAssertEqual(Time(hour: 6, minute: 15).components(empty: "/"), ["/", "6", ":", "1", "5", "/"])
+        XCTAssertEqual(Time(hour: 12, minute: 30).components(), ["1", "2", ":", "3", "0", "."])
+        XCTAssertEqual(Time(hour: 13, minute: 0).components(), ["", "1", ":", "0", "0", "."])
+        XCTAssertEqual(Time(hour: 23, minute: 45).components(), ["1", "1", ":", "4", "5", "."])
+        XCTAssertEqual(Time(hour: 0, minute: 0).components(empty: " "), ["1", "2", ":", "0", "0", " "])
+        DateFormatter.clockFormat = .twentyFourHour
+        XCTAssertEqual(Time(hour: 6, minute: 15).components(), ["0", "6", ":", "1", "5", ""])
+        XCTAssertEqual(Time(hour: 12, minute: 30).components(), ["1", "2", ":", "3", "0", ""])
+        XCTAssertEqual(Time(hour: 13, minute: 0).components(empty: " "), ["1", "3", ":", "0", "0", " "])
+        XCTAssertEqual(Time(hour: 23, minute: 45).components(), ["2", "3", ":", "4", "5", ""])
+        XCTAssertEqual(Time(hour: 0, minute: 0).components(), ["0", "0", ":", "0", "0", ""])
+        DateFormatter.clockFormat = .system
+    }
+    
+    func testIntervalInit() {
+        XCTAssertEqual(Time(interval: -3600.0).interval, 0.0)
+        XCTAssertEqual(Time(interval: 86400.0).interval, 86340.0)
+        XCTAssertEqual(Time(interval: 53120.5).interval, 53100.0)
+        XCTAssertEqual(Time(interval: 21959.9).interval, 21900.0)
+        XCTAssertEqual(Time(interval: 0.0).interval, 0.0)
+    }
+    
+    func testHourInit() {
         XCTAssertEqual(Time(hour: 24, minute: 0).interval, 82800.0)
         XCTAssertEqual(Time(hour: 23, minute: 0).interval, 82800.0)
         XCTAssertEqual(Time(hour: 0, minute: 60).interval, 3540.0)
@@ -28,34 +55,8 @@ class TimeTests: XCTestCase {
         XCTAssertEqual(Time(hour: 0, minute: 0).interval, 0.0)
     }
     
-    func testIntervalInit() {
-        XCTAssertEqual(Time(interval: -3600.0).interval, 0.0)
-        XCTAssertEqual(Time(interval: 86400.0).interval, 86340.0)
-        XCTAssertEqual(Time(interval: 53120.5).interval, 53100.0)
-        XCTAssertEqual(Time(interval: 21959.9).interval, 21900.0)
-        XCTAssertEqual(Time(interval: 0.0).interval, 0.0)
-    }
-    
     func testDateInit() {
-        XCTAssertEqual(Time(date: Date(timeIntervalSince1970: 1542230400.0)), Time(hour: 16, minute: 20))
-    }
-}
-
-extension TimeTests {
-    func testDescriptionComponents() {
-        DateFormatter.clockFormat = .twelveHour
-        XCTAssertEqual(Time(hour: 6, minute: 15).descriptionComponents, ["", "6", ":", "1", "5", ""])
-        XCTAssertEqual(Time(hour: 12, minute: 30).descriptionComponents, ["1", "2", ":", "3", "0", "."])
-        XCTAssertEqual(Time(hour: 13, minute: 0).descriptionComponents, ["", "1", ":", "0", "0", "."])
-        XCTAssertEqual(Time(hour: 23, minute: 45).descriptionComponents, ["1", "1", ":", "4", "5", "."])
-        XCTAssertEqual(Time(hour: 0, minute: 0).descriptionComponents, ["1", "2", ":", "0", "0", ""])
-        DateFormatter.clockFormat = .twentyFourHour
-        XCTAssertEqual(Time(hour: 6, minute: 15).descriptionComponents, ["0", "6", ":", "1", "5", ""])
-        XCTAssertEqual(Time(hour: 12, minute: 30).descriptionComponents, ["1", "2", ":", "3", "0", ""])
-        XCTAssertEqual(Time(hour: 13, minute: 0).descriptionComponents, ["1", "3", ":", "0", "0", ""])
-        XCTAssertEqual(Time(hour: 23, minute: 45).descriptionComponents, ["2", "3", ":", "4", "5", ""])
-        XCTAssertEqual(Time(hour: 0, minute: 0).descriptionComponents, ["0", "0", ":", "0", "0", ""])
-        DateFormatter.clockFormat = .system
+        XCTAssertEqual(Time(Date(timeIntervalSince1970: 1542230400.0)), Time(hour: 16, minute: 20))
     }
     
     // MARK: CustomStringConvertible

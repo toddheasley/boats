@@ -21,9 +21,6 @@ class TimetableTests: XCTestCase {
         XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 54)).count, 1)
         XCTAssertTrue(timetable.trips(from: Time(hour: 22, minute: 55)).isEmpty)
     }
-}
-
-extension TimetableTests {
     
     // MARK: CustomStringConvertible
     func testDescription() {

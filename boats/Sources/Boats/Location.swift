@@ -1,13 +1,8 @@
-import Foundation
 import CoreLocation
 
 public struct Location: Codable, CustomStringConvertible {
     public let coordinate: CLLocationCoordinate2D
     public let name: String
-    
-    public var abbreviated: String {
-        return name.replacingOccurrences(of: " Island", with: "")
-    }
     
     // MARK: CustomStringConvertible
     public let description: String

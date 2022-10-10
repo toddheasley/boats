@@ -18,30 +18,17 @@ class DayTests: XCTestCase {
         XCTAssertEqual(Day(Date(timeIntervalSince1970:  1524196800.0)), .friday)
         XCTAssertEqual(Day(Date(timeIntervalSince1970:  1587355200.0)), .monday)
     }
-}
-
-extension DayTests {
-    func testAbbreviated() {
-        XCTAssertEqual(Day.sunday.abbreviated, "Sun")
-        XCTAssertEqual(Day.monday.abbreviated, "Mon")
-        XCTAssertEqual(Day.tuesday.abbreviated, "Tue")
-        XCTAssertEqual(Day.wednesday.abbreviated, "Wed")
-        XCTAssertEqual(Day.thursday.abbreviated, "Thu")
-        XCTAssertEqual(Day.friday.abbreviated, "Fri")
-        XCTAssertEqual(Day.saturday.abbreviated, "Sat")
-        XCTAssertEqual(Day.holiday.abbreviated, "Hol")
-    }
     
-    // MARK: CustomStringConvertible
+    // MARK: StringConvertible
     func testDescription() {
-        XCTAssertEqual(Day.sunday.description, "Sunday")
-        XCTAssertEqual(Day.monday.description, "Monday")
-        XCTAssertEqual(Day.tuesday.description, "Tuesday")
-        XCTAssertEqual(Day.wednesday.description, "Wednesday")
-        XCTAssertEqual(Day.thursday.description, "Thursday")
-        XCTAssertEqual(Day.friday.description, "Friday")
-        XCTAssertEqual(Day.saturday.description, "Saturday")
-        XCTAssertEqual(Day.holiday.description, "Holiday")
+        XCTAssertEqual(Day.sunday.description(.title), "Sunday")
+        XCTAssertEqual(Day.sunday.description(.sentence), "Sunday")
+        XCTAssertEqual(Day.sunday.description(.abbreviated), "Sun")
+        XCTAssertEqual(Day.sunday.description(.compact), "sun")
+        XCTAssertEqual(Day.thursday.description(.title), "Thursday")
+        XCTAssertEqual(Day.thursday.description(.sentence), "Thursday")
+        XCTAssertEqual(Day.thursday.description(.abbreviated), "Thu")
+        XCTAssertEqual(Day.thursday.description(.compact), "thu")
     }
 }
 

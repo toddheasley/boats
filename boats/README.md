@@ -63,6 +63,7 @@ try Site(index).build(to: FileManager.default.temporaryDirectory)
 * Generating schedules automatically by crawling [cascobaylines.com](https://www.cascobaylines.com)
 * Fetching the current schedule remotely from GitHub
 * `Date`-based querying of timetables and departures
+* Caching schedules for offline use
 
 ### Example Usage
 

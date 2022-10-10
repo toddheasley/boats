@@ -1,21 +1,13 @@
 import Foundation
 
 extension String {
-    public enum Case {
-        case sentence, title
-    }
-    
-    public func capitalized(case: Case = .sentence) -> Self {
-        switch `case` {
-        case .sentence:
-            return prefix(1).uppercased() + dropFirst()
-        case .title:
-            return capitalized(with: Locale(identifier: "en_US"))
+    public enum Format: String, CaseIterable, CustomStringConvertible {
+        case title, sentence, abbreviated, compact
+        
+        // MARK: CustomStringConvertible
+        public var description: String {
+            return rawValue
         }
-    }
-    
-    public func trim() -> Self {
-        return trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     func find(_ pattern: Self) -> [Self] {
@@ -32,5 +24,9 @@ extension String {
             return ""
         }
         return expression.stringByReplacingMatches(in: self, options: [], range: NSMakeRange(0, self.count), withTemplate: "")
+    }
+    
+    func trim() -> Self {
+        return trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

@@ -1,15 +1,10 @@
-import Foundation
 import CoreLocation
 
-public struct Route: Codable {
+public struct Route: Codable, StringConvertible {
     public let location: Location
     public let services: [Service]
     public let uri: String
     public private(set) var schedules: [Schedule] = []
-    
-    public var name: String {
-        return location.name
-    }
     
     public func schedule(for date: Date = Date()) -> Schedule? {
         for schedule in schedules {
@@ -34,6 +29,16 @@ public struct Route: Codable {
         self.location = location
         self.services = services
         self.uri = uri
+    }
+    
+    // MARK: StringConvertible
+    public func description(_ format: String.Format) -> String {
+        switch format {
+        case .title, .sentence:
+            return location.name
+        case .abbreviated, .compact:
+            return location.name.replacingOccurrences(of: " Island", with: "")
+        }
     }
 }
 

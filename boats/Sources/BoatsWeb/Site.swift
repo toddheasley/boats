@@ -19,13 +19,6 @@ public struct Site: CustomStringConvertible {
         self.index = index
     }
     
-    static func title(_ title: String? = nil) -> String {
-        guard let title, !title.isEmpty else {
-            return name
-        }
-        return "\(title) - \(name)"
-    }
-    
     // MARK: CustomStringConvertible
     public var description: String {
         return "\(index.name) \(index.description)"
@@ -40,13 +33,13 @@ extension Site: Resource {
     public func build(to url: URL) throws {
         try? delete(from: url)
         let resources: [Resource] = [
-            ShareImage(),
             BookmarkIcon(),
             Favicon(),
+            ShareImage(),
             Stylesheet(),
             PrivacyView(index),
             IndexView(index)
-        ] + index.routes.map { RouteView($0, index: index) }
+        ]
         var manifest: Manifest = Manifest()
         for resource in resources {
             manifest.paths.insert(resource.path)
