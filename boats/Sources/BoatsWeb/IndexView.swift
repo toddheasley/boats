@@ -12,18 +12,15 @@ struct IndexView: HTMLView {
     var html: [HTML] {
         var html: [HTML] = HTML.head(index)
         html.append("<h1>\(HTML.a(index.name, href: index.url.absoluteString))</h1>")
-        for (index, route) in index.routes.enumerated() {
-            if index > 0 {
-                html.append("<hr>")
-            }
-            html.append("<h2>\(route)</h2>")
+        for route in index.routes {
+            html.append("<h2 id=\"\(route.uri)\">\(route) <small>\(HTML.a("#", href: "#\(route.uri)"))</small></h2>")
             if let schedule: Schedule = route.schedule(for: Date(timeIntervalSinceNow: 604800.0)) {
                 html.append("<h3>\(schedule.season)</h3>")
                 for timetable in schedule.timetables {
-                    html += HTML.table(timetable, origin: self.index.location.name, destination: route.description(.abbreviated))
+                    html += HTML.table(timetable, origin: index.location.name, destination: route.description(.abbreviated))
                 }
             } else {
-                html.append("<h3>?</h3>")
+                html.append("<h3>Schedule Unavailable</h3>")
             }
         }
         return html
@@ -42,10 +39,12 @@ extension HTML {
     static func table(_ timetable: Timetable, origin: String? = nil, destination: String? = nil) -> [Self] {
         var html: [Self] = []
         html.append("<table>")
-        html.append("    <caption>\(timetable)</caption>")
         html.append("    <tr>")
-        html.append("        <th>Depart \(origin ?? "Origin")</th>")
-        html.append("        <th>Depart \(destination ?? "Destination")</th>")
+        html.append("        <th colspan=\"2\">\(timetable)</th>")
+        html.append("    </tr>")
+        html.append("    <tr>")
+        html.append("        <td><small>Depart \(origin ?? "Origin")</small></td>")
+        html.append("        <td><small>Depart \(destination ?? "Destination")</small></td>")
         html.append("    </tr>")
         for trip in timetable.trips {
             html.append("    <tr>")

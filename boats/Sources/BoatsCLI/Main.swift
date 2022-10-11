@@ -16,7 +16,7 @@ struct Main: AsyncParsableCommand {
     
     func run() async throws {
         let index: Index = try await URLSession.shared.index(action)
-        print(ActionView(action))
+        print("\(action.argument.capitalized) from \(action.url.absoluteString)")
         try index.build(to: Bundle.main.bundleURL)
         NSWorkspace.shared.open(Bundle.main.bundleURL)
         try? Site(index).delete(from: Bundle.main.bundleURL)
