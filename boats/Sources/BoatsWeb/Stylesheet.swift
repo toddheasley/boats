@@ -18,7 +18,6 @@ private let Stylesheet_Data: Data = """
 
 a {
     color: inherit;
-    text-decoration: underline;
 }
 
 body {

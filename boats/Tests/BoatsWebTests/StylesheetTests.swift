@@ -9,6 +9,6 @@ class StylesheetTests: XCTestCase {
     }
     
     func testData() throws {
-        XCTAssertEqual(try Stylesheet().data().count, 775, accuracy: 1)
+        XCTAssertEqual(try Stylesheet().data().count, 743, accuracy: 1)
     }
 }

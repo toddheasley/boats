@@ -26,7 +26,7 @@ Archive `boats-cli` target and move executable to a clean working directory. Fro
 ./boats-cli fetch
 ```
 
-Scrape new schedule data from [cascobaylines.com](https://cascobaylines.com) directly:
+Scrape new schedule data from [cascobaylines.com](https://www.cascobaylines.com) directly:
 
 ```zsh
 ./boats-cli build
@@ -39,8 +39,6 @@ Rebuild existing local schedule data and generate static web pages:
 ```
 
 ## `BoatsWeb`
-
-![](../docs/boats-web.png)
 
 `BoatsWeb` extends the functionality of `Boats` to include:
 

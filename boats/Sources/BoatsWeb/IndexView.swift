@@ -11,9 +11,9 @@ struct IndexView: HTMLView {
     // MARK: HTMLView
     var html: [HTML] {
         var html: [HTML] = HTML.head(index)
-        html.append("<h1>\(HTML.a(index.name, href: index.url.absoluteString))</h1>")
+        html.append("<h1><a href=\"\(index.url.absoluteString)\">\(index.name)</a></h1>")
         for route in index.routes {
-            html.append("<h2 id=\"\(route.uri)\">\(route) <small>\(HTML.a("#", href: "#\(route.uri)"))</small></h2>")
+            html.append("<h2 id=\"\(route.uri)\">\(route) <small><a href=\"#\(route.uri)\">#</a></small></h2>")
             if let schedule: Schedule = route.schedule(for: Date(timeIntervalSinceNow: 604800.0)) {
                 html.append("<h3>\(schedule.season)</h3>")
                 for timetable in schedule.timetables {
@@ -32,11 +32,7 @@ struct IndexView: HTMLView {
 }
 
 extension HTML {
-    static func a(_ html: Self, href: String) -> Self {
-        return "<a href=\"\(href)\">\(html)</a>"
-    }
-    
-    static func table(_ timetable: Timetable, origin: String? = nil, destination: String? = nil) -> [Self] {
+    fileprivate static func table(_ timetable: Timetable, origin: String? = nil, destination: String? = nil) -> [Self] {
         var html: [Self] = []
         html.append("<table>")
         html.append("    <tr>")
