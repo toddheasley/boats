@@ -77,9 +77,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5C01560728F8DB6F004934F5 /* iOS/macOS App */ = {
+		5C01560728F8DB6F004934F5 /* App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C01561628F8DB70004934F5 /* Build configuration list for PBXNativeTarget "iOS/macOS App" */;
+			buildConfigurationList = 5C01561628F8DB70004934F5 /* Build configuration list for PBXNativeTarget "App" */;
 			buildPhases = (
 				5C01560428F8DB6F004934F5 /* Sources */,
 				5C01560528F8DB6F004934F5 /* Frameworks */,
@@ -90,7 +90,7 @@
 			);
 			dependencies = (
 			);
-			name = "iOS/macOS App";
+			name = App;
 			packageProductDependencies = (
 				5C8C939C28F8DD3300916510 /* Boats */,
 			);
@@ -98,9 +98,9 @@
 			productReference = 5C01560828F8DB6F004934F5 /* Boats.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5C70013728F8A7620038404E /* watchOS App */ = {
+		5C70013728F8A7620038404E /* Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C70014828F8A7630038404E /* Build configuration list for PBXNativeTarget "watchOS App" */;
+			buildConfigurationList = 5C70014828F8A7630038404E /* Build configuration list for PBXNativeTarget "Watch App" */;
 			buildPhases = (
 				5C70013428F8A7620038404E /* Sources */,
 				5C70013528F8A7620038404E /* Frameworks */,
@@ -111,7 +111,7 @@
 			);
 			dependencies = (
 			);
-			name = "watchOS App";
+			name = "Watch App";
 			packageProductDependencies = (
 				5CEA8B6728F8AF3500699EE5 /* Boats */,
 			);
@@ -150,8 +150,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5C70013728F8A7620038404E /* watchOS App */,
-				5C01560728F8DB6F004934F5 /* iOS/macOS App */,
+				5C01560728F8DB6F004934F5 /* App */,
+				5C70013728F8A7620038404E /* Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -493,7 +493,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5C01561628F8DB70004934F5 /* Build configuration list for PBXNativeTarget "iOS/macOS App" */ = {
+		5C01561628F8DB70004934F5 /* Build configuration list for PBXNativeTarget "App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C01561428F8DB70004934F5 /* Debug */,
@@ -511,7 +511,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C70014828F8A7630038404E /* Build configuration list for PBXNativeTarget "watchOS App" */ = {
+		5C70014828F8A7630038404E /* Build configuration list for PBXNativeTarget "Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5C70014928F8A7630038404E /* Debug */,
