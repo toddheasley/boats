@@ -49,48 +49,56 @@
       "size" : "40x40"
     },
     {
+      "filename" : "AppIcon60@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+      "filename" : "AppIcon60@3x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
+      "filename" : "AppIcon64@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "64x64"
     },
     {
+      "filename" : "AppIcon64@3x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
       "size" : "64x64"
     },
     {
+      "filename" : "AppIcon68@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "68x68"
     },
     {
+      "filename" : "AppIcon76@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
+      "filename" : "AppIcon83.5@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "AppIcon1024.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -116,31 +124,37 @@
       "size" : "32x32"
     },
     {
+      "filename" : "AppIcon128.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
+      "filename" : "AppIcon128@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
+      "filename" : "AppIcon256.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
+      "filename" : "AppIcon256@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
+      "filename" : "AppIcon512.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
+      "filename" : "AppIcon512@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
@@ -236,30 +250,35 @@
       "size" : "86x86"
     },
     {
+      "filename" : "AppIcon98@2x.png",
       "idiom" : "universal",
       "platform" : "watchos",
       "scale" : "2x",
       "size" : "98x98"
     },
     {
+      "filename" : "AppIcon108@2x.png",
       "idiom" : "universal",
       "platform" : "watchos",
       "scale" : "2x",
       "size" : "108x108"
     },
     {
+      "filename" : "AppIcon117@2x.png",
       "idiom" : "universal",
       "platform" : "watchos",
       "scale" : "2x",
       "size" : "117x117"
     },
     {
+      "filename" : "AppIcon129@2x.png",
       "idiom" : "universal",
       "platform" : "watchos",
       "scale" : "2x",
       "size" : "129x129"
     },
     {
+      "filename" : "AppIcon1024 1.png",
       "idiom" : "universal",
       "platform" : "watchos",
       "size" : "1024x1024"
