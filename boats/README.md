@@ -1,6 +1,6 @@
 # `Boats` Package
 
-A collection of libraries that build and drive Boats apps and web pages
+Libraries that build and drive Boats apps and web pages
 
 ### Requirements
 
