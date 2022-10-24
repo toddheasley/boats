@@ -2,4 +2,4 @@
 
 ## `Boats` Package
 
-![](../docs/boats-cli.png)
+![](docs/boats-cli.png)
