@@ -62,7 +62,7 @@ time b {
     display: inline-block;
     font-size: 2em;
     text-align: center;
-    width: 0.7em;
+    width: 0.75em;
 }
 
 time b:nth-child(3), time b:last-child {

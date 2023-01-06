@@ -7,14 +7,18 @@ struct IndexView: View {
     // MARK: View
     var body: some View {
         VStack {
-            Text(index.name)
+            Link(destination: index.url) {
+                Text(index.name)
+                    .underline()
+            }
             Text(index.description)
+            TimeView()
         }
         .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct IndexView_Previews: PreviewProvider {
     static var previews: some View {
         IndexView()
             .environmentObject(IndexObject())
