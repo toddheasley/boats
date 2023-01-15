@@ -19,6 +19,7 @@ struct DepartureView: View {
                 Text(deviation.description(.compact))
             }
         }
+        .background(.gray.opacity(0.2))
     }
 }
 

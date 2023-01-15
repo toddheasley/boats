@@ -6,7 +6,11 @@ struct TimetableView: View {
     let destination: Location
     let origin: Location
     
-    
+    init(_ timetable: Timetable, destination: Location, origin: Location) {
+        self.timetable = timetable
+        self.destination = destination
+        self.origin = origin
+    }
     
     // MARK: View
     var body: some View {
