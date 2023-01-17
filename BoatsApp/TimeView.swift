@@ -22,7 +22,7 @@ struct TimeView: View {
             Text(components[4])
             Text(components[5])
         }
-        .font(.system(.largeTitle, weight: .bold))
+        .accessibilityLabel(time.description)
         .monospacedDigit()
     }
 }

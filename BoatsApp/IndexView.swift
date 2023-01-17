@@ -6,15 +6,14 @@ struct IndexView: View {
     
     // MARK: View
     var body: some View {
-        VStack {
-            Link(destination: index.url) {
-                Text(index.name)
-                    .underline()
+        ZStack(alignment: .top) {
+            // IndexMenu()
+            VStack {
+                Spacer()
+                Text(index.route?.description ?? index.description)
+                Spacer()
             }
-            Text(index.description)
-            TimeView()
         }
-        .padding()
     }
 }
 

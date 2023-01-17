@@ -9,7 +9,7 @@ struct App: SwiftUI.App {
         WindowGroup {
             IndexView()
 #if os(macOS)
-                .frame(minWidth: 270.0, minHeight: 90.0)
+                .frame(minWidth: 360.0, minHeight: 270.0)
 #endif
                 .environmentObject(index)
         }

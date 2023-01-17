@@ -10,6 +10,20 @@ public class IndexObject: ObservableObject {
     @Published public private(set) var url: URL
     @Published public var error: Error?
     
+    @Published public var route: Route? {
+        didSet {
+            if route == nil, !routes.isEmpty {
+                route = routes.first!
+            } else {
+                UserDefaults.standard.set(route?.uri, forKey: "route")
+            }
+        }
+    }
+    
+    public func route(uri: String?) -> Route? {
+        return routes.first { $0.uri == uri }
+    }
+    
     public func fetch() {
         error = nil
         Task {
@@ -34,6 +48,7 @@ public class IndexObject: ObservableObject {
         location = index.location
         routes = index.routes
         url = index.url
+        route = route(uri: UserDefaults.standard.string(forKey: "route")) ?? index.routes.first
         fetch()
     }
 }

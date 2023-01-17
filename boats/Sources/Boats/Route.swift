@@ -42,7 +42,12 @@ public struct Route: Codable, StringConvertible {
     }
 }
 
-extension Route: Equatable {
+extension Route: Identifiable, Equatable {
+    
+    // MARK: Identifiable
+    public var id: String {
+        return uri
+    }
     
     // MARK: Equatable
     public static func ==(x: Self, y: Self) -> Bool {
