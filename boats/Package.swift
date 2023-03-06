@@ -2,7 +2,7 @@
 
 import PackageDescription
 
-let package = Package(name: "boats", platforms: [
+let package = Package(name: "Boats", platforms: [
         .macOS(.v12),
         .iOS(.v16),
         .watchOS(.v9),

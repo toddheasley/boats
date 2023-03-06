@@ -5,6 +5,7 @@ import Boats
 struct App: SwiftUI.App {
     @StateObject private var index: IndexObject = IndexObject()
     
+    // MARK: App
     var body: some Scene {
         WindowGroup {
             IndexView()

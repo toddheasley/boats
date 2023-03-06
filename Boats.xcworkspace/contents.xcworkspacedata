@@ -5,7 +5,13 @@
       location = "group:README.md">
    </FileRef>
    <FileRef
+      location = "group:docs">
+   </FileRef>
+   <FileRef
       location = "group:BoatsApp/BoatsApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Boats.sketch">
    </FileRef>
    <FileRef
       location = "group:boats">
