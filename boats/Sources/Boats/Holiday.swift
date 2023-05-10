@@ -69,9 +69,9 @@ extension Holiday: CaseIterable {
     
     public static var thanksgiving: Self {
         return Self("Thanksgiving", date: DateFormatter.shared.next(in: [
-            (2022, 11, 24),
             (2023, 11, 23),
-            (2024, 11, 28)
+            (2024, 11, 28),
+            (2025, 11, 27)
         ]))
     }
     

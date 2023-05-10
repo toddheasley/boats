@@ -35,7 +35,7 @@ extension URL {
     }
     
     static func schedule(for route: Route, season: Season.Name) -> URL {
-        if route == .diamondCove, season == .summer {
+        if route == .diamondCove, season == .summer { // Handle typo in URL
             return URL(string: "\(build.absoluteString)/schedules/\(route.uri)-schedule/summe")!
         }
         return URL(string: "\(build.absoluteString)/schedules/\(route.uri)-schedule/\(season.rawValue)")!

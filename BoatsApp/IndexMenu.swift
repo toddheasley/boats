@@ -2,7 +2,7 @@ import SwiftUI
 import Boats
 
 struct IndexMenu: View {
-    @EnvironmentObject private var index: IndexObject
+    @EnvironmentObject private var index: ObservableIndex
     
     // MARK: View
     var body: some View {
@@ -24,6 +24,6 @@ struct IndexMenu: View {
 struct IndexMeniu_Previews: PreviewProvider {
     static var previews: some View {
         IndexView()
-            .environmentObject(IndexObject())
+            .environmentObject(ObservableIndex())
     }
 }

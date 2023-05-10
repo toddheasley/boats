@@ -3,7 +3,7 @@ import Boats
 
 @main
 struct App: SwiftUI.App {
-    @StateObject private var index: IndexObject = IndexObject()
+    @StateObject private var index: ObservableIndex = ObservableIndex()
     
     // MARK: App
     var body: some Scene {

@@ -27,7 +27,7 @@ struct IndexView: TextView {
                     }
                 }
             } else {
-                text.append("Schedule Unavailable")
+                text.append("Schedule unavailable")
                 text.append("")
             }
         }
@@ -44,8 +44,8 @@ extension Text {
         ], columns: 47))
         text.append(row(2, columns: 22))
         text.append(row([
-            "Depart \(origin ?? "Origin")",
-            "Depart \(destination ?? "Destination")"
+            "Depart \(origin ?? "origin")",
+            "Depart \(destination ?? "destination")"
         ], columns: 22))
         text.append(row(2, columns: 22))
         for trip in timetable.trips {

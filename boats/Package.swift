@@ -1,9 +1,9 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.8
 
 import PackageDescription
 
 let package = Package(name: "Boats", platforms: [
-        .macOS(.v12),
+        .macOS(.v13),
         .iOS(.v16),
         .watchOS(.v9),
         .tvOS(.v16)
@@ -31,6 +31,8 @@ let package = Package(name: "Boats", platforms: [
         ]),
         .target(name: "BoatsWeb", dependencies: [
             "Boats"
+        ], resources: [
+            .process("Resources")
         ]),
         .testTarget(name: "BoatsTests", dependencies: [
             "Boats"

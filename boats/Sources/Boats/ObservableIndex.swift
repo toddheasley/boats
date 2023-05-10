@@ -1,7 +1,7 @@
 import Foundation
 
 @MainActor
-public class IndexObject: ObservableObject {
+public class ObservableIndex: ObservableObject {
     @Published public private(set) var name: String
     @Published public private(set) var description: String
     @Published public private(set) var uri: String

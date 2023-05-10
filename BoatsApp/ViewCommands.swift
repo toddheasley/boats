@@ -2,7 +2,7 @@ import SwiftUI
 import Boats
 
 struct ViewCommands: View {
-    @EnvironmentObject private var index: IndexObject
+    @EnvironmentObject private var index: ObservableIndex
     
     // MARK: View
     var body: some View {
@@ -18,6 +18,6 @@ struct ViewCommands_Previews: PreviewProvider {
     // MARK: PreviewProvider
     static var previews: some View {
         ViewCommands()
-            .environmentObject(IndexObject())
+            .environmentObject(ObservableIndex())
     }
 }

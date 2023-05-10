@@ -5,10 +5,10 @@ class ShareImageTests: XCTestCase {
     
     // MARK: Resource
     func testPath() {
-        XCTAssertEqual(ShareImage().path, "image.png")
+        XCTAssertEqual(ShareImage().path, "share-image.png")
     }
     
     func testData() throws {
-        XCTAssertTrue(try ShareImage().data().count > 0)
+        XCTAssertEqual(try ShareImage().data().count, 1929, accuracy: 1)
     }
 }

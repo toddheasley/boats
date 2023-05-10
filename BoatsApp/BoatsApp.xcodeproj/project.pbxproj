@@ -8,36 +8,60 @@
 
 /* Begin PBXBuildFile section */
 		5C2D3CC12967AFF0007BB17C /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D3CC02967AFF0007BB17C /* TimetableView.swift */; };
-		5C2D3CC22967AFF0007BB17C /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D3CC02967AFF0007BB17C /* TimetableView.swift */; };
 		5C3735D829745DDB007FD956 /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C70014128F8A7630038404E /* App.xcassets */; };
-		5C3735D9297462F9007FD956 /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C70014128F8A7630038404E /* App.xcassets */; };
-		5C654E3128FB2B92000E2B9A /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75AEA128FA0E02003E4DD4 /* HelpCommands.swift */; };
-		5C70013E28F8A7620038404E /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013D28F8A7620038404E /* App.swift */; };
-		5C70014028F8A7620038404E /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013F28F8A7620038404E /* IndexView.swift */; };
 		5C75AE9F28FA0850003E4DD4 /* ViewCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75AE9E28FA0850003E4DD4 /* ViewCommands.swift */; };
 		5C75AEA228FA0E02003E4DD4 /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75AEA128FA0E02003E4DD4 /* HelpCommands.swift */; };
 		5C833EBC29675EE5005D94F9 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C833EBB29675EE5005D94F9 /* TimeView.swift */; };
-		5C833EBD29675EE5005D94F9 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C833EBB29675EE5005D94F9 /* TimeView.swift */; };
 		5C8C939928F8DC1D00916510 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013D28F8A7620038404E /* App.swift */; };
 		5C8C939A28F8DC2F00916510 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013F28F8A7620038404E /* IndexView.swift */; };
 		5C8C939D28F8DD3300916510 /* Boats in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8C939C28F8DD3300916510 /* Boats */; };
+		5C9A3BBF2A0B12B1009B6833 /* Boats.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C9A3BB22A0B12AF009B6833 /* Boats.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5C9A3BC52A0B13C7009B6833 /* Boats in Frameworks */ = {isa = PBXBuildFile; productRef = 5C9A3BC42A0B13C7009B6833 /* Boats */; };
+		5C9A3BC62A0B1409009B6833 /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C70014128F8A7630038404E /* App.xcassets */; };
+		5C9A3BC72A0B1410009B6833 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013D28F8A7620038404E /* App.swift */; };
+		5C9A3BC82A0B1434009B6833 /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C833EBB29675EE5005D94F9 /* TimeView.swift */; };
+		5C9A3BC92A0B1437009B6833 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D3CC02967AFF0007BB17C /* TimetableView.swift */; };
+		5C9A3BCA2A0B143A009B6833 /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE4E372967A90E00897761 /* DepartureView.swift */; };
+		5C9A3BCB2A0B1443009B6833 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013F28F8A7620038404E /* IndexView.swift */; };
 		5C9BC5962974D93B00F06DEF /* IndexMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9BC5952974D93B00F06DEF /* IndexMenu.swift */; };
 		5CDE4E382967A90E00897761 /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE4E372967A90E00897761 /* DepartureView.swift */; };
-		5CDE4E392967A90E00897761 /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE4E372967A90E00897761 /* DepartureView.swift */; };
-		5CEA8B6828F8AF3500699EE5 /* Boats in Frameworks */ = {isa = PBXBuildFile; productRef = 5CEA8B6728F8AF3500699EE5 /* Boats */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5C9A3BBD2A0B12B1009B6833 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C70012C28F8A7620038404E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C9A3BB12A0B12AF009B6833;
+			remoteInfo = "Watch App Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5C9A3BC32A0B12B1009B6833 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5C9A3BBF2A0B12B1009B6833 /* Boats.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5C01560828F8DB6F004934F5 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C01561028F8DB70004934F5 /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 		5C2D3CC02967AFF0007BB17C /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
-		5C70013828F8A7620038404E /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C70013D28F8A7620038404E /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5C70013F28F8A7620038404E /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
 		5C70014128F8A7630038404E /* App.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = App.xcassets; sourceTree = "<group>"; };
 		5C75AE9E28FA0850003E4DD4 /* ViewCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCommands.swift; sourceTree = "<group>"; };
 		5C75AEA128FA0E02003E4DD4 /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
 		5C833EBB29675EE5005D94F9 /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
+		5C9A3BB22A0B12AF009B6833 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9BC5952974D93B00F06DEF /* IndexMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexMenu.swift; sourceTree = "<group>"; };
 		5CDE4E372967A90E00897761 /* DepartureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,11 +75,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C70013528F8A7620038404E /* Frameworks */ = {
+		5C9A3BAF2A0B12AF009B6833 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CEA8B6828F8AF3500699EE5 /* Boats in Frameworks */,
+				5C9A3BC52A0B13C7009B6833 /* Boats in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +107,8 @@
 		5C70013328F8A7620038404E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5C70013828F8A7620038404E /* Boats.app */,
 				5C01560828F8DB6F004934F5 /* Boats.app */,
+				5C9A3BB22A0B12AF009B6833 /* Boats.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,10 +130,12 @@
 				5C01560428F8DB6F004934F5 /* Sources */,
 				5C01560528F8DB6F004934F5 /* Frameworks */,
 				5C01560628F8DB6F004934F5 /* Resources */,
+				5C9A3BC32A0B12B1009B6833 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5C9A3BBE2A0B12B1009B6833 /* PBXTargetDependency */,
 			);
 			name = App;
 			packageProductDependencies = (
@@ -119,13 +145,13 @@
 			productReference = 5C01560828F8DB6F004934F5 /* Boats.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5C70013728F8A7620038404E /* Watch App */ = {
+		5C9A3BB12A0B12AF009B6833 /* Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5C70014828F8A7630038404E /* Build configuration list for PBXNativeTarget "Watch App" */;
+			buildConfigurationList = 5C9A3BC02A0B12B1009B6833 /* Build configuration list for PBXNativeTarget "Watch App" */;
 			buildPhases = (
-				5C70013428F8A7620038404E /* Sources */,
-				5C70013528F8A7620038404E /* Frameworks */,
-				5C70013628F8A7620038404E /* Resources */,
+				5C9A3BAE2A0B12AF009B6833 /* Sources */,
+				5C9A3BAF2A0B12AF009B6833 /* Frameworks */,
+				5C9A3BB02A0B12AF009B6833 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -133,10 +159,10 @@
 			);
 			name = "Watch App";
 			packageProductDependencies = (
-				5CEA8B6728F8AF3500699EE5 /* Boats */,
+				5C9A3BC42A0B13C7009B6833 /* Boats */,
 			);
-			productName = "BoatsApp Watch App";
-			productReference = 5C70013828F8A7620038404E /* Boats.app */;
+			productName = "Watch App Watch App";
+			productReference = 5C9A3BB22A0B12AF009B6833 /* Boats.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -146,14 +172,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					5C01560728F8DB6F004934F5 = {
 						CreatedOnToolsVersion = 14.1;
 					};
-					5C70013728F8A7620038404E = {
-						CreatedOnToolsVersion = 14.1;
+					5C9A3BB12A0B12AF009B6833 = {
+						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
@@ -171,7 +197,7 @@
 			projectRoot = "";
 			targets = (
 				5C01560728F8DB6F004934F5 /* App */,
-				5C70013728F8A7620038404E /* Watch App */,
+				5C9A3BB12A0B12AF009B6833 /* Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -185,11 +211,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C70013628F8A7620038404E /* Resources */ = {
+		5C9A3BB02A0B12AF009B6833 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C3735D9297462F9007FD956 /* App.xcassets in Resources */,
+				5C9A3BC62A0B1409009B6833 /* App.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,29 +237,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C70013428F8A7620038404E /* Sources */ = {
+		5C9A3BAE2A0B12AF009B6833 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C654E3128FB2B92000E2B9A /* HelpCommands.swift in Sources */,
-				5C2D3CC22967AFF0007BB17C /* TimetableView.swift in Sources */,
-				5CDE4E392967A90E00897761 /* DepartureView.swift in Sources */,
-				5C833EBD29675EE5005D94F9 /* TimeView.swift in Sources */,
-				5C70014028F8A7620038404E /* IndexView.swift in Sources */,
-				5C70013E28F8A7620038404E /* App.swift in Sources */,
+				5C9A3BC72A0B1410009B6833 /* App.swift in Sources */,
+				5C9A3BCA2A0B143A009B6833 /* DepartureView.swift in Sources */,
+				5C9A3BC92A0B1437009B6833 /* TimetableView.swift in Sources */,
+				5C9A3BCB2A0B1443009B6833 /* IndexView.swift in Sources */,
+				5C9A3BC82A0B1434009B6833 /* TimeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5C9A3BBE2A0B12B1009B6833 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C9A3BB12A0B12AF009B6833 /* Watch App */;
+			targetProxy = 5C9A3BBD2A0B12B1009B6833 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		5C01561428F8DB70004934F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = App.entitlements;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
@@ -254,10 +289,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 5.0;
 				PRODUCT_NAME = $inherited;
 				SDKROOT = auto;
@@ -271,10 +306,12 @@
 		5C01561528F8DB70004934F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = App.entitlements;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
@@ -295,10 +332,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 5.0;
 				PRODUCT_NAME = $inherited;
 				SDKROOT = auto;
@@ -426,11 +463,13 @@
 			};
 			name = Release;
 		};
-		5C70014928F8A7630038404E /* Debug */ = {
+		5C9A3BC12A0B12B1009B6833 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -438,28 +477,31 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKWatchOnly = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.toddheasley.ios.boats;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 5.0;
-				PRODUCT_BUNDLE_IDENTIFIER = $inherited;
-				PRODUCT_NAME = $inherited;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch;
+				PRODUCT_NAME = Boats;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Debug;
 		};
-		5C70014A28F8A7630038404E /* Release */ = {
+		5C9A3BC22A0B12B1009B6833 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -467,21 +509,22 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKWatchOnly = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.toddheasley.ios.boats;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 5.0;
-				PRODUCT_BUNDLE_IDENTIFIER = $inherited;
-				PRODUCT_NAME = $inherited;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch;
+				PRODUCT_NAME = Boats;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Release;
 		};
@@ -506,11 +549,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C70014828F8A7630038404E /* Build configuration list for PBXNativeTarget "Watch App" */ = {
+		5C9A3BC02A0B12B1009B6833 /* Build configuration list for PBXNativeTarget "Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5C70014928F8A7630038404E /* Debug */,
-				5C70014A28F8A7630038404E /* Release */,
+				5C9A3BC12A0B12B1009B6833 /* Debug */,
+				5C9A3BC22A0B12B1009B6833 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -522,7 +565,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Boats;
 		};
-		5CEA8B6728F8AF3500699EE5 /* Boats */ = {
+		5C9A3BC42A0B13C7009B6833 /* Boats */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Boats;
 		};

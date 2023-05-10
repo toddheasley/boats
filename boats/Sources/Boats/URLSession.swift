@@ -70,7 +70,7 @@ extension URLSession {
         }
     }
     
-    public func index(_ action: Action, completion: @escaping (Index?, Error?) -> Void) {
+    func index(_ action: Action, completion: @escaping (Index?, Error?) -> Void) {
         switch action {
         case .fetch:
             fetch(completion: completion)
