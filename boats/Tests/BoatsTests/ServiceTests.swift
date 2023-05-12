@@ -7,7 +7,7 @@ class ServiceTests: XCTestCase {
 
 extension ServiceTests {
     
-    // MARK: CustomStringConvertible
+    // MARK: StringConvertible
     func testDescription() {
         for service in Service.allCases {
             XCTAssertEqual(service.description, "\(service.rawValue)")
