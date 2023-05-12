@@ -64,7 +64,8 @@
 /* Begin PBXFileReference section */
 		5C01560828F8DB6F004934F5 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C01561028F8DB70004934F5 /* App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
-		5C229B3C2A0E60A000D1FD7F /* TV App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C229B3C2A0E60A000D1FD7F /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C229B552A0E87CF00D1FD7F /* App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "App-Info.plist"; sourceTree = "<group>"; };
 		5C2D3CC02967AFF0007BB17C /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		5C70013D28F8A7620038404E /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5C70013F28F8A7620038404E /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
@@ -109,9 +110,7 @@
 		5C70012B28F8A7620038404E = {
 			isa = PBXGroup;
 			children = (
-				5C01561028F8DB70004934F5 /* App.entitlements */,
-				5C70014128F8A7630038404E /* App.xcassets */,
-				5C70013D28F8A7620038404E /* App.swift */,
+				5C229B552A0E87CF00D1FD7F /* App-Info.plist */,
 				5C75AEA128FA0E02003E4DD4 /* HelpCommands.swift */,
 				5C75AE9E28FA0850003E4DD4 /* ViewCommands.swift */,
 				5CD10F442A0D6DB500BE5023 /* ScrollView.swift */,
@@ -120,6 +119,9 @@
 				5C9BC5952974D93B00F06DEF /* IndexMenu.swift */,
 				5C70013F28F8A7620038404E /* IndexView.swift */,
 				5C2D3CC02967AFF0007BB17C /* TimetableView.swift */,
+				5C70013D28F8A7620038404E /* App.swift */,
+				5C70014128F8A7630038404E /* App.xcassets */,
+				5C01561028F8DB70004934F5 /* App.entitlements */,
 				5C70013328F8A7620038404E /* Products */,
 				5CEA8B6628F8AF3500699EE5 /* Frameworks */,
 			);
@@ -130,7 +132,7 @@
 			children = (
 				5C01560828F8DB6F004934F5 /* Boats.app */,
 				5C9A3BB22A0B12AF009B6833 /* Boats.app */,
-				5C229B3C2A0E60A000D1FD7F /* TV App.app */,
+				5C229B3C2A0E60A000D1FD7F /* Boats.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,7 +186,7 @@
 				5C229B4A2A0E615E00D1FD7F /* Boats */,
 			);
 			productName = "TV App";
-			productReference = 5C229B3C2A0E60A000D1FD7F /* TV App.app */;
+			productReference = 5C229B3C2A0E60A000D1FD7F /* Boats.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5C9A3BB12A0B12AF009B6833 /* Watch App */ = {
@@ -347,8 +349,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Boats;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -364,7 +368,8 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 5.0;
-				PRODUCT_NAME = $inherited;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -390,8 +395,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Boats;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -407,7 +414,8 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 5.0;
-				PRODUCT_NAME = $inherited;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -436,8 +444,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 5.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -466,8 +474,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 5.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -615,8 +623,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 5.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch;
-				PRODUCT_NAME = Boats;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).watch";
+				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -647,8 +655,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 5.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watch;
-				PRODUCT_NAME = Boats;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).watch";
+				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
