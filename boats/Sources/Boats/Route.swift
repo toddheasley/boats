@@ -33,25 +33,20 @@ public struct Route: Codable, StringConvertible {
     
     // MARK: StringConvertible
     public func description(_ format: String.Format) -> String {
-        switch format {
-        case .title, .sentence:
-            return location.name
-        case .abbreviated, .compact:
-            return location.name.replacingOccurrences(of: " Island", with: "")
-        }
+        return location.description(format == .sentence ? .title : format)
     }
 }
 
-extension Route: Identifiable, Equatable {
-    
-    // MARK: Identifiable
-    public var id: String {
-        return uri
-    }
+extension Route: Equatable, Identifiable {
     
     // MARK: Equatable
     public static func ==(x: Self, y: Self) -> Bool {
         return x.uri == y.uri
+    }
+    
+    // MARK: Identifiable
+    public var id: String {
+        return uri
     }
 }
 

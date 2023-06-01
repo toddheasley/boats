@@ -7,7 +7,9 @@ struct ViewCommands: View {
     // MARK: View
     var body: some View {
         Button("Reload Schedules") {
-            index.fetch()
+            Task {
+                await index.fetch()
+            }
         }
         .keyboardShortcut("r", modifiers: .command)
     }

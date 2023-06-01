@@ -29,6 +29,23 @@ class LocationTests: XCTestCase {
         XCTAssertEqual(location.name, "Peaks Island")
         XCTAssertEqual(location.description, "Forest City Landing")
     }
+    
+    // MARK: StringConvertible
+    func testDescription() {
+        XCTAssertEqual(Location.peaks.description(.sentence), "Forest City Landing")
+        XCTAssertEqual(Location.peaks.description(.sentence), Location.peaks.description)
+        XCTAssertEqual(Location.peaks.description(.title), "Peaks Island")
+        XCTAssertEqual(Location.peaks.description(.title), Location.peaks.name)
+        XCTAssertEqual(Location.peaks.description(.abbreviated), "Peaks")
+        XCTAssertEqual(Location.peaks.description(.compact), "Peaks")
+        XCTAssertEqual(Location.portland.description(.sentence), "Casco Bay Lines Ferry Terminal")
+        XCTAssertEqual(Location.portland.description(.title), "Portland")
+        XCTAssertEqual(Location.portland.description(.compact), "Portland")
+        XCTAssertEqual(Location.greatDiamond.description(.title), "Great Diamond Island")
+        XCTAssertEqual(Location.greatDiamond.description(.abbreviated), "Great Diamond")
+        XCTAssertEqual(Location.diamondCove.description(.title), "Diamond Cove")
+        XCTAssertEqual(Location.diamondCove.description(.abbreviated), "Diamond Cove")
+    }
 }
 
 extension LocationTests {

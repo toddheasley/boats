@@ -24,20 +24,19 @@ public class ObservableIndex: ObservableObject {
         return routes.first { $0.uri == uri }
     }
     
-    public func fetch() {
+    public func fetch() async {
         error = nil
-        Task {
-            do {
-                let index: Index = try await URLSession.shared.index()
-                self.name = index.name
-                self.description = index.description
-                self.uri = index.uri
-                self.location = index.location
-                self.routes = index.routes
-                self.url = index.url
-            } catch {
-                self.error = error
-            }
+        do {
+            let index: Index = try await URLSession.shared.index()
+            self.name = index.name
+            self.description = index.description
+            self.uri = index.uri
+            self.location = index.location
+            self.routes = index.routes
+            self.url = index.url
+            route = route(uri: UserDefaults.standard.string(forKey: "route")) ?? index.routes.first
+        } catch {
+            self.error = error
         }
     }
     
@@ -48,7 +47,8 @@ public class ObservableIndex: ObservableObject {
         location = index.location
         routes = index.routes
         url = index.url
-        route = route(uri: UserDefaults.standard.string(forKey: "route")) ?? index.routes.first
-        fetch()
+        Task {
+            await fetch()
+        }
     }
 }

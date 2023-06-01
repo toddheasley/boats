@@ -64,6 +64,22 @@ public struct Timetable: Codable, CustomStringConvertible {
     }
 }
 
+extension Timetable.Trip: Identifiable {
+    
+    // MARK: Identifiable
+    public var id: String {
+        return "\(origin?.description ?? "") \(destination?.description ?? "")"
+    }
+}
+
+extension Timetable: Identifiable {
+    
+    // MARK: Identifiable
+    public var id: String {
+        return days.map { $0.rawValue }.joined()
+    }
+}
+
 extension Timetable: HTMLConvertible {
     
     // MARK: HTMLConvertible

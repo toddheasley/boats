@@ -2,7 +2,7 @@ import SwiftUI
 
 // https://github.com/danielsaidi/ScrollKit
 struct ScrollView<Content: View>: View {
-    init(_ axes: Axis.Set = .vertical, showsIndicators: Bool = true, onScroll: ((CGPoint) -> Void)? = nil , @ViewBuilder content: @escaping () -> Content) {
+    init(_ axes: Axis.Set = .vertical, showsIndicators: Bool = true, onScroll: ((CGPoint) -> Void)?, @ViewBuilder content: @escaping () -> Content) {
         self.axes = axes
         self.showsIndicators = showsIndicators
         self.onScroll = onScroll
@@ -40,7 +40,8 @@ struct ScrollView_Previews: PreviewProvider {
             print(offset)
         }) {
             Rectangle()
-                .frame(width: 0.0, height: 2048.0)
+                .fill(Color.preview)
+                .frame(height: 2048.0)
         }
     }
 }

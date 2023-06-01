@@ -11,12 +11,17 @@ struct App: SwiftUI.App {
     
     // MARK: App
     var body: some Scene {
-#if os(iOS) || os(watchOS)
+#if os(iOS)
         WindowGroup(title) {
             IndexView()
                 .environmentObject(index)
         }
+#elseif os(watchOS)
+        WindowGroup(title) {
+            Text(title)
+        }
 #elseif os(macOS)
+        /*
         MenuBarExtra(content: {
             VStack {
                 ForEach(index.routes) { route in
@@ -30,10 +35,9 @@ struct App: SwiftUI.App {
             }
         }) {
             Text("Boats")
-        }
-        /*
+        } */
         WindowGroup(title) {
-            IndexView()
+            Text(title)
                 .frame(minWidth: 360.0, minHeight: 270.0)
                 .environmentObject(index)
         }
@@ -48,7 +52,7 @@ struct App: SwiftUI.App {
             CommandGroup(replacing: .help) {
                 HelpCommands()
             }
-        } */
+        }
 #elseif os(tvOS)
         WindowGroup(title) {
             Text(title)

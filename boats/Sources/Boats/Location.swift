@@ -1,11 +1,22 @@
 import CoreLocation
 
-public struct Location: Codable, CustomStringConvertible {
+public struct Location: Codable, StringConvertible {
     public let coordinate: CLLocationCoordinate2D
     public let name: String
     
-    // MARK: CustomStringConvertible
+    // MARK: StringConvertible
     public let description: String
+    
+    public func description(_ format: String.Format) -> String {
+        switch format {
+        case .sentence:
+            return description
+        case .abbreviated, .compact:
+            return name.replacingOccurrences(of: " Island", with: "")
+        case .title:
+            return name
+        }
+    }
 }
 
 extension Location: Equatable {

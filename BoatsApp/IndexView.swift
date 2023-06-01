@@ -11,14 +11,29 @@ struct IndexView: View {
             self.offset = offset
         }) {
             VStack {
-                Spacer(minLength: 256.0)
-                Text(index.route?.description ?? index.description)
-                Spacer(minLength: 2048.0)
+                TitleView(index.route?.location.name)
+                    .padding(.horizontal)
+                    .hidden()
+                if let route = index.route, let schedule = route.schedule() {
+                    SeasonView(schedule.season)
+                        .padding(.horizontal)
+                    ForEach(schedule.timetables) { timetable in
+                        TimetableView(timetable, origin: index.location, destination: route.location, offset: offset)
+                            .padding(.horizontal)
+                    }
+                } else {
+                    Text("Schedule Unavailable")
+                }
             }
         }
-        .onChange(of: offset) { offset in
-            print(offset.y)
+        .refreshable {
+            await index.fetch()
         }
+        .safeAreaInset(.top) {
+            HeaderView(offset)
+                .background()
+        }
+        .safeAreaInset(.bottom, height: 8.0)
     }
 }
 

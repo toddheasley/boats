@@ -50,17 +50,22 @@ public enum Deviation: StringConvertible {
     }
 }
 
-extension Deviation: Equatable {
+extension Deviation: Equatable, Identifiable {
     
     // MARK: Equatable
     public static func ==(x: Self, y: Self) -> Bool {
         return x.description == y.description
     }
+    
+    // MARK: Identifiable
+    public var id: String {
+        return description(.compact)
+    }
 }
 
 extension Deviation: Codable {
     
-    // MARK: Decodable
+    // MARK: Codable
     public init(from decoder: Decoder) throws {
         let container: KeyedDecodingContainer<Key> = try decoder.container(keyedBy: Key.self)
         let `case`: String = try container.decode(String.self, forKey: .case)
@@ -78,7 +83,6 @@ extension Deviation: Codable {
         }
     }
     
-    // MARK: Encodable
     public func encode(to encoder: Encoder) throws {
         var container: KeyedEncodingContainer<Key> = encoder.container(keyedBy: Key.self)
         switch self {

@@ -52,7 +52,7 @@ Rebuild existing local schedule data and generate static web pages:
 import Boats
 import BoatsWeb
 
-let index: Index = try Index(from: FileManager.default.temporaryDirectory)
+let index = try Index(from: FileManager.default.temporaryDirectory)
 try Site(index).build(to: FileManager.default.temporaryDirectory)
 ```
 
@@ -70,6 +70,6 @@ try Site(index).build(to: FileManager.default.temporaryDirectory)
 ```swift
 import Boats
 
-let index: Index = try await URLSession.shared.index(.build)
+let index = try await URLSession.shared.index(.build)
 try index.build(to: FileManager.default.temporaryDirectory)
 ```

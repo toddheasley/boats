@@ -2,21 +2,25 @@ import SwiftUI
 import Boats
 
 struct DepartureView: View {
-    let departure: Departure
+    let departure: Departure?
     
-    init(_ departure: Departure) {
+    init(_ departure: Departure? = nil) {
         self.departure = departure
     }
     
     // MARK: View
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
-            TimeView(departure.time)
-            if departure.isCarFerry {
-                Text(Service.car.description(.compact))
-            }
-            ForEach(departure.deviations) { deviation in
-                Text(deviation.description(.compact))
+            if let departure {
+                TimeView(departure.time)
+                if departure.isCarFerry {
+                    Text(Service.car.description(.compact))
+                }
+                ForEach(departure.deviations) { deviation in
+                    Text(deviation.description(.compact))
+                }
+            } else {
+                Text(" ")
             }
         }
     }
@@ -31,13 +35,8 @@ struct DepartureView_Previews: PreviewProvider {
         ], services: [
             .car
         ]))
-    }
-}
-
-extension Deviation: Identifiable {
-    
-    // MARK: Identifiable
-    public var id: String {
-        return description(.compact)
+        .background {
+            Color.preview
+        }
     }
 }
