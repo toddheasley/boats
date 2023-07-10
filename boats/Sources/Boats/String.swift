@@ -1,15 +1,6 @@
 import Foundation
 
 extension String {
-    public enum Format: String, CaseIterable, CustomStringConvertible {
-        case title, sentence, abbreviated, compact
-        
-        // MARK: CustomStringConvertible
-        public var description: String {
-            return rawValue
-        }
-    }
-    
     func find(_ pattern: Self) -> [Self] {
         guard let expression: NSRegularExpression = try? NSRegularExpression(pattern: pattern, options: [.caseInsensitive, .dotMatchesLineSeparators]) else {
             return []

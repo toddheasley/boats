@@ -26,41 +26,7 @@ public struct Timetable: Codable, CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        let indices: [Int] = days.map { day in
-            return Day.allCases.firstIndex(of: day)!
-        }.sorted()
-        var ranges: [[Int]] = []
-        var range: [Int] = []
-        
-        func flush() {
-            if range.count < 3 {
-                for index in range {
-                    ranges.append([index])
-                }
-            } else {
-                ranges.append(range)
-            }
-            range = []
-        }
-        
-        for index in indices {
-            if index < 7, let last: Int = range.last, index == last + 1 {
-                range.append(index)
-            } else {
-                flush()
-                range.append(index)
-            }
-        }
-        flush()
-        var strings: [String] = []
-        for range in ranges {
-            if range.count > 1 {
-                strings.append("\(Day.allCases[range.first!].description(.abbreviated))-\(Day.allCases[range.last!].description(.abbreviated))")
-            } else {
-                strings.append("\(Day.allCases[range.first!].description(.abbreviated))")
-            }
-        }
-        return strings.joined(separator: "/")
+        return days.description
     }
 }
 
@@ -107,8 +73,8 @@ extension Timetable: HTMLConvertible {
             let dayInterval: [String] = dayComponent.components(separatedBy: "-")
             let dayGrouping: [String] = dayComponent.components(separatedBy: "&amp;")
             if dayInterval.count == 2,
-                let beginning: Day = try? Day(from: dayInterval[0]), beginning != .holiday,
-                let ending: Day = try? Day(from: dayInterval[1]), ending != .holiday {
+                let beginning: Day = try? Day(from: dayInterval[0]),
+                let ending: Day = try? Day(from: dayInterval[1]) {
                 let week: [Day] = Day.week(beginning: beginning)
                 days.append(contentsOf: week[0...(week.firstIndex(of: ending)!)])
             } else if dayGrouping.count == 2,

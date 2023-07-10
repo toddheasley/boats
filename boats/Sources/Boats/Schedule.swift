@@ -8,17 +8,6 @@ public struct Schedule: Codable {
         return Date() > season.dateInterval.end
     }
     
-    public var holidays: [Holiday] {
-        var holidays: [Holiday] = []
-        for holiday in Holiday.allCases {
-            guard season.dateInterval.contains(holiday.date) else {
-                continue
-            }
-            holidays.append(holiday)
-        }
-        return holidays
-    }
-    
     public func timetable(for day: Day = Day()) -> Timetable? {
         for timetable in timetables {
             guard timetable.days.contains(day) else {

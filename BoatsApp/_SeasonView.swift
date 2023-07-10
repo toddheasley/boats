@@ -14,10 +14,10 @@ struct SeasonView: View {
             HStack(spacing: 2.5) {
                 Text(season.first ?? "")
                     .padding(8.0)
-                    .background(Color.preview)
+                    .background(Color.previewColor)
                 Text(season.last ?? "")
                     .padding(8.0)
-                    .background(Color.preview)
+                    .background(Color.previewColor)
             }
             .cornerRadius(8.0)
             Spacer()

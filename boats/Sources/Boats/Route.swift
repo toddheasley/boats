@@ -1,6 +1,6 @@
-import CoreLocation
+import Foundation
 
-public struct Route: Codable, StringConvertible {
+public struct Route: Codable, CustomStringConvertible {
     public let location: Location
     public let services: [Service]
     public let uri: String
@@ -31,9 +31,9 @@ public struct Route: Codable, StringConvertible {
         self.uri = uri
     }
     
-    // MARK: StringConvertible
-    public func description(_ format: String.Format) -> String {
-        return location.description(format == .sentence ? .title : format)
+    // MARK: CustomStringConvertible
+    public var description: String {
+        return location.name
     }
 }
 
@@ -61,10 +61,5 @@ extension Route: CaseIterable {
     public static let bailey: Self = Self(location: .bailey, uri: "bailey-island")
     
     // MARK: CaseIterable
-    public typealias AllCases = [Self]
-    
-    public static var allCases: AllCases {
-        return [.peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff]
-    }
-
+    public static let allCases: [Self] = [.peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff]
 }

@@ -22,7 +22,7 @@ extension HTML {
         return html
     }
     
-    private static let doctype: Self = "\u{FEFF}<!DOCTYPE html>"
+    private static let doctype: Self = "\u{FEFF}<!DOCTYPE html>" // BOM
     
     private static func meta(_ name: String, content: String) -> Self {
         return "<meta name=\"\(name)\" content=\"\(content)\">"

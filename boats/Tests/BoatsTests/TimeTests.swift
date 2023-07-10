@@ -62,11 +62,11 @@ class TimeTests: XCTestCase {
     // MARK: CustomStringConvertible
     func testDescription() {
         DateFormatter.clockFormat = .twelveHour
-        XCTAssertEqual(Time(hour: 6, minute: 15).description, "6:15")
+        XCTAssertEqual(Time(hour: 6, minute: 15).description, " 6:15 ")
         XCTAssertEqual(Time(hour: 12, minute: 30).description, "12:30.")
-        XCTAssertEqual(Time(hour: 13, minute: 0).description, "1:00.")
+        XCTAssertEqual(Time(hour: 13, minute: 0).description, " 1:00.")
         XCTAssertEqual(Time(hour: 23, minute: 45).description, "11:45.")
-        XCTAssertEqual(Time(hour: 0, minute: 0).description, "12:00")
+        XCTAssertEqual(Time(hour: 0, minute: 0).description, "12:00 ")
         DateFormatter.clockFormat = .twentyFourHour
         XCTAssertEqual(Time(hour: 6, minute: 15).description, "06:15")
         XCTAssertEqual(Time(hour: 12, minute: 30).description, "12:30")
@@ -118,8 +118,8 @@ extension TimeTests {
     
     // MARK: HTMLConvertible
     func testHTMLInit() {
-        XCTAssertEqual(try? Time(from: "\nPM4:20"), Time(hour: 16, minute: 20))
-        XCTAssertEqual(try? Time(from: "AM4:20 "), Time(hour: 4, minute: 20))
+        XCTAssertEqual(try? Time(from: "\nPM9:41"), Time(hour: 21, minute: 41))
+        XCTAssertEqual(try? Time(from: "AM9:41 "), Time(hour: 9, minute: 41))
     }
 }
 

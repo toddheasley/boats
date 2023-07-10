@@ -50,7 +50,7 @@ public struct Time: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        return components().joined()
+        return components(empty: DateFormatter.shared.is24Hour ? "" : " ").joined()
     }
 }
 

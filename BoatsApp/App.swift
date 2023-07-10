@@ -3,24 +3,26 @@ import Boats
 
 @main
 struct App: SwiftUI.App {
-    @StateObject private var index: ObservableIndex = ObservableIndex()
+    @State private var index: Index = Index()
     
     private var title: String {
-        return index.route?.description ?? index.description
+        return ""
     }
     
     // MARK: App
     var body: some Scene {
 #if os(iOS)
         WindowGroup(title) {
-            IndexView()
-                .environmentObject(index)
+            Text(title)
         }
 #elseif os(watchOS)
         WindowGroup(title) {
             Text(title)
         }
 #elseif os(macOS)
+        WindowGroup(title) {
+            Text(title)
+        }
         /*
         MenuBarExtra(content: {
             VStack {
@@ -36,10 +38,11 @@ struct App: SwiftUI.App {
         }) {
             Text("Boats")
         } */
+        /*
         WindowGroup(title) {
             Text(title)
                 .frame(minWidth: 360.0, minHeight: 270.0)
-                .environmentObject(index)
+                //.environmentObject(index)
         }
         .defaultSize(width: 360.0, height: 540.0)
         .windowResizability(.contentMinSize)
@@ -52,7 +55,7 @@ struct App: SwiftUI.App {
             CommandGroup(replacing: .help) {
                 HelpCommands()
             }
-        }
+        } */
 #elseif os(tvOS)
         WindowGroup(title) {
             Text(title)

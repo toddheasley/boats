@@ -3,7 +3,6 @@ import Boats
 
 struct HelpCommands: View {
     static let url: URL = URL(string: "https://github.com/toddheasley/boats")!
-    @EnvironmentObject private var index: ObservableIndex
     
     // MARK: View
     var body: some View {
@@ -16,6 +15,5 @@ struct HelpCommands_Previews: PreviewProvider {
     // MARK: PreviewProvider
     static var previews: some View {
         HelpCommands()
-            .environmentObject(ObservableIndex())
     }
 }

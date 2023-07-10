@@ -1,4 +1,4 @@
-import CoreLocation
+import Foundation
 
 public struct Index: Codable, CustomStringConvertible {
     public let name: String

@@ -9,6 +9,6 @@ class ShareImageTests: XCTestCase {
     }
     
     func testData() throws {
-        XCTAssertEqual(try ShareImage().data().count, 1929, accuracy: 1)
+        XCTAssertEqual(try ShareImage().data().count, 7199, accuracy: 1)
     }
 }

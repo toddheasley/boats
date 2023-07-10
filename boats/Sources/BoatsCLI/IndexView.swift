@@ -22,7 +22,7 @@ struct IndexView: TextView {
                 for schedule in schedules {
                     text.append(schedule.season.description)
                     for timetable in schedule.timetables {
-                        text += Text.table(timetable, origin: index.location.name, destination: route.description(.abbreviated))
+                        text += Text.table(timetable, origin: index.location.name, destination: route.description)
                         text.append("")
                     }
                 }
@@ -59,18 +59,7 @@ extension Text {
     }
     
     private static func data(_ departure: Departure?) -> Self {
-        guard let departure else {
-            return ""
-        }
-        var text: [Self] = []
-        text.append(departure.time.components(empty: " ").joined())
-        if departure.isCarFerry {
-            text.append("cf")
-        }
-        for deviation in departure.deviations {
-            text.append(deviation.description(.compact))
-        }
-        return text.joined(separator: " ")
+        return departure?.description ?? ""
     }
     
     private static func row(_ segments: [String], columns count: Int) -> Self {

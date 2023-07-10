@@ -46,7 +46,6 @@ extension DateFormatterTests {
     }
     
     func testDay() {
-        XCTAssertEqual(DateFormatter.shared.day(from: DateFormatter.shared.next(month: 7, day: 4)), .holiday)
         XCTAssertEqual(DateFormatter.shared.day(from: Date(timeIntervalSince1970:  1524196800.0)), .friday)
         XCTAssertEqual(DateFormatter.shared.day(from: Date(timeIntervalSince1970:  1587355200.0)), .monday)
     }

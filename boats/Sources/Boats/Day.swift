@@ -1,11 +1,13 @@
 import Foundation
 
-public enum Day: String, CaseIterable, Codable, StringConvertible {
-    case monday, tuesday, wednesday, thursday, friday, saturday, sunday, holiday
+public enum Day: String, CaseIterable, Codable, CustomStringConvertible {
+    case monday, tuesday, wednesday, thursday, friday, saturday, sunday
+    
+    public static let weekdays: [Self] = [.monday, .tuesday, .wednesday, .thursday, .friday]
     
     public static func week(beginning day: Self = Self()) -> [Self] {
         let week: [Self] = Array(allCases[0...6] + allCases[0...6])
-        let index: Int = week.firstIndex(of: day != .holiday ? day : Self())!
+        let index: Int = week.firstIndex(of: day)!
         return Array(week[index...(index + 6)])
     }
     
@@ -13,16 +15,9 @@ public enum Day: String, CaseIterable, Codable, StringConvertible {
         self = DateFormatter.shared.day(from: date)
     }
     
-    // MARK: StringConvertible
-    public func description(_ format: String.Format) -> String {
-        switch format {
-        case .title, .sentence:
-            return rawValue.capitalized
-        case .abbreviated:
-            return "\(rawValue.capitalized.prefix(3))"
-        case .compact:
-            return "\(rawValue.prefix(3))"
-        }
+    // MARK: CustomStringConvertible
+    public var description: String {
+        return "\(rawValue.capitalized.prefix(3))"
     }
 }
 
@@ -49,10 +44,50 @@ extension Day: HTMLConvertible {
             self = .saturday
         case "su":
             self = .sunday
-        case "ho":
-            self = .holiday
         default:
             throw HTML.error(Self.self, from: html)
         }
+    }
+}
+
+extension [Day] {
+    
+    // MARK: CustomStringConvertible
+    var description: String {
+        let indices: [Int] = map { day in
+            return Day.allCases.firstIndex(of: day)!
+        }.sorted()
+        var ranges: [[Int]] = []
+        var range: [Int] = []
+        
+        func flush() {
+            if range.count < 3 {
+                for index in range {
+                    ranges.append([index])
+                }
+            } else {
+                ranges.append(range)
+            }
+            range = []
+        }
+        
+        for index in indices {
+            if index < 7, let last: Int = range.last, index == last + 1 {
+                range.append(index)
+            } else {
+                flush()
+                range.append(index)
+            }
+        }
+        flush()
+        var strings: [String] = []
+        for range in ranges {
+            if range.count > 1 {
+                strings.append("\(Day.allCases[range.first!])-\(Day.allCases[range.last!])")
+            } else {
+                strings.append("\(Day.allCases[range.first!])")
+            }
+        }
+        return strings.joined(separator: "/")
     }
 }

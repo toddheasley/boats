@@ -40,7 +40,7 @@ struct ScrollView_Previews: PreviewProvider {
             print(offset)
         }) {
             Rectangle()
-                .fill(Color.preview)
+                .fill(Color.previewColor)
                 .frame(height: 2048.0)
         }
     }

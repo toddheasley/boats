@@ -1,20 +1,16 @@
-public enum Service: String, Codable, CaseIterable, StringConvertible {
+public enum Service: String, Codable, CaseIterable, CustomStringConvertible {
     case car, bicycle, freight, wheelchair, dog
     
-    // MARK: StringConvertible
-    public func description(_ format: String.Format) -> String {
-        switch format {
-        case .compact:
-            switch self {
-            case .car:
-                return "cf"
-            case.bicycle:
-                return "bike"
-            default:
-                return rawValue
-            }
-        default:
-            return rawValue
-        }
+    // MARK: CustomStringConvertible
+    public var description: String {
+        return rawValue
+    }
+}
+
+extension [Service] {
+    
+    // MARK: CustomStringConvertible
+    var description: String {
+        return map { $0.description }.joined(separator: "; ")
     }
 }

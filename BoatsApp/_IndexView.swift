@@ -10,13 +10,13 @@ struct IndexView: View {
         ScrollView(onScroll: { offset in
             self.offset = offset
         }) {
-            VStack {
+            LazyVStack(spacing: 0.0 - .cellSpacing, pinnedViews: [.sectionHeaders]) {
                 TitleView(index.route?.location.name)
                     .padding(.horizontal)
                     .hidden()
                 if let route = index.route, let schedule = route.schedule() {
                     SeasonView(schedule.season)
-                        .padding(.horizontal)
+                        .padding()
                     ForEach(schedule.timetables) { timetable in
                         TimetableView(timetable, origin: index.location, destination: route.location, offset: offset)
                             .padding(.horizontal)

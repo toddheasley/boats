@@ -17,7 +17,7 @@ struct IndexView: HTMLView {
             if let schedule: Schedule = route.schedule(for: Date(timeIntervalSinceNow: 604800.0)) {
                 html.append("<h3>\(schedule.season)</h3>")
                 for timetable in schedule.timetables {
-                    html += HTML.table(timetable, origin: index.location.name, destination: route.description(.abbreviated))
+                    html += HTML.table(timetable, origin: index.location.name, destination: route.description)
                 }
             } else {
                 html.append("<h3>Schedule Unavailable</h3>")
@@ -63,7 +63,7 @@ extension HTML {
             html.append("cf")
         }
         for deviation in departure.deviations {
-            html.append(deviation.description(.compact))
+            html.append(deviation.description)
         }
         return html.joined(separator: " ")
     }

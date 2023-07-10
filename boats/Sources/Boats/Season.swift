@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Season: Codable, StringConvertible {
+public struct Season: Codable, CustomStringConvertible {
     public enum Name: String, CaseIterable, Codable, CustomStringConvertible {
         case spring, summer, fall, winter
         
@@ -13,16 +13,14 @@ public struct Season: Codable, StringConvertible {
     public let name: Name
     public let dateInterval: DateInterval
     
-    // MARK: StringConvertible
-    public func description(_ format: String.Format) -> String {
-        switch format {
-        case .title, .sentence:
-            return "\(name): \(DateFormatter.shared.description(from: dateInterval))"
-        case .abbreviated:
-            return name.description
-        case .compact:
-            return name.rawValue
-        }
+    init(_ name: Name, dateInterval: DateInterval) {
+        self.name = name
+        self.dateInterval = dateInterval
+    }
+    
+    // MARK: CustomStringConvertible
+    public var description: String {
+        return "\(name): \(DateFormatter.shared.description(from: dateInterval))"
     }
 }
 
@@ -47,6 +45,6 @@ extension Season: HTMLConvertible {
         }
         var calendar: Calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = .shared
-        self.init(name: name, dateInterval: DateInterval(start: start, end: Date(timeInterval: -1.0, since: calendar.startOfDay(for: Date(timeInterval: 129600.0, since: end)))))
+        self.init(name, dateInterval: DateInterval(start: start, end: Date(timeInterval: -1.0, since: calendar.startOfDay(for: Date(timeInterval: 129600.0, since: end)))))
     }
 }

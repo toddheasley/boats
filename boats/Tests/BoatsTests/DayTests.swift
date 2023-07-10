@@ -2,6 +2,10 @@ import XCTest
 @testable import Boats
 
 class DayTests: XCTestCase {
+    func testWeekdays() {
+        XCTAssertEqual(Day.weekdays, [.monday, .tuesday, .wednesday, .thursday, .friday])
+    }
+    
     func testWeek() {
         XCTAssertEqual(Day.week(beginning: .sunday), [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday])
         XCTAssertEqual(Day.week(beginning: .monday), [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday])
@@ -10,7 +14,6 @@ class DayTests: XCTestCase {
         XCTAssertEqual(Day.week(beginning: .thursday), [.thursday, .friday, .saturday, .sunday, .monday, .tuesday, .wednesday])
         XCTAssertEqual(Day.week(beginning: .friday), [.friday, .saturday, .sunday, .monday, .tuesday, .wednesday, .thursday])
         XCTAssertEqual(Day.week(beginning: .saturday), [.saturday, .sunday, .monday, .tuesday, .wednesday, .thursday, .friday])
-        XCTAssertEqual(Day.week(beginning: .holiday).first, Day())
         XCTAssertEqual(Day.week().first, Day())
     }
     
@@ -19,16 +22,16 @@ class DayTests: XCTestCase {
         XCTAssertEqual(Day(Date(timeIntervalSince1970:  1587355200.0)), .monday)
     }
     
-    // MARK: StringConvertible
+    // MARK: CustomStringConvertible
     func testDescription() {
-        XCTAssertEqual(Day.sunday.description(.title), "Sunday")
-        XCTAssertEqual(Day.sunday.description(.sentence), "Sunday")
-        XCTAssertEqual(Day.sunday.description(.abbreviated), "Sun")
-        XCTAssertEqual(Day.sunday.description(.compact), "sun")
-        XCTAssertEqual(Day.thursday.description(.title), "Thursday")
-        XCTAssertEqual(Day.thursday.description(.sentence), "Thursday")
-        XCTAssertEqual(Day.thursday.description(.abbreviated), "Thu")
-        XCTAssertEqual(Day.thursday.description(.compact), "thu")
+        XCTAssertEqual(Day.monday.description, "Mon")
+        XCTAssertEqual(Day.saturday.description, "Sat")
+        XCTAssertEqual([Day.monday, .tuesday, .wednesday, .thursday].description, "Mon-Thu")
+        XCTAssertEqual([Day.monday, .tuesday, .wednesday, .friday].description, "Mon-Wed/Fri")
+        XCTAssertEqual([Day.thursday, .friday, .saturday, .monday].description, "Mon/Thu-Sat")
+        XCTAssertEqual([Day.saturday, .sunday].description, "Sat/Sun")
+        XCTAssertEqual([Day.tuesday, .thursday, .friday].description, "Tue/Thu/Fri")
+        XCTAssertEqual([Day.sunday, .tuesday].description, "Tue/Sun")
     }
 }
 
@@ -43,7 +46,6 @@ extension DayTests {
         XCTAssertEqual(try? Day(from: "Thurs"), .thursday)
         XCTAssertEqual(try? Day(from: "Friday"), .friday)
         XCTAssertEqual(try? Day(from: "Sa."), .saturday)
-        XCTAssertEqual(try? Day(from: "Holidoy"), .holiday)
         XCTAssertNil(try? Day(from: "Day"))
         XCTAssertNil(try? Day(from: "S"))
     }

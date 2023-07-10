@@ -8,74 +8,47 @@ class CLLocationCoordinate2DTests: XCTestCase {
 
 extension CLLocationCoordinate2DTests {
     
+    // MARK: CustomStringConvertible
+    func testDescription() {
+        XCTAssertEqual(CLLocationCoordinate2D.portland.description, "43.65651°, -70.24825°")
+        XCTAssertEqual(CLLocationCoordinate2D.peaks.description, "43.65552°, -70.19932°")
+        XCTAssertEqual(CLLocationCoordinate2D.littleDiamond.description, "43.66277°, -70.20959°")
+        XCTAssertEqual(CLLocationCoordinate2D.greatDiamond.description, "43.67075°, -70.19969°")
+        XCTAssertEqual(CLLocationCoordinate2D.diamondCove.description, "43.68472°, -70.19129°")
+        XCTAssertEqual(CLLocationCoordinate2D.long.description, "43.69136°, -70.16471°")
+        XCTAssertEqual(CLLocationCoordinate2D.chebeague.description, "43.71599°, -70.12612°")
+        XCTAssertEqual(CLLocationCoordinate2D.cliff.description, "43.69490°, -70.10967°")
+        XCTAssertEqual(CLLocationCoordinate2D.bailey.description, "43.74896°, -69.99104°")
+    }
+    
     // MARK: Equatable
     func testEqual() {
-        XCTAssertNotEqual(CLLocationCoordinate2D(latitude: 43.6576798, longitude: -70.2481828), CLLocationCoordinate2D(latitude: 43.6576798, longitude: -70.192580))
-        XCTAssertNotEqual(CLLocationCoordinate2D(latitude: 43.6576798, longitude: -70.2481828), CLLocationCoordinate2D(latitude: 43.684156, longitude: -70.2481828))
-        XCTAssertEqual(CLLocationCoordinate2D(latitude: 43.6576798, longitude: -70.2481828), CLLocationCoordinate2D(latitude: 43.6576798, longitude: -70.2481828))
+        XCTAssertNotEqual(CLLocationCoordinate2D(latitude: 43.655514, longitude: -70.19932), .peaks)
+        XCTAssertNotEqual(CLLocationCoordinate2D(latitude: 43.65552, longitude: -70.199325), .peaks)
+        XCTAssertEqual(CLLocationCoordinate2D(latitude: 43.65552, longitude: -70.199317), .peaks)
+        XCTAssertEqual(CLLocationCoordinate2D(latitude: 43.655524, longitude: -70.19932), .peaks)
     }
 }
 
 extension CLLocationCoordinate2DTests {
     
     // MARK: Codable
-    func testDecoderInit() {
-        guard let coordinates: [CLLocationCoordinate2D] = try? JSONDecoder.shared.decode([CLLocationCoordinate2D].self, from: JSON_Data) else {
-            XCTFail()
-            return
-        }
-        XCTAssertEqual(coordinates.count, 9)
-        XCTAssertEqual(coordinates.first,  CLLocationCoordinate2D(latitude: 43.656513, longitude: -70.248247))
-        XCTAssertEqual(coordinates.last,  CLLocationCoordinate2D(latitude: 43.748963, longitude: -69.991044))
+    func testDecoderInit() throws {
+        let data: Data = try JSONEncoder().encode(CLLocationCoordinate2D.chebeague)
+        let coordinate: CLLocationCoordinate2D = try JSONDecoder().decode(CLLocationCoordinate2D.self, from: data)
+        XCTAssertEqual(coordinate.latitude, 43.71599)
+        XCTAssertEqual(coordinate.longitude, -70.12612)
     }
     
-    func testEncode() {
-        guard let data: Data = try? JSONEncoder.shared.encode(CLLocationCoordinate2D(latitude: 43.655520, longitude: -70.199316)),
-            let coordinate: CLLocationCoordinate2D = try? JSONDecoder.shared.decode(CLLocationCoordinate2D.self, from: data) else {
-            XCTFail()
-            return
-        }
-        XCTAssertEqual(coordinate, CLLocationCoordinate2D(latitude: 43.655520, longitude: -70.199316))
+    func testEncode() throws {
+        try testDecoderInit()
     }
 }
 
-private let JSON_Data: Data = """
-[
-    {
-        "latitude": 43.656513,
-        "longitude": -70.248247
-    },
-    {
-        "latitude": 43.655520,
-        "longitude": -70.199316
-    },
-    {
-        "latitude": 43.662774,
-        "longitude": -70.209585
-    },
-    {
-        "latitude": 43.670750,
-        "longitude": -70.199691
-    },
-    {
-        "latitude": 43.684715,
-        "longitude": -70.191293
-    },
-    {
-        "latitude": 43.691359,
-        "longitude": -70.164709
-    },
-    {
-        "latitude": 43.715991,
-        "longitude": -70.126120
-    },
-    {
-        "latitude": 43.694900,
-        "longitude": -70.109666
-    },
-    {
-        "latitude": 43.748963,
-        "longitude": -69.991044
+extension CLLocationCoordinate2DTests {
+    
+    // MARK: CaseIterable
+    func testAllCases() {
+        XCTAssertEqual(CLLocationCoordinate2D.allCases, [.portland, .peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff, .bailey])
     }
-]
-""".data(using: .utf8)!
+}

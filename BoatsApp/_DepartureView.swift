@@ -14,10 +14,10 @@ struct DepartureView: View {
             if let departure {
                 TimeView(departure.time)
                 if departure.isCarFerry {
-                    Text(Service.car.description(.compact))
+                    Text(Service.car.description)
                 }
                 ForEach(departure.deviations) { deviation in
-                    Text(deviation.description(.compact))
+                    Text(deviation.description)
                 }
             } else {
                 Text(" ")
@@ -36,7 +36,7 @@ struct DepartureView_Previews: PreviewProvider {
             .car
         ]))
         .background {
-            Color.preview
+            Color.previewColor
         }
     }
 }

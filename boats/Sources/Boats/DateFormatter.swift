@@ -10,14 +10,15 @@ extension DateFormatter {
     
     var is24Hour: Bool {
         switch Self.clockFormat {
+        case .system:
+            guard let format = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: .current) else {
+                fallthrough // Default to shared timezone 12-hour format
+            }
+            return !format.contains("a")
         case .twelveHour:
             return false
         case .twentyFourHour:
             return true
-        case .system:
-            dateStyle = .none
-            timeStyle = .medium
-            return !string(from: Date()).contains(" ")
         }
     }
     
@@ -82,12 +83,6 @@ extension DateFormatter {
     
     func day(from date: Date) -> Day {
         let date: Date = Self.calendar.startOfDay(for: date)
-        for holiday in Holiday.allCases {
-            guard holiday.date == date else {
-                continue
-            }
-            return .holiday
-        }
         dateFormat = "EEEE"
         return Day(rawValue: string(from: date).lowercased())!
     }

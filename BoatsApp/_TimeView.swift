@@ -32,6 +32,6 @@ struct TimeView_Previews: PreviewProvider {
     // MARK: PreviewProvider
     static var previews: some View {
         TimeView()
-            .background(Color.preview)
+            .background(Color.previewColor)
     }
 }

@@ -12,58 +12,33 @@ struct TimetableView: View {
     private let timetable: Timetable
     private let origin: Location?
     private let destination: Location?
-    
-    @State private var frame: CGRect = .zero
-    @State private var headerSize: CGSize = .zero
     private let offset: CGPoint
     
     // MARK: View
     var body: some View {
-        ZStack(alignment: .top) {
+        Section(content: {
             VStack(spacing: .cellSpacing) {
-                Header(timetable.description)
-                    .background {
-                        GeometryReader { proxy in
-                            Color.clear
-                                .preference(key: HeaderSizePreferenceKey.self, value: proxy.frame(in: .local).size)
-                        }
-                    }
                 ForEach(timetable.trips) { trip in
                     Row(trip)
                 }
             }
             .cellPadding()
             .background {
-                GeometryReader { proxy in
+                Color.primary
+            }
+        }, header: {
+            Header(timetable.description, origin: origin, destination: destination)
+                .cellPadding()
+                .background {
                     Color.primary
-                        .preference(key: FramePreferenceKey.self, value: proxy.frame(in: .global))
                 }
-            }
-            VStack(spacing: 0.0) {
-                Rectangle()
-                    .fill(.background)
-                    .frame(height: 0.0)
-                    //.frame(height: max(0.0 - offset.y, 0.0))
-                Header(timetable.description, origin: origin, destination: destination)
-                    .cellPadding()
-            }
-        }
-        .background {
-            Color.preview
-        }
-        .onPreferenceChange(FramePreferenceKey.self) { rect in
-            frame = rect
-            
-            print(frame)
-        }
-        .onPreferenceChange(HeaderSizePreferenceKey.self) { size in
-            headerSize = size
-            
-            print(headerSize)
-        }
+        }, footer: {
+            Text(" ")
+        })
     }
 }
 
+/*
 struct TimetableView_Previews: PreviewProvider {
     @StateObject private static var index: ObservableIndex = ObservableIndex()
     
@@ -72,27 +47,7 @@ struct TimetableView_Previews: PreviewProvider {
         TimetableView(.preview, origin: index.location, destination: .peaks)
                 .padding()
     }
-}
-
-private struct FramePreferenceKey: PreferenceKey {
-    
-    // MARK: PreferenceKey
-    static var defaultValue: CGRect = .zero
-    
-    static func reduce(value: inout CGRect, nextValue: () -> CGRect) {
-        
-    }
-}
-
-private struct HeaderSizePreferenceKey: PreferenceKey {
-    
-    // MARK: PreferenceKey
-    static var defaultValue: CGSize = .zero
-    
-    static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
-        
-    }
-}
+} */
 
 private extension Timetable {
     static var preview: Self {
@@ -257,7 +212,7 @@ struct Header_Previews: PreviewProvider {
         Header("Mon-Thu/Sat", destination: .peaks)
             .cellPadding()
             .background {
-                Color.preview
+                Color.previewColor
             }
             .padding()
     }
@@ -294,7 +249,7 @@ struct Row_Previews: PreviewProvider {
         Row(Timetable.Trip(origin: origin, destination: nil))
             .cellPadding()
             .background {
-                Color.preview
+                Color.previewColor
             }
             .padding()
     }
@@ -336,7 +291,7 @@ struct Cell_Previews: PreviewProvider {
         }
         .cellPadding()
         .background {
-            Color.preview
+            Color.previewColor
         }
         .padding()
     }

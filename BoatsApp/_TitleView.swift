@@ -23,10 +23,10 @@ struct TitleView_Previews: PreviewProvider {
     // MARK: PreviewProvider
     static var previews: some View {
         TitleView("Chebeague Island")
-            .background(Color.preview)
+            .background(Color.previewColor)
             .padding()
         TitleView()
-            .background(Color.preview)
+            .background(Color.previewColor)
             .padding()
             .previewDisplayName("Title View (Empty)")
     }

@@ -39,16 +39,16 @@ struct View_Previews: PreviewProvider {
             .background()
             .cellPadding()
             .background {
-                Color.preview
+                Color.previewColor
             }
             .padding()
             .previewDisplayName("Cell Padding")
         Rectangle()
-            .fill(Color.preview)
+            .fill(Color.previewColor)
             .safeAreaInset(.top, height: 44.0)
             .safeAreaInset(.bottom) {
                 Rectangle()
-                    .fill(Color.preview)
+                    .fill(Color.previewColor)
                     .frame(height: 32.0)
                     .padding()
             }

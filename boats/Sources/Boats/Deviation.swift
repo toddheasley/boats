@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Deviation: StringConvertible {
+public enum Deviation: CustomStringConvertible {
     case start(Date), end(Date), except(Day), only(Day)
     
     public var isExpired: Bool {
@@ -14,38 +14,18 @@ public enum Deviation: StringConvertible {
         }
     }
     
-    // MARK: StringConvertible
-    public func description(_ format: String.Format) -> String {
+    // MARK: CustomStringConvertible
+    public var description: String {
         DateFormatter.shared.dateFormat = "M/d"
         switch self {
         case .start(let date):
-            switch format {
-            case .compact:
-                return "+\(DateFormatter.shared.string(from: date))"
-            default:
-                return "\(isExpired ? "started" : "starts") \(DateFormatter.shared.string(from: date))"
-            }
+            return "\(date < Date() ? "starts" : "started") \(DateFormatter.shared.string(from: date))"
         case .end(let date):
-            switch format {
-            case .compact:
-                return "x\(DateFormatter.shared.string(from: date))"
-            default:
-                return "\(isExpired ? "ended" : "ends") \(DateFormatter.shared.string(from: date))"
-            }
+            return "\(date > Date() ? "ends" : "ended") \(DateFormatter.shared.string(from: date))"
         case .except(let day):
-            switch format {
-            case .compact:
-                return "x\(day.description(.compact).first!)"
-            default:
-                return "except \(day.description(.compact))"
-            }
+            return "except \(day)"
         case .only(let day):
-            switch format {
-            case .compact:
-                return "\(day.description(.compact).first!)o"
-            default:
-                return "\(day.description(.compact)) only"
-            }
+            return "\(day) only"
         }
     }
 }
@@ -59,7 +39,7 @@ extension Deviation: Equatable, Identifiable {
     
     // MARK: Identifiable
     public var id: String {
-        return description(.compact)
+        return description
     }
 }
 
@@ -103,5 +83,75 @@ extension Deviation: Codable {
     
     private enum Key: CodingKey {
         case `case`, date, day
+    }
+}
+
+extension [Deviation] {
+    
+    // MARK: CustomStringConvertible
+    var description: String {
+        var components: [String] = []
+        if let start {
+            components.append(start.description)
+        }
+        if let end {
+            components.append(end.description)
+        }
+        if !except.isEmpty {
+            components.append("except \(except.description)")
+        } else if !only.isEmpty {
+            components.append("\(only.description) only")
+        }
+        return components.joined(separator: "; ")
+    }
+    
+    private var start: Deviation? {
+        for deviation in self {
+            switch deviation {
+            case .start:
+                return deviation
+            default:
+                break
+            }
+        }
+        return nil
+    }
+    
+    private var end: Deviation? {
+        for deviation in self {
+            switch deviation {
+            case .end:
+                return deviation
+            default:
+                break
+            }
+        }
+        return nil
+    }
+    
+    private var except: [Day] {
+        var days: [Day] = []
+        for deviation in self {
+            switch deviation {
+            case .except(let day):
+                days.append(day)
+            default:
+                break
+            }
+        }
+        return days
+    }
+    
+    private var only: [Day] {
+        var days: [Day] = []
+        for deviation in self {
+            switch deviation {
+            case .only(let day):
+                days.append(day)
+            default:
+                break
+            }
+        }
+        return days
     }
 }

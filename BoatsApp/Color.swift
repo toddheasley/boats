@@ -1,11 +1,11 @@
 import SwiftUI
 
 extension Color {
-    static var background: Self {
+    static var backgroundColor: Self {
         return Self("BackgroundColor")
     }
     
-    static var preview: Self {
+    static var previewColor: Self {
         return secondary.opacity(0.25)
     }
 }
@@ -14,9 +14,9 @@ struct Color_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        Color.background
+        Color.backgroundColor
             .previewDisplayName("Background Color")
-        Color.preview
+        Color.previewColor
             .previewDisplayName("Preview Color")
     }
 }
