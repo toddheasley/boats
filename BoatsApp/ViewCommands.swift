@@ -2,13 +2,13 @@ import SwiftUI
 import Boats
 
 struct ViewCommands: View {
-    //@EnvironmentObject private var index: ObservableIndex
+    @Environment(Index.self) private var index: Index
     
     // MARK: View
     var body: some View {
         Button("Reload Schedules") {
             Task {
-                //await index.fetch()
+                await index.fetch()
             }
         }
         .keyboardShortcut("r", modifiers: .command)
@@ -20,6 +20,6 @@ struct ViewCommands_Previews: PreviewProvider {
     // MARK: PreviewProvider
     static var previews: some View {
         ViewCommands()
-            .environmentObject(ObservableIndex())
+            .environment(Index())
     }
 }

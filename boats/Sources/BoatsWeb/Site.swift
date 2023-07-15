@@ -3,7 +3,8 @@ import Boats
 
 public struct Site: CustomStringConvertible {
     public static let name: String = "Boats"
-    public static let url: URL = URL(string: "https://toddheasley.github.io/boats/")!
+    public static let baseURL: URL = URL(string: "https://toddheasley.github.io/boats/")!
+    public static let repoURL: URL = URL(string: "https://github.com/toddheasley/boats")!
     public static let appIdentifier: String? = "1152562893"
     
     public static var appURL: URL? {
@@ -36,8 +37,6 @@ extension Site: Resource {
             BookmarkIcon(),
             Favicon(),
             ShareImage(),
-            Stylesheet(),
-            PrivacyView(index),
             IndexView(index)
         ]
         var manifest: Manifest = Manifest()

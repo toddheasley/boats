@@ -31,6 +31,5 @@ extension DepartureTests {
         XCTAssertEqual(try Departure(from: "PM9:41").time, Time(hour: 21, minute: 41))
         XCTAssertEqual(try Departure(from: "PM9:41").deviations, [])
         XCTAssertEqual(try Departure(from: "PM9:41").services, [])
-        
     }
 }

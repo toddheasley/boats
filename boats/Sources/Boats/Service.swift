@@ -6,11 +6,3 @@ public enum Service: String, Codable, CaseIterable, CustomStringConvertible {
         return rawValue
     }
 }
-
-extension [Service] {
-    
-    // MARK: CustomStringConvertible
-    var description: String {
-        return map { $0.description }.joined(separator: "; ")
-    }
-}

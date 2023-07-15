@@ -1,5 +1,5 @@
 protocol TextView: CustomStringConvertible {
-    var text: [Text] {
+    var text: [String] {
         get
     }
 }

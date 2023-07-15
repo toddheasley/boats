@@ -1,12 +1,13 @@
 import SwiftUI
 import Boats
+import BoatsWeb
 
 struct HelpCommands: View {
-    static let url: URL = URL(string: "https://github.com/toddheasley/boats")!
     
     // MARK: View
     var body: some View {
-        Link("Documentation and Source Code", destination: Self.url)
+        Link("GitHub Repository", destination: Site.repoURL)
+        Link("Web Schedules", destination: Site.baseURL)
     }
 }
 

@@ -13,6 +13,7 @@
 		5C229B532A0E6A7100D1FD7F /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C70014128F8A7630038404E /* App.xcassets */; };
 		5C229B542A0E6A7100D1FD7F /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C70014128F8A7630038404E /* App.xcassets */; };
 		5C75AEA228FA0E02003E4DD4 /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75AEA128FA0E02003E4DD4 /* HelpCommands.swift */; };
+		5C8619842A5D8E8A003284CC /* ViewCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C75AE9E28FA0850003E4DD4 /* ViewCommands.swift */; };
 		5C8C939928F8DC1D00916510 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013D28F8A7620038404E /* App.swift */; };
 		5C8C939D28F8DD3300916510 /* Boats in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8C939C28F8DD3300916510 /* Boats */; };
 		5C9A3BBF2A0B12B1009B6833 /* Boats.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C9A3BB22A0B12AF009B6833 /* Boats.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -24,6 +25,7 @@
 		5CCDFE6B2A567ABA005B9784 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDFE6A2A567ABA005B9784 /* Index.swift */; };
 		5CCDFE6C2A567ABA005B9784 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDFE6A2A567ABA005B9784 /* Index.swift */; };
 		5CCDFE6D2A567ABA005B9784 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDFE6A2A567ABA005B9784 /* Index.swift */; };
+		5CDC5A242A617B9C00B15C4F /* BoatsWeb in Frameworks */ = {isa = PBXBuildFile; productRef = 5CDC5A232A617B9C00B15C4F /* BoatsWeb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +60,7 @@
 		5C70013D28F8A7620038404E /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5C70013F28F8A7620038404E /* _IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _IndexView.swift; sourceTree = "<group>"; };
 		5C70014128F8A7630038404E /* App.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = App.xcassets; sourceTree = "<group>"; };
-		5C75AE9E28FA0850003E4DD4 /* _ViewCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ViewCommands.swift; sourceTree = "<group>"; };
+		5C75AE9E28FA0850003E4DD4 /* ViewCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCommands.swift; sourceTree = "<group>"; };
 		5C75AEA128FA0E02003E4DD4 /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
 		5C833EBB29675EE5005D94F9 /* _TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TimeView.swift; sourceTree = "<group>"; };
 		5C9A3BB22A0B12AF009B6833 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C8C939D28F8DD3300916510 /* Boats in Frameworks */,
+				5CDC5A242A617B9C00B15C4F /* BoatsWeb in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +113,7 @@
 				5CAF20C32A11AC5C003F1026 /* Color.swift */,
 				5C75AEA128FA0E02003E4DD4 /* HelpCommands.swift */,
 				5CCDFE6A2A567ABA005B9784 /* Index.swift */,
+				5C75AE9E28FA0850003E4DD4 /* ViewCommands.swift */,
 				5CDE4E372967A90E00897761 /* _DepartureView.swift */,
 				5CDBE7772A106D5F005BBDDC /* _HeaderView.swift */,
 				5C70013F28F8A7620038404E /* _IndexView.swift */,
@@ -117,11 +121,11 @@
 				5CD10F442A0D6DB500BE5023 /* _ScrollView.swift */,
 				5CA95E542A13346C0001A70E /* _SeasonView.swift */,
 				5C2D3CC02967AFF0007BB17C /* _TimetableView.swift */,
-				5C75AE9E28FA0850003E4DD4 /* _ViewCommands.swift */,
 				5C833EBB29675EE5005D94F9 /* _TimeView.swift */,
 				5CA95E522A1325E70001A70E /* _TitleView.swift */,
 				5CAF20BF2A11A161003F1026 /* _View.swift */,
 				5C70013328F8A7620038404E /* Products */,
+				5CDC5A222A617B9C00B15C4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +137,13 @@
 				5C229B3C2A0E60A000D1FD7F /* Boats.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5CDC5A222A617B9C00B15C4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +166,7 @@
 			name = App;
 			packageProductDependencies = (
 				5C8C939C28F8DD3300916510 /* Boats */,
+				5CDC5A232A617B9C00B15C4F /* BoatsWeb */,
 			);
 			productName = BoatsAppApp;
 			productReference = 5C01560828F8DB6F004934F5 /* Boats.app */;
@@ -274,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C75AEA228FA0E02003E4DD4 /* HelpCommands.swift in Sources */,
+				5C8619842A5D8E8A003284CC /* ViewCommands.swift in Sources */,
 				5C8C939928F8DC1D00916510 /* App.swift in Sources */,
 				5CAF20C42A11AC5C003F1026 /* Color.swift in Sources */,
 				5CCDFE6B2A567ABA005B9784 /* Index.swift in Sources */,
@@ -321,6 +334,7 @@
 				CODE_SIGN_ENTITLEMENTS = App.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
@@ -343,8 +357,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
@@ -369,6 +385,7 @@
 				CODE_SIGN_ENTITLEMENTS = App.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
@@ -391,8 +408,10 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
@@ -708,6 +727,10 @@
 		5C9A3BC42A0B13C7009B6833 /* Boats */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Boats;
+		};
+		5CDC5A232A617B9C00B15C4F /* BoatsWeb */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BoatsWeb;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

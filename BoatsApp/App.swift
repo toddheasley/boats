@@ -20,8 +20,22 @@ struct App: SwiftUI.App {
             Text(title)
         }
 #elseif os(macOS)
-        WindowGroup(title) {
+        Window(title, id: index.uri) {
             Text(title)
+                .environment(index)
+                .frame(minWidth: 256.0, minHeight: 256.0)
+        }
+        .defaultSize(width: 384.0, height: 512.0)
+        .windowResizability(.contentMinSize)
+        .windowStyle(.hiddenTitleBar)
+        .commands {
+            CommandGroup(replacing: .toolbar) {
+                ViewCommands()
+                    .environment(index)
+            }
+            CommandGroup(replacing: .help) {
+                HelpCommands()
+            }
         }
         /*
         MenuBarExtra(content: {
@@ -37,24 +51,6 @@ struct App: SwiftUI.App {
             }
         }) {
             Text("Boats")
-        } */
-        /*
-        WindowGroup(title) {
-            Text(title)
-                .frame(minWidth: 360.0, minHeight: 270.0)
-                //.environmentObject(index)
-        }
-        .defaultSize(width: 360.0, height: 540.0)
-        .windowResizability(.contentMinSize)
-        .windowStyle(.hiddenTitleBar)
-        .commands {
-            CommandGroup(replacing: .toolbar) {
-                ViewCommands()
-                    .environmentObject(index)
-            }
-            CommandGroup(replacing: .help) {
-                HelpCommands()
-            }
         } */
 #elseif os(tvOS)
         WindowGroup(title) {

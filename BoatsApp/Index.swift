@@ -1,17 +1,35 @@
-import Foundation
+import SwiftUI
 import Boats
 
-extension Index {
+@Observable class Index {
+    var name: String { index.name }
+    var uri: String { index.uri }
+    var location: Location { index.location }
+    var routes: [Route] { index.routes }
+    var url: URL { index.url }
+    var error: Error?
+    
     var route: Route? {
-        set {
-            UserDefaults.standard.set(newValue?.uri, forKey: "route")
-        }
+        set { UserDefaults.standard.set(newValue?.uri, forKey: "route") }
         get {
-            return route(uri: UserDefaults.standard.string(forKey: "route")) ?? routes.first
+            let uri: String? = UserDefaults.standard.string(forKey: "route")
+            return routes.first { $0.uri == uri } ?? routes.first }
+    }
+    
+    func fetch() async {
+        error = nil
+        do {
+            index = try await URLSession.shared.index(.fetch)
+        } catch {
+            self.error = error
         }
     }
     
-    private func route(uri: String?) -> Route? {
-        return routes.first { $0.uri == uri }
+    init() {
+        Task {
+            await fetch()
+        }
     }
+    
+    private var index: Boats.Index = Boats.Index()
 }

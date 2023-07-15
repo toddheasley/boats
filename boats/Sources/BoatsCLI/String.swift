@@ -1,6 +1,4 @@
-typealias Text = String
-
-extension Text {
+extension String {
     func padded(to count: Int, with character: Character = " ") -> Self {
         guard count > self.count else {
             return truncated(to: count)
