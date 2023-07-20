@@ -23,30 +23,24 @@ struct IndexView: HTMLView {
         html.append(link("apple-touch-icon", href: BookmarkIcon().path))
         html.append(link("shortcut icon", href: Favicon().path))
         html.append("<title>\(index.title)</title>")
-        html.append("<header>")
-        html.append("    <nav><a href=\"javascript:window.print()\">🖨️</a></nav>")
-        html.append("    <h1><a href=\"\(index.url.absoluteString)\">\(index.name)</a> \(index.description)</h1>")
-        html.append("</header>")
+        html.append("<h1><a href=\"\(index.url.absoluteString)\">\(index.name)</a> \(index.description) <a href=\"javascript:window.print()\">🖨️</a></h1>")
+        html.append("<article>")
         for route in index.routes {
-            html.append("<section>")
-            html.append("    <h2 id=\"\(route.uri)\">\(route) <a href=\"#\(route.uri)\">#</a></h2>")
+            html.append("    <section>")
+            html.append("        <h2 id=\"\(route.uri)\"><em>\(route)</em> <a href=\"#\(route.uri)\">#</a></h2>")
             if let schedule: Schedule = route.schedule(for: Date(timeIntervalSinceNow: 604800.0)) {
-                html.append("    <h3>\(schedule.season)</h3>")
+                html.append("        <h3>\(schedule.season)</h3>")
+                html.append("        <article>")
                 for timetable in schedule.timetables {
-                    html += table(timetable, origin: index.location.nickname, destination: route.location.nickname).map { "    \($0)" }
+                    html += table(timetable, origin: index.location.nickname, destination: route.location.nickname).map { "            \($0)" }
                 }
+                html.append("        </article>")
             } else {
-                html.append("    <h3>Schedule Unavailable</h3>")
+                html.append("        <h3>Schedule Unavailable</h3>")
             }
-            html.append("</section>")
+            html.append("    </section>")
         }
-        html.append("<footer>")
-        html.append("    <hr>")
-        html.append("    <h4 id=\"privacy\">Privacy</h4>")
-        html.append("    <h2>Data Not Collected</h2>")
-        html.append("    <p>Boats is available for Apple platforms and follows <a href=\"https://www.apple.com/privacy\">Apple privacy</a> guidelines and labeling.</p>")
-        html.append("    <p>Schedule data is scraped from <a href=\"https://www.cascobaylines.com\">cascobaylines.com</a> and hosted with <a href=\"https://pages.github.com\">GitHub&nbsp;Pages.</a> The entire Boats source code is <a href=\"https://github.com/toddheasley/boats\">publicly available on GitHub</a> under the <a href=\"https://choosealicense.com/licenses/mit\">MIT&nbsp;License.</a></p>")
-        html.append("</footer>")
+        html.append("</article>")
         html.append(style)
         return html
     }
@@ -119,99 +113,169 @@ private let style: String = """
     :root {
         color-scheme: light dark;
         --background-color: \(Color(255));
+        --foreground-color: \(Color.navy);
+        -webkit-text-size-adjust: 100%;
     }
     
     @media (prefers-color-scheme: dark) {
         :root {
             --background-color: \(Color.navy);
+            --foreground-color: \(Color(255));
         }
     }
     
-    a {
-        color: \(Color.link);
-    }
-    
-    a[href^="javascript:"] {
-        text-decoration: none;
+    * {
+        margin: 0;
     }
     
     body {
-        background: var(--background-color);
-        font: 1em ui-sans-serif, sans-serif;
+        font-family: ui-sans-serif, sans-serif;
     }
     
-    h1, h3, h4 {
+    h1, h2, h3, h4, table {
         font-size: 1em;
     }
     
-    h2 {
+    h2 em {
         font-size: 1.25em;
     }
     
-    h2 a {
-        font-size: 1em;
+    h3 {
+        font-weight: normal;
     }
     
-    header {
-        position: relative;
-    }
-    
-    nav {
-        position: absolute;
-        right: 0;
+    h3 b {
+        font-size: 1.25em;
+        font-weight: normal;
+        opacity: 0.9;
     }
     
     small {
-        font-size: 0.5em;
+        font-size: 0.7em;
         text-transform: uppercase;
     }
     
     table {
         border-collapse: collapse;
-        overflow: hidden;
-        width: 288px;
     }
-
-    td {
-        vertical-align: top;
-        width: 50%;
-    }
-
-    td, th {
-        border: 1px solid;
+    
+    table, td, th {
         overflow: hidden;
         text-align: left;
         white-space: nowrap;
     }
     
-    tr:nth-child(odd) {
-        background: \(Color.haze);
-    }
-    
-    tr:first-child {
-        background: none;
+    td {
+        vertical-align: top;
+        width: 50%;
     }
     
     td small {
         display: block;
+        margin-left: 0.25em;
     }
-
+    
     time b {
         display: inline-block;
-        font-size: 1.5em;
+        font-size: 2em;
         text-align: center;
         width: 0.75em;
     }
-
+    
     time b:nth-child(3), time b:last-child {
         width: 0.35em;
     }
     
-    @media print {
-        a, section, table {
-            page-break-inside: avoid;
+    @media screen {
+        a {
+            color: \(Color.link);
         }
         
+        a[href^="javascript:"] {
+            font-size: 2em;
+            position: absolute;
+            right: 0;
+            text-decoration: none;
+        }
+        
+        article {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        body {
+            background: var(--background-color);
+            font-size: 15px;
+            margin: 1em auto;
+            width: 320px;
+        }
+        
+        @media (min-width: 640px) {
+            body {
+                width: 640px;
+            }
+        }
+        
+        @media (min-width: 960px) {
+            body {
+                width: 960px;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            body {
+                width: 1280px;
+            }
+        }
+        
+        h1, h2, h3, h4, table {
+            margin: 0.5em 8px;
+        }
+        
+        h1 {
+            position: relative;
+        }
+        
+        h2 em {
+            color: \(Color.gold);
+            font-size: 1.5em;
+            letter-spacing: 0.5px;
+            text-shadow: -1px 1px \(Color(0, alpha: 0.75));
+        }
+        
+        section {
+            margin: 2em 0;
+        }
+        
+        table {
+            border-radius: 0.5em;
+            width: 304px;
+        }
+        
+        table, td, th {
+            border: 2px solid var(--background-color);
+        }
+        
+        th {
+            padding: 5px;
+        }
+        
+        tr:nth-child(odd) {
+            background: \(Color.haze);
+        }
+        
+        tr:first-child {
+            background: var(--foreground-color);
+            color: var(--background-color);
+        }
+        
+        tr:nth-child(2) {
+            background: \(Color.aqua);
+            color: \(Color(0));
+        }
+    }
+    
+    @media print {
         a {
             color: inherit;
             text-decoration: none;
@@ -219,6 +283,36 @@ private let style: String = """
         
         a[href^="javascript:"], a[href^="#"] {
             display: none;
+        }
+        
+        body {
+            font-size: 10pt;
+        }
+        
+        h1 {
+            display: none;
+        }
+        
+        h2, h3, h4, table {
+            margin: 0.5em 0;
+        }
+        
+        section {
+            margin: 4em 0;
+            page-break-after: always;
+        }
+        
+        table {
+            display: inline-table;
+            width: 204pt;
+        }
+        
+        table + table {
+            margin-left: 1em;
+        }
+        
+        td, th {
+            border: 0.5pt solid;
         }
     }
     

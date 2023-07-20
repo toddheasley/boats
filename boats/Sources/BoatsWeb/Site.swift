@@ -37,7 +37,8 @@ extension Site: Resource {
             BookmarkIcon(),
             Favicon(),
             ShareImage(),
-            IndexView(index)
+            IndexView(index),
+            PrivacyView()
         ]
         var manifest: Manifest = Manifest()
         for resource in resources {

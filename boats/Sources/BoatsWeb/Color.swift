@@ -25,7 +25,7 @@ struct Color_Previews: PreviewProvider {
             VStack {
                 SwiftUI.Color.gold
                 SwiftUI.Color.haze
-                SwiftUI.Color.clear
+                SwiftUI.Color.white
             }
         }
     }
@@ -39,6 +39,8 @@ struct Color: Equatable, CustomStringConvertible {
         switch self {
         case Self(255):
             return "white"
+        case Self(0):
+            return "black"
         default:
             return nil
         }

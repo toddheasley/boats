@@ -32,8 +32,6 @@ let package: Package = Package(name: "Boats", platforms: [
         ]),
         .target(name: "BoatsWeb", dependencies: [
             "Boats"
-        ], resources: [
-            .process("Resources")
         ]),
         .testTarget(name: "BoatsTests", dependencies: [
             "Boats"
