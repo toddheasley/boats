@@ -36,7 +36,7 @@ struct IndexView: HTMLView {
                 }
                 html.append("        </article>")
             } else {
-                html.append("        <h3>Schedule Unavailable</h3>")
+                html.append("        <h3>Schedule unavailable</h3>")
             }
             html.append("    </section>")
         }
@@ -91,14 +91,11 @@ private func data(_ departure: Departure?) -> String {
     var html: [String] = [
         time(departure.time)
     ]
-    var description: String = departure.deviations.isEmpty ? "" : departure.description.replacingOccurrences(of: departure.time.description, with: "")
     if departure.isCarFerry {
-        description = description.replacingOccurrences(of: " \(Service.car)", with: "")
         html.append(Service.car.emoji)
     }
-    description = description.trimmingCharacters(in: .whitespacesAndNewlines)
-    if !description.isEmpty {
-        html.append("<small>\(description.trimmingCharacters(in: .whitespacesAndNewlines))</small>")
+    if !departure.deviations.isEmpty {
+        html.append("<small>\(departure.components()[2])</small>")
     }
     return html.joined(separator: " ")
 }
@@ -240,7 +237,7 @@ private let style: String = """
             color: \(Color.gold);
             font-size: 1.5em;
             letter-spacing: 0.5px;
-            text-shadow: -1px 1px \(Color(0, alpha: 0.75));
+            text-shadow: -1px 1px \(Color(0, alpha: 0.5));
         }
         
         section {
@@ -254,6 +251,17 @@ private let style: String = """
         
         table, td, th {
             border: 2px solid var(--background-color);
+        }
+        
+        td time + small {
+            background: \(Color.aqua);
+            border-radius: 0.25em;
+            bottom: 2.5px;
+            box-shadow: -1px 1px \(Color(0, alpha: 0.5));
+            color: black;
+            left: 1.5px;
+            padding: 0.2em;
+            position: absolute;
         }
         
         th {

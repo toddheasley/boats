@@ -2,11 +2,11 @@ import SwiftUI
 import Boats
 
 struct TimeView: View {
-    let time: Time
+    let time: Time?
     
-    init(_ time: Time = Time()) {
+    init(_ time: Time? = Time()) {
         self.time = time
-        components = time.components(empty: " ")
+        components = (time ?? Time()).components(empty: " ")
     }
     
     private let components: [String]
@@ -22,7 +22,9 @@ struct TimeView: View {
             Text(components[4])
             Text(components[5])
         }
-        .accessibilityLabel(time.description)
+        .opacity(time == nil ? 0.0 : 1.0)
+        .accessibilityLabel(time?.description ?? "")
+        .accessibility(hidden: time == nil)
         .monospacedDigit()
     }
 }
@@ -31,7 +33,13 @@ struct TimeView_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        TimeView()
-            .background(Color.previewColor)
+        VStack {
+            TimeView()
+                .backgroundColor(.haze)
+            TimeView(Time(hour: 22, minute: 9))
+                .backgroundColor(.haze)
+            TimeView(nil)
+                .backgroundColor(.haze)
+        }
     }
 }

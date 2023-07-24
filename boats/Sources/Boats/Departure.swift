@@ -9,6 +9,14 @@ public struct Departure: Codable, CustomStringConvertible {
         return services.contains(.car)
     }
     
+    public func components(empty string: String? = "") -> [String] {
+        return [
+            time.description,
+            (isCarFerry ? Service.car.description : ""),
+            deviations.description
+        ].compactMap { !$0.isEmpty ? $0 : string }
+    }
+    
     public init(_ time: Time, deviations: [Deviation] = [], services: [Service] = []) {
         self.time = time
         self.deviations = deviations
@@ -17,16 +25,7 @@ public struct Departure: Codable, CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        var description: [String] = [
-            time.description
-        ]
-        if isCarFerry {
-            description.append(Service.car.description)
-        }
-        if !deviations.isEmpty {
-            description.append(deviations.description)
-        }
-        return description.joined(separator: " ")
+        return components(empty: nil).joined(separator: " ")
     }
 }
 

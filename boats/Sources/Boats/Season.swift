@@ -13,6 +13,13 @@ public struct Season: Codable, CustomStringConvertible {
     public let name: Name
     public let dateInterval: DateInterval
     
+    public func components() -> [String] {
+        return [
+            name.description,
+            DateFormatter.shared.description(from: dateInterval)
+        ]
+    }
+    
     init(_ name: Name, dateInterval: DateInterval) {
         self.name = name
         self.dateInterval = dateInterval
@@ -20,7 +27,7 @@ public struct Season: Codable, CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        return "\(name): \(DateFormatter.shared.description(from: dateInterval))"
+        return components().joined(separator: ": ")
     }
 }
 

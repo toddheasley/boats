@@ -1,4 +1,5 @@
 import SwiftUI
+import BoatsWeb
 import Boats
 
 @main
@@ -6,14 +7,15 @@ struct App: SwiftUI.App {
     @State private var index: Index = Index()
     
     private var title: String {
-        return ""
+        return index.route?.description ?? Bundle.main.executableURL?.lastPathComponent ?? ""
     }
     
     // MARK: App
     var body: some Scene {
 #if os(iOS)
         WindowGroup(title) {
-            Text(title)
+            IndexView()
+                .environment(index)
         }
 #elseif os(watchOS)
         WindowGroup(title) {
@@ -21,20 +23,23 @@ struct App: SwiftUI.App {
         }
 #elseif os(macOS)
         Window(title, id: index.uri) {
-            Text(title)
+            IndexView()
                 .environment(index)
-                .frame(minWidth: 256.0, minHeight: 256.0)
+                .frame(minWidth: 256.0, minHeight: 384.0)
         }
         .defaultSize(width: 384.0, height: 512.0)
         .windowResizability(.contentMinSize)
         .windowStyle(.hiddenTitleBar)
         .commands {
             CommandGroup(replacing: .toolbar) {
-                ViewCommands()
-                    .environment(index)
+                Button("Reload Schedules") {
+                    Task { await index.fetch() }
+                }
+                .keyboardShortcut("r", modifiers: .command)
             }
             CommandGroup(replacing: .help) {
-                HelpCommands()
+                Link("GitHub Repository", destination: Site.repoURL)
+                Link("Web Schedules", destination: Site.baseURL)
             }
         }
         /*

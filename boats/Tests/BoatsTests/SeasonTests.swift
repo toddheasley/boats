@@ -2,8 +2,15 @@ import XCTest
 @testable import Boats
 
 class SeasonTests: XCTestCase {
+    func testComponents() {
+        
+        XCTAssertEqual(Season(.spring, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1523678400.0), end: Date(timeIntervalSince1970: 1529121599.9))).components(), ["Spring", "Apr 14-Jun 15, 2018"])
+        XCTAssertEqual(Season(.summer, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1529121600.0), end: Date(timeIntervalSince1970: 1536033599.9))).components(), ["Summer", "Jun 16-Sep 3, 2018"])
+        XCTAssertEqual(Season(.fall, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1536033600.0), end: Date(timeIntervalSince1970: 1539057599.9))).components(), ["Fall", "Sep 4-Oct 8, 2018"])
+        XCTAssertEqual(Season(.winter, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1539057600), end: Date(timeIntervalSince1970: 1546664399.9))).components(), ["Winter", "Oct 9, 2018-Jan 4, 2019"])
+    }
     
-    // MARK: StringConvertible
+    // MARK: CustomStringConvertible
     func testDescription() {
         XCTAssertEqual(Season(.spring, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1523678400.0), end: Date(timeIntervalSince1970: 1529121599.9))).description, "Spring: Apr 14-Jun 15, 2018")
         XCTAssertEqual(Season(.summer, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1529121600.0), end: Date(timeIntervalSince1970: 1536033599.9))).description, "Summer: Jun 16-Sep 3, 2018")

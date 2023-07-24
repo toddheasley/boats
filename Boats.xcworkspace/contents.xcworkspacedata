@@ -14,6 +14,9 @@
       location = "group:Boats.sketch">
    </FileRef>
    <FileRef
+      location = "group:Boats.acorn">
+   </FileRef>
+   <FileRef
       location = "group:boats">
    </FileRef>
 </Workspace>

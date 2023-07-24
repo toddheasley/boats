@@ -13,7 +13,8 @@ import Boats
         set { UserDefaults.standard.set(newValue?.uri, forKey: "route") }
         get {
             let uri: String? = UserDefaults.standard.string(forKey: "route")
-            return routes.first { $0.uri == uri } ?? routes.first }
+            return routes.first { $0.uri == uri } ?? routes.first
+        }
     }
     
     func fetch() async {
