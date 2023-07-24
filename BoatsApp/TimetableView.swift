@@ -17,10 +17,11 @@ struct TimetableView: View {
     var body: some View {
         Section(content: {
             VStack(spacing: .spacing) {
-                ForEach(timetable.trips) { trip in
-                    Row(trip)
+                ForEach(timetable.trips.indices, id: \.self) { index in
+                    Row(timetable.trips[index], index: index)
                 }
             }
+            .padding(.top, 0.0 - .spacing)
         }, header: {
             Header(timetable.description, origin: origin, destination: destination)
         })
@@ -111,10 +112,15 @@ struct HeaderCell_Previews: PreviewProvider {
 // MARK: Row
 private struct Row: View {
     let trip: Timetable.Trip
+    let index: Int?
     
-    init(_ trip: Timetable.Trip) {
+    init(_ trip: Timetable.Trip, index: Int? = nil) {
         self.trip = trip
+        self.index = index
+        color = (index ?? 0) % 2 == 0 ? .haze : .clear
     }
+    
+    private let color: Color
     
     // MARK: View
     var body: some View {
@@ -122,9 +128,11 @@ private struct Row: View {
             Cell {
                 DepartureView(trip.origin)
             }
+            .backgroundColor(color)
             Cell {
                 DepartureView(trip.destination)
             }
+            .backgroundColor(color)
         }
     }
 }

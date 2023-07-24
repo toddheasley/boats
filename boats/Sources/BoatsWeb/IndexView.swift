@@ -163,6 +163,7 @@ private let style: String = """
     }
     
     td {
+        position: relative;
         vertical-align: top;
         width: 50%;
     }
@@ -258,7 +259,7 @@ private let style: String = """
             border-radius: 0.25em;
             bottom: 2.5px;
             box-shadow: -1px 1px \(Color(0, alpha: 0.5));
-            color: black;
+            color: \(Color(0));
             left: 1.5px;
             padding: 0.2em;
             position: absolute;
