@@ -36,11 +36,14 @@ extension Departure: HTMLConvertible {
         let components: [String] = html.lowercased().trim().components(separatedBy: " ")
         
         var deviations: [Deviation] = []
-        if components.contains("⁕") {
+        if components.contains("fso") {
             deviations += [.only(.friday), .only(.saturday)]
         }
-        if components.contains("∆") {
-            deviations += Day.weekdays.map { .only($0) }
+        if components.contains("fo") {
+            deviations.append(.only(.friday))
+        }
+        if components.contains("xf") {
+            deviations.append(.except(.friday))
         }
         self.init(try Time(from: components[0]), deviations: deviations, services: html.contains("cf") ? [.car] : [])
     }
