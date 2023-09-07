@@ -152,10 +152,6 @@ private let style: String = """
         text-transform: uppercase;
     }
     
-    table {
-        border-collapse: collapse;
-    }
-    
     table, td, th {
         overflow: hidden;
         text-align: left;
@@ -246,12 +242,11 @@ private let style: String = """
         }
         
         table {
-            border-radius: 0.5em;
-            width: 304px;
+            display: flex;
         }
         
-        table, td, th {
-            border: 2px solid var(--background-color);
+        td, th {
+            width: 146px;
         }
         
         td time + small {
@@ -266,16 +261,22 @@ private let style: String = """
         }
         
         th {
+            background: var(--foreground-color);
+            border-radius: 0.5em 0.5em 0 0;
+            color: var(--background-color);
             padding: 5px;
+        }
+        
+        tr:last-child td:first-child {
+            border-radius: 0 0 0 0.5em;
+        }
+        
+        tr:last-child td:last-child {
+            border-radius: 0 0 0.5em 0;
         }
         
         tr:nth-child(odd) {
             background: \(Color.haze);
-        }
-        
-        tr:first-child {
-            background: var(--foreground-color);
-            color: var(--background-color);
         }
         
         tr:nth-child(2) {
