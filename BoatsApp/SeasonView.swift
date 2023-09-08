@@ -22,16 +22,12 @@ struct SeasonView: View {
     }
 }
 
-struct SeasonView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        VStack {
-            SeasonView(try! JSONDecoder().decode(Season.self, from: _data))
-                .backgroundColor(.haze)
-            SeasonView()
-                .backgroundColor(.haze)
-        }
+#Preview("Season View") {
+    VStack {
+        SeasonView(try! JSONDecoder().decode(Season.self, from: _data))
+            .backgroundColor(.haze)
+        SeasonView()
+            .backgroundColor(.haze)
     }
 }
 

@@ -24,11 +24,7 @@ struct TitleView: View {
     }
 }
 
-struct TitleView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        TitleView("Peaks Island")
-            .backgroundColor(.haze)
-    }
+#Preview("Title View") {
+    TitleView("Peaks Island")
+        .backgroundColor(.haze)
 }

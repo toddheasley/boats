@@ -29,17 +29,13 @@ struct TimeView: View {
     }
 }
 
-struct TimeView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        VStack {
-            TimeView()
-                .backgroundColor(.haze)
-            TimeView(Time(hour: 22, minute: 9))
-                .backgroundColor(.haze)
-            TimeView(nil)
-                .backgroundColor(.haze)
-        }
+#Preview("Time View") {
+    VStack {
+        TimeView()
+            .backgroundColor(.haze)
+        TimeView(Time(hour: 22, minute: 9))
+            .backgroundColor(.haze)
+        TimeView(nil)
+            .backgroundColor(.haze)
     }
 }

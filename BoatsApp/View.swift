@@ -19,24 +19,23 @@ extension View {
     }
 }
 
-struct View_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        Rectangle()
-            .fill(Color.clear)
-            .backgroundColor()
-            .previewDisplayName("Background Color")
-        Rectangle()
-            .foregroundColor(.black, dark: .white)
-            .frame(width: 128.0, height: 128.0)
-            .previewDisplayName("Foreground Color")
-        Rectangle()
-            .fill(Color.aqua)
-            .frame(width: 128.0, height: 128.0)
-            .shadow()
-            .previewDisplayName("Shadow")
-    }
+#Preview("Background Color") {
+    Rectangle()
+        .fill(Color.clear)
+        .backgroundColor()
+}
+
+#Preview("Foreground Color") {
+    Rectangle()
+        .foregroundColor(.black, dark: .white)
+        .frame(width: 128.0, height: 128.0)
+}
+
+#Preview("Shadow") {
+    Rectangle()
+        .fill(Color.aqua)
+        .frame(width: 128.0, height: 128.0)
+        .shadow()
 }
 
 private struct BackgroundColorModifier: ViewModifier {
@@ -57,7 +56,7 @@ private struct BackgroundColorModifier: ViewModifier {
     
     @Environment(\.colorScheme) private var colorScheme
     
-    // MARK:
+    // MARK: ViewModifier
     func body(content: Content) -> some View {
         content.background(resolvedColor)
     }
@@ -81,7 +80,7 @@ private struct ForegroundColorModifier: ViewModifier {
     
     @Environment(\.colorScheme) private var colorScheme
     
-    // MARK:
+    // MARK: ViewModifier
     func body(content: Content) -> some View {
         content.foregroundColor(resolvedColor)
     }

@@ -11,29 +11,51 @@ struct TimetableView: View {
         self.timetable = timetable
         self.origin = origin
         self.destination = destination
+        
+        trips = (Array(timetable.trips.dropLast()), timetable.trips.last)
     }
+    
+    private let trips: (content: [Timetable.Trip], footer: Timetable.Trip?)
     
     // MARK: View
     var body: some View {
         Section(content: {
             VStack(spacing: .spacing) {
-                ForEach(timetable.trips.indices, id: \.self) { index in
-                    Row(timetable.trips[index], index: index)
+                ForEach(trips.content.indices, id: \.self) { index in
+                    Row(trips.content[index], index: index)
                 }
             }
-            .padding(.top, 0.0 - .spacing)
         }, header: {
             Header(timetable.description, origin: origin, destination: destination)
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 10.0,
+                        bottomLeadingRadius: 0.0,
+                        bottomTrailingRadius: 0.0,
+                        topTrailingRadius: 10.0
+                    )
+                )
+                .padding(.top)
+                .backgroundColor()
+        }, footer: {
+            if let trip = trips.footer {
+                Row(trip, index: trips.content.count)
+                    .clipShape(
+                        .rect(
+                            topLeadingRadius: 0.0,
+                            bottomLeadingRadius: 10.0,
+                            bottomTrailingRadius: 10.0,
+                            topTrailingRadius: 0.0
+                        )
+                    )
+                    .padding(.bottom)
+            }
         })
     }
 }
 
-struct TimetableView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        TimetableView(try! JSONDecoder().decode(Timetable.self, from: _data), origin: .portland, destination: .peaks)
-    }
+#Preview("Timetable View") {
+    TimetableView(try! JSONDecoder().decode(Timetable.self, from: _data))
 }
 
 // MARK: Header
@@ -68,16 +90,11 @@ private struct Header: View {
     }
 }
 
-struct Header_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        VStack {
-            Header("Mon-Thu/Sat", destination: .peaks)
-        }
-    }
+#Preview("Header") {
+    Header("Mon-Thu/Sat", destination: .peaks)
 }
 
+// MARK: HeaderCell
 private struct HeaderCell: View {
     let content: String
     
@@ -99,13 +116,12 @@ private struct HeaderCell: View {
     }
 }
 
-struct HeaderCell_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        VStack {
-            HeaderCell("Depart Peaks")
-        }
+#Preview("Header Cell") {
+    VStack(spacing: .spacing) {
+        HeaderCell("Depart Peaks")
+            .backgroundColor(.haze)
+        HeaderCell()
+            .backgroundColor(.haze)
     }
 }
 
@@ -137,27 +153,21 @@ private struct Row: View {
     }
 }
 
-struct Row_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        VStack {
-            Row(Timetable.Trip(origin: Departure(Time(hour: 22, minute: 9), services: [
-                    .car
-                ]), destination: Departure(Time(hour: 22, minute: 9), services: [
-                    .car
-                ])))
-                .backgroundColor(.haze)
-            Row(Timetable.Trip(destination: Departure(Time(hour: 22, minute: 9), deviations: [
-                    .only(.saturday)
-                ])))
-                .backgroundColor(.haze)
-        }
+#Preview("Row") {
+    VStack(spacing: .spacing) {
+        Row(Timetable.Trip(origin: Departure(Time(hour: 22, minute: 9), services: [
+                .car
+            ]), destination: Departure(Time(hour: 22, minute: 9), services: [
+                .car
+            ])))
+        Row(Timetable.Trip(destination: Departure(Time(hour: 22, minute: 9), deviations: [
+                .only(.saturday)
+            ])))
     }
 }
 
 // MARK: Cell
-private struct Cell<Content: View>: View {
+struct Cell<Content: View>: View {
     let alignment: HorizontalAlignment
     let content: () -> Content
     
@@ -180,21 +190,19 @@ private struct Cell<Content: View>: View {
     }
 }
 
-struct Cell_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
+#Preview("Cell") {
+    VStack(spacing: .spacing) {
         Cell {
             DepartureView(Departure(Time(hour: 22, minute: 9), services: [
-                    .car
-                ]))
+                .car
+            ]))
+        }
+        .backgroundColor(.haze)
+        Cell {
+            DepartureView()
         }
         .backgroundColor(.haze)
     }
-}
-
-private extension CGFloat {
-    static let spacing: Self = 3.5
 }
 
 private let _data: Data = """

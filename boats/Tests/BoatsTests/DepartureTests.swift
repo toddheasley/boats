@@ -39,12 +39,12 @@ extension DepartureTests {
     
     // MARK: HTMLConvertible
     func testHTMLInit() throws {
-        XCTAssertEqual(try Departure(from: "AM9:41 ∆").time, Time(hour: 9, minute: 41))
-        XCTAssertEqual(try Departure(from: "AM9:41 ∆").deviations, [.only(.monday), .only(.tuesday), .only(.wednesday), .only(.thursday), .only(.friday)])
-        XCTAssertEqual(try Departure(from: "AM9:41 ∆").services, [])
-        XCTAssertEqual(try Departure(from: "AM9:41 cf ⁕").time, Time(hour: 9, minute: 41))
-        XCTAssertEqual(try Departure(from: "AM9:41 cf ⁕").deviations, [.only(.friday), .only(.saturday)])
-        XCTAssertEqual(try Departure(from: "AM9:41 cf ⁕").services, [.car])
+        XCTAssertEqual(try Departure(from: "AM9:41 fso").time, Time(hour: 9, minute: 41))
+        XCTAssertEqual(try Departure(from: "AM9:41 fso").deviations, [.only(.friday), .only(.saturday)])
+        XCTAssertEqual(try Departure(from: "AM9:41 fso").services, [])
+        XCTAssertEqual(try Departure(from: "AM9:41 cf xf").time, Time(hour: 9, minute: 41))
+        XCTAssertEqual(try Departure(from: "AM9:41 cf xf").deviations, [.except(.friday)])
+        XCTAssertEqual(try Departure(from: "AM9:41 cf xf").services, [.car])
         XCTAssertEqual(try Departure(from: "PM9:41").time, Time(hour: 21, minute: 41))
         XCTAssertEqual(try Departure(from: "PM9:41").deviations, [])
         XCTAssertEqual(try Departure(from: "PM9:41").services, [])

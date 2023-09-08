@@ -25,9 +25,9 @@ struct App: SwiftUI.App {
         Window(title, id: index.uri) {
             IndexView()
                 .environment(index)
-                .frame(minWidth: 256.0, minHeight: 384.0)
+                .ignoresSafeArea()
         }
-        .defaultSize(width: 384.0, height: 512.0)
+        .defaultSize(width: .maxWidth, height: 512.0)
         .windowResizability(.contentMinSize)
         .windowStyle(.hiddenTitleBar)
         .commands {

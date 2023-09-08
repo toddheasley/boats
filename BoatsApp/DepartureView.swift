@@ -34,23 +34,19 @@ struct DepartureView: View {
     }
 }
 
-struct DepartureView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        VStack {
-            DepartureView(Departure(Time(), deviations: [
-                ], services: [
-                    .car
-                ]))
-                .backgroundColor(.haze)
-            DepartureView(Departure(Time(hour: 22, minute: 9), deviations: [
-                    .only(.saturday)
-                ]))
-                .backgroundColor(.haze)
-            DepartureView()
-                .backgroundColor(.haze)
-        }
+#Preview("Departure View") {
+    VStack {
+        DepartureView(Departure(Time(), deviations: [
+            ], services: [
+                .car
+            ]))
+            .backgroundColor(.haze)
+        DepartureView(Departure(Time(hour: 22, minute: 9), deviations: [
+                .only(.saturday)
+            ]))
+            .backgroundColor(.haze)
+        DepartureView()
+            .backgroundColor(.haze)
     }
 }
 
@@ -81,11 +77,6 @@ private struct DeviationsView: View {
     }
 }
 
-struct DeviationsView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        DeviationsView("Sat only")
-    }
+#Preview("Deviations View") {
+    DeviationsView("Sat only")
 }
-

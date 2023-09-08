@@ -12,21 +12,17 @@ extension SwiftUI.Color {
     }
 }
 
-struct Color_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        HStack {
-            VStack {
-                SwiftUI.Color.link
-                SwiftUI.Color.navy
-                SwiftUI.Color.aqua
-            }
-            VStack {
-                SwiftUI.Color.gold
-                SwiftUI.Color.haze
-                SwiftUI.Color.white
-            }
+#Preview("Color") {
+    HStack {
+        VStack {
+            SwiftUI.Color.link
+            SwiftUI.Color.navy
+            SwiftUI.Color.aqua
+        }
+        VStack {
+            SwiftUI.Color.gold
+            SwiftUI.Color.haze
+            SwiftUI.Color.white
         }
     }
 }
