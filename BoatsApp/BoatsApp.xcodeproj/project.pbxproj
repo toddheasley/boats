@@ -35,6 +35,15 @@
 		5C5847442A6C17D700ADB8F2 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D3CC02967AFF0007BB17C /* TimetableView.swift */; };
 		5C5847452A6C17D800ADB8F2 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D3CC02967AFF0007BB17C /* TimetableView.swift */; };
 		5C5847462A6C17D900ADB8F2 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D3CC02967AFF0007BB17C /* TimetableView.swift */; };
+		5C6E53C12AAE0F76009673E2 /* IndexTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C02AAE0F76009673E2 /* IndexTV.swift */; };
+		5C6E53C22AAE0F76009673E2 /* IndexTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C02AAE0F76009673E2 /* IndexTV.swift */; };
+		5C6E53C32AAE0F76009673E2 /* IndexTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C02AAE0F76009673E2 /* IndexTV.swift */; };
+		5C6E53C52AAE1DCD009673E2 /* SeasonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C42AAE1DCD009673E2 /* SeasonLabel.swift */; };
+		5C6E53C62AAE1DCD009673E2 /* SeasonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C42AAE1DCD009673E2 /* SeasonLabel.swift */; };
+		5C6E53C72AAE1DCD009673E2 /* SeasonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C42AAE1DCD009673E2 /* SeasonLabel.swift */; };
+		5C6E53C92AAE210E009673E2 /* RouteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C82AAE210E009673E2 /* RouteLabel.swift */; };
+		5C6E53CA2AAE210E009673E2 /* RouteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C82AAE210E009673E2 /* RouteLabel.swift */; };
+		5C6E53CB2AAE210E009673E2 /* RouteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C82AAE210E009673E2 /* RouteLabel.swift */; };
 		5C8C939928F8DC1D00916510 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013D28F8A7620038404E /* App.swift */; };
 		5C8C939D28F8DD3300916510 /* Boats in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8C939C28F8DD3300916510 /* Boats */; };
 		5C9A3BBF2A0B12B1009B6833 /* Boats.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5C9A3BB22A0B12AF009B6833 /* Boats.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -86,6 +95,9 @@
 		5C2D3CC02967AFF0007BB17C /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		5C472AA82AAA3E3200E846CB /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		5C472AB02AAA456F00E846CB /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		5C6E53C02AAE0F76009673E2 /* IndexTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexTV.swift; sourceTree = "<group>"; };
+		5C6E53C42AAE1DCD009673E2 /* SeasonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonLabel.swift; sourceTree = "<group>"; };
+		5C6E53C82AAE210E009673E2 /* RouteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteLabel.swift; sourceTree = "<group>"; };
 		5C70013D28F8A7620038404E /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5C70013F28F8A7620038404E /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
 		5C70014128F8A7630038404E /* App.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = App.xcassets; sourceTree = "<group>"; };
@@ -139,10 +151,13 @@
 				5C472AB02AAA456F00E846CB /* CGFloat.swift */,
 				5CDE4E372967A90E00897761 /* DepartureView.swift */,
 				5C9D288D2AAD66130028804E /* Font.swift */,
+				5C6E53C02AAE0F76009673E2 /* IndexTV.swift */,
 				5C70013F28F8A7620038404E /* IndexView.swift */,
 				5CCDFE6A2A567ABA005B9784 /* Index.swift */,
 				5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */,
+				5C6E53C82AAE210E009673E2 /* RouteLabel.swift */,
 				5C472AA82AAA3E3200E846CB /* ScrollView.swift */,
+				5C6E53C42AAE1DCD009673E2 /* SeasonLabel.swift */,
 				5C9D28852AACB0050028804E /* Text.swift */,
 				5C2D3CC02967AFF0007BB17C /* TimetableView.swift */,
 				5C833EBB29675EE5005D94F9 /* TimeView.swift */,
@@ -311,11 +326,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C472AB12AAA456F00E846CB /* CGFloat.swift in Sources */,
+				5C6E53C92AAE210E009673E2 /* RouteLabel.swift in Sources */,
 				5C5847442A6C17D700ADB8F2 /* TimetableView.swift in Sources */,
 				5C4796252A697E62000C833E /* DepartureView.swift in Sources */,
 				5C47961B2A696483000C833E /* TimeView.swift in Sources */,
+				5C6E53C12AAE0F76009673E2 /* IndexTV.swift in Sources */,
 				5CD7D28A2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */,
 				5C472AA92AAA3E3200E846CB /* ScrollView.swift in Sources */,
+				5C6E53C52AAE1DCD009673E2 /* SeasonLabel.swift in Sources */,
 				5C8C939928F8DC1D00916510 /* App.swift in Sources */,
 				5C5847412A6C0E1C00ADB8F2 /* IndexView.swift in Sources */,
 				5C9D288E2AAD66130028804E /* Font.swift in Sources */,
@@ -330,11 +348,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C472AB32AAA456F00E846CB /* CGFloat.swift in Sources */,
+				5C6E53CB2AAE210E009673E2 /* RouteLabel.swift in Sources */,
 				5C5847462A6C17D900ADB8F2 /* TimetableView.swift in Sources */,
 				5C4796272A697E64000C833E /* DepartureView.swift in Sources */,
 				5C229B4D2A0E617400D1FD7F /* App.swift in Sources */,
+				5C6E53C32AAE0F76009673E2 /* IndexTV.swift in Sources */,
 				5CD7D28C2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */,
 				5C472AAB2AAA3E3200E846CB /* ScrollView.swift in Sources */,
+				5C6E53C72AAE1DCD009673E2 /* SeasonLabel.swift in Sources */,
 				5CCDFE6D2A567ABA005B9784 /* Index.swift in Sources */,
 				5C5847432A6C0E1E00ADB8F2 /* IndexView.swift in Sources */,
 				5C9D28902AAD66130028804E /* Font.swift in Sources */,
@@ -349,11 +370,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C472AB22AAA456F00E846CB /* CGFloat.swift in Sources */,
+				5C6E53CA2AAE210E009673E2 /* RouteLabel.swift in Sources */,
 				5C5847452A6C17D800ADB8F2 /* TimetableView.swift in Sources */,
 				5C5847422A6C0E1D00ADB8F2 /* IndexView.swift in Sources */,
 				5C4796262A697E63000C833E /* DepartureView.swift in Sources */,
+				5C6E53C22AAE0F76009673E2 /* IndexTV.swift in Sources */,
 				5CD7D28B2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */,
 				5C472AAA2AAA3E3200E846CB /* ScrollView.swift in Sources */,
+				5C6E53C62AAE1DCD009673E2 /* SeasonLabel.swift in Sources */,
 				5C9A3BC72A0B1410009B6833 /* App.swift in Sources */,
 				5CCDFE6C2A567ABA005B9784 /* Index.swift in Sources */,
 				5C9D288F2AAD66130028804E /* Font.swift in Sources */,

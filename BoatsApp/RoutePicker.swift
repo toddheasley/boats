@@ -15,6 +15,7 @@ struct RoutePicker: View {
             isPresented = true
         }) {
             Label(title, systemImage: systemImage)
+                .foregroundColor(.secondary)
                 .padding(.vertical, -1.5)
         }
         .buttonStyle(.bordered)

@@ -1,7 +1,7 @@
 import SwiftUI
 import Boats
 
-@Observable class Index {
+@Observable class Index: CustomStringConvertible {
     var name: String { index.name }
     var uri: String { index.uri }
     var location: Location { index.location }
@@ -36,4 +36,7 @@ import Boats
     }
     
     private var index: Boats.Index = Boats.Index()
+    
+    // MARK: CustomStringConvertible
+    public var description: String { index.description }
 }

@@ -34,26 +34,12 @@ struct App: SwiftUI.App {
                 Link("Web Schedules", destination: Site.baseURL)
             }
         }
-        MenuBarExtra(content: {
-            VStack {
-                ForEach(index.routes) { route in
-                    Text("\(route.description)")
-                }
-                Divider()
-                Button("Quit Boats") {
-                    NSApplication.shared.terminate(nil)
-                }
-                .keyboardShortcut("q")
-            }
-        }) {
-            Text("Boats")
-        }
-#elseif os(iOS) || os(watchOS)
+#elseif os(tvOS)
         WindowGroup(title) {
-            IndexView()
+            IndexTV()
                 .environment(index)
         }
-#elseif os(tvOS)
+#else
         WindowGroup(title) {
             IndexView()
                 .environment(index)

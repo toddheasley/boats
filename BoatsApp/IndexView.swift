@@ -108,69 +108,6 @@ private struct Toolbar: View {
         .backgroundColor(.haze)
 }
 
-// MARK: RouteLabel
-private struct RouteLabel: View {
-    let route: Route?
-    
-    init(_ route: Route? = nil) {
-        self.route = route
-    }
-    
-    private var description: String {
-        return route?.description ?? ""
-    }
-    
-    // MARK: View
-    var body: some View {
-        HStack(spacing: 0.0) {
-            Text(description)
-                .head()
-                .lineLimit(1)
-            Spacer()
-        }
-    }
-}
-
-#Preview("Route Label") {
-    RouteLabel(.peaks)
-        .backgroundColor(.haze)
-}
-
-// MARK: SeasonLabel
-private struct SeasonLabel: View {
-    let season: Season?
-    
-    init(_ season: Season? = nil) {
-        self.season = season
-    }
-    
-    private var description: String {
-        return season?.description ?? "Schedule unavailable"
-    }
-    
-    // MARK: View
-    var body: some View {
-        HStack(spacing: 0.0) {
-            Text(description)
-#if os(watchOS)
-                .font(.footnote)
-#endif
-                .lineLimit(1)
-                .opacity(0.9)
-            Spacer()
-        }
-    }
-}
-
-#Preview("Season Label") {
-    VStack(spacing: .spacing) {
-        SeasonLabel(Season(.spring, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1681531200.0), duration: 5443199.0)))
-            .backgroundColor(.haze)
-        SeasonLabel()
-            .backgroundColor(.haze)
-    }
-}
-
 // MARK: Header
 private struct Header<Content: View>: View {
     let content: () -> Content

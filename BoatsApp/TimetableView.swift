@@ -19,6 +19,16 @@ struct TimetableView: View {
     
     // MARK: View
     var body: some View {
+#if os(tvOS)
+        VStack(spacing: .spacing) {
+            Header(timetable.description, origin: origin, destination: destination)
+                .clipped()
+            ForEach(timetable.trips.indices, id: \.self) { index in
+                Row(timetable.trips[index], index: index)
+            }
+        }
+        .clipped(corners: 10.0)
+#else
         Section(content: {
             VStack(spacing: .spacing) {
                 ForEach(trips.content.indices, id: \.self) { index in
@@ -27,30 +37,17 @@ struct TimetableView: View {
             }
         }, header: {
             Header(timetable.description, origin: origin, destination: destination)
-                .clipShape(
-                    .rect(
-                        topLeadingRadius: 10.0,
-                        bottomLeadingRadius: 0.0,
-                        bottomTrailingRadius: 0.0,
-                        topTrailingRadius: 10.0
-                    )
-                )
+                .clipped(corners: [10.0, 0.0, 0.0, 10.0])
                 .padding(.top)
                 .backgroundColor()
         }, footer: {
             if let trip = trips.footer {
                 Row(trip, index: trips.content.count)
-                    .clipShape(
-                        .rect(
-                            topLeadingRadius: 0.0,
-                            bottomLeadingRadius: 10.0,
-                            bottomTrailingRadius: 10.0,
-                            topTrailingRadius: 0.0
-                        )
-                    )
+                    .clipped(corners: [0.0, 10.0, 10.0, 0.0])
                     .padding(.bottom)
             }
         })
+#endif
     }
 }
 
@@ -74,7 +71,7 @@ private struct Header: View {
     
     private var insets: EdgeInsets {
 #if os(watchOS)
-        return EdgeInsets(top: 2.0, leading: 3.5, bottom: 1.0, trailing: 3.5)
+        return EdgeInsets(top: 2.0, leading: 3.5, bottom: 2.0, trailing: 3.5)
 #else
         return EdgeInsets(top: 7.5, leading: 5.0, bottom: 6.0, trailing: 5.0)
 #endif
@@ -86,7 +83,7 @@ private struct Header: View {
             if let title, !title.isEmpty {
                 Cell {
                     Text(title)
-                        .font(.headline)
+                        .font(.table)
                         .foregroundColor(.white, dark: .navy)
                         .padding(insets)
                 }
@@ -159,6 +156,7 @@ private struct Row: View {
             }
             .backgroundColor(color)
         }
+        .clipped()
     }
 }
 

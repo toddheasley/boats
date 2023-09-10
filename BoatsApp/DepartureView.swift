@@ -19,13 +19,15 @@ struct DepartureView: View {
     // MARK: View
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            HStack(alignment: .firstTextBaseline) {
+            HStack(alignment: .firstTextBaseline, spacing: .spacing) {
                 TimeView(departure?.time)
                     .font(.time)
                 Text(Service.car.emoji)
-                    .font(.system(.headline))
+                    .font(.time)
                     .opacity((departure?.isCarFerry ?? false) ? 1.0 : 0.0)
             }
+            .padding(.horizontal, .spacing)
+            .padding(.vertical, 1.0)
             DeviationsView(deviations)
                 .padding(.horizontal, 10.0)
                 .padding(.vertical, 1.0)
@@ -76,7 +78,7 @@ private struct DeviationsView: View {
                 .padding(insets)
                 .foregroundColor(.black)
                 .backgroundColor(.aqua)
-                .cornerRadius(2.5)
+                .clipped(corners: 2.5)
                 .shadow()
                 .accessibilityLabel(deviations)
 
