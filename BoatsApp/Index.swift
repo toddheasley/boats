@@ -10,7 +10,10 @@ import Boats
     var error: Error?
     
     var route: Route? {
-        set { UserDefaults.standard.set(newValue?.uri, forKey: "route") }
+        set {
+            UserDefaults.standard.set(newValue?.uri, forKey: "route")
+            index = nil ?? index
+        }
         get {
             let uri: String? = UserDefaults.standard.string(forKey: "route")
             return routes.first { $0.uri == uri } ?? routes.first
@@ -27,7 +30,7 @@ import Boats
     }
     
     init() {
-        Task {
+        Task(priority: .userInitiated) {
             await fetch()
         }
     }

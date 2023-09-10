@@ -55,7 +55,9 @@ struct TimetableView: View {
 }
 
 #Preview("Timetable View") {
-    TimetableView(try! JSONDecoder().decode(Timetable.self, from: _data))
+    VStack(spacing: .spacing) {
+        TimetableView(try! JSONDecoder().decode(Timetable.self, from: _data))
+    }
 }
 
 // MARK: Header
@@ -70,6 +72,14 @@ private struct Header: View {
         self.title = title
     }
     
+    private var insets: EdgeInsets {
+#if os(watchOS)
+        return EdgeInsets(top: 2.0, leading: 3.5, bottom: 1.0, trailing: 3.5)
+#else
+        return EdgeInsets(top: 7.5, leading: 5.0, bottom: 6.0, trailing: 5.0)
+#endif
+    }
+    
     // MARK: View
     var body: some View {
         VStack(spacing: .spacing) {
@@ -78,7 +88,7 @@ private struct Header: View {
                     Text(title)
                         .font(.headline)
                         .foregroundColor(.white, dark: .navy)
-                        .padding(EdgeInsets(top: 8.0, leading: 4.0, bottom: 5.0, trailing: 4.0))
+                        .padding(insets)
                 }
                 .backgroundColor(.navy, dark: .white.opacity(0.95))
             }
@@ -106,9 +116,8 @@ private struct HeaderCell: View {
     var body: some View {
         Cell {
             Text(content)
+                .tiny()
                 .lineLimit(1)
-                .textCase(.uppercase)
-                .font(.system(size: 9.5))
                 .foregroundColor(.black)
                 .padding(2.0)
         }

@@ -1,4 +1,5 @@
 import SwiftUI
+import BoatsWeb
 import Boats
 
 struct TimeView: View {
@@ -30,7 +31,7 @@ struct TimeView: View {
 }
 
 #Preview("Time View") {
-    VStack {
+    VStack(spacing: .spacing) {
         TimeView()
             .backgroundColor(.haze)
         TimeView(Time(hour: 22, minute: 9))

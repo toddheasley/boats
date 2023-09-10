@@ -12,19 +12,11 @@ struct App: SwiftUI.App {
     
     // MARK: App
     var body: some Scene {
-#if os(iOS)
-        WindowGroup(title) {
-            IndexView()
-                .environment(index)
-        }
-#elseif os(watchOS)
-        WindowGroup(title) {
-            Text(title)
-        }
-#elseif os(macOS)
+#if os(macOS)
         Window(title, id: index.uri) {
             IndexView()
                 .environment(index)
+                .frame(minWidth: 320.0, minHeight: .maxWidth)
                 .ignoresSafeArea()
         }
         .defaultSize(width: .maxWidth, height: 512.0)
@@ -42,7 +34,6 @@ struct App: SwiftUI.App {
                 Link("Web Schedules", destination: Site.baseURL)
             }
         }
-        /*
         MenuBarExtra(content: {
             VStack {
                 ForEach(index.routes) { route in
@@ -56,10 +47,16 @@ struct App: SwiftUI.App {
             }
         }) {
             Text("Boats")
-        } */
+        }
+#elseif os(iOS) || os(watchOS)
+        WindowGroup(title) {
+            IndexView()
+                .environment(index)
+        }
 #elseif os(tvOS)
         WindowGroup(title) {
-            Text(title)
+            IndexView()
+                .environment(index)
         }
 #endif
     }

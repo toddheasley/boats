@@ -21,13 +21,14 @@ struct DepartureView: View {
         ZStack(alignment: .bottomLeading) {
             HStack(alignment: .firstTextBaseline) {
                 TimeView(departure?.time)
-                    .font(.system(.largeTitle, weight: .bold))
+                    .font(.time)
                 Text(Service.car.emoji)
                     .font(.system(.headline))
                     .opacity((departure?.isCarFerry ?? false) ? 1.0 : 0.0)
             }
             DeviationsView(deviations)
-                .padding(2.0)
+                .padding(.horizontal, 10.0)
+                .padding(.vertical, 1.0)
         }
         .accessibilityLabel(departure?.description ?? "")
         .accessibility(hidden: departure == nil)
@@ -35,7 +36,7 @@ struct DepartureView: View {
 }
 
 #Preview("Departure View") {
-    VStack {
+    VStack(spacing: .spacing) {
         DepartureView(Departure(Time(), deviations: [
             ], services: [
                 .car
@@ -58,14 +59,20 @@ private struct DeviationsView: View {
         self.deviations = deviations
     }
     
-    private let insets: EdgeInsets = EdgeInsets(top: 2.0, leading: 2.5, bottom: 1.0, trailing: 2.5)
+    private var insets: EdgeInsets {
+#if os(watchOS)
+        return EdgeInsets(top: -1.0, leading: 1.0, bottom: -1.0, trailing: 1.0)
+#else
+        return EdgeInsets(top: 2.0, leading: 2.5, bottom: 1.0, trailing: 2.5)
+#endif
+    }
     
     // MARK: View
     var body: some View {
         if let deviations, !deviations.isEmpty {
             Text(deviations)
-                .textCase(.uppercase)
-                .font(.system(size: 9.5))
+                .tiny()
+                .lineLimit(1)
                 .padding(insets)
                 .foregroundColor(.black)
                 .backgroundColor(.aqua)

@@ -27,8 +27,7 @@ extension View {
 
 #Preview("Foreground Color") {
     Rectangle()
-        .foregroundColor(.black, dark: .white)
-        .frame(width: 128.0, height: 128.0)
+        .foregroundColor(.navy, dark: .white)
 }
 
 #Preview("Shadow") {

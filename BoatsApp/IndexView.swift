@@ -1,4 +1,5 @@
 import SwiftUI
+import BoatsWeb
 import Boats
 
 struct IndexView: View {
@@ -9,21 +10,32 @@ struct IndexView: View {
     var body: some View {
         VStack(spacing: 0.0) {
             Header(isScrolled: isScrolled) {
-                TitleLink(index.name, destination: index.url)
-                    .frame(maxWidth: .maxWidth)
-                    .padding(.horizontal)
-                    .padding(.vertical, 5.5)
-                TitleView(index.route?.description)
-                    .frame(maxWidth: .maxWidth)
-                    .padding(.horizontal)
-                    .padding(.bottom, 5.0)
-                    .padding(.top)
+#if os(watchOS)
+                HStack {
+                    RouteLabel(index.route)
+                    RoutePicker()
+                        .labelStyle(.iconOnly)
+                }
+                .padding(.top, -10.0)
+                .padding(.horizontal)
+                .padding(.bottom, 5.0)
+#else
+                VStack(spacing: 0.0) {
+                    Toolbar()
+                        .padding(.bottom)
+                    RouteLabel(index.route)
+                        .frame(maxWidth: .maxWidth)
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 5.0)
+                .padding(.top)
+#endif
             }
             ScrollView(onScroll: { offset in
                 isScrolled = offset.y < -5.0
             }) {
                 LazyVStack(spacing: .spacing, pinnedViews: [.sectionHeaders]) {
-                    SeasonView(index.route?.schedule()?.season)
+                    SeasonLabel(index.route?.schedule()?.season)
                         .padding(.top, 5.0)
                     ForEach(index.route?.schedule()?.timetables ?? []) { timetable in
                         TimetableView(timetable, origin: index.location, destination: index.route?.location)
@@ -36,7 +48,6 @@ struct IndexView: View {
                 await index.fetch()
             }
         }
-        .frame(minWidth: 320.0)
         .backgroundColor()
     }
 }
@@ -44,6 +55,120 @@ struct IndexView: View {
 #Preview("Index View") {
     IndexView()
         .environment(Index())
+}
+
+// MARK: Toolbar
+private struct Toolbar: View {
+    @Environment(Index.self) private var index: Index
+    
+    // MARK: View
+    var body: some View {
+#if os(macOS)
+        HStack(alignment: .top, spacing: 0.0) {
+            RoutePicker()
+                .labelStyle(.iconOnly)
+                .padding(.leading, -7.0)
+                .opacity(0.0)
+            Spacer()
+            Link(destination: index.url) {
+                Text(index.name.description)
+                    .lineLimit(1)
+            }
+            Spacer()
+            RoutePicker()
+                .labelStyle(.iconOnly)
+                .padding(.trailing, -7.0)
+                .padding(.top, 1.0)
+        }
+        .padding(.top, -9.0)
+#elseif os(iOS)
+        HStack(spacing: 0.0) {
+            Link(destination: index.url) {
+                Text(index.name.description)
+                    .lineLimit(1)
+            }
+            Spacer()
+            RoutePicker()
+                .labelStyle(.iconOnly)
+                .padding(.trailing, 5.0)
+        }
+        .frame(maxWidth: .maxWidth)
+        .padding(.horizontal, 1.5)
+        .padding(.top, -12.0)
+#elseif os(watchOS)
+        RoutePicker()
+            .labelStyle(.iconOnly)
+#endif
+    }
+}
+
+#Preview("Toolbar") {
+    Toolbar()
+        .environment(Index())
+        .backgroundColor(.haze)
+}
+
+// MARK: RouteLabel
+private struct RouteLabel: View {
+    let route: Route?
+    
+    init(_ route: Route? = nil) {
+        self.route = route
+    }
+    
+    private var description: String {
+        return route?.description ?? ""
+    }
+    
+    // MARK: View
+    var body: some View {
+        HStack(spacing: 0.0) {
+            Text(description)
+                .head()
+                .lineLimit(1)
+            Spacer()
+        }
+    }
+}
+
+#Preview("Route Label") {
+    RouteLabel(.peaks)
+        .backgroundColor(.haze)
+}
+
+// MARK: SeasonLabel
+private struct SeasonLabel: View {
+    let season: Season?
+    
+    init(_ season: Season? = nil) {
+        self.season = season
+    }
+    
+    private var description: String {
+        return season?.description ?? "Schedule unavailable"
+    }
+    
+    // MARK: View
+    var body: some View {
+        HStack(spacing: 0.0) {
+            Text(description)
+#if os(watchOS)
+                .font(.footnote)
+#endif
+                .lineLimit(1)
+                .opacity(0.9)
+            Spacer()
+        }
+    }
+}
+
+#Preview("Season Label") {
+    VStack(spacing: .spacing) {
+        SeasonLabel(Season(.spring, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1681531200.0), duration: 5443199.0)))
+            .backgroundColor(.haze)
+        SeasonLabel()
+            .backgroundColor(.haze)
+    }
 }
 
 // MARK: Header
@@ -67,13 +192,15 @@ private struct Header<Content: View>: View {
     }
 }
 
-#Preview("Cell") {
+#Preview("Header") {
     VStack {
-        Header(isScrolled: true) {
-            TitleView("Peaks Island")
-        }
         Header {
-            TitleView("Peaks Island")
+            Text("Chebeague Island")
+                .head()
+        }
+        Header(isScrolled: true) {
+            Text("Peaks Island")
+                .head()
         }
     }
 }

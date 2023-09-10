@@ -20,7 +20,7 @@ public struct Season: Codable, CustomStringConvertible {
         ]
     }
     
-    init(_ name: Name, dateInterval: DateInterval) {
+    public init(_ name: Name, dateInterval: DateInterval) {
         self.name = name
         self.dateInterval = dateInterval
     }
