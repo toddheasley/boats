@@ -1,10 +1,24 @@
+#if canImport(WidgetKit)
+import WidgetKit
+#endif
 import SwiftUI
 
 extension Font {
+#if canImport(WidgetKit)
+    static func head(_ widgetFamily: WidgetFamily?) -> Self {
+        switch widgetFamily {
+        case nil:
+            return head
+        case .systemExtraLarge:
+            return system(size: 28.0, weight: .semibold)
+        default:
+            return system(size: 15.0, weight: .semibold)
+        }
+    }
+    
+#endif
     static var head: Self {
-#if os(watchOS)
-        return system(.body, weight: .bold)
-#elseif os(tvOS)
+#if os(watchOS) || os(tvOS)
         return system(.body, weight: .semibold)
 #else
         return system(.title, weight: .semibold)
@@ -13,20 +27,37 @@ extension Font {
     
     static var season: Self {
 #if os(watchOS) || os(tvOS)
-        return system(size: 15.0, weight: .medium)
+        return system(size: 14.0, weight: .medium)
 #else
         return system(.body)
 #endif
     }
 
     static var table: Self {
-#if os(watchOS) || os(tvOS)
+#if os(watchOS)
+        return system(size: 12.0, weight: .semibold)
+#elseif os(tvOS)
         return system(size: 17.0, weight: .semibold)
 #else
         return system(.body, weight: .semibold)
 #endif
     }
     
+#if canImport(WidgetKit)
+    static func time(_ widgetFamily: WidgetFamily?) -> Self {
+        switch widgetFamily {
+        case nil:
+            return time
+        case .systemExtraLarge:
+            return system(size: 60.0, weight: .bold)
+        case .systemSmall:
+            return system(size: 20.0, weight: .bold)
+        default:
+            return system(size: 27.0, weight: .bold)
+        }
+    }
+    
+#endif
     static var time: Self {
 #if os(watchOS)
         return system(size: 14.0, weight: .semibold)
@@ -37,6 +68,19 @@ extension Font {
 #endif
     }
     
+#if canImport(WidgetKit)
+    static func tiny(_ widgetFamily: WidgetFamily?) -> Self {
+        switch widgetFamily {
+        case nil:
+            return tiny
+        case .systemExtraLarge:
+            return system(size: 14.0)
+        default:
+            return system(size: 8.0)
+        }
+    }
+    
+#endif
     static var tiny: Self {
 #if os(watchOS)
         return system(size: 8.0)
@@ -48,15 +92,15 @@ extension Font {
 
 #Preview("Font") {
     VStack {
-        Text("Head Font")
+        Text("Head")
             .font(.head)
-        Text("Season Font")
+        Text("Season")
             .font(.season)
-        Text("Table Font")
+        Text("Table")
             .font(.table)
-        Text("Time Font")
+        Text("Time")
             .font(.time)
-        Text("Tiny Font")
+        Text("Tiny")
             .font(.tiny)
     }
 }

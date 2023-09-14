@@ -3,9 +3,11 @@ import BoatsWeb
 import Boats
 
 struct SeasonLabel: View {
+    let alignment: HorizontalAlignment
     let season: Season?
     
-    init(_ season: Season? = nil) {
+    init(_ season: Season? = nil, alignment: HorizontalAlignment = .leading) {
+        self.alignment = alignment
         self.season = season
     }
     
@@ -15,13 +17,13 @@ struct SeasonLabel: View {
     
     // MARK: View
     var body: some View {
-        HStack(spacing: 0.0) {
+        Cell(alignment: alignment) {
             Text(description)
                 .font(.season)
                 .lineLimit(1)
                 .opacity(0.9)
-            Spacer()
         }
+        .accessibilityLabel(description)
     }
 }
 

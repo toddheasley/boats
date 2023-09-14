@@ -24,7 +24,7 @@ struct TimetableView: View {
             Header(timetable.description, origin: origin, destination: destination)
                 .clipped()
             ForEach(timetable.trips.indices, id: \.self) { index in
-                Row(timetable.trips[index], index: index)
+                TripView(timetable.trips[index], index: index)
             }
         }
         .clipped(corners: 10.0)
@@ -32,7 +32,7 @@ struct TimetableView: View {
         Section(content: {
             VStack(spacing: .spacing) {
                 ForEach(trips.content.indices, id: \.self) { index in
-                    Row(trips.content[index], index: index)
+                    TripView(trips.content[index], index: index)
                 }
             }
         }, header: {
@@ -42,7 +42,7 @@ struct TimetableView: View {
                 .backgroundColor()
         }, footer: {
             if let trip = trips.footer {
-                Row(trip, index: trips.content.count)
+                TripView(trip, index: trips.content.count)
                     .clipped(corners: [0.0, 10.0, 10.0, 0.0])
                     .padding(.bottom)
             }
@@ -53,7 +53,7 @@ struct TimetableView: View {
 
 #Preview("Timetable View") {
     VStack(spacing: .spacing) {
-        TimetableView(try! JSONDecoder().decode(Timetable.self, from: _data))
+        TimetableView(try! JSONDecoder().decode(Timetable.self, from: _data), origin: .portland, destination: .peaks)
     }
 }
 
@@ -90,126 +90,15 @@ private struct Header: View {
                 .backgroundColor(.navy, dark: .white.opacity(0.95))
             }
             HStack(spacing: .spacing) {
-                HeaderCell("Depart \(origin?.nickname ?? "origin")")
-                HeaderCell("Depart \(destination?.nickname ?? "destination")")
+                TripLabel(origin)
+                TripLabel(destination)
             }
         }
     }
 }
 
 #Preview("Header") {
-    Header("Mon-Thu/Sat", destination: .peaks)
-}
-
-// MARK: HeaderCell
-private struct HeaderCell: View {
-    let content: String
-    
-    init(_ content: String = "") {
-        self.content = content.isEmpty ? " " : content
-    }
-    
-    // MARK: View
-    var body: some View {
-        Cell {
-            Text(content)
-                .tiny()
-                .lineLimit(1)
-                .foregroundColor(.black)
-                .padding(2.0)
-        }
-        .backgroundColor(.aqua)
-    }
-}
-
-#Preview("Header Cell") {
-    VStack(spacing: .spacing) {
-        HeaderCell("Depart Peaks")
-            .backgroundColor(.haze)
-        HeaderCell()
-            .backgroundColor(.haze)
-    }
-}
-
-// MARK: Row
-private struct Row: View {
-    let trip: Timetable.Trip
-    let index: Int?
-    
-    init(_ trip: Timetable.Trip, index: Int? = nil) {
-        self.trip = trip
-        self.index = index
-        color = (index ?? 0) % 2 == 0 ? .haze : .clear
-    }
-    
-    private let color: Color
-    
-    // MARK: View
-    var body: some View {
-        HStack(alignment: .center, spacing: .spacing) {
-            Cell {
-                DepartureView(trip.origin)
-            }
-            .backgroundColor(color)
-            Cell {
-                DepartureView(trip.destination)
-            }
-            .backgroundColor(color)
-        }
-        .clipped()
-    }
-}
-
-#Preview("Row") {
-    VStack(spacing: .spacing) {
-        Row(Timetable.Trip(origin: Departure(Time(hour: 22, minute: 9), services: [
-                .car
-            ]), destination: Departure(Time(hour: 22, minute: 9), services: [
-                .car
-            ])))
-        Row(Timetable.Trip(destination: Departure(Time(hour: 22, minute: 9), deviations: [
-                .only(.saturday)
-            ])))
-    }
-}
-
-// MARK: Cell
-struct Cell<Content: View>: View {
-    let alignment: HorizontalAlignment
-    let content: () -> Content
-    
-    init(alignment: HorizontalAlignment = .leading, @ViewBuilder content: @escaping () -> Content) {
-        self.alignment = alignment
-        self.content = content
-    }
-    
-    // MARK: View
-    var body: some View {
-        HStack {
-            if alignment != .leading {
-                Spacer()
-            }
-            content()
-            if alignment != .trailing {
-                Spacer()
-            }
-        }
-    }
-}
-
-#Preview("Cell") {
-    VStack(spacing: .spacing) {
-        Cell {
-            DepartureView(Departure(Time(hour: 22, minute: 9), services: [
-                .car
-            ]))
-        }
-        .backgroundColor(.haze)
-        Cell {
-            DepartureView()
-        }
-        .backgroundColor(.haze)
-    }
+    Header("Mon-Thu/Sat", origin: .portland, destination: .peaks)
 }
 
 private let _data: Data = """

@@ -30,7 +30,7 @@ import Boats
     }
     
     init() {
-        Task(priority: .userInitiated) {
+        Task {
             await fetch()
         }
     }

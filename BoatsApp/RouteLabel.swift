@@ -1,3 +1,6 @@
+#if canImport(WidgetKit)
+import WidgetKit
+#endif
 import SwiftUI
 import BoatsWeb
 import Boats
@@ -9,18 +12,30 @@ struct RouteLabel: View {
         self.route = route
     }
     
-    private var description: String {
-        return route?.description ?? ""
-    }
+#if canImport(WidgetKit)
+    @Environment(\.widgetFamily) private var widgetFamily: WidgetFamily
     
+#endif
     // MARK: View
     var body: some View {
         HStack(spacing: 0.0) {
-            Text(description)
+#if canImport(WidgetKit)
+            switch widgetFamily {
+            case .systemSmall:
+                Text(route?.location.nickname ?? "")
+                    .head()
+            default:
+                Text(route?.location.name ?? "")
+                    .head()
+            }
+#else
+            Text(route?.location.name ?? "")
                 .head()
-                .lineLimit(1)
+#endif
             Spacer()
         }
+        .accessibilityLabel(route?.description ?? "")
+        .accessibilityHidden(route == nil)
     }
 }
 

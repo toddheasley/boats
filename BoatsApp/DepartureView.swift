@@ -21,9 +21,9 @@ struct DepartureView: View {
         ZStack(alignment: .bottomLeading) {
             HStack(alignment: .firstTextBaseline, spacing: .spacing) {
                 TimeView(departure?.time)
-                    .font(.time)
+                    .time()
                 Text(Service.car.emoji)
-                    .font(.time)
+                    .time()
                     .opacity((departure?.isCarFerry ?? false) ? 1.0 : 0.0)
             }
             .padding(.horizontal, .spacing)
@@ -74,12 +74,10 @@ private struct DeviationsView: View {
         if let deviations, !deviations.isEmpty {
             Text(deviations)
                 .tiny()
-                .lineLimit(1)
                 .padding(insets)
                 .foregroundColor(.black)
                 .backgroundColor(.aqua)
                 .clipped(corners: 2.5)
-                .shadow()
                 .accessibilityLabel(deviations)
 
         }

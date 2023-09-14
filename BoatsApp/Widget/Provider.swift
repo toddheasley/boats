@@ -6,6 +6,15 @@ struct Provider: AppIntentTimelineProvider {
     struct Intent: WidgetConfigurationIntent, CustomStringConvertible {
         @Parameter(title: "Route", default: .peaks) var route: RouteEnum
         
+        func fetch() async -> Route {
+            do {
+                let index: Boats.Index = try await URLSession.shared.index(.fetch)
+                return index.routes[route.rawValue]
+            } catch {
+                return Route.allCases[route.rawValue]
+            }
+        }
+        
         init(_ route: Route) {
             self.route = RouteEnum(route)
         }
@@ -15,8 +24,8 @@ struct Provider: AppIntentTimelineProvider {
         }
         
         // MARK: WidgetConfigurationIntent
-        static let title: LocalizedStringResource = "Title"
-        static let description: IntentDescription? = IntentDescription("Description")
+        static let title: LocalizedStringResource = "Boats"
+        static let description: IntentDescription? = IntentDescription("Upcoming Casco Bay Lines ferry departures for a selected island")
         
         // MARK: CustomStringConvertible
         var description: String {
@@ -28,8 +37,8 @@ struct Provider: AppIntentTimelineProvider {
         let route: Route
         let date: Date
         
-        init(_ date: Date = Date(), configuration: Intent = Intent()) {
-            route = configuration.route.route
+        init(_ date: Date = Date(), route: Route = .peaks) {
+            self.route = route
             self.date = date
         }
     }
@@ -47,16 +56,24 @@ struct Provider: AppIntentTimelineProvider {
     }
 
     func snapshot(for configuration: Intent, in context: Context) async -> Entry {
-        return Entry(configuration: configuration)
+        let route: Route = await configuration.fetch()
+        return Entry(route: route)
     }
     
     func timeline(for configuration: Intent, in context: Context) async -> Timeline<Entry> {
-        let secondsSince1970: Int = Int(Date().timeIntervalSince1970)
-        var entries: [Entry] = []
-        for second in 0...120 {
-            let date: Date = Date(timeIntervalSince1970: TimeInterval(secondsSince1970 + second))
-            entries.append(Entry(date, configuration: configuration))
-            entries.append(Entry(Date(timeInterval: 0.5, since: date), configuration: configuration))
+        let route: Route = await configuration.fetch()
+        
+        var entries: [Entry] = [
+            Entry(Date(), route: route)
+        ]
+        for dayTrip in route.dayTrips() {
+            let date: (origin: Date?, destination: Date?) = dayTrip.date
+            if let date: Date = date.origin {
+                entries.append(Entry(date, route: route))
+            }
+            if let date: Date = date.destination {
+                entries.append(Entry(date, route: route))
+            }
         }
         return Timeline(entries: entries, policy: .atEnd)
     }

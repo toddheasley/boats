@@ -8,6 +8,8 @@ struct IndexTV: View {
     var body: some View {
         VStack {
             Text("\(index.name) \(index.description)")
+                .font(.table)
+                .opacity(0.9)
             ScrollView(.horizontal) {
                 LazyHStack(alignment: .top) {
                     ForEach(index.routes) { route in
@@ -19,17 +21,17 @@ struct IndexTV: View {
                             VStack {
                                 RouteLabel(route)
                                 SeasonLabel(route.schedule()?.season)
-                                HStack(alignment: .top, spacing: 32.0) {
+                                HStack(alignment: .top, spacing: 40.0) {
                                     ForEach(route.schedule()?.timetables ?? []) { timetable in
                                         TimetableView(timetable, origin: index.location, destination: route.location)
                                     }
                                 }
                             }
-                            .padding(.vertical)
+                            .padding(.bottom)
                         }
                     }
                 }
-                .padding()
+                .padding(.vertical, 40.0)
             }
         }
         .backgroundColor()
