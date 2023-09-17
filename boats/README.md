@@ -1,6 +1,6 @@
 # `Boats` Package
 
-Libraries that build and drive Boats apps and web pages
+Libraries that build and drive the Boats app
 
 ### Supported Platforms
 
@@ -9,6 +9,7 @@ Written in [Swift](https://developer.apple.com/documentation/swift) 5.9 for Appl
 * [macOS](https://developer.apple.com/macos) 14 Sonoma
 * [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad)/[tvOS](https://developer.apple.com/tvos) 17
 * [watchOS](https://developer.apple.com/watchos) 10
+* [visionOS](https://developer.apple.com/visionos)
 
 Build with [Xcode](https://developer.apple.com/xcode) 15 or newer. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser)
 
@@ -20,7 +21,7 @@ Fetch, build and debug Boats schedules and web pages using a scriptable command-
 
 ### Example Usage
 
-Archive `boats-cli` target and move executable to a clean working directory. From any shell, `fetch` schedule data as a [pre-built JSON file](https://toddheasley.github.io/boats/index.json) hosted by GitHub:
+Archive `boats-cli` target and move executable into the desired build directory. From any shell, `fetch` schedule data as a [static JSON file](https://toddheasley.github.io/boats/index.json) hosted by GitHub:
 
 ```zsh
 ./boats-cli fetch
@@ -44,7 +45,7 @@ Rebuild existing local schedule data and generate static web pages:
 
 `BoatsWeb` extends the functionality of `Boats`:
 
-* Generating static web pages from schedule data
+* Generate static web pages from schedule data
 
 ### Example Usage
 
@@ -58,12 +59,12 @@ try Site(index).build(to: FileManager.default.temporaryDirectory)
 
 ## `Boats`
 
-`Boats` provides the complete Casco Bay Lines ferry schedule as a modeled interface that handles:
+`Boats` provides the complete Casco Bay Lines ferry schedule as a modeled interface:
 
-* Generating schedules automatically by crawling [cascobaylines.com](https://www.cascobaylines.com)
-* Fetching the current schedule remotely from GitHub
-* `Date`-based querying of timetables and departures
-* Caching schedules for offline use
+* Generate schedules automatically by crawling [cascobaylines.com](https://www.cascobaylines.com)
+* Fetch the current schedule remotely from GitHub
+* Query timetables and departures using `Date`
+* Cache schedules for offline use
 
 ### Example Usage
 

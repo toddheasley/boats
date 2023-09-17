@@ -133,8 +133,8 @@ extension View {
         return modifier(ForegroundColorModifier(any, dark: dark))
     }
     
-    func shadow() -> some View {
-        return shadow(color: .black.opacity(0.75), radius: 0.5, x: -0.5, y: 0.5)
+    func shadow(_ opacity: Double = 0.75) -> some View {
+        return shadow(color: .black.opacity(opacity), radius: 0.5, x: -0.5, y: 0.5)
     }
 }
 

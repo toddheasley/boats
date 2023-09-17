@@ -1,54 +1,32 @@
 # Boats
 
-Boats is an app that neatly presents the complete [Casco Bay Lines](https://cascobaylines.com) ferry schedule for Peaks Island, Little Diamond Island, Great Diamond Island, Diamond Cove, Long Island, Chebeague Island and Cliff Island.
+Boats is a friendly, Apple-native companion to [cascobaylines.com.](https://cascobaylines.com) It packs the complete Casco Bay Lines ferry schedule for Peaks Island, Little Diamond Island, Great Diamond Island, Diamond Cove, Long Island, Chebeague Island and Cliff Island into every possible widget and complication across macOS, iOS and watchOS.
 
 ![](docs/boats-app.png)
 
-Version 5 is a brand new design, built on a new [SwiftUI](https://developer.apple.com/xcode/swiftui) codebase
+Boats 5 is a completely new [SwiftUI](https://developer.apple.com/xcode/swiftui) app with an ultra-legible new design that merges CBL's quirky look and feel with the same big, bold type and fancy scrolling from previous versions. Boats even returns to the Mac as a true Cocoa app, including support for Sonoma desktop widgets:
 
-* Seamless offline schedule viewing
-* Complete coverage for holidays and other schedule deviations, such as departures that start or end mid-season
-* 
+![](docs/boats-mac.png)
 
 [![Download on the App Store](docs/download.svg)](https://itunes.apple.com/app/id1152562893)
 
-### `Boats` Package
-
-![](docs/boats-package.png)
-
-Libraries that build and drive Boats apps and web pages
-
-### Web Schedules
-
-Boats schedules are now also [__available on the web__](https://toddheasley.github.io/boats), with the same large type and mobile-friendly formatting.
-
 ### Supported Platforms
 
-Written in [Swift](https://developer.apple.com/documentation/swift) 5.8 for Apple stuff:
+Written in [Swift](https://developer.apple.com/documentation/swift) 5.9 for Apple stuff:
 
-* [macOS](https://developer.apple.com/macos) 13 Ventura
-* [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad)/[tvOS](https://developer.apple.com/tvos) 16
-* [watchOS](https://developer.apple.com/watchos) 9
+* [macOS](https://developer.apple.com/macos) 14 Sonoma
+* [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad) 17
+* [watchOS](https://developer.apple.com/watchos) 10
 
-Build with [Xcode](https://developer.apple.com/xcode) 14 or newer. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser)
+Build with [Xcode](https://developer.apple.com/xcode) 15 or newer. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser)
 
+![](docs/boats-web.png)
 
+![](docs/boats-cli.png)
 
-======================================
+Keep the next few ferries at a glance.
 
-Package
-[ ] README: description
-[ ] README: requirements/platform targets
-[ ] README: boats-cli.png (boats-cli-dark.png)
-[ ] README: boats-web.png (boats-web-dark.png)
-[ ] Web: bookmark icon
-[ ] Web: share image
-[ ] Web: favicon
+There's no onboarding, no account signup, no ads and no tracking. The only configuration is picking which island a widget should display. Worth the free download, whether you're a year-round commuter or just visiting for a few hours.
 
-Project/Repo
-[ ] README: description
-[ ] README: requirements/platform targets
-[ ] README: boats-app.png
-[ ] README: boats-mac.png
-[ ] README: boats-package.png
-[ ] README: web schedules
+* Seamless offline schedule viewing
+* Complete coverage for holidays and other schedule deviations, such as departures that start or end mid-season 

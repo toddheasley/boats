@@ -30,7 +30,7 @@ struct DepartureView: View {
             .padding(.vertical, 1.0)
             DeviationsView(deviations)
                 .padding(.horizontal, 10.0)
-                .padding(.vertical, 1.0)
+                .padding(.vertical, 3.5)
         }
         .accessibilityLabel(departure?.description ?? "")
         .accessibility(hidden: departure == nil)
@@ -65,7 +65,7 @@ private struct DeviationsView: View {
 #if os(watchOS)
         return EdgeInsets(top: -1.0, leading: 1.0, bottom: -1.0, trailing: 1.0)
 #else
-        return EdgeInsets(top: 2.0, leading: 2.5, bottom: 1.0, trailing: 2.5)
+        return EdgeInsets(top: 1.0, leading: 1.5, bottom: -1.0, trailing: 1.5)
 #endif
     }
     
@@ -78,6 +78,7 @@ private struct DeviationsView: View {
                 .foregroundColor(.black)
                 .backgroundColor(.aqua)
                 .clipped(corners: 2.5)
+                .shadow(0.25)
                 .accessibilityLabel(deviations)
 
         }
