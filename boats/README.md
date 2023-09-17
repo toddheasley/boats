@@ -1,6 +1,6 @@
 # `Boats` Package
 
-Libraries that build and drive the Boats app
+#### Libraries that build and drive the Boats app
 
 ### Supported Platforms
 

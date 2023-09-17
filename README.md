@@ -6,11 +6,21 @@ Boats packs the complete Casco Bay Lines ferry schedule for Peaks Island, Little
 
 ![](docs/boats-app.png)
 
-Boats 5 is a completely new [SwiftUI](https://developer.apple.com/xcode/swiftui) app with an ultra-legible new design that merges CBL's unique personality with the same big, bold type and fancy scrolling from previous versions. Boats even returns to the Mac as a true Cocoa app, including support for Sonoma desktop widgets:
+Boats 5 is a completely new [SwiftUI](https://developer.apple.com/xcode/swiftui) app with an ultra-legible new design that merges CBL's quirky visual identity with the same big, bold type and fancy scrolling from [previous versions.](/toddheasley/boats/tree/8ab4cc7c296ba422b48fee07cbd961746e705254) Boats even returns to the Mac as a true Cocoa app, including support for Sonoma desktop widgets:
 
 ![](docs/boats-mac.png)
 
 [![Download on the App Store](docs/download.svg)](https://itunes.apple.com/app/id1152562893)
+
+## Web Schedules
+
+![](docs/boats-web.png)
+
+Boats schedules are also [available on the web](https://toddheasley.github.io/boats), with the same large type and mobile-friendly formatting. 
+
+## Package Power
+
+![](docs/boats-cli.png)
 
 ### Supported Platforms
 
@@ -20,15 +30,4 @@ Written in [Swift](https://developer.apple.com/documentation/swift) 5.9 for Appl
 * [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad) 17
 * [watchOS](https://developer.apple.com/watchos) 10
 
-Build with [Xcode](https://developer.apple.com/xcode) 15 or newer. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser)
-
-![](docs/boats-web.png)
-
-![](docs/boats-cli.png)
-
-Keep the next few ferries at a glance.
-
-There's no onboarding, no account signup, no ads and no tracking. The only configuration is picking which island a widget should display. Worth the free download, whether you're a year-round commuter or just visiting for a few hours.
-
-* Seamless offline schedule viewing
-* Complete coverage for holidays and other schedule deviations, such as departures that start or end mid-season 
+Build with [Xcode](https://developer.apple.com/xcode) 15 or newer. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser 
