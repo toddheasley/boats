@@ -46,6 +46,7 @@ Rebuild existing local schedule data and generate static web pages:
 `BoatsWeb` extends the functionality of `Boats`:
 
 * Generate static web pages from schedule data
+* Vend shared icons and color palette 
 
 ### Example Usage
 
