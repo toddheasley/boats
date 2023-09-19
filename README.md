@@ -6,7 +6,7 @@ Boats packs the complete Casco Bay Lines ferry schedule for Peaks Island, Little
 
 ![](docs/boats-app.png)
 
-Boats 5 is a completely new [SwiftUI](https://developer.apple.com/xcode/swiftui) app with an ultra-legible new design that merges CBL's quirky visual identity with the same big, bold type and fancy scrolling from previous versions. Boats even returns to the Mac as a true Cocoa app, including support for Sonoma desktop widgets:
+Boats 5 is a completely new [SwiftUI](https://developer.apple.com/xcode/swiftui) app with an ultra-legible new design that merges CBL's quirky visual identity with the big, bold type and fancy scrolling from previous versions. Boats even returns to the Mac as a true Cocoa app, including support for Sonoma desktop widgets:
 
 ![](docs/boats-mac.png)
 
@@ -32,4 +32,4 @@ Written in [Swift](https://developer.apple.com/documentation/swift) 5.9 for Appl
 * [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad) 17
 * [watchOS](https://developer.apple.com/watchos) 10
 
-Build with [Xcode](https://developer.apple.com/xcode) 15 or newer. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser 
+Build with [Xcode](https://developer.apple.com/xcode) 15 or newer. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser)
