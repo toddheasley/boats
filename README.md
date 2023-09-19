@@ -16,11 +16,11 @@ Boats 5 is a completely new [SwiftUI](https://developer.apple.com/xcode/swiftui)
 
 ![](docs/boats-web.png)
 
-Boats schedules are also [available on the web](https://toddheasley.github.io/boats), with the same large type and mobile-friendly formatting. 
+Boats schedules are also [available on the web](https://toddheasley.github.io/boats), with the same large type and mobile-friendly format. 
 
-## Package Power
+## Total Package
 
-[`Boats` Package](boats)
+Everything needed to build Boats is [bundled as a local Swift package](boats), including a scriptable command-line interface for scraping and validating new schedules.
 
 ![](docs/boats-cli.png)
 
