@@ -1,6 +1,6 @@
 # Boats
 
-#### A friendly, Apple-native companion to [cascobaylines.com](https://cascobaylines.com)
+__A friendly, Apple-native companion to [cascobaylines.com](https://cascobaylines.com)__
 
 Boats packs the complete Casco Bay Lines ferry schedule for Peaks Island, Little Diamond Island, Great Diamond Island, Diamond Cove, Long Island, Chebeague Island and Cliff Island into every possible widget and complication across macOS, iOS and watchOS.
 
