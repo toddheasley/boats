@@ -28,6 +28,7 @@ struct ScrollView<Content: View>: View {
         .onPreferenceChange(OffsetPreferenceKey.self) { offset in
             onScroll?(offset)
         }
+        .contentMargins(.top, -0.1, for: .scrollIndicators)
     }
 }
 
