@@ -9,23 +9,15 @@ struct TripLabel: View {
         self.location = location
     }
     
-    private var description: String {
-        guard let location else {
-            return ""
-        }
-        return "Depart \(location.nickname)"
-    }
-    
     // MARK: View
     var body: some View {
         Cell {
-            Text(description)
+            Text(location?.direction ?? "")
                 .tiny()
                 .foregroundColor(.black)
                 .padding(2.0)
         }
         .backgroundColor(.aqua)
-        .accessibilityLabel(description)
     }
 }
 

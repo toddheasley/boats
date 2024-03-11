@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Deviation: CustomStringConvertible {
+public enum Deviation: CustomAccessibilityStringConvertible {
     case start(Date), end(Date), except(Day), only(Day)
     
     public var isExpired: Bool {
@@ -14,7 +14,18 @@ public enum Deviation: CustomStringConvertible {
         }
     }
     
-    // MARK: CustomStringConvertible
+    // MARK: CustomAccessibilityStringConvertible
+    public var accessibilityDescription: String {
+        switch self {
+        case .except(let day):
+            return "except \(day.accessibilityDescription)"
+        case .only(let day):
+            return "\(day.accessibilityDescription) only"
+        default:
+            return description
+        }
+    }
+    
     public var description: String {
         DateFormatter.shared.dateFormat = "M/d"
         switch self {
@@ -87,24 +98,6 @@ extension Deviation: Codable {
 }
 
 extension [Deviation] {
-    
-    // MARK: CustomStringConvertible
-    var description: String {
-        var components: [String] = []
-        if let start {
-            components.append(start.description)
-        }
-        if let end {
-            components.append(end.description)
-        }
-        if !except.isEmpty {
-            components.append("except \(except.description)")
-        } else if !only.isEmpty {
-            components.append("\(only.description) only")
-        }
-        return components.joined(separator: "; ")
-    }
-    
     private var start: Deviation? {
         for deviation in self {
             switch deviation {
@@ -153,5 +146,38 @@ extension [Deviation] {
             }
         }
         return days
+    }
+    
+    // MARK: CustomAccessibilityStringConvertible
+    public var accessibilityDescription: String {
+        var components: [String] = []
+        if let start {
+            components.append(start.accessibilityDescription)
+        }
+        if let end {
+            components.append(end.accessibilityDescription)
+        }
+        if !except.isEmpty {
+            components.append("except \(except.accessibilityDescription)")
+        } else if !only.isEmpty {
+            components.append("\(only.accessibilityDescription) only")
+        }
+        return components.joined(separator: "; ")
+    }
+    
+    var description: String {
+        var components: [String] = []
+        if let start {
+            components.append(start.description)
+        }
+        if let end {
+            components.append(end.description)
+        }
+        if !except.isEmpty {
+            components.append("except \(except.description)")
+        } else if !only.isEmpty {
+            components.append("\(only.description) only")
+        }
+        return components.joined(separator: "; ")
     }
 }

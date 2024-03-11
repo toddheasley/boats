@@ -1,4 +1,4 @@
-public struct Timetable: Codable, CustomStringConvertible {
+public struct Timetable: Codable, CustomAccessibilityStringConvertible {
     public struct Trip: Codable {
         public let origin: Departure?
         public let destination: Departure?
@@ -24,10 +24,9 @@ public struct Timetable: Codable, CustomStringConvertible {
         return trips
     }
     
-    // MARK: CustomStringConvertible
-    public var description: String {
-        return days.description
-    }
+    // MARK: CustomAccessibilityStringConvertible
+    public var accessibilityDescription: String { days.accessibilityDescription }
+    public var description: String { days.description }
 }
 
 extension Timetable.Trip: Identifiable {

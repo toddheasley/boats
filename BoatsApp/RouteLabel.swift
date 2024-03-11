@@ -34,6 +34,7 @@ struct RouteLabel: View {
 #endif
             Spacer()
         }
+        .accessibilityAddTraits(.isHeader)
         .accessibilityLabel(route?.description ?? "")
         .accessibilityHidden(route == nil)
     }

@@ -59,7 +59,23 @@ class TimeTests: XCTestCase {
         XCTAssertEqual(Time(Date(timeIntervalSince1970: 1542230400.0)), Time(hour: 16, minute: 20))
     }
     
-    // MARK: CustomStringConvertible
+    // MARK: CustomAccessibilityStringConvertible
+    func testAccessibilityDescription() {
+        DateFormatter.clockFormat = .twelveHour
+        XCTAssertEqual(Time(hour: 6, minute: 15).accessibilityDescription, "6:15AM")
+        XCTAssertEqual(Time(hour: 12, minute: 30).accessibilityDescription, "12:30PM")
+        XCTAssertEqual(Time(hour: 13, minute: 0).accessibilityDescription, "1:00PM")
+        XCTAssertEqual(Time(hour: 23, minute: 45).accessibilityDescription, "11:45PM")
+        XCTAssertEqual(Time(hour: 0, minute: 0).accessibilityDescription, "12:00AM")
+        DateFormatter.clockFormat = .twentyFourHour
+        XCTAssertEqual(Time(hour: 6, minute: 15).accessibilityDescription, "06:15")
+        XCTAssertEqual(Time(hour: 12, minute: 30).accessibilityDescription, "12:30")
+        XCTAssertEqual(Time(hour: 13, minute: 0).accessibilityDescription, "13:00")
+        XCTAssertEqual(Time(hour: 23, minute: 45).accessibilityDescription, "23:45")
+        XCTAssertEqual(Time(hour: 0, minute: 0).accessibilityDescription, "00:00")
+        DateFormatter.clockFormat = .system
+    }
+    
     func testDescription() {
         DateFormatter.clockFormat = .twelveHour
         XCTAssertEqual(Time(hour: 6, minute: 15).description, " 6:15 ")

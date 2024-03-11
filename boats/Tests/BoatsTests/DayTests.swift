@@ -22,7 +22,18 @@ class DayTests: XCTestCase {
         XCTAssertEqual(Day(Date(timeIntervalSince1970:  1587355200.0)), .monday)
     }
     
-    // MARK: CustomStringConvertible
+    // MARK: CustomAccessibilityStringConvertible
+    func testAccessibilityDescription() {
+        XCTAssertEqual(Day.monday.accessibilityDescription, "Monday")
+        XCTAssertEqual(Day.saturday.accessibilityDescription, "Saturday")
+        XCTAssertEqual([Day.monday, .tuesday, .wednesday, .thursday].accessibilityDescription, "Monday through Thursday")
+        XCTAssertEqual([Day.monday, .tuesday, .wednesday, .friday].accessibilityDescription, "Monday through Wednesday and Friday")
+        XCTAssertEqual([Day.thursday, .friday, .saturday, .monday].accessibilityDescription, "Monday and Thursday through Saturday")
+        XCTAssertEqual([Day.saturday, .sunday].accessibilityDescription, "Saturday and Sunday")
+        XCTAssertEqual([Day.tuesday, .thursday, .friday].accessibilityDescription, "Tuesday and Thursday and Friday")
+        XCTAssertEqual([Day.sunday, .tuesday].accessibilityDescription, "Tuesday and Sunday")
+    }
+    
     func testDescription() {
         XCTAssertEqual(Day.monday.description, "Mon")
         XCTAssertEqual(Day.saturday.description, "Sat")

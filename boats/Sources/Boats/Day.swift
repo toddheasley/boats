@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Day: String, CaseIterable, Codable, CustomStringConvertible {
+public enum Day: String, CaseIterable, Codable, CustomAccessibilityStringConvertible {
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday
     
     public static let weekdays: [Self] = [.monday, .tuesday, .wednesday, .thursday, .friday]
@@ -15,10 +15,9 @@ public enum Day: String, CaseIterable, Codable, CustomStringConvertible {
         self = DateFormatter.shared.day(from: date)
     }
     
-    // MARK: CustomStringConvertible
-    public var description: String {
-        return "\(rawValue.capitalized.prefix(3))"
-    }
+    // MARK: CustomAccessibilityStringConvertible
+    public var accessibilityDescription: String { rawValue.capitalized }
+    public var description: String { "\(rawValue.capitalized.prefix(3))" }
 }
 
 extension Day: HTMLConvertible {
@@ -50,10 +49,8 @@ extension Day: HTMLConvertible {
     }
 }
 
-extension [Day] {
-    
-    // MARK: CustomStringConvertible
-    var description: String {
+extension [Day]: CustomAccessibilityStringConvertible {
+    private var ranges: [Self] {
         let indices: [Int] = map { day in
             return Day.allCases.firstIndex(of: day)!
         }.sorted()
@@ -80,12 +77,30 @@ extension [Day] {
             }
         }
         flush()
+        return ranges.map { $0.map { Day.allCases[$0] } }
+    }
+    
+    // MARK: CustomAccessibilityStringConvertible
+    public var accessibilityDescription: String {
         var strings: [String] = []
         for range in ranges {
             if range.count > 1 {
-                strings.append("\(Day.allCases[range.first!])-\(Day.allCases[range.last!])")
+                strings.append("\(range.first!.accessibilityDescription) through \(range.last!.accessibilityDescription)")
             } else {
-                strings.append("\(Day.allCases[range.first!])")
+                strings.append("\(range.first!.accessibilityDescription)")
+            }
+        }
+        return strings.joined(separator: " and ")
+        
+    }
+    
+    var description: String {
+        var strings: [String] = []
+        for range in ranges {
+            if range.count > 1 {
+                strings.append("\(range.first!)-\(range.last!)")
+            } else {
+                strings.append("\(range.first!)")
             }
         }
         return strings.joined(separator: "/")

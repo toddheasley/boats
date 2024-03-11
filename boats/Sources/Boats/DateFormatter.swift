@@ -22,9 +22,15 @@ extension DateFormatter {
         }
     }
     
-    func description(from date: Date) -> String {
-        dateFormat = "MMM d"
-        return string(from: date)
+    func accessibilityDescription(from dateInterval: DateInterval) -> String {
+        let year: (start: Int, end: Int) = (self.year(from: dateInterval.start), self.year(from: dateInterval.end))
+        dateFormat = "MMMM d"
+        switch year.start {
+        case year.end:
+            return "\(string(from: dateInterval.start)) through \(string(from: dateInterval.end)), \(year.end)"
+        default:
+            return "\(string(from: dateInterval.start)), \(year.start) through \(string(from: dateInterval.end)), \(year.end)"
+        }
     }
     
     func description(from dateInterval: DateInterval) -> String {
@@ -36,6 +42,11 @@ extension DateFormatter {
         default:
             return "\(string(from: dateInterval.start)), \(year.start)-\(string(from: dateInterval.end)), \(year.end)"
         }
+    }
+    
+    func description(from date: Date) -> String {
+        dateFormat = "MMM d"
+        return string(from: date)
     }
     
     func time(from date: Date) -> Time {

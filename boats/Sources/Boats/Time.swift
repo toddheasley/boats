@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Time: CustomStringConvertible {
+public struct Time: CustomAccessibilityStringConvertible {
     public let interval: TimeInterval
     
     public var minute: Int {
@@ -48,10 +48,19 @@ public struct Time: CustomStringConvertible {
         self = DateFormatter.shared.time(from: date)
     }
     
-    // MARK: CustomStringConvertible
-    public var description: String {
-        return components(empty: DateFormatter.shared.is24Hour ? "" : " ").joined()
+    // MARK: CustomAccessibilityStringConvertible
+    public var accessibilityDescription: String {
+        guard !DateFormatter.shared.is24Hour else {
+            return description
+        }
+        let description: String = components().joined()
+        guard description.hasSuffix(".") else {
+            return "\(description)AM"
+        }
+        return "\(description.dropLast())PM"
     }
+    
+    public var description: String { components(empty: DateFormatter.shared.is24Hour ? "" : " ").joined() }
 }
 
 extension Time: Comparable {

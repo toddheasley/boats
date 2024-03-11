@@ -14,7 +14,16 @@ class DeviationTests: XCTestCase {
         XCTAssertFalse(Deviation.only(Day()).isExpired)
     }
     
-    // MARK: CustomStringConvertible
+    // MARK: CustomAccessibilityStringConvertible
+    func testAccessibilityDescription() {
+        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1593864000.0)).accessibilityDescription, "starts 7/4")
+        XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1877860800.0)).accessibilityDescription, "started 7/4")
+        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1877860800.0)).accessibilityDescription, "ends 7/4")
+        XCTAssertEqual(Deviation.end(Date(timeIntervalSince1970: 1593864000.0)).accessibilityDescription, "ended 7/4")
+        XCTAssertEqual(Deviation.except(.sunday).accessibilityDescription, "except Sunday")
+        XCTAssertEqual(Deviation.only(.friday).accessibilityDescription, "Friday only")
+    }
+    
     func testDescription() {
         XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1593864000.0)).description, "starts 7/4")
         XCTAssertEqual(Deviation.start(Date(timeIntervalSince1970: 1877860800.0)).description, "started 7/4")
