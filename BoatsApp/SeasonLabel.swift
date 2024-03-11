@@ -11,19 +11,17 @@ struct SeasonLabel: View {
         self.season = season
     }
     
-    private var description: String {
-        return season?.description ?? "Schedule unavailable"
-    }
+    private let description: String = "Schedule unavailable"
     
     // MARK: View
     var body: some View {
         Cell(alignment: alignment) {
-            Text(description)
+            Text(season?.description ?? description)
                 .font(.season)
                 .lineLimit(1)
                 .opacity(0.9)
         }
-        .accessibilityLabel(description)
+        .accessibilityLabel(season?.accessibilityDescription ?? description)
     }
 }
 

@@ -24,10 +24,19 @@ class DepartureTests: XCTestCase {
         DateFormatter.clockFormat = .system
     }
     
-    // MARK: CustomStringConvertible
+    // MARK: CustomAccessibilityStringConvertible
+    func testAccessibilityDescription() {
+        DateFormatter.clockFormat = .twelveHour
+        XCTAssertEqual(Departure(Time(hour: 9, minute: 41), deviations: [.start(Date(timeIntervalSince1970: 1540958400.0)), .except(.sunday), .except(.monday)]).accessibilityDescription, "9:41AM starts 10/31; except Monday and Sunday")
+        XCTAssertEqual(Departure(Time(hour: 21, minute: 41), deviations: [.end(Date(timeIntervalSince1970: 1540958400.0))], services: [.car]).accessibilityDescription, "9:41PM car ended 10/31")
+        XCTAssertEqual(Departure(Time(hour: 21, minute: 41), services: [.car]).accessibilityDescription, "9:41PM car")
+        XCTAssertEqual(Departure(Time(hour: 21, minute: 41)).accessibilityDescription, "9:41PM")
+        DateFormatter.clockFormat = .system
+    }
+    
     func testDescription() {
         DateFormatter.clockFormat = .twelveHour
-        XCTAssertEqual(Departure(Time(hour: 9, minute: 41), deviations: [.start(Date(timeIntervalSince1970: 1540958400.0)), .except(.sunday)]).description, " 9:41  starts 10/31; except Sun")
+        XCTAssertEqual(Departure(Time(hour: 9, minute: 41), deviations: [.start(Date(timeIntervalSince1970: 1540958400.0)), .except(.sunday), .except(.monday)]).description, " 9:41  starts 10/31; except Mon/Sun")
         XCTAssertEqual(Departure(Time(hour: 21, minute: 41), deviations: [.end(Date(timeIntervalSince1970: 1540958400.0))], services: [.car]).description, " 9:41. car ended 10/31")
         XCTAssertEqual(Departure(Time(hour: 21, minute: 41), services: [.car]).description, " 9:41. car")
         XCTAssertEqual(Departure(Time(hour: 21, minute: 41)).description, " 9:41.")

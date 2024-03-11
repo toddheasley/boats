@@ -24,8 +24,6 @@ struct TimeView: View {
             Text(components[5])
         }
         .opacity(time == nil ? 0.0 : 1.0)
-        .accessibilityLabel(time?.description ?? "")
-        .accessibility(hidden: time == nil)
         .monospacedDigit()
     }
 }

@@ -28,12 +28,15 @@ struct DepartureView: View {
             }
             .padding(.horizontal, .spacing)
             .padding(.vertical, 1.0)
+            .accessibilityHidden(true)
             DeviationsView(deviations)
                 .padding(.horizontal, 10.0)
                 .padding(.vertical, 3.5)
+                .accessibilityHidden(true)
         }
-        .accessibilityLabel(departure?.description ?? "")
-        .accessibility(hidden: departure == nil)
+        .accessibilityElement()
+        .accessibilityLabel(departure?.accessibilityDescription ?? "")
+        .accessibilityHidden(departure == nil)
     }
 }
 
@@ -79,8 +82,6 @@ private struct DeviationsView: View {
                 .backgroundColor(.aqua)
                 .clipped(corners: 2.5)
                 .shadow(0.25)
-                .accessibilityLabel(deviations)
-
         }
     }
 }

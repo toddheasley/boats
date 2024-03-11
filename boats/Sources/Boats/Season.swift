@@ -1,34 +1,24 @@
 import Foundation
 
-public struct Season: Codable, CustomStringConvertible {
+public struct Season: Codable, CustomAccessibilityStringConvertible {
     public enum Name: String, CaseIterable, Codable, CustomStringConvertible {
         case spring, summer, fall, winter
         
         // MARK: CustomStringConvertible
-        public var description: String {
-            return rawValue.capitalized
-        }
+        public var description: String { rawValue.capitalized }
     }
     
     public let name: Name
     public let dateInterval: DateInterval
-    
-    public func components() -> [String] {
-        return [
-            name.description,
-            DateFormatter.shared.description(from: dateInterval)
-        ]
-    }
     
     public init(_ name: Name, dateInterval: DateInterval) {
         self.name = name
         self.dateInterval = dateInterval
     }
     
-    // MARK: CustomStringConvertible
-    public var description: String {
-        return components().joined(separator: ": ")
-    }
+    // MARK: CustomAccessibilityStringConvertible
+    public var accessibilityDescription: String { "\(name) Schedule: \(DateFormatter.shared.accessibilityDescription(from: dateInterval))" }
+    public var description: String { "\(name): \(DateFormatter.shared.description(from: dateInterval))" }
 }
 
 extension Season: HTMLConvertible {

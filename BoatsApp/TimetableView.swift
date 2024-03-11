@@ -4,10 +4,10 @@ import Boats
 
 struct TimetableView: View {
     let timetable: Timetable
-    let origin: Location?
-    let destination: Location?
+    let origin: Location
+    let destination: Location
     
-    init(_ timetable: Timetable, origin: Location? = nil, destination: Location? = nil) {
+    init(_ timetable: Timetable, origin: Location = .portland, destination: Location) {
         self.timetable = timetable
         self.origin = origin
         self.destination = destination
@@ -32,17 +32,17 @@ struct TimetableView: View {
         Section(content: {
             VStack(spacing: .spacing) {
                 ForEach(trips.content.indices, id: \.self) { index in
-                    TripView(trips.content[index], index: index)
+                    TripView(trips.content[index], destination: destination, index: index)
                 }
             }
         }, header: {
-            Header(timetable.description, origin: origin, destination: destination)
+            Header(timetable, origin: origin, destination: destination)
                 .clipped(corners: [10.0, 0.0, 0.0, 10.0])
                 .padding(.top)
                 .backgroundColor()
         }, footer: {
             if let trip = trips.footer {
-                TripView(trip, index: trips.content.count)
+                TripView(trip, destination: destination, index: trips.content.count)
                     .clipped(corners: [0.0, 10.0, 10.0, 0.0])
                     .padding(.bottom)
             }
@@ -59,14 +59,14 @@ struct TimetableView: View {
 
 // MARK: Header
 private struct Header: View {
+    let timetable: Timetable?
     let origin: Location?
     let destination: Location?
-    let title: String?
     
-    init(_ title: String? = nil, origin: Location? = nil, destination: Location? = nil) {
+    init(_ timetable: Timetable? = nil, origin: Location? = nil, destination: Location? = nil) {
+        self.timetable = timetable
         self.origin = origin
         self.destination = destination
-        self.title = title
     }
     
     private var insets: EdgeInsets {
@@ -80,12 +80,13 @@ private struct Header: View {
     // MARK: View
     var body: some View {
         VStack(spacing: .spacing) {
-            if let title, !title.isEmpty {
+            if let timetable {
                 Cell {
-                    Text(title)
+                    Text(timetable.description)
                         .font(.table)
                         .foregroundColor(.white, dark: .navy)
                         .padding(insets)
+                        .accessibilityLabel(timetable.accessibilityDescription)
                 }
                 .backgroundColor(.navy, dark: .white.opacity(0.95))
             }
@@ -93,12 +94,13 @@ private struct Header: View {
                 TripLabel(origin)
                 TripLabel(destination)
             }
+            .accessibilityHidden(true)
         }
     }
 }
 
 #Preview("Header") {
-    Header("Mon-Thu/Sat", origin: .portland, destination: .peaks)
+    Header(try? JSONDecoder().decode(Timetable.self, from: _data), origin: .portland, destination: .peaks)
 }
 
 private let _data: Data = """

@@ -8,7 +8,19 @@ class CLLocationCoordinate2DTests: XCTestCase {
 
 extension CLLocationCoordinate2DTests {
     
-    // MARK: CustomStringConvertible
+    // MARK: CustomAccessibilityStringConvertible
+    func testAccessibilityDescription() {
+        XCTAssertEqual(CLLocationCoordinate2D.portland.accessibilityDescription, "43.65651° latitude, -70.24825° longitude")
+        XCTAssertEqual(CLLocationCoordinate2D.peaks.accessibilityDescription, "43.65552° latitude, -70.19932° longitude")
+        XCTAssertEqual(CLLocationCoordinate2D.littleDiamond.accessibilityDescription, "43.66277° latitude, -70.20959° longitude")
+        XCTAssertEqual(CLLocationCoordinate2D.greatDiamond.accessibilityDescription, "43.67075° latitude, -70.19969° longitude")
+        XCTAssertEqual(CLLocationCoordinate2D.diamondCove.accessibilityDescription, "43.68472° latitude, -70.19129° longitude")
+        XCTAssertEqual(CLLocationCoordinate2D.long.accessibilityDescription, "43.69136° latitude, -70.16471° longitude")
+        XCTAssertEqual(CLLocationCoordinate2D.chebeague.accessibilityDescription, "43.71599° latitude, -70.12612° longitude")
+        XCTAssertEqual(CLLocationCoordinate2D.cliff.accessibilityDescription, "43.69490° latitude, -70.10967° longitude")
+        XCTAssertEqual(CLLocationCoordinate2D.bailey.accessibilityDescription, "43.74896° latitude, -69.99104° longitude")
+    }
+    
     func testDescription() {
         XCTAssertEqual(CLLocationCoordinate2D.portland.description, "43.65651°, -70.24825°")
         XCTAssertEqual(CLLocationCoordinate2D.peaks.description, "43.65552°, -70.19932°")

@@ -38,7 +38,7 @@ struct IndexView: View {
                     SeasonLabel(index.route?.schedule()?.season)
                         .padding(.top, 5.0)
                     ForEach(index.route?.schedule()?.timetables ?? []) { timetable in
-                        TimetableView(timetable, origin: index.location, destination: index.route?.location)
+                        TimetableView(timetable, origin: index.location, destination: index.route!.location)
                     }
                 }
                 .frame(maxWidth: .maxWidth)
@@ -69,6 +69,7 @@ private struct Toolbar: View {
                 .labelStyle(.iconOnly)
                 .padding(.leading, -7.0)
                 .opacity(0.0)
+                .accessibilityHidden(true)
             Spacer()
             Link(destination: index.url) {
                 Text(index.name.description)

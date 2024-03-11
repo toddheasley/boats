@@ -1,16 +1,13 @@
 import CoreLocation
 
-extension CLLocationCoordinate2D: CustomStringConvertible, Equatable {
+extension CLLocationCoordinate2D: CustomAccessibilityStringConvertible, Equatable {
     
-    // MARK: CustomStringConvertible
-    public var description: String {
-        return String(format: "%.5f°, %.5f°", latitude, longitude)
-    }
+    // MARK: CustomAccessibilityStringConvertible
+    public var accessibilityDescription: String { String(format: "%.5f° latitude, %.5f° longitude", latitude, longitude) }
+    public var description: String { String(format: "%.5f°, %.5f°", latitude, longitude) }
     
     // MARK: Equatable
-    public static func ==(x: Self, y: Self) -> Bool {
-        return x.description == y.description
-    }
+    public static func ==(x: Self, y: Self) -> Bool { x.description == y.description }
 }
 
 extension CLLocationCoordinate2D: Codable {

@@ -1,13 +1,11 @@
 import Foundation
 
-public struct Departure: Codable, CustomStringConvertible {
+public struct Departure: Codable, CustomAccessibilityStringConvertible {
     public let time: Time
     public let deviations: [Deviation]
     public let services: [Service]
     
-    public var isCarFerry: Bool {
-        return services.contains(.car)
-    }
+    public var isCarFerry: Bool { services.contains(.car) }
     
     public func components(empty string: String? = "") -> [String] {
         return [
@@ -23,10 +21,16 @@ public struct Departure: Codable, CustomStringConvertible {
         self.services = services
     }
     
-    // MARK: CustomStringConvertible
-    public var description: String {
-        return components(empty: nil).joined(separator: " ")
+    // MARK: CustomAccessibilityStringConvertible
+    public var accessibilityDescription: String {
+        return [
+            time.accessibilityDescription,
+            (isCarFerry ? Service.car.description : ""),
+            deviations.accessibilityDescription
+        ].compactMap { !$0.isEmpty ? $0 : nil }.joined(separator: " ")
     }
+    
+    public var description: String { components(empty: nil).joined(separator: " ") }
 }
 
 extension Departure: HTMLConvertible {

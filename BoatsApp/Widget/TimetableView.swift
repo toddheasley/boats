@@ -37,16 +37,15 @@ struct TimetableView: View {
                     TripLabel(.portland)
                     TripLabel(route.location)
                 }
+                .accessibilityHidden(true)
                 ForEach(dayTrips.indices, id: \.self) { index in
-                    TripView(dayTrips[index].trip, index: index)
+                    TripView(dayTrips[index].trip, destination: route.location, index: index)
                 }
             } else if !localDepartures.isEmpty {
                 ForEach(localDepartures.indices, id: \.self) { index in
                     TripLabel(localDepartures[index].location)
-                    Cell {
-                        DepartureView(localDepartures[index].departure)
-                    }
-                    .backgroundColor(index)
+                        .accessibilityHidden(true)
+                    DepartureCell(localDepartures[index].departure, location: localDepartures[index].location , index: index)
                 }
             } else {
                 VStack {

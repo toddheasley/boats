@@ -93,6 +93,16 @@
 		5CCDFE6B2A567ABA005B9784 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDFE6A2A567ABA005B9784 /* Index.swift */; };
 		5CCDFE6C2A567ABA005B9784 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDFE6A2A567ABA005B9784 /* Index.swift */; };
 		5CCDFE6D2A567ABA005B9784 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDFE6A2A567ABA005B9784 /* Index.swift */; };
+		5CCE6D482B9EA9BB000FED77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D472B9EA9BB000FED77 /* Location.swift */; };
+		5CCE6D492B9EA9BB000FED77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D472B9EA9BB000FED77 /* Location.swift */; };
+		5CCE6D4A2B9EA9BB000FED77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D472B9EA9BB000FED77 /* Location.swift */; };
+		5CCE6D4B2B9EA9BB000FED77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D472B9EA9BB000FED77 /* Location.swift */; };
+		5CCE6D4C2B9EA9BB000FED77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D472B9EA9BB000FED77 /* Location.swift */; };
+		5CCE6D4E2B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
+		5CCE6D4F2B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
+		5CCE6D502B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
+		5CCE6D512B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
+		5CCE6D522B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
 		5CD7D28A2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */; };
 		5CD7D28B2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */; };
 		5CD7D28C2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */; };
@@ -209,6 +219,8 @@
 		5C9D288D2AAD66130028804E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		5CAF20BF2A11A161003F1026 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		5CCDFE6A2A567ABA005B9784 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
+		5CCE6D472B9EA9BB000FED77 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureCell.swift; sourceTree = "<group>"; };
 		5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePicker.swift; sourceTree = "<group>"; };
 		5CDE4E372967A90E00897761 /* DepartureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureView.swift; sourceTree = "<group>"; };
 		5CFCD5032AAE4E1600706772 /* Boats.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Boats.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,12 +296,14 @@
 				5C01561028F8DB70004934F5 /* App.entitlements */,
 				5C70013D28F8A7620038404E /* App.swift */,
 				5C472AB02AAA456F00E846CB /* CGFloat.swift */,
+				5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */,
 				5CDE4E372967A90E00897761 /* DepartureView.swift */,
 				5C589EF32AB0ED520016766C /* Cell.swift */,
 				5C9D288D2AAD66130028804E /* Font.swift */,
 				5C6E53C02AAE0F76009673E2 /* IndexTV.swift */,
 				5C70013F28F8A7620038404E /* IndexView.swift */,
 				5CCDFE6A2A567ABA005B9784 /* Index.swift */,
+				5CCE6D472B9EA9BB000FED77 /* Location.swift */,
 				5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */,
 				5C6E53C82AAE210E009673E2 /* RouteLabel.swift */,
 				5CFCD5442AAEA9BE00706772 /* Route.swift */,
@@ -561,6 +575,7 @@
 				5C6E53C92AAE210E009673E2 /* RouteLabel.swift in Sources */,
 				5C5847442A6C17D700ADB8F2 /* TimetableView.swift in Sources */,
 				5C4796252A697E62000C833E /* DepartureView.swift in Sources */,
+				5CCE6D482B9EA9BB000FED77 /* Location.swift in Sources */,
 				5C589EF42AB0ED520016766C /* Cell.swift in Sources */,
 				5C47961B2A696483000C833E /* TimeView.swift in Sources */,
 				5CFCD5452AAEA9BE00706772 /* Route.swift in Sources */,
@@ -571,6 +586,7 @@
 				5C8C939928F8DC1D00916510 /* App.swift in Sources */,
 				5C5847412A6C0E1C00ADB8F2 /* IndexView.swift in Sources */,
 				5C9523B82AB1EC1C0014E1C5 /* Font.swift in Sources */,
+				5CCE6D4E2B9EAE80000FED77 /* DepartureCell.swift in Sources */,
 				5C6702DE2AB11B4C0014E72E /* TripLabel.swift in Sources */,
 				5C47961E2A696DAD000C833E /* View.swift in Sources */,
 				5CCDFE6B2A567ABA005B9784 /* Index.swift in Sources */,
@@ -585,6 +601,7 @@
 				5C6E53CB2AAE210E009673E2 /* RouteLabel.swift in Sources */,
 				5C5847462A6C17D900ADB8F2 /* TimetableView.swift in Sources */,
 				5C4796272A697E64000C833E /* DepartureView.swift in Sources */,
+				5CCE6D4A2B9EA9BB000FED77 /* Location.swift in Sources */,
 				5C229B4D2A0E617400D1FD7F /* App.swift in Sources */,
 				5C6702E02AB11B4C0014E72E /* TripLabel.swift in Sources */,
 				5C589EF62AB0ED520016766C /* Cell.swift in Sources */,
@@ -595,6 +612,7 @@
 				5C589EFC2AB0EE8C0016766C /* TripView.swift in Sources */,
 				5C9523BA2AB1EC1E0014E1C5 /* Font.swift in Sources */,
 				5C6E53C72AAE1DCD009673E2 /* SeasonLabel.swift in Sources */,
+				5CCE6D502B9EAE80000FED77 /* DepartureCell.swift in Sources */,
 				5CCDFE6D2A567ABA005B9784 /* Index.swift in Sources */,
 				5C4796202A696DB1000C833E /* View.swift in Sources */,
 				5C47961D2A696484000C833E /* TimeView.swift in Sources */,
@@ -609,6 +627,7 @@
 				5C6E53CA2AAE210E009673E2 /* RouteLabel.swift in Sources */,
 				5C5847452A6C17D800ADB8F2 /* TimetableView.swift in Sources */,
 				5C5847422A6C0E1D00ADB8F2 /* IndexView.swift in Sources */,
+				5CCE6D492B9EA9BB000FED77 /* Location.swift in Sources */,
 				5C4796262A697E63000C833E /* DepartureView.swift in Sources */,
 				5C6702DF2AB11B4C0014E72E /* TripLabel.swift in Sources */,
 				5C589EF52AB0ED520016766C /* Cell.swift in Sources */,
@@ -619,6 +638,7 @@
 				5C589EFB2AB0EE8C0016766C /* TripView.swift in Sources */,
 				5C9523B92AB1EC1D0014E1C5 /* Font.swift in Sources */,
 				5C9A3BC72A0B1410009B6833 /* App.swift in Sources */,
+				5CCE6D4F2B9EAE80000FED77 /* DepartureCell.swift in Sources */,
 				5CCDFE6C2A567ABA005B9784 /* Index.swift in Sources */,
 				5C47961F2A696DAF000C833E /* View.swift in Sources */,
 				5C47961C2A696483000C833E /* TimeView.swift in Sources */,
@@ -642,8 +662,10 @@
 				5C621BE02AB324050040D8B7 /* AccessoryRectangularView.swift in Sources */,
 				5C40F1162AAFE54100117056 /* View.swift in Sources */,
 				5C621BE42AB331410040D8B7 /* AccessoryCircularView.swift in Sources */,
+				5CCE6D4B2B9EA9BB000FED77 /* Location.swift in Sources */,
 				5C9523C42AB254940014E1C5 /* SeasonLabel.swift in Sources */,
 				5CFCD53F2AAE76D000706772 /* Provider.swift in Sources */,
+				5CCE6D512B9EAE80000FED77 /* DepartureCell.swift in Sources */,
 				5C589EE22AB09F220016766C /* TimeView.swift in Sources */,
 				5CFCD5482AAEA9BE00706772 /* Route.swift in Sources */,
 				5C621BEA2AB3386E0040D8B7 /* AccessoryLabel.swift in Sources */,
@@ -669,8 +691,10 @@
 				5C621BE12AB324050040D8B7 /* AccessoryRectangularView.swift in Sources */,
 				5C40F1172AAFE54300117056 /* View.swift in Sources */,
 				5C621BE52AB331410040D8B7 /* AccessoryCircularView.swift in Sources */,
+				5CCE6D4C2B9EA9BB000FED77 /* Location.swift in Sources */,
 				5C9523C52AB254950014E1C5 /* SeasonLabel.swift in Sources */,
 				5CFCD5402AAE76D000706772 /* Provider.swift in Sources */,
+				5CCE6D522B9EAE80000FED77 /* DepartureCell.swift in Sources */,
 				5C589EE32AB09F230016766C /* TimeView.swift in Sources */,
 				5CFCD5492AAEA9BE00706772 /* Route.swift in Sources */,
 				5C621BEB2AB3386E0040D8B7 /* AccessoryLabel.swift in Sources */,
@@ -712,7 +736,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 42;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
@@ -739,7 +763,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = auto;
@@ -764,7 +788,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 42;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
@@ -791,7 +815,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
 				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = auto;
@@ -825,7 +849,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
 				PRODUCT_MODULE_NAME = BoatsTVApp;
 				PRODUCT_NAME = "$(inherited)";
@@ -857,7 +881,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
 				PRODUCT_MODULE_NAME = BoatsTVApp;
 				PRODUCT_NAME = "$(inherited)";
@@ -923,7 +947,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2015-2023 toddheasley";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2015-2024 toddheasley";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -982,7 +1006,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2015-2023 toddheasley";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2015-2024 toddheasley";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
@@ -1016,7 +1040,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp;
 				PRODUCT_MODULE_NAME = BoatsWatchApp;
 				PRODUCT_NAME = "$(inherited)";
@@ -1052,7 +1076,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats.watchkitapp;
 				PRODUCT_MODULE_NAME = BoatsWatchApp;
 				PRODUCT_NAME = "$(inherited)";

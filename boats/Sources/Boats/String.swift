@@ -1,5 +1,13 @@
 import Foundation
 
+public protocol CustomAccessibilityStringConvertible: CustomStringConvertible {
+    var accessibilityDescription: String { get }
+}
+
+extension CustomAccessibilityStringConvertible {
+    public var accessibilityDescription: String { description }
+}
+
 extension String {
     func find(_ pattern: Self) -> [Self] {
         guard let expression: NSRegularExpression = try? NSRegularExpression(pattern: pattern, options: [.caseInsensitive, .dotMatchesLineSeparators]) else {
