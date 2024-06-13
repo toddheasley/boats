@@ -21,10 +21,10 @@ struct TimetableView: View {
     var body: some View {
 #if os(tvOS)
         VStack(spacing: .spacing) {
-            Header(timetable.description, origin: origin, destination: destination)
+            Header(timetable, origin: origin, destination: destination)
                 .clipped()
             ForEach(timetable.trips.indices, id: \.self) { index in
-                TripView(timetable.trips[index], index: index)
+                TripView(timetable.trips[index], destination: destination, index: index)
             }
         }
         .clipped(corners: 10.0)

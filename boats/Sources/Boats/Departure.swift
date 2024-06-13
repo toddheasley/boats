@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Departure: Codable, CustomAccessibilityStringConvertible {
+public struct Departure: Sendable, Codable, CustomAccessibilityStringConvertible {
     public let time: Time
     public let deviations: [Deviation]
     public let services: [Service]

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Route: Codable, CustomStringConvertible {
+public struct Route: Sendable, Codable, CustomStringConvertible {
     public let location: Location
     public let services: [Service]
     public let uri: String

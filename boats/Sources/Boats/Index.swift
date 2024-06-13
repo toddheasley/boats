@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Index: Codable, CustomStringConvertible {
+public struct Index: Sendable, Codable, CustomStringConvertible {
     public let name: String
     public let uri: String
     public let location: Location

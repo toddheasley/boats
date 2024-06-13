@@ -1,5 +1,5 @@
-public struct Timetable: Codable, CustomAccessibilityStringConvertible {
-    public struct Trip: Codable {
+public struct Timetable: Sendable, Codable, CustomAccessibilityStringConvertible {
+    public struct Trip: Sendable, Codable {
         public let origin: Departure?
         public let destination: Departure?
         

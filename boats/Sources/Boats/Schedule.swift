@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Schedule: Codable {
+public struct Schedule: Sendable, Codable {
     public let season: Season
     public let timetables: [Timetable]
     

@@ -1,6 +1,6 @@
 import CoreLocation
 
-public struct Location: Codable, CustomStringConvertible {
+public struct Location: Sendable, Codable, CustomStringConvertible {
     public let coordinate: CLLocationCoordinate2D
     public let name: String
     

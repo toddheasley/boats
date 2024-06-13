@@ -1,7 +1,7 @@
 import Foundation
 
-public struct Season: Codable, CustomAccessibilityStringConvertible {
-    public enum Name: String, CaseIterable, Codable, CustomStringConvertible {
+public struct Season: Sendable, Codable, CustomAccessibilityStringConvertible {
+    public enum Name: String, Sendable, CaseIterable, Codable, CustomStringConvertible {
         case spring, summer, fall, winter
         
         // MARK: CustomStringConvertible

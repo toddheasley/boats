@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Deviation: CustomAccessibilityStringConvertible {
+public enum Deviation: Sendable, CustomAccessibilityStringConvertible {
     case start(Date), end(Date), except(Day), only(Day)
     
     public var isExpired: Bool {

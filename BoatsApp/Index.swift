@@ -1,7 +1,8 @@
 import SwiftUI
 import Boats
 
-@Observable class Index: CustomStringConvertible {
+@MainActor
+@Observable final class Index: Sendable, @preconcurrency CustomStringConvertible {
     var name: String { index.name }
     var uri: String { index.uri }
     var location: Location { index.location }

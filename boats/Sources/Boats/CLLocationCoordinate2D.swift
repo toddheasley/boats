@@ -1,6 +1,7 @@
 import CoreLocation
 
-extension CLLocationCoordinate2D: CustomAccessibilityStringConvertible, Equatable {
+extension CLLocationCoordinate2D: @retroactive CustomStringConvertible {}
+extension CLLocationCoordinate2D: CustomAccessibilityStringConvertible, @retroactive Equatable {
     
     // MARK: CustomAccessibilityStringConvertible
     public var accessibilityDescription: String { String(format: "%.5f° latitude, %.5f° longitude", latitude, longitude) }
@@ -29,7 +30,7 @@ extension CLLocationCoordinate2D: Codable {
     }
 }
 
-extension CLLocationCoordinate2D: CaseIterable {
+extension CLLocationCoordinate2D: @retroactive CaseIterable {
     public static let portland: Self = Self(latitude: 43.65651, longitude: -70.24825)
     public static let peaks: Self = Self(latitude: 43.65552, longitude: -70.19932)
     public static let littleDiamond: Self = Self(latitude: 43.66277, longitude: -70.20959)

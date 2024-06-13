@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Time: CustomAccessibilityStringConvertible {
+public struct Time: Sendable, CustomAccessibilityStringConvertible {
     public let interval: TimeInterval
     
     public var minute: Int {
