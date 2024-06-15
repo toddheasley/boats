@@ -1,3 +1,5 @@
+import Foundation
+
 public struct Timetable: Sendable, Codable, CustomAccessibilityStringConvertible {
     public struct Trip: Sendable, Codable {
         public let origin: Departure?

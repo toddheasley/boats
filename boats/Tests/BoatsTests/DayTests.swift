@@ -1,63 +1,68 @@
-import XCTest
+import Testing
 @testable import Boats
+import Foundation
 
-class DayTests: XCTestCase {
-    func testWeekdays() {
-        XCTAssertEqual(Day.weekdays, [.monday, .tuesday, .wednesday, .thursday, .friday])
+struct DayTests {
+    @Test func weekdays() {
+        #expect(Day.weekdays == [.monday, .tuesday, .wednesday, .thursday, .friday])
     }
     
-    func testWeek() {
-        XCTAssertEqual(Day.week(beginning: .sunday), [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday])
-        XCTAssertEqual(Day.week(beginning: .monday), [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday])
-        XCTAssertEqual(Day.week(beginning: .tuesday), [.tuesday, .wednesday, .thursday, .friday, .saturday, .sunday, .monday])
-        XCTAssertEqual(Day.week(beginning: .wednesday), [.wednesday, .thursday, .friday, .saturday, .sunday, .monday, .tuesday])
-        XCTAssertEqual(Day.week(beginning: .thursday), [.thursday, .friday, .saturday, .sunday, .monday, .tuesday, .wednesday])
-        XCTAssertEqual(Day.week(beginning: .friday), [.friday, .saturday, .sunday, .monday, .tuesday, .wednesday, .thursday])
-        XCTAssertEqual(Day.week(beginning: .saturday), [.saturday, .sunday, .monday, .tuesday, .wednesday, .thursday, .friday])
-        XCTAssertEqual(Day.week().first, Day())
+    @Test func week() {
+        #expect(Day.week(beginning: .sunday) == [.sunday, .monday, .tuesday, .wednesday, .thursday, .friday, .saturday])
+        #expect(Day.week(beginning: .monday) == [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday])
+        #expect(Day.week(beginning: .tuesday) == [.tuesday, .wednesday, .thursday, .friday, .saturday, .sunday, .monday])
+        #expect(Day.week(beginning: .wednesday) == [.wednesday, .thursday, .friday, .saturday, .sunday, .monday, .tuesday])
+        #expect(Day.week(beginning: .thursday) == [.thursday, .friday, .saturday, .sunday, .monday, .tuesday, .wednesday])
+        #expect(Day.week(beginning: .friday) == [.friday, .saturday, .sunday, .monday, .tuesday, .wednesday, .thursday])
+        #expect(Day.week(beginning: .saturday) == [.saturday, .sunday, .monday, .tuesday, .wednesday, .thursday, .friday])
+        #expect(Day.week().first == Day())
     }
     
-    func testDateInit() {
-        XCTAssertEqual(Day(Date(timeIntervalSince1970:  1524196800.0)), .friday)
-        XCTAssertEqual(Day(Date(timeIntervalSince1970:  1587355200.0)), .monday)
+    @Test func dateInit() {
+        #expect(Day(Date(timeIntervalSince1970:  1524196800.0)) == .friday)
+        #expect(Day(Date(timeIntervalSince1970:  1587355200.0)) == .monday)
     }
     
     // MARK: CustomAccessibilityStringConvertible
-    func testAccessibilityDescription() {
-        XCTAssertEqual(Day.monday.accessibilityDescription, "Monday")
-        XCTAssertEqual(Day.saturday.accessibilityDescription, "Saturday")
-        XCTAssertEqual([Day.monday, .tuesday, .wednesday, .thursday].accessibilityDescription, "Monday through Thursday")
-        XCTAssertEqual([Day.monday, .tuesday, .wednesday, .friday].accessibilityDescription, "Monday through Wednesday and Friday")
-        XCTAssertEqual([Day.thursday, .friday, .saturday, .monday].accessibilityDescription, "Monday and Thursday through Saturday")
-        XCTAssertEqual([Day.saturday, .sunday].accessibilityDescription, "Saturday and Sunday")
-        XCTAssertEqual([Day.tuesday, .thursday, .friday].accessibilityDescription, "Tuesday and Thursday and Friday")
-        XCTAssertEqual([Day.sunday, .tuesday].accessibilityDescription, "Tuesday and Sunday")
+    @Test func accessibilityDescription() {
+        #expect(Day.monday.accessibilityDescription == "Monday")
+        #expect(Day.saturday.accessibilityDescription == "Saturday")
+        #expect([Day.monday, .tuesday, .wednesday, .thursday].accessibilityDescription == "Monday through Thursday")
+        #expect([Day.monday, .tuesday, .wednesday, .friday].accessibilityDescription == "Monday through Wednesday and Friday")
+        #expect([Day.thursday, .friday, .saturday, .monday].accessibilityDescription == "Monday and Thursday through Saturday")
+        #expect([Day.saturday, .sunday].accessibilityDescription == "Saturday and Sunday")
+        #expect([Day.tuesday, .thursday, .friday].accessibilityDescription == "Tuesday and Thursday and Friday")
+        #expect([Day.sunday, .tuesday].accessibilityDescription == "Tuesday and Sunday")
     }
     
-    func testDescription() {
-        XCTAssertEqual(Day.monday.description, "Mon")
-        XCTAssertEqual(Day.saturday.description, "Sat")
-        XCTAssertEqual([Day.monday, .tuesday, .wednesday, .thursday].description, "Mon-Thu")
-        XCTAssertEqual([Day.monday, .tuesday, .wednesday, .friday].description, "Mon-Wed/Fri")
-        XCTAssertEqual([Day.thursday, .friday, .saturday, .monday].description, "Mon/Thu-Sat")
-        XCTAssertEqual([Day.saturday, .sunday].description, "Sat/Sun")
-        XCTAssertEqual([Day.tuesday, .thursday, .friday].description, "Tue/Thu/Fri")
-        XCTAssertEqual([Day.sunday, .tuesday].description, "Tue/Sun")
+    @Test func description() {
+        #expect(Day.monday.description == "Mon")
+        #expect(Day.saturday.description == "Sat")
+        #expect([Day.monday, .tuesday, .wednesday, .thursday].description == "Mon-Thu")
+        #expect([Day.monday, .tuesday, .wednesday, .friday].description == "Mon-Wed/Fri")
+        #expect([Day.thursday, .friday, .saturday, .monday].description == "Mon/Thu-Sat")
+        #expect([Day.saturday, .sunday].description == "Sat/Sun")
+        #expect([Day.tuesday, .thursday, .friday].description == "Tue/Thu/Fri")
+        #expect([Day.sunday, .tuesday].description == "Tue/Sun")
     }
 }
 
 extension DayTests {
     
     // MARK: HTMLConvertible
-    func testHTMLInit() {
-        XCTAssertEqual(try? Day(from: "Su"), .sunday)
-        XCTAssertEqual(try? Day(from: "Monday"), .monday)
-        XCTAssertEqual(try? Day(from: "Tues."), .tuesday)
-        XCTAssertEqual(try? Day(from: "Wed"), .wednesday)
-        XCTAssertEqual(try? Day(from: "Thurs"), .thursday)
-        XCTAssertEqual(try? Day(from: "Friday"), .friday)
-        XCTAssertEqual(try? Day(from: "Sa."), .saturday)
-        XCTAssertNil(try? Day(from: "Day"))
-        XCTAssertNil(try? Day(from: "S"))
+    @Test func htmlInit() throws {
+        #expect(try Day(from: "Su") == .sunday)
+        #expect(try Day(from: "Monday") == .monday)
+        #expect(try Day(from: "Tues.") == .tuesday)
+        #expect(try Day(from: "Wed") == .wednesday)
+        #expect(try Day(from: "Thurs") == .thursday)
+        #expect(try Day(from: "Friday") == .friday)
+        #expect(try Day(from: "Sa.") == .saturday)
+        #expect(throws: Error.self) {
+            try Day(from: "Day")
+        }
+        #expect(throws: Error.self) {
+            try Day(from: "S")
+        }
     }
 }

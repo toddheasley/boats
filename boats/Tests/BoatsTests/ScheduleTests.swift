@@ -1,32 +1,31 @@
-import XCTest
+import Testing
 @testable import Boats
+import Foundation
 
-class ScheduleTests: XCTestCase {
-    func testIsExpired() {
-        XCTAssertEqual(Schedule(season: Season(.spring, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1523678400.0), end: Date(timeIntervalSince1970: 1529121599.9))), timetables: []).isExpired, Date() > Date(timeIntervalSince1970: 1529121599.9))
-        XCTAssertEqual(Schedule(season: Season(.winter, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1539057600), end: Date(timeIntervalSince1970: 1546664399.9))), timetables: []).isExpired, Date() > Date(timeIntervalSince1970: 1546664399.9))
+struct ScheduleTests {
+    @Test func isExpired() {
+        #expect(Schedule(season: Season(.spring, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1523678400.0), end: Date(timeIntervalSince1970: 1529121599.9))), timetables: []).isExpired == (Date() > Date(timeIntervalSince1970: 1529121599.9)))
+        #expect(Schedule(season: Season(.winter, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1539057600), end: Date(timeIntervalSince1970: 1546664399.9))), timetables: []).isExpired == (Date() > Date(timeIntervalSince1970: 1546664399.9)))
     }
     
-    func testTimetable() {
+    @Test func timetable() {
         let schedule: Schedule = Schedule(season: Season(.summer, dateInterval: DateInterval(start: Date(timeIntervalSince1970: 1529121600.0), end: Date(timeIntervalSince1970: 1536033599.9))), timetables: [
             Timetable(trips: [Timetable.Trip()], days: [.monday, .tuesday, .wednesday, .thursday]),
             Timetable(trips: [Timetable.Trip(), Timetable.Trip()], days: [.friday, .saturday])
         ])
-        XCTAssertEqual(schedule.timetable(for: .saturday)?.trips.count, 2)
-        XCTAssertEqual(schedule.timetable(for: .tuesday)?.trips.count, 1)
+        #expect(schedule.timetable(for: .saturday)?.trips.count == 2)
+        #expect(schedule.timetable(for: .tuesday)?.trips.count == 1)
     }
 }
 
 extension ScheduleTests {
     
     // MARK: HTMLConvertible
-    func testHTMLInit() {
-        guard let html: String = String(data: HTML_Data, encoding: .utf8), !html.isEmpty else {
-            XCTFail()
-            return
-        }
-        XCTAssertEqual(try? Schedule(from: html).season.name, .winter)
-        XCTAssertEqual(try? Schedule(from: html).timetables.count, 4)
+    @Test func htmlInit() throws {
+        let html: String = try #require(String(data: HTML_Data, encoding: .utf8))
+        #expect(!html.isEmpty)
+        #expect(try Schedule(from: html).season.name == .winter)
+        #expect(try Schedule(from: html).timetables.count == 4)
     }
 }
 

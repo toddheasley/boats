@@ -1,42 +1,37 @@
-import XCTest
+import Testing
 @testable import Boats
+import Foundation
 
-class IndexTests: XCTestCase {
-    func testRoutesInit() {
-        XCTAssertEqual(Index().name, "Casco Bay Lines")
-        XCTAssertEqual(Index().description, "Ferry Schedules")
-        XCTAssertEqual(Index().uri, "index")
-        XCTAssertEqual(Index().location, .portland)
-        XCTAssertEqual(Index(routes: [.bailey]).routes, [.bailey])
-        XCTAssertEqual(Index().routes, Route.allCases)
-        XCTAssertEqual(Index().url, URL(string: "https://www.cascobaylines.com"))
+struct IndexTests {
+    @Test func routesInit() {
+        #expect(Index().name == "Casco Bay Lines")
+        #expect(Index().description == "Ferry Schedules")
+        #expect(Index().uri == "index")
+        #expect(Index().location == .portland)
+        #expect(Index(routes: [.bailey]).routes == [.bailey])
+        #expect(Index().routes == Route.allCases)
+        #expect(Index().url == URL(string: "https://www.cascobaylines.com"))
     }
 }
 
 extension IndexTests {
-    func testURLInit() {
-        guard let url: URL = try? URL(directory: NSTemporaryDirectory()) else {
-            XCTFail()
-            return
-        }
-        XCTAssertNoThrow(try Index().build(to: url))
-        XCTAssertNoThrow(try Index(from: url))
+    @Test func urlInit() throws {
+        let url: URL = try #require(try URL(directory: NSTemporaryDirectory()))
+        try #require(try Index().build(to: url))
+        _ = try #require(try Index(from: url))
     }
     
-    func testDataInit() {
-        guard let data: Data = try? Index().data() else {
-            XCTFail()
-            return
-        }
-        XCTAssertNoThrow(try Index(data: data))
+    @Test func dataInit() throws {
+        let data: Data = try #require(try Index().data())
+        _ = try #require(try Index(data: data))
     }
     
     // MARK: Resource
-    func testPath() {
-        XCTAssertEqual(Index().path, "index.json")
+    @Test func path() {
+        #expect(Index().path == "index.json")
     }
     
-    func testData() {
-        XCTAssertNoThrow(try Index().data())
+    @Test func data() throws {
+        _ = try #require(try Index().data())
     }
 }

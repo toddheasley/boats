@@ -1,58 +1,55 @@
-import XCTest
+import Testing
 @testable import Boats
+import Foundation
 
-class TimetableTests: XCTestCase {
-    func testTrips() {
-        guard let timetable: Timetable = try? JSONDecoder.shared.decode(Timetable.self, from: JSON_Data) else {
-            XCTFail()
-            return
-        }
-        XCTAssertEqual(timetable.trips.count, 14)
-        XCTAssertEqual(timetable.trips(from: Time(hour: 5, minute: 44)).count, 14)
-        XCTAssertEqual(timetable.trips(from: Time(hour: 5, minute: 44)).first?.origin?.time, Time(hour: 5, minute: 45))
-        XCTAssertEqual(timetable.trips(from: Time(hour: 5, minute: 45)).count, 14)
-        XCTAssertNil(timetable.trips(from: Time(hour: 5, minute: 45)).first?.origin)
-        XCTAssertEqual(timetable.trips(from: Time(hour: 5, minute: 45)).first?.destination?.time, Time(hour: 6, minute: 15))
-        XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 29)).count, 1)
-        XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 29)).first?.origin?.time, Time(hour: 22, minute: 30))
-        XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 30)).count, 1)
-        XCTAssertNil(timetable.trips(from: Time(hour: 22, minute: 30)).first?.origin)
-        XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 30)).first?.destination?.time, Time(hour: 22, minute: 55))
-        XCTAssertEqual(timetable.trips(from: Time(hour: 22, minute: 54)).count, 1)
-        XCTAssertTrue(timetable.trips(from: Time(hour: 22, minute: 55)).isEmpty)
+struct TimetableTests {
+    @Test func trips() throws {
+        let timetable: Timetable = try #require(try JSONDecoder.shared.decode(Timetable.self, from: JSON_Data))
+        
+        #expect(timetable.trips.count == 14)
+        #expect(timetable.trips(from: Time(hour: 5, minute: 44)).count == 14)
+        #expect(timetable.trips(from: Time(hour: 5, minute: 44)).first?.origin?.time == Time(hour: 5, minute: 45))
+        #expect(timetable.trips(from: Time(hour: 5, minute: 45)).count == 14)
+        #expect(timetable.trips(from: Time(hour: 5, minute: 45)).first?.origin == nil)
+        #expect(timetable.trips(from: Time(hour: 5, minute: 45)).first?.destination?.time == Time(hour: 6, minute: 15))
+        #expect(timetable.trips(from: Time(hour: 22, minute: 29)).count == 1)
+        #expect(timetable.trips(from: Time(hour: 22, minute: 29)).first?.origin?.time == Time(hour: 22, minute: 30))
+        #expect(timetable.trips(from: Time(hour: 22, minute: 30)).count == 1)
+        #expect(timetable.trips(from: Time(hour: 22, minute: 30)).first?.origin == nil)
+        #expect(timetable.trips(from: Time(hour: 22, minute: 30)).first?.destination?.time == Time(hour: 22, minute: 55))
+        #expect(timetable.trips(from: Time(hour: 22, minute: 54)).count == 1)
+        #expect(timetable.trips(from: Time(hour: 22, minute: 55)).isEmpty)
     }
     
     // MARK: CustomStringConvertible
-    func testDescription() {
+    @Test func description() {
         let days: [Day] = [.monday, .tuesday, .wednesday, .friday]
-        XCTAssertEqual(Timetable(trips: [], days: days).description, days.description)
+        #expect(Timetable(trips: [], days: days).description == days.description)
     }
 }
 
 extension TimetableTests {
     
     // MARK: HTMLConvertible
-    func testHTMLInit() {
-        guard let html: [String] = String(data: HTML_Data, encoding: .utf8)?.find("<table[^>]*>(.*?)</table>"), html.count == 4 else {
-            XCTFail()
-            return
-        }
-        XCTAssertEqual(try? Timetable(from: "\(html[0])").trips.count, 14)
-        XCTAssertEqual(((try? Timetable(from: "\(html[0])").trips.first?.origin?.time) as Time??), Time(hour: 5, minute: 45))
-        XCTAssertEqual(((try? Timetable(from: "\(html[0])").trips.last?.destination?.time) as Time??), Time(hour: 22, minute: 55))
-        XCTAssertEqual(try? Timetable(from: "\(html[0])").days, [.monday, .tuesday, .wednesday, .thursday])
-        XCTAssertEqual(try? Timetable(from: "\(html[1])").trips.count, 15)
-        XCTAssertEqual(((try? Timetable(from: "\(html[1])").trips.first?.origin?.time) as Time??), Time(hour: 5, minute: 45))
-        XCTAssertEqual(((try? Timetable(from: "\(html[1])").trips.last?.destination?.time) as Time??), Time(hour: 23, minute: 55))
-        XCTAssertEqual(try? Timetable(from: "\(html[1])").days, [.friday])
-        XCTAssertEqual(try? Timetable(from: "\(html[2])").trips.count, 15)
-        XCTAssertEqual(((try? Timetable(from: "\(html[2])").trips.first?.origin?.time) as Time??), Time(hour: 5, minute: 45))
-        XCTAssertEqual(((try? Timetable(from: "\(html[2])").trips.last?.destination?.time) as Time??), Time(hour: 23, minute: 55))
-        XCTAssertEqual(try? Timetable(from: "\(html[2])").days, [.saturday])
-        XCTAssertEqual(try? Timetable(from: "\(html[3])").trips.count, 12)
-        XCTAssertEqual(((try? Timetable(from: "\(html[3])").trips.first?.origin?.time) as Time??), Time(hour: 6, minute: 45))
-        XCTAssertEqual(((try? Timetable(from: "\(html[3])").trips.last?.destination?.time) as Time??), Time(hour: 21, minute: 45))
-        //XCTAssertEqual(try? Timetable(from: "\(html[3])").days, [.sunday, .holiday])
+    @Test func htmlInit() throws {
+        let html: [String] = try #require(String(data: HTML_Data, encoding: .utf8)?.find("<table[^>]*>(.*?)</table>"))
+        #expect(html.count == 4)
+        #expect(try Timetable(from: "\(html[0])").trips.count == 14)
+        #expect(((try Timetable(from: "\(html[0])").trips.first?.origin?.time) as Time?) == Time(hour: 5, minute: 45))
+        #expect(((try Timetable(from: "\(html[0])").trips.last?.destination?.time) as Time??) == Time(hour: 22, minute: 55))
+        #expect(try Timetable(from: "\(html[0])").days == [.monday, .tuesday, .wednesday, .thursday])
+        #expect(try Timetable(from: "\(html[1])").trips.count == 15)
+        #expect(((try Timetable(from: "\(html[1])").trips.first?.origin?.time) as Time?) == Time(hour: 5, minute: 45))
+        #expect(((try Timetable(from: "\(html[1])").trips.last?.destination?.time) as Time??) == Time(hour: 23, minute: 55))
+        #expect(try Timetable(from: "\(html[1])").days == [.friday])
+        #expect(try Timetable(from: "\(html[2])").trips.count == 15)
+        #expect(((try Timetable(from: "\(html[2])").trips.first?.origin?.time) as Time?) == Time(hour: 5, minute: 45))
+        #expect(((try Timetable(from: "\(html[2])").trips.last?.destination?.time) as Time??) == Time(hour: 23, minute: 55))
+        #expect(try Timetable(from: "\(html[2])").days == [.saturday])
+        #expect(try Timetable(from: "\(html[3])").trips.count == 12)
+        #expect(((try Timetable(from: "\(html[3])").trips.first?.origin?.time) as Time?) == Time(hour: 6, minute: 45))
+        #expect(((try Timetable(from: "\(html[3])").trips.last?.destination?.time) as Time?) == Time(hour: 21, minute: 45))
+        #expect(try Timetable(from: "\(html[3])").days == [.sunday])
     }
 }
 
