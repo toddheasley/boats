@@ -33,12 +33,9 @@ struct Color: Equatable, CustomStringConvertible {
     
     var name: String? {
         switch self {
-        case Self(255):
-            return "white"
-        case Self(0):
-            return "black"
-        default:
-            return nil
+        case Self(255): "white"
+        case Self(0): "black"
+        default: nil
         }
     }
     
@@ -74,11 +71,6 @@ extension Color: CaseIterable {
 }
 
 private extension Int {
-    var rgbValue: Self {
-        return Swift.min(Swift.max(self, 0), 255)
-    }
-    
-    var value: Double {
-        return round((Double(self) / 255.0) * 1000.0) / 1000.0
-    }
+    var rgbValue: Self { Swift.min(Swift.max(self, 0), 255) }
+    var value: Double { round((Double(self) / 255.0) * 1000.0) / 1000.0 }
 }

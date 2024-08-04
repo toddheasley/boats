@@ -7,7 +7,7 @@ struct Favicon: Resource {
     public let path: String = "favicon.ico"
     
     public func data() throws -> Data {
-        return _data
+        _data
     }
 }
 

@@ -7,7 +7,7 @@ struct BookmarkIcon: Resource {
     public let path: String = "apple-touch-icon.png"
     
     public func data() throws -> Data {
-        return _data
+        _data
     }
 }
 

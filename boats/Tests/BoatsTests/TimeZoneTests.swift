@@ -1,12 +1,9 @@
-import XCTest
+import Testing
 @testable import Boats
+import Foundation
 
-class TimeZoneTests: XCTestCase {
-    
-}
-
-extension TimeZoneTests {
-    func testShared() {
-        XCTAssertEqual(TimeZone.shared.identifier, "America/New_York")
+struct TimeZoneTests {
+    @Test func shared() {
+        #expect(TimeZone.shared.identifier == "America/New_York")
     }
 }

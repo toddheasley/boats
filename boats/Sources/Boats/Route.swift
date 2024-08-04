@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Route: Codable, CustomStringConvertible {
+public struct Route: Sendable, Codable, CustomStringConvertible {
     public let location: Location
     public let services: [Service]
     public let uri: String
@@ -32,22 +32,18 @@ public struct Route: Codable, CustomStringConvertible {
     }
     
     // MARK: CustomStringConvertible
-    public var description: String {
-        return location.name
-    }
+    public var description: String { location.name }
 }
 
 extension Route: Equatable, Identifiable {
     
     // MARK: Equatable
     public static func ==(x: Self, y: Self) -> Bool {
-        return x.uri == y.uri
+        x.uri == y.uri
     }
     
     // MARK: Identifiable
-    public var id: String {
-        return uri
-    }
+    public var id: String { uri }
 }
 
 extension Route: CaseIterable {

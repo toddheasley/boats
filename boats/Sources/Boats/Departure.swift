@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Departure: Codable, CustomAccessibilityStringConvertible {
+public struct Departure: Sendable, Codable, CustomAccessibilityStringConvertible {
     public let time: Time
     public let deviations: [Deviation]
     public let services: [Service]
@@ -8,7 +8,7 @@ public struct Departure: Codable, CustomAccessibilityStringConvertible {
     public var isCarFerry: Bool { services.contains(.car) }
     
     public func components(empty string: String? = "") -> [String] {
-        return [
+        [
             time.description,
             (isCarFerry ? Service.car.description : ""),
             deviations.description
@@ -23,7 +23,7 @@ public struct Departure: Codable, CustomAccessibilityStringConvertible {
     
     // MARK: CustomAccessibilityStringConvertible
     public var accessibilityDescription: String {
-        return [
+        [
             time.accessibilityDescription,
             (isCarFerry ? Service.car.description : ""),
             deviations.accessibilityDescription

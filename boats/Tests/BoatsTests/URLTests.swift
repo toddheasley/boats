@@ -1,41 +1,39 @@
-import XCTest
+import Testing
 @testable import Boats
+import Foundation
 
-class URLTests: XCTestCase {
-    
-}
-
-extension URLTests {
-    func testDirectoryInit() {
-        XCTAssertThrowsError(try URL(directory: "\(NSTemporaryDirectory())test/"))
-        XCTAssertThrowsError(try URL(directory: "\(NSTemporaryDirectory())test.txt"))
-        XCTAssertNoThrow(try URL(directory: NSTemporaryDirectory()))
-    }
-    
-    func testDelete() {
-        guard let url: URL = (try? URL(directory: NSTemporaryDirectory()))?.appendingPathComponent("test.txt") else {
-            XCTFail()
-            return
+struct URLTests {
+    @Test func directoryInit() throws {
+        #expect(throws: Error.self) {
+            try URL(directory: "\(NSTemporaryDirectory())test/")
         }
-        try? Data().write(to: url)
-        XCTAssertTrue(FileManager.default.fileExists(atPath: url.path))
-        XCTAssertNoThrow(try url.delete())
-        XCTAssertFalse(FileManager.default.fileExists(atPath: url.path))
-        XCTAssertNoThrow(try url.delete())
+        #expect(throws: Error.self) {
+            try URL(directory: "\(NSTemporaryDirectory())test.txt")
+        }
+        _ = try #require(try URL(directory: NSTemporaryDirectory()))
     }
     
-    func testDebug() {
-        XCTAssertEqual(URL.debug("https://s3.amazonaws.com/boats/index.json")?.absoluteString, "https://s3.amazonaws.com/boats/index.json")
-        XCTAssertEqual(URL.debug("https://s3.amazonaws.com/boats/")?.absoluteString, "https://s3.amazonaws.com/boats/index.json")
-        XCTAssertEqual(URL.debug("https://s3.amazonaws.com/boats")?.absoluteString, "https://s3.amazonaws.com/boats/index.json")
-        XCTAssertEqual(URL.debug("file:///Users/toddheasley/Documents/Boats/boats-web")?.absoluteString, "file:///Users/toddheasley/Documents/Boats/boats-web/index.json")
-        XCTAssertEqual(URL.debug("/Users/toddheasley/Documents/Boats/boats-web")?.absoluteString, "file:///Users/toddheasley/Documents/Boats/boats-web/index.json")
+    @Test func delete() throws {
+        let url: URL = try #require(try URL(directory: NSTemporaryDirectory()).appendingPathComponent("test.txt"))
+        try #require(try Data().write(to: url))
+        #expect(FileManager.default.fileExists(atPath: url.path))
+        try #require(try url.delete())
+        #expect(!FileManager.default.fileExists(atPath: url.path))
+        try #require(try url.delete())
     }
     
-    func testSchedule() {
-        XCTAssertEqual(URL.schedule(for: .peaks, season: .spring), URL(string: "https://www.cascobaylines.com/schedules/peaks-island-schedule/spring"))
-        XCTAssertEqual(URL.schedule(for: .littleDiamond, season: .summer), URL(string: "https://www.cascobaylines.com/schedules/little-diamond-island-schedule/summer"))
-        XCTAssertEqual(URL.schedule(for: .greatDiamond, season: .fall), URL(string: "https://www.cascobaylines.com/schedules/great-diamond-schedule/fall"))
-        XCTAssertEqual(URL.schedule(for: .diamondCove, season: .winter), URL(string: "https://www.cascobaylines.com/schedules/diamond-cove-schedule/winter"))
+    @Test func debug() {
+        #expect(URL.debug("https://s3.amazonaws.com/boats/index.json")?.absoluteString == "https://s3.amazonaws.com/boats/index.json")
+        #expect(URL.debug("https://s3.amazonaws.com/boats/")?.absoluteString == "https://s3.amazonaws.com/boats/index.json")
+        #expect(URL.debug("https://s3.amazonaws.com/boats")?.absoluteString == "https://s3.amazonaws.com/boats/index.json")
+        #expect(URL.debug("file:///Users/toddheasley/Documents/Boats/boats-web")?.absoluteString == "file:///Users/toddheasley/Documents/Boats/boats-web/index.json")
+        #expect(URL.debug("/Users/toddheasley/Documents/Boats/boats-web")?.absoluteString == "file:///Users/toddheasley/Documents/Boats/boats-web/index.json")
+    }
+    
+    @Test func schedule() {
+        #expect(URL.schedule(for: .peaks, season: .spring) == URL(string: "https://www.cascobaylines.com/schedules/peaks-island-schedule/spring"))
+        #expect(URL.schedule(for: .littleDiamond, season: .summer) == URL(string: "https://www.cascobaylines.com/schedules/little-diamond-island-schedule/summer"))
+        #expect(URL.schedule(for: .greatDiamond, season: .fall) == URL(string: "https://www.cascobaylines.com/schedules/great-diamond-schedule/fall"))
+        #expect(URL.schedule(for: .diamondCove, season: .winter) == URL(string: "https://www.cascobaylines.com/schedules/diamond-cove-schedule/winter"))
     }
 }

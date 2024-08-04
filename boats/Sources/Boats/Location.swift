@@ -1,6 +1,6 @@
 import CoreLocation
 
-public struct Location: Codable, CustomStringConvertible {
+public struct Location: Sendable, Codable, CustomStringConvertible {
     public let coordinate: CLLocationCoordinate2D
     public let name: String
     
@@ -22,7 +22,7 @@ extension Location: Equatable {
     
     // MARK: Equatable
     public static func ==(x: Self, y: Self) -> Bool {
-        return x.coordinate == y.coordinate
+        x.coordinate == y.coordinate
     }
 }
 

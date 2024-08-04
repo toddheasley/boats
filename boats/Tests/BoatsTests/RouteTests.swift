@@ -1,53 +1,54 @@
-import XCTest
+import Testing
 @testable import Boats
+import Foundation
 
-class RouteTests: XCTestCase {
-    func testSchedule() {
+struct RouteTests {
+    @Test func schedule() {
         let date: Date = Date()
         var route: Route = Route.peaks
         route.include(schedule: Schedule(season: Season(.summer, dateInterval: DateInterval(start: Date(timeInterval: -60.0, since: date), end: Date(timeInterval: 60.0, since: date))), timetables: []))
         route.include(schedule: Schedule(season: Season(.fall, dateInterval: DateInterval(start: Date(timeInterval: 60.0, since: date), end: Date(timeInterval: 90.0, since: date))), timetables: []))
-        XCTAssertEqual(route.schedules.count, 2)
-        XCTAssertEqual(route.schedule(for: date)?.season.name, .summer)
-        XCTAssertEqual(route.schedule()?.season.name, .summer)
-        XCTAssertEqual(route.schedule(for: Date(timeInterval: 61.0, since: date))?.season.name, .fall)
-        XCTAssertNil(route.schedule(for: Date(timeInterval: 120.0, since: date)))
-        XCTAssertNil(route.schedule(for: Date(timeInterval: -61.0, since: date)))
+        #expect(route.schedules.count == 2)
+        #expect(route.schedule(for: date)?.season.name == .summer)
+        #expect(route.schedule()?.season.name == .summer)
+        #expect(route.schedule(for: Date(timeInterval: 61.0, since: date))?.season.name == .fall)
+        #expect(route.schedule(for: Date(timeInterval: 120.0, since: date)) == nil)
+        #expect(route.schedule(for: Date(timeInterval: -61.0, since: date)) == nil)
     }
     
-    func testScheduleInsert() {
+    @Test func scheduleInsert() {
         let date: Date = Date()
         var route: Route = Route.peaks
-        XCTAssertTrue(route.schedules.isEmpty)
-        XCTAssertFalse(route.include(schedule: Schedule(season: Season(.spring, dateInterval: DateInterval(start: Date(timeInterval: 0.0, since: date), end: Date(timeInterval: 0.0, since: date))), timetables: [])))
-        XCTAssertTrue(route.schedules.isEmpty)
-        XCTAssertTrue(route.include(schedule: Schedule(season: Season(.summer, dateInterval: DateInterval(start: Date(timeInterval: -60.0, since: date), end: Date(timeInterval: 60.0, since: date))), timetables: [])))
-        XCTAssertEqual(route.schedules.count, 1)
-        XCTAssertTrue(route.include(schedule: Schedule(season: Season(.fall, dateInterval: DateInterval(start: Date(timeInterval: 60.0, since: date), end: Date(timeInterval: 90.0, since: date))), timetables: [])))
-        XCTAssertEqual(route.schedules.count, 2)
+        #expect(route.schedules.isEmpty)
+        route.include(schedule: Schedule(season: Season(.spring, dateInterval: DateInterval(start: Date(timeInterval: 0.0, since: date), end: Date(timeInterval: 0.0, since: date))), timetables: []))
+        #expect(route.schedules.isEmpty)
+        route.include(schedule: Schedule(season: Season(.summer, dateInterval: DateInterval(start: Date(timeInterval: -60.0, since: date), end: Date(timeInterval: 60.0, since: date))), timetables: []))
+        #expect(route.schedules.count == 1)
+        route.include(schedule: Schedule(season: Season(.fall, dateInterval: DateInterval(start: Date(timeInterval: 60.0, since: date), end: Date(timeInterval: 90.0, since: date))), timetables: []))
+        #expect(route.schedules.count == 2)
     }
     
     // MARK: StringConvertible
-    func testDescription() {
-        XCTAssertEqual(Route.peaks.description, "Peaks Island")
-        XCTAssertEqual(Route.chebeague.description, "Chebeague Island")
-        XCTAssertEqual(Route.bailey.description, "Bailey Island")
+    @Test func description() {
+        #expect(Route.peaks.description == "Peaks Island")
+        #expect(Route.chebeague.description == "Chebeague Island")
+        #expect(Route.bailey.description == "Bailey Island")
     }
 }
 
 extension RouteTests {
     
     // MARK: Equatable
-    func testEqual() {
-        XCTAssertNotEqual(Route.peaks, .chebeague)
-        XCTAssertEqual(Route.peaks, .peaks)
+    @Test func equal() {
+        #expect(Route.peaks != .chebeague)
+        #expect(Route.peaks == .peaks)
     }
 }
 
 extension RouteTests {
     
     // MARK: CaseIterable
-    func testAllCases() {
-        XCTAssertEqual(Route.allCases, [.peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff])
+    @Test func allCases() {
+        #expect(Route.allCases == [.peaks, .littleDiamond, .greatDiamond, .diamondCove, .long, .chebeague, .cliff])
     }
 }

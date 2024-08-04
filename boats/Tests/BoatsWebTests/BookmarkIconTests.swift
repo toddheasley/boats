@@ -1,14 +1,14 @@
-import XCTest
+import Testing
 @testable import BoatsWeb
 
-class BookmarkIconTests: XCTestCase {
+struct BookmarkIconTests {
     
     // MARK: Resource
-    func testPath() {
-        XCTAssertEqual(BookmarkIcon().path, "apple-touch-icon.png")
+    @Test func path() {
+        #expect(BookmarkIcon().path == "apple-touch-icon.png")
     }
     
-    func testData() throws {
-        XCTAssertEqual(try BookmarkIcon().data().count, 3638, accuracy: 1)
+    @Test func data() throws {
+        #expect(try BookmarkIcon().data().count == 3638)
     }
 }

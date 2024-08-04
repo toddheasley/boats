@@ -2,21 +2,14 @@ import Foundation
 import Boats
 
 protocol HTMLView: Resource {
-    var html: [String] {
-        get
-    }
-    
-    var uri: String {
-        get
-    }
+    var html: [String] { get }
+    var uri: String { get }
 }
 
 extension HTMLView {
     
     // MARK: Resource
-    var path: String {
-        return "\(uri).html"
-    }
+    var path: String { "\(uri).html" }
     
     func data() throws -> Data {
         let html: String = html.joined(separator: "\n")

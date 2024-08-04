@@ -1,14 +1,14 @@
-import XCTest
+import Testing
 @testable import BoatsWeb
 
-class ShareImageTests: XCTestCase {
+struct ShareImageTests {
     
     // MARK: Resource
-    func testPath() {
-        XCTAssertEqual(ShareImage().path, "share-image.png")
+    @Test func path() {
+        #expect(ShareImage().path == "share-image.png")
     }
     
-    func testData() throws {
-        XCTAssertEqual(try ShareImage().data().count, 22878, accuracy: 1)
+    @Test func data() throws {
+        #expect(try ShareImage().data().count == 22878)
     }
 }

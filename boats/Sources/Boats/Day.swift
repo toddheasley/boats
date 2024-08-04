@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Day: String, CaseIterable, Codable, CustomAccessibilityStringConvertible {
+public enum Day: String, Sendable, CaseIterable, Codable, CustomAccessibilityStringConvertible {
     case monday, tuesday, wednesday, thursday, friday, saturday, sunday
     
     public static let weekdays: [Self] = [.monday, .tuesday, .wednesday, .thursday, .friday]

@@ -1,5 +1,7 @@
-public struct Timetable: Codable, CustomAccessibilityStringConvertible {
-    public struct Trip: Codable {
+import Foundation
+
+public struct Timetable: Sendable, Codable, CustomAccessibilityStringConvertible {
+    public struct Trip: Sendable, Codable {
         public let origin: Departure?
         public let destination: Departure?
         
@@ -32,17 +34,13 @@ public struct Timetable: Codable, CustomAccessibilityStringConvertible {
 extension Timetable.Trip: Identifiable {
     
     // MARK: Identifiable
-    public var id: String {
-        return "\(origin?.description ?? "") \(destination?.description ?? "")"
-    }
+    public var id: String { "\(origin?.description ?? "") \(destination?.description ?? "")" }
 }
 
 extension Timetable: Identifiable {
     
     // MARK: Identifiable
-    public var id: String {
-        return days.map { $0.rawValue }.joined()
-    }
+    public var id: String { days.map { $0.rawValue }.joined() }
 }
 
 extension Timetable: HTMLConvertible {

@@ -27,17 +27,15 @@ struct PrivacyView: HTMLView, CustomStringConvertible {
     let uri: String = "privacy"
     
     // MARK: CustomStringConvertible
-    var description: String {
-        return "Data not collected"
-    }
+    var description: String { "Data not collected" }
 }
 
 private func meta(_ name: String, content: String) -> String {
-    return "<meta name=\"\(name)\" content=\"\(content)\">"
+    "<meta name=\"\(name)\" content=\"\(content)\">"
 }
 
 private func link(_ rel: String, href: String) -> String {
-    return "<link rel=\"\(rel)\" href=\"\(href)\">"
+    "<link rel=\"\(rel)\" href=\"\(href)\">"
 }
 
 private let style: String = """

@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Deviation: CustomAccessibilityStringConvertible {
+public enum Deviation: Sendable, CustomAccessibilityStringConvertible {
     case start(Date), end(Date), except(Day), only(Day)
     
     public var isExpired: Bool {
@@ -44,14 +44,10 @@ public enum Deviation: CustomAccessibilityStringConvertible {
 extension Deviation: Equatable, Identifiable {
     
     // MARK: Equatable
-    public static func ==(x: Self, y: Self) -> Bool {
-        return x.description == y.description
-    }
+    public static func ==(x: Self, y: Self) -> Bool { x.description == y.description }
     
     // MARK: Identifiable
-    public var id: String {
-        return description
-    }
+    public var id: String { description }
 }
 
 extension Deviation: Codable {

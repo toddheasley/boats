@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Index: Codable, CustomStringConvertible {
+public struct Index: Sendable, Codable, CustomStringConvertible {
     public let name: String
     public let uri: String
     public let location: Location
@@ -31,11 +31,9 @@ extension Index: Resource {
     }
     
     // MARK: Resource
-    public var path: String {
-        return "\(uri).json"
-    }
+    public var path: String { "\(uri).json" }
     
     public func data() throws -> Data {
-        return try JSONEncoder.shared.encode(self)
+        try JSONEncoder.shared.encode(self)
     }
 }

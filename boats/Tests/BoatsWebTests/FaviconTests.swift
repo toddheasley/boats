@@ -1,14 +1,14 @@
-import XCTest
+import Testing
 @testable import BoatsWeb
 
-class FaviconTests: XCTestCase {
+struct FaviconTests {
     
     // MARK: Resource
-    func testPath() {
-        XCTAssertEqual(Favicon().path, "favicon.ico")
+    @Test func path() {
+        #expect(Favicon().path == "favicon.ico")
     }
     
-    func testData() throws {
-        XCTAssertEqual(try Favicon().data().count, 1494, accuracy: 1)
+    @Test func data() throws {
+        #expect(try Favicon().data().count == 1494)
     }
 }
