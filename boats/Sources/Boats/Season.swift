@@ -36,7 +36,6 @@ extension Season: HTMLConvertible {
         }
         rawValue = rawValue.replacingOccurrences(of: " ", with: " ").components(separatedBy: " ")[0].lowercased()
         guard let name: Name = Name(rawValue: rawValue) else {
-            print(rawValue)
             throw HTML.error(Self.self, from: html)
         }
         guard let dateInterval: [String] = components[1].replacingOccurrences(of: "*", with: "").components(separatedBy: ":").last?.replacingOccurrences(of: "&#8211;", with: "-").replacingOccurrences(of: "–", with: "-").components(separatedBy: "-"), dateInterval.count == 2,

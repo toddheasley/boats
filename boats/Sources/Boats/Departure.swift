@@ -38,9 +38,8 @@ extension Departure: HTMLConvertible {
     // MARK: HTMLConvertible
     init(from html: String) throws {
         let components: [String] = html.lowercased().trim().components(separatedBy: " ")
-        
         var deviations: [Deviation] = []
-        if components.contains("fso") {
+        if components.contains("fso") || components.contains("⁕") {
             deviations += [.only(.friday), .only(.saturday)]
         }
         if components.contains("fo") {
