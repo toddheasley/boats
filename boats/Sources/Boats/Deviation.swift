@@ -44,14 +44,10 @@ public enum Deviation: Sendable, CustomAccessibilityStringConvertible {
 extension Deviation: Equatable, Identifiable {
     
     // MARK: Equatable
-    public static func ==(x: Self, y: Self) -> Bool {
-        return x.description == y.description
-    }
+    public static func ==(x: Self, y: Self) -> Bool { x.description == y.description }
     
     // MARK: Identifiable
-    public var id: String {
-        return description
-    }
+    public var id: String { description }
 }
 
 extension Deviation: Codable {

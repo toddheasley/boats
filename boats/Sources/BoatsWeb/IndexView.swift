@@ -45,23 +45,19 @@ struct IndexView: HTMLView {
         return html
     }
     
-    var uri: String {
-        return index.uri
-    }
+    var uri: String { index.uri }
 }
 
 private extension Index {
-    var title: String {
-        return "\(name) \(description)"
-    }
+    var title: String { "\(name) \(description)" }
 }
 
 private func meta(_ name: String, content: String) -> String {
-    return "<meta name=\"\(name)\" content=\"\(content)\">"
+    "<meta name=\"\(name)\" content=\"\(content)\">"
 }
 
 private func link(_ rel: String, href: String) -> String {
-    return "<link rel=\"\(rel)\" href=\"\(href)\">"
+    "<link rel=\"\(rel)\" href=\"\(href)\">"
 }
 
 private func table(_ timetable: Timetable, origin: String? = nil, destination: String? = nil) -> [String] {
@@ -101,7 +97,7 @@ private func data(_ departure: Departure?) -> String {
 }
 
 private func time(_ time: Time) -> String {
-    return "<time>\(time.components().map { "<b>\($0)</b>" }.joined())</time>"
+    "<time>\(time.components().map { "<b>\($0)</b>" }.joined())</time>"
 }
 
 private let style: String = """

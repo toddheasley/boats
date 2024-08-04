@@ -1,14 +1,15 @@
 import CoreLocation
 
-extension CLLocationCoordinate2D: @retroactive CustomStringConvertible {}
-extension CLLocationCoordinate2D: CustomAccessibilityStringConvertible, @retroactive Equatable {
+extension CLLocationCoordinate2D: @retroactive CustomStringConvertible, CustomAccessibilityStringConvertible, @retroactive Equatable {
     
     // MARK: CustomAccessibilityStringConvertible
     public var accessibilityDescription: String { String(format: "%.5f° latitude, %.5f° longitude", latitude, longitude) }
     public var description: String { String(format: "%.5f°, %.5f°", latitude, longitude) }
     
     // MARK: Equatable
-    public static func ==(x: Self, y: Self) -> Bool { x.description == y.description }
+    public static func ==(x: Self, y: Self) -> Bool {
+        x.accessibilityDescription == y.accessibilityDescription
+    }
 }
 
 extension CLLocationCoordinate2D: Codable {

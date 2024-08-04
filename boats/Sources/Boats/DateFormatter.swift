@@ -6,7 +6,7 @@ extension DateFormatter {
     }
     
     static let shared: DateFormatter = DateFormatter(timeZone: .shared)
-    static var clockFormat: ClockFormat = .system
+    nonisolated(unsafe) static var clockFormat: ClockFormat = .system
     
     var is24Hour: Bool {
         switch Self.clockFormat {
@@ -109,5 +109,5 @@ extension DateFormatter {
         self.timeZone = timeZone
     }
     
-    private static var calendar: Calendar = Calendar(identifier: .gregorian)
+    nonisolated(unsafe) private static var calendar: Calendar = Calendar(identifier: .gregorian)
 }

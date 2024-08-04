@@ -7,7 +7,7 @@ struct ShareImage: Resource {
     public let path: String = "share-image.png"
     
     public func data() throws -> Data {
-        return _data
+        _data
     }
 }
 

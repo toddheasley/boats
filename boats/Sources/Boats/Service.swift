@@ -2,7 +2,5 @@ public enum Service: String, Sendable, Codable, CaseIterable, CustomStringConver
     case car, bicycle, freight, wheelchair, dog
     
     // MARK: CustomStringConvertible
-    public var description: String {
-        return rawValue
-    }
+    public var description: String { rawValue }
 }

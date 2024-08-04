@@ -21,15 +21,11 @@ public struct Site: CustomStringConvertible {
     }
     
     // MARK: CustomStringConvertible
-    public var description: String {
-        return "\(index.name) \(index.description)"
-    }
+    public var description: String { "\(index.name) \(index.description)" }
 }
 
 extension Site: Resource {
-    public var path: String {
-        return IndexView(index).path
-    }
+    public var path: String { IndexView(index).path }
     
     public func build(to url: URL) throws {
         try? delete(from: url)
@@ -57,6 +53,6 @@ extension Site: Resource {
     }
     
     public func data() throws -> Data {
-        return try index.data()
+        try index.data()
     }
 }

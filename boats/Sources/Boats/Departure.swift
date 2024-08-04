@@ -8,7 +8,7 @@ public struct Departure: Sendable, Codable, CustomAccessibilityStringConvertible
     public var isCarFerry: Bool { services.contains(.car) }
     
     public func components(empty string: String? = "") -> [String] {
-        return [
+        [
             time.description,
             (isCarFerry ? Service.car.description : ""),
             deviations.description
@@ -23,7 +23,7 @@ public struct Departure: Sendable, Codable, CustomAccessibilityStringConvertible
     
     // MARK: CustomAccessibilityStringConvertible
     public var accessibilityDescription: String {
-        return [
+        [
             time.accessibilityDescription,
             (isCarFerry ? Service.car.description : ""),
             deviations.accessibilityDescription

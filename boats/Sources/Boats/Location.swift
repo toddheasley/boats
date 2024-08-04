@@ -22,7 +22,7 @@ extension Location: Equatable {
     
     // MARK: Equatable
     public static func ==(x: Self, y: Self) -> Bool {
-        return x.coordinate == y.coordinate
+        x.coordinate == y.coordinate
     }
 }
 

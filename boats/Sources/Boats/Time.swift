@@ -3,13 +3,9 @@ import Foundation
 public struct Time: Sendable, CustomAccessibilityStringConvertible {
     public let interval: TimeInterval
     
-    public var minute: Int {
-        return Int(interval.truncatingRemainder(dividingBy: 3600.0) / 60.0)
-    }
+    public var minute: Int { Int(interval.truncatingRemainder(dividingBy: 3600.0) / 60.0) }
     
-    public var hour: Int {
-        return Int(interval / 3600.0)
-    }
+    public var hour: Int { Int(interval / 3600.0) }
     
     public func components(empty string: String = "") -> [String] {
         var components: [String] = []
@@ -67,11 +63,11 @@ extension Time: Comparable {
     
     // MARK: Comparable
     public static func ==(x: Self, y: Self) -> Bool {
-        return x.interval == y.interval
+        x.interval == y.interval
     }
     
     public static func <(x: Self, y: Self) -> Bool {
-        return x.interval < y.interval
+        x.interval < y.interval
     }
 }
 

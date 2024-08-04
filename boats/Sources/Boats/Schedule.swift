@@ -4,9 +4,7 @@ public struct Schedule: Sendable, Codable {
     public let season: Season
     public let timetables: [Timetable]
     
-    public var isExpired: Bool {
-        return Date() > season.dateInterval.end
-    }
+    public var isExpired: Bool { Date() > season.dateInterval.end }
     
     public func timetable(for day: Day = Day()) -> Timetable? {
         for timetable in timetables {
@@ -23,11 +21,11 @@ extension Schedule: Comparable {
     
     // MARK: Comparable
     public static func ==(lhs: Self, rhs: Self) -> Bool {
-        return lhs.season.dateInterval == rhs.season.dateInterval
+        lhs.season.dateInterval == rhs.season.dateInterval
     }
     
     public static func <(lhs: Self, rhs: Self) -> Bool {
-        return lhs.season.dateInterval.start < rhs.season.dateInterval.start
+        lhs.season.dateInterval.start < rhs.season.dateInterval.start
     }
 }
 
