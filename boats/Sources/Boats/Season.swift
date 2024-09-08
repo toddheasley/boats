@@ -17,15 +17,14 @@ public struct Season: Sendable, Codable, CustomAccessibilityStringConvertible {
     }
     
     // MARK: CustomAccessibilityStringConvertible
-    public var accessibilityDescription: String { "\(name) Schedule: \(DateFormatter.shared.accessibilityDescription(from: dateInterval))" }
-    public var description: String { "\(name): \(DateFormatter.shared.description(from: dateInterval))" }
+    public var accessibilityDescription: String { "\(name) Schedule: \(DateFormatter.accessibilityDescription(from: dateInterval))" }
+    public var description: String { "\(name): \(DateFormatter.description(from: dateInterval))" }
 }
 
 extension Season: HTMLConvertible {
     
     // MARK: HTMLConvertible
     init(from html: String) throws {
-        DateFormatter.shared.dateFormat = "MMM d, yyyy"
         let components: [String] = html.stripHTML().components(separatedBy: "\n").compactMap { component in
             let component: String = component.trimmingCharacters(in: .whitespacesAndNewlines)
             return !component.isEmpty && !component.hasSuffix(":") ? component : nil
@@ -39,8 +38,8 @@ extension Season: HTMLConvertible {
             throw HTML.error(Self.self, from: html)
         }
         guard let dateInterval: [String] = components[1].replacingOccurrences(of: "*", with: "").components(separatedBy: ":").last?.replacingOccurrences(of: "&#8211;", with: "-").replacingOccurrences(of: "–", with: "-").components(separatedBy: "-"), dateInterval.count == 2,
-            let start: Date = DateFormatter.shared.date(from: dateInterval[0].trim()),
-            let end: Date = DateFormatter.shared.date(from: dateInterval[1].trim()), start < end else {
+              let start: Date = formatter.date(from: dateInterval[0].trim()),
+              let end: Date = formatter.date(from: dateInterval[1].trim()), start < end else {
             throw HTML.error(Self.self, from: html)
         }
         var calendar: Calendar = Calendar(identifier: .gregorian)
@@ -48,3 +47,5 @@ extension Season: HTMLConvertible {
         self.init(name, dateInterval: DateInterval(start: start, end: Date(timeInterval: -1.0, since: calendar.startOfDay(for: Date(timeInterval: 129600.0, since: end)))))
     }
 }
+
+private let formatter: DateFormatter = DateFormatter("MMM d, yyyy")

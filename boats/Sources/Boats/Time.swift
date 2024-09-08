@@ -9,7 +9,7 @@ public struct Time: Sendable, CustomAccessibilityStringConvertible {
     
     public func components(empty string: String = "") -> [String] {
         var components: [String] = []
-        if !DateFormatter.shared.is24Hour {
+        if !DateFormatter.is24Hour {
             let hour: Int = hour - (hour > 11 ? 12 : 0)
             switch hour {
             case 10, 11:
@@ -24,7 +24,7 @@ public struct Time: Sendable, CustomAccessibilityStringConvertible {
         }
         components.append(":")
         components.append(String(format: "%02d", minute))
-        if !DateFormatter.shared.is24Hour, hour > 11 {
+        if !DateFormatter.is24Hour, hour > 11 {
             components.append(".")
         } else {
             components.append(" ")
@@ -41,12 +41,12 @@ public struct Time: Sendable, CustomAccessibilityStringConvertible {
     }
     
     public init(_ date: Date = Date()) {
-        self = DateFormatter.shared.time(from: date)
+        self = DateFormatter.time(from: date)
     }
     
     // MARK: CustomAccessibilityStringConvertible
     public var accessibilityDescription: String {
-        guard !DateFormatter.shared.is24Hour else {
+        guard !DateFormatter.is24Hour else {
             return description
         }
         let description: String = components().joined()
@@ -56,7 +56,7 @@ public struct Time: Sendable, CustomAccessibilityStringConvertible {
         return "\(description.dropLast())PM"
     }
     
-    public var description: String { components(empty: DateFormatter.shared.is24Hour ? "" : " ").joined() }
+    public var description: String { components(empty: DateFormatter.is24Hour ? "" : " ").joined() }
 }
 
 extension Time: Comparable {
@@ -94,10 +94,11 @@ extension Time: HTMLConvertible {
     
     // MARK: HTMLConvertible
     init(from html: String) throws {
-        DateFormatter.shared.dateFormat = "ah:mm"
-        guard let date: Date = DateFormatter.shared.date(from: html) else {
+        guard let date: Date = formatter.date(from: html) else {
             throw HTML.error(Self.self, from: html)
         }
         self.init(date)
     }
 }
+
+private let formatter: DateFormatter = DateFormatter("ah:mm")

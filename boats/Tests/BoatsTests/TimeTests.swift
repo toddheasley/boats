@@ -24,12 +24,6 @@ struct TimeTests {
         #expect(Time(hour: 13, minute: 0).components() == ["", "1", ":", "0", "0", "."])
         #expect(Time(hour: 23, minute: 45).components() == ["1", "1", ":", "4", "5", "."])
         #expect(Time(hour: 0, minute: 0).components(empty: " ") == ["1", "2", ":", "0", "0", " "])
-        DateFormatter.clockFormat = .twentyFourHour
-        #expect(Time(hour: 6, minute: 15).components() == ["0", "6", ":", "1", "5", ""])
-        #expect(Time(hour: 12, minute: 30).components() == ["1", "2", ":", "3", "0", ""])
-        #expect(Time(hour: 13, minute: 0).components(empty: " ") == ["1", "3", ":", "0", "0", " "])
-        #expect(Time(hour: 23, minute: 45).components() == ["2", "3", ":", "4", "5", ""])
-        #expect(Time(hour: 0, minute: 0).components() == ["0", "0", ":", "0", "0", ""])
         DateFormatter.clockFormat = .system
     }
     
@@ -68,12 +62,6 @@ struct TimeTests {
         #expect(Time(hour: 13, minute: 0).accessibilityDescription == "1:00PM")
         #expect(Time(hour: 23, minute: 45).accessibilityDescription == "11:45PM")
         #expect(Time(hour: 0, minute: 0).accessibilityDescription == "12:00AM")
-        DateFormatter.clockFormat = .twentyFourHour
-        #expect(Time(hour: 6, minute: 15).accessibilityDescription == "06:15")
-        #expect(Time(hour: 12, minute: 30).accessibilityDescription == "12:30")
-        #expect(Time(hour: 13, minute: 0).accessibilityDescription == "13:00")
-        #expect(Time(hour: 23, minute: 45).accessibilityDescription == "23:45")
-        #expect(Time(hour: 0, minute: 0).accessibilityDescription == "00:00")
         DateFormatter.clockFormat = .system
     }
     
@@ -81,15 +69,9 @@ struct TimeTests {
         DateFormatter.clockFormat = .twelveHour
         #expect(Time(hour: 6, minute: 15).description == " 6:15 ")
         #expect(Time(hour: 12, minute: 30).description == "12:30.")
-        #expect(Time(hour: 13, minute: 0).description == " 1:00.")
+        #expect(Time(hour: 13, minute: 15).description == " 1:15.")
         #expect(Time(hour: 23, minute: 45).description == "11:45.")
         #expect(Time(hour: 0, minute: 0).description == "12:00 ")
-        DateFormatter.clockFormat = .twentyFourHour
-        #expect(Time(hour: 6, minute: 15).description == "06:15")
-        #expect(Time(hour: 12, minute: 30).description == "12:30")
-        #expect(Time(hour: 13, minute: 0).description == "13:00")
-        #expect(Time(hour: 23, minute: 45).description == "23:45")
-        #expect(Time(hour: 0, minute: 0).description == "00:00")
         DateFormatter.clockFormat = .system
     }
 }

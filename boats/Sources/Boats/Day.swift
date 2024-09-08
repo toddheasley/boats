@@ -12,7 +12,7 @@ public enum Day: String, Sendable, CaseIterable, Codable, CustomAccessibilityStr
     }
     
     public init(_ date: Date = Date()) {
-        self = DateFormatter.shared.day(from: date)
+        self = DateFormatter.day(from: date)
     }
     
     // MARK: CustomAccessibilityStringConvertible

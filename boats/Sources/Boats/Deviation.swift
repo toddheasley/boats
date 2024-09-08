@@ -27,12 +27,11 @@ public enum Deviation: Sendable, CustomAccessibilityStringConvertible {
     }
     
     public var description: String {
-        DateFormatter.shared.dateFormat = "M/d"
         switch self {
         case .start(let date):
-            return "\(date < Date() ? "starts" : "started") \(DateFormatter.shared.string(from: date))"
+            return "\(date < Date() ? "starts" : "started") \(formatter.string(from: date))"
         case .end(let date):
-            return "\(date > Date() ? "ends" : "ended") \(DateFormatter.shared.string(from: date))"
+            return "\(date > Date() ? "ends" : "ended") \(formatter.string(from: date))"
         case .except(let day):
             return "except \(day)"
         case .only(let day):
@@ -177,3 +176,5 @@ extension [Deviation] {
         return components.joined(separator: "; ")
     }
 }
+
+private let formatter: DateFormatter = DateFormatter("M/d")
