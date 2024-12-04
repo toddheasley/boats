@@ -19,16 +19,17 @@ struct ScrollView<Content: View>: View {
             ZStack(alignment: .top) {
                 GeometryReader { proxy in
                     Color.clear
-                        .preference(key: OffsetPreferenceKey.self, value: proxy.frame(in: .named("offset")).origin)
+                        .preference(key: OffsetPreferenceKey.self, value: proxy.frame(in: .named("space")).origin)
                 }
                 content()
             }
         }
-        .coordinateSpace(name: "offset")
+        .coordinateSpace(name: "space")
         .onPreferenceChange(OffsetPreferenceKey.self) { offset in
-            onScroll?(offset)
+            Task.detached { @MainActor in
+                onScroll?(offset)
+            }
         }
-        .contentMargins(.top, -0.1, for: .scrollIndicators)
     }
 }
 
@@ -42,13 +43,22 @@ struct ScrollView<Content: View>: View {
     }
 }
 
-// MARK: OffsetPreferenceKey
 private struct OffsetPreferenceKey: PreferenceKey {
     
     // MARK: PreferenceKey
     static let defaultValue: CGPoint = .zero
     
     static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {
+        
+    }
+}
+
+private struct SafeAreaInsetsPreferenceKey: PreferenceKey {
+    
+    // MARK: PreferenceKey
+    static let defaultValue: EdgeInsets = EdgeInsets()
+    
+    static func reduce(value: inout EdgeInsets, nextValue: () -> EdgeInsets) {
         
     }
 }
