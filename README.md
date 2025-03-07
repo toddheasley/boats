@@ -10,7 +10,7 @@ Boats 5 is a completely new [SwiftUI](https://developer.apple.com/xcode/swiftui)
 
 ![](docs/boats-mac.png)
 
-[![Download on the App Store](docs/download.svg)](https://itunes.apple.com/app/id1152562893)
+[![Download on the App Store](docs/download.svg)](https://apps.apple.com/app/id1152562893)
 
 ## Web Schedules
 
