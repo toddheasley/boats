@@ -2,7 +2,7 @@ import Foundation
 import ArgumentParser
 import Boats
 
-extension URLSession.Action: @retroactive ExpressibleByArgument {
+extension URLSession.Action: ExpressibleByArgument {
     var argument: String { rawValue.components(separatedBy: " ").first! }
     
     // MARK: ExpressibleByArgument

@@ -12,7 +12,7 @@ struct Main: AsyncParsableCommand {
     var web: Bool = false
     
     // MARK: ParsableCommand
-    nonisolated(unsafe) static var configuration: CommandConfiguration = CommandConfiguration(abstract: "Update Boats schedules.")
+    static let configuration: CommandConfiguration = CommandConfiguration(abstract: "Update Boats schedules.")
     
     func run() async throws {
         let index: Index = try await URLSession.shared.index(action)

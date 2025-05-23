@@ -47,7 +47,7 @@ extension Timetable: HTMLConvertible {
     
     // MARK: HTMLConvertible
     init(from html: String) throws {
-        guard let components: [String] = html.find("<tbody>(.*?)</tbody").first?.find("<tr[^>]*>(.*?)</tr>"), components.count > 1,
+        guard let components: [String] = html.find("<tbody(.*?)</tbody").first?.find("<tr[^>]*>(.*?)</tr>"), components.count >  1,
               let dayComponents: [String] = html.find("<thead>(.*?)</thead>").first?.replacingOccurrences(of: "&nbsp;", with: "").stripHTML().components(separatedBy: "/") else {
             throw HTML.error(Self.self, from: html)
         }
