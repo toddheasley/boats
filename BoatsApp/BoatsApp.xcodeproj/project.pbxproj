@@ -9,12 +9,8 @@
 /* Begin PBXBuildFile section */
 		5C2130052BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5C2130042BA6394B0080AB9F /* PrivacyInfo.xcprivacy */; };
 		5C2130062BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5C2130042BA6394B0080AB9F /* PrivacyInfo.xcprivacy */; };
-		5C2130072BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5C2130042BA6394B0080AB9F /* PrivacyInfo.xcprivacy */; };
 		5C2130082BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5C2130042BA6394B0080AB9F /* PrivacyInfo.xcprivacy */; };
 		5C2130092BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5C2130042BA6394B0080AB9F /* PrivacyInfo.xcprivacy */; };
-		5C229B4B2A0E615E00D1FD7F /* Boats in Frameworks */ = {isa = PBXBuildFile; productRef = 5C229B4A2A0E615E00D1FD7F /* Boats */; };
-		5C229B4C2A0E617100D1FD7F /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C70014128F8A7630038404E /* App.xcassets */; };
-		5C229B4D2A0E617400D1FD7F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013D28F8A7620038404E /* App.swift */; };
 		5C229B532A0E6A7100D1FD7F /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C70014128F8A7630038404E /* App.xcassets */; };
 		5C229B542A0E6A7100D1FD7F /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C70014128F8A7630038404E /* App.xcassets */; };
 		5C40F1162AAFE54100117056 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF20BF2A11A161003F1026 /* View.swift */; };
@@ -23,26 +19,19 @@
 		5C40F11C2AAFE6C300117056 /* RouteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C82AAE210E009673E2 /* RouteLabel.swift */; };
 		5C472AA92AAA3E3200E846CB /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C472AA82AAA3E3200E846CB /* ScrollView.swift */; };
 		5C472AAA2AAA3E3200E846CB /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C472AA82AAA3E3200E846CB /* ScrollView.swift */; };
-		5C472AAB2AAA3E3200E846CB /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C472AA82AAA3E3200E846CB /* ScrollView.swift */; };
 		5C472AB12AAA456F00E846CB /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C472AB02AAA456F00E846CB /* CGFloat.swift */; };
 		5C472AB22AAA456F00E846CB /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C472AB02AAA456F00E846CB /* CGFloat.swift */; };
-		5C472AB32AAA456F00E846CB /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C472AB02AAA456F00E846CB /* CGFloat.swift */; };
 		5C47961B2A696483000C833E /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C833EBB29675EE5005D94F9 /* TimeView.swift */; };
 		5C47961C2A696483000C833E /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C833EBB29675EE5005D94F9 /* TimeView.swift */; };
-		5C47961D2A696484000C833E /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C833EBB29675EE5005D94F9 /* TimeView.swift */; };
 		5C47961E2A696DAD000C833E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF20BF2A11A161003F1026 /* View.swift */; };
 		5C47961F2A696DAF000C833E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF20BF2A11A161003F1026 /* View.swift */; };
-		5C4796202A696DB1000C833E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF20BF2A11A161003F1026 /* View.swift */; };
 		5C4796222A697555000C833E /* BoatsWeb in Frameworks */ = {isa = PBXBuildFile; productRef = 5C4796212A697555000C833E /* BoatsWeb */; };
-		5C4796242A69755D000C833E /* BoatsWeb in Frameworks */ = {isa = PBXBuildFile; productRef = 5C4796232A69755D000C833E /* BoatsWeb */; };
 		5C4796252A697E62000C833E /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE4E372967A90E00897761 /* DepartureView.swift */; };
 		5C4796262A697E63000C833E /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE4E372967A90E00897761 /* DepartureView.swift */; };
-		5C4796272A697E64000C833E /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE4E372967A90E00897761 /* DepartureView.swift */; };
 		5C5847412A6C0E1C00ADB8F2 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013F28F8A7620038404E /* IndexView.swift */; };
 		5C5847422A6C0E1D00ADB8F2 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013F28F8A7620038404E /* IndexView.swift */; };
 		5C5847442A6C17D700ADB8F2 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D3CC02967AFF0007BB17C /* TimetableView.swift */; };
 		5C5847452A6C17D800ADB8F2 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D3CC02967AFF0007BB17C /* TimetableView.swift */; };
-		5C5847462A6C17D900ADB8F2 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2D3CC02967AFF0007BB17C /* TimetableView.swift */; };
 		5C589EE02AB09EEB0016766C /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE4E372967A90E00897761 /* DepartureView.swift */; };
 		5C589EE12AB09EEC0016766C /* DepartureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE4E372967A90E00897761 /* DepartureView.swift */; };
 		5C589EE22AB09F220016766C /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C833EBB29675EE5005D94F9 /* TimeView.swift */; };
@@ -51,12 +40,10 @@
 		5C589EF02AB0B37F0016766C /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EEE2AB0B37F0016766C /* RouteView.swift */; };
 		5C589EF42AB0ED520016766C /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EF32AB0ED520016766C /* Cell.swift */; };
 		5C589EF52AB0ED520016766C /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EF32AB0ED520016766C /* Cell.swift */; };
-		5C589EF62AB0ED520016766C /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EF32AB0ED520016766C /* Cell.swift */; };
 		5C589EF72AB0ED520016766C /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EF32AB0ED520016766C /* Cell.swift */; };
 		5C589EF82AB0ED520016766C /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EF32AB0ED520016766C /* Cell.swift */; };
 		5C589EFA2AB0EE8C0016766C /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EF92AB0EE8C0016766C /* TripView.swift */; };
 		5C589EFB2AB0EE8C0016766C /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EF92AB0EE8C0016766C /* TripView.swift */; };
-		5C589EFC2AB0EE8C0016766C /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EF92AB0EE8C0016766C /* TripView.swift */; };
 		5C589EFD2AB0EE8C0016766C /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EF92AB0EE8C0016766C /* TripView.swift */; };
 		5C589EFE2AB0EE8C0016766C /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C589EF92AB0EE8C0016766C /* TripView.swift */; };
 		5C621BDD2AB31D3B0040D8B7 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C472AB02AAA456F00E846CB /* CGFloat.swift */; };
@@ -73,21 +60,16 @@
 		5C621BEE2AB33DEA0040D8B7 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C621BEC2AB33DEA0040D8B7 /* TimetableView.swift */; };
 		5C6702DE2AB11B4C0014E72E /* TripLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6702DD2AB11B4C0014E72E /* TripLabel.swift */; };
 		5C6702DF2AB11B4C0014E72E /* TripLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6702DD2AB11B4C0014E72E /* TripLabel.swift */; };
-		5C6702E02AB11B4C0014E72E /* TripLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6702DD2AB11B4C0014E72E /* TripLabel.swift */; };
 		5C6702E12AB11B4C0014E72E /* TripLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6702DD2AB11B4C0014E72E /* TripLabel.swift */; };
 		5C6702E22AB11B4C0014E72E /* TripLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6702DD2AB11B4C0014E72E /* TripLabel.swift */; };
-		5C6E53C32AAE0F76009673E2 /* IndexTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C02AAE0F76009673E2 /* IndexTV.swift */; };
 		5C6E53C52AAE1DCD009673E2 /* SeasonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C42AAE1DCD009673E2 /* SeasonLabel.swift */; };
 		5C6E53C62AAE1DCD009673E2 /* SeasonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C42AAE1DCD009673E2 /* SeasonLabel.swift */; };
-		5C6E53C72AAE1DCD009673E2 /* SeasonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C42AAE1DCD009673E2 /* SeasonLabel.swift */; };
 		5C6E53C92AAE210E009673E2 /* RouteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C82AAE210E009673E2 /* RouteLabel.swift */; };
 		5C6E53CA2AAE210E009673E2 /* RouteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C82AAE210E009673E2 /* RouteLabel.swift */; };
-		5C6E53CB2AAE210E009673E2 /* RouteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C82AAE210E009673E2 /* RouteLabel.swift */; };
 		5C8C939928F8DC1D00916510 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013D28F8A7620038404E /* App.swift */; };
 		5C8C939D28F8DD3300916510 /* Boats in Frameworks */ = {isa = PBXBuildFile; productRef = 5C8C939C28F8DD3300916510 /* Boats */; };
 		5C9523B82AB1EC1C0014E1C5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D288D2AAD66130028804E /* Font.swift */; };
 		5C9523B92AB1EC1D0014E1C5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D288D2AAD66130028804E /* Font.swift */; };
-		5C9523BA2AB1EC1E0014E1C5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D288D2AAD66130028804E /* Font.swift */; };
 		5C9523C22AB1EFAA0014E1C5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D288D2AAD66130028804E /* Font.swift */; };
 		5C9523C32AB1EFAA0014E1C5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D288D2AAD66130028804E /* Font.swift */; };
 		5C9523C42AB254940014E1C5 /* SeasonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6E53C42AAE1DCD009673E2 /* SeasonLabel.swift */; };
@@ -97,30 +79,24 @@
 		5C9A3BC72A0B1410009B6833 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70013D28F8A7620038404E /* App.swift */; };
 		5CCDFE6B2A567ABA005B9784 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDFE6A2A567ABA005B9784 /* Index.swift */; };
 		5CCDFE6C2A567ABA005B9784 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDFE6A2A567ABA005B9784 /* Index.swift */; };
-		5CCDFE6D2A567ABA005B9784 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCDFE6A2A567ABA005B9784 /* Index.swift */; };
 		5CCE6D482B9EA9BB000FED77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D472B9EA9BB000FED77 /* Location.swift */; };
 		5CCE6D492B9EA9BB000FED77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D472B9EA9BB000FED77 /* Location.swift */; };
-		5CCE6D4A2B9EA9BB000FED77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D472B9EA9BB000FED77 /* Location.swift */; };
 		5CCE6D4B2B9EA9BB000FED77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D472B9EA9BB000FED77 /* Location.swift */; };
 		5CCE6D4C2B9EA9BB000FED77 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D472B9EA9BB000FED77 /* Location.swift */; };
 		5CCE6D4E2B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
 		5CCE6D4F2B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
-		5CCE6D502B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
 		5CCE6D512B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
 		5CCE6D522B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
 		5CD7D28A2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */; };
 		5CD7D28B2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */; };
-		5CD7D28C2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */; };
 		5CDC5A242A617B9C00B15C4F /* BoatsWeb in Frameworks */ = {isa = PBXBuildFile; productRef = 5CDC5A232A617B9C00B15C4F /* BoatsWeb */; };
 		5CFCD5052AAE4E1600706772 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFCD5042AAE4E1600706772 /* WidgetKit.framework */; };
 		5CFCD5072AAE4E1600706772 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFCD5062AAE4E1600706772 /* SwiftUI.framework */; };
 		5CFCD50C2AAE4E1600706772 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCD50B2AAE4E1600706772 /* Widget.swift */; };
-		5CFCD5102AAE4E1800706772 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFCD50F2AAE4E1800706772 /* Assets.xcassets */; };
 		5CFCD5152AAE4E1800706772 /* Boats.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5CFCD5032AAE4E1600706772 /* Boats.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5CFCD51F2AAE591700706772 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFCD5042AAE4E1600706772 /* WidgetKit.framework */; };
 		5CFCD5202AAE591700706772 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFCD5062AAE4E1600706772 /* SwiftUI.framework */; };
 		5CFCD52B2AAE591800706772 /* Boats.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5CFCD51E2AAE591700706772 /* Boats.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5CFCD5302AAE5AF500706772 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFCD50F2AAE4E1800706772 /* Assets.xcassets */; };
 		5CFCD5322AAE5BFC00706772 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCD50B2AAE4E1600706772 /* Widget.swift */; };
 		5CFCD5342AAE5E0800706772 /* Boats in Frameworks */ = {isa = PBXBuildFile; productRef = 5CFCD5332AAE5E0800706772 /* Boats */; };
 		5CFCD5362AAE5E0800706772 /* BoatsWeb in Frameworks */ = {isa = PBXBuildFile; productRef = 5CFCD5352AAE5E0800706772 /* BoatsWeb */; };
@@ -132,7 +108,6 @@
 		5CFCD5402AAE76D000706772 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCD53E2AAE76D000706772 /* Provider.swift */; };
 		5CFCD5452AAEA9BE00706772 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCD5442AAEA9BE00706772 /* Route.swift */; };
 		5CFCD5462AAEA9BE00706772 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCD5442AAEA9BE00706772 /* Route.swift */; };
-		5CFCD5472AAEA9BE00706772 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCD5442AAEA9BE00706772 /* Route.swift */; };
 		5CFCD5482AAEA9BE00706772 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCD5442AAEA9BE00706772 /* Route.swift */; };
 		5CFCD5492AAEA9BE00706772 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFCD5442AAEA9BE00706772 /* Route.swift */; };
 /* End PBXBuildFile section */
@@ -200,7 +175,6 @@
 /* Begin PBXFileReference section */
 		5C01560828F8DB6F004934F5 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2130042BA6394B0080AB9F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		5C229B3C2A0E60A000D1FD7F /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C2D3CC02967AFF0007BB17C /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		5C472AA82AAA3E3200E846CB /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		5C472AB02AAA456F00E846CB /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
@@ -213,7 +187,6 @@
 		5C621BE92AB3386E0040D8B7 /* AccessoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryLabel.swift; sourceTree = "<group>"; };
 		5C621BEC2AB33DEA0040D8B7 /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		5C6702DD2AB11B4C0014E72E /* TripLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripLabel.swift; sourceTree = "<group>"; };
-		5C6E53C02AAE0F76009673E2 /* IndexTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexTV.swift; sourceTree = "<group>"; };
 		5C6E53C42AAE1DCD009673E2 /* SeasonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonLabel.swift; sourceTree = "<group>"; };
 		5C6E53C82AAE210E009673E2 /* RouteLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteLabel.swift; sourceTree = "<group>"; };
 		5C70013D28F8A7620038404E /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -232,7 +205,6 @@
 		5CFCD5042AAE4E1600706772 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = /System/Library/Frameworks/WidgetKit.framework; sourceTree = "<absolute>"; };
 		5CFCD5062AAE4E1600706772 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = /System/Library/Frameworks/SwiftUI.framework; sourceTree = "<absolute>"; };
 		5CFCD50B2AAE4E1600706772 /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
-		5CFCD50F2AAE4E1800706772 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CFCD5112AAE4E1800706772 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CFCD51E2AAE591700706772 /* Boats.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Boats.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CFCD53B2AAE5F8900706772 /* RouteEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteEnum.swift; sourceTree = "<group>"; };
@@ -247,15 +219,6 @@
 			files = (
 				5C8C939D28F8DD3300916510 /* Boats in Frameworks */,
 				5CDC5A242A617B9C00B15C4F /* BoatsWeb in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C229B392A0E60A000D1FD7F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C229B4B2A0E615E00D1FD7F /* Boats in Frameworks */,
-				5C4796242A69755D000C833E /* BoatsWeb in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +266,6 @@
 				5CDE4E372967A90E00897761 /* DepartureView.swift */,
 				5C589EF32AB0ED520016766C /* Cell.swift */,
 				5C9D288D2AAD66130028804E /* Font.swift */,
-				5C6E53C02AAE0F76009673E2 /* IndexTV.swift */,
 				5C70013F28F8A7620038404E /* IndexView.swift */,
 				5CCDFE6A2A567ABA005B9784 /* Index.swift */,
 				5CCE6D472B9EA9BB000FED77 /* Location.swift */,
@@ -329,7 +291,6 @@
 			children = (
 				5C01560828F8DB6F004934F5 /* Boats.app */,
 				5C9A3BB22A0B12AF009B6833 /* Boats.app */,
-				5C229B3C2A0E60A000D1FD7F /* Boats.app */,
 				5CFCD5032AAE4E1600706772 /* Boats.appex */,
 				5CFCD51E2AAE591700706772 /* Boats.appex */,
 			);
@@ -352,7 +313,6 @@
 				5C621BE62AB337D90040D8B7 /* AccessoryCornerView.swift */,
 				5C621BE92AB3386E0040D8B7 /* AccessoryLabel.swift */,
 				5C621BDF2AB324050040D8B7 /* AccessoryRectangularView.swift */,
-				5CFCD50F2AAE4E1800706772 /* Assets.xcassets */,
 				5CFCD5112AAE4E1800706772 /* Info.plist */,
 				5CFCD53E2AAE76D000706772 /* Provider.swift */,
 				5CFCD53B2AAE5F8900706772 /* RouteEnum.swift */,
@@ -389,27 +349,6 @@
 			);
 			productName = BoatsAppApp;
 			productReference = 5C01560828F8DB6F004934F5 /* Boats.app */;
-			productType = "com.apple.product-type.application";
-		};
-		5C229B3B2A0E60A000D1FD7F /* TV App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5C229B492A0E60A100D1FD7F /* Build configuration list for PBXNativeTarget "TV App" */;
-			buildPhases = (
-				5C229B382A0E60A000D1FD7F /* Sources */,
-				5C229B392A0E60A000D1FD7F /* Frameworks */,
-				5C229B3A2A0E60A000D1FD7F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "TV App";
-			packageProductDependencies = (
-				5C229B4A2A0E615E00D1FD7F /* Boats */,
-				5C4796232A69755D000C833E /* BoatsWeb */,
-			);
-			productName = "TV App";
-			productReference = 5C229B3C2A0E60A000D1FD7F /* Boats.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5C9A3BB12A0B12AF009B6833 /* Watch App */ = {
@@ -490,9 +429,6 @@
 					5C01560728F8DB6F004934F5 = {
 						CreatedOnToolsVersion = 14.1;
 					};
-					5C229B3B2A0E60A000D1FD7F = {
-						CreatedOnToolsVersion = 14.3;
-					};
 					5C9A3BB12A0B12AF009B6833 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -522,7 +458,6 @@
 			targets = (
 				5C01560728F8DB6F004934F5 /* App */,
 				5C9A3BB12A0B12AF009B6833 /* Watch App */,
-				5C229B3B2A0E60A000D1FD7F /* TV App */,
 				5CFCD5022AAE4E1600706772 /* Widget */,
 				5CFCD51D2AAE591700706772 /* Watch Widget */,
 			);
@@ -536,15 +471,6 @@
 			files = (
 				5C2130052BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */,
 				5C229B542A0E6A7100D1FD7F /* App.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C229B3A2A0E60A000D1FD7F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C2130072BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */,
-				5C229B4C2A0E617100D1FD7F /* App.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +488,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C2130082BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */,
-				5CFCD5102AAE4E1800706772 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,7 +496,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C2130092BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */,
-				5CFCD5302AAE5AF500706772 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,32 +525,6 @@
 				5C6702DE2AB11B4C0014E72E /* TripLabel.swift in Sources */,
 				5C47961E2A696DAD000C833E /* View.swift in Sources */,
 				5CCDFE6B2A567ABA005B9784 /* Index.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C229B382A0E60A000D1FD7F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C472AB32AAA456F00E846CB /* CGFloat.swift in Sources */,
-				5C6E53CB2AAE210E009673E2 /* RouteLabel.swift in Sources */,
-				5C5847462A6C17D900ADB8F2 /* TimetableView.swift in Sources */,
-				5C4796272A697E64000C833E /* DepartureView.swift in Sources */,
-				5CCE6D4A2B9EA9BB000FED77 /* Location.swift in Sources */,
-				5C229B4D2A0E617400D1FD7F /* App.swift in Sources */,
-				5C6702E02AB11B4C0014E72E /* TripLabel.swift in Sources */,
-				5C589EF62AB0ED520016766C /* Cell.swift in Sources */,
-				5CFCD5472AAEA9BE00706772 /* Route.swift in Sources */,
-				5C6E53C32AAE0F76009673E2 /* IndexTV.swift in Sources */,
-				5CD7D28C2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */,
-				5C472AAB2AAA3E3200E846CB /* ScrollView.swift in Sources */,
-				5C589EFC2AB0EE8C0016766C /* TripView.swift in Sources */,
-				5C9523BA2AB1EC1E0014E1C5 /* Font.swift in Sources */,
-				5C6E53C72AAE1DCD009673E2 /* SeasonLabel.swift in Sources */,
-				5CCE6D502B9EAE80000FED77 /* DepartureCell.swift in Sources */,
-				5CCDFE6D2A567ABA005B9784 /* Index.swift in Sources */,
-				5C4796202A696DB1000C833E /* View.swift in Sources */,
-				5C47961D2A696484000C833E /* TimeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,71 +737,6 @@
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-			};
-			name = Release;
-		};
-		5C229B472A0E60A100D1FD7F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 540;
-				DEVELOPMENT_ASSET_PATHS = "";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Boats;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "$(inherited)";
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 5.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
-				PRODUCT_MODULE_NAME = BoatsTVApp;
-				PRODUCT_NAME = "$(inherited)";
-				SDKROOT = appletvos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_STRICT_CONCURRENCY = complete;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 17.0;
-			};
-			name = Debug;
-		};
-		5C229B482A0E60A100D1FD7F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 540;
-				DEVELOPMENT_ASSET_PATHS = "";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Boats;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "$(inherited)";
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 5.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.ios.boats;
-				PRODUCT_MODULE_NAME = BoatsTVApp;
-				PRODUCT_NAME = "$(inherited)";
-				SDKROOT = appletvos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_STRICT_CONCURRENCY = complete;
-				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 17.0;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -1282,15 +1115,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C229B492A0E60A100D1FD7F /* Build configuration list for PBXNativeTarget "TV App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5C229B472A0E60A100D1FD7F /* Debug */,
-				5C229B482A0E60A100D1FD7F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		5C70012F28F8A7620038404E /* Build configuration list for PBXProject "BoatsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1337,15 +1161,7 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5C229B4A2A0E615E00D1FD7F /* Boats */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Boats;
-		};
 		5C4796212A697555000C833E /* BoatsWeb */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = BoatsWeb;
-		};
-		5C4796232A69755D000C833E /* BoatsWeb */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BoatsWeb;
 		};

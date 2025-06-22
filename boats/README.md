@@ -7,7 +7,7 @@ __Libraries that build and drive the Boats app__
 Written in [Swift](https://developer.apple.com/documentation/swift) 6 for Apple stuff:
 
 * [macOS](https://developer.apple.com/macos) 14 Sonoma
-* [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad)/[tvOS](https://developer.apple.com/tvos) 17
+* [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad) 17
 * [watchOS](https://developer.apple.com/watchos) 10
 * [visionOS](https://developer.apple.com/visionos)
 

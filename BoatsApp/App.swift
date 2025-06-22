@@ -34,11 +34,6 @@ struct App: SwiftUI.App {
                 Link("Web Schedules", destination: Site.baseURL)
             }
         }
-#elseif os(tvOS)
-        WindowGroup(title) {
-            IndexTV()
-                .environment(index)
-        }
 #else
         WindowGroup(title) {
             IndexView()
