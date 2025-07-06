@@ -11,7 +11,7 @@ Written in [Swift](https://developer.apple.com/documentation/swift) 6 for Apple 
 * [watchOS](https://developer.apple.com/watchos) 10
 * [visionOS](https://developer.apple.com/visionos)
 
-Build with [Xcode](https://developer.apple.com/xcode) 16 or newer. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser)
+Build with [Xcode](https://developer.apple.com/xcode) 26 or newer. Command-line interface depends on [Swift Argument Parser.](https://github.com/apple/swift-argument-parser)
 
 ## `BoatsCLI`
 

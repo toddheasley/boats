@@ -89,6 +89,8 @@
 		5CCE6D522B9EAE80000FED77 /* DepartureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCE6D4D2B9EAE80000FED77 /* DepartureCell.swift */; };
 		5CD7D28A2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */; };
 		5CD7D28B2AAB6DE5006B4BA1 /* RoutePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD7D2892AAB6DE5006B4BA1 /* RoutePicker.swift */; };
+		5CD8B66B2E1B017100A87478 /* App.icon in Resources */ = {isa = PBXBuildFile; fileRef = 5C79F7802E1AFCE8000DEB78 /* App.icon */; };
+		5CD8B66C2E1B017100A87478 /* App.icon in Resources */ = {isa = PBXBuildFile; fileRef = 5C79F7802E1AFCE8000DEB78 /* App.icon */; };
 		5CDC5A242A617B9C00B15C4F /* BoatsWeb in Frameworks */ = {isa = PBXBuildFile; productRef = 5CDC5A232A617B9C00B15C4F /* BoatsWeb */; };
 		5CFCD5052AAE4E1600706772 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFCD5042AAE4E1600706772 /* WidgetKit.framework */; };
 		5CFCD5072AAE4E1600706772 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFCD5062AAE4E1600706772 /* SwiftUI.framework */; };
@@ -192,6 +194,7 @@
 		5C70013D28F8A7620038404E /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5C70013F28F8A7620038404E /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
 		5C70014128F8A7630038404E /* App.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = App.xcassets; sourceTree = "<group>"; };
+		5C79F7802E1AFCE8000DEB78 /* App.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = App.icon; sourceTree = "<group>"; };
 		5C833EBB29675EE5005D94F9 /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
 		5C9A3BB22A0B12AF009B6833 /* Boats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9D288D2AAD66130028804E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -259,6 +262,7 @@
 		5C70012B28F8A7620038404E = {
 			isa = PBXGroup;
 			children = (
+				5C79F7802E1AFCE8000DEB78 /* App.icon */,
 				5C70014128F8A7630038404E /* App.xcassets */,
 				5C70013D28F8A7620038404E /* App.swift */,
 				5C472AB02AAA456F00E846CB /* CGFloat.swift */,
@@ -469,6 +473,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD8B66B2E1B017100A87478 /* App.icon in Resources */,
 				5C2130052BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */,
 				5C229B542A0E6A7100D1FD7F /* App.xcassets in Resources */,
 			);
@@ -478,6 +483,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD8B66C2E1B017100A87478 /* App.icon in Resources */,
 				5C2130062BA6394B0080AB9F /* PrivacyInfo.xcprivacy in Resources */,
 				5C229B532A0E6A7100D1FD7F /* App.xcassets in Resources */,
 			);
@@ -637,7 +643,7 @@
 		5C01561428F8DB70004934F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = App;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
@@ -690,7 +696,7 @@
 		5C01561528F8DB70004934F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = App;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
@@ -870,7 +876,7 @@
 		5C9A3BC12A0B12B1009B6833 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = App;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
@@ -880,7 +886,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Boats;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2015-2024 toddheasley";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "$(inherited)";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.toddheasley.ios.boats;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -905,7 +911,7 @@
 		5C9A3BC22A0B12B1009B6833 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_APPICON_NAME = App;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "-";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "Apple Development";
@@ -915,7 +921,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Boats;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2015-2024 toddheasley";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "$(inherited)";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.toddheasley.ios.boats;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;

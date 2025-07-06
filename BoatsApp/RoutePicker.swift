@@ -18,7 +18,7 @@ struct RoutePicker: View {
                 .foregroundColor(.secondary)
                 .padding(.vertical, -1.5)
         }
-        .buttonStyle(.bordered)
+        .buttonStyle(.accessoryBar)
         .popover(isPresented: $isPresented) {
             VStack {
                 ForEach(index.routes) { route in
@@ -47,6 +47,7 @@ struct RoutePicker: View {
             }
         } label: {
             Label(title, systemImage: systemImage)
+                .padding(.vertical, 4.0)
         }
         .buttonStyle(.borderedProminent)
 #elseif os(watchOS)
