@@ -12,7 +12,7 @@ extension CLLocationCoordinate2D: @retroactive CustomStringConvertible, CustomAc
     }
 }
 
-extension CLLocationCoordinate2D: Codable {
+extension CLLocationCoordinate2D: @retroactive Decodable, @retroactive Encodable {
     
     // MARK: Codable
     public init(from decoder: Decoder) throws {
