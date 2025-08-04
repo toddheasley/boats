@@ -6,12 +6,12 @@ import Foundation
 struct ManifestTests {
     @Test func urlInit() throws {
         let url: URL = try URL(directory: NSTemporaryDirectory()).appendingPathComponent(Manifest().path)
-        try #require(try Manifest_Data.write(to: url))
-        _ = try #require(try Manifest(url: try URL(directory: NSTemporaryDirectory())))
+        try Manifest_Data.write(to: url)
+        _ = try Manifest(url: try URL(directory: NSTemporaryDirectory()))
     }
     
     @Test func dataInit() throws {
-        _ = try #require(try Manifest(data: Manifest_Data))
+        _ = try Manifest(data: Manifest_Data)
         #expect(try Manifest(data: Manifest_Data).paths == ["favicon.png", "script.js", "index.html", "stylesheet.css"])
     }
     

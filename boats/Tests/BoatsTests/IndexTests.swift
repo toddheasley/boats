@@ -16,14 +16,14 @@ struct IndexTests {
 
 extension IndexTests {
     @Test func urlInit() throws {
-        let url: URL = try #require(try URL(directory: NSTemporaryDirectory()))
-        try #require(try Index().build(to: url))
-        _ = try #require(try Index(from: url))
+        let url: URL = try URL(directory: NSTemporaryDirectory())
+        try Index().build(to: url)
+        _ = try Index(from: url)
     }
     
     @Test func dataInit() throws {
-        let data: Data = try #require(try Index().data())
-        _ = try #require(try Index(data: data))
+        let data: Data = try Index().data()
+        _ = try Index(data: data)
     }
     
     // MARK: Resource
@@ -32,6 +32,6 @@ extension IndexTests {
     }
     
     @Test func data() throws {
-        _ = try #require(try Index().data())
+        _ = try Index().data()
     }
 }

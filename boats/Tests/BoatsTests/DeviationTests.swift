@@ -49,7 +49,7 @@ extension DeviationTests {
     
     // MARK: Codable
     @Test func decoderInit() throws {
-        let deviations: [Deviation] = try #require(try JSONDecoder.shared.decode([Deviation].self, from: JSON_Data))
+        let deviations: [Deviation] = try JSONDecoder.shared.decode([Deviation].self, from: JSON_Data)
         #expect(deviations.count == 4)
         #expect(deviations[0] == .start(Date(timeIntervalSince1970: 1555732800.0)))
         #expect(deviations[1] == .end(Date(timeIntervalSince1970: 1555732800.0)))
@@ -58,8 +58,8 @@ extension DeviationTests {
     }
     
     @Test func encode() throws {
-        let data: Data = try #require(try JSONEncoder.shared.encode(Deviation.start(Date(timeIntervalSince1970: 1555732800.0))))
-        let deviation: Deviation = try #require(try JSONDecoder.shared.decode(Deviation.self, from: data))
+        let data: Data = try JSONEncoder.shared.encode(Deviation.start(Date(timeIntervalSince1970: 1555732800.0)))
+        let deviation: Deviation = try JSONDecoder.shared.decode(Deviation.self, from: data)
         #expect(deviation == .start(Date(timeIntervalSince1970: 1555732800.0)))
     }
 }

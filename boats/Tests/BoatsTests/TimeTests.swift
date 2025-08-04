@@ -94,15 +94,15 @@ extension TimeTests {
     
     // MARK: Codable
     @Test func decoderInit() throws {
-        let times: [Time] = try #require(try JSONDecoder.shared.decode([Time].self, from: JSON_Data))
+        let times: [Time] = try JSONDecoder.shared.decode([Time].self, from: JSON_Data)
         #expect(times.count == 2)
         #expect(times.first == Time(hour: 23, minute: 59))
         #expect(times.last == Time(hour: 0, minute: 0))
     }
     
     @Test func encode() throws {
-        let data: Data = try #require(try JSONEncoder.shared.encode(Time(hour: 12, minute: 30)))
-        let time: Time = try #require(try JSONDecoder.shared.decode(Time.self, from: data))
+        let data: Data = try JSONEncoder.shared.encode(Time(hour: 12, minute: 30))
+        let time: Time = try JSONDecoder.shared.decode(Time.self, from: data)
         #expect(time == Time(hour: 12, minute: 30))
     }
 }
