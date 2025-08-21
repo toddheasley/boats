@@ -64,10 +64,8 @@ private struct Toolbar: View {
     // MARK: View
     var body: some View {
 #if os(macOS)
-        HStack(alignment: .top, spacing: 0.0) {
+        HStack(spacing: 0.0) {
             RoutePicker()
-                .labelStyle(.iconOnly)
-                .padding(.leading, -7.0)
                 .opacity(0.0)
                 .accessibilityHidden(true)
             Spacer()
@@ -77,11 +75,7 @@ private struct Toolbar: View {
             }
             Spacer()
             RoutePicker()
-                .labelStyle(.iconOnly)
-                .padding(.trailing, -7.0)
-                .padding(.top, 1.0)
         }
-        .padding(.top, -9.0)
 #elseif os(iOS)
         HStack(spacing: 0.0) {
             Link(destination: index.url) {
@@ -91,11 +85,9 @@ private struct Toolbar: View {
             Spacer()
             RoutePicker()
                 .labelStyle(.iconOnly)
-                .padding(.trailing, 5.0)
         }
         .frame(maxWidth: .maxWidth)
-        .padding(.horizontal, 1.5)
-        .padding(.top, -12.0)
+        .padding(.top, .spacing * 4.0)
 #elseif os(watchOS)
         RoutePicker()
             .labelStyle(.iconOnly)

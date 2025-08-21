@@ -12,7 +12,6 @@ struct RoutePicker: View {
             isPresented = true
         }) {
             RoutePickerLabel()
-                .labelStyle(.titleAndIcon)
         }
         .popover(isPresented: $isPresented) {
             VStack(spacing: .spacing) {
@@ -26,6 +25,7 @@ struct RoutePicker: View {
             }
             .padding()
         }
+        .buttonStyle(.borderedProminent)
 #elseif os(iOS)
         Menu {
             ForEach(index.routes) { route in
