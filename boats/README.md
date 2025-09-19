@@ -17,7 +17,10 @@ Build with [Xcode](https://developer.apple.com/xcode) 26 or newer. Command-line 
 
 Fetch, build and debug Boats schedules and web pages using a scriptable command-line interface.
 
-![](../docs/boats-cli.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../docs/boats-cli-dark.png">
+  <img src="../docs/boats-cli.png">
+</picture>
 
 ### Example Usage
 
@@ -41,7 +44,10 @@ Rebuild existing local schedule data and generate static web pages:
 
 ## `BoatsWeb`
 
-![](../docs/boats-web.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../docs/boats-web-dark.png">
+  <img src="../docs/boats-web.png">
+</picture>
 
 `BoatsWeb` extends the functionality of `Boats`:
 
