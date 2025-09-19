@@ -40,9 +40,11 @@ Everything needed to build Boats is [bundled as a local Swift package](boats), i
   <img src="docs/boats-cli.png">
 </picture>
 
+---
+
 ### Supported Platforms
 
-Written in [Swift](https://developer.apple.com/documentation/swift) 6.2 for Apple stuff:
+Written in [Swift](https://developer.apple.com/documentation/swift) 6 for Apple stuff:
 
 * [macOS](https://developer.apple.com/macos) 14 Sonoma
 * [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad) 17
