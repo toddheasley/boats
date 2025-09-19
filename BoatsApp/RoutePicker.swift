@@ -5,71 +5,56 @@ struct RoutePicker: View {
     @Environment(Index.self) private var index: Index
     @State private var isPresented: Bool = false
     
-    private let title: String = "Routes"
-    private let systemImage: String = "ferry.fill"
-    
     // MARK: View
     var body: some View {
 #if os(macOS)
         Button(action: {
             isPresented = true
         }) {
-            Label(title, systemImage: systemImage)
-                .foregroundColor(.secondary)
-                .padding(.vertical, -1.5)
+            RoutePickerLabel()
         }
-        .buttonStyle(.bordered)
         .popover(isPresented: $isPresented) {
-            VStack {
+            VStack(spacing: .spacing) {
                 ForEach(index.routes) { route in
-                    Button(action: {
+                    RouteButton(route) {
                         index.route = route
                         isPresented = false
-                    }) {
-                        HStack {
-                            Text(route.location.name)
-                            Spacer()
-                        }
                     }
-                    .buttonStyle(.borderless)
+                    .buttonStyle(.accessoryBar)
                 }
             }
             .padding()
         }
+        .buttonStyle(.borderedProminent)
 #elseif os(iOS)
         Menu {
             ForEach(index.routes) { route in
-                Button(action: {
+                RouteButton(route) {
                     index.route = route
-                }) {
-                    Text(route.location.name)
                 }
             }
         } label: {
-            Label(title, systemImage: systemImage)
+            RoutePickerLabel()
+                .labelStyle(.titleAndIcon)
         }
         .buttonStyle(.borderedProminent)
 #elseif os(watchOS)
         Button(action: {
             isPresented = true
         }) {
-            Label(title, systemImage: systemImage)
+            RoutePickerLabel()
         }
         .buttonStyle(.plain)
         .sheet(isPresented: $isPresented) {
             ScrollView {
                 VStack {
                     ForEach(index.routes) { route in
-                        Button(action: {
+                        RouteButton(route) {
                             index.route = route
                             isPresented = false
-                        }) {
-                            HStack {
-                                Text(route.location.name)
-                                    .lineLimit(1)
-                                Spacer()
-                            }
                         }
+                        .buttonStyle(.borderless)
+                        .padding()
                     }
                 }
             }
@@ -81,6 +66,44 @@ struct RoutePicker: View {
 #Preview("Route Picker") {
     RoutePicker()
         .environment(Index())
-        .labelStyle(.iconOnly)
         .padding()
+}
+
+private struct RoutePickerLabel: View {
+    
+    // MARK: View
+    var body: some View {
+        Label("Routes", systemImage: "ferry.fill")
+    }
+}
+
+#Preview("Route Picker Label") {
+    RoutePickerLabel()
+}
+
+private struct RouteButton: View {
+    init(_ route: Route, action: @escaping @MainActor () -> Void) {
+        self.action = action
+        self.route = route
+    }
+    
+    private let action: () -> Void
+    private let route: Route
+    
+    // MARK: View
+    var body: some View {
+        Button(action: action) {
+            HStack {
+                Text(route.location.name)
+                    .lineLimit(1)
+                Spacer()
+            }
+        }
+    }
+}
+
+#Preview("Route Button") {
+    RouteButton(.peaks) {
+        
+    }
 }

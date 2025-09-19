@@ -4,7 +4,7 @@ import Foundation
 
 struct TimetableTests {
     @Test func trips() throws {
-        let timetable: Timetable = try #require(try JSONDecoder.shared.decode(Timetable.self, from: JSON_Data))
+        let timetable: Timetable = try JSONDecoder.shared.decode(Timetable.self, from: JSON_Data)
         
         #expect(timetable.trips.count == 14)
         #expect(timetable.trips(from: Time(hour: 5, minute: 44)).count == 14)

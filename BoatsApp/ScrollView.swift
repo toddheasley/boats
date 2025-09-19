@@ -26,9 +26,7 @@ struct ScrollView<Content: View>: View {
         }
         .coordinateSpace(name: "space")
         .onPreferenceChange(OffsetPreferenceKey.self) { offset in
-            Task.detached { @MainActor in
-                onScroll?(offset)
-            }
+            onScroll?(offset)
         }
     }
 }

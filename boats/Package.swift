@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.2
 
 import PackageDescription
 
@@ -6,8 +6,7 @@ let package: Package = Package(name: "Boats", platforms: [
         .macOS(.v14),
         .iOS(.v17),
         .watchOS(.v10),
-        .visionOS(.v1),
-        .tvOS(.v17)
+        .visionOS(.v1)
     ], products: [
         .executable(name: "boats-cli", targets: [
             "BoatsCLI"

@@ -10,16 +10,16 @@ struct URLTests {
         #expect(throws: Error.self) {
             try URL(directory: "\(NSTemporaryDirectory())test.txt")
         }
-        _ = try #require(try URL(directory: NSTemporaryDirectory()))
+        _ = try URL(directory: NSTemporaryDirectory())
     }
     
     @Test func delete() throws {
-        let url: URL = try #require(try URL(directory: NSTemporaryDirectory()).appendingPathComponent("test.txt"))
-        try #require(try Data().write(to: url))
+        let url: URL = try URL(directory: NSTemporaryDirectory()).appendingPathComponent("test.txt")
+        try Data().write(to: url)
         #expect(FileManager.default.fileExists(atPath: url.path))
-        try #require(try url.delete())
+        try url.delete()
         #expect(!FileManager.default.fileExists(atPath: url.path))
-        try #require(try url.delete())
+        try url.delete()
     }
     
     @Test func debug() {

@@ -19,16 +19,6 @@ struct TimetableView: View {
     
     // MARK: View
     var body: some View {
-#if os(tvOS)
-        VStack(spacing: .spacing) {
-            Header(timetable, origin: origin, destination: destination)
-                .clipped()
-            ForEach(timetable.trips.indices, id: \.self) { index in
-                TripView(timetable.trips[index], destination: destination, index: index)
-            }
-        }
-        .clipped(corners: 10.0)
-#else
         Section(content: {
             VStack(spacing: .spacing) {
                 ForEach(trips.content.indices, id: \.self) { index in
@@ -47,7 +37,6 @@ struct TimetableView: View {
                     .padding(.bottom)
             }
         })
-#endif
     }
 }
 

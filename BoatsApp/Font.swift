@@ -18,7 +18,7 @@ extension Font {
     
 #endif
     static var head: Self {
-#if os(watchOS) || os(tvOS)
+#if os(watchOS)
         return system(.body, weight: .semibold)
 #else
         return system(.title, weight: .semibold)
@@ -26,7 +26,7 @@ extension Font {
     }
     
     static var season: Self {
-#if os(watchOS) || os(tvOS)
+#if os(watchOS)
         return system(size: 14.0, weight: .medium)
 #else
         return system(.body)
@@ -36,8 +36,6 @@ extension Font {
     static var table: Self {
 #if os(watchOS)
         return system(size: 12.0, weight: .semibold)
-#elseif os(tvOS)
-        return system(size: 17.0, weight: .semibold)
 #else
         return system(.body, weight: .semibold)
 #endif
@@ -61,8 +59,6 @@ extension Font {
     static var time: Self {
 #if os(watchOS)
         return system(size: 14.0, weight: .semibold)
-#elseif os(tvOS)
-        return system(.body, weight: .bold)
 #else
         return system(.largeTitle, weight: .bold)
 #endif
