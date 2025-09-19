@@ -8,14 +8,17 @@ Boats packs the complete Casco Bay Lines ferry schedule for Peaks Island, Little
   <source media="(prefers-color-scheme: dark)" srcset="docs/boats-app-dark.png">
   <img src="docs/boats-app.png">
 </picture>
-<img src="docs/boats-watch.png">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/boats-watch.png">
+  <img src="docs/boats-watch.png">
+</picture>
 
-Boats 5 is a modern [SwiftUI](https://developer.apple.com/xcode/swiftui) app with an ultra-legible design. Widgets and complications keep the next ferry at a glance -- on iPhone, iPad, Apple Watch and Mac.
+Boats 5 is a modern [SwiftUI](https://developer.apple.com/swiftui) app with an ultra-legible design. Widgets and complications keep the next ferry at a glance -- on iPhone, iPad, Apple Watch and Mac.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/boats-mac-dark.png">
   <img src="docs/boats-mac.png">
-</picture>
+</picture>  
 
 [![Download on the App Store](docs/download.svg)](https://apps.apple.com/app/id1152562893)
 
@@ -39,7 +42,7 @@ Everything needed to build Boats is [bundled as a local Swift package](boats), i
 
 ### Supported Platforms
 
-Written in [Swift](https://developer.apple.com/documentation/swift) 6 for Apple stuff:
+Written in [Swift](https://developer.apple.com/documentation/swift) 6.2 for Apple stuff:
 
 * [macOS](https://developer.apple.com/macos) 14 Sonoma
 * [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad) 17
