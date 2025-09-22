@@ -13,7 +13,7 @@ Fetch, build and debug Boats schedules and web pages using a scriptable command-
 
 ### Example Usage
 
-Archive `boats-cli` target and move executable into the desired build directory. From any shell, `fetch` schedule data as a [static JSON file](https://toddheasley.github.io/boats/index.json) hosted by GitHub:
+Archive `boats-cli` target and move executable into the desired build directory. From any shell, `fetch` schedule data as a [static JSON file](https://toddheasley.com/boats/index.json) hosted by GitHub:
 
 ```zsh
 ./boats-cli fetch

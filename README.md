@@ -13,7 +13,7 @@ Boats packs the complete Casco Bay Lines ferry schedule for Peaks Island, Little
   <img src="docs/boats-watch.png">
 </picture>
 
-Boats 5 is a modern [SwiftUI](https://developer.apple.com/swiftui) app with an ultra-legible design. Widgets and complications keep the next ferry at a glance -- on iPhone, iPad, Apple Watch and Mac.
+Boats 5 is a modern [SwiftUI](https://developer.apple.com/swiftui) app with an ultra-legible design. Widgets and complications keep the next ferry at a glance on iPhone, iPad, Apple Watch and Mac.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/boats-mac-dark.png">
@@ -29,7 +29,7 @@ Boats 5 is a modern [SwiftUI](https://developer.apple.com/swiftui) app with an u
   <img src="docs/boats-web.png">
 </picture>
 
-Boats schedules are also [available on the web](https://toddheasley.github.io/boats), with the same large type and mobile-friendly format. 
+Boats schedules are also [available on the web](https://toddheasley.com/boats), with the same large type and mobile-friendly format. 
 
 ## Total Package
 
