@@ -76,7 +76,6 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5CFCD51D2AAE591700706772"
             BuildableName = "Boats.appex"
-            BlueprintName = "Watch Widget"
             ReferencedContainer = "container:BoatsApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -119,7 +118,6 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5CFCD51D2AAE591700706772"
             BuildableName = "Boats.appex"
-            BlueprintName = "Watch Widget"
             ReferencedContainer = "container:BoatsApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

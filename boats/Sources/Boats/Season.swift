@@ -42,8 +42,6 @@ extension Season: HTMLConvertible {
             .components(separatedBy: ":").last?
             .replacingOccurrences(of: "&#8211;", with: "-")
             .replacingOccurrences(of: "–", with: "-")
-            .replacingOccurrences(of: "13, 202", with: "13, 2025")
-            .replacingOccurrences(of: "20255", with: "2025")
             .components(separatedBy: "-"), dateInterval.count == 2,
               let start: Date = formatter.date(from: dateInterval[0].trim()),
               let end: Date = formatter.date(from: dateInterval[1].trim()), start < end else {

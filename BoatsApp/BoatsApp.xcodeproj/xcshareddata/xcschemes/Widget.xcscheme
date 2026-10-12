@@ -64,7 +64,6 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5CFCD5022AAE4E1600706772"
             BuildableName = "Boats.appex"
-            BlueprintName = "Widget"
             ReferencedContainer = "container:BoatsApp.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
